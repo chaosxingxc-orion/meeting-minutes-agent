@@ -52,3 +52,25 @@ coreference is de-scoped into QA-measured attribution; cross-meeting memory stay
 Timeline: G0 flies immediately (no meeting-side dependency); G1 launches as soon as D2 + minimal
 E2 land and fills a full day; E3/E4/E5 complete during G1; G2/G3 chain immediately after; G5
 provides sustained load. No GPU idle window after G0.
+
+## 5. Deep-check registered changes (2026-08-17 night — BINDING)
+
+The six-agent adversarial deep check (2 FATAL / 24 MAJOR) produced registered changes recorded
+authoritatively in umbrella
+`wiki/survey/workbench/2026-08-17-meeting-agent-direction/DEEP-CHECK-SYNTHESIS.md`. Summary of
+what now binds this plan: core claim re-scoped to "entity-dense long-form speech" with a
+substrate decision gate (ICSI census + MeetingBank re-census vs a pre-declared density floor +
+reference-adequacy) before G3/G5; **G2.0 prompt-consumption kill-gate smoke flies before the G2
+matrix**; G2 expands to the full registered arm matrix (adds scrambled-raw, uniform-ungated,
+no-carry with a carry-delta kill, single-pass with a chunking-cost floor, provenance
+factorization speech-only/metadata-only/combined, oracle ceiling); E4 gains machine-enforced
+M0/M1 leakage tiers and per-term provenance tags; E5 pins tcpWER−tcORC-WER @ collar 5 s as the
+primary confusion cost plus the glossary-induced-substitution and unsupported-activation
+diagnostics; MeetingQA headroom language is retired until G1 measures the zero-shot floor;
+post-G1 MDE/power gates (AMI-dev MDE > 2 cpWER retires AMI as a gain substrate); an AMI role
+registry (one role per meeting, fail-closed) supersedes the plain split freeze; L4 must state
+H1/H2 and kill patterns verbatim; positioning corrections (EGTA is LoRA-adapted not frozen; no
+EGTA-R-alone number exists — our prompt-only arm is the first such number on this family;
+Audio-Mind phrasing purged; the claim is the conjunction, never provenance alone).
+MeetingBank: license is declared cc-by-nc-sa-4.0 (owner default does not trigger); its valid
+surfaces are summarization/QA/segmentation (ASR-derived references — no WER-family claims).
