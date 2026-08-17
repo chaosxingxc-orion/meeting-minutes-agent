@@ -74,3 +74,12 @@ EGTA-R-alone number exists — our prompt-only arm is the first such number on t
 Audio-Mind phrasing purged; the claim is the conjunction, never provenance alone).
 MeetingBank: license is declared cc-by-nc-sa-4.0 (owner default does not trigger); its valid
 surfaces are summarization/QA/segmentation (ASR-derived references — no WER-family claims).
+
+Acquisition-evidence amendment (same night): **ICSI ships NO named-entity layer** (verified
+against all 6,437 annotation-archive entries — an upstream gap, not a fetch gap; the survey's
+NE expectation was wrong). Consequences: the substrate-gate ICSI entity census must use a
+capitalization/NER-tool density ESTIMATE (measurement-grade, never scoring gold), ICSI cannot
+host an entity-scored glossary-gain claim, and the meeting-domain entity question now rests on
+the MeetingBank re-census alone. ICSI's confirmed roles: second minutes-gold corpus
+(abstractive+extractive+summlink present, CRC PASS), six topic segmentations, MRDA dialogue
+acts, attribution substrate (71.687 h real meetings, CC BY 4.0 verbatim).
