@@ -144,7 +144,17 @@ class NxtCorpus:
 def layer_counts(meetings: Mapping[str, MeetingLayers]) -> dict[str, int]:
     """Corpus-wide layer coverage counts, grouped the way the 2026-08-17
     local audit reports them (words+segments; abstractive; extractive+
-    summlink; topics+dialogue-acts) so the two can be diffed directly."""
+    summlink; topics+dialogue-acts) so the two can be diffed directly.
+
+    ``topics_and_dialogue_acts`` is the AND of the two layers (meetings
+    that have BOTH). On the real AMI release this is *not* the same as
+    either individual layer count: topics and dialogue-acts each cover 139
+    meetings, but not the same 139 -- 3 meetings have topics without
+    dialogue acts (ES2006c, ES2015b, ES2015c) and 3 different meetings have
+    dialogue acts without topics (IB4005, IB4010, IB4011), so the
+    intersection is 136. ``topics`` and ``dialogue_acts`` below expose the
+    two individual counts so that distinction is visible without a
+    separate investigation."""
 
     values = list(meetings.values())
     return {
@@ -152,4 +162,6 @@ def layer_counts(meetings: Mapping[str, MeetingLayers]) -> dict[str, int]:
         "abstractive": sum(1 for m in values if m.has_abstractive),
         "extractive_and_summlink": sum(1 for m in values if m.has_extractive and m.has_summlink),
         "topics_and_dialogue_acts": sum(1 for m in values if m.has_topics and m.has_dialogue_acts),
+        "topics": sum(1 for m in values if m.has_topics),
+        "dialogue_acts": sum(1 for m in values if m.has_dialogue_acts),
     }

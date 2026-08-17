@@ -47,7 +47,9 @@ def test_layer_counts_matches_expected_shape(tmp_path):
         "words_and_segments": 3,  # MEET1, MEET2, MEET3
         "abstractive": 2,  # MEET1, MEET3
         "extractive_and_summlink": 2,  # MEET1, MEET3 (both have extsumm+summlink files)
-        "topics_and_dialogue_acts": 1,  # MEET1 only
+        "topics_and_dialogue_acts": 1,  # MEET1 only (AND of both layers)
+        "topics": 1,  # MEET1 only
+        "dialogue_acts": 3,  # MEET1, MEET2, MEET3
     }
 
 
