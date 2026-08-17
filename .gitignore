@@ -1,0 +1,11 @@
+__pycache__/
+*.pyc
+.pytest_cache/
+.venv/
+mlruns/
+*.wav
+*.mp3
+*.flac
+*.gguf
+data/
+outputs/
