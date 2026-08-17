@@ -1,0 +1,1675 @@
+{
+  "document": "MeetingBank entity re-census (substrate decision gate measurement)",
+  "date_utc": "2026-08-17T22:26:25Z",
+  "task": "registered substrate-decision-gate re-census; CPU only, zero model contact",
+  "registered_floor": {
+    "distinct_per_episode_min": 10,
+    "repeat_payoff_min": 0.4,
+    "reference_adequacy": "verbatim transcript gold required for any WER-family claim",
+    "source": "umbrella wiki/survey/workbench/2026-08-17-meeting-agent-direction/DEEP-CHECK-SYNTHESIS.md S3.1 + meeting repo docs/plans/2026-08-17-founding-workplan.md S5"
+  },
+  "substrate": {
+    "corpus": "MeetingBank",
+    "text_layer": "$SPEECHRL_DATA_DIR/datasets/meetingbank/text/zenodo/extracted",
+    "transcripts_censused": 1366,
+    "legistar_indexed_meetings": 1250,
+    "cities": 6,
+    "reference_type": "Speechmatics ASR output, engineVersion v1.0.2, en-US, cased, word-level timings and confidences",
+    "verbatim_human_gold": false,
+    "license": "CC BY-NC-ND 4.0 (in-corpus Zenodo LICENSE.txt; strictest of a three-way upstream conflict)"
+  },
+  "estimator_1_capitalisation": {
+    "unit": "one maximal run of capitalised tokens in the shipped Speechmatics transcript surviving the documented exclusion rules (estimator, not gold)",
+    "surface_form": "run tokens lowercased, punctuation stripped, possessive removed, whitespace collapsed",
+    "repeat_payoff": "(mentions - distinct forms) / mentions within one episode",
+    "aggregation_primary": "unweighted mean over episodes (matches the AMI/earnings21 census aggregation)",
+    "longspan_threshold_s": 300.0,
+    "exclusions": [
+      "sentence-initial tokens (AMI rule)",
+      "first-person pronoun I / I'm / I've / I'll / I'd",
+      "role, title and honorific tokens stripped from the head of a run; a run made only of them is dropped (MeetingBank analogue of AMI's closed-set PARTICIPANT subtypes). Includes the Speechmatics rendering of Boston's 'Councilor' as 'Counselor'/'Counsel'",
+      "TIMEX: month and weekday names",
+      "discourse tokens an ASR capitalises mid-utterance, and bare geographic heads left by a truncated run (street, avenue, park, west, ...)",
+      "generic institutional and procedural forms (city council, public comment, docket, ordinance, roll call, pledge of allegiance, ...)",
+      "single-character forms"
+    ],
+    "corpus": {
+      "label": "MeetingBank full (Legistar-indexed)",
+      "episodes": 1366,
+      "audio_hours": 3578.68,
+      "word_tokens": 31571026,
+      "mentions": 728041,
+      "mentions_per_hour": 203.4,
+      "mentions_per_1k_words": 23.06,
+      "token_share": 0.0465,
+      "distinct_per_episode_mean": 312.5,
+      "distinct_per_episode_median": 294.0,
+      "distinct_per_episode_min": 9,
+      "distinct_per_episode_p10": 114.7,
+      "repeat_payoff_mean_of_episodes": 0.387,
+      "repeat_payoff_pooled": 0.414,
+      "repeat_payoff_median": 0.395,
+      "recurring_type_share_pooled": 0.198,
+      "longspan_type_share_pooled": 0.122,
+      "mean_duration_min": 157.2,
+      "generic_kept_mentions": 786676,
+      "floor_distinct_pass": true,
+      "floor_repeat_pass_mean": false,
+      "floor_repeat_pass_pooled": true,
+      "episodes_meeting_distinct_floor": 1365,
+      "episodes_meeting_repeat_floor": 652,
+      "episodes_meeting_both_floors": 652,
+      "roster_items_per_episode": 5.0,
+      "roster_name_types_per_episode": 19.6,
+      "roster_file_numbers_per_episode": 5.0,
+      "prov_type_share_exact": 0.0147,
+      "prov_type_share_loose": 0.0657,
+      "prov_mention_share_exact": 0.0494,
+      "prov_mention_share_loose": 0.157
+    },
+    "by_city": {
+      "Alameda": {
+        "label": "Alameda",
+        "episodes": 164,
+        "audio_hours": 730.35,
+        "word_tokens": 6370819,
+        "mentions": 109140,
+        "mentions_per_hour": 149.4,
+        "mentions_per_1k_words": 17.13,
+        "token_share": 0.0322,
+        "distinct_per_episode_mean": 378.0,
+        "distinct_per_episode_median": 387.0,
+        "distinct_per_episode_min": 24,
+        "distinct_per_episode_p10": 243.0,
+        "repeat_payoff_mean_of_episodes": 0.422,
+        "repeat_payoff_pooled": 0.432,
+        "repeat_payoff_median": 0.422,
+        "recurring_type_share_pooled": 0.212,
+        "longspan_type_share_pooled": 0.138,
+        "mean_duration_min": 267.2,
+        "generic_kept_mentions": 114865,
+        "floor_distinct_pass": true,
+        "floor_repeat_pass_mean": true,
+        "floor_repeat_pass_pooled": true,
+        "episodes_meeting_distinct_floor": 164,
+        "episodes_meeting_repeat_floor": 106,
+        "episodes_meeting_both_floors": 106,
+        "roster_items_per_episode": 4.1,
+        "roster_name_types_per_episode": 27.2,
+        "roster_file_numbers_per_episode": 4.1,
+        "prov_type_share_exact": 0.0067,
+        "prov_type_share_loose": 0.0459,
+        "prov_mention_share_exact": 0.0205,
+        "prov_mention_share_loose": 0.1418
+      },
+      "Boston": {
+        "label": "Boston",
+        "episodes": 32,
+        "audio_hours": 72.63,
+        "word_tokens": 602203,
+        "mentions": 19491,
+        "mentions_per_hour": 268.4,
+        "mentions_per_1k_words": 32.37,
+        "token_share": 0.0656,
+        "distinct_per_episode_mean": 342.0,
+        "distinct_per_episode_median": 342.5,
+        "distinct_per_episode_min": 127,
+        "distinct_per_episode_p10": 211.6,
+        "repeat_payoff_mean_of_episodes": 0.42,
+        "repeat_payoff_pooled": 0.438,
+        "repeat_payoff_median": 0.432,
+        "recurring_type_share_pooled": 0.196,
+        "longspan_type_share_pooled": 0.117,
+        "mean_duration_min": 136.2,
+        "generic_kept_mentions": 21740,
+        "floor_distinct_pass": true,
+        "floor_repeat_pass_mean": true,
+        "floor_repeat_pass_pooled": true,
+        "episodes_meeting_distinct_floor": 32,
+        "episodes_meeting_repeat_floor": 23,
+        "episodes_meeting_both_floors": 23,
+        "roster_items_per_episode": 9.3,
+        "roster_name_types_per_episode": 33.0,
+        "roster_file_numbers_per_episode": 9.3,
+        "prov_type_share_exact": 0.03,
+        "prov_type_share_loose": 0.1231,
+        "prov_mention_share_exact": 0.1034,
+        "prov_mention_share_loose": 0.2481
+      },
+      "Denver": {
+        "label": "Denver",
+        "episodes": 401,
+        "audio_hours": 979.58,
+        "word_tokens": 8289540,
+        "mentions": 220059,
+        "mentions_per_hour": 224.6,
+        "mentions_per_1k_words": 26.55,
+        "token_share": 0.0527,
+        "distinct_per_episode_mean": 306.1,
+        "distinct_per_episode_median": 276,
+        "distinct_per_episode_min": 9,
+        "distinct_per_episode_p10": 111.2,
+        "repeat_payoff_mean_of_episodes": 0.414,
+        "repeat_payoff_pooled": 0.442,
+        "repeat_payoff_median": 0.42,
+        "recurring_type_share_pooled": 0.208,
+        "longspan_type_share_pooled": 0.134,
+        "mean_duration_min": 146.6,
+        "generic_kept_mentions": 238046,
+        "floor_distinct_pass": true,
+        "floor_repeat_pass_mean": true,
+        "floor_repeat_pass_pooled": true,
+        "episodes_meeting_distinct_floor": 400,
+        "episodes_meeting_repeat_floor": 256,
+        "episodes_meeting_both_floors": 256,
+        "roster_items_per_episode": 3.8,
+        "roster_name_types_per_episode": 15.5,
+        "roster_file_numbers_per_episode": 3.8,
+        "prov_type_share_exact": 0.0133,
+        "prov_type_share_loose": 0.062,
+        "prov_mention_share_exact": 0.0474,
+        "prov_mention_share_loose": 0.1587
+      },
+      "KingCounty": {
+        "label": "KingCounty",
+        "episodes": 132,
+        "audio_hours": 246.96,
+        "word_tokens": 2236623,
+        "mentions": 41518,
+        "mentions_per_hour": 168.1,
+        "mentions_per_1k_words": 18.56,
+        "token_share": 0.0376,
+        "distinct_per_episode_mean": 196.3,
+        "distinct_per_episode_median": 185.0,
+        "distinct_per_episode_min": 25,
+        "distinct_per_episode_p10": 106.3,
+        "repeat_payoff_mean_of_episodes": 0.361,
+        "repeat_payoff_pooled": 0.376,
+        "repeat_payoff_median": 0.363,
+        "recurring_type_share_pooled": 0.193,
+        "longspan_type_share_pooled": 0.121,
+        "mean_duration_min": 112.3,
+        "generic_kept_mentions": 44525,
+        "floor_distinct_pass": true,
+        "floor_repeat_pass_mean": false,
+        "floor_repeat_pass_pooled": false,
+        "episodes_meeting_distinct_floor": 132,
+        "episodes_meeting_repeat_floor": 44,
+        "episodes_meeting_both_floors": 44,
+        "roster_items_per_episode": 1.7,
+        "roster_name_types_per_episode": 2.8,
+        "roster_file_numbers_per_episode": 1.7,
+        "prov_type_share_exact": 0.0052,
+        "prov_type_share_loose": 0.0335,
+        "prov_mention_share_exact": 0.0408,
+        "prov_mention_share_loose": 0.0791
+      },
+      "LongBeach": {
+        "label": "LongBeach",
+        "episodes": 310,
+        "audio_hours": 1103.17,
+        "word_tokens": 10047808,
+        "mentions": 217486,
+        "mentions_per_hour": 197.1,
+        "mentions_per_1k_words": 21.65,
+        "token_share": 0.0452,
+        "distinct_per_episode_mean": 418.8,
+        "distinct_per_episode_median": 419.5,
+        "distinct_per_episode_min": 22,
+        "distinct_per_episode_p10": 196.5,
+        "repeat_payoff_mean_of_episodes": 0.385,
+        "repeat_payoff_pooled": 0.403,
+        "repeat_payoff_median": 0.394,
+        "recurring_type_share_pooled": 0.185,
+        "longspan_type_share_pooled": 0.116,
+        "mean_duration_min": 213.5,
+        "generic_kept_mentions": 234802,
+        "floor_distinct_pass": true,
+        "floor_repeat_pass_mean": false,
+        "floor_repeat_pass_pooled": true,
+        "episodes_meeting_distinct_floor": 310,
+        "episodes_meeting_repeat_floor": 137,
+        "episodes_meeting_both_floors": 137,
+        "roster_items_per_episode": 8.7,
+        "roster_name_types_per_episode": 31.8,
+        "roster_file_numbers_per_episode": 8.7,
+        "prov_type_share_exact": 0.0172,
+        "prov_type_share_loose": 0.0803,
+        "prov_mention_share_exact": 0.0641,
+        "prov_mention_share_loose": 0.1842
+      },
+      "Seattle": {
+        "label": "Seattle",
+        "episodes": 327,
+        "audio_hours": 446.0,
+        "word_tokens": 4024033,
+        "mentions": 120347,
+        "mentions_per_hour": 269.8,
+        "mentions_per_1k_words": 29.91,
+        "token_share": 0.062,
+        "distinct_per_episode_mean": 230.8,
+        "distinct_per_episode_median": 216,
+        "distinct_per_episode_min": 18,
+        "distinct_per_episode_p10": 82.0,
+        "repeat_payoff_mean_of_episodes": 0.344,
+        "repeat_payoff_pooled": 0.373,
+        "repeat_payoff_median": 0.346,
+        "recurring_type_share_pooled": 0.192,
+        "longspan_type_share_pooled": 0.099,
+        "mean_duration_min": 81.8,
+        "generic_kept_mentions": 132698,
+        "floor_distinct_pass": true,
+        "floor_repeat_pass_mean": false,
+        "floor_repeat_pass_pooled": false,
+        "episodes_meeting_distinct_floor": 327,
+        "episodes_meeting_repeat_floor": 86,
+        "episodes_meeting_both_floors": 86,
+        "roster_items_per_episode": 4.6,
+        "roster_name_types_per_episode": 14.8,
+        "roster_file_numbers_per_episode": 4.6,
+        "prov_type_share_exact": 0.0202,
+        "prov_type_share_loose": 0.0654,
+        "prov_mention_share_exact": 0.0467,
+        "prov_mention_share_loose": 0.1303
+      }
+    },
+    "flight_subset": {
+      "label": "flight subset (50 meetings, 3 cities)",
+      "episodes": 50,
+      "audio_hours": 81.78,
+      "word_tokens": 722675,
+      "mentions": 20227,
+      "mentions_per_hour": 247.3,
+      "mentions_per_1k_words": 27.99,
+      "token_share": 0.058,
+      "distinct_per_episode_mean": 249.5,
+      "distinct_per_episode_median": 220.0,
+      "distinct_per_episode_min": 20,
+      "distinct_per_episode_p10": 93.6,
+      "repeat_payoff_mean_of_episodes": 0.358,
+      "repeat_payoff_pooled": 0.383,
+      "repeat_payoff_median": 0.373,
+      "recurring_type_share_pooled": 0.194,
+      "longspan_type_share_pooled": 0.112,
+      "mean_duration_min": 98.1,
+      "generic_kept_mentions": 21818,
+      "floor_distinct_pass": true,
+      "floor_repeat_pass_mean": false,
+      "floor_repeat_pass_pooled": false,
+      "episodes_meeting_distinct_floor": 50,
+      "episodes_meeting_repeat_floor": 12,
+      "episodes_meeting_both_floors": 12,
+      "roster_items_per_episode": 4.3,
+      "roster_name_types_per_episode": 17.1,
+      "roster_file_numbers_per_episode": 4.3,
+      "prov_type_share_exact": 0.0175,
+      "prov_type_share_loose": 0.0651,
+      "prov_mention_share_exact": 0.0397,
+      "prov_mention_share_loose": 0.145
+    },
+    "flight_subset_by_city": {
+      "Seattle": {
+        "label": "flight Seattle",
+        "episodes": 20,
+        "audio_hours": 24.55,
+        "word_tokens": 219453,
+        "mentions": 6916,
+        "mentions_per_hour": 281.7,
+        "mentions_per_1k_words": 31.51,
+        "token_share": 0.0666,
+        "distinct_per_episode_mean": 226.9,
+        "distinct_per_episode_median": 199.0,
+        "distinct_per_episode_min": 54,
+        "distinct_per_episode_p10": 89.1,
+        "repeat_payoff_mean_of_episodes": 0.308,
+        "repeat_payoff_pooled": 0.344,
+        "repeat_payoff_median": 0.33,
+        "recurring_type_share_pooled": 0.182,
+        "longspan_type_share_pooled": 0.092,
+        "mean_duration_min": 73.6,
+        "generic_kept_mentions": 7403,
+        "floor_distinct_pass": true,
+        "floor_repeat_pass_mean": false,
+        "floor_repeat_pass_pooled": false,
+        "episodes_meeting_distinct_floor": 20,
+        "episodes_meeting_repeat_floor": 2,
+        "episodes_meeting_both_floors": 2,
+        "roster_items_per_episode": 3.0,
+        "roster_name_types_per_episode": 11,
+        "roster_file_numbers_per_episode": 3.0,
+        "prov_type_share_exact": 0.0134,
+        "prov_type_share_loose": 0.0472,
+        "prov_mention_share_exact": 0.035,
+        "prov_mention_share_loose": 0.1073
+      },
+      "Denver": {
+        "label": "flight Denver",
+        "episodes": 20,
+        "audio_hours": 28.78,
+        "word_tokens": 242028,
+        "mentions": 6979,
+        "mentions_per_hour": 242.5,
+        "mentions_per_1k_words": 28.84,
+        "token_share": 0.0578,
+        "distinct_per_episode_mean": 203.3,
+        "distinct_per_episode_median": 177.0,
+        "distinct_per_episode_min": 20,
+        "distinct_per_episode_p10": 63.3,
+        "repeat_payoff_mean_of_episodes": 0.397,
+        "repeat_payoff_pooled": 0.417,
+        "repeat_payoff_median": 0.392,
+        "recurring_type_share_pooled": 0.213,
+        "longspan_type_share_pooled": 0.135,
+        "mean_duration_min": 86.3,
+        "generic_kept_mentions": 7612,
+        "floor_distinct_pass": true,
+        "floor_repeat_pass_mean": false,
+        "floor_repeat_pass_pooled": true,
+        "episodes_meeting_distinct_floor": 20,
+        "episodes_meeting_repeat_floor": 8,
+        "episodes_meeting_both_floors": 8,
+        "roster_items_per_episode": 3.9,
+        "roster_name_types_per_episode": 17.6,
+        "roster_file_numbers_per_episode": 3.9,
+        "prov_type_share_exact": 0.0214,
+        "prov_type_share_loose": 0.075,
+        "prov_mention_share_exact": 0.0403,
+        "prov_mention_share_loose": 0.1598
+      },
+      "LongBeach": {
+        "label": "flight LongBeach",
+        "episodes": 10,
+        "audio_hours": 28.45,
+        "word_tokens": 261194,
+        "mentions": 6332,
+        "mentions_per_hour": 222.5,
+        "mentions_per_1k_words": 24.24,
+        "token_share": 0.0509,
+        "distinct_per_episode_mean": 386.9,
+        "distinct_per_episode_median": 400.0,
+        "distinct_per_episode_min": 213,
+        "distinct_per_episode_p10": null,
+        "repeat_payoff_mean_of_episodes": 0.38,
+        "repeat_payoff_pooled": 0.389,
+        "repeat_payoff_median": 0.385,
+        "recurring_type_share_pooled": 0.188,
+        "longspan_type_share_pooled": 0.112,
+        "mean_duration_min": 170.7,
+        "generic_kept_mentions": 6803,
+        "floor_distinct_pass": true,
+        "floor_repeat_pass_mean": false,
+        "floor_repeat_pass_pooled": false,
+        "episodes_meeting_distinct_floor": 10,
+        "episodes_meeting_repeat_floor": 2,
+        "episodes_meeting_both_floors": 2,
+        "roster_items_per_episode": 7.7,
+        "roster_name_types_per_episode": 28.4,
+        "roster_file_numbers_per_episode": 7.7,
+        "prov_type_share_exact": 0.0181,
+        "prov_type_share_loose": 0.0757,
+        "prov_mention_share_exact": 0.0444,
+        "prov_mention_share_loose": 0.1698
+      }
+    },
+    "flight_subset_dev": {
+      "label": "flight dev-25",
+      "episodes": 25,
+      "audio_hours": 42.32,
+      "word_tokens": 376385,
+      "mentions": 10534,
+      "mentions_per_hour": 248.9,
+      "mentions_per_1k_words": 27.99,
+      "token_share": 0.0574,
+      "distinct_per_episode_mean": 260.2,
+      "distinct_per_episode_median": 251,
+      "distinct_per_episode_min": 20,
+      "distinct_per_episode_p10": 91.0,
+      "repeat_payoff_mean_of_episodes": 0.358,
+      "repeat_payoff_pooled": 0.383,
+      "repeat_payoff_median": 0.363,
+      "recurring_type_share_pooled": 0.193,
+      "longspan_type_share_pooled": 0.112,
+      "mean_duration_min": 101.6,
+      "generic_kept_mentions": 11339,
+      "floor_distinct_pass": true,
+      "floor_repeat_pass_mean": false,
+      "floor_repeat_pass_pooled": false,
+      "episodes_meeting_distinct_floor": 25,
+      "episodes_meeting_repeat_floor": 6,
+      "episodes_meeting_both_floors": 6,
+      "roster_items_per_episode": 4.4,
+      "roster_name_types_per_episode": 17.5,
+      "roster_file_numbers_per_episode": 4.4,
+      "prov_type_share_exact": 0.0177,
+      "prov_type_share_loose": 0.065,
+      "prov_mention_share_exact": 0.0407,
+      "prov_mention_share_loose": 0.1447
+    },
+    "flight_subset_heldout": {
+      "label": "flight held-out-25",
+      "episodes": 25,
+      "audio_hours": 39.46,
+      "word_tokens": 346290,
+      "mentions": 9693,
+      "mentions_per_hour": 245.7,
+      "mentions_per_1k_words": 27.99,
+      "token_share": 0.0586,
+      "distinct_per_episode_mean": 238.8,
+      "distinct_per_episode_median": 199,
+      "distinct_per_episode_min": 54,
+      "distinct_per_episode_p10": 90.6,
+      "repeat_payoff_mean_of_episodes": 0.358,
+      "repeat_payoff_pooled": 0.384,
+      "repeat_payoff_median": 0.375,
+      "recurring_type_share_pooled": 0.195,
+      "longspan_type_share_pooled": 0.112,
+      "mean_duration_min": 94.7,
+      "generic_kept_mentions": 10479,
+      "floor_distinct_pass": true,
+      "floor_repeat_pass_mean": false,
+      "floor_repeat_pass_pooled": false,
+      "episodes_meeting_distinct_floor": 25,
+      "episodes_meeting_repeat_floor": 6,
+      "episodes_meeting_both_floors": 6,
+      "roster_items_per_episode": 4.2,
+      "roster_name_types_per_episode": 16.8,
+      "roster_file_numbers_per_episode": 4.2,
+      "prov_type_share_exact": 0.0173,
+      "prov_type_share_loose": 0.0652,
+      "prov_mention_share_exact": 0.0387,
+      "prov_mention_share_loose": 0.1453
+    },
+    "pooled_distinct_vocab": 172976,
+    "top_forms_corpus": [
+      [
+        "long beach",
+        20297
+      ],
+      [
+        "denver",
+        19987
+      ],
+      [
+        "alameda",
+        10922
+      ],
+      [
+        "seattle",
+        8800
+      ],
+      [
+        "ortega",
+        4451
+      ],
+      [
+        "flynn",
+        3473
+      ],
+      [
+        "king county",
+        3472
+      ],
+      [
+        "richardson",
+        3271
+      ],
+      [
+        "california",
+        2970
+      ],
+      [
+        "austin",
+        2945
+      ],
+      [
+        "gonzalez",
+        2775
+      ],
+      [
+        "price",
+        2743
+      ],
+      [
+        "l a",
+        2358
+      ],
+      [
+        "lopez",
+        2208
+      ],
+      [
+        "denver city council",
+        2139
+      ],
+      [
+        "herbold",
+        2132
+      ],
+      [
+        "colorado",
+        2065
+      ],
+      [
+        "cashman",
+        1980
+      ],
+      [
+        "espinosa",
+        1958
+      ],
+      [
+        "u s",
+        1893
+      ],
+      [
+        "brooks",
+        1855
+      ],
+      [
+        "mongo",
+        1678
+      ],
+      [
+        "garcia",
+        1661
+      ],
+      [
+        "rfp",
+        1615
+      ],
+      [
+        "andrews",
+        1543
+      ]
+    ]
+  },
+  "estimator_1_precision_audit": {
+    "n": 60,
+    "by_sample": {
+      "mention": {
+        "n": 30,
+        "clean_tp": 20,
+        "boundary_tp": 2,
+        "fp": 8,
+        "precision_strict": 0.667,
+        "precision_entity_bearing": 0.733,
+        "precision_strict_ci95": [
+          0.488,
+          0.808
+        ],
+        "precision_entity_bearing_ci95": [
+          0.556,
+          0.858
+        ]
+      },
+      "type": {
+        "n": 30,
+        "clean_tp": 21,
+        "boundary_tp": 4,
+        "fp": 5,
+        "precision_strict": 0.7,
+        "precision_entity_bearing": 0.833,
+        "precision_strict_ci95": [
+          0.521,
+          0.833
+        ],
+        "precision_entity_bearing_ci95": [
+          0.664,
+          0.927
+        ]
+      }
+    },
+    "by_city": {
+      "Alameda": {
+        "n": 10,
+        "clean_tp": 5,
+        "boundary_tp": 2,
+        "fp": 3,
+        "precision_strict": 0.5,
+        "precision_entity_bearing": 0.7
+      },
+      "Boston": {
+        "n": 10,
+        "clean_tp": 6,
+        "boundary_tp": 1,
+        "fp": 3,
+        "precision_strict": 0.6,
+        "precision_entity_bearing": 0.7
+      },
+      "Denver": {
+        "n": 10,
+        "clean_tp": 8,
+        "boundary_tp": 0,
+        "fp": 2,
+        "precision_strict": 0.8,
+        "precision_entity_bearing": 0.8
+      },
+      "KingCounty": {
+        "n": 10,
+        "clean_tp": 8,
+        "boundary_tp": 1,
+        "fp": 1,
+        "precision_strict": 0.8,
+        "precision_entity_bearing": 0.9
+      },
+      "LongBeach": {
+        "n": 10,
+        "clean_tp": 8,
+        "boundary_tp": 0,
+        "fp": 2,
+        "precision_strict": 0.8,
+        "precision_entity_bearing": 0.8
+      },
+      "Seattle": {
+        "n": 10,
+        "clean_tp": 6,
+        "boundary_tp": 2,
+        "fp": 2,
+        "precision_strict": 0.6,
+        "precision_entity_bearing": 0.8
+      }
+    },
+    "by_category": {
+      "TP_PERSON": 17,
+      "TP_ORG": 13,
+      "TP_BOUNDARY": 6,
+      "TP_GPE": 6,
+      "FP_MERGED_RUN": 4,
+      "TP_FAC": 3,
+      "FP_GENERIC": 3,
+      "FP_COMMON_ACRONYM": 2,
+      "FP_ASR_SPURIOUS": 2,
+      "TP_NORP": 2,
+      "FP_AMBIGUOUS_ACRONYM": 2
+    },
+    "overall": {
+      "n": 60,
+      "clean_tp": 41,
+      "boundary_tp": 6,
+      "fp": 13,
+      "precision_strict": 0.683,
+      "precision_entity_bearing": 0.783,
+      "precision_strict_ci95": [
+        0.558,
+        0.787
+      ],
+      "precision_entity_bearing_ci95": [
+        0.664,
+        0.869
+      ]
+    },
+    "labels": {
+      "1": {
+        "form": "cohen",
+        "city": "Alameda",
+        "sample": "mention",
+        "label": "TP_BOUNDARY",
+        "note": "Alan Cohen; leading given name lost to the sentence-initial rule"
+      },
+      "2": {
+        "form": "opeb",
+        "city": "Alameda",
+        "sample": "mention",
+        "label": "FP_COMMON_ACRONYM",
+        "note": "OPEB = other post-employment benefits"
+      },
+      "3": {
+        "form": "jean quan",
+        "city": "Alameda",
+        "sample": "mention",
+        "label": "TP_PERSON",
+        "note": "Jean Quan, former Oakland mayor"
+      },
+      "4": {
+        "form": "warren sirk",
+        "city": "Alameda",
+        "sample": "mention",
+        "label": "TP_PERSON",
+        "note": "public commenter self-identifying"
+      },
+      "5": {
+        "form": "lgbtq",
+        "city": "Alameda",
+        "sample": "mention",
+        "label": "FP_COMMON_ACRONYM",
+        "note": "LGBTQ used as a common modifier"
+      },
+      "6": {
+        "form": "fruitvale bridge",
+        "city": "Alameda",
+        "sample": "type",
+        "label": "TP_BOUNDARY",
+        "note": "Treasury of the United States; run broke at the lowercase 'the'"
+      },
+      "7": {
+        "form": "sherry johansen",
+        "city": "Alameda",
+        "sample": "type",
+        "label": "FP_MERGED_RUN",
+        "note": "docket title and a councilor name fused into one 9-token run"
+      },
+      "8": {
+        "form": "fiscal sustainability committee",
+        "city": "Alameda",
+        "sample": "type",
+        "label": "TP_ORG",
+        "note": "Boston Human Rights Commission"
+      },
+      "9": {
+        "form": "california teachers association",
+        "city": "Alameda",
+        "sample": "type",
+        "label": "TP_ORG",
+        "note": "Boston Environment Department"
+      },
+      "10": {
+        "form": "martin luther king jr",
+        "city": "Alameda",
+        "sample": "type",
+        "label": "TP_ORG",
+        "note": "Department of Public Health"
+      },
+      "11": {
+        "form": "treasury",
+        "city": "Boston",
+        "sample": "mention",
+        "label": "TP_GPE",
+        "note": "Colorado (Boulevard/state)"
+      },
+      "12": {
+        "form": "medical personnel order council of flint for councilor arroyo",
+        "city": "Boston",
+        "sample": "mention",
+        "label": "FP_ASR_SPURIOUS",
+        "note": "'Tokyo audio' - recogniser error invented a place name"
+      },
+      "13": {
+        "form": "human rights commission",
+        "city": "Boston",
+        "sample": "mention",
+        "label": "FP_MERGED_RUN",
+        "note": "two street names fused; leading '44th' dropped as non-capitalised"
+      },
+      "14": {
+        "form": "environment department",
+        "city": "Boston",
+        "sample": "mention",
+        "label": "FP_MERGED_RUN",
+        "note": "'Park and La Familia Recreation Center' fused across a conjunction"
+      },
+      "15": {
+        "form": "department of public health",
+        "city": "Boston",
+        "sample": "mention",
+        "label": "TP_PERSON",
+        "note": "Bill Tanner"
+      },
+      "16": {
+        "form": "globe",
+        "city": "Boston",
+        "sample": "type",
+        "label": "TP_ORG",
+        "note": "King County Racial Equity Coalition"
+      },
+      "17": {
+        "form": "me",
+        "city": "Boston",
+        "sample": "type",
+        "label": "TP_GPE",
+        "note": "King County"
+      },
+      "18": {
+        "form": "brian",
+        "city": "Boston",
+        "sample": "type",
+        "label": "TP_GPE",
+        "note": "Issaquah"
+      },
+      "19": {
+        "form": "alison friesen",
+        "city": "Boston",
+        "sample": "type",
+        "label": "TP_FAC",
+        "note": "Elliott Modular Facility"
+      },
+      "20": {
+        "form": "emily brown",
+        "city": "Boston",
+        "sample": "type",
+        "label": "TP_BOUNDARY",
+        "note": "Greenwood (neighbourhood) with a generic 'District' tail"
+      },
+      "21": {
+        "form": "colorado",
+        "city": "Denver",
+        "sample": "mention",
+        "label": "TP_GPE",
+        "note": "Long Beach"
+      },
+      "22": {
+        "form": "tokyo",
+        "city": "Denver",
+        "sample": "mention",
+        "label": "TP_NORP",
+        "note": "Cambodian - NORP, inside the earnings21 proper-name type set"
+      },
+      "23": {
+        "form": "avenue and mitchell boulevard",
+        "city": "Denver",
+        "sample": "mention",
+        "label": "FP_AMBIGUOUS_ACRONYM",
+        "note": "'AOC seven' - unresolvable"
+      },
+      "24": {
+        "form": "park and la familia recreation center",
+        "city": "Denver",
+        "sample": "mention",
+        "label": "TP_GPE",
+        "note": "Long Beach"
+      },
+      "25": {
+        "form": "bill tanner",
+        "city": "Denver",
+        "sample": "mention",
+        "label": "TP_PERSON",
+        "note": "Mayor Garcia; role token stripped correctly"
+      },
+      "26": {
+        "form": "oracle",
+        "city": "Denver",
+        "sample": "type",
+        "label": "TP_ORG",
+        "note": "Seattle Department of Transportation"
+      },
+      "27": {
+        "form": "east mississippi avenue",
+        "city": "Denver",
+        "sample": "type",
+        "label": "TP_PERSON",
+        "note": "Councilmember Gonzales"
+      },
+      "28": {
+        "form": "martel",
+        "city": "Denver",
+        "sample": "type",
+        "label": "TP_PERSON",
+        "note": "David Garcia"
+      },
+      "29": {
+        "form": "slide",
+        "city": "Denver",
+        "sample": "type",
+        "label": "TP_GPE",
+        "note": "Seattle"
+      },
+      "30": {
+        "form": "parkway",
+        "city": "Denver",
+        "sample": "type",
+        "label": "FP_GENERIC",
+        "note": "'Initiative 124' - numeral dropped, bare 'Initiative' is generic"
+      },
+      "31": {
+        "form": "king county racial equity coalition",
+        "city": "KingCounty",
+        "sample": "mention",
+        "label": "TP_FAC",
+        "note": "Fruitvale Bridge"
+      },
+      "32": {
+        "form": "king county",
+        "city": "KingCounty",
+        "sample": "mention",
+        "label": "TP_PERSON",
+        "note": "Sherry Johansen"
+      },
+      "33": {
+        "form": "issaquah",
+        "city": "KingCounty",
+        "sample": "mention",
+        "label": "TP_ORG",
+        "note": "Fiscal Sustainability Committee"
+      },
+      "34": {
+        "form": "elliott modular facility",
+        "city": "KingCounty",
+        "sample": "mention",
+        "label": "TP_ORG",
+        "note": "California Teachers Association"
+      },
+      "35": {
+        "form": "greenwood district",
+        "city": "KingCounty",
+        "sample": "mention",
+        "label": "TP_PERSON",
+        "note": "Martin Luther King Jr"
+      },
+      "36": {
+        "form": "regional affordable task force",
+        "city": "KingCounty",
+        "sample": "type",
+        "label": "TP_BOUNDARY",
+        "note": "the (Boston) Globe; determiner not capitalised so the run truncated"
+      },
+      "37": {
+        "form": "washington immigrant solidarity network",
+        "city": "KingCounty",
+        "sample": "type",
+        "label": "FP_ASR_SPURIOUS",
+        "note": "'Councilor Me' - recogniser garble"
+      },
+      "38": {
+        "form": "baldacci",
+        "city": "KingCounty",
+        "sample": "type",
+        "label": "TP_PERSON",
+        "note": "Brian (councillor, given name)"
+      },
+      "39": {
+        "form": "lisa j",
+        "city": "KingCounty",
+        "sample": "type",
+        "label": "TP_PERSON",
+        "note": "Alison Friesen"
+      },
+      "40": {
+        "form": "hispanic",
+        "city": "KingCounty",
+        "sample": "type",
+        "label": "TP_PERSON",
+        "note": "Emily Brown"
+      },
+      "41": {
+        "form": "long beach",
+        "city": "LongBeach",
+        "sample": "mention",
+        "label": "TP_ORG",
+        "note": "Oracle"
+      },
+      "42": {
+        "form": "cambodian",
+        "city": "LongBeach",
+        "sample": "mention",
+        "label": "TP_FAC",
+        "note": "East Mississippi Avenue"
+      },
+      "43": {
+        "form": "aoc",
+        "city": "LongBeach",
+        "sample": "mention",
+        "label": "TP_PERSON",
+        "note": "Martel (surname)"
+      },
+      "44": {
+        "form": "long beach",
+        "city": "LongBeach",
+        "sample": "mention",
+        "label": "FP_GENERIC",
+        "note": "'Slide 11' - presentation furniture"
+      },
+      "45": {
+        "form": "garcia",
+        "city": "LongBeach",
+        "sample": "mention",
+        "label": "FP_GENERIC",
+        "note": "'Parkway setback' - common noun"
+      },
+      "46": {
+        "form": "big momma",
+        "city": "LongBeach",
+        "sample": "type",
+        "label": "TP_ORG",
+        "note": "Regional Affordable Task Force"
+      },
+      "47": {
+        "form": "long beach immigrant rights coalition",
+        "city": "LongBeach",
+        "sample": "type",
+        "label": "TP_ORG",
+        "note": "Washington Immigrant Solidarity Network"
+      },
+      "48": {
+        "form": "lubbock",
+        "city": "LongBeach",
+        "sample": "type",
+        "label": "TP_PERSON",
+        "note": "Councilmember Baldacci"
+      },
+      "49": {
+        "form": "amy burdick and craig beck",
+        "city": "LongBeach",
+        "sample": "type",
+        "label": "TP_PERSON",
+        "note": "Lisa J."
+      },
+      "50": {
+        "form": "skog",
+        "city": "LongBeach",
+        "sample": "type",
+        "label": "TP_NORP",
+        "note": "Hispanic - NORP"
+      },
+      "51": {
+        "form": "seattle department of transportation",
+        "city": "Seattle",
+        "sample": "mention",
+        "label": "TP_PERSON",
+        "note": "Big Momma's - proper nickname/venue"
+      },
+      "52": {
+        "form": "gonzales",
+        "city": "Seattle",
+        "sample": "mention",
+        "label": "TP_ORG",
+        "note": "Long Beach Immigrant Rights Coalition"
+      },
+      "53": {
+        "form": "david garcia",
+        "city": "Seattle",
+        "sample": "mention",
+        "label": "TP_PERSON",
+        "note": "Lubbock - surname or GPE, proper either way"
+      },
+      "54": {
+        "form": "seattle",
+        "city": "Seattle",
+        "sample": "mention",
+        "label": "TP_BOUNDARY",
+        "note": "'Amy Burdick and Craig Beck' - two people in one run"
+      },
+      "55": {
+        "form": "initiative",
+        "city": "Seattle",
+        "sample": "mention",
+        "label": "TP_ORG",
+        "note": "Skog - garbled regional-agency acronym, still an org"
+      },
+      "56": {
+        "form": "imo",
+        "city": "Seattle",
+        "sample": "type",
+        "label": "FP_AMBIGUOUS_ACRONYM",
+        "note": "'the IMO you expires' - unresolvable garble"
+      },
+      "57": {
+        "form": "society of american archivists",
+        "city": "Seattle",
+        "sample": "type",
+        "label": "TP_ORG",
+        "note": "Society of American Archivists"
+      },
+      "58": {
+        "form": "katie garrow",
+        "city": "Seattle",
+        "sample": "type",
+        "label": "TP_PERSON",
+        "note": "Katie Garrow"
+      },
+      "59": {
+        "form": "bill oak harbor and village",
+        "city": "Seattle",
+        "sample": "type",
+        "label": "FP_MERGED_RUN",
+        "note": "'Council Bill ... Bill Oak Harbor and Village' fused"
+      },
+      "60": {
+        "form": "terminal",
+        "city": "Seattle",
+        "sample": "type",
+        "label": "TP_BOUNDARY",
+        "note": "Terminal 46; numeral dropped"
+      }
+    }
+  },
+  "estimator_2_legistar_roster": {
+    "source": "Metadata/MeetingBank.json itemInfo: per-bill file number, type and Summary (the Legistar agenda-item description)",
+    "roster_definition": "distinct proper-name candidate forms extracted from the meeting's own item Summaries by the same estimator, plus the meeting's own file numbers",
+    "match_exact": "normalised surface form equality",
+    "match_loose": "either string is a contiguous token subsequence of the other",
+    "leakage_warning": "the Legistar Summary IS MeetingBank's summarisation reference. On the summarisation surface a metadata-derived glossary is Tier-M1 (reference-derived), not Tier-M0, and is therefore ceiling/diagnostic only - the registered provenance factorisation cannot be run cleanly on this corpus's primary valid surface.",
+    "corpus": {
+      "roster_items_per_episode": 5.0,
+      "roster_name_types_per_episode": 19.6,
+      "roster_file_numbers_per_episode": 5.0,
+      "prov_type_share_exact": 0.0147,
+      "prov_type_share_loose": 0.0657,
+      "prov_mention_share_exact": 0.0494,
+      "prov_mention_share_loose": 0.157
+    },
+    "by_city": {
+      "Alameda": {
+        "roster_items_per_episode": 4.1,
+        "roster_name_types_per_episode": 27.2,
+        "roster_file_numbers_per_episode": 4.1,
+        "prov_type_share_exact": 0.0067,
+        "prov_type_share_loose": 0.0459,
+        "prov_mention_share_exact": 0.0205,
+        "prov_mention_share_loose": 0.1418
+      },
+      "Boston": {
+        "roster_items_per_episode": 9.3,
+        "roster_name_types_per_episode": 33.0,
+        "roster_file_numbers_per_episode": 9.3,
+        "prov_type_share_exact": 0.03,
+        "prov_type_share_loose": 0.1231,
+        "prov_mention_share_exact": 0.1034,
+        "prov_mention_share_loose": 0.2481
+      },
+      "Denver": {
+        "roster_items_per_episode": 3.8,
+        "roster_name_types_per_episode": 15.5,
+        "roster_file_numbers_per_episode": 3.8,
+        "prov_type_share_exact": 0.0133,
+        "prov_type_share_loose": 0.062,
+        "prov_mention_share_exact": 0.0474,
+        "prov_mention_share_loose": 0.1587
+      },
+      "KingCounty": {
+        "roster_items_per_episode": 1.7,
+        "roster_name_types_per_episode": 2.8,
+        "roster_file_numbers_per_episode": 1.7,
+        "prov_type_share_exact": 0.0052,
+        "prov_type_share_loose": 0.0335,
+        "prov_mention_share_exact": 0.0408,
+        "prov_mention_share_loose": 0.0791
+      },
+      "LongBeach": {
+        "roster_items_per_episode": 8.7,
+        "roster_name_types_per_episode": 31.8,
+        "roster_file_numbers_per_episode": 8.7,
+        "prov_type_share_exact": 0.0172,
+        "prov_type_share_loose": 0.0803,
+        "prov_mention_share_exact": 0.0641,
+        "prov_mention_share_loose": 0.1842
+      },
+      "Seattle": {
+        "roster_items_per_episode": 4.6,
+        "roster_name_types_per_episode": 14.8,
+        "roster_file_numbers_per_episode": 4.6,
+        "prov_type_share_exact": 0.0202,
+        "prov_type_share_loose": 0.0654,
+        "prov_mention_share_exact": 0.0467,
+        "prov_mention_share_loose": 0.1303
+      }
+    },
+    "flight_subset": {
+      "roster_items_per_episode": 4.3,
+      "roster_name_types_per_episode": 17.1,
+      "roster_file_numbers_per_episode": 4.3,
+      "prov_type_share_exact": 0.0175,
+      "prov_type_share_loose": 0.0651,
+      "prov_mention_share_exact": 0.0397,
+      "prov_mention_share_loose": 0.145
+    }
+  },
+  "static_city_roster_vs_episode_local": {
+    "method": "per-city roster built leave-one-meeting-out by document frequency; mention-weighted coverage; episode-local glossary = forms already spoken in the first half of the same episode",
+    "rows": [
+      {
+        "label": "static city roster, top-10",
+        "K": 10,
+        "episodes": 1366,
+        "roster_only_coverage_mean": 0.167,
+        "roster_only_coverage_pooled": 0.167,
+        "episode_local_exclusive_mean": 0.508,
+        "episode_local_exclusive_pooled": 0.518,
+        "combined_coverage_pooled": 0.685
+      },
+      {
+        "label": "static city roster, top-25",
+        "K": 25,
+        "episodes": 1366,
+        "roster_only_coverage_mean": 0.216,
+        "roster_only_coverage_pooled": 0.214,
+        "episode_local_exclusive_mean": 0.471,
+        "episode_local_exclusive_pooled": 0.48,
+        "combined_coverage_pooled": 0.694
+      },
+      {
+        "label": "static city roster, top-50",
+        "K": 50,
+        "episodes": 1366,
+        "roster_only_coverage_mean": 0.263,
+        "roster_only_coverage_pooled": 0.258,
+        "episode_local_exclusive_mean": 0.436,
+        "episode_local_exclusive_pooled": 0.447,
+        "combined_coverage_pooled": 0.705
+      },
+      {
+        "label": "static city roster, top-100",
+        "K": 100,
+        "episodes": 1366,
+        "roster_only_coverage_mean": 0.309,
+        "roster_only_coverage_pooled": 0.304,
+        "episode_local_exclusive_mean": 0.405,
+        "episode_local_exclusive_pooled": 0.415,
+        "combined_coverage_pooled": 0.719
+      },
+      {
+        "label": "static city roster, top-250",
+        "K": 250,
+        "episodes": 1366,
+        "roster_only_coverage_mean": 0.382,
+        "roster_only_coverage_pooled": 0.378,
+        "episode_local_exclusive_mean": 0.358,
+        "episode_local_exclusive_pooled": 0.367,
+        "combined_coverage_pooled": 0.745
+      },
+      {
+        "label": "static city roster, top-500",
+        "K": 500,
+        "episodes": 1366,
+        "roster_only_coverage_mean": 0.448,
+        "roster_only_coverage_pooled": 0.444,
+        "episode_local_exclusive_mean": 0.318,
+        "episode_local_exclusive_pooled": 0.325,
+        "combined_coverage_pooled": 0.769
+      },
+      {
+        "label": "static city roster, top-all",
+        "K": 0,
+        "episodes": 1366,
+        "roster_only_coverage_mean": 0.763,
+        "roster_only_coverage_pooled": 0.767,
+        "episode_local_exclusive_mean": 0.133,
+        "episode_local_exclusive_pooled": 0.132,
+        "combined_coverage_pooled": 0.899
+      }
+    ]
+  },
+  "prospective_carry": {
+    "method": "glossary built from the first half of the episode only, scored on second-half mention coverage - no oracle, the cross-chunk carry question",
+    "rows": [
+      {
+        "label": "top-10 first-half glossary",
+        "K": 10,
+        "episodes": 1366,
+        "mean_glossary_size": 10.0,
+        "coverage_mean": 0.16,
+        "coverage_pooled": 0.163
+      },
+      {
+        "label": "top-25 first-half glossary",
+        "K": 25,
+        "episodes": 1366,
+        "mean_glossary_size": 24.8,
+        "coverage_mean": 0.204,
+        "coverage_pooled": 0.208
+      },
+      {
+        "label": "top-50 first-half glossary",
+        "K": 50,
+        "episodes": 1366,
+        "mean_glossary_size": 48.9,
+        "coverage_mean": 0.232,
+        "coverage_pooled": 0.238
+      },
+      {
+        "label": "top-100 first-half glossary",
+        "K": 100,
+        "episodes": 1366,
+        "mean_glossary_size": 91.3,
+        "coverage_mean": 0.253,
+        "coverage_pooled": 0.259
+      },
+      {
+        "label": "unbounded first-half glossary",
+        "K": 0,
+        "episodes": 1366,
+        "mean_glossary_size": 179.4,
+        "coverage_mean": 0.287,
+        "coverage_pooled": 0.303
+      }
+    ],
+    "rows_precision_filtered": [
+      {
+        "label": "top-10 first-half glossary (precision-filtered)",
+        "K": 10,
+        "episodes": 1366,
+        "mean_glossary_size": 10.0,
+        "coverage_mean": 0.225,
+        "coverage_pooled": 0.228
+      },
+      {
+        "label": "top-25 first-half glossary (precision-filtered)",
+        "K": 25,
+        "episodes": 1366,
+        "mean_glossary_size": 24.7,
+        "coverage_mean": 0.287,
+        "coverage_pooled": 0.293
+      },
+      {
+        "label": "top-50 first-half glossary (precision-filtered)",
+        "K": 50,
+        "episodes": 1366,
+        "mean_glossary_size": 47.1,
+        "coverage_mean": 0.328,
+        "coverage_pooled": 0.337
+      },
+      {
+        "label": "top-0 first-half glossary (precision-filtered)",
+        "K": 0,
+        "episodes": 1366,
+        "mean_glossary_size": 101.8,
+        "coverage_mean": 0.38,
+        "coverage_pooled": 0.405
+      }
+    ]
+  },
+  "repeat_payoff_sensitivity": {
+    "note": "estimator noise is overwhelmingly singleton, so it DEFLATES repeat payoff; the raw figure is a lower bound. Doc-frequency filters are positively correlated with within-episode recurrence and are therefore an upper bound.",
+    "filters": [
+      {
+        "label": "raw estimator (primary)",
+        "episodes": 1366,
+        "distinct_per_episode": 312.5,
+        "repeat_mean": 0.387,
+        "repeat_pooled": 0.414,
+        "mentions": 728041
+      },
+      {
+        "label": "corpus doc-frequency >= 2 meetings",
+        "episodes": 1366,
+        "distinct_per_episode": 212.6,
+        "repeat_mean": 0.468,
+        "repeat_pooled": 0.501,
+        "mentions": 581927
+      },
+      {
+        "label": "corpus doc-frequency >= 3 meetings",
+        "episodes": 1366,
+        "distinct_per_episode": 190.4,
+        "repeat_mean": 0.488,
+        "repeat_pooled": 0.523,
+        "mentions": 545650
+      },
+      {
+        "label": "corpus doc-frequency >= 5 meetings",
+        "episodes": 1366,
+        "distinct_per_episode": 167.4,
+        "repeat_mean": 0.511,
+        "repeat_pooled": 0.548,
+        "mentions": 506371
+      },
+      {
+        "label": "corpus doc-frequency >= 10 meetings",
+        "episodes": 1366,
+        "distinct_per_episode": 138.2,
+        "repeat_mean": 0.543,
+        "repeat_pooled": 0.582,
+        "mentions": 451680
+      },
+      {
+        "label": "form length <= 4 tokens (drops merged runs)",
+        "episodes": 1366,
+        "distinct_per_episode": 281.4,
+        "repeat_mean": 0.408,
+        "repeat_pooled": 0.436,
+        "mentions": 682102
+      },
+      {
+        "label": "form length <= 3 tokens (drops merged runs)",
+        "episodes": 1366,
+        "distinct_per_episode": 256.1,
+        "repeat_mean": 0.425,
+        "repeat_pooled": 0.454,
+        "mentions": 640518
+      },
+      {
+        "label": "form length <= 2 tokens (drops merged runs)",
+        "episodes": 1366,
+        "distinct_per_episode": 210.5,
+        "repeat_mean": 0.451,
+        "repeat_pooled": 0.483,
+        "mentions": 556599
+      },
+      {
+        "label": "<=3 tokens AND doc-freq >= 3 (both filters)",
+        "episodes": 1366,
+        "distinct_per_episode": 175.0,
+        "repeat_mean": 0.502,
+        "repeat_pooled": 0.537,
+        "mentions": 516483
+      }
+    ],
+    "asr_variance_merge": {
+      "types_merged_share": 0.0216,
+      "repeat_mean": 0.398,
+      "repeat_pooled": 0.426
+    }
+  },
+  "long_form_slice": {
+    "episodes": 928,
+    "hours": 3190.7,
+    "distinct_per_episode": 387.6,
+    "repeat_mean": 0.412,
+    "repeat_pooled": 0.424,
+    "mentions_per_hour": 195.7,
+    "mentions_per_1k_words": 22.15,
+    "episodes_clearing_both_floors": 558,
+    "pass": true
+  },
+  "long_form_by_city": {
+    "Alameda": {
+      "episodes": 161,
+      "distinct_per_episode": 383.3,
+      "repeat_mean": 0.423,
+      "pass": true,
+      "episodes_clearing_both": 106
+    },
+    "Boston": {
+      "episodes": 19,
+      "distinct_per_episode": 419.4,
+      "repeat_mean": 0.449,
+      "pass": true,
+      "episodes_clearing_both": 18
+    },
+    "Denver": {
+      "episodes": 259,
+      "distinct_per_episode": 393.1,
+      "repeat_mean": 0.442,
+      "pass": true,
+      "episodes_clearing_both": 213
+    },
+    "KingCounty": {
+      "episodes": 89,
+      "distinct_per_episode": 228.4,
+      "repeat_mean": 0.376,
+      "pass": false,
+      "episodes_clearing_both": 34
+    },
+    "LongBeach": {
+      "episodes": 276,
+      "distinct_per_episode": 453.1,
+      "repeat_mean": 0.398,
+      "pass": false,
+      "episodes_clearing_both": 135
+    },
+    "Seattle": {
+      "episodes": 124,
+      "distinct_per_episode": 345.0,
+      "repeat_mean": 0.392,
+      "pass": false,
+      "episodes_clearing_both": 52
+    }
+  },
+  "comparators": {
+    "note": "from the committed 2026-08-17 entity-density census (docs/readiness/2026-08-17-entity-density-census.md); annotation-grounded, not estimator-based",
+    "AMI_NE_layer": {
+      "episodes": 117,
+      "audio_hours": 59.95,
+      "word_tokens": 564390,
+      "proper_name_mentions": 919,
+      "mentions_per_hour": 15.3,
+      "mentions_per_1k_words": 1.63,
+      "token_share": 0.0022,
+      "distinct_per_episode": 3.8,
+      "repeat_payoff": 0.211,
+      "recurring_type_share": 0.255,
+      "longspan_type_share": 0.178,
+      "gate": "FAIL"
+    },
+    "earnings21_ConEC": {
+      "episodes": 44,
+      "audio_hours": 39.17,
+      "word_tokens": 362747,
+      "proper_name_mentions": 10760,
+      "mentions_per_hour": 274.7,
+      "mentions_per_1k_words": 29.66,
+      "token_share": 0.0361,
+      "distinct_per_episode": 97,
+      "repeat_payoff": 0.578,
+      "recurring_type_share": 0.382,
+      "longspan_type_share": 0.12,
+      "gate": "PASS"
+    }
+  },
+  "verdict": {
+    "corpus": {
+      "distinct_per_episode": 312.5,
+      "limb1_distinct_pass": true,
+      "repeat_payoff_mean_of_episodes": 0.387,
+      "repeat_payoff_pooled": 0.414,
+      "limb2_repeat_pass_primary": false,
+      "limb2_repeat_pass_pooled": true,
+      "density_floor_verdict": "FAIL",
+      "episodes_clearing_both": 652,
+      "episodes": 1366
+    },
+    "by_city": {
+      "Alameda": {
+        "distinct_per_episode": 378.0,
+        "limb1_distinct_pass": true,
+        "repeat_payoff_mean_of_episodes": 0.422,
+        "repeat_payoff_pooled": 0.432,
+        "limb2_repeat_pass_primary": true,
+        "limb2_repeat_pass_pooled": true,
+        "density_floor_verdict": "PASS",
+        "episodes_clearing_both": 106,
+        "episodes": 164
+      },
+      "Boston": {
+        "distinct_per_episode": 342.0,
+        "limb1_distinct_pass": true,
+        "repeat_payoff_mean_of_episodes": 0.42,
+        "repeat_payoff_pooled": 0.438,
+        "limb2_repeat_pass_primary": true,
+        "limb2_repeat_pass_pooled": true,
+        "density_floor_verdict": "PASS",
+        "episodes_clearing_both": 23,
+        "episodes": 32
+      },
+      "Denver": {
+        "distinct_per_episode": 306.1,
+        "limb1_distinct_pass": true,
+        "repeat_payoff_mean_of_episodes": 0.414,
+        "repeat_payoff_pooled": 0.442,
+        "limb2_repeat_pass_primary": true,
+        "limb2_repeat_pass_pooled": true,
+        "density_floor_verdict": "PASS",
+        "episodes_clearing_both": 256,
+        "episodes": 401
+      },
+      "KingCounty": {
+        "distinct_per_episode": 196.3,
+        "limb1_distinct_pass": true,
+        "repeat_payoff_mean_of_episodes": 0.361,
+        "repeat_payoff_pooled": 0.376,
+        "limb2_repeat_pass_primary": false,
+        "limb2_repeat_pass_pooled": false,
+        "density_floor_verdict": "FAIL",
+        "episodes_clearing_both": 44,
+        "episodes": 132
+      },
+      "LongBeach": {
+        "distinct_per_episode": 418.8,
+        "limb1_distinct_pass": true,
+        "repeat_payoff_mean_of_episodes": 0.385,
+        "repeat_payoff_pooled": 0.403,
+        "limb2_repeat_pass_primary": false,
+        "limb2_repeat_pass_pooled": true,
+        "density_floor_verdict": "FAIL",
+        "episodes_clearing_both": 137,
+        "episodes": 310
+      },
+      "Seattle": {
+        "distinct_per_episode": 230.8,
+        "limb1_distinct_pass": true,
+        "repeat_payoff_mean_of_episodes": 0.344,
+        "repeat_payoff_pooled": 0.373,
+        "limb2_repeat_pass_primary": false,
+        "limb2_repeat_pass_pooled": false,
+        "density_floor_verdict": "FAIL",
+        "episodes_clearing_both": 86,
+        "episodes": 327
+      }
+    },
+    "flight_subset": {
+      "distinct_per_episode": 249.5,
+      "limb1_distinct_pass": true,
+      "repeat_payoff_mean_of_episodes": 0.358,
+      "repeat_payoff_pooled": 0.383,
+      "limb2_repeat_pass_primary": false,
+      "limb2_repeat_pass_pooled": false,
+      "density_floor_verdict": "FAIL",
+      "episodes_clearing_both": 12,
+      "episodes": 50
+    },
+    "flight_subset_by_city": {
+      "Seattle": {
+        "distinct_per_episode": 226.9,
+        "limb1_distinct_pass": true,
+        "repeat_payoff_mean_of_episodes": 0.308,
+        "repeat_payoff_pooled": 0.344,
+        "limb2_repeat_pass_primary": false,
+        "limb2_repeat_pass_pooled": false,
+        "density_floor_verdict": "FAIL",
+        "episodes_clearing_both": 2,
+        "episodes": 20
+      },
+      "Denver": {
+        "distinct_per_episode": 203.3,
+        "limb1_distinct_pass": true,
+        "repeat_payoff_mean_of_episodes": 0.397,
+        "repeat_payoff_pooled": 0.417,
+        "limb2_repeat_pass_primary": false,
+        "limb2_repeat_pass_pooled": true,
+        "density_floor_verdict": "FAIL",
+        "episodes_clearing_both": 8,
+        "episodes": 20
+      },
+      "LongBeach": {
+        "distinct_per_episode": 386.9,
+        "limb1_distinct_pass": true,
+        "repeat_payoff_mean_of_episodes": 0.38,
+        "repeat_payoff_pooled": 0.389,
+        "limb2_repeat_pass_primary": false,
+        "limb2_repeat_pass_pooled": false,
+        "density_floor_verdict": "FAIL",
+        "episodes_clearing_both": 2,
+        "episodes": 10
+      }
+    },
+    "long_form_slice": {
+      "distinct_per_episode": 387.6,
+      "repeat_payoff_mean_of_episodes": 0.412,
+      "density_floor_verdict": "PASS"
+    },
+    "reference_adequacy_limb": {
+      "verbatim_transcript_gold": false,
+      "verdict": "FAIL",
+      "consequence": "no WER-family or keyword-F glossary-GAIN claim can be scored on MeetingBank; valid surfaces remain summarisation, spoken QA and segmentation"
+    },
+    "overall": "SPLIT: density limb 1 PASS by ~31x corpus-wide (1365/1366 episodes clear it); density limb 2 marginal - FAIL at 0.387 corpus-wide on the primary aggregation, PASS at 0.414 pooled, PASS at 0.412 on the >=90-minute slice, PASS on Alameda/Boston/Denver, FAIL on the landed 50-meeting flight subset at 0.358; reference-adequacy limb FAIL outright. MeetingBank can host a meeting-domain glossary claim only on the summarisation/QA/segmentation surface and only on a length-stratified subset; it cannot host an entity-WER or keyword-F glossary-GAIN claim."
+  },
+  "reproduction": {
+    "environment": "WSL2 Ubuntu-24.04, ~/.venvs/speechrl (Python 3.12), PYTHONDONTWRITEBYTECODE=1, 16 worker processes",
+    "cost": "CPU only, ~35 s for the full 1,366-transcript pass; no model contact, no downloads, no audio decoded",
+    "inputs": [
+      "text/zenodo/extracted/Audio&Transcripts/<City>/transcripts/*.transcript.json",
+      "text/zenodo/extracted/Metadata/MeetingBank.json",
+      "audio-subset/subset-manifest.json"
+    ],
+    "output_discipline": "aggregate statistics and entity surface forms only; no running transcript text is written to any committed file"
+  }
+}
