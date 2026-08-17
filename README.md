@@ -9,5 +9,7 @@ Standalone research repository, owner-admitted 2026-08-17. Authorization and cha
 umbrella `wiki/experiments/papers/meeting-minutes-agent/2026-08-17-owner-go-and-paper-execution-contract.md`.
 Client guidance: `CLAUDE.md`.
 
-Status: charter stage. Carriers, evaluation protocol, and design documents land with the first
-design records (meeting-dataset surveys of 2026-08-17 feed them).
+Status: **PROVISIONAL charter stage** — the final go/no-go on opening this topic awaits the
+2026-08-17 surveys and joint owner analysis; no engineering work proceeds here until that
+decision. Carriers, evaluation protocol, and design documents land with the first design
+records if the topic is confirmed.
