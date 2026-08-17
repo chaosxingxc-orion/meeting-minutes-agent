@@ -82,6 +82,26 @@ held-out-25 splits designed pre-fetch (the official bill-level splits leak acros
 791/1,248 meetings span more than one split — never reuse them); Seattle chunk carries a
 recorded seasonal bias caveat.
 
+**SUBSTRATE-GATE OUTCOME (2026-08-17 night, census `29110f8` — BINDING).** MeetingBank: density
+limb PASS by ~31× (312.5 distinct names/episode; proper names 23.06/1k words), repeat limb
+marginal (0.387 corpus, estimator-deflated lower bound with best estimate 0.42–0.45; PASS on
+≥90-min meetings at 0.412; the landed 50-meeting subset FAILS at 0.358 — Seattle-heavy), and
+**reference adequacy FAILS structurally** (Speechmatics ASR references — no entity-WER or
+keyword-F surface exists, and no re-stratification fixes it). Consequences: (a) the
+**meeting-domain glossary claim re-anchors to summarization/QA metrics** on a length-stratified
+(≥90 min) MeetingBank subset with a SPEECH-DERIVED glossary only — the Legistar summary IS the
+summarization reference, so metadata-derived glossaries are Tier-M1 on that surface and the
+clean provenance factorization runs only on earnings; (b) **D3 subset v2**: re-cut the flight
+subset away from Seattle on a leak-free first-half density criterion; (c) G3's carry-delta kill
+is powered on the measured first-half→second-half coverage (16–34% for 10–50-term glossaries),
+not on the repeat-payoff scalar; (d) the entity-metric glossary-GAIN claim lives ONLY on
+earnings21 (G2) — no current meeting corpus hosts it; (e) the census's one favorable structural
+finding: 84–95% of MeetingBank's mention mass is speech-only (roster-unreachable), so
+episode-local supply is not redundant with rosters; (f) **the gap "meeting corpus with both
+entity density AND verbatim transcript gold" remains OPEN** — NOTSOFAR-1 (human-verified
+transcripts, second-tier in D1) is the queued gap-closing candidate: acquire + census before
+any claim re-expansion.
+
 Acquisition-evidence amendment (same night): **ICSI ships NO named-entity layer** (verified
 against all 6,437 annotation-archive entries — an upstream gap, not a fetch gap; the survey's
 NE expectation was wrong). Consequences: the substrate-gate ICSI entity census must use a
