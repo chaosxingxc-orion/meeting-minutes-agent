@@ -45,7 +45,7 @@ coreference is de-scoped into QA-measured attribution; cross-meeting memory stay
 | G0 | (SAEA side, immediately) P-A2T + P-SLU probes | ~1–1.5 h |
 | G1 | Zero-supply baselines: AMI dev 18 meetings (9.7 h audio) chunked transcription + attribution + zero-shot minutes; ICSI dev mirror; MeetingQA dev QA floor | 8–15 h |
 | G2 | P-GLOSS v1 on the earnings substrate: two-pass self-built glossary → static re-injection, + naive / deranged / zero arms | 3–5 h |
-| G3 | P-GLOSS v2 meeting form: cross-chunk glossary carry vs no-carry vs naive-carry on AMI/ICSI long meetings | 4–8 h |
+| G3 | P-GLOSS v2 meeting form — REFRAMED per the 2026-08-17 entity census (`051053a`): AMI's open-vocabulary proper-name mass is 0.22% of tokens (3.8 distinct names/meeting; repeat payoff 0.211), so a glossary-GAIN experiment on AMI measures noise. G3 is a **transfer check under a stated density caveat**, not a gain test; the loop's falsifiable test is G2 on earnings (29.66 proper names/1k words, 97 distinct/call, repeat payoff 0.578). Any meeting-domain glossary-gain claim requires a MeetingBank entity re-census FIRST (precondition added to D3). AMI's load-bearing roles are attribution and long-form structure (G1/G4) | 4–8 h |
 | G4 | Attribution probe: participant-roster supply vs zero (cpWER − ORC-WER movement) | 2–3 h |
 | G5 | MeetingBank long-form campaign (post-subset) | sustained |
 
