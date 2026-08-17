@@ -1,0 +1,54 @@
+# Founding workplan — meeting-minutes-agent (owner-approved 2026-08-17)
+
+Owner GO 2026-08-17. Four tracks; GPU saturation guaranteed by the flight ladder in §4. Fresh
+agent per task (owner ops ruling 2026-08-17: no long-lived agent reuse). Evidence base: the
+three 2026-08-17 surveys and SYNTHESIS.md in the umbrella workbench.
+
+Owner rulings folded in: MeetingBank bounded subset is CORE (license verify first; **undeclared
+license defaults to fully authorized for program use**, license text or its absence recorded
+verbatim); meeteval + rouge-score approved for one-time install into the shared venv;
+coreference is de-scoped into QA-measured attribution; cross-meeting memory stays out.
+
+## 1. Engineering foundation (Sonnet, CPU, zero model contact)
+
+| # | Task | Acceptance |
+|---|---|---|
+| E1 | Repo skeleton: `src/meeting_minutes_agent/`, tests, configs, run receipts (lean — import only the copy-rate instrument pattern by recorded decision; no SAEA exposure apparatus) | pytest green, PYTHONPATH-based (no venv installs) |
+| E2 | NXT parser: AMI/ICSI stand-off XML (minutes → dialogue acts → word ids) resolved into transcripts + evidence links | layer counts reconcile with the 2026-08-17 local audit (142 abstractive, 137 extractive+summlink, 139 topics/DA, 171 words/segments) |
+| E3 | Chunking engine: ~40-min core cap → topic-aligned chunks + inter-chunk glossary-state interface (episode-local, append-only, hashed) | reproducible chunk plans |
+| E4 | Glossary module: extract → normalise → dedupe → gate, plus a naive-arm switch (mandatory control per arXiv 2511.18774) | gate unit-tested |
+| E5 | Metrics stack: meeteval cpWER/ORC-WER (installed), MeetingQA F1 scorer, SAER-M definition doc, ROUGE legacy row | metric definitions pinned |
+| E6 | llama-server client + flight receipts (frozen core, paid=0, hashable) | smoke passes |
+
+## 2. Data production (Opus, CPU/IO)
+
+| # | Task |
+|---|---|
+| D1 | Core acquisitions: MeetingQA, ICSI (~9 GB), QMSum, MeetingBank text layer + bounded audio subset (license verify first, owner default applies), M3-SLU release verification, NOTSOFAR-1 second tier. Receipts + lock entries per program schema |
+| D2 | AMI split freeze: document BOTH incompatible partition conventions, adopt the full-corpus ASR partition (dev 18) unless evidence says otherwise; materialize E2 outputs under derived/ |
+| D3 | MeetingBank subset design: city stratification, dev/eval freeze, segment-alignment validation |
+| D4 | Earnings glossary substrate pinned by reference (lock pins, no byte copies) |
+
+## 3. Local analysis (Opus, CPU, zero model contact)
+
+| # | Task |
+|---|---|
+| L1 | AMI summary reference-multiplicity check → human-agreement ceiling statement |
+| L2 | Entity-density census across AMI NE layer / earnings / ContextASR-Dialogue / MeetingBank text (as it lands) — quantifies the glossary loop's addressable mass per corpus |
+| L3 | Chunk-boundary statistics (topic-segmentation alignment) |
+| L4 | Coordinator-authored: P-GLOSS preregistration (EGTA / naive-arm / 2511.18774 positioning), SAER-M definition, written positioning vs Dixtral and Audio-Mind |
+
+## 4. GPU flights (Opus babysits; order = the saturation ladder)
+
+| # | Flight | GPU est. |
+|---|---|---|
+| G0 | (SAEA side, immediately) P-A2T + P-SLU probes | ~1–1.5 h |
+| G1 | Zero-supply baselines: AMI dev 18 meetings (9.7 h audio) chunked transcription + attribution + zero-shot minutes; ICSI dev mirror; MeetingQA dev QA floor | 8–15 h |
+| G2 | P-GLOSS v1 on the earnings substrate: two-pass self-built glossary → static re-injection, + naive / deranged / zero arms | 3–5 h |
+| G3 | P-GLOSS v2 meeting form: cross-chunk glossary carry vs no-carry vs naive-carry on AMI/ICSI long meetings | 4–8 h |
+| G4 | Attribution probe: participant-roster supply vs zero (cpWER − ORC-WER movement) | 2–3 h |
+| G5 | MeetingBank long-form campaign (post-subset) | sustained |
+
+Timeline: G0 flies immediately (no meeting-side dependency); G1 launches as soon as D2 + minimal
+E2 land and fills a full day; E3/E4/E5 complete during G1; G2/G3 chain immediately after; G5
+provides sustained load. No GPU idle window after G0.
