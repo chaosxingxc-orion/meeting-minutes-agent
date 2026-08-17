@@ -9,7 +9,7 @@ Standalone research repository, owner-admitted 2026-08-17. Authorization and cha
 umbrella `wiki/experiments/papers/meeting-minutes-agent/2026-08-17-owner-go-and-paper-execution-contract.md`.
 Client guidance: `CLAUDE.md`.
 
-Status: **PROVISIONAL charter stage** — the final go/no-go on opening this topic awaits the
-2026-08-17 surveys and joint owner analysis; no engineering work proceeds here until that
-decision. Carriers, evaluation protocol, and design documents land with the first design
-records if the topic is confirmed.
+Status: **ACTIVE** (owner GO 2026-08-17). Founding workplan:
+`docs/plans/2026-08-17-founding-workplan.md`. Carriers: AMI + ICSI + MeetingQA + QMSum +
+MeetingBank bounded subset (+ M3-SLU pending verification); earnings glossary substrate pinned
+by reference for the mechanism line.
