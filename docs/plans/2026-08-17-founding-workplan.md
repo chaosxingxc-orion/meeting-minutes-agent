@@ -72,8 +72,15 @@ registry (one role per meeting, fail-closed) supersedes the plain split freeze; 
 H1/H2 and kill patterns verbatim; positioning corrections (EGTA is LoRA-adapted not frozen; no
 EGTA-R-alone number exists — our prompt-only arm is the first such number on this family;
 Audio-Mind phrasing purged; the claim is the conjunction, never provenance alone).
-MeetingBank: license is declared cc-by-nc-sa-4.0 (owner default does not trigger); its valid
-surfaces are summarization/QA/segmentation (ASR-derived references — no WER-family claims).
+MeetingBank: license CORRECTED at acquisition (`84066ef`) — a three-way upstream conflict
+resolves to the in-corpus Zenodo `LICENSE.txt`: **CC BY-NC-ND 4.0** (NoDerivatives, stricter
+than the HF cards' NC-SA; strictest declaration binds). Internal non-commercial research use is
+unaffected; no derived subset or adapted material may be released externally without author
+clearance. Valid surfaces unchanged: summarization/QA/segmentation (ASR-derived references — no
+WER-family claims). Subset landed: 50 meetings / 81.78 h / 3 cities, meeting-level dev-25 /
+held-out-25 splits designed pre-fetch (the official bill-level splits leak across meetings:
+791/1,248 meetings span more than one split — never reuse them); Seattle chunk carries a
+recorded seasonal bias caveat.
 
 Acquisition-evidence amendment (same night): **ICSI ships NO named-entity layer** (verified
 against all 6,437 annotation-archive entries — an upstream gap, not a fetch gap; the survey's
