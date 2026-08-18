@@ -94,3 +94,60 @@ E3/E4/E5 (in build) → **E6 client** → **E7 controller + minimal heads** (tra
 first; QA head after the MeetingQA floor measurement) → C10 harness → G1 zero-baselines.
 Speaker map and decision ledger land inside E7's scope (they are state consumed and produced by
 the loop, not standalone modules).
+
+## 5. v2 amendments (owner architecture rulings, 2026-08-18)
+
+### 5.1 LISTEN–SPELL–REVISE is the PERCEPTION loop, not the whole agent
+
+Owner critique accepted: the three-stage loop covers the ASR/knowledge stage only. The backbone
+gains an explicit **MinutesTaskManager** layer (the concretization of C7) that owns:
+
+- **Span inventory**: the diarized span table (see 5.2) as the unit of dispatch;
+- **Task queue + dispatcher**: typed tasks (transcribe-span, re-listen-span,
+  summarize-section, resolve-decision/action, answer-question), rule-routed to the
+  perception loop or to task heads; scheduling is deterministic (priority + order rules as
+  data, never model-decided in v1);
+- **Product assembly**: the minutes state machine (section drafts → evidence links → final
+  four-section minutes), consuming the episode state and head outputs.
+
+### 5.2 DIARIZE pre-stage and speaker injection (owner ruling: speakers must be separated)
+
+New pipeline stage between INGEST and chunking: **DIARIZE** — a frozen, pinned, logged
+TOOL-level pre-pass producing speaker-attributed spans (cluster ids + turn boundaries). Answer
+authority stays with the core; the tool only segments. Arm axis registered: oracle-diar (gold
+turns, AMI/ICSI — the ceiling), tool-diar (deployable), no-diar (ablation floor); diarization
+error propagation is measured by the E5 confusion-cost instrument. Tool selection is an open
+decision: evaluate pyannote.audio vs NeMo vs wespeaker under {no paid, pinnable revision,
+license-compatible, WSL-venv installable with owner approval}; until selected, oracle-diar
+arms carry G1.
+
+Speaker information enters the loop at three points: (i) LISTEN prompts carry span-level
+speaker tags with roster bindings ("Speaker S2 — likely J. Doe, PM, per shipped roster");
+(ii) the episode state holds the **speaker map** (cluster id ↔ roster name, with evidence;
+updated by REVISE — self-introduction mining in SPELL is the binding mechanism); (iii) the
+glossary is speaker-conditioned (each term tagged with its introducing speaker, enabling
+per-speaker vocabulary views).
+
+### 5.3 Agent-loop framework: openJiuwen AgentLoop (owner directive)
+
+Ruling recorded: the agent is developed ON **openJiuwen** (openjiuwen 0.1.16.post2, the
+SAEA-proven pin), and the backbone is an **AgentLoop** design — NOT ReAct (no model-decided
+control flow in v1; the framework tool base stays reserved for a future model-invoked re-ask
+arm, per the 2026-08-08 owner ruling) and NOT DeepAgents. Concrete mapping, importing the
+SAEA ojw pattern by recorded decision (second cross-repo import):
+
+| Meeting-agent concern | openJiuwen construct (SAEA-proven) |
+|---|---|
+| Episode outer graph | `Workflow` + Start/End, `create_workflow_session` per episode (timeout env override knob) |
+| Task-manager loop | `AdvancedLoopComponent` over Pregel; `FuncCondition` = queue non-empty ∧ budgets hold |
+| Perception loop (LISTEN→SPELL→REVISE) | `LoopGroup` linear chain of `WorkflowComponent` nodes |
+| Single door to the frozen core | our client component (E6) wrapping the meeting repo's core client — framework LLM clients NEVER instantiated |
+| Loop-carried text state (glossary, speaker map, section drafts) | session global state (None-deletion discipline: read back with `.get()`) |
+| Heavy objects (PCM, slice registry, receipts) | constructor-injected, never session state |
+| Episode batching | `asyncio.gather` + semaphore at the episode level; per-episode loops stay sequential |
+
+Red lines carried over verbatim: openjiuwen never enters `pyproject.toml`; determinism —
+linear-chain bodies inherit the SAEA proof, but the task-manager graph introduces BRANCHING,
+which puts multiple nodes in a Pregel super-step: **a branch-ordering determinism proof is a
+registered precondition before any registered run on this executor**. E3/E4/E5 modules stay
+framework-agnostic pure logic; only thin component wrappers touch openJiuwen.
