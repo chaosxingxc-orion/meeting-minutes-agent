@@ -6,16 +6,28 @@ from __future__ import annotations
 
 from meeting_minutes_agent.heads.transcribe_attribute import (
     CONTEXT_SECTION_HEADER,
+    DECLARED_GRID_SECTION_HEADER,
     SYSTEM_INSTRUCTION_TEMPLATE,
     TEMPLATE_ID,
     TEMPLATE_SHA256,
+    TRANSCRIBE_ONLY_SYSTEM_INSTRUCTION_TEMPLATE,
+    TRANSCRIBE_ONLY_TEMPLATE_ID,
+    TRANSCRIBE_ONLY_TEMPLATE_SHA256,
     TranscribedSegment,
+    build_declared_grid_block,
     build_transcribe_attribute_request,
+    build_transcribe_only_request,
     parse_transcribe_attribute_response,
+    parse_transcribe_only_response,
 )
 from meeting_minutes_agent.runreceipt import config_hash
 
 from .fixtures import SPAN_CONTEXT
+
+_GRID_TURNS = (
+    {"speaker": "A", "slice_offset_start": 0.0, "slice_offset_end": 12.34},
+    {"speaker": "B", "slice_offset_start": 12.34, "slice_offset_end": 30.0},
+)
 
 # ---------------------------------------------------------------------------
 # template hash pin (an independent copy of the pinned text, separate from
@@ -82,6 +94,109 @@ def test_build_request_two_calls_with_same_inputs_are_equal():
 def test_build_request_passes_decoding_params_through():
     req = build_transcribe_attribute_request(supply_text="supply", decoding_params={"temperature": 0.0})
     assert req.decoding_params == {"temperature": 0.0}
+
+
+# ---------------------------------------------------------------------------
+# declared speaker grid (P-ATTR A-grid arm)
+# ---------------------------------------------------------------------------
+
+
+def test_build_declared_grid_block_renders_ordered_positional_lines():
+    block = build_declared_grid_block(_GRID_TURNS)
+    assert block.startswith(DECLARED_GRID_SECTION_HEADER)
+    assert "[0] 0.00-12.34 A" in block
+    assert "[1] 12.34-30.00 B" in block
+
+
+def test_build_declared_grid_block_empty_is_none():
+    assert build_declared_grid_block(()) is None
+
+
+def test_build_request_without_declared_grid_has_no_grid_block_a_free():
+    # A-free: same template, no grid -- this is the default (declared_grid_turns=()).
+    req = build_transcribe_attribute_request(supply_text="supply")
+    assert req.template_id == TEMPLATE_ID
+    assert req.template_sha256 == TEMPLATE_SHA256
+    assert not any(DECLARED_GRID_SECTION_HEADER in part for part in req.supplied_text)
+
+
+def test_build_request_with_declared_grid_appends_grid_block_a_grid():
+    req = build_transcribe_attribute_request(supply_text="supply", declared_grid_turns=_GRID_TURNS)
+    # Same template identity as A-free -- only the supplied-text content differs.
+    assert req.template_id == TEMPLATE_ID
+    assert req.template_sha256 == TEMPLATE_SHA256
+    grid_parts = [part for part in req.supplied_text if part.startswith(DECLARED_GRID_SECTION_HEADER)]
+    assert len(grid_parts) == 1
+    assert "[0] 0.00-12.34 A" in grid_parts[0]
+    assert "[1] 12.34-30.00 B" in grid_parts[0]
+
+
+def test_build_request_grid_block_and_context_block_both_present_and_ordered():
+    req = build_transcribe_attribute_request(
+        supply_text="supply", span_context=SPAN_CONTEXT, declared_grid_turns=_GRID_TURNS
+    )
+    assert len(req.supplied_text) == 3
+    assert req.supplied_text[0] == "supply"
+    assert req.supplied_text[1].startswith(DECLARED_GRID_SECTION_HEADER)
+    assert req.supplied_text[2].startswith(CONTEXT_SECTION_HEADER)
+
+
+# ---------------------------------------------------------------------------
+# transcribe-only template (P-ATTR A-turn arm)
+# ---------------------------------------------------------------------------
+
+_EXPECTED_TRANSCRIBE_ONLY_TEMPLATE_ID = "transcribe-only-v1"
+_EXPECTED_TRANSCRIBE_ONLY_INSTRUCTION = (
+    "You are transcribing one short, single-speaker turn cut from a "
+    "multi-speaker meeting recording. The speaker's identity is already "
+    "known and is NOT part of your task. Output ONLY the verbatim "
+    "transcript text of what is spoken in this audio, as plain text, with "
+    "no speaker label, no line-per-segment formatting, and no extra "
+    "commentary before, between, or after it."
+)
+
+
+def test_transcribe_only_template_id_is_pinned():
+    assert TRANSCRIBE_ONLY_TEMPLATE_ID == _EXPECTED_TRANSCRIBE_ONLY_TEMPLATE_ID
+
+
+def test_transcribe_only_template_sha256_matches_an_independently_recomputed_hash():
+    assert TRANSCRIBE_ONLY_SYSTEM_INSTRUCTION_TEMPLATE == _EXPECTED_TRANSCRIBE_ONLY_INSTRUCTION
+    expected = config_hash(
+        {"template_id": _EXPECTED_TRANSCRIBE_ONLY_TEMPLATE_ID, "system_instruction": _EXPECTED_TRANSCRIBE_ONLY_INSTRUCTION}
+    )
+    assert TRANSCRIBE_ONLY_TEMPLATE_SHA256 == expected
+
+
+def test_transcribe_only_template_id_differs_from_attribute_template():
+    assert TRANSCRIBE_ONLY_TEMPLATE_ID != TEMPLATE_ID
+    assert TRANSCRIBE_ONLY_TEMPLATE_SHA256 != TEMPLATE_SHA256
+
+
+def test_build_transcribe_only_request_default_has_no_supplied_text():
+    req = build_transcribe_only_request()
+    assert req.task_instruction == TRANSCRIBE_ONLY_SYSTEM_INSTRUCTION_TEMPLATE
+    assert req.template_id == TRANSCRIBE_ONLY_TEMPLATE_ID
+    assert req.template_sha256 == TRANSCRIBE_ONLY_TEMPLATE_SHA256
+    assert req.supplied_text == ()
+
+
+def test_build_transcribe_only_request_passes_decoding_params_through():
+    req = build_transcribe_only_request(decoding_params={"temperature": 0.0})
+    assert req.decoding_params == {"temperature": 0.0}
+
+
+def test_parse_transcribe_only_response_joins_nonblank_lines():
+    assert parse_transcribe_only_response("Hello there.\n\nHow are you?\n") == "Hello there. How are you?"
+
+
+def test_parse_transcribe_only_response_empty_text_returns_empty_string():
+    assert parse_transcribe_only_response("   \n\n  ") == ""
+
+
+def test_parse_transcribe_only_response_never_raises_on_arbitrary_text():
+    # No grammar to fail: any text, however unstructured, round-trips.
+    assert parse_transcribe_only_response("|weird| [text] with: punctuation") == "|weird| [text] with: punctuation"
 
 
 # ---------------------------------------------------------------------------

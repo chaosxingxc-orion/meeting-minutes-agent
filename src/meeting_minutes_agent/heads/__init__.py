@@ -21,10 +21,16 @@ from .minutes import (
 from .qa import QAParseResult, build_qa_request, parse_qa_response
 from .request import HeadRequest, build_supplied_text
 from .transcribe_attribute import (
+    TRANSCRIBE_ONLY_TEMPLATE_ID,
+    TRANSCRIBE_ONLY_TEMPLATE_SHA256,
+    TRANSCRIBE_ONLY_SYSTEM_INSTRUCTION_TEMPLATE,
     TranscribeAttributeParseResult,
     TranscribedSegment,
+    build_declared_grid_block,
     build_transcribe_attribute_request,
+    build_transcribe_only_request,
     parse_transcribe_attribute_response,
+    parse_transcribe_only_response,
 )
 
 __all__ = [
@@ -32,8 +38,14 @@ __all__ = [
     "build_supplied_text",
     "TranscribedSegment",
     "TranscribeAttributeParseResult",
+    "build_declared_grid_block",
     "build_transcribe_attribute_request",
     "parse_transcribe_attribute_response",
+    "TRANSCRIBE_ONLY_TEMPLATE_ID",
+    "TRANSCRIBE_ONLY_TEMPLATE_SHA256",
+    "TRANSCRIBE_ONLY_SYSTEM_INSTRUCTION_TEMPLATE",
+    "build_transcribe_only_request",
+    "parse_transcribe_only_response",
     "MinutesBulletClaim",
     "MinutesParseResult",
     "build_minutes_request",
