@@ -55,6 +55,17 @@ Git) under `$SPEECHRL_DATA_DIR/derived/meeting-minutes/pattr-smoke/runs/2026-08-
 The one-shot read discipline is intact: no reply text was opened during the flight, so the
 pre-registered A-grid-vs-A-free branch above remains undecided until the scoring mission runs.
 
+**SCORED 2026-08-18 (one-shot read, branch DECIDED):** the committed scoring path ran once over the
+498 replies; read record `docs/checks/2026-08-18-pattr-smoke-read/`, verdict
+`2026-08-18-pattr-verdict.md`. Outcome: **A-grid is not materially better than A-free — the LISTEN
+main design is RETIRED and G1 adopts the A-turn form.** A-grid produced no attributable transcript
+in 24/24 slices (it keyed every line on the grid index and dropped the speaker label), so it has no
+confusion cost in any meeting and loses the non-degeneracy guard 1.0705 to 0.3611 cpWER on the 20
+paired sessions. A-free 0.4352 cpWER / 0.1110 confusion cost; A-turn 0.3657 cpWER / 0.0165 (tcpWER
+0.3885, primary confusion cost +0.0063) at 0.437 s per request. A-turn's spans are gold
+`oracle-turn`, so its numbers are an oracle-diarization ceiling and G1 must name a turn-boundary
+source.
+
 ## 0b. Prompt-context bindings (owner Q&A rulings, 2026-08-18)
 
 1. **Deployment-baseline context block**: every arm's STANDARD prompt carries the meeting's

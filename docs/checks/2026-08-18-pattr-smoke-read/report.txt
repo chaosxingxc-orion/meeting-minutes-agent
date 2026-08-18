@@ -1,0 +1,185 @@
+P-ATTR capability smoke -- registered one-shot scoring read
+==============================================================================
+created_utc  : 2026-08-18T15:25:10.440046+00:00
+study_commit : 8fb94488f9db15a99de9dd72497ac660ba002980
+pins         : {'meeteval_version': '0.4.3', 'collar_seconds': 5.0, 'reference_pseudo_word_level_timing': 'character_based', 'hypothesis_pseudo_word_level_timing': 'character_based_points', 'reference_sort': 'segment', 'hypothesis_sort': 'segment'}
+pins_hash    : d9a9d1222a86df09d674a0ef77e1bc54267ea016559a95feca449ced07cc247f
+session unit : one transport slice (24 sessions: 6 slices x 4 meetings)
+meetings     : ES2011b, IS1008b, IS1008d, TS3004b
+
+SCORING PLAN (declared before any error rate was computed)
+------------------------------------------------------------------------------
+P-ATTR smoke ONE-SHOT scoring driver.
+
+Runs the COMMITTED scoring path (meeting_minutes_agent.probes.pattr_scoring)
+over the flown replies and writes verdict.json + report.txt.
+
+SCORING PLAN -- declared BEFORE any error rate was computed, applied
+mechanically:
+
+R1. SESSION UNIT = one transport slice (24 sessions: 6 slices x 4 meetings).
+    Every arm is scored on the same 24 slice-sessions. Rationale: each slice
+    was an independent request and this smoke is context-minimal by design --
+    no rolling tail, no speaker-state carry -- so the core has NO means of
+    keeping a speaker label stable across slices; a per-meeting permutation
+    match would charge it for a capability the flight never gave it. It is
+    also the only unit meeteval 0.4.3 can actually score here (plan R9).
+R2. Reference, identical for all three arms of a slice:
+    extract_gold_streams_for_range(resolved, start=slice.start, end=slice.end).
+R3. A-grid / A-free hypothesis: parse_transcribe_attribute_response on the
+    slice reply -> hypothesis_stream_from_grid_or_free_parse stamped with the
+    slice bounds (real_timing=False).
+R4. A-turn hypothesis: for the turn clips belonging to that slice,
+    parse_transcribe_only_response -> hypothesis_segment_from_turn_reply
+    (known_speaker from the frozen manifest, the turn's real absolute span).
+    Empty-text replies contribute no segment and are counted as data.
+R5. score_arm per (arm, slice) with default_metric_pins() (meeteval 0.4.3,
+    collar 5 s). Time-constrained primary metrics are computed only where the
+    committed module permits them (A-turn, real timing by construction).
+R6. Aggregation is micro-averaged: per meeting over its 6 slices, per arm over
+    all 24. Pooled confusion cost = (sum cp_errors - sum orc_errors)/sum(length).
+R7. PRE-REGISTERED BRANCH (draft SS0), operationalized:
+    d_m = CC_free(m) - CC_grid(m), CC = secondary confusion cost (cpWER-ORC-WER),
+    micro-averaged within meeting m.
+    "A-grid materially better than A-free" iff
+      (i)   d_m > 0 for all 4 meetings (direction consistent), AND
+      (ii)  pooled Delta > per-meeting spread (max d_m - min d_m), AND
+      (iii) non-degeneracy guard: pooled cpWER(A-grid) <= pooled cpWER(A-free)
+            -- a grid that "wins" on confusion cost only by emitting less
+            transcript has not bought attribution.
+    Bare rule = (i)+(ii); guarded rule = (i)+(ii)+(iii). Both are reported;
+    the GUARDED outcome is the decision. Material => LISTEN main design
+    CONFIRMED; not material => main design RETIRED, G1 adopts A-turn.
+R8. Diagnostics: A-grid boundary respect (registered) + the same computation
+    on A-free as a labelled CONTRAST; parse-mode / malformed-line counts;
+    hypothesis speaker-label census; truncation (completion_tokens >=
+    generation cap 1024); per-arm latency economics from the flight receipts'
+    request ledgers; A-turn turn-clip time coverage of the gold region.
+R9. FAIL-CLOSED metric refusal. meeteval 0.4.3 cannot always produce a number:
+    it hard-refuses more than 10 speaker streams (unparameterised complexity
+    guards in its cpWER and ORC-WER paths), and its MIMO matching cost
+    explodes with stream count -- a whole-meeting 4-stream ORC-WER exhausted
+    memory on this host. Every refusal (RuntimeError guard, MemoryError, or
+    the memory cap below) is recorded as NOT COMPUTABLE for that cell, with
+    its stream count and the refusal text, and the read continues.
+    Consequences, mechanical:
+      - a missing CC cell can never satisfy branch condition (i), which
+        demands a positive delta in ALL FOUR meetings -- absent evidence is
+        not evidence of a grid benefit;
+      - the non-degeneracy guard (iii) is computed on the PAIRED COMMON
+        SUBSET of slice-sessions where both A-grid and A-free produced a
+        cpWER, so it never compares two different denominators.
+    No metric definition, pin, or branch threshold was changed by this
+    handling, and it was written before any error rate had been read.
+
+BRANCH DECISION
+------------------------------------------------------------------------------
+decision: MAIN LISTEN DESIGN RETIRED -- G1 adopts the A-turn form (attribution by construction)
+  confusion-cost evidence complete in all 4 meetings : False
+  (i)   direction, all 4 per-meeting deltas > 0      : False
+  (ii)  pooled Delta       n/a > spread       n/a  : False
+  (iii) non-degeneracy guard on the 20 paired slices both arms could score: cpWER grid 1.0705 <= free 0.3611 -> False
+  bare rule (i+ii) = False; guarded (i+ii+iii) = False
+
+POOLED OVER THE 24 SLICE-SESSIONS (micro-averaged)
+------------------------------------------------------------------------------
+arm          cpWER   ORC-WER  CC=cp-ORC    ins    del    sub  refwords  cpOK  ORCref
+A-grid      1.0705       n/a        n/a   1937   2824    448      4866    20      21
+A-free      0.4352    0.3242     0.1110    382   1336    898      6011    24       0
+A-turn      0.3657    0.3492     0.0165    399    835    964      6011    24       0
+(cpOK = slice-sessions of 24 that yielded a cpWER at all; ORCref = sessions where ORC-WER was refused, plan R9)
+NOTE: each arm's pooled cpWER is over ITS OWN scoreable sessions -- see the paired guard subset above
+      for the only like-for-like A-grid vs A-free cpWER comparison.
+
+A-turn time-constrained primaries (collar 5 s): tcpWER 0.3885, tcORC-WER 0.3821, primary confusion cost +0.0063
+A-grid / A-free tc metrics: NOT COMPUTED -- their reply grammar carries no per-segment timing
+
+PER-MEETING (micro-averaged over that meeting's 6 slices)
+------------------------------------------------------------------------------
+meeting    arm          cpWER   ORC-WER        CC  refwords  hypwords  ORCref
+ES2011b    A-grid      0.5949       n/a       n/a      1301       931       3
+ES2011b    A-free      0.3843    0.3028    0.0815      1301      1100       0
+ES2011b    A-turn      0.3551    0.3420    0.0131      1301      1210       0
+           delta CC (A-free - A-grid) =      n/a
+IS1008b    A-grid      1.2509       n/a       n/a      1455      1348       6
+IS1008b    A-free      0.2667    0.2488    0.0179      1455      1339       0
+IS1008b    A-turn      0.2969    0.2887    0.0082      1455      1434       0
+           delta CC (A-free - A-grid) =      n/a
+IS1008d    A-grid      1.2565       n/a       n/a       811      1484       6
+IS1008d    A-free      0.5630    0.3513    0.2118      1785      1419       0
+IS1008d    A-turn      0.4006    0.3731    0.0275      1785      1632       0
+           delta CC (A-free - A-grid) =      n/a
+TS3004b    A-grid      1.2286       n/a       n/a      1299      1193       6
+TS3004b    A-free      0.4918    0.3850    0.1068      1470      1199       0
+TS3004b    A-turn      0.4007    0.3864    0.0143      1470      1299       0
+           delta CC (A-free - A-grid) =      n/a
+
+PER-SLICE cpWER
+------------------------------------------------------------------------------
+session                refseg refwrd turns             A-grid             A-free             A-turn
+ES2011b#slice0000          13    205    14      1.0537/14spk *      0.2634/ 2spk        0.3024/ 3spk  
+ES2011b#slice0001          19    250    22      0.5920/18spk *      0.4360/ 2spk        0.4880/ 4spk  
+ES2011b#slice0002           5    425     5      0.4494/ 2spk        0.4306/ 1spk        0.3741/ 1spk  
+ES2011b#slice0003          18    112    19      1.1964/14spk *      0.7768/ 2spk        0.4375/ 3spk  
+ES2011b#slice0004           5    238     6      0.1975/ 1spk        0.1555/ 1spk        0.1975/ 2spk  
+ES2011b#slice0005           8     71     9      0.5352/ 5spk        0.4225/ 1spk        0.3239/ 4spk  
+IS1008b#slice0000          19    222    19      1.5721/11spk *      0.2252/ 1spk        0.1982/ 2spk  
+IS1008b#slice0001          22    216    25      1.1435/18spk *      0.3241/ 3spk        0.2500/ 3spk  
+IS1008b#slice0002           9    320    12      1.4500/ 6spk *      0.3031/ 1spk        0.3406/ 3spk  
+IS1008b#slice0003          14    258    18      1.5504/ 5spk *      0.1279/ 1spk        0.2171/ 3spk  
+IS1008b#slice0004          18    251    21      0.6813/10spk *      0.2669/ 3spk        0.2789/ 4spk  
+IS1008b#slice0005          24    188    28      1.0053/15spk *      0.3777/ 3spk        0.5266/ 4spk  
+IS1008d#slice0000          23    171    27     refused/30spk !      0.8246/ 1spk        0.4327/ 4spk  
+IS1008d#slice0001          15    231    18      1.2424/13spk *      0.1775/ 2spk        0.1905/ 4spk  
+IS1008d#slice0002          19    375    19     refused/22spk !      0.9013/ 1spk        0.1973/ 3spk  
+IS1008d#slice0003          37    428    41     refused/31spk !      0.5070/ 3spk        0.5864/ 4spk  
+IS1008d#slice0004          15    261    18      1.2184/14spk *      0.4406/ 4spk        0.4253/ 4spk  
+IS1008d#slice0005          22    319    29      1.2978/20spk *      0.4796/ 4spk        0.5047/ 4spk  
+TS3004b#slice0000          34    171    36     refused/154spk !      0.9532/ 1spk        0.7076/ 4spk  
+TS3004b#slice0001          17    257    18      1.3346/10spk *      0.4280/ 1spk        0.3424/ 4spk  
+TS3004b#slice0002          19    221    19      0.9321/15spk *      0.5113/ 3spk        0.4299/ 3spk  
+TS3004b#slice0003          14    268    14      1.2463/ 9spk *      0.2313/ 2spk        0.3209/ 4spk  
+TS3004b#slice0004           9    283    10      1.2014/ 6spk *      0.5866/ 2spk        0.3640/ 3spk  
+TS3004b#slice0005          14    270    14      1.3815/14spk *      0.4037/ 2spk        0.3556/ 4spk  
+(cell = cpWER / distinct hypothesis speaker labels; * = ORC-WER refused, ! = cpWER refused too)
+
+BOUNDARY RESPECT (positional speaker agreement with the declared grid)
+------------------------------------------------------------------------------
+A-grid_registered_diagnostic:
+  matched 0/333 positions (0.0000); parsed segments 459 vs declared turns 461; slices with a segment-count mismatch 22/24
+A-free_contrast_not_registered:
+  matched 0/167 positions (0.0000); parsed segments 179 vs declared turns 461; slices with a segment-count mismatch 24/24
+
+SPEAKER-LABEL CENSUS (A-grid / A-free, over all 24 slices)
+------------------------------------------------------------------------------
+A-grid: 154 distinct labels
+  {"[1]": 25, "[0]": 24, "[2]": 22, "[3]": 22, "[4]": 22, "[5]": 20, "[6]": 18, "[7]": 18, "[8]": 18, "[9]": 17, "[10]": 15, "[11]": 14, "[12]": 14, "[13]": 13, "[14]": 9, "[15]": 7, "[16]": 7, "[17]": 7, "[18]": 5, "[19]": 5, "[20]": 4, "[21]": 4, "[22]": 3, "[23]": 3, "[24]": 3, "[25]": 3, "[26]": 3, "[27]": 3, "[28]": 3, "[29]": 3, "[30]": 2, "[31]": 1, "[32]": 1, "[33]": 1, "[34]": 1, "[35]": 1, "[36]": 1, "[37]": 1, "[38]": 1, "[39]": 1, "[40]": 1, "[41]": 1, "[42]": 1, "[43]": 1, "[44]": 1, "[45]": 1, "[46]": 1, "[47]": 1, "[48]": 1, "[49]": 1, "[50]": 1, "[51]": 1, "[52]": 1, "[53]": 1, "[54]": 1, "[55]": 1, "[56]": 1, "[57]": 1, "[58]": 1, "[59]": 1, "[60]": 1, "[61]": 1, "[62]": 1, "[63]": 1, "[64]": 1, "[65]": 1, "[66]": 1, "[67]": 1, "[68]": 1, "[69]": 1, "[70]": 1, "[71]": 1, "[72]": 1, "[73]": 1, "[74]": 1, "[75]": 1, "[76]": 1, "[77]": 1, "[78]": 1, "[79]": 1, "[80]": 1, "[81]": 1, "[82]": 1, "[83]": 1, "[84]": 1, "[85]": 1, "[86]": 1, "[87]": 1, "[88]": 1, "[89]": 1, "[90]": 1, "[91]": 1, "[92]": 1, "[93]": 1, "[94]": 1, "[95]": 1, "[96]": 1, "[97]": 1, "[98]": 1, "[99]": 1, "[100]": 1, "[101]": 1, "[102]": 1, "[103]": 1, "[104]": 1, "[105]": 1, "[106]": 1, "[107]": 1,
+A-free: 6 distinct labels
+  {"<speaker_1>": 70, "<speaker_2>": 62, "<speaker_3>": 29, "<speaker_0>": 10, "<speaker_4>": 7, "speaker_1": 1}
+
+PARSE STATS
+------------------------------------------------------------------------------
+A-grid   modes={'strict': 23, 'lenient': 1} malformed_lines=0 empty_replies=0
+A-free   modes={'strict': 24} malformed_lines=0 empty_replies=0
+A-turn   modes={'ok': 450} malformed_lines=0 empty_replies=0
+
+TRUNCATION DISCLOSURE
+------------------------------------------------------------------------------
+generation cap 1024 tokens; 1 reply/replies hit it, scored AS-IS:
+  A-grid pattr-grid-TS3004b-slice0000 completion_tokens=1024
+
+TIMING ECONOMICS (flight receipts' request ledgers)
+------------------------------------------------------------------------------
+arm       n_req   total_s   mean_s  median_s    max_s  s/audio_s
+A-grid       24     114.7    4.778     4.454   10.529     0.0489
+A-free       24     102.1    4.253     4.352    5.715     0.0435
+A-turn      450     196.7    0.437     0.187    3.364     0.0920
+A-turn vs A-grid: 18.8x the calls, 1.72x the summed request latency
+
+A-TURN CLIP COVERAGE OF THE GOLD REGION
+------------------------------------------------------------------------------
+ES2011b    gold speech    455.8s, clip-covered    455.8s (1.0000), clips   73, ref segments   68, ref words  1301
+IS1008b    gold speech    529.8s, clip-covered    529.8s (1.0000), clips  121, ref segments  106, ref words  1455
+IS1008d    gold speech    554.9s, clip-covered    554.9s (1.0000), clips  147, ref segments  131, ref words  1785
+TS3004b    gold speech    544.2s, clip-covered    544.2s (1.0000), clips  109, ref segments  107, ref words  1470
+
