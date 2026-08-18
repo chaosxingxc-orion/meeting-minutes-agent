@@ -97,6 +97,33 @@ class TestBuildRequestPayload:
         with pytest.raises(TransportError, match="not found"):
             build_request_payload(task_instruction="t", audio_path=tmp_path / "missing.wav")
 
+    def test_supplied_text_after_audio_is_appended_after_the_audio_part(self, tmp_path):
+        # P-PROMPT's A3 arrangement ("context in the user turn AFTER the
+        # audio") needs this order; the default (omitted/empty) behaviour
+        # must stay exactly what it was before this parameter existed --
+        # see test_payload_shape_text_then_audio_last above.
+        audio = _write_wav(tmp_path / "clip.wav")
+        payload = build_request_payload(
+            task_instruction="transcribe this",
+            audio_path=audio,
+            supplied_text=["before one"],
+            supplied_text_after_audio=["after one", "after two"],
+        )
+        user_content = payload["messages"][1]["content"]
+        assert user_content[0] == {"type": "text", "text": "before one"}
+        assert user_content[1]["type"] == "input_audio"
+        assert user_content[2] == {"type": "text", "text": "after one"}
+        assert user_content[3] == {"type": "text", "text": "after two"}
+        assert len(user_content) == 4
+
+    def test_empty_supplied_text_after_audio_matches_pre_existing_shape(self, tmp_path):
+        audio = _write_wav(tmp_path / "clip.wav")
+        with_default = build_request_payload(task_instruction="t", audio_path=audio, supplied_text=["a"])
+        with_explicit_empty = build_request_payload(
+            task_instruction="t", audio_path=audio, supplied_text=["a"], supplied_text_after_audio=()
+        )
+        assert with_default == with_explicit_empty
+
     def test_decoding_params_colliding_with_messages_refuses(self, tmp_path):
         audio = _write_wav(tmp_path / "clip.wav")
         with pytest.raises(TransportError, match="collides"):
@@ -247,6 +274,28 @@ class TestLlamaServerTransportRetry:
         transport = LlamaServerTransport(TransportConfig(base_url="http://x/"), _budget(), post=malformed)
         with pytest.raises(TransportError, match="malformed response"):
             transport.request(request_id="req-1", task_instruction="t", audio_path=audio, audio_seconds=1.0)
+
+
+class TestLlamaServerTransportSuppliedTextAfterAudio:
+    def test_request_threads_supplied_text_after_audio_into_the_payload(self, tmp_path):
+        audio = _write_wav(tmp_path / "clip.wav")
+        bodies = []
+
+        def post(url, body):
+            bodies.append(json.loads(body.decode("utf-8")))
+            return _canned_response()
+
+        transport = LlamaServerTransport(TransportConfig(base_url="http://x/"), _budget(), post=post)
+        transport.request(
+            request_id="req-1",
+            task_instruction="t",
+            audio_path=audio,
+            audio_seconds=1.0,
+            supplied_text_after_audio=["trailing"],
+        )
+        content = bodies[0]["messages"][1]["content"]
+        assert content[-1] == {"type": "text", "text": "trailing"}
+        assert content[0]["type"] == "input_audio"
 
 
 class TestLlamaServerTransportSliceBoundsGuard:

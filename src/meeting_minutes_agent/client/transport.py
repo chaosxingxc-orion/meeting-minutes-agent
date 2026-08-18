@@ -24,6 +24,16 @@ the constructed request). The audio part is exactly llama.cpp's
 OpenAI-compatible ``input_audio`` content-part shape: base64 file bytes
 plus a ``format`` string taken from the file's own suffix.
 
+``supplied_text_after_audio`` (added for the P-PROMPT template/arrangement
+sweep, ``meeting_minutes_agent.probes.pprompt``: its A3 arrangement -- "context
+in the user turn AFTER the audio" -- needs user-turn text placed AFTER the
+audio part, which the original text-then-audio-last order could not express):
+an OPTIONAL, additional sequence of text parts appended to the user message
+AFTER the audio part. Defaults to ``()`` on both :func:`build_request_payload`
+and :meth:`LlamaServerTransport.request`, in which case the content list is
+byte-identical to what this module has always produced -- every existing
+caller (P-ATTR, every task head) is unaffected.
+
 Slice-bounds guard (17-item change list items 2/10, the second G1-blocking
 defect): a request may carry AT MOST one transport slice's audio, never a
 whole task chunk or a whole meeting file. ``TransportConfig.
@@ -189,6 +199,7 @@ def build_request_payload(
     task_instruction: str,
     audio_path: Path,
     supplied_text: Sequence[str] = (),
+    supplied_text_after_audio: Sequence[str] = (),
     decoding_params: Mapping[str, object] | None = None,
 ) -> dict[str, object]:
     """Build the llama-server chat-completions JSON body (module docstring
@@ -205,6 +216,7 @@ def build_request_payload(
     }
     content: list[dict[str, object]] = [{"type": "text", "text": text} for text in supplied_text]
     content.append(audio_part)
+    content.extend({"type": "text", "text": text} for text in supplied_text_after_audio)
     body: dict[str, object] = {
         "messages": [
             {"role": "system", "content": task_instruction},
@@ -266,6 +278,7 @@ class LlamaServerTransport:
         audio_path: Path,
         audio_seconds: float,
         supplied_text: Sequence[str] = (),
+        supplied_text_after_audio: Sequence[str] = (),
         decoding_params: Mapping[str, object] | None = None,
     ) -> ModelResponse:
         if not isinstance(request_id, str) or not request_id:
@@ -296,6 +309,7 @@ class LlamaServerTransport:
                 task_instruction=task_instruction,
                 audio_path=audio_path,
                 supplied_text=supplied_text,
+                supplied_text_after_audio=supplied_text_after_audio,
                 decoding_params=decoding_params,
             )
             started_at = _iso_now()
