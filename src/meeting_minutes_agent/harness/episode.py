@@ -36,9 +36,12 @@ from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any, Callable, Mapping, Sequence
 
+from ..chunking.constants import TASK_CHUNK_MAX_S, TASK_CHUNK_MIN_S, TASK_CHUNK_TARGET_S
+from ..chunking.leakage import BoundaryProvenance
 from ..chunking.models import Chunk, ChunkPlan, SegmentLike
-from ..chunking.planner import DEFAULT_WINDOW_CAP_S, build_chunk_plan
+from ..chunking.planner import build_chunk_plan
 from ..client.budgets import BudgetLimits, CallBudget
+from ..context_budget import SlotContextConfig
 from ..client.component import MeetingCoreClient
 from ..client.receipts import FlightReceipt, ServerIdentity
 from ..controller.assembly import (
@@ -68,12 +71,25 @@ class EpisodeHarnessConfig:
     spec's harness item explicitly. Every field is deliberately data a
     registered arm/probe config can set; no field encodes policy logic."""
 
-    window_cap_s: float = DEFAULT_WINDOW_CAP_S
+    target_chunk_s: float = TASK_CHUNK_TARGET_S
+    min_chunk_s: float = TASK_CHUNK_MIN_S
+    max_chunk_s: float = TASK_CHUNK_MAX_S
     chunk_mode: str = "auto"
     topic_marks: tuple[float, ...] = ()
+    boundary_provenance: BoundaryProvenance = BoundaryProvenance.SIGNAL
+    allow_oracle_boundaries: bool = False
+    # single_pass is gated behind an explicit opt-in even at the harness
+    # config surface (17-item change list item 3): chunk_mode="single_pass"
+    # without allow_single_pass=True still refuses, at plan time.
+    allow_single_pass: bool = False
+    slot_context: SlotContextConfig | None = None
     supply_arm: SupplyArmConfig = field(default_factory=SupplyArmConfig)
     glossary_arm: ArmKind = ArmKind.GATED
-    max_calls: int = 50
+    # 17-item change list item 13: once a call is a transport SLICE rather
+    # than a whole task chunk, dev-18 needs up to 33 slices/episode and
+    # ICSI's longest meeting needs ~69 (analysis SS8.5/SS7) -- 100 leaves
+    # headroom above both for the transcribe+summarize+ledger task set.
+    max_calls: int = 100
     max_audio_seconds: float = 36000.0
     decoding_params: Mapping[str, object] = field(default_factory=dict)
     workflow_timeout_seconds: float = DEFAULT_WORKFLOW_TIMEOUT_SECONDS
@@ -190,9 +206,15 @@ def run_episode(
     chunk_plan = build_chunk_plan(
         segments,
         meeting_id=meeting_id,
-        window_cap_s=config.window_cap_s,
+        target_chunk_s=config.target_chunk_s,
+        min_chunk_s=config.min_chunk_s,
+        max_chunk_s=config.max_chunk_s,
         topic_marks=config.topic_marks,
+        boundary_provenance=config.boundary_provenance,
+        allow_oracle_boundaries=config.allow_oracle_boundaries,
         mode=config.chunk_mode,
+        allow_single_pass=config.allow_single_pass,
+        slot_context=config.slot_context,
     )
 
     task_queue = TaskQueue()
