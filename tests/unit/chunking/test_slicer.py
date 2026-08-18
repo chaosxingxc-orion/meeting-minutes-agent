@@ -17,12 +17,14 @@ import soundfile as sf
 from meeting_minutes_agent.chunking.constants import (
     TRANSPORT_SLICE_MAX_S,
     TRANSPORT_SLICE_MIN_S,
+    TRANSPORT_SLICE_SNAP_S,
     TRANSPORT_SLICE_TARGET_S,
 )
 from meeting_minutes_agent.chunking.leakage import BoundaryLeakageTierViolation, BoundaryProvenance
 from meeting_minutes_agent.chunking.slicer import (
     SlicerError,
     SlicePlanMode,
+    TransportBoundViolation,
     TurnSpan,
     build_slice_manifest,
     build_turn_aware_slice_plan,
@@ -157,6 +159,63 @@ class TestVadSlicePlanPure:
         with pytest.raises(SlicerError):
             build_vad_slice_plan("m1", -1.0)
 
+    def test_trims_leading_non_speech_before_packing(self):
+        # A real leading-pause-run pair from detect_energy_pause_transitions:
+        # a 20s non-speech run at the very front (0.0 -> 20.0), then speech.
+        # The trim must exclude [0, 20) from the first slice entirely --
+        # never fold it in (module docstring: "trim... before packing").
+        plan = build_vad_slice_plan("m-lead", 110.0, pause_transitions=[0.0, 20.0])
+        assert plan.slices[0].start == pytest.approx(20.0)
+        assert plan.slices[0].start > 0.0
+        assert plan.slices[-1].end == pytest.approx(110.0)
+        assert plan.total_duration_s == pytest.approx(110.0)
+        for s in plan.slices:
+            assert s.duration <= TRANSPORT_SLICE_MAX_S
+
+    def test_trims_trailing_non_speech_before_packing(self):
+        # A real trailing-pause-run pair: speech, then a 20s non-speech run
+        # ending exactly at the file's own end (90.0 -> 110.0).
+        plan = build_vad_slice_plan("m-trail", 110.0, pause_transitions=[90.0, 110.0])
+        assert plan.slices[0].start == pytest.approx(0.0)
+        assert plan.slices[-1].end == pytest.approx(90.0)
+        assert plan.slices[-1].end < 110.0
+        assert plan.total_duration_s == pytest.approx(110.0)
+
+    def test_a_single_unpaired_transition_at_zero_does_not_trigger_a_trim(self):
+        # A lone snap point at 0.0 (no paired run-end) is exactly what
+        # existing single-value test fixtures pass -- must stay a no-op,
+        # not be mistaken for a real leading pause run.
+        plan = build_vad_slice_plan("m-lone", 200.0, pause_transitions=[0.0])
+        assert plan.slices[0].start == 0.0
+
+    def test_leading_and_trailing_trim_compose(self):
+        plan = build_vad_slice_plan("m-both", 150.0, pause_transitions=[0.0, 15.0, 130.0, 150.0])
+        assert plan.slices[0].start == pytest.approx(15.0)
+        assert plan.slices[-1].end == pytest.approx(130.0)
+
+
+class TestTransportBoundPostCondition:
+    def test_vad_mode_raises_on_a_synthetic_over_cap_slice(self):
+        # A caller-widened max_s (above the transport layer's own fixed
+        # TRANSPORT_SLICE_MAX_S) legitimately produces one 150s slice under
+        # THESE bounds -- the hard post-condition must still fire, because
+        # it checks against the fixed constant, never the caller's max_s.
+        with pytest.raises(TransportBoundViolation):
+            build_vad_slice_plan("m-synth", 150.0, nominal_s=150.0, min_s=100.0, max_s=200.0, snap_s=0.0)
+
+    def test_turn_aware_mode_raises_on_a_synthetic_over_cap_slice(self):
+        turns = (TurnSpan(0.0, 150.0, "A"),)
+        with pytest.raises(TransportBoundViolation):
+            build_turn_aware_slice_plan(
+                "m-synth2",
+                turns,
+                turn_provenance=BoundaryProvenance.TOOL_DIAR,
+                nominal_s=150.0,
+                min_s=100.0,
+                max_s=200.0,
+                snap_s=0.0,
+            )
+
 
 # ---------------------------------------------------------------------------
 # turn-aware mode -- pure, no audio I/O
@@ -245,6 +304,40 @@ class TestTurnAwareSlicePlan:
     def test_turn_span_rejects_end_not_after_start(self):
         with pytest.raises(SlicerError):
             TurnSpan(5.0, 5.0, "A").validate()
+
+    def test_leading_non_speech_does_not_get_pulled_into_the_first_slice(self):
+        # 30s of leading non-speech before the first turn, then 11 turns
+        # (period 9.5s) that pack/merge into one ~103.5s group ending at
+        # 133s -- with the pre-fix gap-tiling bug, the first slice's start
+        # was forced to 0.0, adding the full 30s lead on top and pushing
+        # the slice to 134s (> TRANSPORT_SLICE_MAX_S=120s). Fixed: the
+        # first slice starts at the first turn's own start, pulled back by
+        # at most snap_s.
+        turns = _turn_train(11, 8.0, 1.5, start=30.0)
+        plan = build_turn_aware_slice_plan(
+            "m-lead", turns, turn_provenance=BoundaryProvenance.TOOL_DIAR, total_duration_s=134.0
+        )
+        assert len(plan.slices) == 1  # the short trailing group merges back in (fits under max_s)
+        assert plan.slices[0].start == pytest.approx(30.0 - TRANSPORT_SLICE_SNAP_S)
+        assert plan.slices[0].start > 0.0
+        for s in plan.slices:
+            assert s.duration <= TRANSPORT_SLICE_MAX_S
+
+    def test_trailing_non_speech_does_not_get_pulled_into_the_last_slice(self):
+        # A single 100s turn, then 25s of trailing non-speech before the
+        # meeting's declared end at 125s -- with the pre-fix gap-tiling
+        # bug, the last slice's end was forced out to the FULL
+        # total_duration_s, giving a 125s slice (> 120s max). Fixed: the
+        # last slice ends at the last turn's own end, extended by at most
+        # snap_s.
+        turns = (TurnSpan(0.0, 100.0, "A"),)
+        plan = build_turn_aware_slice_plan(
+            "m-trail", turns, turn_provenance=BoundaryProvenance.TOOL_DIAR, total_duration_s=125.0
+        )
+        assert len(plan.slices) == 1
+        assert plan.slices[-1].end == pytest.approx(100.0 + TRANSPORT_SLICE_SNAP_S)
+        assert plan.slices[-1].end < 125.0
+        assert plan.slices[-1].duration <= TRANSPORT_SLICE_MAX_S
 
 
 # ---------------------------------------------------------------------------

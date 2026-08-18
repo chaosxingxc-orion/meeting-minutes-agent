@@ -32,7 +32,17 @@ Both modes share: **zero overlap** (overlap exists only to serve a dedup
 stitch, and the dedup stitch is where 86% of SAEA's deletions were made),
 hard bounds ``[min_s, max_s]`` after snapping/packing, and a boundary
 source that is signal- or turn-derived only -- **never** a model-declared
-boundary (analysis SS8.1).
+boundary (analysis SS8.1). Both modes also trim, never absorb, leading/
+trailing non-speech: turn-aware mode's first/last slice starts/ends at the
+first/last turn's own edge (pulled out by at most ``snap_s``), and VAD
+mode trims a leading/trailing energy-floor pause run before tiling --
+neither mode ever stretches an edge slice all the way to absolute 0 or the
+full meeting duration just because that is where the audio file happens to
+end. Both modes finish behind the same hard post-condition
+(:func:`_finalize_slice_plan`): every emitted slice's duration is
+re-checked against :data:`TRANSPORT_SLICE_MAX_S` and a violation raises
+:class:`TransportBoundViolation` rather than shipping a manifest
+``client/transport.py`` would refuse mid-flight.
 
 :func:`materialize_slice_plan` / :func:`build_slice_manifest` do the one
 real I/O this module performs: decode the source audio ONCE, normalize to
@@ -72,6 +82,18 @@ DEFAULT_ENERGY_FRAME_S = 0.02
 class SlicerError(ValueError):
     """A slice-plan input was invalid (bad bounds, an inadmissible turn-
     table provenance, ...)."""
+
+
+class TransportBoundViolation(SlicerError):
+    """A finalized slice plan carries a slice whose duration exceeds
+    :data:`TRANSPORT_SLICE_MAX_S`, the transport layer's own hard
+    per-request cap (``client/transport.py``'s
+    ``max_audio_seconds_per_request``). Raised by the hard post-condition
+    every :class:`SlicePlan` passes through before it is handed back to a
+    caller (:func:`_finalize_slice_plan`) -- belt-and-braces beyond any
+    packing-logic correctness a mode's own tiling is supposed to guarantee:
+    a manifest must never freeze a slice the transport layer will refuse
+    mid-flight."""
 
 
 def _validate_bounds(nominal_s: float, min_s: float, max_s: float, snap_s: float) -> None:
@@ -211,10 +233,31 @@ def _plan_payload(
     }
 
 
+def _assert_transport_bound(slices: Sequence[Slice]) -> None:
+    """Hard post-condition (module docstring, both modes): every emitted
+    slice's duration must fit the transport layer's own hard per-request
+    cap regardless of what ``max_s`` a caller packed against -- checked
+    against the fixed :data:`TRANSPORT_SLICE_MAX_S` constant, never the
+    caller's own (possibly wider) ``max_s`` parameter, because that
+    constant is what ``client/transport.py``'s
+    ``max_audio_seconds_per_request`` actually enforces as a hard refusal.
+    Fail-closed: a violation raises rather than shipping a manifest a real
+    flight's transport layer would refuse mid-run."""
+
+    for sl in slices:
+        if sl.duration > TRANSPORT_SLICE_MAX_S:
+            raise TransportBoundViolation(
+                f"slice {sl.index} (start={sl.start}, end={sl.end}) has duration {sl.duration}s, which "
+                f"exceeds the transport layer's hard cap TRANSPORT_SLICE_MAX_S={TRANSPORT_SLICE_MAX_S}s -- "
+                "a slice plan must never carry a slice client/transport.py would refuse to send"
+            )
+
+
 def _finalize_slice_plan(
     meeting_id: str, mode: SlicePlanMode, turn_provenance: BoundaryProvenance | None, total_duration_s: float,
     slices: Sequence[Slice],
 ) -> SlicePlan:
+    _assert_transport_bound(slices)
     payload = _plan_payload(meeting_id, mode, turn_provenance, total_duration_s, slices)
     return SlicePlan(
         meeting_id=meeting_id,
@@ -237,6 +280,46 @@ def _snap_boundary(nominal_t: float, transitions: Sequence[float], *, window_s: 
         return nominal_t, False
     best = min(candidates, key=lambda tr: (abs(tr - nominal_t), tr))
     return best, True
+
+
+def _leading_trailing_trim(total_duration_s: float, transitions: Sequence[float]) -> tuple[float, float]:
+    """How much non-speech to trim off the very front and very back of the
+    file before tiling (VAD mode's counterpart of turn-aware mode's "first
+    slice starts at the first turn" rule -- module docstring, "trim
+    leading/trailing non-speech below an energy floor before packing").
+
+    ``transitions`` is the flat, sorted, deduplicated set of pause-run
+    boundary points :func:`detect_energy_pause_transitions` emits -- each
+    qualifying non-speech run contributes BOTH its start and its end, so a
+    leading run shows up as ``transitions[0] == 0.0`` paired with
+    ``transitions[1]`` (its end), and a trailing run as
+    ``transitions[-1] == total_duration_s`` paired with ``transitions[-2]``
+    (its start). A lone, unpaired transition that happens to equal ``0.0``
+    or ``total_duration_s`` (e.g. a hand-built test fixture passing a
+    single snap point rather than a real detector's pair) is NOT treated
+    as a leading/trailing run: trimming only fires when a full pair is
+    present, so this stays a no-op for every existing caller that hands in
+    an arbitrary transition list rather than real pause-run pairs."""
+
+    if len(transitions) < 2:
+        return 0.0, 0.0
+    ordered = sorted(transitions)
+    leading = ordered[1] if math.isclose(ordered[0], 0.0, abs_tol=1e-6) else 0.0
+    trailing = (
+        total_duration_s - ordered[-2]
+        if math.isclose(ordered[-1], total_duration_s, abs_tol=1e-6)
+        else 0.0
+    )
+    if leading < 0.0:
+        leading = 0.0
+    if trailing < 0.0:
+        trailing = 0.0
+    # Guard against adjacent/overlapping runs collapsing the packable
+    # window to nothing (or negative) -- fall back to no trim rather than
+    # produce an empty plan for real audio.
+    if leading + trailing >= total_duration_s:
+        return 0.0, 0.0
+    return leading, trailing
 
 
 def _grid_walk_with_snap(
@@ -306,8 +389,21 @@ def build_vad_slice_plan(
     if not math.isfinite(total_duration_s) or total_duration_s < 0:
         raise SlicerError(f"total_duration_s must be a finite, non-negative number, got {total_duration_s!r}")
 
-    raw = _grid_walk_with_snap(total_duration_s, pause_transitions, nominal_s=nominal_s, min_s=min_s, max_s=max_s, snap_s=snap_s)
-    slices = tuple(Slice(index=i, start=s, end=e, vad_snap_applied=snapped) for i, (s, e, snapped) in enumerate(raw))
+    # Trim leading/trailing non-speech BEFORE tiling (module docstring) --
+    # never fold it into an edge slice the way the pre-fix turn-aware
+    # gap-tiling step used to. Reuse the same [0, packable) walk by
+    # shifting the transitions into the trimmed frame, then shift the
+    # resulting bounds back.
+    leading_trim, trailing_trim = _leading_trailing_trim(total_duration_s, pause_transitions)
+    packable_duration_s = total_duration_s - leading_trim - trailing_trim
+    shifted_transitions = [t - leading_trim for t in pause_transitions]
+    raw = _grid_walk_with_snap(
+        packable_duration_s, shifted_transitions, nominal_s=nominal_s, min_s=min_s, max_s=max_s, snap_s=snap_s
+    )
+    slices = tuple(
+        Slice(index=i, start=s + leading_trim, end=e + leading_trim, vad_snap_applied=snapped)
+        for i, (s, e, snapped) in enumerate(raw)
+    )
     return _finalize_slice_plan(meeting_id, SlicePlanMode.VAD, None, total_duration_s, slices)
 
 
@@ -424,8 +520,27 @@ def build_turn_aware_slice_plan(
                 bounds = bounds[:-2] + [(prev_start, last_end, False)]
 
     # Tile inter-turn silence gaps at their midpoint (never inside a turn,
-    # by construction) rather than dropping that audio; extend the outer
-    # edges to the known meeting span when total_duration_s is given.
+    # by construction) rather than dropping that audio. The OUTER edges
+    # (before the first turn, after the last turn) are different: that
+    # silence is not between two turns needing a midpoint split, it is
+    # leading/trailing non-speech the meeting may carry arbitrarily much
+    # of. The first slice therefore starts at the first turn's own start,
+    # the last slice ends at the last turn's own end, each pulled back/out
+    # by AT MOST ``snap_s`` (the same margin VAD-mode snapping already
+    # uses) and clamped to the known meeting span -- never all the way to
+    # absolute 0 / total_duration_s, which is what used to tile arbitrary
+    # leading/trailing silence straight into an edge slice and push it past
+    # TRANSPORT_SLICE_MAX_S (docs/readiness/2026-08-18-chunk-slice-
+    # granularity-analysis.md SS8.1; observed on real AMI turn tables via
+    # scripts/build_pattr_manifest.py's find_oversized_slices). The margin
+    # actually applied is further capped to whatever room is left under
+    # ``max_s`` for that edge slice: gap-midpoint tiling above may already
+    # have pulled an edge slice's own boundary close to ``max_s``, and a
+    # flat ``snap_s`` push on top of that (observed on a real synthetic
+    # fixture: a 117.5s edge slice + a flat 3s push = 120.5s) is exactly
+    # the kind of small overshoot :func:`_assert_transport_bound` exists to
+    # catch -- so the margin here is room-aware instead of flat, and never
+    # produces a violation in the first place.
     tiled: list[list[float]] = [[s, e] for s, e, _ in bounds]
     for k in range(len(tiled) - 1):
         gap_end = tiled[k][1]
@@ -435,8 +550,18 @@ def build_turn_aware_slice_plan(
             tiled[k][1] = midpoint
             tiled[k + 1][0] = midpoint
     if total_duration_s is not None and tiled:
-        tiled[0][0] = min(tiled[0][0], 0.0) if tiled[0][0] > 0 else 0.0
-        tiled[-1][1] = max(tiled[-1][1], total_duration_s)
+        first_start, first_end = tiled[0]
+        pullback = min(snap_s, max(0.0, max_s - (first_end - first_start)))
+        tiled[0][0] = max(0.0, first_start - pullback)
+
+        # Re-read tiled[-1] (not the pre-loop ``bounds`` values): when
+        # there is exactly one slice, tiled[-1] IS tiled[0], and the
+        # pullback just applied above must count against this edge's own
+        # remaining room too.
+        last_start, last_end = tiled[-1]
+        push = min(snap_s, max(0.0, max_s - (last_end - last_start)))
+        extended_end = last_end + push
+        tiled[-1][1] = max(last_end, min(extended_end, total_duration_s))
 
     final_bounds = [(s, e, snapped) for (s, e), (_, _, snapped) in zip(tiled, bounds)]
     slices_no_turns = [
@@ -777,6 +902,7 @@ __all__ = [
     "DEFAULT_ENERGY_FLOOR_PERCENTILE",
     "DEFAULT_ENERGY_FRAME_S",
     "SlicerError",
+    "TransportBoundViolation",
     "TurnSpan",
     "SliceTurnEntry",
     "Slice",

@@ -390,20 +390,26 @@ def find_oversized_slices(
     the default of
     :attr:`meeting_minutes_agent.client.transport.TransportConfig.max_audio_seconds_per_request`).
 
-    Found on real AMI turn tables (recorded for coordinator review, not a
-    defect this script introduces): :mod:`meeting_minutes_agent.chunking.
-    slicer`'s turn-aware packing itself respects ``max_s`` while grouping
-    turns, but its SUBSEQUENT inter-turn-silence gap-tiling step (module
-    docstring: "extend the outer edges to the known meeting span... tile
-    inter-turn silence gaps at their midpoint") can push a slice's final
-    duration past ``max_s`` -- observed on every meeting's OWN first slice
-    when that meeting has leading silence before its first gold turn (the
-    common AMI case): the first slice's start gets pulled back to ``0.0``
-    AND its end gets pushed outward by the gap-midpoint tiling against
-    slice 1, compounding past the bound. This script does not modify
-    :mod:`meeting_minutes_agent.chunking.slicer` (out of this mission's
-    scope); it records every violation here instead of silently shipping a
-    manifest a real flight's transport layer would refuse mid-run."""
+    Historical note (fixed, kept for provenance): this used to fire on
+    every meeting's OWN first slice whenever that meeting had leading
+    silence before its first gold turn (the common AMI case).
+    :mod:`meeting_minutes_agent.chunking.slicer`'s turn-aware packing
+    itself always respected ``max_s`` while grouping turns, but its
+    SUBSEQUENT inter-turn-silence gap-tiling step used to pull the first
+    slice's start all the way back to ``0.0`` (and the last slice's end
+    all the way out to the meeting's full ``total_duration_s``) instead of
+    stopping at the first/last turn's own edge -- tiling arbitrary
+    leading/trailing non-speech straight into an edge slice and pushing it
+    past ``max_s``. That gap-tiling step is now fixed at the source
+    (:func:`~meeting_minutes_agent.chunking.slicer.build_turn_aware_slice_plan`
+    now anchors an edge slice to its own first/last turn, pulled back/out
+    by at most ``snap_s`` and room-capped so it can never itself exceed
+    ``max_s``), and :mod:`meeting_minutes_agent.chunking.slicer` additionally
+    now raises :class:`~meeting_minutes_agent.chunking.slicer.
+    TransportBoundViolation` as a hard post-condition before a plan is ever
+    returned, so an oversized slice can no longer reach this diagnostic in
+    the first place. This function remains as belt-and-braces: it should
+    always return an empty tuple on a real build."""
 
     violations: list[dict[str, Any]] = []
     for meeting_id, rec in meetings.items():
