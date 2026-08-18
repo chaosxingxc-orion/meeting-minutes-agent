@@ -1,0 +1,2497 @@
+{
+  "assignment_rules": {
+    "R1": "meeting in frozen ASR dev-18 -> asr-eval",
+    "R2": "meeting in frozen ASR eval-16 -> held-out-confirmatory",
+    "R3": "meeting in held-out-137 and MeetingQA test split -> qa-eval",
+    "R4": "meeting in held-out-137, not R3, with a full annotation stack -> glossary-discovery",
+    "R5": "otherwise -> held-out-reserve",
+    "order": "first match wins; the assignment is total over the roster"
+  },
+  "corpus": {
+    "lock_key": "ami-meeting-corpus",
+    "n_meetings": 171,
+    "name": "ami-meeting-corpus",
+    "roster_source": "on-disk amicorpus/<ID>/ directories"
+  },
+  "frozen_splits": {
+    "dev_18": [
+      "ES2011a",
+      "ES2011b",
+      "ES2011c",
+      "ES2011d",
+      "IS1008a",
+      "IS1008b",
+      "IS1008c",
+      "IS1008d",
+      "TS3004a",
+      "TS3004b",
+      "TS3004c",
+      "TS3004d",
+      "IB4001",
+      "IB4002",
+      "IB4003",
+      "IB4004",
+      "IB4010",
+      "IB4011"
+    ],
+    "eval_16": [
+      "ES2004a",
+      "ES2004b",
+      "ES2004c",
+      "ES2004d",
+      "IS1009a",
+      "IS1009b",
+      "IS1009c",
+      "IS1009d",
+      "TS3003a",
+      "TS3003b",
+      "TS3003c",
+      "TS3003d",
+      "EN2002a",
+      "EN2002b",
+      "EN2002c",
+      "EN2002d"
+    ]
+  },
+  "meetings": {
+    "EN2001a": {
+      "asr_partition": "held-out-137",
+      "full_annotation_stack": false,
+      "meetingqa_questions": 145,
+      "meetingqa_split": "test",
+      "qmsum_split": null,
+      "role": "qa-eval",
+      "rule": "R3"
+    },
+    "EN2001b": {
+      "asr_partition": "held-out-137",
+      "full_annotation_stack": false,
+      "meetingqa_questions": 77,
+      "meetingqa_split": "dev",
+      "qmsum_split": null,
+      "role": "held-out-reserve",
+      "rule": "R5"
+    },
+    "EN2001d": {
+      "asr_partition": "held-out-137",
+      "full_annotation_stack": false,
+      "meetingqa_questions": 93,
+      "meetingqa_split": "train",
+      "qmsum_split": null,
+      "role": "held-out-reserve",
+      "rule": "R5"
+    },
+    "EN2001e": {
+      "asr_partition": "held-out-137",
+      "full_annotation_stack": false,
+      "meetingqa_questions": 78,
+      "meetingqa_split": "dev",
+      "qmsum_split": null,
+      "role": "held-out-reserve",
+      "rule": "R5"
+    },
+    "EN2002a": {
+      "asr_partition": "eval-16",
+      "full_annotation_stack": false,
+      "meetingqa_questions": 98,
+      "meetingqa_split": "dev",
+      "qmsum_split": null,
+      "role": "held-out-confirmatory",
+      "rule": "R2"
+    },
+    "EN2002b": {
+      "asr_partition": "eval-16",
+      "full_annotation_stack": false,
+      "meetingqa_questions": 47,
+      "meetingqa_split": "test",
+      "qmsum_split": null,
+      "role": "held-out-confirmatory",
+      "rule": "R2"
+    },
+    "EN2002c": {
+      "asr_partition": "eval-16",
+      "full_annotation_stack": false,
+      "meetingqa_questions": 104,
+      "meetingqa_split": "test",
+      "qmsum_split": null,
+      "role": "held-out-confirmatory",
+      "rule": "R2"
+    },
+    "EN2002d": {
+      "asr_partition": "eval-16",
+      "full_annotation_stack": false,
+      "meetingqa_questions": 79,
+      "meetingqa_split": "train",
+      "qmsum_split": null,
+      "role": "held-out-confirmatory",
+      "rule": "R2"
+    },
+    "EN2003a": {
+      "asr_partition": "held-out-137",
+      "full_annotation_stack": false,
+      "meetingqa_questions": 63,
+      "meetingqa_split": "train",
+      "qmsum_split": null,
+      "role": "held-out-reserve",
+      "rule": "R5"
+    },
+    "EN2004a": {
+      "asr_partition": "held-out-137",
+      "full_annotation_stack": false,
+      "meetingqa_questions": 65,
+      "meetingqa_split": "test",
+      "qmsum_split": null,
+      "role": "qa-eval",
+      "rule": "R3"
+    },
+    "EN2005a": {
+      "asr_partition": "held-out-137",
+      "full_annotation_stack": false,
+      "meetingqa_questions": 92,
+      "meetingqa_split": "train",
+      "qmsum_split": null,
+      "role": "held-out-reserve",
+      "rule": "R5"
+    },
+    "EN2006a": {
+      "asr_partition": "held-out-137",
+      "full_annotation_stack": false,
+      "meetingqa_questions": 119,
+      "meetingqa_split": "test",
+      "qmsum_split": null,
+      "role": "qa-eval",
+      "rule": "R3"
+    },
+    "EN2006b": {
+      "asr_partition": "held-out-137",
+      "full_annotation_stack": false,
+      "meetingqa_questions": 90,
+      "meetingqa_split": "test",
+      "qmsum_split": null,
+      "role": "qa-eval",
+      "rule": "R3"
+    },
+    "EN2009b": {
+      "asr_partition": "held-out-137",
+      "full_annotation_stack": false,
+      "meetingqa_questions": 53,
+      "meetingqa_split": "test",
+      "qmsum_split": null,
+      "role": "qa-eval",
+      "rule": "R3"
+    },
+    "EN2009c": {
+      "asr_partition": "held-out-137",
+      "full_annotation_stack": false,
+      "meetingqa_questions": 67,
+      "meetingqa_split": "dev",
+      "qmsum_split": null,
+      "role": "held-out-reserve",
+      "rule": "R5"
+    },
+    "EN2009d": {
+      "asr_partition": "held-out-137",
+      "full_annotation_stack": false,
+      "meetingqa_questions": 123,
+      "meetingqa_split": "dev",
+      "qmsum_split": null,
+      "role": "held-out-reserve",
+      "rule": "R5"
+    },
+    "ES2002a": {
+      "asr_partition": "held-out-137",
+      "full_annotation_stack": true,
+      "meetingqa_questions": 32,
+      "meetingqa_split": "train",
+      "qmsum_split": "train",
+      "role": "glossary-discovery",
+      "rule": "R4"
+    },
+    "ES2002b": {
+      "asr_partition": "held-out-137",
+      "full_annotation_stack": true,
+      "meetingqa_questions": 64,
+      "meetingqa_split": "test",
+      "qmsum_split": "train",
+      "role": "qa-eval",
+      "rule": "R3"
+    },
+    "ES2002c": {
+      "asr_partition": "held-out-137",
+      "full_annotation_stack": true,
+      "meetingqa_questions": 77,
+      "meetingqa_split": "train",
+      "qmsum_split": "train",
+      "role": "glossary-discovery",
+      "rule": "R4"
+    },
+    "ES2002d": {
+      "asr_partition": "held-out-137",
+      "full_annotation_stack": true,
+      "meetingqa_questions": 102,
+      "meetingqa_split": "train",
+      "qmsum_split": "train",
+      "role": "glossary-discovery",
+      "rule": "R4"
+    },
+    "ES2003a": {
+      "asr_partition": "held-out-137",
+      "full_annotation_stack": true,
+      "meetingqa_questions": 16,
+      "meetingqa_split": "dev",
+      "qmsum_split": "train",
+      "role": "glossary-discovery",
+      "rule": "R4"
+    },
+    "ES2003b": {
+      "asr_partition": "held-out-137",
+      "full_annotation_stack": true,
+      "meetingqa_questions": 24,
+      "meetingqa_split": "test",
+      "qmsum_split": "train",
+      "role": "qa-eval",
+      "rule": "R3"
+    },
+    "ES2003c": {
+      "asr_partition": "held-out-137",
+      "full_annotation_stack": true,
+      "meetingqa_questions": 34,
+      "meetingqa_split": "test",
+      "qmsum_split": "train",
+      "role": "qa-eval",
+      "rule": "R3"
+    },
+    "ES2003d": {
+      "asr_partition": "held-out-137",
+      "full_annotation_stack": true,
+      "meetingqa_questions": 64,
+      "meetingqa_split": "train",
+      "qmsum_split": "train",
+      "role": "glossary-discovery",
+      "rule": "R4"
+    },
+    "ES2004a": {
+      "asr_partition": "eval-16",
+      "full_annotation_stack": true,
+      "meetingqa_questions": 25,
+      "meetingqa_split": "test",
+      "qmsum_split": "test",
+      "role": "held-out-confirmatory",
+      "rule": "R2"
+    },
+    "ES2004b": {
+      "asr_partition": "eval-16",
+      "full_annotation_stack": true,
+      "meetingqa_questions": 47,
+      "meetingqa_split": "train",
+      "qmsum_split": "test",
+      "role": "held-out-confirmatory",
+      "rule": "R2"
+    },
+    "ES2004c": {
+      "asr_partition": "eval-16",
+      "full_annotation_stack": true,
+      "meetingqa_questions": 47,
+      "meetingqa_split": "test",
+      "qmsum_split": "test",
+      "role": "held-out-confirmatory",
+      "rule": "R2"
+    },
+    "ES2004d": {
+      "asr_partition": "eval-16",
+      "full_annotation_stack": true,
+      "meetingqa_questions": 72,
+      "meetingqa_split": "train",
+      "qmsum_split": "test",
+      "role": "held-out-confirmatory",
+      "rule": "R2"
+    },
+    "ES2005a": {
+      "asr_partition": "held-out-137",
+      "full_annotation_stack": true,
+      "meetingqa_questions": 9,
+      "meetingqa_split": "train",
+      "qmsum_split": "train",
+      "role": "glossary-discovery",
+      "rule": "R4"
+    },
+    "ES2005b": {
+      "asr_partition": "held-out-137",
+      "full_annotation_stack": true,
+      "meetingqa_questions": 49,
+      "meetingqa_split": "test",
+      "qmsum_split": "train",
+      "role": "qa-eval",
+      "rule": "R3"
+    },
+    "ES2005c": {
+      "asr_partition": "held-out-137",
+      "full_annotation_stack": true,
+      "meetingqa_questions": 67,
+      "meetingqa_split": "dev",
+      "qmsum_split": "train",
+      "role": "glossary-discovery",
+      "rule": "R4"
+    },
+    "ES2005d": {
+      "asr_partition": "held-out-137",
+      "full_annotation_stack": true,
+      "meetingqa_questions": 44,
+      "meetingqa_split": "train",
+      "qmsum_split": "train",
+      "role": "glossary-discovery",
+      "rule": "R4"
+    },
+    "ES2006a": {
+      "asr_partition": "held-out-137",
+      "full_annotation_stack": true,
+      "meetingqa_questions": 26,
+      "meetingqa_split": "dev",
+      "qmsum_split": "val",
+      "role": "glossary-discovery",
+      "rule": "R4"
+    },
+    "ES2006b": {
+      "asr_partition": "held-out-137",
+      "full_annotation_stack": true,
+      "meetingqa_questions": 38,
+      "meetingqa_split": "dev",
+      "qmsum_split": "val",
+      "role": "glossary-discovery",
+      "rule": "R4"
+    },
+    "ES2006c": {
+      "asr_partition": "held-out-137",
+      "full_annotation_stack": false,
+      "meetingqa_questions": 41,
+      "meetingqa_split": "train",
+      "qmsum_split": "val",
+      "role": "held-out-reserve",
+      "rule": "R5"
+    },
+    "ES2006d": {
+      "asr_partition": "held-out-137",
+      "full_annotation_stack": true,
+      "meetingqa_questions": 71,
+      "meetingqa_split": "test",
+      "qmsum_split": "val",
+      "role": "qa-eval",
+      "rule": "R3"
+    },
+    "ES2007a": {
+      "asr_partition": "held-out-137",
+      "full_annotation_stack": true,
+      "meetingqa_questions": 30,
+      "meetingqa_split": "test",
+      "qmsum_split": "train",
+      "role": "qa-eval",
+      "rule": "R3"
+    },
+    "ES2007b": {
+      "asr_partition": "held-out-137",
+      "full_annotation_stack": true,
+      "meetingqa_questions": 36,
+      "meetingqa_split": "test",
+      "qmsum_split": "train",
+      "role": "qa-eval",
+      "rule": "R3"
+    },
+    "ES2007c": {
+      "asr_partition": "held-out-137",
+      "full_annotation_stack": true,
+      "meetingqa_questions": 49,
+      "meetingqa_split": "dev",
+      "qmsum_split": "train",
+      "role": "glossary-discovery",
+      "rule": "R4"
+    },
+    "ES2007d": {
+      "asr_partition": "held-out-137",
+      "full_annotation_stack": true,
+      "meetingqa_questions": 33,
+      "meetingqa_split": "train",
+      "qmsum_split": "train",
+      "role": "glossary-discovery",
+      "rule": "R4"
+    },
+    "ES2008a": {
+      "asr_partition": "held-out-137",
+      "full_annotation_stack": true,
+      "meetingqa_questions": 16,
+      "meetingqa_split": "dev",
+      "qmsum_split": "train",
+      "role": "glossary-discovery",
+      "rule": "R4"
+    },
+    "ES2008b": {
+      "asr_partition": "held-out-137",
+      "full_annotation_stack": true,
+      "meetingqa_questions": 39,
+      "meetingqa_split": "dev",
+      "qmsum_split": "train",
+      "role": "glossary-discovery",
+      "rule": "R4"
+    },
+    "ES2008c": {
+      "asr_partition": "held-out-137",
+      "full_annotation_stack": true,
+      "meetingqa_questions": 49,
+      "meetingqa_split": "train",
+      "qmsum_split": "train",
+      "role": "glossary-discovery",
+      "rule": "R4"
+    },
+    "ES2008d": {
+      "asr_partition": "held-out-137",
+      "full_annotation_stack": true,
+      "meetingqa_questions": 70,
+      "meetingqa_split": "test",
+      "qmsum_split": "train",
+      "role": "qa-eval",
+      "rule": "R3"
+    },
+    "ES2009a": {
+      "asr_partition": "held-out-137",
+      "full_annotation_stack": true,
+      "meetingqa_questions": 29,
+      "meetingqa_split": "dev",
+      "qmsum_split": "val",
+      "role": "glossary-discovery",
+      "rule": "R4"
+    },
+    "ES2009b": {
+      "asr_partition": "held-out-137",
+      "full_annotation_stack": true,
+      "meetingqa_questions": 25,
+      "meetingqa_split": "train",
+      "qmsum_split": "val",
+      "role": "glossary-discovery",
+      "rule": "R4"
+    },
+    "ES2009c": {
+      "asr_partition": "held-out-137",
+      "full_annotation_stack": true,
+      "meetingqa_questions": 37,
+      "meetingqa_split": "test",
+      "qmsum_split": "val",
+      "role": "qa-eval",
+      "rule": "R3"
+    },
+    "ES2009d": {
+      "asr_partition": "held-out-137",
+      "full_annotation_stack": true,
+      "meetingqa_questions": 74,
+      "meetingqa_split": "train",
+      "qmsum_split": "val",
+      "role": "glossary-discovery",
+      "rule": "R4"
+    },
+    "ES2010a": {
+      "asr_partition": "held-out-137",
+      "full_annotation_stack": true,
+      "meetingqa_questions": 18,
+      "meetingqa_split": "train",
+      "qmsum_split": "train",
+      "role": "glossary-discovery",
+      "rule": "R4"
+    },
+    "ES2010b": {
+      "asr_partition": "held-out-137",
+      "full_annotation_stack": true,
+      "meetingqa_questions": 51,
+      "meetingqa_split": "dev",
+      "qmsum_split": "train",
+      "role": "glossary-discovery",
+      "rule": "R4"
+    },
+    "ES2010c": {
+      "asr_partition": "held-out-137",
+      "full_annotation_stack": true,
+      "meetingqa_questions": 47,
+      "meetingqa_split": "dev",
+      "qmsum_split": "train",
+      "role": "glossary-discovery",
+      "rule": "R4"
+    },
+    "ES2010d": {
+      "asr_partition": "held-out-137",
+      "full_annotation_stack": true,
+      "meetingqa_questions": 32,
+      "meetingqa_split": "test",
+      "qmsum_split": "train",
+      "role": "qa-eval",
+      "rule": "R3"
+    },
+    "ES2011a": {
+      "asr_partition": "dev-18",
+      "full_annotation_stack": true,
+      "meetingqa_questions": 20,
+      "meetingqa_split": "dev",
+      "qmsum_split": "test",
+      "role": "asr-eval",
+      "rule": "R1"
+    },
+    "ES2011b": {
+      "asr_partition": "dev-18",
+      "full_annotation_stack": true,
+      "meetingqa_questions": 31,
+      "meetingqa_split": "dev",
+      "qmsum_split": "test",
+      "role": "asr-eval",
+      "rule": "R1"
+    },
+    "ES2011c": {
+      "asr_partition": "dev-18",
+      "full_annotation_stack": true,
+      "meetingqa_questions": 39,
+      "meetingqa_split": "train",
+      "qmsum_split": "test",
+      "role": "asr-eval",
+      "rule": "R1"
+    },
+    "ES2011d": {
+      "asr_partition": "dev-18",
+      "full_annotation_stack": true,
+      "meetingqa_questions": 70,
+      "meetingqa_split": "dev",
+      "qmsum_split": "test",
+      "role": "asr-eval",
+      "rule": "R1"
+    },
+    "ES2012a": {
+      "asr_partition": "held-out-137",
+      "full_annotation_stack": true,
+      "meetingqa_questions": 14,
+      "meetingqa_split": "test",
+      "qmsum_split": "train",
+      "role": "qa-eval",
+      "rule": "R3"
+    },
+    "ES2012b": {
+      "asr_partition": "held-out-137",
+      "full_annotation_stack": true,
+      "meetingqa_questions": 21,
+      "meetingqa_split": "train",
+      "qmsum_split": "train",
+      "role": "glossary-discovery",
+      "rule": "R4"
+    },
+    "ES2012c": {
+      "asr_partition": "held-out-137",
+      "full_annotation_stack": true,
+      "meetingqa_questions": 25,
+      "meetingqa_split": "train",
+      "qmsum_split": "train",
+      "role": "glossary-discovery",
+      "rule": "R4"
+    },
+    "ES2012d": {
+      "asr_partition": "held-out-137",
+      "full_annotation_stack": true,
+      "meetingqa_questions": 20,
+      "meetingqa_split": "train",
+      "qmsum_split": "train",
+      "role": "glossary-discovery",
+      "rule": "R4"
+    },
+    "ES2013a": {
+      "asr_partition": "held-out-137",
+      "full_annotation_stack": true,
+      "meetingqa_questions": 16,
+      "meetingqa_split": "dev",
+      "qmsum_split": "train",
+      "role": "glossary-discovery",
+      "rule": "R4"
+    },
+    "ES2013b": {
+      "asr_partition": "held-out-137",
+      "full_annotation_stack": true,
+      "meetingqa_questions": 46,
+      "meetingqa_split": "test",
+      "qmsum_split": "train",
+      "role": "qa-eval",
+      "rule": "R3"
+    },
+    "ES2013c": {
+      "asr_partition": "held-out-137",
+      "full_annotation_stack": true,
+      "meetingqa_questions": 27,
+      "meetingqa_split": "train",
+      "qmsum_split": "train",
+      "role": "glossary-discovery",
+      "rule": "R4"
+    },
+    "ES2013d": {
+      "asr_partition": "held-out-137",
+      "full_annotation_stack": true,
+      "meetingqa_questions": 43,
+      "meetingqa_split": "train",
+      "qmsum_split": "train",
+      "role": "glossary-discovery",
+      "rule": "R4"
+    },
+    "ES2014a": {
+      "asr_partition": "held-out-137",
+      "full_annotation_stack": true,
+      "meetingqa_questions": 14,
+      "meetingqa_split": "train",
+      "qmsum_split": "train",
+      "role": "glossary-discovery",
+      "rule": "R4"
+    },
+    "ES2014b": {
+      "asr_partition": "held-out-137",
+      "full_annotation_stack": true,
+      "meetingqa_questions": 47,
+      "meetingqa_split": "train",
+      "qmsum_split": "train",
+      "role": "glossary-discovery",
+      "rule": "R4"
+    },
+    "ES2014c": {
+      "asr_partition": "held-out-137",
+      "full_annotation_stack": true,
+      "meetingqa_questions": 55,
+      "meetingqa_split": "train",
+      "qmsum_split": "train",
+      "role": "glossary-discovery",
+      "rule": "R4"
+    },
+    "ES2014d": {
+      "asr_partition": "held-out-137",
+      "full_annotation_stack": true,
+      "meetingqa_questions": 66,
+      "meetingqa_split": "dev",
+      "qmsum_split": "train",
+      "role": "glossary-discovery",
+      "rule": "R4"
+    },
+    "ES2015a": {
+      "asr_partition": "held-out-137",
+      "full_annotation_stack": true,
+      "meetingqa_questions": 11,
+      "meetingqa_split": "dev",
+      "qmsum_split": "train",
+      "role": "glossary-discovery",
+      "rule": "R4"
+    },
+    "ES2015b": {
+      "asr_partition": "held-out-137",
+      "full_annotation_stack": false,
+      "meetingqa_questions": 55,
+      "meetingqa_split": "train",
+      "qmsum_split": "train",
+      "role": "held-out-reserve",
+      "rule": "R5"
+    },
+    "ES2015c": {
+      "asr_partition": "held-out-137",
+      "full_annotation_stack": false,
+      "meetingqa_questions": 53,
+      "meetingqa_split": "test",
+      "qmsum_split": "train",
+      "role": "qa-eval",
+      "rule": "R3"
+    },
+    "ES2015d": {
+      "asr_partition": "held-out-137",
+      "full_annotation_stack": true,
+      "meetingqa_questions": 73,
+      "meetingqa_split": "dev",
+      "qmsum_split": "train",
+      "role": "glossary-discovery",
+      "rule": "R4"
+    },
+    "ES2016a": {
+      "asr_partition": "held-out-137",
+      "full_annotation_stack": true,
+      "meetingqa_questions": 19,
+      "meetingqa_split": "dev",
+      "qmsum_split": "train",
+      "role": "glossary-discovery",
+      "rule": "R4"
+    },
+    "ES2016b": {
+      "asr_partition": "held-out-137",
+      "full_annotation_stack": true,
+      "meetingqa_questions": 25,
+      "meetingqa_split": "test",
+      "qmsum_split": "train",
+      "role": "qa-eval",
+      "rule": "R3"
+    },
+    "ES2016c": {
+      "asr_partition": "held-out-137",
+      "full_annotation_stack": true,
+      "meetingqa_questions": 34,
+      "meetingqa_split": "train",
+      "qmsum_split": "train",
+      "role": "glossary-discovery",
+      "rule": "R4"
+    },
+    "ES2016d": {
+      "asr_partition": "held-out-137",
+      "full_annotation_stack": true,
+      "meetingqa_questions": 35,
+      "meetingqa_split": "dev",
+      "qmsum_split": "train",
+      "role": "glossary-discovery",
+      "rule": "R4"
+    },
+    "IB4001": {
+      "asr_partition": "dev-18",
+      "full_annotation_stack": false,
+      "meetingqa_questions": 38,
+      "meetingqa_split": "train",
+      "qmsum_split": null,
+      "role": "asr-eval",
+      "rule": "R1"
+    },
+    "IB4002": {
+      "asr_partition": "dev-18",
+      "full_annotation_stack": false,
+      "meetingqa_questions": 64,
+      "meetingqa_split": "train",
+      "qmsum_split": null,
+      "role": "asr-eval",
+      "rule": "R1"
+    },
+    "IB4003": {
+      "asr_partition": "dev-18",
+      "full_annotation_stack": false,
+      "meetingqa_questions": 53,
+      "meetingqa_split": "dev",
+      "qmsum_split": null,
+      "role": "asr-eval",
+      "rule": "R1"
+    },
+    "IB4004": {
+      "asr_partition": "dev-18",
+      "full_annotation_stack": false,
+      "meetingqa_questions": 57,
+      "meetingqa_split": "test",
+      "qmsum_split": null,
+      "role": "asr-eval",
+      "rule": "R1"
+    },
+    "IB4005": {
+      "asr_partition": "held-out-137",
+      "full_annotation_stack": false,
+      "meetingqa_questions": 42,
+      "meetingqa_split": "dev",
+      "qmsum_split": null,
+      "role": "held-out-reserve",
+      "rule": "R5"
+    },
+    "IB4010": {
+      "asr_partition": "dev-18",
+      "full_annotation_stack": false,
+      "meetingqa_questions": 96,
+      "meetingqa_split": "dev",
+      "qmsum_split": null,
+      "role": "asr-eval",
+      "rule": "R1"
+    },
+    "IB4011": {
+      "asr_partition": "dev-18",
+      "full_annotation_stack": false,
+      "meetingqa_questions": 67,
+      "meetingqa_split": "test",
+      "qmsum_split": null,
+      "role": "asr-eval",
+      "rule": "R1"
+    },
+    "IN1001": {
+      "asr_partition": "held-out-137",
+      "full_annotation_stack": false,
+      "meetingqa_questions": 35,
+      "meetingqa_split": "train",
+      "qmsum_split": null,
+      "role": "held-out-reserve",
+      "rule": "R5"
+    },
+    "IN1002": {
+      "asr_partition": "held-out-137",
+      "full_annotation_stack": false,
+      "meetingqa_questions": 50,
+      "meetingqa_split": "test",
+      "qmsum_split": null,
+      "role": "qa-eval",
+      "rule": "R3"
+    },
+    "IN1005": {
+      "asr_partition": "held-out-137",
+      "full_annotation_stack": false,
+      "meetingqa_questions": 0,
+      "meetingqa_split": null,
+      "qmsum_split": null,
+      "role": "held-out-reserve",
+      "rule": "R5"
+    },
+    "IN1007": {
+      "asr_partition": "held-out-137",
+      "full_annotation_stack": false,
+      "meetingqa_questions": 0,
+      "meetingqa_split": null,
+      "qmsum_split": null,
+      "role": "held-out-reserve",
+      "rule": "R5"
+    },
+    "IN1008": {
+      "asr_partition": "held-out-137",
+      "full_annotation_stack": false,
+      "meetingqa_questions": 0,
+      "meetingqa_split": null,
+      "qmsum_split": null,
+      "role": "held-out-reserve",
+      "rule": "R5"
+    },
+    "IN1009": {
+      "asr_partition": "held-out-137",
+      "full_annotation_stack": false,
+      "meetingqa_questions": 14,
+      "meetingqa_split": "test",
+      "qmsum_split": null,
+      "role": "qa-eval",
+      "rule": "R3"
+    },
+    "IN1012": {
+      "asr_partition": "held-out-137",
+      "full_annotation_stack": false,
+      "meetingqa_questions": 0,
+      "meetingqa_split": null,
+      "qmsum_split": null,
+      "role": "held-out-reserve",
+      "rule": "R5"
+    },
+    "IN1013": {
+      "asr_partition": "held-out-137",
+      "full_annotation_stack": false,
+      "meetingqa_questions": 0,
+      "meetingqa_split": null,
+      "qmsum_split": null,
+      "role": "held-out-reserve",
+      "rule": "R5"
+    },
+    "IN1014": {
+      "asr_partition": "held-out-137",
+      "full_annotation_stack": false,
+      "meetingqa_questions": 55,
+      "meetingqa_split": "train",
+      "qmsum_split": null,
+      "role": "held-out-reserve",
+      "rule": "R5"
+    },
+    "IN1016": {
+      "asr_partition": "held-out-137",
+      "full_annotation_stack": false,
+      "meetingqa_questions": 52,
+      "meetingqa_split": "dev",
+      "qmsum_split": null,
+      "role": "held-out-reserve",
+      "rule": "R5"
+    },
+    "IS1000a": {
+      "asr_partition": "held-out-137",
+      "full_annotation_stack": true,
+      "meetingqa_questions": 25,
+      "meetingqa_split": "train",
+      "qmsum_split": "train",
+      "role": "glossary-discovery",
+      "rule": "R4"
+    },
+    "IS1000b": {
+      "asr_partition": "held-out-137",
+      "full_annotation_stack": true,
+      "meetingqa_questions": 33,
+      "meetingqa_split": "train",
+      "qmsum_split": "train",
+      "role": "glossary-discovery",
+      "rule": "R4"
+    },
+    "IS1000c": {
+      "asr_partition": "held-out-137",
+      "full_annotation_stack": true,
+      "meetingqa_questions": 23,
+      "meetingqa_split": "test",
+      "qmsum_split": "train",
+      "role": "qa-eval",
+      "rule": "R3"
+    },
+    "IS1000d": {
+      "asr_partition": "held-out-137",
+      "full_annotation_stack": true,
+      "meetingqa_questions": 84,
+      "meetingqa_split": "dev",
+      "qmsum_split": "train",
+      "role": "glossary-discovery",
+      "rule": "R4"
+    },
+    "IS1001a": {
+      "asr_partition": "held-out-137",
+      "full_annotation_stack": true,
+      "meetingqa_questions": 31,
+      "meetingqa_split": "dev",
+      "qmsum_split": "train",
+      "role": "glossary-discovery",
+      "rule": "R4"
+    },
+    "IS1001b": {
+      "asr_partition": "held-out-137",
+      "full_annotation_stack": true,
+      "meetingqa_questions": 51,
+      "meetingqa_split": "train",
+      "qmsum_split": "train",
+      "role": "glossary-discovery",
+      "rule": "R4"
+    },
+    "IS1001c": {
+      "asr_partition": "held-out-137",
+      "full_annotation_stack": true,
+      "meetingqa_questions": 40,
+      "meetingqa_split": "test",
+      "qmsum_split": "train",
+      "role": "qa-eval",
+      "rule": "R3"
+    },
+    "IS1001d": {
+      "asr_partition": "held-out-137",
+      "full_annotation_stack": true,
+      "meetingqa_questions": 27,
+      "meetingqa_split": "train",
+      "qmsum_split": "train",
+      "role": "glossary-discovery",
+      "rule": "R4"
+    },
+    "IS1002b": {
+      "asr_partition": "held-out-137",
+      "full_annotation_stack": true,
+      "meetingqa_questions": 46,
+      "meetingqa_split": "dev",
+      "qmsum_split": "train",
+      "role": "glossary-discovery",
+      "rule": "R4"
+    },
+    "IS1002c": {
+      "asr_partition": "held-out-137",
+      "full_annotation_stack": true,
+      "meetingqa_questions": 55,
+      "meetingqa_split": "train",
+      "qmsum_split": "train",
+      "role": "glossary-discovery",
+      "rule": "R4"
+    },
+    "IS1002d": {
+      "asr_partition": "held-out-137",
+      "full_annotation_stack": true,
+      "meetingqa_questions": 43,
+      "meetingqa_split": "train",
+      "qmsum_split": "train",
+      "role": "glossary-discovery",
+      "rule": "R4"
+    },
+    "IS1003a": {
+      "asr_partition": "held-out-137",
+      "full_annotation_stack": true,
+      "meetingqa_questions": 23,
+      "meetingqa_split": "test",
+      "qmsum_split": "test",
+      "role": "qa-eval",
+      "rule": "R3"
+    },
+    "IS1003b": {
+      "asr_partition": "held-out-137",
+      "full_annotation_stack": true,
+      "meetingqa_questions": 34,
+      "meetingqa_split": "train",
+      "qmsum_split": "test",
+      "role": "glossary-discovery",
+      "rule": "R4"
+    },
+    "IS1003c": {
+      "asr_partition": "held-out-137",
+      "full_annotation_stack": true,
+      "meetingqa_questions": 40,
+      "meetingqa_split": "train",
+      "qmsum_split": "test",
+      "role": "glossary-discovery",
+      "rule": "R4"
+    },
+    "IS1003d": {
+      "asr_partition": "held-out-137",
+      "full_annotation_stack": true,
+      "meetingqa_questions": 74,
+      "meetingqa_split": "test",
+      "qmsum_split": "test",
+      "role": "qa-eval",
+      "rule": "R3"
+    },
+    "IS1004a": {
+      "asr_partition": "held-out-137",
+      "full_annotation_stack": true,
+      "meetingqa_questions": 12,
+      "meetingqa_split": "train",
+      "qmsum_split": "train",
+      "role": "glossary-discovery",
+      "rule": "R4"
+    },
+    "IS1004b": {
+      "asr_partition": "held-out-137",
+      "full_annotation_stack": true,
+      "meetingqa_questions": 35,
+      "meetingqa_split": "test",
+      "qmsum_split": "train",
+      "role": "qa-eval",
+      "rule": "R3"
+    },
+    "IS1004c": {
+      "asr_partition": "held-out-137",
+      "full_annotation_stack": true,
+      "meetingqa_questions": 56,
+      "meetingqa_split": "test",
+      "qmsum_split": "train",
+      "role": "qa-eval",
+      "rule": "R3"
+    },
+    "IS1004d": {
+      "asr_partition": "held-out-137",
+      "full_annotation_stack": true,
+      "meetingqa_questions": 43,
+      "meetingqa_split": "dev",
+      "qmsum_split": "train",
+      "role": "glossary-discovery",
+      "rule": "R4"
+    },
+    "IS1005a": {
+      "asr_partition": "held-out-137",
+      "full_annotation_stack": true,
+      "meetingqa_questions": 14,
+      "meetingqa_split": "test",
+      "qmsum_split": "train",
+      "role": "qa-eval",
+      "rule": "R3"
+    },
+    "IS1005b": {
+      "asr_partition": "held-out-137",
+      "full_annotation_stack": true,
+      "meetingqa_questions": 41,
+      "meetingqa_split": "test",
+      "qmsum_split": "train",
+      "role": "qa-eval",
+      "rule": "R3"
+    },
+    "IS1005c": {
+      "asr_partition": "held-out-137",
+      "full_annotation_stack": true,
+      "meetingqa_questions": 34,
+      "meetingqa_split": "train",
+      "qmsum_split": "train",
+      "role": "glossary-discovery",
+      "rule": "R4"
+    },
+    "IS1006a": {
+      "asr_partition": "held-out-137",
+      "full_annotation_stack": true,
+      "meetingqa_questions": 19,
+      "meetingqa_split": "test",
+      "qmsum_split": "val",
+      "role": "qa-eval",
+      "rule": "R3"
+    },
+    "IS1006b": {
+      "asr_partition": "held-out-137",
+      "full_annotation_stack": true,
+      "meetingqa_questions": 36,
+      "meetingqa_split": "test",
+      "qmsum_split": "val",
+      "role": "qa-eval",
+      "rule": "R3"
+    },
+    "IS1006c": {
+      "asr_partition": "held-out-137",
+      "full_annotation_stack": true,
+      "meetingqa_questions": 28,
+      "meetingqa_split": "train",
+      "qmsum_split": "val",
+      "role": "glossary-discovery",
+      "rule": "R4"
+    },
+    "IS1006d": {
+      "asr_partition": "held-out-137",
+      "full_annotation_stack": true,
+      "meetingqa_questions": 78,
+      "meetingqa_split": "test",
+      "qmsum_split": "val",
+      "role": "qa-eval",
+      "rule": "R3"
+    },
+    "IS1007a": {
+      "asr_partition": "held-out-137",
+      "full_annotation_stack": true,
+      "meetingqa_questions": 21,
+      "meetingqa_split": "train",
+      "qmsum_split": "train",
+      "role": "glossary-discovery",
+      "rule": "R4"
+    },
+    "IS1007b": {
+      "asr_partition": "held-out-137",
+      "full_annotation_stack": true,
+      "meetingqa_questions": 30,
+      "meetingqa_split": "train",
+      "qmsum_split": "train",
+      "role": "glossary-discovery",
+      "rule": "R4"
+    },
+    "IS1007c": {
+      "asr_partition": "held-out-137",
+      "full_annotation_stack": true,
+      "meetingqa_questions": 5,
+      "meetingqa_split": "train",
+      "qmsum_split": "train",
+      "role": "glossary-discovery",
+      "rule": "R4"
+    },
+    "IS1007d": {
+      "asr_partition": "held-out-137",
+      "full_annotation_stack": true,
+      "meetingqa_questions": 52,
+      "meetingqa_split": "train",
+      "qmsum_split": "train",
+      "role": "glossary-discovery",
+      "rule": "R4"
+    },
+    "IS1008a": {
+      "asr_partition": "dev-18",
+      "full_annotation_stack": true,
+      "meetingqa_questions": 22,
+      "meetingqa_split": "test",
+      "qmsum_split": "train",
+      "role": "asr-eval",
+      "rule": "R1"
+    },
+    "IS1008b": {
+      "asr_partition": "dev-18",
+      "full_annotation_stack": true,
+      "meetingqa_questions": 18,
+      "meetingqa_split": "dev",
+      "qmsum_split": "train",
+      "role": "asr-eval",
+      "rule": "R1"
+    },
+    "IS1008c": {
+      "asr_partition": "dev-18",
+      "full_annotation_stack": true,
+      "meetingqa_questions": 15,
+      "meetingqa_split": "test",
+      "qmsum_split": "train",
+      "role": "asr-eval",
+      "rule": "R1"
+    },
+    "IS1008d": {
+      "asr_partition": "dev-18",
+      "full_annotation_stack": true,
+      "meetingqa_questions": 16,
+      "meetingqa_split": "dev",
+      "qmsum_split": "train",
+      "role": "asr-eval",
+      "rule": "R1"
+    },
+    "IS1009a": {
+      "asr_partition": "eval-16",
+      "full_annotation_stack": true,
+      "meetingqa_questions": 18,
+      "meetingqa_split": "test",
+      "qmsum_split": "train",
+      "role": "held-out-confirmatory",
+      "rule": "R2"
+    },
+    "IS1009b": {
+      "asr_partition": "eval-16",
+      "full_annotation_stack": true,
+      "meetingqa_questions": 34,
+      "meetingqa_split": "dev",
+      "qmsum_split": "train",
+      "role": "held-out-confirmatory",
+      "rule": "R2"
+    },
+    "IS1009c": {
+      "asr_partition": "eval-16",
+      "full_annotation_stack": true,
+      "meetingqa_questions": 17,
+      "meetingqa_split": "train",
+      "qmsum_split": "train",
+      "role": "held-out-confirmatory",
+      "rule": "R2"
+    },
+    "IS1009d": {
+      "asr_partition": "eval-16",
+      "full_annotation_stack": true,
+      "meetingqa_questions": 47,
+      "meetingqa_split": "train",
+      "qmsum_split": "train",
+      "role": "held-out-confirmatory",
+      "rule": "R2"
+    },
+    "TS3003a": {
+      "asr_partition": "eval-16",
+      "full_annotation_stack": true,
+      "meetingqa_questions": 18,
+      "meetingqa_split": "train",
+      "qmsum_split": "train",
+      "role": "held-out-confirmatory",
+      "rule": "R2"
+    },
+    "TS3003b": {
+      "asr_partition": "eval-16",
+      "full_annotation_stack": true,
+      "meetingqa_questions": 17,
+      "meetingqa_split": "train",
+      "qmsum_split": "train",
+      "role": "held-out-confirmatory",
+      "rule": "R2"
+    },
+    "TS3003c": {
+      "asr_partition": "eval-16",
+      "full_annotation_stack": true,
+      "meetingqa_questions": 29,
+      "meetingqa_split": "train",
+      "qmsum_split": "train",
+      "role": "held-out-confirmatory",
+      "rule": "R2"
+    },
+    "TS3003d": {
+      "asr_partition": "eval-16",
+      "full_annotation_stack": true,
+      "meetingqa_questions": 69,
+      "meetingqa_split": "dev",
+      "qmsum_split": "train",
+      "role": "held-out-confirmatory",
+      "rule": "R2"
+    },
+    "TS3004a": {
+      "asr_partition": "dev-18",
+      "full_annotation_stack": true,
+      "meetingqa_questions": 20,
+      "meetingqa_split": "test",
+      "qmsum_split": "test",
+      "role": "asr-eval",
+      "rule": "R1"
+    },
+    "TS3004b": {
+      "asr_partition": "dev-18",
+      "full_annotation_stack": true,
+      "meetingqa_questions": 44,
+      "meetingqa_split": "dev",
+      "qmsum_split": "test",
+      "role": "asr-eval",
+      "rule": "R1"
+    },
+    "TS3004c": {
+      "asr_partition": "dev-18",
+      "full_annotation_stack": true,
+      "meetingqa_questions": 59,
+      "meetingqa_split": "test",
+      "qmsum_split": "test",
+      "role": "asr-eval",
+      "rule": "R1"
+    },
+    "TS3004d": {
+      "asr_partition": "dev-18",
+      "full_annotation_stack": true,
+      "meetingqa_questions": 77,
+      "meetingqa_split": "test",
+      "qmsum_split": "test",
+      "role": "asr-eval",
+      "rule": "R1"
+    },
+    "TS3005a": {
+      "asr_partition": "held-out-137",
+      "full_annotation_stack": true,
+      "meetingqa_questions": 15,
+      "meetingqa_split": "train",
+      "qmsum_split": "train",
+      "role": "glossary-discovery",
+      "rule": "R4"
+    },
+    "TS3005b": {
+      "asr_partition": "held-out-137",
+      "full_annotation_stack": true,
+      "meetingqa_questions": 69,
+      "meetingqa_split": "test",
+      "qmsum_split": "train",
+      "role": "qa-eval",
+      "rule": "R3"
+    },
+    "TS3005c": {
+      "asr_partition": "held-out-137",
+      "full_annotation_stack": true,
+      "meetingqa_questions": 42,
+      "meetingqa_split": "test",
+      "qmsum_split": "train",
+      "role": "qa-eval",
+      "rule": "R3"
+    },
+    "TS3005d": {
+      "asr_partition": "held-out-137",
+      "full_annotation_stack": true,
+      "meetingqa_questions": 126,
+      "meetingqa_split": "train",
+      "qmsum_split": "train",
+      "role": "glossary-discovery",
+      "rule": "R4"
+    },
+    "TS3006a": {
+      "asr_partition": "held-out-137",
+      "full_annotation_stack": true,
+      "meetingqa_questions": 41,
+      "meetingqa_split": "test",
+      "qmsum_split": "train",
+      "role": "qa-eval",
+      "rule": "R3"
+    },
+    "TS3006b": {
+      "asr_partition": "held-out-137",
+      "full_annotation_stack": true,
+      "meetingqa_questions": 96,
+      "meetingqa_split": "train",
+      "qmsum_split": "train",
+      "role": "glossary-discovery",
+      "rule": "R4"
+    },
+    "TS3006c": {
+      "asr_partition": "held-out-137",
+      "full_annotation_stack": true,
+      "meetingqa_questions": 76,
+      "meetingqa_split": "dev",
+      "qmsum_split": "train",
+      "role": "glossary-discovery",
+      "rule": "R4"
+    },
+    "TS3006d": {
+      "asr_partition": "held-out-137",
+      "full_annotation_stack": true,
+      "meetingqa_questions": 118,
+      "meetingqa_split": "train",
+      "qmsum_split": "train",
+      "role": "glossary-discovery",
+      "rule": "R4"
+    },
+    "TS3007a": {
+      "asr_partition": "held-out-137",
+      "full_annotation_stack": true,
+      "meetingqa_questions": 47,
+      "meetingqa_split": "dev",
+      "qmsum_split": "train",
+      "role": "glossary-discovery",
+      "rule": "R4"
+    },
+    "TS3007b": {
+      "asr_partition": "held-out-137",
+      "full_annotation_stack": true,
+      "meetingqa_questions": 18,
+      "meetingqa_split": "dev",
+      "qmsum_split": "train",
+      "role": "glossary-discovery",
+      "rule": "R4"
+    },
+    "TS3007c": {
+      "asr_partition": "held-out-137",
+      "full_annotation_stack": true,
+      "meetingqa_questions": 40,
+      "meetingqa_split": "dev",
+      "qmsum_split": "train",
+      "role": "glossary-discovery",
+      "rule": "R4"
+    },
+    "TS3007d": {
+      "asr_partition": "held-out-137",
+      "full_annotation_stack": true,
+      "meetingqa_questions": 67,
+      "meetingqa_split": "dev",
+      "qmsum_split": "train",
+      "role": "glossary-discovery",
+      "rule": "R4"
+    },
+    "TS3008a": {
+      "asr_partition": "held-out-137",
+      "full_annotation_stack": true,
+      "meetingqa_questions": 24,
+      "meetingqa_split": "test",
+      "qmsum_split": "train",
+      "role": "qa-eval",
+      "rule": "R3"
+    },
+    "TS3008b": {
+      "asr_partition": "held-out-137",
+      "full_annotation_stack": true,
+      "meetingqa_questions": 34,
+      "meetingqa_split": "dev",
+      "qmsum_split": "train",
+      "role": "glossary-discovery",
+      "rule": "R4"
+    },
+    "TS3008c": {
+      "asr_partition": "held-out-137",
+      "full_annotation_stack": true,
+      "meetingqa_questions": 53,
+      "meetingqa_split": "dev",
+      "qmsum_split": "train",
+      "role": "glossary-discovery",
+      "rule": "R4"
+    },
+    "TS3008d": {
+      "asr_partition": "held-out-137",
+      "full_annotation_stack": true,
+      "meetingqa_questions": 60,
+      "meetingqa_split": "train",
+      "qmsum_split": "train",
+      "role": "glossary-discovery",
+      "rule": "R4"
+    },
+    "TS3009a": {
+      "asr_partition": "held-out-137",
+      "full_annotation_stack": true,
+      "meetingqa_questions": 25,
+      "meetingqa_split": "test",
+      "qmsum_split": "val",
+      "role": "qa-eval",
+      "rule": "R3"
+    },
+    "TS3009b": {
+      "asr_partition": "held-out-137",
+      "full_annotation_stack": true,
+      "meetingqa_questions": 63,
+      "meetingqa_split": "train",
+      "qmsum_split": "val",
+      "role": "glossary-discovery",
+      "rule": "R4"
+    },
+    "TS3009c": {
+      "asr_partition": "held-out-137",
+      "full_annotation_stack": true,
+      "meetingqa_questions": 68,
+      "meetingqa_split": "train",
+      "qmsum_split": "val",
+      "role": "glossary-discovery",
+      "rule": "R4"
+    },
+    "TS3009d": {
+      "asr_partition": "held-out-137",
+      "full_annotation_stack": true,
+      "meetingqa_questions": 81,
+      "meetingqa_split": "train",
+      "qmsum_split": "val",
+      "role": "glossary-discovery",
+      "rule": "R4"
+    },
+    "TS3010a": {
+      "asr_partition": "held-out-137",
+      "full_annotation_stack": true,
+      "meetingqa_questions": 12,
+      "meetingqa_split": "dev",
+      "qmsum_split": "val",
+      "role": "glossary-discovery",
+      "rule": "R4"
+    },
+    "TS3010b": {
+      "asr_partition": "held-out-137",
+      "full_annotation_stack": true,
+      "meetingqa_questions": 32,
+      "meetingqa_split": "test",
+      "qmsum_split": "val",
+      "role": "qa-eval",
+      "rule": "R3"
+    },
+    "TS3010c": {
+      "asr_partition": "held-out-137",
+      "full_annotation_stack": true,
+      "meetingqa_questions": 33,
+      "meetingqa_split": "test",
+      "qmsum_split": "val",
+      "role": "qa-eval",
+      "rule": "R3"
+    },
+    "TS3010d": {
+      "asr_partition": "held-out-137",
+      "full_annotation_stack": true,
+      "meetingqa_questions": 38,
+      "meetingqa_split": "train",
+      "qmsum_split": "val",
+      "role": "glossary-discovery",
+      "rule": "R4"
+    },
+    "TS3011a": {
+      "asr_partition": "held-out-137",
+      "full_annotation_stack": true,
+      "meetingqa_questions": 28,
+      "meetingqa_split": "dev",
+      "qmsum_split": "test",
+      "role": "glossary-discovery",
+      "rule": "R4"
+    },
+    "TS3011b": {
+      "asr_partition": "held-out-137",
+      "full_annotation_stack": true,
+      "meetingqa_questions": 35,
+      "meetingqa_split": "test",
+      "qmsum_split": "test",
+      "role": "qa-eval",
+      "rule": "R3"
+    },
+    "TS3011c": {
+      "asr_partition": "held-out-137",
+      "full_annotation_stack": true,
+      "meetingqa_questions": 45,
+      "meetingqa_split": "dev",
+      "qmsum_split": "test",
+      "role": "glossary-discovery",
+      "rule": "R4"
+    },
+    "TS3011d": {
+      "asr_partition": "held-out-137",
+      "full_annotation_stack": true,
+      "meetingqa_questions": 39,
+      "meetingqa_split": "test",
+      "qmsum_split": "test",
+      "role": "qa-eval",
+      "rule": "R3"
+    },
+    "TS3012a": {
+      "asr_partition": "held-out-137",
+      "full_annotation_stack": true,
+      "meetingqa_questions": 18,
+      "meetingqa_split": "test",
+      "qmsum_split": "train",
+      "role": "qa-eval",
+      "rule": "R3"
+    },
+    "TS3012b": {
+      "asr_partition": "held-out-137",
+      "full_annotation_stack": true,
+      "meetingqa_questions": 63,
+      "meetingqa_split": "train",
+      "qmsum_split": "train",
+      "role": "glossary-discovery",
+      "rule": "R4"
+    },
+    "TS3012c": {
+      "asr_partition": "held-out-137",
+      "full_annotation_stack": false,
+      "meetingqa_questions": 75,
+      "meetingqa_split": "train",
+      "qmsum_split": null,
+      "role": "held-out-reserve",
+      "rule": "R5"
+    },
+    "TS3012d": {
+      "asr_partition": "held-out-137",
+      "full_annotation_stack": true,
+      "meetingqa_questions": 42,
+      "meetingqa_split": "dev",
+      "qmsum_split": "train",
+      "role": "glossary-discovery",
+      "rule": "R4"
+    }
+  },
+  "provenance": {
+    "annotation_stack": "ami_public_manual_1.6.2 per-layer file presence; full stack = abstractive + extsumm + summlink + topics + dialogue acts + words + segments.",
+    "asr_partition": "docs/readiness/2026-08-17-ami-split-freeze-proposal.md (Convention A, full-corpus ASR partition dev 18 / eval 16 / held-out remainder 137). Caveat carried verbatim: the dev-18 and eval-16 ids are published-standard lists transcribed from knowledge, partially corroborated by shipped meetings.xml attributes (12/18 and 12/16, zero contradictions), NOT sourced from a shipped file.",
+    "builder": "scripts/build_ami_role_registry.py",
+    "matrix": "docs/readiness/2026-08-18-ami-overlap-matrix.json",
+    "meetingqa": "AllData/Dataset/final-AMI-{train,dev,test}.json, field 'title'; cross-checked against ProcessedTranscripts/Annotated-AMI-QA/<split>/ (exact agreement).",
+    "qmsum": "data/Product/{train,val,test}/<meeting>.json (QMSum's AMI material)."
+  },
+  "purpose": "One role per AMI meeting, machine-checked fail-closed. G1 precondition from the 2026-08-17 deep check; loader/validator: meeting_minutes_agent.corpora.roles.",
+  "quarantine": {
+    "meetings": [
+      {
+        "meeting_id": "EN2001b",
+        "meetingqa_split": "dev",
+        "n_questions": 77,
+        "reason": "meeting is spoken for by role 'held-out-reserve'",
+        "role": "held-out-reserve"
+      },
+      {
+        "meeting_id": "EN2001d",
+        "meetingqa_split": "train",
+        "n_questions": 93,
+        "reason": "meeting is spoken for by role 'held-out-reserve'",
+        "role": "held-out-reserve"
+      },
+      {
+        "meeting_id": "EN2001e",
+        "meetingqa_split": "dev",
+        "n_questions": 78,
+        "reason": "meeting is spoken for by role 'held-out-reserve'",
+        "role": "held-out-reserve"
+      },
+      {
+        "meeting_id": "EN2002a",
+        "meetingqa_split": "dev",
+        "n_questions": 98,
+        "reason": "eval-16 confirmatory hold-out",
+        "role": "held-out-confirmatory"
+      },
+      {
+        "meeting_id": "EN2002b",
+        "meetingqa_split": "test",
+        "n_questions": 47,
+        "reason": "eval-16 confirmatory hold-out",
+        "role": "held-out-confirmatory"
+      },
+      {
+        "meeting_id": "EN2002c",
+        "meetingqa_split": "test",
+        "n_questions": 104,
+        "reason": "eval-16 confirmatory hold-out",
+        "role": "held-out-confirmatory"
+      },
+      {
+        "meeting_id": "EN2002d",
+        "meetingqa_split": "train",
+        "n_questions": 79,
+        "reason": "eval-16 confirmatory hold-out",
+        "role": "held-out-confirmatory"
+      },
+      {
+        "meeting_id": "EN2003a",
+        "meetingqa_split": "train",
+        "n_questions": 63,
+        "reason": "meeting is spoken for by role 'held-out-reserve'",
+        "role": "held-out-reserve"
+      },
+      {
+        "meeting_id": "EN2005a",
+        "meetingqa_split": "train",
+        "n_questions": 92,
+        "reason": "meeting is spoken for by role 'held-out-reserve'",
+        "role": "held-out-reserve"
+      },
+      {
+        "meeting_id": "EN2009c",
+        "meetingqa_split": "dev",
+        "n_questions": 67,
+        "reason": "meeting is spoken for by role 'held-out-reserve'",
+        "role": "held-out-reserve"
+      },
+      {
+        "meeting_id": "EN2009d",
+        "meetingqa_split": "dev",
+        "n_questions": 123,
+        "reason": "meeting is spoken for by role 'held-out-reserve'",
+        "role": "held-out-reserve"
+      },
+      {
+        "meeting_id": "ES2002a",
+        "meetingqa_split": "train",
+        "n_questions": 32,
+        "reason": "meeting is spoken for by role 'glossary-discovery'",
+        "role": "glossary-discovery"
+      },
+      {
+        "meeting_id": "ES2002c",
+        "meetingqa_split": "train",
+        "n_questions": 77,
+        "reason": "meeting is spoken for by role 'glossary-discovery'",
+        "role": "glossary-discovery"
+      },
+      {
+        "meeting_id": "ES2002d",
+        "meetingqa_split": "train",
+        "n_questions": 102,
+        "reason": "meeting is spoken for by role 'glossary-discovery'",
+        "role": "glossary-discovery"
+      },
+      {
+        "meeting_id": "ES2003a",
+        "meetingqa_split": "dev",
+        "n_questions": 16,
+        "reason": "meeting is spoken for by role 'glossary-discovery'",
+        "role": "glossary-discovery"
+      },
+      {
+        "meeting_id": "ES2003d",
+        "meetingqa_split": "train",
+        "n_questions": 64,
+        "reason": "meeting is spoken for by role 'glossary-discovery'",
+        "role": "glossary-discovery"
+      },
+      {
+        "meeting_id": "ES2004a",
+        "meetingqa_split": "test",
+        "n_questions": 25,
+        "reason": "eval-16 confirmatory hold-out",
+        "role": "held-out-confirmatory"
+      },
+      {
+        "meeting_id": "ES2004b",
+        "meetingqa_split": "train",
+        "n_questions": 47,
+        "reason": "eval-16 confirmatory hold-out",
+        "role": "held-out-confirmatory"
+      },
+      {
+        "meeting_id": "ES2004c",
+        "meetingqa_split": "test",
+        "n_questions": 47,
+        "reason": "eval-16 confirmatory hold-out",
+        "role": "held-out-confirmatory"
+      },
+      {
+        "meeting_id": "ES2004d",
+        "meetingqa_split": "train",
+        "n_questions": 72,
+        "reason": "eval-16 confirmatory hold-out",
+        "role": "held-out-confirmatory"
+      },
+      {
+        "meeting_id": "ES2005a",
+        "meetingqa_split": "train",
+        "n_questions": 9,
+        "reason": "meeting is spoken for by role 'glossary-discovery'",
+        "role": "glossary-discovery"
+      },
+      {
+        "meeting_id": "ES2005c",
+        "meetingqa_split": "dev",
+        "n_questions": 67,
+        "reason": "meeting is spoken for by role 'glossary-discovery'",
+        "role": "glossary-discovery"
+      },
+      {
+        "meeting_id": "ES2005d",
+        "meetingqa_split": "train",
+        "n_questions": 44,
+        "reason": "meeting is spoken for by role 'glossary-discovery'",
+        "role": "glossary-discovery"
+      },
+      {
+        "meeting_id": "ES2006a",
+        "meetingqa_split": "dev",
+        "n_questions": 26,
+        "reason": "meeting is spoken for by role 'glossary-discovery'",
+        "role": "glossary-discovery"
+      },
+      {
+        "meeting_id": "ES2006b",
+        "meetingqa_split": "dev",
+        "n_questions": 38,
+        "reason": "meeting is spoken for by role 'glossary-discovery'",
+        "role": "glossary-discovery"
+      },
+      {
+        "meeting_id": "ES2006c",
+        "meetingqa_split": "train",
+        "n_questions": 41,
+        "reason": "meeting is spoken for by role 'held-out-reserve'",
+        "role": "held-out-reserve"
+      },
+      {
+        "meeting_id": "ES2007c",
+        "meetingqa_split": "dev",
+        "n_questions": 49,
+        "reason": "meeting is spoken for by role 'glossary-discovery'",
+        "role": "glossary-discovery"
+      },
+      {
+        "meeting_id": "ES2007d",
+        "meetingqa_split": "train",
+        "n_questions": 33,
+        "reason": "meeting is spoken for by role 'glossary-discovery'",
+        "role": "glossary-discovery"
+      },
+      {
+        "meeting_id": "ES2008a",
+        "meetingqa_split": "dev",
+        "n_questions": 16,
+        "reason": "meeting is spoken for by role 'glossary-discovery'",
+        "role": "glossary-discovery"
+      },
+      {
+        "meeting_id": "ES2008b",
+        "meetingqa_split": "dev",
+        "n_questions": 39,
+        "reason": "meeting is spoken for by role 'glossary-discovery'",
+        "role": "glossary-discovery"
+      },
+      {
+        "meeting_id": "ES2008c",
+        "meetingqa_split": "train",
+        "n_questions": 49,
+        "reason": "meeting is spoken for by role 'glossary-discovery'",
+        "role": "glossary-discovery"
+      },
+      {
+        "meeting_id": "ES2009a",
+        "meetingqa_split": "dev",
+        "n_questions": 29,
+        "reason": "meeting is spoken for by role 'glossary-discovery'",
+        "role": "glossary-discovery"
+      },
+      {
+        "meeting_id": "ES2009b",
+        "meetingqa_split": "train",
+        "n_questions": 25,
+        "reason": "meeting is spoken for by role 'glossary-discovery'",
+        "role": "glossary-discovery"
+      },
+      {
+        "meeting_id": "ES2009d",
+        "meetingqa_split": "train",
+        "n_questions": 74,
+        "reason": "meeting is spoken for by role 'glossary-discovery'",
+        "role": "glossary-discovery"
+      },
+      {
+        "meeting_id": "ES2010a",
+        "meetingqa_split": "train",
+        "n_questions": 18,
+        "reason": "meeting is spoken for by role 'glossary-discovery'",
+        "role": "glossary-discovery"
+      },
+      {
+        "meeting_id": "ES2010b",
+        "meetingqa_split": "dev",
+        "n_questions": 51,
+        "reason": "meeting is spoken for by role 'glossary-discovery'",
+        "role": "glossary-discovery"
+      },
+      {
+        "meeting_id": "ES2010c",
+        "meetingqa_split": "dev",
+        "n_questions": 47,
+        "reason": "meeting is spoken for by role 'glossary-discovery'",
+        "role": "glossary-discovery"
+      },
+      {
+        "meeting_id": "ES2011a",
+        "meetingqa_split": "dev",
+        "n_questions": 20,
+        "reason": "meeting is spoken for by role 'asr-eval'",
+        "role": "asr-eval"
+      },
+      {
+        "meeting_id": "ES2011b",
+        "meetingqa_split": "dev",
+        "n_questions": 31,
+        "reason": "meeting is spoken for by role 'asr-eval'",
+        "role": "asr-eval"
+      },
+      {
+        "meeting_id": "ES2011c",
+        "meetingqa_split": "train",
+        "n_questions": 39,
+        "reason": "meeting is spoken for by role 'asr-eval'",
+        "role": "asr-eval"
+      },
+      {
+        "meeting_id": "ES2011d",
+        "meetingqa_split": "dev",
+        "n_questions": 70,
+        "reason": "meeting is spoken for by role 'asr-eval'",
+        "role": "asr-eval"
+      },
+      {
+        "meeting_id": "ES2012b",
+        "meetingqa_split": "train",
+        "n_questions": 21,
+        "reason": "meeting is spoken for by role 'glossary-discovery'",
+        "role": "glossary-discovery"
+      },
+      {
+        "meeting_id": "ES2012c",
+        "meetingqa_split": "train",
+        "n_questions": 25,
+        "reason": "meeting is spoken for by role 'glossary-discovery'",
+        "role": "glossary-discovery"
+      },
+      {
+        "meeting_id": "ES2012d",
+        "meetingqa_split": "train",
+        "n_questions": 20,
+        "reason": "meeting is spoken for by role 'glossary-discovery'",
+        "role": "glossary-discovery"
+      },
+      {
+        "meeting_id": "ES2013a",
+        "meetingqa_split": "dev",
+        "n_questions": 16,
+        "reason": "meeting is spoken for by role 'glossary-discovery'",
+        "role": "glossary-discovery"
+      },
+      {
+        "meeting_id": "ES2013c",
+        "meetingqa_split": "train",
+        "n_questions": 27,
+        "reason": "meeting is spoken for by role 'glossary-discovery'",
+        "role": "glossary-discovery"
+      },
+      {
+        "meeting_id": "ES2013d",
+        "meetingqa_split": "train",
+        "n_questions": 43,
+        "reason": "meeting is spoken for by role 'glossary-discovery'",
+        "role": "glossary-discovery"
+      },
+      {
+        "meeting_id": "ES2014a",
+        "meetingqa_split": "train",
+        "n_questions": 14,
+        "reason": "meeting is spoken for by role 'glossary-discovery'",
+        "role": "glossary-discovery"
+      },
+      {
+        "meeting_id": "ES2014b",
+        "meetingqa_split": "train",
+        "n_questions": 47,
+        "reason": "meeting is spoken for by role 'glossary-discovery'",
+        "role": "glossary-discovery"
+      },
+      {
+        "meeting_id": "ES2014c",
+        "meetingqa_split": "train",
+        "n_questions": 55,
+        "reason": "meeting is spoken for by role 'glossary-discovery'",
+        "role": "glossary-discovery"
+      },
+      {
+        "meeting_id": "ES2014d",
+        "meetingqa_split": "dev",
+        "n_questions": 66,
+        "reason": "meeting is spoken for by role 'glossary-discovery'",
+        "role": "glossary-discovery"
+      },
+      {
+        "meeting_id": "ES2015a",
+        "meetingqa_split": "dev",
+        "n_questions": 11,
+        "reason": "meeting is spoken for by role 'glossary-discovery'",
+        "role": "glossary-discovery"
+      },
+      {
+        "meeting_id": "ES2015b",
+        "meetingqa_split": "train",
+        "n_questions": 55,
+        "reason": "meeting is spoken for by role 'held-out-reserve'",
+        "role": "held-out-reserve"
+      },
+      {
+        "meeting_id": "ES2015d",
+        "meetingqa_split": "dev",
+        "n_questions": 73,
+        "reason": "meeting is spoken for by role 'glossary-discovery'",
+        "role": "glossary-discovery"
+      },
+      {
+        "meeting_id": "ES2016a",
+        "meetingqa_split": "dev",
+        "n_questions": 19,
+        "reason": "meeting is spoken for by role 'glossary-discovery'",
+        "role": "glossary-discovery"
+      },
+      {
+        "meeting_id": "ES2016c",
+        "meetingqa_split": "train",
+        "n_questions": 34,
+        "reason": "meeting is spoken for by role 'glossary-discovery'",
+        "role": "glossary-discovery"
+      },
+      {
+        "meeting_id": "ES2016d",
+        "meetingqa_split": "dev",
+        "n_questions": 35,
+        "reason": "meeting is spoken for by role 'glossary-discovery'",
+        "role": "glossary-discovery"
+      },
+      {
+        "meeting_id": "IB4001",
+        "meetingqa_split": "train",
+        "n_questions": 38,
+        "reason": "meeting is spoken for by role 'asr-eval'",
+        "role": "asr-eval"
+      },
+      {
+        "meeting_id": "IB4002",
+        "meetingqa_split": "train",
+        "n_questions": 64,
+        "reason": "meeting is spoken for by role 'asr-eval'",
+        "role": "asr-eval"
+      },
+      {
+        "meeting_id": "IB4003",
+        "meetingqa_split": "dev",
+        "n_questions": 53,
+        "reason": "meeting is spoken for by role 'asr-eval'",
+        "role": "asr-eval"
+      },
+      {
+        "meeting_id": "IB4004",
+        "meetingqa_split": "test",
+        "n_questions": 57,
+        "reason": "meeting is spoken for by role 'asr-eval'",
+        "role": "asr-eval"
+      },
+      {
+        "meeting_id": "IB4005",
+        "meetingqa_split": "dev",
+        "n_questions": 42,
+        "reason": "meeting is spoken for by role 'held-out-reserve'",
+        "role": "held-out-reserve"
+      },
+      {
+        "meeting_id": "IB4010",
+        "meetingqa_split": "dev",
+        "n_questions": 96,
+        "reason": "meeting is spoken for by role 'asr-eval'",
+        "role": "asr-eval"
+      },
+      {
+        "meeting_id": "IB4011",
+        "meetingqa_split": "test",
+        "n_questions": 67,
+        "reason": "meeting is spoken for by role 'asr-eval'",
+        "role": "asr-eval"
+      },
+      {
+        "meeting_id": "IN1001",
+        "meetingqa_split": "train",
+        "n_questions": 35,
+        "reason": "meeting is spoken for by role 'held-out-reserve'",
+        "role": "held-out-reserve"
+      },
+      {
+        "meeting_id": "IN1014",
+        "meetingqa_split": "train",
+        "n_questions": 55,
+        "reason": "meeting is spoken for by role 'held-out-reserve'",
+        "role": "held-out-reserve"
+      },
+      {
+        "meeting_id": "IN1016",
+        "meetingqa_split": "dev",
+        "n_questions": 52,
+        "reason": "meeting is spoken for by role 'held-out-reserve'",
+        "role": "held-out-reserve"
+      },
+      {
+        "meeting_id": "IS1000a",
+        "meetingqa_split": "train",
+        "n_questions": 25,
+        "reason": "meeting is spoken for by role 'glossary-discovery'",
+        "role": "glossary-discovery"
+      },
+      {
+        "meeting_id": "IS1000b",
+        "meetingqa_split": "train",
+        "n_questions": 33,
+        "reason": "meeting is spoken for by role 'glossary-discovery'",
+        "role": "glossary-discovery"
+      },
+      {
+        "meeting_id": "IS1000d",
+        "meetingqa_split": "dev",
+        "n_questions": 84,
+        "reason": "meeting is spoken for by role 'glossary-discovery'",
+        "role": "glossary-discovery"
+      },
+      {
+        "meeting_id": "IS1001a",
+        "meetingqa_split": "dev",
+        "n_questions": 31,
+        "reason": "meeting is spoken for by role 'glossary-discovery'",
+        "role": "glossary-discovery"
+      },
+      {
+        "meeting_id": "IS1001b",
+        "meetingqa_split": "train",
+        "n_questions": 51,
+        "reason": "meeting is spoken for by role 'glossary-discovery'",
+        "role": "glossary-discovery"
+      },
+      {
+        "meeting_id": "IS1001d",
+        "meetingqa_split": "train",
+        "n_questions": 27,
+        "reason": "meeting is spoken for by role 'glossary-discovery'",
+        "role": "glossary-discovery"
+      },
+      {
+        "meeting_id": "IS1002b",
+        "meetingqa_split": "dev",
+        "n_questions": 46,
+        "reason": "meeting is spoken for by role 'glossary-discovery'",
+        "role": "glossary-discovery"
+      },
+      {
+        "meeting_id": "IS1002c",
+        "meetingqa_split": "train",
+        "n_questions": 55,
+        "reason": "meeting is spoken for by role 'glossary-discovery'",
+        "role": "glossary-discovery"
+      },
+      {
+        "meeting_id": "IS1002d",
+        "meetingqa_split": "train",
+        "n_questions": 43,
+        "reason": "meeting is spoken for by role 'glossary-discovery'",
+        "role": "glossary-discovery"
+      },
+      {
+        "meeting_id": "IS1003b",
+        "meetingqa_split": "train",
+        "n_questions": 34,
+        "reason": "meeting is spoken for by role 'glossary-discovery'",
+        "role": "glossary-discovery"
+      },
+      {
+        "meeting_id": "IS1003c",
+        "meetingqa_split": "train",
+        "n_questions": 40,
+        "reason": "meeting is spoken for by role 'glossary-discovery'",
+        "role": "glossary-discovery"
+      },
+      {
+        "meeting_id": "IS1004a",
+        "meetingqa_split": "train",
+        "n_questions": 12,
+        "reason": "meeting is spoken for by role 'glossary-discovery'",
+        "role": "glossary-discovery"
+      },
+      {
+        "meeting_id": "IS1004d",
+        "meetingqa_split": "dev",
+        "n_questions": 43,
+        "reason": "meeting is spoken for by role 'glossary-discovery'",
+        "role": "glossary-discovery"
+      },
+      {
+        "meeting_id": "IS1005c",
+        "meetingqa_split": "train",
+        "n_questions": 34,
+        "reason": "meeting is spoken for by role 'glossary-discovery'",
+        "role": "glossary-discovery"
+      },
+      {
+        "meeting_id": "IS1006c",
+        "meetingqa_split": "train",
+        "n_questions": 28,
+        "reason": "meeting is spoken for by role 'glossary-discovery'",
+        "role": "glossary-discovery"
+      },
+      {
+        "meeting_id": "IS1007a",
+        "meetingqa_split": "train",
+        "n_questions": 21,
+        "reason": "meeting is spoken for by role 'glossary-discovery'",
+        "role": "glossary-discovery"
+      },
+      {
+        "meeting_id": "IS1007b",
+        "meetingqa_split": "train",
+        "n_questions": 30,
+        "reason": "meeting is spoken for by role 'glossary-discovery'",
+        "role": "glossary-discovery"
+      },
+      {
+        "meeting_id": "IS1007c",
+        "meetingqa_split": "train",
+        "n_questions": 5,
+        "reason": "meeting is spoken for by role 'glossary-discovery'",
+        "role": "glossary-discovery"
+      },
+      {
+        "meeting_id": "IS1007d",
+        "meetingqa_split": "train",
+        "n_questions": 52,
+        "reason": "meeting is spoken for by role 'glossary-discovery'",
+        "role": "glossary-discovery"
+      },
+      {
+        "meeting_id": "IS1008a",
+        "meetingqa_split": "test",
+        "n_questions": 22,
+        "reason": "meeting is spoken for by role 'asr-eval'",
+        "role": "asr-eval"
+      },
+      {
+        "meeting_id": "IS1008b",
+        "meetingqa_split": "dev",
+        "n_questions": 18,
+        "reason": "meeting is spoken for by role 'asr-eval'",
+        "role": "asr-eval"
+      },
+      {
+        "meeting_id": "IS1008c",
+        "meetingqa_split": "test",
+        "n_questions": 15,
+        "reason": "meeting is spoken for by role 'asr-eval'",
+        "role": "asr-eval"
+      },
+      {
+        "meeting_id": "IS1008d",
+        "meetingqa_split": "dev",
+        "n_questions": 16,
+        "reason": "meeting is spoken for by role 'asr-eval'",
+        "role": "asr-eval"
+      },
+      {
+        "meeting_id": "IS1009a",
+        "meetingqa_split": "test",
+        "n_questions": 18,
+        "reason": "eval-16 confirmatory hold-out",
+        "role": "held-out-confirmatory"
+      },
+      {
+        "meeting_id": "IS1009b",
+        "meetingqa_split": "dev",
+        "n_questions": 34,
+        "reason": "eval-16 confirmatory hold-out",
+        "role": "held-out-confirmatory"
+      },
+      {
+        "meeting_id": "IS1009c",
+        "meetingqa_split": "train",
+        "n_questions": 17,
+        "reason": "eval-16 confirmatory hold-out",
+        "role": "held-out-confirmatory"
+      },
+      {
+        "meeting_id": "IS1009d",
+        "meetingqa_split": "train",
+        "n_questions": 47,
+        "reason": "eval-16 confirmatory hold-out",
+        "role": "held-out-confirmatory"
+      },
+      {
+        "meeting_id": "TS3003a",
+        "meetingqa_split": "train",
+        "n_questions": 18,
+        "reason": "eval-16 confirmatory hold-out",
+        "role": "held-out-confirmatory"
+      },
+      {
+        "meeting_id": "TS3003b",
+        "meetingqa_split": "train",
+        "n_questions": 17,
+        "reason": "eval-16 confirmatory hold-out",
+        "role": "held-out-confirmatory"
+      },
+      {
+        "meeting_id": "TS3003c",
+        "meetingqa_split": "train",
+        "n_questions": 29,
+        "reason": "eval-16 confirmatory hold-out",
+        "role": "held-out-confirmatory"
+      },
+      {
+        "meeting_id": "TS3003d",
+        "meetingqa_split": "dev",
+        "n_questions": 69,
+        "reason": "eval-16 confirmatory hold-out",
+        "role": "held-out-confirmatory"
+      },
+      {
+        "meeting_id": "TS3004a",
+        "meetingqa_split": "test",
+        "n_questions": 20,
+        "reason": "meeting is spoken for by role 'asr-eval'",
+        "role": "asr-eval"
+      },
+      {
+        "meeting_id": "TS3004b",
+        "meetingqa_split": "dev",
+        "n_questions": 44,
+        "reason": "meeting is spoken for by role 'asr-eval'",
+        "role": "asr-eval"
+      },
+      {
+        "meeting_id": "TS3004c",
+        "meetingqa_split": "test",
+        "n_questions": 59,
+        "reason": "meeting is spoken for by role 'asr-eval'",
+        "role": "asr-eval"
+      },
+      {
+        "meeting_id": "TS3004d",
+        "meetingqa_split": "test",
+        "n_questions": 77,
+        "reason": "meeting is spoken for by role 'asr-eval'",
+        "role": "asr-eval"
+      },
+      {
+        "meeting_id": "TS3005a",
+        "meetingqa_split": "train",
+        "n_questions": 15,
+        "reason": "meeting is spoken for by role 'glossary-discovery'",
+        "role": "glossary-discovery"
+      },
+      {
+        "meeting_id": "TS3005d",
+        "meetingqa_split": "train",
+        "n_questions": 126,
+        "reason": "meeting is spoken for by role 'glossary-discovery'",
+        "role": "glossary-discovery"
+      },
+      {
+        "meeting_id": "TS3006b",
+        "meetingqa_split": "train",
+        "n_questions": 96,
+        "reason": "meeting is spoken for by role 'glossary-discovery'",
+        "role": "glossary-discovery"
+      },
+      {
+        "meeting_id": "TS3006c",
+        "meetingqa_split": "dev",
+        "n_questions": 76,
+        "reason": "meeting is spoken for by role 'glossary-discovery'",
+        "role": "glossary-discovery"
+      },
+      {
+        "meeting_id": "TS3006d",
+        "meetingqa_split": "train",
+        "n_questions": 118,
+        "reason": "meeting is spoken for by role 'glossary-discovery'",
+        "role": "glossary-discovery"
+      },
+      {
+        "meeting_id": "TS3007a",
+        "meetingqa_split": "dev",
+        "n_questions": 47,
+        "reason": "meeting is spoken for by role 'glossary-discovery'",
+        "role": "glossary-discovery"
+      },
+      {
+        "meeting_id": "TS3007b",
+        "meetingqa_split": "dev",
+        "n_questions": 18,
+        "reason": "meeting is spoken for by role 'glossary-discovery'",
+        "role": "glossary-discovery"
+      },
+      {
+        "meeting_id": "TS3007c",
+        "meetingqa_split": "dev",
+        "n_questions": 40,
+        "reason": "meeting is spoken for by role 'glossary-discovery'",
+        "role": "glossary-discovery"
+      },
+      {
+        "meeting_id": "TS3007d",
+        "meetingqa_split": "dev",
+        "n_questions": 67,
+        "reason": "meeting is spoken for by role 'glossary-discovery'",
+        "role": "glossary-discovery"
+      },
+      {
+        "meeting_id": "TS3008b",
+        "meetingqa_split": "dev",
+        "n_questions": 34,
+        "reason": "meeting is spoken for by role 'glossary-discovery'",
+        "role": "glossary-discovery"
+      },
+      {
+        "meeting_id": "TS3008c",
+        "meetingqa_split": "dev",
+        "n_questions": 53,
+        "reason": "meeting is spoken for by role 'glossary-discovery'",
+        "role": "glossary-discovery"
+      },
+      {
+        "meeting_id": "TS3008d",
+        "meetingqa_split": "train",
+        "n_questions": 60,
+        "reason": "meeting is spoken for by role 'glossary-discovery'",
+        "role": "glossary-discovery"
+      },
+      {
+        "meeting_id": "TS3009b",
+        "meetingqa_split": "train",
+        "n_questions": 63,
+        "reason": "meeting is spoken for by role 'glossary-discovery'",
+        "role": "glossary-discovery"
+      },
+      {
+        "meeting_id": "TS3009c",
+        "meetingqa_split": "train",
+        "n_questions": 68,
+        "reason": "meeting is spoken for by role 'glossary-discovery'",
+        "role": "glossary-discovery"
+      },
+      {
+        "meeting_id": "TS3009d",
+        "meetingqa_split": "train",
+        "n_questions": 81,
+        "reason": "meeting is spoken for by role 'glossary-discovery'",
+        "role": "glossary-discovery"
+      },
+      {
+        "meeting_id": "TS3010a",
+        "meetingqa_split": "dev",
+        "n_questions": 12,
+        "reason": "meeting is spoken for by role 'glossary-discovery'",
+        "role": "glossary-discovery"
+      },
+      {
+        "meeting_id": "TS3010d",
+        "meetingqa_split": "train",
+        "n_questions": 38,
+        "reason": "meeting is spoken for by role 'glossary-discovery'",
+        "role": "glossary-discovery"
+      },
+      {
+        "meeting_id": "TS3011a",
+        "meetingqa_split": "dev",
+        "n_questions": 28,
+        "reason": "meeting is spoken for by role 'glossary-discovery'",
+        "role": "glossary-discovery"
+      },
+      {
+        "meeting_id": "TS3011c",
+        "meetingqa_split": "dev",
+        "n_questions": 45,
+        "reason": "meeting is spoken for by role 'glossary-discovery'",
+        "role": "glossary-discovery"
+      },
+      {
+        "meeting_id": "TS3012b",
+        "meetingqa_split": "train",
+        "n_questions": 63,
+        "reason": "meeting is spoken for by role 'glossary-discovery'",
+        "role": "glossary-discovery"
+      },
+      {
+        "meeting_id": "TS3012c",
+        "meetingqa_split": "train",
+        "n_questions": 75,
+        "reason": "meeting is spoken for by role 'held-out-reserve'",
+        "role": "held-out-reserve"
+      },
+      {
+        "meeting_id": "TS3012d",
+        "meetingqa_split": "dev",
+        "n_questions": 42,
+        "reason": "meeting is spoken for by role 'glossary-discovery'",
+        "role": "glossary-discovery"
+      }
+    ],
+    "n_meetings": 124,
+    "n_questions": 5817,
+    "rule": "Q1: a MeetingQA question is usable only when its meeting's registry role is 'qa-eval'. Every other MeetingQA question straddles roles and is quarantined."
+  },
+  "registry_id": "ami-role-registry",
+  "role_counts": {
+    "asr-eval": 18,
+    "glossary-discovery": 76,
+    "held-out-confirmatory": 16,
+    "held-out-reserve": 19,
+    "qa-eval": 42
+  },
+  "roles": {
+    "asr-eval": "G1 flight set: chunked transcription + attribution scoring.",
+    "glossary-discovery": "Glossary/term-mining discovery surface; never scored as eval.",
+    "held-out-confirmatory": "Frozen eval-16. No exposure, no scoring, no discovery. Ever.",
+    "held-out-reserve": "Held-out remainder with no assigned role. No exposure.",
+    "qa-eval": "MeetingQA evaluation surface. The only role whose questions are usable."
+  },
+  "schema_version": "1.0.0"
+}
