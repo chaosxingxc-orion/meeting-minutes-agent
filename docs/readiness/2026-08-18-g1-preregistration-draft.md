@@ -36,11 +36,20 @@ way G1 proceeds on a VERIFIED path.
    starvation; supply arms stack on top of this baseline. (The P-ATTR smoke stays
    context-minimal ON PURPOSE — it isolates the attribution capability variable and must not
    be read as the deployment prompt.)
-2. **P-PROMPT dev sweep precedes G1 floors**: a small, versioned template sweep on the smoke
-   slices (dev surface, per the split philosophy) — speaker-format phrasing, instruction
-   wording, exemplar on/off — selected on cpWER + parse rate; the winning template freezes
-   (id + hash) before any G1 floor is measured, so floors bind to an optimized prompt, with
-   the sweep fully receipted and test untouched.
+2. **P-PROMPT dev sweep precedes G1 floors — TWO axes (owner amendment, same day)**:
+   (a) *template axis*: speaker-format phrasing, instruction wording, exemplar on/off;
+   (b) *arrangement axis*: ordering of the context blocks (baseline-context / state roster /
+   tail / turn grid / instructions), tail position relative to the audio, and tail FORM
+   (verbatim lines vs compact list — the 2511.18774 de-sequentialization lesson). Plus a
+   mandatory **corrupt-context control set**: a deranged tail (another meeting's) and a
+   wrong-speaker-labels tail, measuring the damage delta vs the clean tail — the standing
+   "context corruption sensitivity" number the episode loop's anti-accumulation design (§4.6
+   discipline) must respect. Prior evidence motivating this: P2's 7/9 blind copy of corrupt
+   references, 2511.18774's order-flips-sign result, In-Context Fixation's position dominance,
+   and the Stage-2 verdict's 2:1 corrupt-supply harm ratio. If the corrupt-tail damage is
+   large, the tail gains a validation gate (only high-confidence utterances re-enter) before
+   any long-episode run. Winner (template x arrangement) freezes by id + hash before G1
+   floors; sweep receipted on dev; test untouched.
 3. **Rolling transcript tail**: the chunked LISTEN carries the previous slice's last ~8–12
    utterances as a prompt-side text tail (the granularity analysis's tail-continuity rule,
    now bound into the arm design). History travels on the TEXT channel (1 token/word);
