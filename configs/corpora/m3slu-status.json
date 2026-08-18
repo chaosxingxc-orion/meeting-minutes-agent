@@ -1,0 +1,25 @@
+{
+  "schema_version": "1.0.0",
+  "dataset_id": "m3-slu",
+  "status": "admitted",
+  "admitted_date": "2026-08-18",
+  "ruling": "docs/plans/2026-08-17-founding-workplan.md §4b (owner rulings 2026-08-18 morning, BINDING), item 2: derived datasets with an independent evaluation system are NOT leakage.",
+  "verdict_basis": {
+    "classification": "derived dataset with an independent evaluation system",
+    "reasoning": "M3-SLU is scored on its own splits by its own evaluation harness; it does not read or report against this repository's AMI role registry or the frozen AMI ASR partition. A dataset's own official evaluation system being independent of ours is what makes reuse of its (partially AMI-sourced) content a hygiene question, not a leakage question."
+  },
+  "discovery_use": "ADMITTED. No registry role or column is required to use M3-SLU for discovery; it is governed by its own splits, not by the AMI role registry.",
+  "own_metrics": "M3-SLU metrics are reported on M3-SLU's own splits only, using M3-SLU's own evaluation harness -- never blended with, or substituted for, this repository's AMI-role-registry-gated metrics.",
+  "content_overlap_hygiene_note": {
+    "severity": "hygiene note, not a bar",
+    "field_join": "Impossible from shipped fields. The text layer carries exactly eight keys (id, instruction, question, answer, script, n_speakers, data_source, _shard) across all 10,808 sampled instances; the parquet layer adds only 'audio' (struct<bytes, path>), and 'path' is a restatement of the corpus-tagged sequence id (e.g. ami_task2_1719.wav). There is no meeting id, no session field, no timing, and no mapping from M3-SLU's <spk1>/<spk2> tags to AMI's participant letters.",
+    "content_join": "Feasible and demonstrated: the 'script' field is verbatim AMI dialogue. A normalised 12-token n-gram match from each instance's longest turns against an index of 166 AMI transcripts resolved 10 of 12 probe instances to exactly one meeting each -- the signature of a real join, not noise.",
+    "verbatim_ngram_join_demonstrated_into_ami_incl_dev_18": "One probe instance, ami_task2_1869, resolves via the content join to ES2011a -- a member of this repository's frozen dev-18 (asr-eval role). M3-SLU's AMI material therefore draws from meetings this repository actively exposes for other purposes, and there is no shipped field that tells you which without running the content join.",
+    "consequence": "If M3-SLU instances are ever resolved to specific AMI meetings and used alongside this repository's own AMI-derived material in the same analysis, that resolution must be run first and the result filtered through the AMI role registry's normal exposure rules for the resolved meeting (docs/readiness/2026-08-18-ami-role-registry.md); M3-SLU must not be treated as meeting-anonymous by default in that situation. This does not bar M3-SLU's own standalone discovery or evaluation use, which needs no such resolution."
+  },
+  "supersedes": "docs/readiness/2026-08-18-ami-role-registry.md §6 (v1.0.0): 'M3-SLU cannot be governed by this registry as it ships' / 'barred pending leakage check'. That stance is retired by the 2026-08-18 derived-dataset ruling; see §11 (v1.1) of the same document for the narrative correction.",
+  "provenance": {
+    "census": "2026-08-17/18 M3-SLU release verification (D1) and content-join probe recorded in docs/readiness/2026-08-18-ami-role-registry.md §6 (verbatim, unedited by v1.1).",
+    "lock_key": "m3-slu"
+  }
+}
