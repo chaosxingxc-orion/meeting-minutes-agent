@@ -72,6 +72,15 @@ provides sustained load. No GPU idle window after G0.
    audio-token budget, likely yielding a two-level design (task chunk = topic unit; transport
    slice ≈ 90 s). Engineering flow is then optimized for maximal GPU parallelism (sample-level
    batching per the SAEA ojw pattern, obs_batch_samples ≤ -np).
+   **Amendment (owner, same day): the pipeline is DIARIZE → pack → dispatch.** Speaker
+   diarization segments the audio FIRST (turn spans, typically 2–30 s); the ~90 s transport
+   slice survives as the PACKING unit (the 30–90 s throughput plateau stands) but its
+   boundaries snap to TURN boundaries, never mid-turn (turns >120 s split internally at
+   pauses); the slice manifest carries a per-slice turn/speaker table feeding LISTEN's
+   span-level speaker tags; pure-VAD slicing is demoted to the no-diar ablation arm; gold turn
+   tables (AMI) are ceiling-tier metadata, tool-diar tables deployment-tier, and the manifest
+   records which tier fed the packing. No transport unit is ever 40 minutes; that figure
+   survives nowhere in the pipeline.
 4. Stage-2 A2T (SAEA side): fly ALL 120 headroom samples, no subsampling.
 5. Small items resolved: cn_college_listen dropped; public_sg IMDA terms get one verification;
    TED-LIUM not acquired; SLURP one-working-copy+one-archive state confirmed canonical;
