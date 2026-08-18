@@ -1,0 +1,21 @@
+{
+  "_comment": "Input config for scripts/build_pattr_manifest.py. The OUTPUT frozen manifest (slice/turn-clip hashes + per-slice turn tables) is a separate committed file: 2026-08-18-pattr-smoke-manifest.json in this same directory. See docs/readiness/2026-08-18-g1-preregistration-draft.md SS0.",
+  "seed": 20260818,
+  "candidate_pool": [
+    "ES2011a", "ES2011b", "ES2011c", "ES2011d",
+    "IS1008a", "IS1008b", "IS1008c", "IS1008d",
+    "TS3004a", "TS3004b", "TS3004c", "TS3004d"
+  ],
+  "n_meetings": 4,
+  "max_slices_per_meeting": 6,
+  "slicer": {
+    "nominal_s": 90.0,
+    "min_s": 60.0,
+    "max_s": 120.0,
+    "snap_s": 3.0
+  },
+  "ami_annotations_root_relative": "datasets/ami/annotations/manual_1.6.2",
+  "ami_audio_root_relative": "datasets/ami/amicorpus",
+  "slice_output_dir_relative": "derived/meeting-minutes/pattr-smoke/slices",
+  "turn_clip_output_dir_relative": "derived/meeting-minutes/pattr-smoke/turn-clips"
+}
