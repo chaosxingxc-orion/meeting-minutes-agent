@@ -1,0 +1,11 @@
+=== A-free start 14:43:47Z ===
+180 MHz, 52, 10.25 W, 1 %, 23686 MiB, P8
+[A-free] 10/24 specs seen, 10 flown this process, 42.6s elapsed, 4.26s/request
+[A-free] 20/24 specs seen, 20 flown this process, 87.3s elapsed, 4.36s/request
+wrote /mnt/e/chao_workspace/exploring-l4-intelligence/speechrl-data/derived/meeting-minutes/pattr-smoke/runs/2026-08-18-pattr-smoke/a-free-receipt.json (ledger entries: 24, budget: {'calls_used': 24, 'audio_seconds_used': 2345.3734999999997, 'max_calls': 26, 'max_audio_seconds': 2500.0})
+=== A-free done 14:45:47Z rc=0 ===
+wall_seconds=119
+records_ok=24 records_error=0
+0
+featcache_entries: 302 -> 302
+180 MHz, 56, 10.61 W, 1 %, 23689 MiB, P8

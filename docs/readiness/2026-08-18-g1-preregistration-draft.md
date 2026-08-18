@@ -39,6 +39,22 @@ RETIRED and G1 adopts the A-turn form (capability assumption replaced by constru
 otherwise the main design is confirmed and the smoke's timing data binds G1's budgets. Either
 way G1 proceeds on a VERIFIED path.
 
+**FLOWN 2026-08-18 (flight operations; NOT yet scored):** all three arms flew to completion
+against the frozen manifest — A-grid 24/24, A-free 24/24, A-turn 450/450 = **498/498 requests,
+zero failures, zero retries**, in 517 s of arm wall-clock (A-grid 140 s, A-free 119 s, A-turn
+258 s). Budgets stayed inside every registered ceiling: 498 of ≤550 requests, 6,829.326 of ≤7,500
+metered audio-seconds, and ~0.12 GPU-h of ≤2.0 (sum of request latency; 0.096 GPU-h
+utilisation-integrated, ~0.2 h server-resident). All 474 manifest file hashes were re-verified
+against disk before launch; the frozen core ran at repo commit `9ad5d95` on a clean tree, llama.cpp
+build `5d9dfcb5`, with the GGUF/binary sha256 pins matching the SAEA-proven runtime, greedy
+decoding (temperature 0, seed 20260818). The AMI feature cache went cold-to-warm 0 → 879 entries
+(502 MB) in its own `ami-q4km` directory. One A-grid reply (`pattr-grid-TS3004b-slice0000`) hit the
+1,024-token generation cap and must be treated as truncated; no reply came back empty. Receipts,
+identity and health logs: `docs/checks/2026-08-18-pattr-smoke-flight/`; reply records (never in
+Git) under `$SPEECHRL_DATA_DIR/derived/meeting-minutes/pattr-smoke/runs/2026-08-18-pattr-smoke/`.
+The one-shot read discipline is intact: no reply text was opened during the flight, so the
+pre-registered A-grid-vs-A-free branch above remains undecided until the scoring mission runs.
+
 ## 0b. Prompt-context bindings (owner Q&A rulings, 2026-08-18)
 
 1. **Deployment-baseline context block**: every arm's STANDARD prompt carries the meeting's

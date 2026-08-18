@@ -1,0 +1,295 @@
+{
+  "config": {
+    "budget_totals": {
+      "audio_seconds_used": 2345.3734999999997,
+      "calls_used": 24,
+      "max_audio_seconds": 2500.0,
+      "max_calls": 26
+    },
+    "request_ledger": [
+      {
+        "attempt_number": 1,
+        "audio_seconds": 99.402,
+        "error": null,
+        "latency_seconds": 4.5953093439748045,
+        "outcome": "ok",
+        "request_id": "pattr-free-ES2011b-slice0000",
+        "response_of": "pattr-free-ES2011b-slice0000",
+        "retry_of": null,
+        "started_at": "2026-08-18T14:43:53.368119+00:00"
+      },
+      {
+        "attempt_number": 1,
+        "audio_seconds": 100.43900000000001,
+        "error": null,
+        "latency_seconds": 4.786732059001224,
+        "outcome": "ok",
+        "request_id": "pattr-free-ES2011b-slice0001",
+        "response_of": "pattr-free-ES2011b-slice0001",
+        "retry_of": null,
+        "started_at": "2026-08-18T14:43:58.212264+00:00"
+      },
+      {
+        "attempt_number": 1,
+        "audio_seconds": 106.62100000000001,
+        "error": null,
+        "latency_seconds": 4.783050419006031,
+        "outcome": "ok",
+        "request_id": "pattr-free-ES2011b-slice0002",
+        "response_of": "pattr-free-ES2011b-slice0002",
+        "retry_of": null,
+        "started_at": "2026-08-18T14:44:03.207664+00:00"
+      },
+      {
+        "attempt_number": 1,
+        "audio_seconds": 94.21100000000001,
+        "error": null,
+        "latency_seconds": 3.5349488480133004,
+        "outcome": "ok",
+        "request_id": "pattr-free-ES2011b-slice0003",
+        "response_of": "pattr-free-ES2011b-slice0003",
+        "retry_of": null,
+        "started_at": "2026-08-18T14:44:08.042727+00:00"
+      },
+      {
+        "attempt_number": 1,
+        "audio_seconds": 91.84799999999996,
+        "error": null,
+        "latency_seconds": 3.8122419779829215,
+        "outcome": "ok",
+        "request_id": "pattr-free-ES2011b-slice0004",
+        "response_of": "pattr-free-ES2011b-slice0004",
+        "retry_of": null,
+        "started_at": "2026-08-18T14:44:11.619951+00:00"
+      },
+      {
+        "attempt_number": 1,
+        "audio_seconds": 91.27300000000002,
+        "error": null,
+        "latency_seconds": 2.1863507849921007,
+        "outcome": "ok",
+        "request_id": "pattr-free-ES2011b-slice0005",
+        "response_of": "pattr-free-ES2011b-slice0005",
+        "retry_of": null,
+        "started_at": "2026-08-18T14:44:15.609656+00:00"
+      },
+      {
+        "attempt_number": 1,
+        "audio_seconds": 94.346,
+        "error": null,
+        "latency_seconds": 3.848440715984907,
+        "outcome": "ok",
+        "request_id": "pattr-free-IS1008b-slice0000",
+        "response_of": "pattr-free-IS1008b-slice0000",
+        "retry_of": null,
+        "started_at": "2026-08-18T14:44:17.956823+00:00"
+      },
+      {
+        "attempt_number": 1,
+        "audio_seconds": 110.34700000000001,
+        "error": null,
+        "latency_seconds": 4.800138295977376,
+        "outcome": "ok",
+        "request_id": "pattr-free-IS1008b-slice0001",
+        "response_of": "pattr-free-IS1008b-slice0001",
+        "retry_of": null,
+        "started_at": "2026-08-18T14:44:22.174505+00:00"
+      },
+      {
+        "attempt_number": 1,
+        "audio_seconds": 94.576,
+        "error": null,
+        "latency_seconds": 4.3452971119841095,
+        "outcome": "ok",
+        "request_id": "pattr-free-IS1008b-slice0002",
+        "response_of": "pattr-free-IS1008b-slice0002",
+        "retry_of": null,
+        "started_at": "2026-08-18T14:44:27.237770+00:00"
+      },
+      {
+        "attempt_number": 1,
+        "audio_seconds": 94.41900000000004,
+        "error": null,
+        "latency_seconds": 4.054469298978802,
+        "outcome": "ok",
+        "request_id": "pattr-free-IS1008b-slice0003",
+        "response_of": "pattr-free-IS1008b-slice0003",
+        "retry_of": null,
+        "started_at": "2026-08-18T14:44:31.608966+00:00"
+      },
+      {
+        "attempt_number": 1,
+        "audio_seconds": 95.42000000000002,
+        "error": null,
+        "latency_seconds": 4.2949164980091155,
+        "outcome": "ok",
+        "request_id": "pattr-free-IS1008b-slice0004",
+        "response_of": "pattr-free-IS1008b-slice0004",
+        "retry_of": null,
+        "started_at": "2026-08-18T14:44:35.762810+00:00"
+      },
+      {
+        "attempt_number": 1,
+        "audio_seconds": 110.1289999999999,
+        "error": null,
+        "latency_seconds": 3.9715185319946613,
+        "outcome": "ok",
+        "request_id": "pattr-free-IS1008b-slice0005",
+        "response_of": "pattr-free-IS1008b-slice0005",
+        "retry_of": null,
+        "started_at": "2026-08-18T14:44:40.331991+00:00"
+      },
+      {
+        "attempt_number": 1,
+        "audio_seconds": 100.30799999999999,
+        "error": null,
+        "latency_seconds": 3.4480258760158904,
+        "outcome": "ok",
+        "request_id": "pattr-free-IS1008d-slice0000",
+        "response_of": "pattr-free-IS1008d-slice0000",
+        "retry_of": null,
+        "started_at": "2026-08-18T14:44:44.502847+00:00"
+      },
+      {
+        "attempt_number": 1,
+        "audio_seconds": 92.63300000000001,
+        "error": null,
+        "latency_seconds": 4.272651527979178,
+        "outcome": "ok",
+        "request_id": "pattr-free-IS1008d-slice0001",
+        "response_of": "pattr-free-IS1008d-slice0001",
+        "retry_of": null,
+        "started_at": "2026-08-18T14:44:48.216091+00:00"
+      },
+      {
+        "attempt_number": 1,
+        "audio_seconds": 104.41499999999999,
+        "error": null,
+        "latency_seconds": 4.795081103977282,
+        "outcome": "ok",
+        "request_id": "pattr-free-IS1008d-slice0002",
+        "response_of": "pattr-free-IS1008d-slice0002",
+        "retry_of": null,
+        "started_at": "2026-08-18T14:44:52.572865+00:00"
+      },
+      {
+        "attempt_number": 1,
+        "audio_seconds": 95.40800000000002,
+        "error": null,
+        "latency_seconds": 5.71463970397599,
+        "outcome": "ok",
+        "request_id": "pattr-free-IS1008d-slice0003",
+        "response_of": "pattr-free-IS1008d-slice0003",
+        "retry_of": null,
+        "started_at": "2026-08-18T14:44:57.555908+00:00"
+      },
+      {
+        "attempt_number": 1,
+        "audio_seconds": 101.12,
+        "error": null,
+        "latency_seconds": 4.351916968997102,
+        "outcome": "ok",
+        "request_id": "pattr-free-IS1008d-slice0004",
+        "response_of": "pattr-free-IS1008d-slice0004",
+        "retry_of": null,
+        "started_at": "2026-08-18T14:45:03.454443+00:00"
+      },
+      {
+        "attempt_number": 1,
+        "audio_seconds": 93.06500000000005,
+        "error": null,
+        "latency_seconds": 4.696547528001247,
+        "outcome": "ok",
+        "request_id": "pattr-free-IS1008d-slice0005",
+        "response_of": "pattr-free-IS1008d-slice0005",
+        "retry_of": null,
+        "started_at": "2026-08-18T14:45:08.080027+00:00"
+      },
+      {
+        "attempt_number": 1,
+        "audio_seconds": 95.528,
+        "error": null,
+        "latency_seconds": 3.5035641370050143,
+        "outcome": "ok",
+        "request_id": "pattr-free-TS3004b-slice0000",
+        "response_of": "pattr-free-TS3004b-slice0000",
+        "retry_of": null,
+        "started_at": "2026-08-18T14:45:12.944020+00:00"
+      },
+      {
+        "attempt_number": 1,
+        "audio_seconds": 94.719,
+        "error": null,
+        "latency_seconds": 3.7635415210097563,
+        "outcome": "ok",
+        "request_id": "pattr-free-TS3004b-slice0001",
+        "response_of": "pattr-free-TS3004b-slice0001",
+        "retry_of": null,
+        "started_at": "2026-08-18T14:45:16.621995+00:00"
+      },
+      {
+        "attempt_number": 1,
+        "audio_seconds": 105.21700000000001,
+        "error": null,
+        "latency_seconds": 4.8173004380078055,
+        "outcome": "ok",
+        "request_id": "pattr-free-TS3004b-slice0002",
+        "response_of": "pattr-free-TS3004b-slice0002",
+        "retry_of": null,
+        "started_at": "2026-08-18T14:45:20.602473+00:00"
+      },
+      {
+        "attempt_number": 1,
+        "audio_seconds": 91.90100000000001,
+        "error": null,
+        "latency_seconds": 4.465400278015295,
+        "outcome": "ok",
+        "request_id": "pattr-free-TS3004b-slice0003",
+        "response_of": "pattr-free-TS3004b-slice0003",
+        "retry_of": null,
+        "started_at": "2026-08-18T14:45:25.603643+00:00"
+      },
+      {
+        "attempt_number": 1,
+        "audio_seconds": 95.51150000000001,
+        "error": null,
+        "latency_seconds": 4.727921582001727,
+        "outcome": "ok",
+        "request_id": "pattr-free-TS3004b-slice0004",
+        "response_of": "pattr-free-TS3004b-slice0004",
+        "retry_of": null,
+        "started_at": "2026-08-18T14:45:30.368876+00:00"
+      },
+      {
+        "attempt_number": 1,
+        "audio_seconds": 92.51699999999994,
+        "error": null,
+        "latency_seconds": 4.49419804700301,
+        "outcome": "ok",
+        "request_id": "pattr-free-TS3004b-slice0005",
+        "response_of": "pattr-free-TS3004b-slice0005",
+        "retry_of": null,
+        "started_at": "2026-08-18T14:45:35.400355+00:00"
+      }
+    ],
+    "server_identity": {
+      "base_url": "http://127.0.0.1:8080",
+      "model_files": [
+        {
+          "path": "/home/chao/models/qwen3-omni-30b-a3b-instruct-gguf-q4km/Qwen3-Omni-30B-A3B-Instruct-Q4_K_M.gguf",
+          "sha256": "0751c279498785c0b07130ae7748038d1e2cfd04617928e4557063807f98066d"
+        }
+      ],
+      "slots": 1
+    }
+  },
+  "config_hash": "b03c3d2b90eb41fa00bc8acf5ad8770205008add0a1e7befc24d78f4c3943c0b",
+  "created_utc": "2026-08-18T14:45:46+00:00",
+  "extra": {},
+  "git": {
+    "commit": "9ad5d956a78eb92f436e2f1baee4323f20c92b74",
+    "dirty": false,
+    "error": null
+  },
+  "run_id": "2d84b4f50960414ca35676c957d03d61"
+}

@@ -1,0 +1,295 @@
+{
+  "config": {
+    "budget_totals": {
+      "audio_seconds_used": 2345.3734999999997,
+      "calls_used": 24,
+      "max_audio_seconds": 2500.0,
+      "max_calls": 26
+    },
+    "request_ledger": [
+      {
+        "attempt_number": 1,
+        "audio_seconds": 99.402,
+        "error": null,
+        "latency_seconds": 3.418596503994195,
+        "outcome": "ok",
+        "request_id": "pattr-grid-ES2011b-slice0000",
+        "response_of": "pattr-grid-ES2011b-slice0000",
+        "retry_of": null,
+        "started_at": "2026-08-18T14:40:55.362708+00:00"
+      },
+      {
+        "attempt_number": 1,
+        "audio_seconds": 100.43900000000001,
+        "error": null,
+        "latency_seconds": 4.780081729986705,
+        "outcome": "ok",
+        "request_id": "pattr-grid-ES2011b-slice0001",
+        "response_of": "pattr-grid-ES2011b-slice0001",
+        "retry_of": null,
+        "started_at": "2026-08-18T14:40:58.919374+00:00"
+      },
+      {
+        "attempt_number": 1,
+        "audio_seconds": 106.62100000000001,
+        "error": null,
+        "latency_seconds": 5.11705682502361,
+        "outcome": "ok",
+        "request_id": "pattr-grid-ES2011b-slice0002",
+        "response_of": "pattr-grid-ES2011b-slice0002",
+        "retry_of": null,
+        "started_at": "2026-08-18T14:41:04.571791+00:00"
+      },
+      {
+        "attempt_number": 1,
+        "audio_seconds": 94.21100000000001,
+        "error": null,
+        "latency_seconds": 3.330509819003055,
+        "outcome": "ok",
+        "request_id": "pattr-grid-ES2011b-slice0003",
+        "response_of": "pattr-grid-ES2011b-slice0003",
+        "retry_of": null,
+        "started_at": "2026-08-18T14:41:09.886073+00:00"
+      },
+      {
+        "attempt_number": 1,
+        "audio_seconds": 91.84799999999996,
+        "error": null,
+        "latency_seconds": 4.036406799015822,
+        "outcome": "ok",
+        "request_id": "pattr-grid-ES2011b-slice0004",
+        "response_of": "pattr-grid-ES2011b-slice0004",
+        "retry_of": null,
+        "started_at": "2026-08-18T14:41:13.411199+00:00"
+      },
+      {
+        "attempt_number": 1,
+        "audio_seconds": 91.27300000000002,
+        "error": null,
+        "latency_seconds": 2.4837283410015516,
+        "outcome": "ok",
+        "request_id": "pattr-grid-ES2011b-slice0005",
+        "response_of": "pattr-grid-ES2011b-slice0005",
+        "retry_of": null,
+        "started_at": "2026-08-18T14:41:17.659913+00:00"
+      },
+      {
+        "attempt_number": 1,
+        "audio_seconds": 94.346,
+        "error": null,
+        "latency_seconds": 4.263718372996664,
+        "outcome": "ok",
+        "request_id": "pattr-grid-IS1008b-slice0000",
+        "response_of": "pattr-grid-IS1008b-slice0000",
+        "retry_of": null,
+        "started_at": "2026-08-18T14:41:20.309537+00:00"
+      },
+      {
+        "attempt_number": 1,
+        "audio_seconds": 110.34700000000001,
+        "error": null,
+        "latency_seconds": 5.1996530659962445,
+        "outcome": "ok",
+        "request_id": "pattr-grid-IS1008b-slice0001",
+        "response_of": "pattr-grid-IS1008b-slice0001",
+        "retry_of": null,
+        "started_at": "2026-08-18T14:41:24.758352+00:00"
+      },
+      {
+        "attempt_number": 1,
+        "audio_seconds": 94.576,
+        "error": null,
+        "latency_seconds": 4.379739365977002,
+        "outcome": "ok",
+        "request_id": "pattr-grid-IS1008b-slice0002",
+        "response_of": "pattr-grid-IS1008b-slice0002",
+        "retry_of": null,
+        "started_at": "2026-08-18T14:41:30.125205+00:00"
+      },
+      {
+        "attempt_number": 1,
+        "audio_seconds": 94.41900000000004,
+        "error": null,
+        "latency_seconds": 4.4543093479878735,
+        "outcome": "ok",
+        "request_id": "pattr-grid-IS1008b-slice0003",
+        "response_of": "pattr-grid-IS1008b-slice0003",
+        "retry_of": null,
+        "started_at": "2026-08-18T14:41:34.693240+00:00"
+      },
+      {
+        "attempt_number": 1,
+        "audio_seconds": 95.42000000000002,
+        "error": null,
+        "latency_seconds": 4.575077058980241,
+        "outcome": "ok",
+        "request_id": "pattr-grid-IS1008b-slice0004",
+        "response_of": "pattr-grid-IS1008b-slice0004",
+        "retry_of": null,
+        "started_at": "2026-08-18T14:41:39.328045+00:00"
+      },
+      {
+        "attempt_number": 1,
+        "audio_seconds": 110.1289999999999,
+        "error": null,
+        "latency_seconds": 4.399404331023106,
+        "outcome": "ok",
+        "request_id": "pattr-grid-IS1008b-slice0005",
+        "response_of": "pattr-grid-IS1008b-slice0005",
+        "retry_of": null,
+        "started_at": "2026-08-18T14:41:44.077774+00:00"
+      },
+      {
+        "attempt_number": 1,
+        "audio_seconds": 100.30799999999999,
+        "error": null,
+        "latency_seconds": 4.823195948993089,
+        "outcome": "ok",
+        "request_id": "pattr-grid-IS1008d-slice0000",
+        "response_of": "pattr-grid-IS1008d-slice0000",
+        "retry_of": null,
+        "started_at": "2026-08-18T14:41:48.866576+00:00"
+      },
+      {
+        "attempt_number": 1,
+        "audio_seconds": 92.63300000000001,
+        "error": null,
+        "latency_seconds": 4.55761335598072,
+        "outcome": "ok",
+        "request_id": "pattr-grid-IS1008d-slice0001",
+        "response_of": "pattr-grid-IS1008d-slice0001",
+        "retry_of": null,
+        "started_at": "2026-08-18T14:41:53.848846+00:00"
+      },
+      {
+        "attempt_number": 1,
+        "audio_seconds": 104.41499999999999,
+        "error": null,
+        "latency_seconds": 5.793492502998561,
+        "outcome": "ok",
+        "request_id": "pattr-grid-IS1008d-slice0002",
+        "response_of": "pattr-grid-IS1008d-slice0002",
+        "retry_of": null,
+        "started_at": "2026-08-18T14:41:58.577286+00:00"
+      },
+      {
+        "attempt_number": 1,
+        "audio_seconds": 95.40800000000002,
+        "error": null,
+        "latency_seconds": 6.832299954985501,
+        "outcome": "ok",
+        "request_id": "pattr-grid-IS1008d-slice0003",
+        "response_of": "pattr-grid-IS1008d-slice0003",
+        "retry_of": null,
+        "started_at": "2026-08-18T14:42:04.443554+00:00"
+      },
+      {
+        "attempt_number": 1,
+        "audio_seconds": 101.12,
+        "error": null,
+        "latency_seconds": 5.172799140011193,
+        "outcome": "ok",
+        "request_id": "pattr-grid-IS1008d-slice0004",
+        "response_of": "pattr-grid-IS1008d-slice0004",
+        "retry_of": null,
+        "started_at": "2026-08-18T14:42:11.328307+00:00"
+      },
+      {
+        "attempt_number": 1,
+        "audio_seconds": 93.06500000000005,
+        "error": null,
+        "latency_seconds": 5.298294009990059,
+        "outcome": "ok",
+        "request_id": "pattr-grid-IS1008d-slice0005",
+        "response_of": "pattr-grid-IS1008d-slice0005",
+        "retry_of": null,
+        "started_at": "2026-08-18T14:42:16.561020+00:00"
+      },
+      {
+        "attempt_number": 1,
+        "audio_seconds": 95.528,
+        "error": null,
+        "latency_seconds": 10.529047243995592,
+        "outcome": "ok",
+        "request_id": "pattr-grid-TS3004b-slice0000",
+        "response_of": "pattr-grid-TS3004b-slice0000",
+        "retry_of": null,
+        "started_at": "2026-08-18T14:42:22.016248+00:00"
+      },
+      {
+        "attempt_number": 1,
+        "audio_seconds": 94.719,
+        "error": null,
+        "latency_seconds": 4.131848159013316,
+        "outcome": "ok",
+        "request_id": "pattr-grid-TS3004b-slice0001",
+        "response_of": "pattr-grid-TS3004b-slice0001",
+        "retry_of": null,
+        "started_at": "2026-08-18T14:42:32.785300+00:00"
+      },
+      {
+        "attempt_number": 1,
+        "audio_seconds": 105.21700000000001,
+        "error": null,
+        "latency_seconds": 4.310233894997509,
+        "outcome": "ok",
+        "request_id": "pattr-grid-TS3004b-slice0002",
+        "response_of": "pattr-grid-TS3004b-slice0002",
+        "retry_of": null,
+        "started_at": "2026-08-18T14:42:37.160651+00:00"
+      },
+      {
+        "attempt_number": 1,
+        "audio_seconds": 91.90100000000001,
+        "error": null,
+        "latency_seconds": 4.309235313994577,
+        "outcome": "ok",
+        "request_id": "pattr-grid-TS3004b-slice0003",
+        "response_of": "pattr-grid-TS3004b-slice0003",
+        "retry_of": null,
+        "started_at": "2026-08-18T14:42:41.619406+00:00"
+      },
+      {
+        "attempt_number": 1,
+        "audio_seconds": 95.51150000000001,
+        "error": null,
+        "latency_seconds": 4.086749490001239,
+        "outcome": "ok",
+        "request_id": "pattr-grid-TS3004b-slice0004",
+        "response_of": "pattr-grid-TS3004b-slice0004",
+        "retry_of": null,
+        "started_at": "2026-08-18T14:42:46.591387+00:00"
+      },
+      {
+        "attempt_number": 1,
+        "audio_seconds": 92.51699999999994,
+        "error": null,
+        "latency_seconds": 4.382388638012344,
+        "outcome": "ok",
+        "request_id": "pattr-grid-TS3004b-slice0005",
+        "response_of": "pattr-grid-TS3004b-slice0005",
+        "retry_of": null,
+        "started_at": "2026-08-18T14:42:50.926293+00:00"
+      }
+    ],
+    "server_identity": {
+      "base_url": "http://127.0.0.1:8080",
+      "model_files": [
+        {
+          "path": "/home/chao/models/qwen3-omni-30b-a3b-instruct-gguf-q4km/Qwen3-Omni-30B-A3B-Instruct-Q4_K_M.gguf",
+          "sha256": "0751c279498785c0b07130ae7748038d1e2cfd04617928e4557063807f98066d"
+        }
+      ],
+      "slots": 1
+    }
+  },
+  "config_hash": "20b0354cbd43c019a15d21c1ef6e999cf688f343886c0d497dcd8548a5d0b7ea",
+  "created_utc": "2026-08-18T14:43:13+00:00",
+  "extra": {},
+  "git": {
+    "commit": "9ad5d956a78eb92f436e2f1baee4323f20c92b74",
+    "dirty": false,
+    "error": null
+  },
+  "run_id": "6d960dc986c8443ea4eb353313bd953e"
+}

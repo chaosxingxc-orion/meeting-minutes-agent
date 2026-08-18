@@ -1,0 +1,54 @@
+=== A-turn start 14:46:17Z ===
+180 MHz, 53, 10.96 W, 1 %, 23689 MiB, P8
+[A-turn] 10/450 specs seen, 10 flown this process, 5.5s elapsed, 0.55s/request
+[A-turn] 20/450 specs seen, 20 flown this process, 9.0s elapsed, 0.45s/request
+[A-turn] 30/450 specs seen, 30 flown this process, 10.9s elapsed, 0.36s/request
+[A-turn] 40/450 specs seen, 40 flown this process, 20.5s elapsed, 0.51s/request
+[A-turn] 50/450 specs seen, 50 flown this process, 22.7s elapsed, 0.45s/request
+[A-turn] 60/450 specs seen, 60 flown this process, 25.9s elapsed, 0.43s/request
+[A-turn] 70/450 specs seen, 70 flown this process, 31.4s elapsed, 0.45s/request
+[A-turn] 80/450 specs seen, 80 flown this process, 34.1s elapsed, 0.43s/request
+[A-turn] 90/450 specs seen, 90 flown this process, 37.3s elapsed, 0.41s/request
+[A-turn] 100/450 specs seen, 100 flown this process, 41.8s elapsed, 0.42s/request
+[A-turn] 110/450 specs seen, 110 flown this process, 43.9s elapsed, 0.40s/request
+[A-turn] 120/450 specs seen, 120 flown this process, 47.8s elapsed, 0.40s/request
+[A-turn] 130/450 specs seen, 130 flown this process, 53.0s elapsed, 0.41s/request
+[A-turn] 140/450 specs seen, 140 flown this process, 57.8s elapsed, 0.41s/request
+[A-turn] 150/450 specs seen, 150 flown this process, 64.1s elapsed, 0.43s/request
+[A-turn] 160/450 specs seen, 160 flown this process, 67.1s elapsed, 0.42s/request
+[A-turn] 170/450 specs seen, 170 flown this process, 72.7s elapsed, 0.43s/request
+[A-turn] 180/450 specs seen, 180 flown this process, 77.4s elapsed, 0.43s/request
+[A-turn] 190/450 specs seen, 190 flown this process, 80.1s elapsed, 0.42s/request
+[A-turn] 200/450 specs seen, 200 flown this process, 82.1s elapsed, 0.41s/request
+[A-turn] 210/450 specs seen, 210 flown this process, 88.9s elapsed, 0.42s/request
+[A-turn] 220/450 specs seen, 220 flown this process, 90.9s elapsed, 0.41s/request
+[A-turn] 230/450 specs seen, 230 flown this process, 93.3s elapsed, 0.41s/request
+[A-turn] 240/450 specs seen, 240 flown this process, 97.8s elapsed, 0.41s/request
+[A-turn] 250/450 specs seen, 250 flown this process, 104.4s elapsed, 0.42s/request
+[A-turn] 260/450 specs seen, 260 flown this process, 114.2s elapsed, 0.44s/request
+[A-turn] 270/450 specs seen, 270 flown this process, 116.6s elapsed, 0.43s/request
+[A-turn] 280/450 specs seen, 280 flown this process, 118.9s elapsed, 0.42s/request
+[A-turn] 290/450 specs seen, 290 flown this process, 121.4s elapsed, 0.42s/request
+[A-turn] 300/450 specs seen, 300 flown this process, 125.8s elapsed, 0.42s/request
+[A-turn] 310/450 specs seen, 310 flown this process, 131.7s elapsed, 0.42s/request
+[A-turn] 320/450 specs seen, 320 flown this process, 142.0s elapsed, 0.44s/request
+[A-turn] 330/450 specs seen, 330 flown this process, 149.7s elapsed, 0.45s/request
+[A-turn] 340/450 specs seen, 340 flown this process, 155.9s elapsed, 0.46s/request
+[A-turn] 350/450 specs seen, 350 flown this process, 161.8s elapsed, 0.46s/request
+[A-turn] 360/450 specs seen, 360 flown this process, 163.9s elapsed, 0.46s/request
+[A-turn] 370/450 specs seen, 370 flown this process, 166.0s elapsed, 0.45s/request
+[A-turn] 380/450 specs seen, 380 flown this process, 172.1s elapsed, 0.45s/request
+[A-turn] 390/450 specs seen, 390 flown this process, 177.1s elapsed, 0.45s/request
+[A-turn] 400/450 specs seen, 400 flown this process, 183.5s elapsed, 0.46s/request
+[A-turn] 410/450 specs seen, 410 flown this process, 189.0s elapsed, 0.46s/request
+[A-turn] 420/450 specs seen, 420 flown this process, 203.7s elapsed, 0.48s/request
+[A-turn] 430/450 specs seen, 430 flown this process, 209.9s elapsed, 0.49s/request
+[A-turn] 440/450 specs seen, 440 flown this process, 224.2s elapsed, 0.51s/request
+[A-turn] 450/450 specs seen, 450 flown this process, 230.3s elapsed, 0.51s/request
+wrote /mnt/e/chao_workspace/exploring-l4-intelligence/speechrl-data/derived/meeting-minutes/pattr-smoke/runs/2026-08-18-pattr-smoke/a-turn-receipt.json (ledger entries: 450, budget: {'calls_used': 450, 'audio_seconds_used': 2138.578999999999, 'max_calls': 470, 'max_audio_seconds': 2250.0})
+=== A-turn done 14:50:36Z rc=0 ===
+wall_seconds=258
+records_ok=450 records_error=0
+0
+featcache_entries: 302 -> 879
+180 MHz, 55, 9.10 W, 0 %, 23693 MiB, P8

@@ -1,0 +1,132 @@
+{
+  "arms": {
+    "A-free": {
+      "audio_seconds": 2345.373,
+      "budget_totals": {
+        "audio_seconds_used": 2345.3734999999997,
+        "calls_used": 24,
+        "max_audio_seconds": 2500.0,
+        "max_calls": 26
+      },
+      "completion_tokens": 7189,
+      "extra_retry_attempts": 0,
+      "ledger_entries": 24,
+      "max_completion_tokens_observed": 485,
+      "max_tokens_cap": 1024,
+      "mean_latency_seconds": 4.25,
+      "prompt_tokens": 33331,
+      "receipt_config_hash": "b03c3d2b90eb41fa00bc8acf5ad8770205008add0a1e7befc24d78f4c3943c0b",
+      "receipt_git": {
+        "commit": "9ad5d956a78eb92f436e2f1baee4323f20c92b74",
+        "dirty": false
+      },
+      "receipt_run_id": "2d84b4f50960414ca35676c957d03d61",
+      "records_error": 0,
+      "records_ok": 24,
+      "records_without_usage": 0,
+      "replies_empty": 0,
+      "replies_under_20_chars": 0,
+      "reply_chars_max": 1826,
+      "reply_chars_median": 1236,
+      "reply_chars_min": 345,
+      "responses_at_max_tokens_cap": 0,
+      "sum_latency_seconds": 102.1,
+      "truncated_request_ids": []
+    },
+    "A-grid": {
+      "audio_seconds": 2345.373,
+      "budget_totals": {
+        "audio_seconds_used": 2345.3734999999997,
+        "calls_used": 24,
+        "max_audio_seconds": 2500.0,
+        "max_calls": 26
+      },
+      "completion_tokens": 7766,
+      "extra_retry_attempts": 0,
+      "ledger_entries": 24,
+      "max_completion_tokens_observed": 1024,
+      "max_tokens_cap": 1024,
+      "mean_latency_seconds": 4.78,
+      "prompt_tokens": 41818,
+      "receipt_config_hash": "20b0354cbd43c019a15d21c1ef6e999cf688f343886c0d497dcd8548a5d0b7ea",
+      "receipt_git": {
+        "commit": "9ad5d956a78eb92f436e2f1baee4323f20c92b74",
+        "dirty": false
+      },
+      "receipt_run_id": "6d960dc986c8443ea4eb353313bd953e",
+      "records_error": 0,
+      "records_ok": 24,
+      "records_without_usage": 0,
+      "replies_empty": 0,
+      "replies_under_20_chars": 0,
+      "reply_chars_max": 1813,
+      "reply_chars_median": 1195,
+      "reply_chars_min": 87,
+      "responses_at_max_tokens_cap": 1,
+      "sum_latency_seconds": 114.7,
+      "truncated_request_ids": [
+        "pattr-grid-TS3004b-slice0000"
+      ]
+    },
+    "A-turn": {
+      "audio_seconds": 2138.579,
+      "budget_totals": {
+        "audio_seconds_used": 2138.578999999999,
+        "calls_used": 450,
+        "max_audio_seconds": 2250.0,
+        "max_calls": 470
+      },
+      "completion_tokens": 7385,
+      "extra_retry_attempts": 0,
+      "ledger_entries": 450,
+      "max_completion_tokens_observed": 167,
+      "max_tokens_cap": 512,
+      "mean_latency_seconds": 0.44,
+      "prompt_tokens": 72491,
+      "receipt_config_hash": "6f64ab034c23366da99471f8c85bedf59a063130b48ecea4394a7ef1dd32fda7",
+      "receipt_git": {
+        "commit": "9ad5d956a78eb92f436e2f1baee4323f20c92b74",
+        "dirty": false
+      },
+      "receipt_run_id": "6c5787f478fd4fd2874b4851f52a10fd",
+      "records_error": 0,
+      "records_ok": 450,
+      "records_without_usage": 0,
+      "replies_empty": 0,
+      "replies_under_20_chars": 183,
+      "reply_chars_max": 784,
+      "reply_chars_median": 29,
+      "reply_chars_min": 2,
+      "responses_at_max_tokens_cap": 0,
+      "sum_latency_seconds": 196.7,
+      "truncated_request_ids": []
+    }
+  },
+  "ceilings": {
+    "max_audio_seconds": 7500,
+    "max_gpu_hours": 2.0,
+    "max_requests": 550
+  },
+  "featcache_bytes": 502249200,
+  "featcache_dir": "/home/chao/feat-cache/ami-q4km",
+  "featcache_entries": 879,
+  "gpu_sampler": {
+    "max_temp_c": 62.0,
+    "samples": 20,
+    "sm_clocks_seen": [
+      "180MHz",
+      "232MHz"
+    ],
+    "throttle_reasons_seen": [
+      "0x0000000000000000",
+      "0x0000000000000004"
+    ],
+    "utilization_integrated_gpu_hours": 0.0959,
+    "utilization_integrated_gpu_seconds": 345.3,
+    "wall_seconds_sampled": 600
+  },
+  "grand_total_audio_seconds_metered": 6829.326,
+  "grand_total_calls_metered": 498,
+  "grand_total_request_latency_hours": 0.1148,
+  "grand_total_request_latency_seconds": 413.4
+}

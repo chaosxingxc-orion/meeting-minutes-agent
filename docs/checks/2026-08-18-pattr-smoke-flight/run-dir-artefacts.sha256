@@ -1,0 +1,6 @@
+# Run-dir artefacts kept OUT of Git (raw traces), recorded by hash
+# run_dir: /mnt/e/chao_workspace/exploring-l4-intelligence/speechrl-data/derived/meeting-minutes/pattr-smoke/runs/2026-08-18-pattr-smoke
+3b32ac7433f02cfa70951c9a32c7663a211593b4336e9172a1d3de279b506905  server.log  2469742 bytes
+c91ff52cc80358764855207feb3e6bd8717f20766fe79f584f631c626868ee02  a-grid-responses.jsonl  46933 bytes
+2dd4a4794102e73ce6b9f1ae2b5a0f21bca7861dba28ee1013426bf2e3854ef4  a-free-responses.jsonl  47514 bytes
+68afc29c5452fa014662776ce17c10cfe844ebd4d2620aa3e9f9c89c4a7f8266  a-turn-responses.jsonl  371579 bytes
