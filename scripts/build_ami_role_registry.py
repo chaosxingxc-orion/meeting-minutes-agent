@@ -26,10 +26,14 @@ total over the roster and exactly one role lands per meeting:
   ``glossary-discovery``.
 * **R5** everything else -> ``held-out-reserve``.
 
-Quarantine rule **Q1**: a MeetingQA question is usable only when its meeting's
-role is ``qa-eval``. Every other MeetingQA question straddles roles (its
-meeting is spoken for by the ASR flight set, by glossary discovery, or is held
-out) and is quarantined -- listed explicitly in the registry.
+v1.1 question-usage policy (``docs/plans/2026-08-17-founding-workplan.md``
+§4b, superseding v1.0.0's role-keyed quarantine): a MeetingQA question's
+usability is governed by its *own* MeetingQA split and by eval-16 membership,
+never by the AMI meeting role above. A meeting in the frozen eval-16 hold-out
+is ``untouchable`` regardless of its MeetingQA split; otherwise a MeetingQA
+test-split meeting is ``reserved-final-reporting`` and a train/dev-split
+meeting is ``usable-discovery`` -- a free discovery surface at every
+non-confirmatory stage, the asr-eval dev-18 flight set included.
 
 Usage::
 
@@ -52,7 +56,9 @@ if str(_SRC) not in sys.path:
 from meeting_minutes_agent.corpora.roles import (  # noqa: E402
     FROZEN_DEV_18,
     FROZEN_EVAL_16,
+    SCHEMA_VERSION,
     MeetingRole,
+    QuestionUsagePolicy,
 )
 
 #: Annotation layers that together make a "full stack" for glossary discovery:
@@ -147,6 +153,29 @@ def assign_role(
     return MeetingRole.HELD_OUT_RESERVE, "R5"
 
 
+def classify_question_usage(
+    role: MeetingRole, meetingqa_split: str | None, meetingqa_questions: int
+) -> QuestionUsagePolicy:
+    """v1.1 per-meeting MeetingQA question-usage classification -- mirrors
+    ``MeetingRecord.question_usage_policy`` in ``meeting_minutes_agent.corpora.roles``
+    exactly (kept as an independent implementation there so a loader-side
+    regression cannot silently agree with a builder-side one; the registry's
+    own ``question_usage.counts`` cross-check is what keeps the two in sync)."""
+
+    if role is MeetingRole.HELD_OUT_CONFIRMATORY:
+        return QuestionUsagePolicy.UNTOUCHABLE
+    if meetingqa_questions == 0:
+        return QuestionUsagePolicy.NO_MEETINGQA
+    if meetingqa_split == "test":
+        return QuestionUsagePolicy.RESERVED_FINAL_REPORTING
+    if meetingqa_split in ("train", "dev"):
+        return QuestionUsagePolicy.USABLE_DISCOVERY
+    raise SystemExit(
+        f"question-usage classification: {meetingqa_questions} questions under unrecognised "
+        f"split {meetingqa_split!r}"
+    )
+
+
 def build(data_root: Path) -> dict[str, Any]:
     ami_root = data_root / "ami"
     roster = ami_roster(ami_root)
@@ -219,28 +248,23 @@ def registry_document(rows: dict[str, dict[str, Any]], matrix_relpath: str) -> d
     for row in rows.values():
         role_counts[row["role"]] += 1
 
-    quarantine = [
-        {
-            "meeting_id": meeting,
-            "role": row["role"],
-            "meetingqa_split": row["meetingqa_split"],
-            "n_questions": row["meetingqa_questions"],
-            "reason": (
-                "eval-16 confirmatory hold-out"
-                if row["role"] == MeetingRole.HELD_OUT_CONFIRMATORY.value
-                else f"meeting is spoken for by role {row['role']!r}"
-            ),
-        }
-        for meeting, row in sorted(rows.items())
-        if row["meetingqa_questions"] > 0 and row["role"] != MeetingRole.QA_EVAL.value
-    ]
+    question_usage_counts = {p.value: {"n_meetings": 0, "n_questions": 0} for p in QuestionUsagePolicy}
+    for row in rows.values():
+        policy = classify_question_usage(
+            MeetingRole(row["role"]), row["meetingqa_split"], row["meetingqa_questions"]
+        ).value
+        question_usage_counts[policy]["n_meetings"] += 1
+        question_usage_counts[policy]["n_questions"] += row["meetingqa_questions"]
 
     return {
-        "schema_version": "1.0.0",
+        "schema_version": SCHEMA_VERSION,
         "registry_id": "ami-role-registry",
         "purpose": (
             "One role per AMI meeting, machine-checked fail-closed. G1 precondition from the "
-            "2026-08-17 deep check; loader/validator: meeting_minutes_agent.corpora.roles."
+            "2026-08-17 deep check; loader/validator: meeting_minutes_agent.corpora.roles. v1.1 "
+            "(2026-08-18, owner rulings in docs/plans/2026-08-17-founding-workplan.md §4b) adds "
+            "an independent MeetingQA question_usage policy keyed by eval-16 membership and "
+            "MeetingQA's own split, retiring the v1.0.0 role-keyed quarantine."
         ),
         "corpus": {
             "name": "ami-meeting-corpus",
@@ -270,7 +294,7 @@ def registry_document(rows: dict[str, dict[str, Any]], matrix_relpath: str) -> d
         },
         "roles": {
             MeetingRole.ASR_EVAL.value: "G1 flight set: chunked transcription + attribution scoring.",
-            MeetingRole.QA_EVAL.value: "MeetingQA evaluation surface. The only role whose questions are usable.",
+            MeetingRole.QA_EVAL.value: "MeetingQA evaluation surface (held-out-137, MeetingQA test split).",
             MeetingRole.GLOSSARY_DISCOVERY.value: "Glossary/term-mining discovery surface; never scored as eval.",
             MeetingRole.HELD_OUT_CONFIRMATORY.value: "Frozen eval-16. No exposure, no scoring, no discovery. Ever.",
             MeetingRole.HELD_OUT_RESERVE.value: "Held-out remainder with no assigned role. No exposure.",
@@ -288,14 +312,32 @@ def registry_document(rows: dict[str, dict[str, Any]], matrix_relpath: str) -> d
             "eval_16": list(FROZEN_EVAL_16),
         },
         "role_counts": role_counts,
-        "quarantine": {
+        "question_usage": {
             "rule": (
-                "Q1: a MeetingQA question is usable only when its meeting's registry role is "
-                "'qa-eval'. Every other MeetingQA question straddles roles and is quarantined."
+                "v1.1: a MeetingQA question's usage is independent of the AMI meeting role above. "
+                "A meeting in the frozen eval-16 confirmatory hold-out is 'untouchable' regardless "
+                "of its MeetingQA split. Otherwise: MeetingQA test-split questions are "
+                "'reserved-final-reporting' (Stage-3 only); MeetingQA train/dev-split questions are "
+                "'usable-discovery' on any non-eval-16 meeting, the asr-eval dev-18 flight set "
+                "included. A meeting absent from MeetingQA is 'no-meetingqa'. Supersedes v1.0.0's "
+                "role-keyed quarantine (Q1)."
             ),
-            "n_meetings": len(quarantine),
-            "n_questions": sum(entry["n_questions"] for entry in quarantine),
-            "meetings": quarantine,
+            "policies": {
+                QuestionUsagePolicy.USABLE_DISCOVERY.value: (
+                    "MeetingQA train/dev split, meeting outside eval-16. Free discovery surface at "
+                    "every non-confirmatory stage."
+                ),
+                QuestionUsagePolicy.RESERVED_FINAL_REPORTING.value: (
+                    "MeetingQA test split, meeting outside eval-16. Reserved for Stage-3 final "
+                    "reporting; not a discovery surface pre-registration."
+                ),
+                QuestionUsagePolicy.UNTOUCHABLE.value: (
+                    "Meeting in the frozen eval-16 confirmatory hold-out, any MeetingQA split. No "
+                    "exposure, no scoring, no discovery. Ever."
+                ),
+                QuestionUsagePolicy.NO_MEETINGQA.value: "Meeting carries no MeetingQA questions.",
+            },
+            "counts": question_usage_counts,
         },
         "meetings": meetings,
     }
@@ -307,7 +349,7 @@ def markdown_table(rows: dict[str, dict[str, Any]]) -> str:
         "# AMI three-way overlap matrix (generated)",
         "",
         "Generated by `scripts/build_ami_role_registry.py` from shipped bytes; do not hand-edit.",
-        "Narrative, rules and the quarantine list: `2026-08-18-ami-role-registry.md`.",
+        "Narrative, rules and the question-usage policy: `2026-08-18-ami-role-registry.md`.",
         "Machine form: `2026-08-18-ami-overlap-matrix.json`. Registry:",
         "`configs/corpora/ami-role-registry.json`.",
         "",
@@ -356,10 +398,7 @@ def main(argv: list[str] | None = None) -> int:
         "qmsum_split": matrix["qmsum_split"],
         "full_annotation_stack": matrix["full_annotation_stack"],
         "role_counts": registry["role_counts"],
-        "quarantine": {
-            "n_meetings": registry["quarantine"]["n_meetings"],
-            "n_questions": registry["quarantine"]["n_questions"],
-        },
+        "question_usage_counts": registry["question_usage"]["counts"],
         "asr_partition_x_meetingqa_split": matrix["asr_partition_x_meetingqa_split"],
     }
     print(json.dumps(summary, indent=2, sort_keys=True))

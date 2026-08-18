@@ -24,6 +24,25 @@ than degrading to a permissive default. The three refusals the deep check
 named explicitly -- unknown meeting, duplicate role, eval-16 leakage -- are
 :class:`UnknownMeetingError`, :class:`DuplicateRoleError` and
 :class:`HeldOutLeakageError`.
+
+v1.1 (2026-08-18, owner rulings recorded in
+``docs/plans/2026-08-17-founding-workplan.md`` §4b and
+``docs/readiness/2026-08-18-ami-role-registry.md`` §11): the five meeting
+roles and R1-R5 assignment above are UNCHANGED from v1.0.0 -- they still
+govern which AMI meetings this repository may expose to the frozen core for
+which purpose, and eval-16 is exactly as sacrosanct as before. What changed
+is a *second, independent* axis that used to be conflated with meeting role:
+whether a MeetingQA *question* may be used right now. v1.0.0 quarantined a
+question the instant its meeting was spoken for by any role other than
+``qa-eval`` -- discarding 75.2% of MeetingQA as a side effect of the AMI role
+assignment. The program-wide split philosophy (train/dev splits are free
+discovery surfaces at every non-confirmatory stage; only test-split numbers
+are final results) makes that conflation wrong: a MeetingQA question's
+usability depends on (a) whether its meeting is in the frozen eval-16
+confirmatory hold-out, and, only if not, (b) MeetingQA's *own* split for that
+question, never on this repository's unrelated AMI role for the same
+meeting. :class:`QuestionUsagePolicy` and the ``question_usage_*`` accessors
+below replace v1.0.0's ``quarantine`` block and its role-keyed gate.
 """
 
 from __future__ import annotations
@@ -35,7 +54,7 @@ from enum import Enum
 from pathlib import Path
 from typing import Any, Iterable, Mapping
 
-SCHEMA_VERSION = "1.0.0"
+SCHEMA_VERSION = "1.1.0"
 SUPPORTED_SCHEMA_VERSIONS = frozenset({SCHEMA_VERSION})
 
 #: Frozen ASR-partition dev set (18 meetings), transcribed from the published
@@ -53,7 +72,9 @@ FROZEN_DEV_18: tuple[str, ...] = (
 #: Frozen ASR-partition eval set (16 meetings). Held out for confirmatory work
 #: only: never a discovery surface, never an evaluation surface in this
 #: repository, never exposed to the frozen core. 12 of the 16 are corroborated
-#: by shipped ``visibility="unseen"``.
+#: by shipped ``visibility="unseen"``. Under the v1.1 question-usage policy
+#: this is also the exact set of meetings whose MeetingQA questions are
+#: UNTOUCHABLE, regardless of MeetingQA's own split for them.
 FROZEN_EVAL_16: tuple[str, ...] = (
     "ES2004a", "ES2004b", "ES2004c", "ES2004d",
     "IS1009a", "IS1009b", "IS1009c", "IS1009d",
@@ -69,7 +90,9 @@ class MeetingRole(str, Enum):
     core for their own purpose and no other. The two *reserved* roles permit
     no exposure at all; they exist so the assignment is total over the roster
     (a meeting with "no entry" would be an unchecked hole, not a safe
-    default).
+    default). Unchanged in v1.1: this axis governs AMI meeting exposure to
+    this repository's own pipeline, and is orthogonal to a MeetingQA
+    question's own usage policy (see :class:`QuestionUsagePolicy`).
     """
 
     ASR_EVAL = "asr-eval"
@@ -85,6 +108,34 @@ ACTIVE_ROLES: frozenset[MeetingRole] = frozenset(
 RESERVED_ROLES: frozenset[MeetingRole] = frozenset(
     {MeetingRole.HELD_OUT_CONFIRMATORY, MeetingRole.HELD_OUT_RESERVE}
 )
+
+
+class QuestionUsagePolicy(str, Enum):
+    """v1.1: the closed policy enum for a MeetingQA question, keyed by its
+    *meeting*. MeetingQA ships one split per meeting (never a per-question
+    split), so this is a per-meeting classification, exactly like
+    :class:`MeetingRole` -- but along the orthogonal axis of "is this
+    question usable right now", not "what does this repository do with the
+    AMI meeting". Evaluated in this order, first match wins:
+
+    * a meeting in the frozen eval-16 confirmatory hold-out is
+      :attr:`UNTOUCHABLE`, regardless of its own MeetingQA split;
+    * a meeting outside eval-16 with no MeetingQA coverage at all is
+      :attr:`NO_MEETINGQA`;
+    * a meeting outside eval-16 on MeetingQA's *test* split is
+      :attr:`RESERVED_FINAL_REPORTING`;
+    * a meeting outside eval-16 on MeetingQA's *train* or *dev* split is
+      :attr:`USABLE_DISCOVERY` -- a free discovery surface at every
+      non-confirmatory stage, including this repository's own asr-eval
+      dev-18 flight set. (Discovery use of the question does not relax this
+      repository's own AMI-exposure rules for that meeting's audio/transcript
+      under its :class:`MeetingRole` -- the two axes are independent.)
+    """
+
+    USABLE_DISCOVERY = "usable-discovery"
+    RESERVED_FINAL_REPORTING = "reserved-final-reporting"
+    UNTOUCHABLE = "untouchable"
+    NO_MEETINGQA = "no-meetingqa"
 
 
 class RoleRegistryError(ValueError):
@@ -107,13 +158,19 @@ class DuplicateRoleError(RoleRegistryError):
 
 class HeldOutLeakageError(RoleRegistryError):
     """A held-out meeting was assigned an active role, or exposure of one was
+    requested -- or (v1.1) a MeetingQA question on an eval-16 meeting was
     requested. The eval-16 case is the hard constraint from the split freeze
-    §4.3: nothing in the confirmatory set may be exposed or scored."""
+    §4.3: nothing in the confirmatory set may be exposed, scored, or used as
+    a MeetingQA question, under any split."""
 
 
 class QuarantinedQuestionError(RoleRegistryError):
-    """A MeetingQA question was requested for a meeting whose registry role is
-    not ``qa-eval`` -- i.e. the question straddles roles."""
+    """A MeetingQA question was requested for use that its v1.1
+    :class:`QuestionUsagePolicy` does not permit: it is reserved for Stage-3
+    final reporting (MeetingQA test-split, meeting outside eval-16), or its
+    meeting carries no MeetingQA coverage at all. (An eval-16 meeting raises
+    :class:`HeldOutLeakageError` instead -- that refusal is unconditional and
+    carries the stronger meaning.)"""
 
 
 @dataclass(frozen=True)
@@ -140,6 +197,27 @@ class MeetingRecord:
 
         return self.role in ACTIVE_ROLES
 
+    @property
+    def question_usage_policy(self) -> QuestionUsagePolicy:
+        """v1.1 per-meeting MeetingQA question-usage classification. See
+        :class:`QuestionUsagePolicy` for the rule; eval-16 membership is read
+        from ``role`` (validated elsewhere to equal :data:`FROZEN_EVAL_16`
+        exactly) rather than re-derived, so this stays consistent with the
+        one place that already enforces the eval-16 set."""
+
+        if self.role is MeetingRole.HELD_OUT_CONFIRMATORY:
+            return QuestionUsagePolicy.UNTOUCHABLE
+        if self.meetingqa_questions == 0:
+            return QuestionUsagePolicy.NO_MEETINGQA
+        if self.meetingqa_split == "test":
+            return QuestionUsagePolicy.RESERVED_FINAL_REPORTING
+        if self.meetingqa_split in ("train", "dev"):
+            return QuestionUsagePolicy.USABLE_DISCOVERY
+        raise RoleRegistryError(
+            f"meeting {self.meeting_id!r} carries {self.meetingqa_questions} MeetingQA questions "
+            f"under unrecognised split {self.meetingqa_split!r}; expected 'train', 'dev' or 'test'"
+        )
+
 
 _REQUIRED_RECORD_FIELDS = (
     "role",
@@ -158,8 +236,6 @@ class AmiRoleRegistry:
     :func:`load_role_registry`, which refuses anything it cannot vouch for."""
 
     meetings: Mapping[str, MeetingRecord]
-    quarantined_meetings: tuple[str, ...]
-    quarantined_question_count: int
     source_path: Path | None
     registry_hash: str
 
@@ -193,7 +269,7 @@ class AmiRoleRegistry:
             counts[record.role.value] += 1
         return counts
 
-    # -- gates ---------------------------------------------------------
+    # -- gates: AMI meeting exposure (unchanged in v1.1) ----------------
 
     def assert_exposable(self, meeting_id: str, *, for_role: MeetingRole | None = None) -> None:
         """Refuse exposure of a reserved meeting, and (when ``for_role`` is
@@ -212,22 +288,74 @@ class AmiRoleRegistry:
                 "a meeting serves one role only"
             )
 
+    # -- lookups: MeetingQA question usage (v1.1) -----------------------
+
+    def question_usage_policy_of(self, meeting_id: str) -> QuestionUsagePolicy:
+        return self.record(meeting_id).question_usage_policy
+
+    def usable_discovery_questions(self) -> tuple[str, ...]:
+        """Meetings whose MeetingQA questions are a free discovery surface
+        right now: MeetingQA train/dev split, meeting outside eval-16 --
+        the asr-eval dev-18 flight set included."""
+
+        return self._meetings_with_policy(QuestionUsagePolicy.USABLE_DISCOVERY)
+
+    def reserved_test_questions(self) -> tuple[str, ...]:
+        """Meetings whose MeetingQA questions are reserved for Stage-3 final
+        reporting: MeetingQA test split, meeting outside eval-16. Not a
+        discovery surface at this stage."""
+
+        return self._meetings_with_policy(QuestionUsagePolicy.RESERVED_FINAL_REPORTING)
+
+    def untouchable_questions(self) -> tuple[str, ...]:
+        """Meetings whose MeetingQA questions may never be used: the frozen
+        eval-16 confirmatory hold-out, regardless of MeetingQA's own split
+        for them."""
+
+        return self._meetings_with_policy(QuestionUsagePolicy.UNTOUCHABLE)
+
+    def _meetings_with_policy(self, policy: QuestionUsagePolicy) -> tuple[str, ...]:
+        return tuple(
+            sorted(m for m, r in self.meetings.items() if r.question_usage_policy is policy)
+        )
+
+    def question_usage_counts(self) -> dict[str, dict[str, int]]:
+        """Aggregate meeting and question tallies per :class:`QuestionUsagePolicy`,
+        e.g. for a readiness-note report; the values are exactly what the
+        loader cross-checks the committed registry's ``question_usage.counts``
+        block against."""
+
+        counts = {p.value: {"n_meetings": 0, "n_questions": 0} for p in QuestionUsagePolicy}
+        for record in self.meetings.values():
+            bucket = counts[record.question_usage_policy.value]
+            bucket["n_meetings"] += 1
+            bucket["n_questions"] += record.meetingqa_questions
+        return counts
+
     def assert_question_usable(self, meeting_id: str) -> None:
-        """Gate for MeetingQA questions. Only meetings whose role is
-        ``qa-eval`` may contribute questions; every other MeetingQA question
-        is quarantined because its meeting is spoken for by another role (or
-        is held out)."""
+        """Gate for MeetingQA questions under the v1.1 policy. Admits only
+        :attr:`QuestionUsagePolicy.USABLE_DISCOVERY`. An eval-16 meeting
+        raises :class:`HeldOutLeakageError` unconditionally; a meeting
+        reserved for final reporting, or with no MeetingQA coverage, raises
+        :class:`QuarantinedQuestionError`."""
 
         record = self.record(meeting_id)
-        if record.role is not MeetingRole.QA_EVAL:
-            raise QuarantinedQuestionError(
-                f"MeetingQA questions on meeting {meeting_id!r} are QUARANTINED: its registry role is "
-                f"{record.role.value!r}, not 'qa-eval' ({record.meetingqa_questions} questions affected)"
+        policy = record.question_usage_policy
+        if policy is QuestionUsagePolicy.UNTOUCHABLE:
+            raise HeldOutLeakageError(
+                f"meeting {meeting_id!r} is in the frozen eval-16 confirmatory hold-out; its "
+                "MeetingQA questions are UNTOUCHABLE regardless of MeetingQA's own split for them"
             )
-
-    def is_quarantined(self, meeting_id: str) -> bool:
-        record = self.record(meeting_id)
-        return record.meetingqa_questions > 0 and record.role is not MeetingRole.QA_EVAL
+        if policy is QuestionUsagePolicy.RESERVED_FINAL_REPORTING:
+            raise QuarantinedQuestionError(
+                f"MeetingQA questions on meeting {meeting_id!r} are RESERVED for Stage-3 final "
+                f"reporting (MeetingQA test split); not a discovery surface "
+                f"({record.meetingqa_questions} questions affected)"
+            )
+        if policy is QuestionUsagePolicy.NO_MEETINGQA:
+            raise QuarantinedQuestionError(
+                f"meeting {meeting_id!r} carries no MeetingQA questions"
+            )
 
 
 # ---------------------------------------------------------------------------
@@ -284,8 +412,8 @@ def load_role_registry(path: Path | str | None = None) -> AmiRoleRegistry:
 
     Self-consistency: the declared roster size and per-role counts must match
     what the records actually say, every ``qa-eval`` meeting must actually
-    have questions, and the declared quarantine must equal the recomputed one
-    (meetings with questions whose role is not ``qa-eval``).
+    have questions, and (v1.1) the declared ``question_usage.counts`` block
+    must equal the recomputed :class:`QuestionUsagePolicy` tallies.
     """
 
     registry_path = Path(path) if path is not None else default_registry_path()
@@ -329,12 +457,10 @@ def load_role_registry(path: Path | str | None = None) -> AmiRoleRegistry:
 
     _validate_frozen_splits(document, records)
     _validate_counts(document, records)
-    quarantined, quarantined_questions = _validate_quarantine(document, records)
+    _validate_question_usage(document, records)
 
     return AmiRoleRegistry(
         meetings=dict(records),
-        quarantined_meetings=quarantined,
-        quarantined_question_count=quarantined_questions,
         source_path=registry_path,
         registry_hash=hashlib.sha256(raw_text.encode("utf-8")).hexdigest(),
     )
@@ -409,57 +535,59 @@ def _validate_counts(document: Mapping[str, Any], records: Mapping[str, MeetingR
             )
 
 
-def _validate_quarantine(
-    document: Mapping[str, Any], records: Mapping[str, MeetingRecord]
-) -> tuple[tuple[str, ...], int]:
-    block = document.get("quarantine") or {}
-    entries = block.get("meetings")
-    _require(isinstance(entries, list), "registry carries no 'quarantine.meetings' list")
+def _validate_question_usage(document: Mapping[str, Any], records: Mapping[str, MeetingRecord]) -> None:
+    """v1.1: cross-check the declared ``question_usage.counts`` block against
+    the :class:`QuestionUsagePolicy` recomputed from the records themselves.
+    Mirrors ``_validate_counts``'s role_counts check -- an aggregate
+    declaration validated against the per-meeting source of truth, never a
+    separately hand-maintained list (that was v1.0.0's ``quarantine.meetings``,
+    now retired)."""
 
-    expected = tuple(
-        sorted(
-            m
-            for m, r in records.items()
-            if r.meetingqa_questions > 0 and r.role is not MeetingRole.QA_EVAL
-        )
-    )
-    declared = tuple(sorted(str(e["meeting_id"]) for e in entries))
+    block = document.get("question_usage")
+    _require(isinstance(block, dict), "registry carries no 'question_usage' block")
+
+    declared = block.get("counts")
+    _require(isinstance(declared, dict), "registry carries no 'question_usage.counts' block")
+
+    actual: dict[str, dict[str, int]] = {
+        p.value: {"n_meetings": 0, "n_questions": 0} for p in QuestionUsagePolicy
+    }
+    for record in records.values():
+        bucket = actual[record.question_usage_policy.value]
+        bucket["n_meetings"] += 1
+        bucket["n_questions"] += record.meetingqa_questions
+
+    declared_normalised = {
+        str(policy): {"n_meetings": int(v.get("n_meetings", -1)), "n_questions": int(v.get("n_questions", -1))}
+        for policy, v in declared.items()
+    }
     _require(
-        declared == expected,
-        "declared quarantine does not match the recomputed one; "
-        f"declared-only={sorted(set(declared) - set(expected))} "
-        f"missing={sorted(set(expected) - set(declared))}",
+        declared_normalised == actual,
+        f"registry question_usage.counts {declared_normalised} disagree with the recomputed "
+        f"QuestionUsagePolicy tallies {actual}",
     )
 
-    expected_questions = sum(records[m].meetingqa_questions for m in expected)
-    declared_questions = block.get("n_questions")
-    _require(
-        declared_questions == expected_questions,
-        f"registry declares quarantine.n_questions={declared_questions!r}, records sum to "
-        f"{expected_questions}",
-    )
-    for entry in entries:
-        meeting_id = str(entry["meeting_id"])
-        _require(
-            int(entry["n_questions"]) == records[meeting_id].meetingqa_questions,
-            f"quarantine entry for {meeting_id!r} disagrees with its record's question count",
-        )
-    return expected, expected_questions
 
-
-def quarantined_question_ids(
-    registry: AmiRoleRegistry, questions: Iterable[Mapping[str, Any]], *, meeting_field: str = "title"
+def filter_question_ids_by_policy(
+    registry: AmiRoleRegistry,
+    questions: Iterable[Mapping[str, Any]],
+    policy: QuestionUsagePolicy,
+    *,
+    meeting_field: str = "title",
 ) -> tuple[str, ...]:
-    """Return the ids of MeetingQA questions that the registry quarantines.
+    """Return the ids of the MeetingQA questions in ``questions`` whose
+    meeting carries the given :class:`QuestionUsagePolicy`.
 
-    Convenience for a loader that already holds MeetingQA records: a question
-    is usable only when its meeting's role is ``qa-eval``. Unknown meetings
-    raise -- an unrecognised meeting id is never silently treated as usable.
+    Convenience for a loader that already holds MeetingQA records and needs
+    question-id granularity rather than the registry's meeting-id
+    accessors (:meth:`AmiRoleRegistry.usable_discovery_questions` and
+    siblings). Unknown meetings raise -- an unrecognised meeting id is never
+    silently treated as usable. Replaces v1.0.0's ``quarantined_question_ids``.
     """
 
     out = []
     for question in questions:
         meeting_id = str(question[meeting_field])
-        if registry.role_of(meeting_id) is not MeetingRole.QA_EVAL:
+        if registry.question_usage_policy_of(meeting_id) is policy:
             out.append(str(question["id"]))
     return tuple(out)
