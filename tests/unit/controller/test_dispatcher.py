@@ -32,8 +32,10 @@ def _chunk_plan(max_chunk_s: float = 3600.0):
     return build_chunk_plan(SEGMENTS, meeting_id="m1", target_chunk_s=max_chunk_s, max_chunk_s=max_chunk_s)
 
 
-def _task(kind: TaskKind, chunk_index: int = 0, priority: int = 0, seq: int = 0) -> Task:
-    return Task(kind=kind, chunk_index=chunk_index, priority=priority, seq=seq)
+def _task(
+    kind: TaskKind, chunk_index: int = 0, priority: int = 0, seq: int = 0, payload: dict | None = None
+) -> Task:
+    return Task(kind=kind, chunk_index=chunk_index, priority=priority, seq=seq, payload=payload or {})
 
 
 # ---------------------------------------------------------------------------
@@ -120,6 +122,90 @@ class TestBuildDispatchUnitHonestStubs:
                 chunk_plan=_chunk_plan(),
                 resolved_segments=(),
             )
+
+
+# ---------------------------------------------------------------------------
+# build_dispatch_unit: item-14 per-slice dispatch
+# ---------------------------------------------------------------------------
+
+
+class TestBuildDispatchUnitTranscribeSpanPerSlice:
+    def test_slice_index_and_bounds_reach_the_dispatch_unit(self):
+        plan = _chunk_plan()
+        unit = build_dispatch_unit(
+            _task(TaskKind.TRANSCRIBE_SPAN, payload={"slice_index": 2}),
+            episode_state=EpisodeState(),
+            chunk_plan=plan,
+            resolved_segments=(),
+            slice_start=12.0,
+            slice_end=22.0,
+        )
+        assert unit.slice_index == 2
+        assert unit.slice_start == 12.0
+        assert unit.slice_end == 22.0
+        assert unit.chunk is plan.chunks[0]  # the CONTAINING task chunk, unchanged
+
+    def test_slice_request_id_carries_the_slice_index(self):
+        plan = _chunk_plan()
+        unit = build_dispatch_unit(
+            _task(TaskKind.TRANSCRIBE_SPAN, payload={"slice_index": 7}),
+            episode_state=EpisodeState(),
+            chunk_plan=plan,
+            resolved_segments=(),
+            slice_start=0.0,
+            slice_end=10.0,
+        )
+        assert unit.request_id == "chunk0000-slice0007-transcribe"
+
+    def test_no_slice_index_reproduces_the_pre_item14_request_id(self):
+        plan = _chunk_plan()
+        unit = build_dispatch_unit(
+            _task(TaskKind.TRANSCRIBE_SPAN),
+            episode_state=EpisodeState(),
+            chunk_plan=plan,
+            resolved_segments=(),
+        )
+        assert unit.request_id == "chunk0000-transcribe"
+        assert unit.slice_index is None
+        assert unit.slice_start is None
+        assert unit.slice_end is None
+
+    def test_slice_index_without_bounds_raises(self):
+        plan = _chunk_plan()
+        with pytest.raises(ValueError, match="slice_index=3"):
+            build_dispatch_unit(
+                _task(TaskKind.TRANSCRIBE_SPAN, payload={"slice_index": 3}),
+                episode_state=EpisodeState(),
+                chunk_plan=plan,
+                resolved_segments=(),
+            )
+
+    def test_non_int_slice_index_raises(self):
+        plan = _chunk_plan()
+        with pytest.raises(ValueError, match="slice_index"):
+            build_dispatch_unit(
+                _task(TaskKind.TRANSCRIBE_SPAN, payload={"slice_index": "2"}),
+                episode_state=EpisodeState(),
+                chunk_plan=plan,
+                resolved_segments=(),
+                slice_start=0.0,
+                slice_end=10.0,
+            )
+
+    def test_dispatch_unit_to_dict_includes_slice_fields(self):
+        plan = _chunk_plan()
+        unit = build_dispatch_unit(
+            _task(TaskKind.TRANSCRIBE_SPAN, payload={"slice_index": 1}),
+            episode_state=EpisodeState(),
+            chunk_plan=plan,
+            resolved_segments=(),
+            slice_start=5.0,
+            slice_end=15.0,
+        )
+        as_dict = unit.to_dict()
+        assert as_dict["slice_index"] == 1
+        assert as_dict["slice_start"] == 5.0
+        assert as_dict["slice_end"] == 15.0
 
 
 # ---------------------------------------------------------------------------
@@ -240,6 +326,48 @@ class TestFoldTranscribeSpan:
 
     def test_glossary_arm_selection_uses_the_registered_constructor_table(self):
         assert set(GLOSSARY_ARM_CONSTRUCTORS) == set(ArmKind)
+
+
+class TestFoldTranscribeSpanPerSlice:
+    """Per-slice dispatch (item 14): a transcribe_span reply from a
+    NARROWER slice must have its synthetic segment timing divide the
+    slice's own bounds, never the whole (wider) containing task chunk's --
+    and segment ids must stay unique across two different slices of the
+    same chunk."""
+
+    def _slice_unit(self, plan, *, slice_index, slice_start, slice_end):
+        return build_dispatch_unit(
+            _task(TaskKind.TRANSCRIBE_SPAN, payload={"slice_index": slice_index}),
+            episode_state=EpisodeState(),
+            chunk_plan=plan,
+            resolved_segments=(),
+            slice_start=slice_start,
+            slice_end=slice_end,
+        )
+
+    def test_synthetic_timing_divides_the_slice_bounds_not_the_chunk_bounds(self):
+        plan = _chunk_plan()  # chunk spans [0, 20) for SEGMENTS
+        unit = self._slice_unit(plan, slice_index=0, slice_start=10.0, slice_end=12.0)
+        raw = "S1|First line here.\nS2|Second line here.\n"
+        result = fold_dispatch_result(unit, raw, episode_state=EpisodeState())
+        seg0, seg1 = result.new_resolved_segments
+        assert seg0.start == 10.0
+        assert seg0.end == seg1.start == 11.0
+        assert seg1.end == 12.0
+        # Sanity: the slice is strictly inside the wider chunk span.
+        assert unit.chunk.start == 0.0 and unit.chunk.end == 20.0
+
+    def test_segment_ids_stay_unique_across_two_slices_of_the_same_chunk(self):
+        plan = _chunk_plan()
+        unit_a = self._slice_unit(plan, slice_index=0, slice_start=0.0, slice_end=5.0)
+        unit_b = self._slice_unit(plan, slice_index=1, slice_start=5.0, slice_end=10.0)
+        result_a = fold_dispatch_result(unit_a, "S1|line one.\n", episode_state=EpisodeState())
+        result_b = fold_dispatch_result(unit_b, "S1|line two.\n", episode_state=EpisodeState())
+        id_a = result_a.new_resolved_segments[0].id
+        id_b = result_b.new_resolved_segments[0].id
+        assert id_a != id_b
+        assert "sl0000" in id_a
+        assert "sl0001" in id_b
 
 
 # ---------------------------------------------------------------------------

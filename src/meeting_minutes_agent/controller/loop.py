@@ -173,6 +173,15 @@ class EpisodeLoopState:
     # -- loop-carried state (single writer per field, see each component) --
     task_queue: TaskQueue
     episode_state: EpisodeState
+    # Per-slice dispatch (item 14, ``docs/readiness/2026-08-18-chunk-slice-
+    # granularity-analysis.md`` list item 14): both frozen-per-episode,
+    # optional, and only consulted when a queued ``transcribe_span`` task
+    # names a ``slice_index`` in its payload. ``None``/``None`` (the
+    # default) reproduces the pre-item-14 chunk-level-only behaviour
+    # exactly -- every existing caller that never sets these keeps working
+    # unchanged.
+    audio_slice_resolver: Callable[[int], tuple[Path, float]] | None = None
+    slice_bounds_by_index: Mapping[int, tuple[float, float]] | None = None
     resolved_segments: tuple[SegmentLike, ...] = ()
     pending_ledger_bullets: tuple[MinutesBulletClaim, ...] = ()
     minutes_parses: list[MinutesParseResult] = field(default_factory=list)
@@ -205,6 +214,15 @@ class EpisodeLoopState:
             return False
         peek = self.task_queue.peek()
         if peek.kind in (TaskKind.TRANSCRIBE_SPAN, TaskKind.SUMMARIZE_SECTION):
+            # Charges the CONTAINING task chunk's full span even for a
+            # per-slice transcribe_span task (item 14), which only ever
+            # sends one narrower slice's audio -- a deliberately
+            # conservative over-estimate, not a bug: analysis list item 12
+            # ("the budget pre-check... must charge slice seconds") is a
+            # separate, not-yet-made deferred change; the real ledger this
+            # pre-check guards (``self.budget.totals``) is only ever
+            # incremented by the actual audio_seconds a real call sends, so
+            # this stays a safe, merely-imprecise headroom check either way.
             chunk = self.chunk_plan.chunks[peek.chunk_index]
             needed_seconds = max(chunk.end - chunk.start, 0.0)
             totals = self.budget.totals
@@ -231,6 +249,16 @@ class NextTask(WorkflowComponent):
         state = self._state
         task: Task
         task, state.task_queue = state.task_queue.pop()
+        # Per-slice dispatch (item 14): a task carrying a slice_index in its
+        # payload needs THAT slice's own (start, end) bounds threaded
+        # through to build_dispatch_unit -- looked up here, once, from the
+        # plain data dict the harness precomputed, never by calling a
+        # resolver (that stays ExecuteViaFrozenCore's job, one node later).
+        slice_index = task.payload.get("slice_index")
+        slice_start: float | None = None
+        slice_end: float | None = None
+        if slice_index is not None and state.slice_bounds_by_index is not None:
+            slice_start, slice_end = state.slice_bounds_by_index[slice_index]
         unit = build_dispatch_unit(
             task,
             episode_state=state.episode_state,
@@ -239,6 +267,8 @@ class NextTask(WorkflowComponent):
             supply_arm=state.supply_arm,
             decoding_params=state.decoding_params,
             pending_ledger_bullets=state.pending_ledger_bullets,
+            slice_start=slice_start,
+            slice_end=slice_end,
         )
         state.current_unit = unit
         return {
@@ -281,7 +311,23 @@ class ExecuteViaFrozenCore(WorkflowComponent):
                 "missing chunk/head_request; this is a controller.dispatcher bug, not a runtime "
                 "condition this loop should paper over"
             )
-        audio_path, audio_seconds = state.audio_chunk_resolver(unit.chunk)
+        # Per-slice dispatch (item 14): a unit naming a slice_index resolves
+        # its audio through the slice-indexed resolver -- the real slicer's
+        # own make_audio_chunk_resolver, or a test fake of the same shape --
+        # never the whole containing chunk's audio. This stays a plain
+        # Python conditional inside ONE node (module docstring's
+        # "DETERMINISM BY CONSTRUCTION": the loop body is still the same
+        # three-node linear chain regardless of which branch fires here).
+        if unit.slice_index is not None:
+            if state.audio_slice_resolver is None:
+                raise EpisodeLoopError(
+                    f"DispatchUnit for task {unit.task.to_dict()!r} names slice_index="
+                    f"{unit.slice_index} but EpisodeLoopState.audio_slice_resolver is None -- "
+                    "per-slice dispatch (item 14) needs a slice-indexed audio resolver"
+                )
+            audio_path, audio_seconds = state.audio_slice_resolver(unit.slice_index)
+        else:
+            audio_path, audio_seconds = state.audio_chunk_resolver(unit.chunk)
         core_inputs = unit.head_request.to_transport_kwargs(
             request_id=unit.request_id, audio_path=audio_path, audio_seconds=audio_seconds
         )

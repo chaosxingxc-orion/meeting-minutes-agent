@@ -24,6 +24,7 @@ from meeting_minutes_agent.chunking.models import Segment
 from meeting_minutes_agent.chunking.planner import build_chunk_plan
 from meeting_minutes_agent.client.budgets import BudgetLimits, CallBudget
 from meeting_minutes_agent.client.transport import ModelResponse, RequestAttempt
+from meeting_minutes_agent.controller.dispatcher import build_dispatch_unit
 from meeting_minutes_agent.controller.loop import (
     DISPATCH_LOG_KEY,
     EpisodeLoopError,
@@ -31,7 +32,7 @@ from meeting_minutes_agent.controller.loop import (
     ExecuteViaFrozenCore,
     run_episode_workflow,
 )
-from meeting_minutes_agent.controller.tasks import TaskKind, TaskQueue
+from meeting_minutes_agent.controller.tasks import Task, TaskKind, TaskQueue
 from meeting_minutes_agent.glossary.arms import ArmKind
 from meeting_minutes_agent.state.episode import EpisodeState
 from meeting_minutes_agent.supply.config import SupplyArmConfig
@@ -321,6 +322,119 @@ class TestRunEpisodeWorkflow:
         assert state.budget_exhausted is True
         assert [entry["task_kind"] for entry in state.dispatch_log] == ["transcribe_span"]
         assert not state.task_queue.is_empty()  # summarize/resolve_ledger never ran
+
+
+# ---------------------------------------------------------------------------
+# Per-slice dispatch (item 14): one transcribe_span task per transport slice
+# ---------------------------------------------------------------------------
+
+
+def _fresh_sliced_state(tmp_path, *, audio_slice_resolver=None, max_iterations=None) -> EpisodeLoopState:
+    """Two transport slices ([0,5), [5,10)) packed inside the SEGMENTS'
+    single task chunk -- the smallest fixture that exercises per-slice
+    TRANSCRIBE_SPAN dispatch end to end."""
+
+    plan = build_chunk_plan(SEGMENTS, meeting_id="m1", target_chunk_s=3600.0, max_chunk_s=3600.0)
+    task_queue = TaskQueue()
+    task_queue = task_queue.push(TaskKind.TRANSCRIBE_SPAN, 0, payload={"slice_index": 0})
+    task_queue = task_queue.push(TaskKind.TRANSCRIBE_SPAN, 0, payload={"slice_index": 1})
+    if plan.chunks:
+        last_index = plan.chunks[-1].index
+        task_queue = task_queue.push(TaskKind.SUMMARIZE_SECTION, last_index)
+        task_queue = task_queue.push(TaskKind.RESOLVE_LEDGER, last_index)
+    budget = CallBudget(BudgetLimits(max_calls=50, max_audio_seconds=36000.0))
+
+    if audio_slice_resolver is None:
+        slice_files = {i: tmp_path / f"slice{i}.wav" for i in (0, 1)}
+        for p in slice_files.values():
+            p.write_bytes(b"RIFF....WAVEfmt ")
+
+        def audio_slice_resolver(slice_index):
+            return slice_files[slice_index], 5.0
+
+    return EpisodeLoopState(
+        meeting_id="m1",
+        chunk_plan=plan,
+        supply_arm=SupplyArmConfig(),
+        glossary_arm=ArmKind.GATED,
+        decoding_params={},
+        audio_chunk_resolver=_audio_resolver(tmp_path),
+        audio_slice_resolver=audio_slice_resolver,
+        slice_bounds_by_index={0: (0.0, 5.0), 1: (5.0, 10.0)},
+        budget=budget,
+        max_iterations=max_iterations if max_iterations is not None else 2 + 2 + 10,
+        task_queue=task_queue,
+        episode_state=EpisodeState(),
+    )
+
+
+class TestPerSliceDispatch:
+    def test_one_transcribe_span_task_dispatches_per_slice_in_order(self, tmp_path):
+        state = _fresh_sliced_state(tmp_path)
+        run_episode_workflow(state, _FakeClient(budget=state.budget))
+        assert [entry["task_kind"] for entry in state.dispatch_log] == [
+            "transcribe_span",
+            "transcribe_span",
+            "summarize_section",
+            "resolve_ledger",
+        ]
+
+    def test_slice_request_ids_carry_the_slice_index_in_order(self, tmp_path):
+        state = _fresh_sliced_state(tmp_path)
+        client = _FakeClient(budget=state.budget)
+        run_episode_workflow(state, client)
+        transcribe_request_ids = [c["request_id"] for c in client.calls if "transcribe" in c["request_id"]]
+        assert transcribe_request_ids == ["chunk0000-slice0000-transcribe", "chunk0000-slice0001-transcribe"]
+
+    def test_each_slice_resolves_its_own_narrower_audio(self, tmp_path):
+        seen: list[tuple[int, object]] = []
+        slice_files = {0: tmp_path / "s0.wav", 1: tmp_path / "s1.wav"}
+        for p in slice_files.values():
+            p.write_bytes(b"RIFF....WAVEfmt ")
+
+        def resolver(slice_index):
+            seen.append((slice_index, slice_files[slice_index]))
+            return slice_files[slice_index], 5.0
+
+        state = _fresh_sliced_state(tmp_path, audio_slice_resolver=resolver)
+        run_episode_workflow(state, _FakeClient(budget=state.budget))
+        assert seen == [(0, slice_files[0]), (1, slice_files[1])]
+
+    def test_missing_slice_resolver_raises_a_named_error(self, tmp_path):
+        # Direct-invoke the component (same pattern as this module's own
+        # test_execute_raises_if_no_unit_was_staged): going through the full
+        # run_episode_workflow would have openJiuwen's own Pregel engine
+        # wrap EpisodeLoopError in its own ExecutionError before it reaches
+        # this test, which is not what this test is checking.
+        state = _fresh_sliced_state(tmp_path)
+        state.audio_slice_resolver = None
+        state.current_unit = build_dispatch_unit(
+            Task(kind=TaskKind.TRANSCRIBE_SPAN, chunk_index=0, priority=0, seq=0, payload={"slice_index": 0}),
+            episode_state=state.episode_state,
+            chunk_plan=state.chunk_plan,
+            slice_start=0.0,
+            slice_end=5.0,
+        )
+        from meeting_minutes_agent.client.component import FrozenMeetingCore
+
+        node = ExecuteViaFrozenCore(FrozenMeetingCore(_FakeClient(budget=state.budget)), state)
+
+        async def run():
+            await node.invoke({}, _FakeSession(), None)
+
+        with pytest.raises(EpisodeLoopError, match="audio_slice_resolver is None"):
+            asyncio.run(run())
+
+    def test_five_fresh_sliced_runs_produce_an_identical_fingerprint(self, tmp_path):
+        fingerprints = []
+        for i in range(5):
+            run_dir = tmp_path / f"sliced-run{i}"
+            run_dir.mkdir()
+            state = _fresh_sliced_state(run_dir)
+            run_episode_workflow(state, _FakeClient(budget=state.budget))
+            fingerprints.append(_fingerprint(state))
+        assert all(fp == fingerprints[0] for fp in fingerprints)
+        assert fingerprints[0]["dispatch_log"]
 
 
 # ---------------------------------------------------------------------------

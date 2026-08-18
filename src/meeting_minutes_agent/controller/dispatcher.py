@@ -191,7 +191,18 @@ class DispatchUnit:
     ``head_request.to_transport_kwargs`` merged with the loop's own
     per-invocation audio resolution) or, for a local-fold task, skip the
     core entirely. Never itself makes a call or touches session/openJiuwen
-    state -- a plain, inert data bundle."""
+    state -- a plain, inert data bundle.
+
+    ``slice_index``/``slice_start``/``slice_end`` are the item-14 per-slice
+    dispatch fields (``docs/readiness/2026-08-18-chunk-slice-granularity-
+    analysis.md`` list item 14: "the task set builds one ``TRANSCRIBE_SPAN``
+    per *chunk*; it becomes one per *slice*"): ``None`` for every task kind
+    except a ``transcribe_span`` task that names a transport slice via its
+    ``task.payload["slice_index"]``. ``chunk`` still names the CONTAINING
+    task chunk in that case (context/state attribution stays chunk-scoped),
+    while ``slice_start``/``slice_end`` are that one slice's own, narrower
+    ``[start, end)`` -- the span :mod:`.loop` sends to the frozen core and
+    the span synthetic segment timing must divide, never the whole chunk's."""
 
     task: Task
     request_id: str
@@ -199,6 +210,9 @@ class DispatchUnit:
     fold_kind: str  # "transcribe_attribute" | "minutes" | "ledger_local"
     head_request: HeadRequest | None
     chunk: Chunk | None
+    slice_index: int | None = None
+    slice_start: float | None = None
+    slice_end: float | None = None
 
     def to_dict(self) -> dict[str, Any]:
         return {
@@ -208,11 +222,16 @@ class DispatchUnit:
             "fold_kind": self.fold_kind,
             "head_request": self.head_request.to_dict() if self.head_request is not None else None,
             "chunk": self.chunk.to_dict() if self.chunk is not None else None,
+            "slice_index": self.slice_index,
+            "slice_start": self.slice_start,
+            "slice_end": self.slice_end,
         }
 
 
-def _request_id(task: Task, suffix: str) -> str:
-    return f"chunk{task.chunk_index:04d}-{suffix}"
+def _request_id(task: Task, suffix: str, *, slice_index: int | None = None) -> str:
+    if slice_index is None:
+        return f"chunk{task.chunk_index:04d}-{suffix}"
+    return f"chunk{task.chunk_index:04d}-slice{slice_index:04d}-{suffix}"
 
 
 def build_dispatch_unit(
@@ -224,10 +243,18 @@ def build_dispatch_unit(
     supply_arm: SupplyArmConfig = SupplyArmConfig(),
     decoding_params: Mapping[str, object] | None = None,
     pending_ledger_bullets: Sequence[MinutesBulletClaim] = (),
+    slice_start: float | None = None,
+    slice_end: float | None = None,
 ) -> DispatchUnit:
     """Build the executable unit for ``task``. Pure: same inputs always
     produce the same (request-content-equal) output; no I/O, no randomness,
-    no model contact."""
+    no model contact.
+
+    ``slice_start``/``slice_end`` are item-14's per-slice dispatch fields
+    (:class:`DispatchUnit` docstring): a caller (:mod:`.loop`'s ``NextTask``)
+    passes them ONLY when ``task.payload`` names a ``slice_index`` -- this
+    function stays chunk-index-driven for every other task, exactly as
+    before the deferred change landed."""
 
     if task.kind is TaskKind.TRANSCRIBE_SPAN:
         if not (0 <= task.chunk_index < len(chunk_plan.chunks)):
@@ -236,6 +263,17 @@ def build_dispatch_unit(
                 f"{len(chunk_plan.chunks)}-chunk plan"
             )
         chunk = chunk_plan.chunks[task.chunk_index]
+        slice_index = task.payload.get("slice_index")
+        if slice_index is not None:
+            if isinstance(slice_index, bool) or not isinstance(slice_index, int):
+                raise ValueError(f"task.payload['slice_index'] must be a plain int, got {slice_index!r}")
+            if slice_start is None or slice_end is None:
+                raise ValueError(
+                    f"transcribe_span task for chunk_index={task.chunk_index} names "
+                    f"slice_index={slice_index}, but build_dispatch_unit was not given that slice's "
+                    "(slice_start, slice_end) bounds -- per-slice dispatch (granularity analysis "
+                    "list item 14) requires both"
+                )
         supply = render_supply_block(episode_state, arm=supply_arm)
         head_request = build_transcribe_attribute_request(
             supply_text=supply.text,
@@ -244,11 +282,14 @@ def build_dispatch_unit(
         )
         return DispatchUnit(
             task=task,
-            request_id=_request_id(task, "transcribe"),
+            request_id=_request_id(task, "transcribe", slice_index=slice_index),
             requires_core_call=True,
             fold_kind="transcribe_attribute",
             head_request=head_request,
             chunk=chunk,
+            slice_index=slice_index,
+            slice_start=slice_start,
+            slice_end=slice_end,
         )
 
     if task.kind is TaskKind.SUMMARIZE_SECTION:
@@ -320,24 +361,40 @@ class FoldResult:
 
 
 def _segments_from_transcribe_parse(
-    parse: TranscribeAttributeParseResult, chunk: Chunk
+    parse: TranscribeAttributeParseResult,
+    chunk: Chunk,
+    *,
+    slice_index: int | None = None,
+    slice_start: float | None = None,
+    slice_end: float | None = None,
 ) -> tuple[Segment, ...]:
-    """Divide ``chunk``'s ``[start, end)`` span evenly across
-    ``parse.segments`` (module docstring, "Design note: synthetic segment
-    timing"). An empty parse produces no segments."""
+    """Divide a span evenly across ``parse.segments`` (module docstring,
+    "Design note: synthetic segment timing"). Per-slice dispatch (item 14):
+    when ``slice_start``/``slice_end`` are given (a ``transcribe_span`` task
+    that named a ``slice_index``), the reply came from THAT slice's audio
+    alone, so the span divided is the slice's own ``[slice_start,
+    slice_end)`` -- never the whole, wider task chunk's -- and the segment
+    id carries the slice index too, so ids stay unique across the several
+    slices one chunk may now dispatch (they would otherwise collide, all
+    reusing the same ``c{chunk.index}-s{i}`` prefix). Falls back to the
+    whole chunk's own span/id shape exactly as before when no slice is
+    named. An empty parse produces no segments."""
 
     n = len(parse.segments)
     if n == 0:
         return ()
-    span = max(chunk.end - chunk.start, 0.0)
+    span_start = chunk.start if slice_start is None else slice_start
+    span_end = chunk.end if slice_end is None else slice_end
+    span = max(span_end - span_start, 0.0)
     step = span / n
+    id_prefix = f"c{chunk.index:04d}" if slice_index is None else f"c{chunk.index:04d}-sl{slice_index:04d}"
     out = []
     for i, seg in enumerate(parse.segments):
-        start = chunk.start + step * i
-        end = chunk.start + step * (i + 1) if i < n - 1 else chunk.end
+        start = span_start + step * i
+        end = span_start + step * (i + 1) if i < n - 1 else span_end
         out.append(
             Segment(
-                id=f"c{chunk.index:04d}-s{i:04d}",
+                id=f"{id_prefix}-s{i:04d}",
                 speaker=seg.speaker,
                 start=start,
                 end=end,
@@ -356,7 +413,13 @@ def _fold_transcribe_span(
 ) -> FoldResult:
     assert unit.chunk is not None
     parse = parse_transcribe_attribute_response(raw_response_text)
-    new_segments = _segments_from_transcribe_parse(parse, unit.chunk)
+    new_segments = _segments_from_transcribe_parse(
+        parse,
+        unit.chunk,
+        slice_index=unit.slice_index,
+        slice_start=unit.slice_start,
+        slice_end=unit.slice_end,
+    )
 
     chunk_text = " ".join(seg.text for seg in parse.segments)
     if chunk_text.strip():

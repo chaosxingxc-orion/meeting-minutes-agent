@@ -16,6 +16,7 @@ pytest.importorskip(
 )
 
 from meeting_minutes_agent.chunking.models import Segment
+from meeting_minutes_agent.chunking.slicer import Slice, SlicePlan, SlicePlanMode
 from meeting_minutes_agent.client.budgets import CallBudget
 from meeting_minutes_agent.client.receipts import ModelFileRef, ServerIdentity
 from meeting_minutes_agent.client.transport import ModelResponse, RequestAttempt
@@ -289,3 +290,126 @@ class TestLightOffDeterminism:
         assert result_a.minutes_artifact.content_hash == result_b.minutes_artifact.content_hash
         assert result_a.transcript_artifact.content_hash == result_b.transcript_artifact.content_hash
         assert result_a.episode_state.content_hash() == result_b.episode_state.content_hash()
+
+
+# ---------------------------------------------------------------------------
+# Per-slice dispatch (item 14): run_episode(slice_plan=...) threads one
+# transcribe_span task per transport slice instead of one per chunk
+# ---------------------------------------------------------------------------
+
+
+def _two_slice_plan() -> SlicePlan:
+    """A minimal, hand-built two-slice plan over SEGMENTS' [0, 10) span --
+    the granularity analysis's own [60, 120] transport-slice bounds do not
+    matter here (this module never calls build_vad_slice_plan/
+    build_turn_aware_slice_plan, so no bound is enforced on this fixture);
+    only the (index, start, end) shape run_episode actually reads."""
+
+    return SlicePlan(
+        meeting_id="meeting-1",
+        mode=SlicePlanMode.VAD,
+        turn_provenance=None,
+        total_duration_s=10.0,
+        slices=(
+            Slice(index=0, start=0.0, end=5.0, vad_snap_applied=False),
+            Slice(index=1, start=5.0, end=10.0, vad_snap_applied=False),
+        ),
+        content_hash="test-two-slice-plan",
+    )
+
+
+def _slice_resolver(tmp_path):
+    slice_files = {0: tmp_path / "slice0.wav", 1: tmp_path / "slice1.wav"}
+    for p in slice_files.values():
+        p.write_bytes(b"RIFF....WAVEfmt ")
+
+    def resolve(slice_index):
+        return slice_files[slice_index], 5.0
+
+    return resolve
+
+
+class TestRunEpisodePerSliceDispatch:
+    def test_dispatches_one_transcribe_span_task_per_slice(self, tmp_path):
+        client = _FakeClient()
+        result = run_episode(
+            "meeting-1",
+            SEGMENTS,
+            audio_chunk_resolver=_audio_resolver(tmp_path),
+            client=client,
+            server_identity=SERVER_IDENTITY,
+            slice_plan=_two_slice_plan(),
+            audio_slice_resolver=_slice_resolver(tmp_path),
+        )
+        assert [entry["task_kind"] for entry in result.dispatch_log] == [
+            "transcribe_span",
+            "transcribe_span",
+            "summarize_section",
+            "resolve_ledger",
+        ]
+        assert client.calls == [
+            "chunk0000-slice0000-transcribe",
+            "chunk0000-slice0001-transcribe",
+            "chunk0000-summarize",
+        ]
+
+    def test_max_iterations_is_recomputed_off_the_slice_count(self, tmp_path):
+        # 2 slices + summarize + resolve_ledger = 4 real tasks. With
+        # max_iterations_headroom=1 the episode needs max_iterations=5 to
+        # finish without a false "runaway" -- the OLD (pre-item-14) formula
+        # `len(chunk_plan.chunks) + 2 + headroom` would have computed
+        # `1 + 2 + 1 = 4` here (one chunk, not two slices), exactly the
+        # iteration count the 4th real task reaches, which
+        # EpisodeLoopState.should_continue flags as a runaway (its
+        # iteration-ceiling check runs before its queue-empty check) and
+        # run_episode_workflow would raise instead of returning -- proving
+        # `max_iterations` really is now derived from the SLICE count.
+        client = _FakeClient()
+        result = run_episode(
+            "meeting-1",
+            SEGMENTS,
+            audio_chunk_resolver=_audio_resolver(tmp_path),
+            client=client,
+            server_identity=SERVER_IDENTITY,
+            config=EpisodeHarnessConfig(max_iterations_headroom=1),
+            slice_plan=_two_slice_plan(),
+            audio_slice_resolver=_slice_resolver(tmp_path),
+        )
+        assert len(result.dispatch_log) == 4
+        assert result.budget_exhausted is False
+
+    def test_no_slice_plan_reproduces_the_pre_item14_one_task_per_chunk_behaviour(self, tmp_path):
+        # Default (slice_plan=None) stays byte-for-byte identical to the
+        # pre-item-14 shape -- same request ids as TestRunEpisode's own
+        # test_produces_a_well_formed_result.
+        result, client = _run(tmp_path)
+        assert client.calls == ["chunk0000-transcribe", "chunk0000-summarize"]
+
+    def test_slice_plan_without_a_resolver_raises(self, tmp_path):
+        client = _FakeClient()
+        with pytest.raises(ValueError, match="audio_slice_resolver is None"):
+            run_episode(
+                "meeting-1",
+                SEGMENTS,
+                audio_chunk_resolver=_audio_resolver(tmp_path),
+                client=client,
+                server_identity=SERVER_IDENTITY,
+                slice_plan=_two_slice_plan(),
+            )
+
+    def test_transcript_artifact_reflects_slice_bounded_segment_timing(self, tmp_path):
+        result = run_episode(
+            "meeting-1",
+            SEGMENTS,
+            audio_chunk_resolver=_audio_resolver(tmp_path),
+            client=_FakeClient(),
+            server_identity=SERVER_IDENTITY,
+            slice_plan=_two_slice_plan(),
+            audio_slice_resolver=_slice_resolver(tmp_path),
+        )
+        # The fake client's transcribe reply has 2 segments; the FIRST
+        # transcribe_span task is slice 0 ([0, 5)), so its segments must be
+        # timed inside [0, 5), never stretched out to the whole chunk's
+        # [0, 10).
+        starts_and_ends = [(s["start"], s["end"]) for s in result.transcript_artifact.segments[:2]]
+        assert all(0.0 <= start and end <= 5.0 for start, end in starts_and_ends)

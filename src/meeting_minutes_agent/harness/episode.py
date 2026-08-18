@@ -9,12 +9,21 @@ production).
 Task-set construction (the harness's own, deterministic scheduling
 decision -- :mod:`meeting_minutes_agent.controller.tasks`/``.dispatcher``
 themselves make no assumption about WHICH tasks an episode runs): one
-``transcribe_span`` task per chunk plan chunk, in chunk order, followed by
-exactly one ``summarize_section`` and one ``resolve_ledger`` task both
-targeting the LAST chunk index. :data:`~meeting_minutes_agent.controller.
-tasks.DEFAULT_TASK_PRIORITY` already orders these correctly (transcribe <
-summarize < resolve-ledger) regardless of push order, but they are pushed
-in that same natural order here for readability.
+``transcribe_span`` task per chunk plan chunk, in chunk order -- OR, when a
+:class:`~meeting_minutes_agent.chunking.slicer.SlicePlan` is supplied (item
+14, ``docs/readiness/2026-08-18-chunk-slice-granularity-analysis.md`` list
+item 14), one ``transcribe_span`` task per transport SLICE, in slice order,
+each carrying its ``slice_index`` in ``task.payload`` and attributed to its
+containing task chunk -- followed by exactly one ``summarize_section`` and
+one ``resolve_ledger`` task, both STILL targeting the LAST chunk index
+either way (unchanged by item 14; see :func:`run_episode`'s own docstring).
+:data:`~meeting_minutes_agent.controller.tasks.DEFAULT_TASK_PRIORITY`
+already orders these correctly (transcribe < summarize < resolve-ledger)
+regardless of push order, but they are pushed in that same natural order
+here for readability -- the linear per-chunk-or-per-slice push loop is
+itself the "determinism by construction" this harness relies on (backbone
+design doc SS5.3): a plain, ordered ``for`` loop, never a set or any other
+unordered structure.
 
 Import discipline: this module imports
 :mod:`meeting_minutes_agent.controller.loop`, which imports openjiuwen at
@@ -40,6 +49,7 @@ from ..chunking.constants import TASK_CHUNK_MAX_S, TASK_CHUNK_MIN_S, TASK_CHUNK_
 from ..chunking.leakage import BoundaryProvenance
 from ..chunking.models import Chunk, ChunkPlan, SegmentLike
 from ..chunking.planner import build_chunk_plan
+from ..chunking.slicer import SlicePlan
 from ..client.budgets import BudgetLimits, CallBudget
 from ..context_budget import SlotContextConfig
 from ..client.component import MeetingCoreClient
@@ -179,6 +189,26 @@ class _RecordingClient:
         return response
 
 
+def _chunk_index_for_time(chunk_plan: ChunkPlan, t: float) -> int:
+    """The task chunk whose ``[start, end)`` window contains time ``t`` --
+    a plain linear scan (a meeting has, at most, a few dozen chunks). Used
+    only to attribute a transport SLICE (:mod:`meeting_minutes_agent.chunking.slicer`,
+    meeting-level, built independently of the task-chunk walk) to its
+    containing task chunk for per-slice dispatch (item 14). Clamped to the
+    LAST chunk for any ``t`` at/after its end: an edge slice may be nudged
+    a few seconds past its nominal span by the slicer's own snap margin
+    (``chunking/slicer.py``'s ``build_turn_aware_slice_plan``, "the margin
+    actually applied is ... room-aware"), and that overshoot must still
+    resolve to a real chunk rather than raising."""
+
+    if not chunk_plan.chunks:
+        raise ValueError("_chunk_index_for_time: cannot map a slice time onto an empty chunk plan")
+    for chunk in chunk_plan.chunks:
+        if chunk.start <= t < chunk.end:
+            return chunk.index
+    return chunk_plan.chunks[-1].index
+
+
 def run_episode(
     meeting_id: str,
     segments: Sequence[SegmentLike],
@@ -187,6 +217,8 @@ def run_episode(
     client: MeetingCoreClient,
     server_identity: ServerIdentity,
     config: EpisodeHarnessConfig = EpisodeHarnessConfig(),
+    slice_plan: SlicePlan | None = None,
+    audio_slice_resolver: Callable[[int], tuple[Path, float]] | None = None,
 ) -> EpisodeResult:
     """Run one episode end to end and return its :class:`EpisodeResult`.
 
@@ -200,7 +232,25 @@ def run_episode(
     audio_seconds)`` pair the frozen core is invoked with for that chunk;
     the harness never invents one itself (chunk timing is an
     approximation -- see :mod:`meeting_minutes_agent.controller.dispatcher`'s
-    own docstring)."""
+    own docstring).
+
+    ``slice_plan``/``audio_slice_resolver`` are the item-14 per-slice
+    dispatch inputs (``docs/readiness/2026-08-18-chunk-slice-granularity-
+    analysis.md`` list item 14): when ``slice_plan`` is given (typically
+    built through the :class:`~meeting_minutes_agent.chunking.diarization.DiarizationBackend`
+    seam -- :func:`~meeting_minutes_agent.chunking.diarization.build_turn_aware_slice_plan_for_resolved_meeting`
+    or :func:`~meeting_minutes_agent.chunking.diarization.build_turn_aware_slice_plan_from_backend` --
+    or by :mod:`meeting_minutes_agent.chunking.slicer`'s VAD/grid mode),
+    the episode dispatches ONE ``transcribe_span`` task per SLICE instead
+    of one per task chunk, and ``audio_slice_resolver`` (e.g.
+    :func:`~meeting_minutes_agent.chunking.slicer.make_audio_chunk_resolver`
+    over a materialized :class:`~meeting_minutes_agent.chunking.slicer.SliceManifest`)
+    resolves each slice's own, narrower audio. ``summarize_section`` stays
+    per task chunk and ``resolve_ledger`` stays per episode -- unchanged,
+    exactly as before this deferred change (analysis list item 14's own
+    wording). Both new parameters default to ``None``, which reproduces the
+    pre-item-14 one-``transcribe_span``-per-CHUNK behaviour byte-for-byte;
+    every existing caller keeps working unchanged."""
 
     config = config.validate()
     chunk_plan = build_chunk_plan(
@@ -218,8 +268,30 @@ def run_episode(
     )
 
     task_queue = TaskQueue()
-    for chunk in chunk_plan.chunks:
-        task_queue = task_queue.push(TaskKind.TRANSCRIBE_SPAN, chunk.index)
+    slice_bounds_by_index: dict[int, tuple[float, float]] | None = None
+    if slice_plan is not None:
+        if audio_slice_resolver is None:
+            raise ValueError(
+                "run_episode: slice_plan was given but audio_slice_resolver is None -- per-slice "
+                "transcribe_span dispatch (item 14) needs a slice-indexed audio resolver, e.g. "
+                "meeting_minutes_agent.chunking.slicer.make_audio_chunk_resolver"
+            )
+        if slice_plan.slices and not chunk_plan.chunks:
+            raise ValueError(
+                f"run_episode: slice_plan for meeting {meeting_id!r} carries "
+                f"{len(slice_plan.slices)} slice(s) but the chunk plan built from `segments` is "
+                "empty -- a slice cannot be dispatched with no task chunk to attribute it to"
+            )
+        slice_bounds_by_index = {sl.index: (sl.start, sl.end) for sl in slice_plan.slices}
+        for sl in slice_plan.slices:
+            chunk_index = _chunk_index_for_time(chunk_plan, sl.start)
+            task_queue = task_queue.push(TaskKind.TRANSCRIBE_SPAN, chunk_index, payload={"slice_index": sl.index})
+        transcribe_task_count = len(slice_plan.slices)
+    else:
+        for chunk in chunk_plan.chunks:
+            task_queue = task_queue.push(TaskKind.TRANSCRIBE_SPAN, chunk.index)
+        transcribe_task_count = len(chunk_plan.chunks)
+
     if chunk_plan.chunks:
         last_index = chunk_plan.chunks[-1].index
         task_queue = task_queue.push(TaskKind.SUMMARIZE_SECTION, last_index)
@@ -236,8 +308,10 @@ def run_episode(
         glossary_arm=config.glossary_arm,
         decoding_params=dict(config.decoding_params),
         audio_chunk_resolver=audio_chunk_resolver,
+        audio_slice_resolver=audio_slice_resolver,
+        slice_bounds_by_index=slice_bounds_by_index,
         budget=budget,
-        max_iterations=len(chunk_plan.chunks) + 2 + config.max_iterations_headroom,
+        max_iterations=transcribe_task_count + 2 + config.max_iterations_headroom,
         task_queue=task_queue,
         episode_state=EpisodeState(),
     )
