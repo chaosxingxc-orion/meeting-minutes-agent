@@ -167,6 +167,120 @@ def test_run_arm_dispatches_every_request_through_the_injected_transport(tmp_pat
     assert budget.totals["calls_used"] == 2
 
 
+def _turn_flight_fixtures(tmp_path):
+    manifest_path = _write_manifest(tmp_path)
+    manifest = PattrManifest(raw=json.loads(manifest_path.read_text(encoding="utf-8")), source_path=manifest_path)
+    for relpath in (
+        "derived/meeting-minutes/pattr-smoke/turn-clips/MTG1/MTG1-turn0000.wav",
+        "derived/meeting-minutes/pattr-smoke/turn-clips/MTG1/MTG1-turn0001.wav",
+    ):
+        _write_fake_audio(tmp_path, relpath)
+    budget = CallBudget(BudgetLimits(max_calls=10, max_audio_seconds=1000.0))
+    server_identity = ServerIdentity(base_url="http://x", model_files=(ModelFileRef(path="m.gguf", sha256="a" * 64),))
+    receipt = FlightReceipt(server_identity, budget)
+    return manifest, budget, receipt
+
+
+def test_response_sink_persists_one_scoreable_record_per_request(tmp_path):
+    """The reply text -- not just the ledger -- must reach disk: it is the
+    scoring mission's only input."""
+
+    manifest, budget, receipt = _turn_flight_fixtures(tmp_path)
+    transport = LlamaServerTransport(
+        TransportConfig(base_url="http://x"), budget, post=lambda url, body: _canned_response()
+    )
+    out = tmp_path / "responses.jsonl"
+
+    with launcher.ResponseSink(out) as sink:
+        launcher.run_arm(ARM_A_TURN, manifest, data_dir=tmp_path, transport=transport, receipt=receipt, sink=sink)
+
+    records = [json.loads(line) for line in out.read_text(encoding="utf-8").splitlines()]
+    assert len(records) == 2
+    assert {r["request_id"] for r in records} == {"pattr-turn-MTG1-turn0000", "pattr-turn-MTG1-turn0001"}
+    for record in records:
+        assert record["outcome"] == "ok"
+        assert record["text"] == "A|hello there"
+        assert record["known_speaker"] in {"A", "B"}
+        assert record["arm"] == ARM_A_TURN
+        assert record["attempts"]
+
+
+def test_resume_skips_recorded_ids_without_spending_budget(tmp_path):
+    manifest, budget, receipt = _turn_flight_fixtures(tmp_path)
+    calls: list[bytes] = []
+
+    def fake_post(url, body):
+        calls.append(body)
+        return _canned_response()
+
+    transport = LlamaServerTransport(TransportConfig(base_url="http://x"), budget, post=fake_post)
+    out = tmp_path / "responses.jsonl"
+    out.write_text(
+        json.dumps({"request_id": "pattr-turn-MTG1-turn0000", "outcome": "ok"}) + "\n"
+        + "{truncated-line-from-a-crash\n",
+        encoding="utf-8",
+    )
+
+    assert launcher.load_recorded_request_ids(out) == {"pattr-turn-MTG1-turn0000"}
+
+    launcher.run_arm(
+        ARM_A_TURN,
+        manifest,
+        data_dir=tmp_path,
+        transport=transport,
+        receipt=receipt,
+        skip_request_ids=launcher.load_recorded_request_ids(out),
+    )
+    assert len(calls) == 1  # only the not-yet-recorded turn was re-flown
+    assert budget.totals["calls_used"] == 1
+
+
+def test_failed_request_is_persisted_then_propagates(tmp_path):
+    manifest, budget, receipt = _turn_flight_fixtures(tmp_path)
+
+    def failing_post(url, body):
+        raise ValueError("boom")
+
+    transport = LlamaServerTransport(TransportConfig(base_url="http://x"), budget, post=failing_post)
+    out = tmp_path / "responses.jsonl"
+
+    with pytest.raises(ValueError):
+        with launcher.ResponseSink(out) as sink:
+            launcher.run_arm(
+                ARM_A_TURN, manifest, data_dir=tmp_path, transport=transport, receipt=receipt, sink=sink
+            )
+
+    records = [json.loads(line) for line in out.read_text(encoding="utf-8").splitlines()]
+    assert len(records) == 1
+    assert records[0]["outcome"] == "error"
+    assert records[0]["error_type"] == "ValueError"
+    # an error record must NOT count as done on resume
+    assert launcher.load_recorded_request_ids(out) == set()
+
+
+def test_decoding_params_merge_onto_every_request(tmp_path):
+    manifest, budget, receipt = _turn_flight_fixtures(tmp_path)
+    bodies: list[dict] = []
+
+    def fake_post(url, body):
+        bodies.append(json.loads(body.decode("utf-8")))
+        return _canned_response()
+
+    transport = LlamaServerTransport(TransportConfig(base_url="http://x"), budget, post=fake_post)
+    launcher.run_arm(
+        ARM_A_TURN,
+        manifest,
+        data_dir=tmp_path,
+        transport=transport,
+        receipt=receipt,
+        decoding_params={"temperature": 0.0, "max_tokens": 512},
+    )
+    assert len(bodies) == 2
+    for body in bodies:
+        assert body["temperature"] == 0.0
+        assert body["max_tokens"] == 512
+
+
 def test_build_transport_and_receipt_wires_server_identity():
     transport, receipt = launcher.build_transport_and_receipt(
         base_url="http://127.0.0.1:8080",
