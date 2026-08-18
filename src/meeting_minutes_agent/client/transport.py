@@ -24,6 +24,18 @@ the constructed request). The audio part is exactly llama.cpp's
 OpenAI-compatible ``input_audio`` content-part shape: base64 file bytes
 plus a ``format`` string taken from the file's own suffix.
 
+Slice-bounds guard (17-item change list items 2/10, the second G1-blocking
+defect): a request may carry AT MOST one transport slice's audio, never a
+whole task chunk or a whole meeting file. ``TransportConfig.
+max_audio_seconds_per_request`` (default
+:data:`~meeting_minutes_agent.chunking.constants.TRANSPORT_SLICE_MAX_S` =
+120 s, the binding proposal's hard slice bound) is checked against every
+call's ``audio_seconds`` BEFORE any bytes are read or budget reserved;
+:meth:`LlamaServerTransport.request` raises :class:`TransportError`
+immediately on an oversized request rather than sending it -- callers must
+resolve audio from the frozen slice manifest (:mod:`meeting_minutes_agent.
+chunking.slicer`), never a whole chunk or meeting file.
+
 Retry (bounded, per this module's own docstring instruction): retryable =
 ``TimeoutError``/``ConnectionError`` only -- never an HTTP error response
 (a 4xx/5xx is a real, informative answer from the server, not a transient
@@ -49,6 +61,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Callable, Mapping, Sequence
 
+from ..chunking.constants import TRANSPORT_SLICE_MAX_S
 from .budgets import CallBudget
 
 # Network-level failures only -- an HTTP error response (urllib.error.HTTPError,
@@ -79,13 +92,21 @@ class TransportConfig:
     ``slots`` is metadata only (this module never batches or pins requests
     to a slot -- that is a future, larger-scale concern); it rides along so
     a flight receipt's server identity can record how many server slots the
-    run was configured against.
+    run was configured against. Defaults to 4 to MATCH the flown ``-np 4``
+    serving config (17-item change list item 11: the old default of 1
+    contradicted the 4-way batching lock (b) asks to optimize) -- keep
+    ``obs_batch_samples <= -np`` when raising this.
+
+    ``max_audio_seconds_per_request`` is the slice-bounds guard (module
+    docstring): the hard ceiling on ``audio_seconds`` any single call may
+    carry, defaulting to the binding proposal's transport-slice max (120 s).
     """
 
     base_url: str
     timeout_seconds: float = 300.0
     max_retries: int = 1
-    slots: int = 1
+    slots: int = 4
+    max_audio_seconds_per_request: float = TRANSPORT_SLICE_MAX_S
 
     def validate(self) -> "TransportConfig":
         if not isinstance(self.base_url, str) or not self.base_url.strip():
@@ -100,6 +121,15 @@ class TransportConfig:
             raise ValueError(f"max_retries must be a non-negative integer, got {self.max_retries!r}")
         if isinstance(self.slots, bool) or not isinstance(self.slots, int) or self.slots <= 0:
             raise ValueError(f"slots must be a positive integer, got {self.slots!r}")
+        if (
+            isinstance(self.max_audio_seconds_per_request, bool)
+            or not isinstance(self.max_audio_seconds_per_request, (int, float))
+            or self.max_audio_seconds_per_request <= 0
+        ):
+            raise ValueError(
+                "max_audio_seconds_per_request must be a positive number, got "
+                f"{self.max_audio_seconds_per_request!r}"
+            )
         return self
 
 
@@ -240,6 +270,18 @@ class LlamaServerTransport:
     ) -> ModelResponse:
         if not isinstance(request_id, str) or not request_id:
             raise TransportError(f"request_id must be a non-empty string, got {request_id!r}")
+        # Slice-bounds guard (module docstring): checked once, before any
+        # attempt, budget reservation, or byte read -- a request may carry
+        # AT MOST one transport slice's audio.
+        if audio_seconds > self._config.max_audio_seconds_per_request:
+            raise TransportError(
+                f"request {request_id!r} carries audio_seconds={audio_seconds}, which exceeds this "
+                f"transport's max_audio_seconds_per_request={self._config.max_audio_seconds_per_request}; "
+                "a core request may carry at most one transport slice's audio "
+                "(docs/readiness/2026-08-18-chunk-slice-granularity-analysis.md SS8.1) -- resolve "
+                "audio from the frozen slice manifest (meeting_minutes_agent.chunking.slicer), "
+                "never a whole task chunk or meeting file"
+            )
         attempts: list[RequestAttempt] = []
         retry_of: str | None = None
         max_attempts = self._config.max_retries + 1

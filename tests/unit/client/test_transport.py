@@ -7,6 +7,7 @@ import urllib.error
 
 import pytest
 
+from meeting_minutes_agent.chunking.constants import TRANSPORT_SLICE_MAX_S
 from meeting_minutes_agent.client.budgets import BudgetExceeded, BudgetLimits, CallBudget
 from meeting_minutes_agent.client.transport import (
     LlamaServerTransport,
@@ -51,6 +52,18 @@ class TestTransportConfig:
     def test_rejects_non_positive_slots(self):
         with pytest.raises(ValueError, match="slots"):
             TransportConfig(base_url="http://x", slots=0).validate()
+
+    def test_default_slots_matches_the_flown_np4_serving_config(self):
+        # 17-item change list item 11: the old default of 1 contradicted
+        # the 4-way batching lock (b) asks to optimize.
+        assert TransportConfig(base_url="http://x").slots == 4
+
+    def test_default_max_audio_seconds_per_request_is_the_transport_slice_max(self):
+        assert TransportConfig(base_url="http://x").max_audio_seconds_per_request == TRANSPORT_SLICE_MAX_S
+
+    def test_rejects_non_positive_max_audio_seconds_per_request(self):
+        with pytest.raises(ValueError, match="max_audio_seconds_per_request"):
+            TransportConfig(base_url="http://x", max_audio_seconds_per_request=0).validate()
 
 
 class TestBuildRequestPayload:
@@ -234,6 +247,51 @@ class TestLlamaServerTransportRetry:
         transport = LlamaServerTransport(TransportConfig(base_url="http://x/"), _budget(), post=malformed)
         with pytest.raises(TransportError, match="malformed response"):
             transport.request(request_id="req-1", task_instruction="t", audio_path=audio, audio_seconds=1.0)
+
+
+class TestLlamaServerTransportSliceBoundsGuard:
+    """A request never carries more than its slice (G1-blocking item 2/10):
+    ``audio_seconds`` over ``max_audio_seconds_per_request`` refuses before
+    any attempt, byte read, or budget reservation."""
+
+    def test_audio_seconds_at_the_bound_is_accepted(self, tmp_path):
+        audio = _write_wav(tmp_path / "clip.wav")
+        transport = LlamaServerTransport(
+            TransportConfig(base_url="http://x/", max_audio_seconds_per_request=120.0), _budget(), post=lambda u, b: _canned_response()
+        )
+        response = transport.request(
+            request_id="req-1", task_instruction="t", audio_path=audio, audio_seconds=120.0
+        )
+        assert response.text == "hello world"
+
+    def test_audio_seconds_over_the_bound_refuses_without_calling_post(self, tmp_path):
+        audio = _write_wav(tmp_path / "clip.wav")
+        calls = []
+
+        def must_not_be_called(url, body):
+            calls.append(body)
+            raise AssertionError("post must not be called for an oversized request")
+
+        budget = _budget()
+        transport = LlamaServerTransport(
+            TransportConfig(base_url="http://x/", max_audio_seconds_per_request=120.0),
+            budget,
+            post=must_not_be_called,
+        )
+        with pytest.raises(TransportError, match="exceeds this transport's max_audio_seconds_per_request"):
+            transport.request(request_id="req-1", task_instruction="t", audio_path=audio, audio_seconds=120.1)
+        assert calls == []
+        # no budget reservation either -- refused before any reserve() call
+        assert budget.totals["calls_used"] == 0
+
+    def test_a_whole_task_chunk_of_audio_is_refused_by_the_default_bound(self, tmp_path):
+        # A task chunk can be up to 900s (TASK_CHUNK_MAX_S) -- sending its
+        # whole span as one request is exactly the defect this guard exists
+        # to catch.
+        audio = _write_wav(tmp_path / "clip.wav")
+        transport = LlamaServerTransport(TransportConfig(base_url="http://x/"), _budget())
+        with pytest.raises(TransportError):
+            transport.request(request_id="req-1", task_instruction="t", audio_path=audio, audio_seconds=900.0)
 
 
 class TestLlamaServerTransportBudgetIntegration:
