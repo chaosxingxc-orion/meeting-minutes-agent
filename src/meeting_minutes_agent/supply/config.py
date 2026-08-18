@@ -19,21 +19,36 @@ from __future__ import annotations
 from dataclasses import dataclass
 
 
+# 17-item change list item 15: now that a real per-request context budget
+# exists (12,288 tokens/slot at -np 4, meeting_minutes_agent.context_budget),
+# an uncapped supply block is no longer a safe default -- overflow at the
+# real server is a hard refusal (ERROR_TYPE_EXCEED_CONTEXT_SIZE), never
+# graceful truncation. 4,000 tokens leaves ample margin at a 90 s transport
+# slice (~2,480 tokens of audio+reserve at the analysis's own worked
+# example, SS8.1) while still absorbing SAEA's observed worst-case evidence
+# block (5,835 tokens) most of the way. Explicit None still opts a
+# diagnostic/ceiling arm out of the cap -- it is simply no longer the
+# out-of-the-box default.
+DEFAULT_MAX_SUPPLY_TOKENS_ESTIMATE = 4000
+
+
 @dataclass(frozen=True)
 class SupplyArmConfig:
     """One supply-block arm's dose caps and section toggles.
 
     ``max_glossary_terms`` / ``max_speaker_bindings`` cap each section's own
     item count (``None`` = uncapped). ``max_supply_tokens_estimate`` is a
-    whole-block safety-net cap on the rendered text's estimated token count
-    (``None`` = uncapped); see :mod:`.render` for the exact, documented
+    whole-block safety-net cap on the rendered text's estimated token count,
+    defaulting to :data:`DEFAULT_MAX_SUPPLY_TOKENS_ESTIMATE` (``None`` still
+    means uncapped, but that is now an explicit opt-out, not the default --
+    module comment); see :mod:`.render` for the exact, documented
     truncation order applied when this cap forces cuts beyond what the
     per-section caps already did.
     """
 
     max_glossary_terms: int | None = None
     max_speaker_bindings: int | None = None
-    max_supply_tokens_estimate: int | None = None
+    max_supply_tokens_estimate: int | None = DEFAULT_MAX_SUPPLY_TOKENS_ESTIMATE
     include_glossary: bool = True
     include_speaker_map: bool = True
     include_format_instructions: bool = True
