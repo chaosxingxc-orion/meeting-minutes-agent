@@ -9,3 +9,7 @@ mlruns/
 *.gguf
 data/
 outputs/
+# openJiuwen's own framework log output (jiuwen.log, graph.log, ...): a
+# runtime side effect of running the ojw-gated tests (tests/unit/client/
+# test_component.py), written relative to cwd, never repository content.
+logs/

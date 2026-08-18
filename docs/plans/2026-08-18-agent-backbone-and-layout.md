@@ -151,3 +151,8 @@ linear-chain bodies inherit the SAEA proof, but the task-manager graph introduce
 which puts multiple nodes in a Pregel super-step: **a branch-ordering determinism proof is a
 registered precondition before any registered run on this executor**. E3/E4/E5 modules stay
 framework-agnostic pure logic; only thin component wrappers touch openJiuwen.
+
+Runtime record: `openjiuwen==0.1.16.post2` (the SAEA-proven pin) was installed into the shared
+`~/.venvs/speechrl` WSL venv on 2026-08-18 under the owner's build-on-openJiuwen directive above,
+ahead of E6 (`client/component.py`'s `FrozenMeetingCore`, the single-door component this table
+names).
