@@ -21,6 +21,7 @@ from meeting_minutes_agent.probes.pprompt_scoring import (
     evaluate_all_corrupt_arms,
     evaluate_corrupt_arm,
     grammar_compliance,
+    orc_dp_bound,
     score_slice,
 )
 
@@ -97,6 +98,60 @@ def test_score_slice_malformed_only_reply_is_also_the_empty_hypothesis_case():
 
 
 # ---------------------------------------------------------------------------
+# ORC feasibility guard (the recorded forced deviation, module docstring)
+# ---------------------------------------------------------------------------
+
+
+def test_orc_dp_bound_is_refs_times_product_of_stream_words_plus_one():
+    parsed = grammar_compliance("A|one two three\nB|four\nA|five")[1]
+    # streams: A=4 words, B=1 word -> (4+1) * (1+1) = 10; times 3 refs = 30
+    assert orc_dp_bound(3, parsed.segments) == pytest.approx(30.0)
+
+
+def test_orc_dp_bound_with_zero_references_never_zeroes_out():
+    parsed = grammar_compliance("A|one two")[1]
+    assert orc_dp_bound(0, parsed.segments) == pytest.approx(3.0)
+
+
+def test_score_slice_orc_refused_by_cap_keeps_real_cp_wer():
+    reference = (PerSpeakerSegment(speaker="A", start=0.0, end=1.0, words="hello world"),)
+    score = score_slice(
+        "T1-A1", "MTG1", 0, reference, "A|hello world", slice_start=0.0, slice_end=1.0, pins=_PINS, orc_dp_bound_cap=1.0
+    )
+    assert score.cp_wer == pytest.approx(0.0)  # the real cpWER, same committed function
+    assert score.confusion_cost is None
+    assert score.orc_refusal is not None and "cap" in score.orc_refusal
+    assert score.hypothesis_empty is False
+    assert score.compliance == pytest.approx(1.0)
+
+
+def test_score_slice_below_cap_computes_confusion_normally():
+    reference = (PerSpeakerSegment(speaker="A", start=0.0, end=1.0, words="hello world"),)
+    score = score_slice("T1-A1", "MTG1", 0, reference, "A|hello world", slice_start=0.0, slice_end=1.0, pins=_PINS)
+    assert score.confusion_cost is not None
+    assert score.orc_refusal is None
+
+
+def test_cell_mean_confusion_skips_refused_slices_and_counts_them():
+    slices = [
+        _slice("T1-A1", cp_wer=0.2, confusion=0.1, compliance=1.0, slice_index=0),
+        _slice_refused("T1-A1", cp_wer=0.4, compliance=0.8, slice_index=1),
+    ]
+    cell = aggregate_cell("T1-A1", slices)
+    assert cell.mean_cp_wer == pytest.approx(0.3)  # cpWER mean is over ALL slices
+    assert cell.mean_confusion_cost == pytest.approx(0.1)  # over computable slices only
+    assert cell.n_confusion_refused == 1
+    assert cell.to_dict()["n_confusion_refused"] == 1
+    assert cell.to_dict()["slices"][1]["orc_refusal"] is not None
+
+
+def test_cell_mean_confusion_with_all_slices_refused_raises_loudly():
+    cell = aggregate_cell("T1-A1", [_slice_refused("T1-A1", cp_wer=0.4, compliance=0.8)])
+    with pytest.raises(ValueError):
+        _ = cell.mean_confusion_cost
+
+
+# ---------------------------------------------------------------------------
 # per-cell aggregation
 # ---------------------------------------------------------------------------
 
@@ -113,6 +168,22 @@ def _slice(arm, cp_wer, confusion, compliance, *, meeting_id="M", slice_index=0)
         n_hypothesis_segments=1,
         n_malformed_lines=0,
         hypothesis_empty=False,
+    )
+
+
+def _slice_refused(arm, cp_wer, compliance, *, meeting_id="M", slice_index=0):
+    return SliceScore(
+        arm=arm,
+        meeting_id=meeting_id,
+        slice_index=slice_index,
+        cp_wer=cp_wer,
+        confusion_cost=None,
+        compliance=compliance,
+        n_reference_segments=1,
+        n_hypothesis_segments=1,
+        n_malformed_lines=0,
+        hypothesis_empty=False,
+        orc_refusal="ORC-WER not attempted: test fixture",
     )
 
 

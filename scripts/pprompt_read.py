@@ -144,7 +144,24 @@ def build_report_text(*, created_utc: str, study_commit: str, pins_hash: str, me
     ]
     for arm, cp_wer in winner.ranked_by_cp_wer:
         cell = cells[arm]
-        lines.append(f"  {arm:6s} mean_cpWER={cp_wer:.4f} mean_confusion={cell.mean_confusion_cost:+.4f} mean_compliance={cell.mean_compliance:.4f}")
+        refused = f" orc_refused={cell.n_confusion_refused}/{cell.n_slices}" if cell.n_confusion_refused else ""
+        lines.append(
+            f"  {arm:6s} mean_cpWER={cp_wer:.4f} mean_confusion={cell.mean_confusion_cost:+.4f} "
+            f"mean_compliance={cell.mean_compliance:.4f}{refused}"
+        )
+    refusal_lines = [
+        f"  {s.arm:6s} {s.meeting_id} slice{s.slice_index:04d}: {s.orc_refusal}"
+        for cell in cells.values()
+        for s in cell.slices
+        if s.orc_refusal is not None
+    ]
+    if refusal_lines:
+        lines += [
+            "",
+            "ORC REFUSALS (confusion term unavailable, cpWER retained; recorded, never dropped)",
+            "-" * 78,
+            *refusal_lines,
+        ]
     lines += [
         "",
         "CORRUPT-CONTEXT VERDICTS (vs reference cell "

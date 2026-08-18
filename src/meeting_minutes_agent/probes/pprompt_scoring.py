@@ -23,6 +23,33 @@ docstring): it is instead recorded as the worst-case cpWER (1.0, matching
 cpWER's own definition when the hypothesis is empty: every reference word
 is a deletion) with ``hypothesis_empty=True`` on its
 :class:`SliceScore`, never silently dropped from a cell's mean.
+
+ORC feasibility guard (forced deviation, 2026-08-18, decided BEFORE any
+error rate was read -- the P-PROMPT analogue of the P-ATTR read's own
+recorded meeteval refusals, ``docs/readiness/2026-08-18-pattr-verdict.md``
+SS4): meeteval 0.4.3's ORC-WER dynamic program allocates memory roughly
+proportional to ``n_reference_utterances x prod_over_hypothesis_streams
+(stream_word_count + 1)``. Two flown replies (the T1-A2/T1-A3 twins on
+IS1008d slice0005, which parse to 7 hypothesis speaker streams) push that
+product to ~7.9e9 -- an estimated ~190 GB, unconditionally infeasible on
+the 54 GB read host: the first two read attempts were OOM-killed by the
+kernel at ~56 GB before writing anything. A subprocess feasibility probe
+(rlimit-capped, flags only, no error rate surfaced) confirmed cpWER is
+cheap on every flown reply (Hungarian assignment) while ORC-WER is the
+sole explosion. :func:`score_slice` therefore (a) refuses to ATTEMPT the
+ORC term when :func:`orc_dp_bound` exceeds :data:`ORC_DP_BOUND_CAP`, and
+(b) records a ``MemoryError`` raised inside an attempted ORC term the same
+way; in both cases the slice keeps its real cpWER (computed by the same
+committed :func:`~meeting_minutes_agent.metrics.wer.compute_cp_wer` that
+:func:`~.pattr_scoring.score_arm` itself calls) and carries
+``confusion_cost=None`` plus a per-slice ``orc_refusal`` reason -- recorded
+as data, never silently dropped (:class:`CellScore` means skip refused
+slices and expose ``n_confusion_refused``). The cap (2.0e9) sits in the
+observed 8x gap between the largest empirically feasible structure
+(~9.5e8) and the infeasible twins (~7.9e9). The winner rule's PRIMARY
+criterion (mean cpWER) and the compliance gate are unaffected: cpWER is
+complete for all 336 replies; only the tie-break's confusion-cost
+ingredient averages over the slices whose ORC term was computable.
 """
 
 from __future__ import annotations
@@ -44,6 +71,8 @@ __all__ = [
     "CONTEXT_SENSITIVE_THRESHOLD",
     "CONTEXT_INERT_THRESHOLD",
     "GRAMMAR_BLOCKED",
+    "ORC_DP_BOUND_CAP",
+    "orc_dp_bound",
     "grammar_compliance",
     "SliceScore",
     "score_slice",
@@ -77,6 +106,33 @@ def grammar_compliance(raw_text: str):
 
 
 # ---------------------------------------------------------------------------
+# ORC feasibility guard (module docstring: the recorded forced deviation)
+# ---------------------------------------------------------------------------
+
+#: Refuse to ATTEMPT the ORC-WER term when :func:`orc_dp_bound` exceeds this.
+#: Placement rationale in the module docstring: the observed feasible maximum
+#: on the flown data is ~9.5e8 and the observed-infeasible minimum ~7.9e9
+#: (est. ~190 GB); 2.0e9 sits inside that gap with >2x margin on both sides.
+ORC_DP_BOUND_CAP = 2.0e9
+
+
+def orc_dp_bound(n_reference_utterances: int, parsed_segments) -> float:
+    """Deterministic proxy for meeteval 0.4.3's ORC-WER dynamic-program
+    memory: ``n_reference_utterances x prod over distinct-speaker hypothesis
+    streams of (stream word count + 1)`` (observed ~24 bytes per unit on
+    this host's meeteval build). Computed from the PARSED reply structure
+    alone -- no metric math, no gold text."""
+
+    stream_words: dict[str, int] = {}
+    for seg in parsed_segments:
+        stream_words[seg.speaker] = stream_words.get(seg.speaker, 0) + len(seg.text.split())
+    prod = 1.0
+    for words in stream_words.values():
+        prod *= words + 1
+    return max(n_reference_utterances, 1) * prod
+
+
+# ---------------------------------------------------------------------------
 # per-slice scoring
 # ---------------------------------------------------------------------------
 
@@ -87,12 +143,16 @@ class SliceScore:
     meeting_id: str
     slice_index: int
     cp_wer: float
-    confusion_cost: float
+    confusion_cost: float | None
     compliance: float
     n_reference_segments: int
     n_hypothesis_segments: int
     n_malformed_lines: int
     hypothesis_empty: bool
+    #: Non-``None`` iff the ORC-WER term was refused (state-space cap or a
+    #: caught ``MemoryError``); such a slice keeps its real cpWER and carries
+    #: ``confusion_cost=None`` -- recorded, never silently dropped.
+    orc_refusal: str | None = None
 
     def to_dict(self) -> dict[str, Any]:
         return {
@@ -106,6 +166,7 @@ class SliceScore:
             "n_hypothesis_segments": self.n_hypothesis_segments,
             "n_malformed_lines": self.n_malformed_lines,
             "hypothesis_empty": self.hypothesis_empty,
+            "orc_refusal": self.orc_refusal,
         }
 
 
@@ -119,12 +180,14 @@ def score_slice(
     slice_start: float,
     slice_end: float,
     pins: MetricPins | None = None,
+    orc_dp_bound_cap: float = ORC_DP_BOUND_CAP,
 ) -> SliceScore:
     """Score one arm's one slice reply against its already-extracted gold
     reference stream (:func:`~.pattr_scoring.extract_gold_streams_for_range`
     is the caller's own job -- this function takes the reference stream
     directly, never a ``ResolvedMeeting``, keeping this module corpus-
-    access-free)."""
+    access-free). ``orc_dp_bound_cap`` is an injection seam for tests; the
+    production read always runs with :data:`ORC_DP_BOUND_CAP`."""
 
     compliance, parsed = grammar_compliance(raw_reply_text)
     if not parsed.segments:
@@ -141,7 +204,41 @@ def score_slice(
             hypothesis_empty=True,
         )
     hypothesis = hypothesis_stream_from_grid_or_free_parse(parsed.segments, slice_start=slice_start, slice_end=slice_end)
-    arm_score = score_arm(arm, meeting_id, reference, hypothesis, pins=pins)
+
+    def _orc_refused(reason: str) -> SliceScore:
+        # The refusal path keeps the slice's REAL cpWER, produced by the very
+        # same committed function score_arm itself calls -- never a second
+        # implementation of the math (module docstring).
+        from ..metrics.wer import compute_cp_wer
+
+        cp = compute_cp_wer(reference, tuple(h.as_per_speaker_segment() for h in hypothesis), pins=pins)
+        return SliceScore(
+            arm=arm,
+            meeting_id=meeting_id,
+            slice_index=slice_index,
+            cp_wer=cp.error_rate,
+            confusion_cost=None,
+            compliance=compliance,
+            n_reference_segments=len(reference),
+            n_hypothesis_segments=len(parsed.segments),
+            n_malformed_lines=len(parsed.malformed_lines),
+            hypothesis_empty=False,
+            orc_refusal=reason,
+        )
+
+    bound = orc_dp_bound(len(reference), parsed.segments)
+    if bound > orc_dp_bound_cap:
+        return _orc_refused(
+            f"ORC-WER not attempted: orc_dp_bound {bound:.3e} exceeds cap {orc_dp_bound_cap:.1e} "
+            "(state-space infeasible on the read host; module docstring)"
+        )
+    try:
+        arm_score = score_arm(arm, meeting_id, reference, hypothesis, pins=pins)
+    except MemoryError:
+        return _orc_refused(
+            f"ORC-WER MemoryError at orc_dp_bound {bound:.3e} (host memory pressure at read time; "
+            "cpWER retained, confusion term refused)"
+        )
     return SliceScore(
         arm=arm,
         meeting_id=meeting_id,
@@ -182,8 +279,24 @@ class CellScore:
         return statistics.fmean(s.cp_wer for s in self.slices)
 
     @property
+    def n_confusion_refused(self) -> int:
+        """Slices whose ORC term was refused (``confusion_cost is None``,
+        module docstring's forced deviation) -- recorded, never hidden."""
+
+        return sum(1 for s in self.slices if s.confusion_cost is None)
+
+    @property
     def mean_confusion_cost(self) -> float:
-        return statistics.fmean(s.confusion_cost for s in self.slices)
+        """Mean over the slices whose confusion cost was computable. A cell
+        with NO computable slice raises rather than inventing a number."""
+
+        values = [s.confusion_cost for s in self.slices if s.confusion_cost is not None]
+        if not values:
+            raise ValueError(
+                f"cell {self.arm!r} has no slice with a computable confusion cost "
+                f"({self.n_confusion_refused} ORC-refused) -- mean_confusion_cost is undefined"
+            )
+        return statistics.fmean(values)
 
     @property
     def mean_compliance(self) -> float:
@@ -196,6 +309,7 @@ class CellScore:
             "mean_cp_wer": self.mean_cp_wer,
             "mean_confusion_cost": self.mean_confusion_cost,
             "mean_compliance": self.mean_compliance,
+            "n_confusion_refused": self.n_confusion_refused,
             "slices": [s.to_dict() for s in self.slices],
         }
 
