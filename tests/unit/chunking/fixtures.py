@@ -33,12 +33,14 @@ def short_meeting_segments() -> tuple[Segment, ...]:
     )
 
 
-def long_meeting_segments(window_cap_s: float = 2400.0) -> tuple[Segment, ...]:
-    """~70 minutes (4200s) of 10-minute segments, crossing a 2400s
-    (40-minute) window cap twice: once near a segment whose topic mark
-    sits a little before the segment's end (boundary snapping has a real
-    choice), and once with topic marks present but far from the crossing
-    entirely absent near the SECOND crossing (plain-duration fallback)."""
+def long_meeting_segments() -> tuple[Segment, ...]:
+    """~70 minutes (4200s) of 10-minute segments -- callers pass an
+    explicit ``target_chunk_s``/``max_chunk_s`` (e.g. 2400.0) to
+    ``build_chunk_plan`` to reproduce a single-cap crossing scenario: once
+    near a segment whose topic mark sits a little before the segment's end
+    (boundary snapping has a real choice), and once with topic marks
+    present but far from the crossing entirely absent near the SECOND
+    crossing (plain-duration fallback)."""
 
     segs = []
     t = 0.0

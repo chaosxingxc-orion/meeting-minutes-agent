@@ -28,8 +28,8 @@ SEGMENTS = (
 )
 
 
-def _chunk_plan(window_cap_s: float = 3600.0):
-    return build_chunk_plan(SEGMENTS, meeting_id="m1", window_cap_s=window_cap_s)
+def _chunk_plan(max_chunk_s: float = 3600.0):
+    return build_chunk_plan(SEGMENTS, meeting_id="m1", target_chunk_s=max_chunk_s, max_chunk_s=max_chunk_s)
 
 
 def _task(kind: TaskKind, chunk_index: int = 0, priority: int = 0, seq: int = 0) -> Task:

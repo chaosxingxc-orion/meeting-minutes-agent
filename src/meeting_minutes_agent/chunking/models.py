@@ -1,12 +1,18 @@
 """Data shapes for the chunking engine.
 
 A :class:`ChunkPlan` divides a meeting's segment sequence into an ordered
-list of :class:`Chunk`\\ s under a configurable duration cap, with
-boundaries snapped to topic-segmentation marks when available and a
-plain-duration fallback otherwise (see :mod:`.planner`). ``single_pass`` is
-a first-class plan kind, not merely a one-chunk special case of
-multi-chunk mode: the registered single-pass control arm (deep-check
-synthesis SS3.2) needs to select "no chunking" explicitly.
+list of :class:`Chunk`\\ s -- the STATE/DISPATCH unit, bounded to
+``[min_chunk_s, max_chunk_s]`` around a ``target_chunk_s`` target and NEVER
+a transport unit (``docs/readiness/2026-08-18-chunk-slice-granularity-
+analysis.md`` SS8.2; the transport unit is a slice, :mod:`.slicer`) -- with
+boundaries snapped to topic-segmentation marks when admissible (see
+:mod:`.leakage`) and a plain-duration fallback otherwise (see
+:mod:`.planner`). ``single_pass`` is a first-class plan kind, not merely a
+one-chunk special case of multi-chunk mode, but it is gated behind an
+explicit opt-in and a plan-time serving-context assertion (:mod:`.planner`)
+-- the analysis found it infeasible for every one of the 18 AMI dev
+meetings at the locked serving config (SS7), so it must never be the
+``mode="auto"`` default.
 """
 
 from __future__ import annotations
@@ -14,6 +20,8 @@ from __future__ import annotations
 from dataclasses import dataclass
 from enum import Enum
 from typing import Any, Protocol, runtime_checkable
+
+from .leakage import BoundaryProvenance
 
 
 @runtime_checkable
@@ -77,7 +85,10 @@ class Chunk:
 class ChunkPlan:
     meeting_id: str
     kind: ChunkPlanKind
-    window_cap_s: float
+    target_chunk_s: float
+    min_chunk_s: float
+    max_chunk_s: float
+    boundary_provenance: BoundaryProvenance
     chunks: tuple[Chunk, ...]
     content_hash: str
 
@@ -85,7 +96,10 @@ class ChunkPlan:
         return {
             "meeting_id": self.meeting_id,
             "kind": self.kind.value,
-            "window_cap_s": self.window_cap_s,
+            "target_chunk_s": self.target_chunk_s,
+            "min_chunk_s": self.min_chunk_s,
+            "max_chunk_s": self.max_chunk_s,
+            "boundary_provenance": self.boundary_provenance.value,
             "chunks": [c.to_dict() for c in self.chunks],
             "content_hash": self.content_hash,
         }

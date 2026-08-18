@@ -123,7 +123,7 @@ def _audio_resolver(tmp_path):
 
 
 def _fresh_state(tmp_path, *, max_calls=50, max_audio_seconds=36000.0, max_iterations=None) -> EpisodeLoopState:
-    plan = build_chunk_plan(SEGMENTS, meeting_id="m1", window_cap_s=3600.0)
+    plan = build_chunk_plan(SEGMENTS, meeting_id="m1", target_chunk_s=3600.0, max_chunk_s=3600.0)
     task_queue = TaskQueue()
     for chunk in plan.chunks:
         task_queue = task_queue.push(TaskKind.TRANSCRIBE_SPAN, chunk.index)
