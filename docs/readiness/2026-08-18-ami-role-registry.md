@@ -121,7 +121,11 @@ reconciliation `scripts/nxt_reconcile.py` asserts.
 | the freeze cannot be edited from the data file | the file's `frozen_splits` lists must equal `FROZEN_DEV_18` / `FROZEN_EVAL_16` in `roles.py`, and `asr-eval` must be exactly the dev-18 |
 | straddling questions are quarantined | `assert_question_usable` admits only `qa-eval` meetings; the declared quarantine must equal the recomputed one, question counts included |
 
-## 4. Quarantine (rule Q1)
+## 4. Quarantine (rule Q1) -- RETIRED by v1.1, see §11
+
+This section is the v1.0.0 record, kept verbatim for provenance: it is what the 75% quarantine
+cost *was* and why the v1.1 question-usage policy replaced it. It is no longer the binding rule;
+`AmiRoleRegistry.assert_question_usable` implements §11's policy, not this one.
 
 **Q1: a MeetingQA question is usable only when its meeting's registry role is `qa-eval`.** Every
 other MeetingQA question straddles roles — its meeting is spoken for by the ASR flight set, by
@@ -163,7 +167,9 @@ from 76 meetings to **45**. That trade is an owner decision; it is recorded here
    number this repository ever reports on those meetings is a number on material we exposed; it
    must carry that declaration. The registry records QMSum membership per meeting but assigns no
    QMSum role — QMSum is not a role-bearing surface here.
-2. **M3-SLU cannot be governed by this registry as it ships.** See §6.
+2. **M3-SLU is ADMITTED (v1.1, 2026-08-18)** as a derived dataset with an independent evaluation
+   system; its content overlap with governed AMI meetings is a hygiene note, not a bar. See §6 and
+   `configs/corpora/m3slu-status.json`.
 
 ## 6. M3-SLU join verdict
 
@@ -185,12 +191,29 @@ transcripts resolved **10 of 12** probe instances to **exactly one** meeting eac
 meetings for different instances, which is the signature of a real join rather than noise. The two
 misses are consistent with source meetings outside the 166-meeting index.
 
-**The consequence is a leakage warning, not a convenience.** One probe instance, `ami_task2_1869`,
-resolves to **`ES2011a` — a member of our frozen dev-18**. M3-SLU's AMI material therefore draws
-from our governed meetings, and there is no shipped field that tells you which. If M3-SLU is ever
-used here, it must first be resolved to meetings by the content join and then filtered through this
-registry; it must not be treated as safe by default. Because that resolution is a derived inference
-needing its own validation pass, M3-SLU deliberately carries **no** column in registry v1.0.0.
+**v1.1 verdict (2026-08-18, supersedes the paragraph below as originally written): ADMITTED, with
+the content overlap carried forward as a hygiene note, not a bar.** The owner ruling
+(`docs/plans/2026-08-17-founding-workplan.md` §4b item 2): a derived dataset with an independent
+evaluation system is not leakage. M3-SLU is scored on its own splits by its own harness; it never
+reads or reports against this repository's AMI role registry or frozen ASR partition, so reuse of
+its (partially AMI-sourced) content is a hygiene question, not a leakage one. M3-SLU's registry
+presence is the sidecar `configs/corpora/m3slu-status.json` rather than a column here, because its
+own governance (its splits) is independent of this registry's roster and roles. The measurement
+below stands unedited and is *why* the hygiene note exists, not evidence against admission: one
+probe instance, `ami_task2_1869`, resolves to **`ES2011a` — a member of our frozen dev-18**.
+M3-SLU's AMI material therefore draws from our governed meetings, and there is no shipped field
+that tells you which. This does not bar M3-SLU's own standalone discovery or evaluation use; it
+means that *if* an M3-SLU instance is ever resolved to a specific AMI meeting and used alongside
+this repository's own AMI-derived material in the same analysis, that resolution must run first
+and the result must be filtered through this registry's normal exposure rules for the resolved
+meeting -- M3-SLU must not be treated as meeting-anonymous by default in that combined-use case.
+
+*Original v1.0.0 framing (retained for provenance):* "The consequence is a leakage warning, not a
+convenience. ... If M3-SLU is ever used here, it must first be resolved to meetings by the content
+join and then filtered through this registry; it must not be treated as safe by default. Because
+that resolution is a derived inference needing its own validation pass, M3-SLU deliberately carries
+**no** column in registry v1.0.0." That "barred pending leakage check" reading of the same evidence
+is retired by the v1.1 ruling above; the underlying content-join measurement did not change.
 
 ## 7. Consequences for G1 (flagged, not resolved)
 
@@ -247,6 +270,113 @@ constraint, so a hand-edit that breaks one fails the suite.
 
 ## 10. Status
 
-**Proposal.** The rule set, the counts and the checks are machine-verified, but the choice of R3
-(MeetingQA *test* only) and the resulting 75 % quarantine are engineering proposals awaiting owner
-confirmation, as is the §4 relaxation option. Nothing here authorizes a flight.
+**Meeting roles (§3): still proposal.** R1-R5 and the five roles are machine-verified and
+unchanged since v1.0.0; the choice of R3 (MeetingQA *test* only, for the `qa-eval` *role*) remains
+an engineering proposal awaiting owner confirmation. Nothing here authorizes a flight.
+
+**MeetingQA question usage (§4/§11): BINDING as of v1.1 (2026-08-18).** The owner ruling in
+`docs/plans/2026-08-17-founding-workplan.md` §4b settles this axis directly: it is no longer the
+§4 relaxation option awaiting a decision, because the ruling replaces the role-keyed quarantine
+mechanism itself rather than choosing a point on its R3-admits-dev spectrum. §4's 75% figure and
+its "37 meetings / 1,703 questions" relaxation estimate are superseded, not merely revised -- see
+§11.
+
+**M3-SLU (§6): BINDING as of v1.1 (2026-08-18).** ADMITTED per the derived-dataset ruling; no
+longer "barred pending leakage check." See §6's v1.1 verdict and `configs/corpora/m3slu-status.json`.
+
+## 11. v1.1 (2026-08-18 evening) -- question-usage policy replaces the quarantine
+
+Owner rulings recorded in `docs/plans/2026-08-17-founding-workplan.md` §4b (2026-08-18 morning):
+
+1. **Split philosophy (program-wide).** Training-free discovery uses train/dev splits freely at
+   every non-confirmatory stage; only test-split numbers are final results. Role registries
+   protect **final-reporting sets only** -- AMI eval-16 and MeetingQA *test*-split questions.
+   Train/dev questions are a free discovery surface on any meeting except eval-16.
+2. **M3-SLU is ADMITTED** (§6).
+
+### What changed
+
+v1.0.0 quarantined a MeetingQA question the instant its meeting was spoken for by any AMI role
+other than `qa-eval` (§4) -- a role-keyed mechanism that discarded 75.2% of MeetingQA (5,817 of
+7,735 questions) as a side effect of an unrelated axis (which AMI role a meeting plays in *this
+repository's own* pipeline). v1.1 replaces that mechanism with a question-usage policy keyed
+directly on the two things ruling 1 names: eval-16 membership and MeetingQA's own split for that
+meeting. The five AMI meeting roles, R1-R5, and eval-16's sanctity are **unchanged** -- v1.1 adds
+a second, independent axis rather than editing the first:
+
+| policy | condition | meaning |
+|---|---|---|
+| `untouchable` | meeting ∈ eval-16 (any MeetingQA split) | Same meaning as `held-out-confirmatory`: no exposure, no scoring, no discovery. Ever. |
+| `reserved-final-reporting` | meeting ∉ eval-16, MeetingQA split = test | Reserved for Stage-3 final reporting; not a discovery surface pre-registration. |
+| `usable-discovery` | meeting ∉ eval-16, MeetingQA split ∈ {train, dev} | Free discovery surface at every non-confirmatory stage -- **the asr-eval dev-18 flight set included**. |
+| `no-meetingqa` | meeting has no MeetingQA coverage | Not applicable; nothing to gate. |
+
+Because MeetingQA ships one split per *meeting* (never per question), this is a per-meeting
+classification, exactly like the AMI role -- but along an orthogonal axis. A held-out-reserve
+meeting's audio/transcript stays unexposable via `assert_exposable` (unchanged); its MeetingQA
+train/dev questions can still be `usable-discovery`, because "any meeting except eval-16" in
+ruling 1 governs MeetingQA question use, not this repository's own AMI-exposure rules for that
+meeting under a different corpus. The two axes are independent by design.
+
+### New counts (measured, `scripts/build_ami_role_registry.py`, 2026-08-18)
+
+| policy | meetings | questions |
+|---|---:|---:|
+| `usable-discovery` | **101** | **4,732** |
+| `reserved-final-reporting` | 49 | 2,235 |
+| `untouchable` | 16 | 768 |
+| `no-meetingqa` | 5 | 0 |
+| **total** | **171** | **7,735** |
+
+**Recovery: 4,732 usable-discovery questions, up from v1.0.0's 1,918 `qa-eval`-only figure** (a
+2.47x increase) -- without touching a single AMI role or eval-16's sanctity. The recovery has two
+sources: (a) held-out-137 meetings whose AMI role was `glossary-discovery` or `held-out-reserve`
+now contribute their train/dev MeetingQA questions (90 meetings, the bulk of the gain); (b) the
+asr-eval dev-18 flight set's own train/dev-split MeetingQA questions (11 of its 18 meetings) are
+now usable for discovery too, per ruling 1's explicit "including dev-18". The `reserved-final-reporting`
+count (49 meetings / 2,235 questions) is the old `qa-eval` role's 42 meetings plus dev-18's 7
+test-split meetings -- the full non-eval-16 test-split surface, reserved for Stage-3. `untouchable`
+(16/768) is exactly eval-16, unconditionally, confirmed directly: `EN2002a` carries MeetingQA
+*dev*-split questions and is still `untouchable`, because eval-16 membership is checked before
+MeetingQA split.
+
+### Interpretation calls made while implementing (state them, per the build instructions)
+
+1. **Question usage and AMI meeting role are independent gates, not a hierarchy.** Ruling 1 reads
+   "any meeting except eval-16" literally, without carving out `held-out-reserve` or
+   `glossary-discovery` meetings. A MeetingQA question about a `held-out-reserve` meeting is
+   `usable-discovery` even though that meeting's own audio/transcript remains unexposable via
+   `assert_exposable`. This is implemented as two orthogonal surfaces: this repository's own
+   AMI-driven pipeline (chunking, glossary mining, minutes generation) is gated by
+   `MeetingRole`/`assert_exposable`, unchanged; the MeetingQA question-answering surface is gated
+   by `QuestionUsagePolicy`/`assert_question_usable`, new in v1.1. Using a MeetingQA question does
+   not, by itself, expose that meeting under our own AMI role rules.
+2. **Accessor shape.** "New policy accessors (`usable_discovery_questions()`,
+   `reserved_test_questions()`, `untouchable_questions()`)" are implemented as
+   `AmiRoleRegistry` methods returning the tuple of meeting ids carrying that policy, mirroring the
+   existing `meetings_with_role` convention -- not per-question-id filters. A separate module-level
+   `filter_question_ids_by_policy(registry, questions, policy)` (replacing v1.0.0's
+   `quarantined_question_ids`) covers the question-id-stream use case for an eventual MeetingQA
+   loader.
+3. **Registry data shape.** v1.0.0's `quarantine.meetings` carried an explicit 124-row exception
+   list. Since the v1.1 policy now partitions the *entire* 171-meeting roster (not a 25% minority),
+   an explicit per-meeting list would duplicate data already in each meeting's own record
+   (`role`, `meetingqa_split`, `meetingqa_questions`); the registry instead declares only the
+   aggregate `question_usage.counts` block, cross-checked against the per-meeting recomputation at
+   load time -- the same pattern `role_counts` already uses.
+4. **`QuarantinedQuestionError` kept, repurposed.** Reserved-final-reporting and no-MeetingQA
+   refusals still raise `QuarantinedQuestionError` (the "not usable *yet*" refusal); an eval-16
+   refusal raises `HeldOutLeakageError` (the "never usable" refusal) -- unconditionally, regardless
+   of `QuestionUsagePolicy`, matching how eval-16 already refuses AMI exposure via the same
+   exception type.
+
+### Reproduction
+
+Unchanged from §9, now producing the v1.1 registry (`schema_version: "1.1.0"`):
+
+```bash
+python scripts/build_ami_role_registry.py \
+  --data-root "$SPEECHRL_DATA_DIR/datasets" \
+  --table-out docs/readiness/2026-08-18-ami-overlap-matrix.md
+pytest tests/unit/corpora
+```

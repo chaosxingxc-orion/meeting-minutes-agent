@@ -65,14 +65,28 @@ owner-visible note) REMAINS; oracle-diar span extraction thin adapter REMAINS.
 
 - "MeetingQA 80:10:10" is RETIRED: the release's own split is 64/48/54 meetings
   (3,007/2,252/2,476 questions).
-- Z-qa flies on the **qa-eval role class (42 meetings, 1,918 usable questions)**; 5,817
-  questions are quarantined by role collision (every dev-18 and eval-16 meeting carries
-  MeetingQA questions — the registry was load-bearing, not formal). Owner decision pending:
-  admitting MeetingQA-dev meetings would recover 1,703 questions but shrink the
-  glossary-discovery pool 76 → 45.
+- **v1.1 (2026-08-18, owner rulings in `docs/plans/2026-08-17-founding-workplan.md` §4b) supersedes
+  the paragraph below**: role-keyed quarantine is retired in favour of a question-usage policy keyed
+  on eval-16 membership and MeetingQA's own split. Z-final-reporting flies on the
+  **reserved-final-reporting class (49 meetings, 2,235 questions)** — the old qa-eval role class
+  (42 meetings) plus dev-18's own 7 test-split meetings. Discovery gains a **usable-discovery class
+  of 101 meetings, 4,732 questions** (up from 1,918, a 2.47x recovery) spanning every non-eval-16
+  meeting's MeetingQA train/dev-split questions, dev-18 included. Only eval-16 (16 meetings, 768
+  questions) is untouchable. Details, counts and interpretation calls:
+  `docs/readiness/2026-08-18-ami-role-registry.md` §11.
+  *Original v1.0.0 framing (retained for provenance):* "Z-qa flies on the qa-eval role class
+  (42 meetings, 1,918 usable questions); 5,817 questions are quarantined by role collision (every
+  dev-18 and eval-16 meeting carries MeetingQA questions — the registry was load-bearing, not
+  formal). Owner decision pending: admitting MeetingQA-dev meetings would recover 1,703 questions
+  but shrink the glossary-discovery pool 76 → 45." That owner decision is superseded by the v1.1
+  ruling above, which recovers questions by a different mechanism (question-usage policy, not a
+  wider R3) and does not touch the glossary-discovery pool at all.
 - **SAER-M is scoreable on 12 of the 18 ASR-eval meetings only** (IB meetings lack
   extractive+summlink); minutes-metric power computations use n=12, and IB4001/2/4 lack a
   topics layer, so the chunk plan's plain-duration fallback must be declared for them.
-- M3-SLU carries NO role and is barred from any discovery use pending a content-level leakage
-  check: field join is impossible, but a verbatim n-gram content join resolves its instances
-  into AMI meetings — including at least one inside our frozen dev-18.
+- **M3-SLU is ADMITTED (v1.1, 2026-08-18)** as a derived dataset with an independent evaluation
+  system (`docs/plans/2026-08-17-founding-workplan.md` §4b item 2); its content overlap is a
+  hygiene note, not a bar: field join is impossible, but a verbatim n-gram content join resolves
+  its instances into AMI meetings — including at least one inside our frozen dev-18. Status record:
+  `configs/corpora/m3slu-status.json`; narrative: `docs/readiness/2026-08-18-ami-role-registry.md`
+  §6.
