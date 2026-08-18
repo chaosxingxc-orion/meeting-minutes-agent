@@ -1,0 +1,37 @@
+P-PROMPT sweep -- registered one-shot scoring read
+==============================================================================
+created_utc  : 2026-08-18T19:19:28+00:00
+study_commit : 1580f92fd9eb627163aae294e2d66697dc70dc17
+pins_hash    : d9a9d1222a86df09d674a0ef77e1bc54267ea016559a95feca449ced07cc247f
+session unit : one transport slice (24 sessions x 14 arms = 336)
+meetings     : ES2011b, IS1008b, IS1008d, TS3004b
+
+GRID WINNER (mechanical rule, prereg SS4)
+------------------------------------------------------------------------------
+status      : WINNER
+winner_arm  : T1-A1
+tie_set     : ['T1-A1']
+eligible    : ['T1-A1', 'T1-A2', 'T1-A3', 'T2-A1', 'T2-A2', 'T2-A3', 'T3-A1', 'T3-A2', 'T3-A3', 'T4-A1', 'T4-A2', 'T4-A3']
+ranked by mean cpWER:
+  T1-A1  mean_cpWER=0.4789 mean_confusion=+0.1569 mean_compliance=1.0000
+  T4-A1  mean_cpWER=0.5225 mean_confusion=+0.1633 mean_compliance=1.0000
+  T3-A3  mean_cpWER=0.5234 mean_confusion=+0.1712 mean_compliance=1.0000
+  T2-A3  mean_cpWER=0.5258 mean_confusion=+0.1829 mean_compliance=1.0000
+  T3-A1  mean_cpWER=0.5292 mean_confusion=+0.1962 mean_compliance=1.0000
+  T4-A2  mean_cpWER=0.5496 mean_confusion=+0.1917 mean_compliance=1.0000
+  T2-A1  mean_cpWER=0.5562 mean_confusion=+0.1958 mean_compliance=1.0000
+  T2-A2  mean_cpWER=0.5581 mean_confusion=+0.1975 mean_compliance=1.0000
+  T1-A2  mean_cpWER=0.5639 mean_confusion=+0.1440 mean_compliance=1.0000 orc_refused=1/24
+  T1-A3  mean_cpWER=0.5639 mean_confusion=+0.1440 mean_compliance=1.0000 orc_refused=1/24
+  T4-A3  mean_cpWER=0.5701 mean_confusion=+0.1517 mean_compliance=1.0000
+  T3-A2  mean_cpWER=0.6287 mean_confusion=+0.1658 mean_compliance=1.0000
+
+ORC REFUSALS (confusion term unavailable, cpWER retained; recorded, never dropped)
+------------------------------------------------------------------------------
+  T1-A2  IS1008d slice0005: ORC-WER not attempted: orc_dp_bound 7.868e+09 exceeds cap 2.0e+09 (state-space infeasible on the read host; module docstring)
+  T1-A3  IS1008d slice0005: ORC-WER not attempted: orc_dp_bound 7.868e+09 exceeds cap 2.0e+09 (state-space infeasible on the read host; module docstring)
+
+CORRUPT-CONTEXT VERDICTS (vs reference cell T2-A1)
+------------------------------------------------------------------------------
+  X1: CONTEXT-INDETERMINATE (degradation=+0.0127, reference_mean_cpWER=0.5562, corrupt_mean_cpWER=0.5689)
+  X2: CONTEXT-INDETERMINATE (degradation=+0.0454, reference_mean_cpWER=0.5562, corrupt_mean_cpWER=0.6016)
