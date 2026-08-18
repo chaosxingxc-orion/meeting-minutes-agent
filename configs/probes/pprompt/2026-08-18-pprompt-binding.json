@@ -1,0 +1,2743 @@
+{
+  "arrangements": {
+    "A1": {
+      "description": "context in system turn, audio in user turn",
+      "rule": "the template's extra block is appended to the SYSTEM message (task_instruction)"
+    },
+    "A2": {
+      "description": "context in the user turn BEFORE the audio",
+      "rule": "the template's extra block is a USER-message text part placed before the audio part"
+    },
+    "A3": {
+      "description": "context in the user turn AFTER the audio",
+      "rule": "the template's extra block is a USER-message text part placed after the audio part"
+    },
+    "note": "T1 has no extra block, so all three of its arrangement cells render an IDENTICAL request -- a documented, harmless consequence of honoring the registered 4x3 grid literally, visible in 'renderings' below as three identical content_sha256 values per T1 slice."
+  },
+  "corrupt_arms": {
+    "X1": {
+      "label_alphabet": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "label_derangement": {
+        "A": "C",
+        "B": "A",
+        "C": "D",
+        "D": "B"
+      },
+      "per_slice_roster": {
+        "ES2011b": {
+          "0": {
+            "corrupted_roster": [
+              "A",
+              "B",
+              "C"
+            ],
+            "true_roster": [
+              "A",
+              "B",
+              "D"
+            ]
+          },
+          "1": {
+            "corrupted_roster": [
+              "A",
+              "B",
+              "C",
+              "D"
+            ],
+            "true_roster": [
+              "A",
+              "B",
+              "C",
+              "D"
+            ]
+          },
+          "2": {
+            "corrupted_roster": [
+              "B",
+              "C"
+            ],
+            "true_roster": [
+              "A",
+              "D"
+            ]
+          },
+          "3": {
+            "corrupted_roster": [
+              "B",
+              "C",
+              "D"
+            ],
+            "true_roster": [
+              "A",
+              "C",
+              "D"
+            ]
+          },
+          "4": {
+            "corrupted_roster": [
+              "C",
+              "D"
+            ],
+            "true_roster": [
+              "A",
+              "C"
+            ]
+          },
+          "5": {
+            "corrupted_roster": [
+              "A",
+              "B",
+              "C",
+              "D"
+            ],
+            "true_roster": [
+              "A",
+              "B",
+              "C",
+              "D"
+            ]
+          }
+        },
+        "IS1008b": {
+          "0": {
+            "corrupted_roster": [
+              "C",
+              "D"
+            ],
+            "true_roster": [
+              "A",
+              "C"
+            ]
+          },
+          "1": {
+            "corrupted_roster": [
+              "A",
+              "C",
+              "D"
+            ],
+            "true_roster": [
+              "A",
+              "B",
+              "C"
+            ]
+          },
+          "2": {
+            "corrupted_roster": [
+              "A",
+              "C",
+              "D"
+            ],
+            "true_roster": [
+              "A",
+              "B",
+              "C"
+            ]
+          },
+          "3": {
+            "corrupted_roster": [
+              "A",
+              "B",
+              "D"
+            ],
+            "true_roster": [
+              "B",
+              "C",
+              "D"
+            ]
+          },
+          "4": {
+            "corrupted_roster": [
+              "A",
+              "B",
+              "C",
+              "D"
+            ],
+            "true_roster": [
+              "A",
+              "B",
+              "C",
+              "D"
+            ]
+          },
+          "5": {
+            "corrupted_roster": [
+              "A",
+              "B",
+              "C",
+              "D"
+            ],
+            "true_roster": [
+              "A",
+              "B",
+              "C",
+              "D"
+            ]
+          }
+        },
+        "IS1008d": {
+          "0": {
+            "corrupted_roster": [
+              "A",
+              "B",
+              "C",
+              "D"
+            ],
+            "true_roster": [
+              "A",
+              "B",
+              "C",
+              "D"
+            ]
+          },
+          "1": {
+            "corrupted_roster": [
+              "A",
+              "B",
+              "C",
+              "D"
+            ],
+            "true_roster": [
+              "A",
+              "B",
+              "C",
+              "D"
+            ]
+          },
+          "2": {
+            "corrupted_roster": [
+              "A",
+              "C",
+              "D"
+            ],
+            "true_roster": [
+              "A",
+              "B",
+              "C"
+            ]
+          },
+          "3": {
+            "corrupted_roster": [
+              "A",
+              "B",
+              "C",
+              "D"
+            ],
+            "true_roster": [
+              "A",
+              "B",
+              "C",
+              "D"
+            ]
+          },
+          "4": {
+            "corrupted_roster": [
+              "A",
+              "B",
+              "C",
+              "D"
+            ],
+            "true_roster": [
+              "A",
+              "B",
+              "C",
+              "D"
+            ]
+          },
+          "5": {
+            "corrupted_roster": [
+              "A",
+              "B",
+              "C",
+              "D"
+            ],
+            "true_roster": [
+              "A",
+              "B",
+              "C",
+              "D"
+            ]
+          }
+        },
+        "TS3004b": {
+          "0": {
+            "corrupted_roster": [
+              "A",
+              "B",
+              "C",
+              "D"
+            ],
+            "true_roster": [
+              "A",
+              "B",
+              "C",
+              "D"
+            ]
+          },
+          "1": {
+            "corrupted_roster": [
+              "A",
+              "B",
+              "C",
+              "D"
+            ],
+            "true_roster": [
+              "A",
+              "B",
+              "C",
+              "D"
+            ]
+          },
+          "2": {
+            "corrupted_roster": [
+              "A",
+              "B",
+              "C"
+            ],
+            "true_roster": [
+              "A",
+              "B",
+              "D"
+            ]
+          },
+          "3": {
+            "corrupted_roster": [
+              "A",
+              "B",
+              "C",
+              "D"
+            ],
+            "true_roster": [
+              "A",
+              "B",
+              "C",
+              "D"
+            ]
+          },
+          "4": {
+            "corrupted_roster": [
+              "A",
+              "B",
+              "C"
+            ],
+            "true_roster": [
+              "A",
+              "B",
+              "D"
+            ]
+          },
+          "5": {
+            "corrupted_roster": [
+              "A",
+              "B",
+              "C",
+              "D"
+            ],
+            "true_roster": [
+              "A",
+              "B",
+              "C",
+              "D"
+            ]
+          }
+        }
+      },
+      "reason": "AMI/NXT turn labels are meeting-invariant bare letters (confirmed before this manifest was built: every one of the four P-ATTR-smoke meetings' turn tables uses exactly the alphabet ['A', 'B', 'C', 'D']), so swapping in a DIFFERENT meeting's roster would be a byte-for-byte no-op text change. Per the mission's own fallback instruction, X1 instead corrupts the turn-to-speaker-label mapping inside the slice metadata: a seeded fixed-point-free derangement of the label alphabet is applied to every slice's OWN roster (read off entry['turns']) before it is rendered into the context block, so the declared 'speakers in this excerpt' set is actually wrong relative to the audio -- a real corruption of the attribution channel.",
+      "resolution": "label-derangement-within-slice",
+      "seed": 20260818
+    },
+    "X2": {
+      "donor_meeting_assignment": {
+        "ES2011b": "IS1008d",
+        "IS1008b": "ES2011b",
+        "IS1008d": "TS3004b",
+        "TS3004b": "IS1008b"
+      },
+      "donor_source_relpath": "derived/meeting-minutes/pattr-smoke/runs/2026-08-18-pattr-smoke/a-turn-responses.jsonl",
+      "resolution": "cross-meeting-donor-tail",
+      "seed": 20260818,
+      "tail_entries": {
+        "ES2011b": [
+          {
+            "donor_meeting_id": "IS1008d",
+            "donor_request_id": "pattr-turn-IS1008d-turn0137",
+            "donor_slice_index": 5,
+            "donor_turn_index": 137,
+            "speaker": "D",
+            "text_length_chars": 131,
+            "text_sha256": "1fce520141863869cef8904fc481fee33e06fcaf37ab870d2096828469ca6ea2"
+          },
+          {
+            "donor_meeting_id": "IS1008d",
+            "donor_request_id": "pattr-turn-IS1008d-turn0138",
+            "donor_slice_index": 5,
+            "donor_turn_index": 138,
+            "speaker": "B",
+            "text_length_chars": 29,
+            "text_sha256": "43d7161c8f6450c5a29bf41552c25d5e3367b07af2ee9465048af56b1fa2da88"
+          },
+          {
+            "donor_meeting_id": "IS1008d",
+            "donor_request_id": "pattr-turn-IS1008d-turn0139",
+            "donor_slice_index": 5,
+            "donor_turn_index": 139,
+            "speaker": "D",
+            "text_length_chars": 136,
+            "text_sha256": "ce6d5562fe4f9ff8ac656ce2ab4878f05e603f2e658d072e791a1a93babf5e7f"
+          },
+          {
+            "donor_meeting_id": "IS1008d",
+            "donor_request_id": "pattr-turn-IS1008d-turn0140",
+            "donor_slice_index": 5,
+            "donor_turn_index": 140,
+            "speaker": "B",
+            "text_length_chars": 4,
+            "text_sha256": "5f9a2b795615ba6a3d5455fd5624d773fbca5bcd16249c421fd37411dc9837da"
+          },
+          {
+            "donor_meeting_id": "IS1008d",
+            "donor_request_id": "pattr-turn-IS1008d-turn0141",
+            "donor_slice_index": 5,
+            "donor_turn_index": 141,
+            "speaker": "D",
+            "text_length_chars": 21,
+            "text_sha256": "48cf8171870c19944594e40f51bc76ba6274e2f88346f444298ca078c0687693"
+          },
+          {
+            "donor_meeting_id": "IS1008d",
+            "donor_request_id": "pattr-turn-IS1008d-turn0142",
+            "donor_slice_index": 5,
+            "donor_turn_index": 142,
+            "speaker": "D",
+            "text_length_chars": 184,
+            "text_sha256": "53dd314eace5da3a0a02639e4b608ae9a5f55b4cf64184e9ed782cc7a2f6db7a"
+          },
+          {
+            "donor_meeting_id": "IS1008d",
+            "donor_request_id": "pattr-turn-IS1008d-turn0143",
+            "donor_slice_index": 5,
+            "donor_turn_index": 143,
+            "speaker": "A",
+            "text_length_chars": 7,
+            "text_sha256": "56c3930d146e23c03ff6ab3f96bce98e672929c8512fc94204febf75038c0f7f"
+          },
+          {
+            "donor_meeting_id": "IS1008d",
+            "donor_request_id": "pattr-turn-IS1008d-turn0144",
+            "donor_slice_index": 5,
+            "donor_turn_index": 144,
+            "speaker": "D",
+            "text_length_chars": 97,
+            "text_sha256": "6f6fc9bd97da59c553e4ea0814146107cb525dd45b4329b6967b73494f415e7e"
+          },
+          {
+            "donor_meeting_id": "IS1008d",
+            "donor_request_id": "pattr-turn-IS1008d-turn0145",
+            "donor_slice_index": 5,
+            "donor_turn_index": 145,
+            "speaker": "A",
+            "text_length_chars": 37,
+            "text_sha256": "078f1604cd8587e89acbb441a7220e87d874852ea3988b4b28fd83216ac71871"
+          },
+          {
+            "donor_meeting_id": "IS1008d",
+            "donor_request_id": "pattr-turn-IS1008d-turn0146",
+            "donor_slice_index": 5,
+            "donor_turn_index": 146,
+            "speaker": "D",
+            "text_length_chars": 205,
+            "text_sha256": "aa06be54b43b71011965b2f8179d1544ce32867c344e908e8abc90378ef690a5"
+          }
+        ],
+        "IS1008b": [
+          {
+            "donor_meeting_id": "ES2011b",
+            "donor_request_id": "pattr-turn-ES2011b-turn0063",
+            "donor_slice_index": 4,
+            "donor_turn_index": 63,
+            "speaker": "C",
+            "text_length_chars": 90,
+            "text_sha256": "3d02d104b75565666ab9cc602cb46dd322b93143a44fc22182c33fd95f65cec9"
+          },
+          {
+            "donor_meeting_id": "ES2011b",
+            "donor_request_id": "pattr-turn-ES2011b-turn0064",
+            "donor_slice_index": 5,
+            "donor_turn_index": 64,
+            "speaker": "C",
+            "text_length_chars": 228,
+            "text_sha256": "20841f7bceada2af10045ffd42ba4364a70b5b025980da7f68ee58ea7056a6a2"
+          },
+          {
+            "donor_meeting_id": "ES2011b",
+            "donor_request_id": "pattr-turn-ES2011b-turn0065",
+            "donor_slice_index": 5,
+            "donor_turn_index": 65,
+            "speaker": "C",
+            "text_length_chars": 31,
+            "text_sha256": "4e6d35d495c724ca11f366454ea8ea6f9b0cdc1567603dc6c6e7fb6d52686d42"
+          },
+          {
+            "donor_meeting_id": "ES2011b",
+            "donor_request_id": "pattr-turn-ES2011b-turn0066",
+            "donor_slice_index": 5,
+            "donor_turn_index": 66,
+            "speaker": "A",
+            "text_length_chars": 12,
+            "text_sha256": "46377e3839598f75cbdc172a314c6c8ab9b32b1be57ee0cf09970fa060578b40"
+          },
+          {
+            "donor_meeting_id": "ES2011b",
+            "donor_request_id": "pattr-turn-ES2011b-turn0067",
+            "donor_slice_index": 5,
+            "donor_turn_index": 67,
+            "speaker": "C",
+            "text_length_chars": 33,
+            "text_sha256": "05704d64605ad6093ca2c7df84737666897b759a0fefb439db5d565d5dd6a44b"
+          },
+          {
+            "donor_meeting_id": "ES2011b",
+            "donor_request_id": "pattr-turn-ES2011b-turn0068",
+            "donor_slice_index": 5,
+            "donor_turn_index": 68,
+            "speaker": "C",
+            "text_length_chars": 5,
+            "text_sha256": "85fec70372b092bb42d021a6d1b373081dde8bcf90feb49e0725e285043fb0ad"
+          },
+          {
+            "donor_meeting_id": "ES2011b",
+            "donor_request_id": "pattr-turn-ES2011b-turn0069",
+            "donor_slice_index": 5,
+            "donor_turn_index": 69,
+            "speaker": "B",
+            "text_length_chars": 13,
+            "text_sha256": "810d7c3ca6aa6411102588f8636833035138a35f32f5e7b2df96d2ab2dc4d660"
+          },
+          {
+            "donor_meeting_id": "ES2011b",
+            "donor_request_id": "pattr-turn-ES2011b-turn0070",
+            "donor_slice_index": 5,
+            "donor_turn_index": 70,
+            "speaker": "D",
+            "text_length_chars": 5,
+            "text_sha256": "85fec70372b092bb42d021a6d1b373081dde8bcf90feb49e0725e285043fb0ad"
+          },
+          {
+            "donor_meeting_id": "ES2011b",
+            "donor_request_id": "pattr-turn-ES2011b-turn0071",
+            "donor_slice_index": 5,
+            "donor_turn_index": 71,
+            "speaker": "D",
+            "text_length_chars": 16,
+            "text_sha256": "a38753c718eba6d5ea1dffbccf59128f4cbbb369892caa77813ec099f72cf9a8"
+          },
+          {
+            "donor_meeting_id": "ES2011b",
+            "donor_request_id": "pattr-turn-ES2011b-turn0072",
+            "donor_slice_index": 5,
+            "donor_turn_index": 72,
+            "speaker": "B",
+            "text_length_chars": 5,
+            "text_sha256": "85fec70372b092bb42d021a6d1b373081dde8bcf90feb49e0725e285043fb0ad"
+          }
+        ],
+        "IS1008d": [
+          {
+            "donor_meeting_id": "TS3004b",
+            "donor_request_id": "pattr-turn-TS3004b-turn0099",
+            "donor_slice_index": 5,
+            "donor_turn_index": 99,
+            "speaker": "B",
+            "text_length_chars": 15,
+            "text_sha256": "236afb1a47d5e25f0079e0a6242565d6e751c73eb9707fffde1fb967fdd1595e"
+          },
+          {
+            "donor_meeting_id": "TS3004b",
+            "donor_request_id": "pattr-turn-TS3004b-turn0100",
+            "donor_slice_index": 5,
+            "donor_turn_index": 100,
+            "speaker": "A",
+            "text_length_chars": 40,
+            "text_sha256": "68911e4117f03e6e8e744ddf731c483930d089cabc6f221f7b2509cc02fc8fd9"
+          },
+          {
+            "donor_meeting_id": "TS3004b",
+            "donor_request_id": "pattr-turn-TS3004b-turn0101",
+            "donor_slice_index": 5,
+            "donor_turn_index": 101,
+            "speaker": "C",
+            "text_length_chars": 5,
+            "text_sha256": "85fec70372b092bb42d021a6d1b373081dde8bcf90feb49e0725e285043fb0ad"
+          },
+          {
+            "donor_meeting_id": "TS3004b",
+            "donor_request_id": "pattr-turn-TS3004b-turn0102",
+            "donor_slice_index": 5,
+            "donor_turn_index": 102,
+            "speaker": "D",
+            "text_length_chars": 187,
+            "text_sha256": "167a3d5917c59379897e5704488eab07a8b7ee47f785e973fcaf8a689cd4da15"
+          },
+          {
+            "donor_meeting_id": "TS3004b",
+            "donor_request_id": "pattr-turn-TS3004b-turn0103",
+            "donor_slice_index": 5,
+            "donor_turn_index": 103,
+            "speaker": "D",
+            "text_length_chars": 150,
+            "text_sha256": "b683d4e63965e1ec85f79cd790e989bad0b400ed3f1d4e750818f0f2103fe72b"
+          },
+          {
+            "donor_meeting_id": "TS3004b",
+            "donor_request_id": "pattr-turn-TS3004b-turn0104",
+            "donor_slice_index": 5,
+            "donor_turn_index": 104,
+            "speaker": "A",
+            "text_length_chars": 48,
+            "text_sha256": "21ca4141f32e014ea8d3602b10516023748e0a7bc950d860727180591dcaa1a6"
+          },
+          {
+            "donor_meeting_id": "TS3004b",
+            "donor_request_id": "pattr-turn-TS3004b-turn0105",
+            "donor_slice_index": 5,
+            "donor_turn_index": 105,
+            "speaker": "D",
+            "text_length_chars": 188,
+            "text_sha256": "3a83846ba58ffc32b855de83071da68c1a59a2150c5e285d2f128122a8ef5c6d"
+          },
+          {
+            "donor_meeting_id": "TS3004b",
+            "donor_request_id": "pattr-turn-TS3004b-turn0106",
+            "donor_slice_index": 5,
+            "donor_turn_index": 106,
+            "speaker": "B",
+            "text_length_chars": 40,
+            "text_sha256": "e46dcba0deb187af78fcc8e79de8dfd667a1d7a9ff5a0ddda7eb1c2bda6b0b39"
+          },
+          {
+            "donor_meeting_id": "TS3004b",
+            "donor_request_id": "pattr-turn-TS3004b-turn0107",
+            "donor_slice_index": 5,
+            "donor_turn_index": 107,
+            "speaker": "D",
+            "text_length_chars": 113,
+            "text_sha256": "b09be382c80a16b5af257d91789dfc8a88c0bf7d6238190aa1924daa42db4d88"
+          },
+          {
+            "donor_meeting_id": "TS3004b",
+            "donor_request_id": "pattr-turn-TS3004b-turn0108",
+            "donor_slice_index": 5,
+            "donor_turn_index": 108,
+            "speaker": "D",
+            "text_length_chars": 185,
+            "text_sha256": "c7c05b373df2a2fa3be74e8275d311a59898137d79e4c697bf44185662932f7e"
+          }
+        ],
+        "TS3004b": [
+          {
+            "donor_meeting_id": "IS1008b",
+            "donor_request_id": "pattr-turn-IS1008b-turn0111",
+            "donor_slice_index": 5,
+            "donor_turn_index": 111,
+            "speaker": "A",
+            "text_length_chars": 101,
+            "text_sha256": "ad8c4f46dc7a37e19ed35023793dce80d7b56879350a24246b9536d581e1ef35"
+          },
+          {
+            "donor_meeting_id": "IS1008b",
+            "donor_request_id": "pattr-turn-IS1008b-turn0112",
+            "donor_slice_index": 5,
+            "donor_turn_index": 112,
+            "speaker": "C",
+            "text_length_chars": 31,
+            "text_sha256": "c62c5290835cb354056e4a2a05ad2add0865ee457ea9aea43d13df26049327fb"
+          },
+          {
+            "donor_meeting_id": "IS1008b",
+            "donor_request_id": "pattr-turn-IS1008b-turn0113",
+            "donor_slice_index": 5,
+            "donor_turn_index": 113,
+            "speaker": "D",
+            "text_length_chars": 31,
+            "text_sha256": "ab792376bd842e4d7747b0dc13c2df1bca69fc3e4f635fa0c840eee7dced546e"
+          },
+          {
+            "donor_meeting_id": "IS1008b",
+            "donor_request_id": "pattr-turn-IS1008b-turn0114",
+            "donor_slice_index": 5,
+            "donor_turn_index": 114,
+            "speaker": "A",
+            "text_length_chars": 46,
+            "text_sha256": "22c4bb25207e3c5ae94e8f765fb78bce56449c16ed1140056e1b5286f24660a7"
+          },
+          {
+            "donor_meeting_id": "IS1008b",
+            "donor_request_id": "pattr-turn-IS1008b-turn0115",
+            "donor_slice_index": 5,
+            "donor_turn_index": 115,
+            "speaker": "A",
+            "text_length_chars": 39,
+            "text_sha256": "8e9216e41c5634fba57147140b70e04b4e3a89d537f107193862780436842c29"
+          },
+          {
+            "donor_meeting_id": "IS1008b",
+            "donor_request_id": "pattr-turn-IS1008b-turn0116",
+            "donor_slice_index": 5,
+            "donor_turn_index": 116,
+            "speaker": "A",
+            "text_length_chars": 20,
+            "text_sha256": "ab39fcce6345519e780eaa627a58bbd93b23bc8679256209312d167630dc4b8d"
+          },
+          {
+            "donor_meeting_id": "IS1008b",
+            "donor_request_id": "pattr-turn-IS1008b-turn0117",
+            "donor_slice_index": 5,
+            "donor_turn_index": 117,
+            "speaker": "A",
+            "text_length_chars": 7,
+            "text_sha256": "f0413c02416aa62c43af7f2a00fb91fbb3d682723e20f09ac18652d5148fed8d"
+          },
+          {
+            "donor_meeting_id": "IS1008b",
+            "donor_request_id": "pattr-turn-IS1008b-turn0118",
+            "donor_slice_index": 5,
+            "donor_turn_index": 118,
+            "speaker": "A",
+            "text_length_chars": 2,
+            "text_sha256": "b1734670076e941e59dfab6c17f60e8caad1190ac51e50d051ab17248f827cc4"
+          },
+          {
+            "donor_meeting_id": "IS1008b",
+            "donor_request_id": "pattr-turn-IS1008b-turn0119",
+            "donor_slice_index": 5,
+            "donor_turn_index": 119,
+            "speaker": "A",
+            "text_length_chars": 5,
+            "text_sha256": "85fec70372b092bb42d021a6d1b373081dde8bcf90feb49e0725e285043fb0ad"
+          },
+          {
+            "donor_meeting_id": "IS1008b",
+            "donor_request_id": "pattr-turn-IS1008b-turn0120",
+            "donor_slice_index": 5,
+            "donor_turn_index": 120,
+            "speaker": "A",
+            "text_length_chars": 33,
+            "text_sha256": "c25e5eaad88cc5986675409e97ac3f35f4e60473316ed70523454504d2d40363"
+          }
+        ]
+      },
+      "tail_size": 10
+    }
+  },
+  "created_utc": "2026-08-18T17:58:02+00:00",
+  "pattr_manifest_reference": {
+    "path": "configs/probes/pattr/2026-08-18-pattr-smoke-manifest.json",
+    "sha256": "3c3728cc4e392c0add93b0b5ea4c1327ca22aa21014b48ea7408b6eb2f1fed1e"
+  },
+  "per_meeting_context": {
+    "ES2011b": {
+      "0": {
+        "context_block": "=== MEETING CONTEXT ===\nMeeting: ES2011b (AMI scenario meeting)\nSpeakers in this excerpt (from turn metadata): A, B, D\nTask: you are assisting with meeting-minutes preparation for this meeting; transcribe and attribute this excerpt accurately using the speakers listed above.",
+        "context_block_sha256": "502faa9671ab230f166089f089e05017f6230cbc41e93ac1622fe7d72620d3d3",
+        "roster": [
+          "A",
+          "B",
+          "D"
+        ]
+      },
+      "1": {
+        "context_block": "=== MEETING CONTEXT ===\nMeeting: ES2011b (AMI scenario meeting)\nSpeakers in this excerpt (from turn metadata): A, B, C, D\nTask: you are assisting with meeting-minutes preparation for this meeting; transcribe and attribute this excerpt accurately using the speakers listed above.",
+        "context_block_sha256": "7962c5609f08b6bcd559ceb28e4b6d5d846de76f7271b0254ba967f84374ea03",
+        "roster": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ]
+      },
+      "2": {
+        "context_block": "=== MEETING CONTEXT ===\nMeeting: ES2011b (AMI scenario meeting)\nSpeakers in this excerpt (from turn metadata): A, D\nTask: you are assisting with meeting-minutes preparation for this meeting; transcribe and attribute this excerpt accurately using the speakers listed above.",
+        "context_block_sha256": "df2b9c423b3b8d27317550b857166b02efcbf22a75d2e4e7c5b29f1bc7e23f3a",
+        "roster": [
+          "A",
+          "D"
+        ]
+      },
+      "3": {
+        "context_block": "=== MEETING CONTEXT ===\nMeeting: ES2011b (AMI scenario meeting)\nSpeakers in this excerpt (from turn metadata): A, C, D\nTask: you are assisting with meeting-minutes preparation for this meeting; transcribe and attribute this excerpt accurately using the speakers listed above.",
+        "context_block_sha256": "b867eb077b7a2116530a3d94b055e91b1de9114f2338629bdf2c613f090123e4",
+        "roster": [
+          "A",
+          "C",
+          "D"
+        ]
+      },
+      "4": {
+        "context_block": "=== MEETING CONTEXT ===\nMeeting: ES2011b (AMI scenario meeting)\nSpeakers in this excerpt (from turn metadata): A, C\nTask: you are assisting with meeting-minutes preparation for this meeting; transcribe and attribute this excerpt accurately using the speakers listed above.",
+        "context_block_sha256": "e24c0f7ae3b1b6d45b9c1482383bb2139d8049374775c1f40e5dbaa49af861b3",
+        "roster": [
+          "A",
+          "C"
+        ]
+      },
+      "5": {
+        "context_block": "=== MEETING CONTEXT ===\nMeeting: ES2011b (AMI scenario meeting)\nSpeakers in this excerpt (from turn metadata): A, B, C, D\nTask: you are assisting with meeting-minutes preparation for this meeting; transcribe and attribute this excerpt accurately using the speakers listed above.",
+        "context_block_sha256": "7962c5609f08b6bcd559ceb28e4b6d5d846de76f7271b0254ba967f84374ea03",
+        "roster": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ]
+      }
+    },
+    "IS1008b": {
+      "0": {
+        "context_block": "=== MEETING CONTEXT ===\nMeeting: IS1008b (AMI scenario meeting)\nSpeakers in this excerpt (from turn metadata): A, C\nTask: you are assisting with meeting-minutes preparation for this meeting; transcribe and attribute this excerpt accurately using the speakers listed above.",
+        "context_block_sha256": "2f04e24652527b0cdc37e55145f03153808fdce9e143a88c59522941fb47c525",
+        "roster": [
+          "A",
+          "C"
+        ]
+      },
+      "1": {
+        "context_block": "=== MEETING CONTEXT ===\nMeeting: IS1008b (AMI scenario meeting)\nSpeakers in this excerpt (from turn metadata): A, B, C\nTask: you are assisting with meeting-minutes preparation for this meeting; transcribe and attribute this excerpt accurately using the speakers listed above.",
+        "context_block_sha256": "83825b336ab1224d45e997511bf98f58efbba6e8cf244ef9767a43e2dc10e825",
+        "roster": [
+          "A",
+          "B",
+          "C"
+        ]
+      },
+      "2": {
+        "context_block": "=== MEETING CONTEXT ===\nMeeting: IS1008b (AMI scenario meeting)\nSpeakers in this excerpt (from turn metadata): A, B, C\nTask: you are assisting with meeting-minutes preparation for this meeting; transcribe and attribute this excerpt accurately using the speakers listed above.",
+        "context_block_sha256": "83825b336ab1224d45e997511bf98f58efbba6e8cf244ef9767a43e2dc10e825",
+        "roster": [
+          "A",
+          "B",
+          "C"
+        ]
+      },
+      "3": {
+        "context_block": "=== MEETING CONTEXT ===\nMeeting: IS1008b (AMI scenario meeting)\nSpeakers in this excerpt (from turn metadata): B, C, D\nTask: you are assisting with meeting-minutes preparation for this meeting; transcribe and attribute this excerpt accurately using the speakers listed above.",
+        "context_block_sha256": "c2298b9440be6cf12aa928c8bc5f0d7da5522c05e45aa2b70325939997287111",
+        "roster": [
+          "B",
+          "C",
+          "D"
+        ]
+      },
+      "4": {
+        "context_block": "=== MEETING CONTEXT ===\nMeeting: IS1008b (AMI scenario meeting)\nSpeakers in this excerpt (from turn metadata): A, B, C, D\nTask: you are assisting with meeting-minutes preparation for this meeting; transcribe and attribute this excerpt accurately using the speakers listed above.",
+        "context_block_sha256": "53bfd3b2c8e294d1e69fddbc6d32e75103219a8bc332e13e50b36912fb663ad4",
+        "roster": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ]
+      },
+      "5": {
+        "context_block": "=== MEETING CONTEXT ===\nMeeting: IS1008b (AMI scenario meeting)\nSpeakers in this excerpt (from turn metadata): A, B, C, D\nTask: you are assisting with meeting-minutes preparation for this meeting; transcribe and attribute this excerpt accurately using the speakers listed above.",
+        "context_block_sha256": "53bfd3b2c8e294d1e69fddbc6d32e75103219a8bc332e13e50b36912fb663ad4",
+        "roster": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ]
+      }
+    },
+    "IS1008d": {
+      "0": {
+        "context_block": "=== MEETING CONTEXT ===\nMeeting: IS1008d (AMI scenario meeting)\nSpeakers in this excerpt (from turn metadata): A, B, C, D\nTask: you are assisting with meeting-minutes preparation for this meeting; transcribe and attribute this excerpt accurately using the speakers listed above.",
+        "context_block_sha256": "c7b48d2a61ce0486899a05250b3914b76a94d08bdb13d1bd29d2b9610a2eefe8",
+        "roster": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ]
+      },
+      "1": {
+        "context_block": "=== MEETING CONTEXT ===\nMeeting: IS1008d (AMI scenario meeting)\nSpeakers in this excerpt (from turn metadata): A, B, C, D\nTask: you are assisting with meeting-minutes preparation for this meeting; transcribe and attribute this excerpt accurately using the speakers listed above.",
+        "context_block_sha256": "c7b48d2a61ce0486899a05250b3914b76a94d08bdb13d1bd29d2b9610a2eefe8",
+        "roster": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ]
+      },
+      "2": {
+        "context_block": "=== MEETING CONTEXT ===\nMeeting: IS1008d (AMI scenario meeting)\nSpeakers in this excerpt (from turn metadata): A, B, C\nTask: you are assisting with meeting-minutes preparation for this meeting; transcribe and attribute this excerpt accurately using the speakers listed above.",
+        "context_block_sha256": "275f84202860695f8dff53fb31d6ec35d7aaaebbc062144693d3ce36718d4f35",
+        "roster": [
+          "A",
+          "B",
+          "C"
+        ]
+      },
+      "3": {
+        "context_block": "=== MEETING CONTEXT ===\nMeeting: IS1008d (AMI scenario meeting)\nSpeakers in this excerpt (from turn metadata): A, B, C, D\nTask: you are assisting with meeting-minutes preparation for this meeting; transcribe and attribute this excerpt accurately using the speakers listed above.",
+        "context_block_sha256": "c7b48d2a61ce0486899a05250b3914b76a94d08bdb13d1bd29d2b9610a2eefe8",
+        "roster": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ]
+      },
+      "4": {
+        "context_block": "=== MEETING CONTEXT ===\nMeeting: IS1008d (AMI scenario meeting)\nSpeakers in this excerpt (from turn metadata): A, B, C, D\nTask: you are assisting with meeting-minutes preparation for this meeting; transcribe and attribute this excerpt accurately using the speakers listed above.",
+        "context_block_sha256": "c7b48d2a61ce0486899a05250b3914b76a94d08bdb13d1bd29d2b9610a2eefe8",
+        "roster": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ]
+      },
+      "5": {
+        "context_block": "=== MEETING CONTEXT ===\nMeeting: IS1008d (AMI scenario meeting)\nSpeakers in this excerpt (from turn metadata): A, B, C, D\nTask: you are assisting with meeting-minutes preparation for this meeting; transcribe and attribute this excerpt accurately using the speakers listed above.",
+        "context_block_sha256": "c7b48d2a61ce0486899a05250b3914b76a94d08bdb13d1bd29d2b9610a2eefe8",
+        "roster": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ]
+      }
+    },
+    "TS3004b": {
+      "0": {
+        "context_block": "=== MEETING CONTEXT ===\nMeeting: TS3004b (AMI scenario meeting)\nSpeakers in this excerpt (from turn metadata): A, B, C, D\nTask: you are assisting with meeting-minutes preparation for this meeting; transcribe and attribute this excerpt accurately using the speakers listed above.",
+        "context_block_sha256": "d6658949786af0396922895d98e0993222e6f9351d5a76027073287770e0afd2",
+        "roster": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ]
+      },
+      "1": {
+        "context_block": "=== MEETING CONTEXT ===\nMeeting: TS3004b (AMI scenario meeting)\nSpeakers in this excerpt (from turn metadata): A, B, C, D\nTask: you are assisting with meeting-minutes preparation for this meeting; transcribe and attribute this excerpt accurately using the speakers listed above.",
+        "context_block_sha256": "d6658949786af0396922895d98e0993222e6f9351d5a76027073287770e0afd2",
+        "roster": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ]
+      },
+      "2": {
+        "context_block": "=== MEETING CONTEXT ===\nMeeting: TS3004b (AMI scenario meeting)\nSpeakers in this excerpt (from turn metadata): A, B, D\nTask: you are assisting with meeting-minutes preparation for this meeting; transcribe and attribute this excerpt accurately using the speakers listed above.",
+        "context_block_sha256": "3a66f051b52b06f0f1fb389442e44d89e35a006f265d0c574d93b063ef2aa106",
+        "roster": [
+          "A",
+          "B",
+          "D"
+        ]
+      },
+      "3": {
+        "context_block": "=== MEETING CONTEXT ===\nMeeting: TS3004b (AMI scenario meeting)\nSpeakers in this excerpt (from turn metadata): A, B, C, D\nTask: you are assisting with meeting-minutes preparation for this meeting; transcribe and attribute this excerpt accurately using the speakers listed above.",
+        "context_block_sha256": "d6658949786af0396922895d98e0993222e6f9351d5a76027073287770e0afd2",
+        "roster": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ]
+      },
+      "4": {
+        "context_block": "=== MEETING CONTEXT ===\nMeeting: TS3004b (AMI scenario meeting)\nSpeakers in this excerpt (from turn metadata): A, B, D\nTask: you are assisting with meeting-minutes preparation for this meeting; transcribe and attribute this excerpt accurately using the speakers listed above.",
+        "context_block_sha256": "3a66f051b52b06f0f1fb389442e44d89e35a006f265d0c574d93b063ef2aa106",
+        "roster": [
+          "A",
+          "B",
+          "D"
+        ]
+      },
+      "5": {
+        "context_block": "=== MEETING CONTEXT ===\nMeeting: TS3004b (AMI scenario meeting)\nSpeakers in this excerpt (from turn metadata): A, B, C, D\nTask: you are assisting with meeting-minutes preparation for this meeting; transcribe and attribute this excerpt accurately using the speakers listed above.",
+        "context_block_sha256": "d6658949786af0396922895d98e0993222e6f9351d5a76027073287770e0afd2",
+        "roster": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ]
+      }
+    }
+  },
+  "purpose": "P-PROMPT template-and-arrangement sweep (docs/readiness/2026-08-18-pprompt-preregistration.md)",
+  "renderings": {
+    "T1-A1": [
+      {
+        "content_sha256": "f2f32b5572adbceacf678536239682d4271411851f57a80e3a43a6477379e0d2",
+        "meeting_id": "ES2011b",
+        "slice_index": 0
+      },
+      {
+        "content_sha256": "f2f32b5572adbceacf678536239682d4271411851f57a80e3a43a6477379e0d2",
+        "meeting_id": "ES2011b",
+        "slice_index": 1
+      },
+      {
+        "content_sha256": "f2f32b5572adbceacf678536239682d4271411851f57a80e3a43a6477379e0d2",
+        "meeting_id": "ES2011b",
+        "slice_index": 2
+      },
+      {
+        "content_sha256": "f2f32b5572adbceacf678536239682d4271411851f57a80e3a43a6477379e0d2",
+        "meeting_id": "ES2011b",
+        "slice_index": 3
+      },
+      {
+        "content_sha256": "f2f32b5572adbceacf678536239682d4271411851f57a80e3a43a6477379e0d2",
+        "meeting_id": "ES2011b",
+        "slice_index": 4
+      },
+      {
+        "content_sha256": "f2f32b5572adbceacf678536239682d4271411851f57a80e3a43a6477379e0d2",
+        "meeting_id": "ES2011b",
+        "slice_index": 5
+      },
+      {
+        "content_sha256": "f2f32b5572adbceacf678536239682d4271411851f57a80e3a43a6477379e0d2",
+        "meeting_id": "IS1008b",
+        "slice_index": 0
+      },
+      {
+        "content_sha256": "f2f32b5572adbceacf678536239682d4271411851f57a80e3a43a6477379e0d2",
+        "meeting_id": "IS1008b",
+        "slice_index": 1
+      },
+      {
+        "content_sha256": "f2f32b5572adbceacf678536239682d4271411851f57a80e3a43a6477379e0d2",
+        "meeting_id": "IS1008b",
+        "slice_index": 2
+      },
+      {
+        "content_sha256": "f2f32b5572adbceacf678536239682d4271411851f57a80e3a43a6477379e0d2",
+        "meeting_id": "IS1008b",
+        "slice_index": 3
+      },
+      {
+        "content_sha256": "f2f32b5572adbceacf678536239682d4271411851f57a80e3a43a6477379e0d2",
+        "meeting_id": "IS1008b",
+        "slice_index": 4
+      },
+      {
+        "content_sha256": "f2f32b5572adbceacf678536239682d4271411851f57a80e3a43a6477379e0d2",
+        "meeting_id": "IS1008b",
+        "slice_index": 5
+      },
+      {
+        "content_sha256": "f2f32b5572adbceacf678536239682d4271411851f57a80e3a43a6477379e0d2",
+        "meeting_id": "IS1008d",
+        "slice_index": 0
+      },
+      {
+        "content_sha256": "f2f32b5572adbceacf678536239682d4271411851f57a80e3a43a6477379e0d2",
+        "meeting_id": "IS1008d",
+        "slice_index": 1
+      },
+      {
+        "content_sha256": "f2f32b5572adbceacf678536239682d4271411851f57a80e3a43a6477379e0d2",
+        "meeting_id": "IS1008d",
+        "slice_index": 2
+      },
+      {
+        "content_sha256": "f2f32b5572adbceacf678536239682d4271411851f57a80e3a43a6477379e0d2",
+        "meeting_id": "IS1008d",
+        "slice_index": 3
+      },
+      {
+        "content_sha256": "f2f32b5572adbceacf678536239682d4271411851f57a80e3a43a6477379e0d2",
+        "meeting_id": "IS1008d",
+        "slice_index": 4
+      },
+      {
+        "content_sha256": "f2f32b5572adbceacf678536239682d4271411851f57a80e3a43a6477379e0d2",
+        "meeting_id": "IS1008d",
+        "slice_index": 5
+      },
+      {
+        "content_sha256": "f2f32b5572adbceacf678536239682d4271411851f57a80e3a43a6477379e0d2",
+        "meeting_id": "TS3004b",
+        "slice_index": 0
+      },
+      {
+        "content_sha256": "f2f32b5572adbceacf678536239682d4271411851f57a80e3a43a6477379e0d2",
+        "meeting_id": "TS3004b",
+        "slice_index": 1
+      },
+      {
+        "content_sha256": "f2f32b5572adbceacf678536239682d4271411851f57a80e3a43a6477379e0d2",
+        "meeting_id": "TS3004b",
+        "slice_index": 2
+      },
+      {
+        "content_sha256": "f2f32b5572adbceacf678536239682d4271411851f57a80e3a43a6477379e0d2",
+        "meeting_id": "TS3004b",
+        "slice_index": 3
+      },
+      {
+        "content_sha256": "f2f32b5572adbceacf678536239682d4271411851f57a80e3a43a6477379e0d2",
+        "meeting_id": "TS3004b",
+        "slice_index": 4
+      },
+      {
+        "content_sha256": "f2f32b5572adbceacf678536239682d4271411851f57a80e3a43a6477379e0d2",
+        "meeting_id": "TS3004b",
+        "slice_index": 5
+      }
+    ],
+    "T1-A2": [
+      {
+        "content_sha256": "f2f32b5572adbceacf678536239682d4271411851f57a80e3a43a6477379e0d2",
+        "meeting_id": "ES2011b",
+        "slice_index": 0
+      },
+      {
+        "content_sha256": "f2f32b5572adbceacf678536239682d4271411851f57a80e3a43a6477379e0d2",
+        "meeting_id": "ES2011b",
+        "slice_index": 1
+      },
+      {
+        "content_sha256": "f2f32b5572adbceacf678536239682d4271411851f57a80e3a43a6477379e0d2",
+        "meeting_id": "ES2011b",
+        "slice_index": 2
+      },
+      {
+        "content_sha256": "f2f32b5572adbceacf678536239682d4271411851f57a80e3a43a6477379e0d2",
+        "meeting_id": "ES2011b",
+        "slice_index": 3
+      },
+      {
+        "content_sha256": "f2f32b5572adbceacf678536239682d4271411851f57a80e3a43a6477379e0d2",
+        "meeting_id": "ES2011b",
+        "slice_index": 4
+      },
+      {
+        "content_sha256": "f2f32b5572adbceacf678536239682d4271411851f57a80e3a43a6477379e0d2",
+        "meeting_id": "ES2011b",
+        "slice_index": 5
+      },
+      {
+        "content_sha256": "f2f32b5572adbceacf678536239682d4271411851f57a80e3a43a6477379e0d2",
+        "meeting_id": "IS1008b",
+        "slice_index": 0
+      },
+      {
+        "content_sha256": "f2f32b5572adbceacf678536239682d4271411851f57a80e3a43a6477379e0d2",
+        "meeting_id": "IS1008b",
+        "slice_index": 1
+      },
+      {
+        "content_sha256": "f2f32b5572adbceacf678536239682d4271411851f57a80e3a43a6477379e0d2",
+        "meeting_id": "IS1008b",
+        "slice_index": 2
+      },
+      {
+        "content_sha256": "f2f32b5572adbceacf678536239682d4271411851f57a80e3a43a6477379e0d2",
+        "meeting_id": "IS1008b",
+        "slice_index": 3
+      },
+      {
+        "content_sha256": "f2f32b5572adbceacf678536239682d4271411851f57a80e3a43a6477379e0d2",
+        "meeting_id": "IS1008b",
+        "slice_index": 4
+      },
+      {
+        "content_sha256": "f2f32b5572adbceacf678536239682d4271411851f57a80e3a43a6477379e0d2",
+        "meeting_id": "IS1008b",
+        "slice_index": 5
+      },
+      {
+        "content_sha256": "f2f32b5572adbceacf678536239682d4271411851f57a80e3a43a6477379e0d2",
+        "meeting_id": "IS1008d",
+        "slice_index": 0
+      },
+      {
+        "content_sha256": "f2f32b5572adbceacf678536239682d4271411851f57a80e3a43a6477379e0d2",
+        "meeting_id": "IS1008d",
+        "slice_index": 1
+      },
+      {
+        "content_sha256": "f2f32b5572adbceacf678536239682d4271411851f57a80e3a43a6477379e0d2",
+        "meeting_id": "IS1008d",
+        "slice_index": 2
+      },
+      {
+        "content_sha256": "f2f32b5572adbceacf678536239682d4271411851f57a80e3a43a6477379e0d2",
+        "meeting_id": "IS1008d",
+        "slice_index": 3
+      },
+      {
+        "content_sha256": "f2f32b5572adbceacf678536239682d4271411851f57a80e3a43a6477379e0d2",
+        "meeting_id": "IS1008d",
+        "slice_index": 4
+      },
+      {
+        "content_sha256": "f2f32b5572adbceacf678536239682d4271411851f57a80e3a43a6477379e0d2",
+        "meeting_id": "IS1008d",
+        "slice_index": 5
+      },
+      {
+        "content_sha256": "f2f32b5572adbceacf678536239682d4271411851f57a80e3a43a6477379e0d2",
+        "meeting_id": "TS3004b",
+        "slice_index": 0
+      },
+      {
+        "content_sha256": "f2f32b5572adbceacf678536239682d4271411851f57a80e3a43a6477379e0d2",
+        "meeting_id": "TS3004b",
+        "slice_index": 1
+      },
+      {
+        "content_sha256": "f2f32b5572adbceacf678536239682d4271411851f57a80e3a43a6477379e0d2",
+        "meeting_id": "TS3004b",
+        "slice_index": 2
+      },
+      {
+        "content_sha256": "f2f32b5572adbceacf678536239682d4271411851f57a80e3a43a6477379e0d2",
+        "meeting_id": "TS3004b",
+        "slice_index": 3
+      },
+      {
+        "content_sha256": "f2f32b5572adbceacf678536239682d4271411851f57a80e3a43a6477379e0d2",
+        "meeting_id": "TS3004b",
+        "slice_index": 4
+      },
+      {
+        "content_sha256": "f2f32b5572adbceacf678536239682d4271411851f57a80e3a43a6477379e0d2",
+        "meeting_id": "TS3004b",
+        "slice_index": 5
+      }
+    ],
+    "T1-A3": [
+      {
+        "content_sha256": "f2f32b5572adbceacf678536239682d4271411851f57a80e3a43a6477379e0d2",
+        "meeting_id": "ES2011b",
+        "slice_index": 0
+      },
+      {
+        "content_sha256": "f2f32b5572adbceacf678536239682d4271411851f57a80e3a43a6477379e0d2",
+        "meeting_id": "ES2011b",
+        "slice_index": 1
+      },
+      {
+        "content_sha256": "f2f32b5572adbceacf678536239682d4271411851f57a80e3a43a6477379e0d2",
+        "meeting_id": "ES2011b",
+        "slice_index": 2
+      },
+      {
+        "content_sha256": "f2f32b5572adbceacf678536239682d4271411851f57a80e3a43a6477379e0d2",
+        "meeting_id": "ES2011b",
+        "slice_index": 3
+      },
+      {
+        "content_sha256": "f2f32b5572adbceacf678536239682d4271411851f57a80e3a43a6477379e0d2",
+        "meeting_id": "ES2011b",
+        "slice_index": 4
+      },
+      {
+        "content_sha256": "f2f32b5572adbceacf678536239682d4271411851f57a80e3a43a6477379e0d2",
+        "meeting_id": "ES2011b",
+        "slice_index": 5
+      },
+      {
+        "content_sha256": "f2f32b5572adbceacf678536239682d4271411851f57a80e3a43a6477379e0d2",
+        "meeting_id": "IS1008b",
+        "slice_index": 0
+      },
+      {
+        "content_sha256": "f2f32b5572adbceacf678536239682d4271411851f57a80e3a43a6477379e0d2",
+        "meeting_id": "IS1008b",
+        "slice_index": 1
+      },
+      {
+        "content_sha256": "f2f32b5572adbceacf678536239682d4271411851f57a80e3a43a6477379e0d2",
+        "meeting_id": "IS1008b",
+        "slice_index": 2
+      },
+      {
+        "content_sha256": "f2f32b5572adbceacf678536239682d4271411851f57a80e3a43a6477379e0d2",
+        "meeting_id": "IS1008b",
+        "slice_index": 3
+      },
+      {
+        "content_sha256": "f2f32b5572adbceacf678536239682d4271411851f57a80e3a43a6477379e0d2",
+        "meeting_id": "IS1008b",
+        "slice_index": 4
+      },
+      {
+        "content_sha256": "f2f32b5572adbceacf678536239682d4271411851f57a80e3a43a6477379e0d2",
+        "meeting_id": "IS1008b",
+        "slice_index": 5
+      },
+      {
+        "content_sha256": "f2f32b5572adbceacf678536239682d4271411851f57a80e3a43a6477379e0d2",
+        "meeting_id": "IS1008d",
+        "slice_index": 0
+      },
+      {
+        "content_sha256": "f2f32b5572adbceacf678536239682d4271411851f57a80e3a43a6477379e0d2",
+        "meeting_id": "IS1008d",
+        "slice_index": 1
+      },
+      {
+        "content_sha256": "f2f32b5572adbceacf678536239682d4271411851f57a80e3a43a6477379e0d2",
+        "meeting_id": "IS1008d",
+        "slice_index": 2
+      },
+      {
+        "content_sha256": "f2f32b5572adbceacf678536239682d4271411851f57a80e3a43a6477379e0d2",
+        "meeting_id": "IS1008d",
+        "slice_index": 3
+      },
+      {
+        "content_sha256": "f2f32b5572adbceacf678536239682d4271411851f57a80e3a43a6477379e0d2",
+        "meeting_id": "IS1008d",
+        "slice_index": 4
+      },
+      {
+        "content_sha256": "f2f32b5572adbceacf678536239682d4271411851f57a80e3a43a6477379e0d2",
+        "meeting_id": "IS1008d",
+        "slice_index": 5
+      },
+      {
+        "content_sha256": "f2f32b5572adbceacf678536239682d4271411851f57a80e3a43a6477379e0d2",
+        "meeting_id": "TS3004b",
+        "slice_index": 0
+      },
+      {
+        "content_sha256": "f2f32b5572adbceacf678536239682d4271411851f57a80e3a43a6477379e0d2",
+        "meeting_id": "TS3004b",
+        "slice_index": 1
+      },
+      {
+        "content_sha256": "f2f32b5572adbceacf678536239682d4271411851f57a80e3a43a6477379e0d2",
+        "meeting_id": "TS3004b",
+        "slice_index": 2
+      },
+      {
+        "content_sha256": "f2f32b5572adbceacf678536239682d4271411851f57a80e3a43a6477379e0d2",
+        "meeting_id": "TS3004b",
+        "slice_index": 3
+      },
+      {
+        "content_sha256": "f2f32b5572adbceacf678536239682d4271411851f57a80e3a43a6477379e0d2",
+        "meeting_id": "TS3004b",
+        "slice_index": 4
+      },
+      {
+        "content_sha256": "f2f32b5572adbceacf678536239682d4271411851f57a80e3a43a6477379e0d2",
+        "meeting_id": "TS3004b",
+        "slice_index": 5
+      }
+    ],
+    "T2-A1": [
+      {
+        "content_sha256": "3886c4c0c7bb84f0fa0157fd0d1e3bafe7d84c55a64568c1ef99cf2b3fa4b46e",
+        "meeting_id": "ES2011b",
+        "slice_index": 0
+      },
+      {
+        "content_sha256": "719b99f45f05439d5fe1643014fffcbe480317bda099f81e854b7f42f80c36bd",
+        "meeting_id": "ES2011b",
+        "slice_index": 1
+      },
+      {
+        "content_sha256": "5834b65686c82eb754f24c358f0685ffba3fb7f3da152d46f4e84b00eff90e7a",
+        "meeting_id": "ES2011b",
+        "slice_index": 2
+      },
+      {
+        "content_sha256": "c29f5f796d2d17bb7399965868ea7718b6afbc03f5d5e9a4e3a4f7b9e870964f",
+        "meeting_id": "ES2011b",
+        "slice_index": 3
+      },
+      {
+        "content_sha256": "bae0070f77b53418c6c97c0dcad2a8a7a7827b32fa0f71fcafaa4bec28e5cc88",
+        "meeting_id": "ES2011b",
+        "slice_index": 4
+      },
+      {
+        "content_sha256": "719b99f45f05439d5fe1643014fffcbe480317bda099f81e854b7f42f80c36bd",
+        "meeting_id": "ES2011b",
+        "slice_index": 5
+      },
+      {
+        "content_sha256": "2e9df8cd4e1312096fd5dc8a595fbf343df4cc6db863ee769c5009a0df6fdcd6",
+        "meeting_id": "IS1008b",
+        "slice_index": 0
+      },
+      {
+        "content_sha256": "ad510f5c1aadd8249062f86b4094f19dae3596794dd57c5b25af4a3f647dc934",
+        "meeting_id": "IS1008b",
+        "slice_index": 1
+      },
+      {
+        "content_sha256": "ad510f5c1aadd8249062f86b4094f19dae3596794dd57c5b25af4a3f647dc934",
+        "meeting_id": "IS1008b",
+        "slice_index": 2
+      },
+      {
+        "content_sha256": "9810457b4e4c99171aaafe812ff3e4a1b4f2c964e3b9919492b56bc3cfe180d0",
+        "meeting_id": "IS1008b",
+        "slice_index": 3
+      },
+      {
+        "content_sha256": "abf55e2c691c9084bf3ae2a12091d4538d134b192e18b7d377423eddcf8e0818",
+        "meeting_id": "IS1008b",
+        "slice_index": 4
+      },
+      {
+        "content_sha256": "abf55e2c691c9084bf3ae2a12091d4538d134b192e18b7d377423eddcf8e0818",
+        "meeting_id": "IS1008b",
+        "slice_index": 5
+      },
+      {
+        "content_sha256": "ff082fb4fcf1b3eb459289086a50c392cb90d6f2c4fcd55ddb0a5f7352f771a5",
+        "meeting_id": "IS1008d",
+        "slice_index": 0
+      },
+      {
+        "content_sha256": "ff082fb4fcf1b3eb459289086a50c392cb90d6f2c4fcd55ddb0a5f7352f771a5",
+        "meeting_id": "IS1008d",
+        "slice_index": 1
+      },
+      {
+        "content_sha256": "5c9f93aac48c8dcb73bf25407aa6cb895595853d9da20f7dba201bdf01e71d63",
+        "meeting_id": "IS1008d",
+        "slice_index": 2
+      },
+      {
+        "content_sha256": "ff082fb4fcf1b3eb459289086a50c392cb90d6f2c4fcd55ddb0a5f7352f771a5",
+        "meeting_id": "IS1008d",
+        "slice_index": 3
+      },
+      {
+        "content_sha256": "ff082fb4fcf1b3eb459289086a50c392cb90d6f2c4fcd55ddb0a5f7352f771a5",
+        "meeting_id": "IS1008d",
+        "slice_index": 4
+      },
+      {
+        "content_sha256": "ff082fb4fcf1b3eb459289086a50c392cb90d6f2c4fcd55ddb0a5f7352f771a5",
+        "meeting_id": "IS1008d",
+        "slice_index": 5
+      },
+      {
+        "content_sha256": "484d6289b87d9981f1cbfaca7f7d9e67b597332650247ef4d6bd8fa9a341567f",
+        "meeting_id": "TS3004b",
+        "slice_index": 0
+      },
+      {
+        "content_sha256": "484d6289b87d9981f1cbfaca7f7d9e67b597332650247ef4d6bd8fa9a341567f",
+        "meeting_id": "TS3004b",
+        "slice_index": 1
+      },
+      {
+        "content_sha256": "f4b5651c567bfdbb0602ec91b6bd3ddc30eb69a516db4c741c079ce16b970112",
+        "meeting_id": "TS3004b",
+        "slice_index": 2
+      },
+      {
+        "content_sha256": "484d6289b87d9981f1cbfaca7f7d9e67b597332650247ef4d6bd8fa9a341567f",
+        "meeting_id": "TS3004b",
+        "slice_index": 3
+      },
+      {
+        "content_sha256": "f4b5651c567bfdbb0602ec91b6bd3ddc30eb69a516db4c741c079ce16b970112",
+        "meeting_id": "TS3004b",
+        "slice_index": 4
+      },
+      {
+        "content_sha256": "484d6289b87d9981f1cbfaca7f7d9e67b597332650247ef4d6bd8fa9a341567f",
+        "meeting_id": "TS3004b",
+        "slice_index": 5
+      }
+    ],
+    "T2-A2": [
+      {
+        "content_sha256": "9ec89272bdd3f4fec0d1380a3e04b8e2a908fb53a0113dcf6c7df794148195f7",
+        "meeting_id": "ES2011b",
+        "slice_index": 0
+      },
+      {
+        "content_sha256": "80d73c2bc3e922ef57025895675507ba15b771087fc2110172cfeb962ba86439",
+        "meeting_id": "ES2011b",
+        "slice_index": 1
+      },
+      {
+        "content_sha256": "6d5a465fa06fb00e8d04ad8a5625241dfe3aae4d1da7f70837e62c2ebe900ef5",
+        "meeting_id": "ES2011b",
+        "slice_index": 2
+      },
+      {
+        "content_sha256": "048180186e23e99a381a0b1f58c2f6a6e9d8786b77e30e51d199cce3c935c042",
+        "meeting_id": "ES2011b",
+        "slice_index": 3
+      },
+      {
+        "content_sha256": "d4b102b357291fca2036c52daf66cadfeffb0461d59329693693162d1e93e98b",
+        "meeting_id": "ES2011b",
+        "slice_index": 4
+      },
+      {
+        "content_sha256": "80d73c2bc3e922ef57025895675507ba15b771087fc2110172cfeb962ba86439",
+        "meeting_id": "ES2011b",
+        "slice_index": 5
+      },
+      {
+        "content_sha256": "afde9da7cfa5911929276f268e6bbb8c82caadb857d019b0a487a62d1e975dd0",
+        "meeting_id": "IS1008b",
+        "slice_index": 0
+      },
+      {
+        "content_sha256": "61f11ae2fabf26471e6ea59b36f18d9dfdba0c7f1d618051934eea7908dd0b55",
+        "meeting_id": "IS1008b",
+        "slice_index": 1
+      },
+      {
+        "content_sha256": "61f11ae2fabf26471e6ea59b36f18d9dfdba0c7f1d618051934eea7908dd0b55",
+        "meeting_id": "IS1008b",
+        "slice_index": 2
+      },
+      {
+        "content_sha256": "ea6579d85f8e30d247a930e789586c3ac73f3ecbf77775e889258fc020e8ba57",
+        "meeting_id": "IS1008b",
+        "slice_index": 3
+      },
+      {
+        "content_sha256": "19a4291208811bdde5aa49ddcc4b551117d13cf9104e0ea13f7c4857554faf5e",
+        "meeting_id": "IS1008b",
+        "slice_index": 4
+      },
+      {
+        "content_sha256": "19a4291208811bdde5aa49ddcc4b551117d13cf9104e0ea13f7c4857554faf5e",
+        "meeting_id": "IS1008b",
+        "slice_index": 5
+      },
+      {
+        "content_sha256": "1648665132710702068648ef64d36e1af3c240526ce067bb1bd3609733eb5e8a",
+        "meeting_id": "IS1008d",
+        "slice_index": 0
+      },
+      {
+        "content_sha256": "1648665132710702068648ef64d36e1af3c240526ce067bb1bd3609733eb5e8a",
+        "meeting_id": "IS1008d",
+        "slice_index": 1
+      },
+      {
+        "content_sha256": "4eb762a05a9114fbf31c924c29d3765e976e02bc96f0351a5ce0fa5056df4abd",
+        "meeting_id": "IS1008d",
+        "slice_index": 2
+      },
+      {
+        "content_sha256": "1648665132710702068648ef64d36e1af3c240526ce067bb1bd3609733eb5e8a",
+        "meeting_id": "IS1008d",
+        "slice_index": 3
+      },
+      {
+        "content_sha256": "1648665132710702068648ef64d36e1af3c240526ce067bb1bd3609733eb5e8a",
+        "meeting_id": "IS1008d",
+        "slice_index": 4
+      },
+      {
+        "content_sha256": "1648665132710702068648ef64d36e1af3c240526ce067bb1bd3609733eb5e8a",
+        "meeting_id": "IS1008d",
+        "slice_index": 5
+      },
+      {
+        "content_sha256": "ef7b20e04af00c160f238a9897586bc2658872df706d6f2e1c81b2ee7b7dab9b",
+        "meeting_id": "TS3004b",
+        "slice_index": 0
+      },
+      {
+        "content_sha256": "ef7b20e04af00c160f238a9897586bc2658872df706d6f2e1c81b2ee7b7dab9b",
+        "meeting_id": "TS3004b",
+        "slice_index": 1
+      },
+      {
+        "content_sha256": "e54c9f2d2de4b43aabfc3de6b349c94c3c3d4943ed47075ed8943c6b71125adb",
+        "meeting_id": "TS3004b",
+        "slice_index": 2
+      },
+      {
+        "content_sha256": "ef7b20e04af00c160f238a9897586bc2658872df706d6f2e1c81b2ee7b7dab9b",
+        "meeting_id": "TS3004b",
+        "slice_index": 3
+      },
+      {
+        "content_sha256": "e54c9f2d2de4b43aabfc3de6b349c94c3c3d4943ed47075ed8943c6b71125adb",
+        "meeting_id": "TS3004b",
+        "slice_index": 4
+      },
+      {
+        "content_sha256": "ef7b20e04af00c160f238a9897586bc2658872df706d6f2e1c81b2ee7b7dab9b",
+        "meeting_id": "TS3004b",
+        "slice_index": 5
+      }
+    ],
+    "T2-A3": [
+      {
+        "content_sha256": "723286c641bed135610bfc3d5c1ee2db858a7484bfa3e6199ca3d45c7682ea9f",
+        "meeting_id": "ES2011b",
+        "slice_index": 0
+      },
+      {
+        "content_sha256": "5d2a391476f971c0b29479413c6619a9dc977d1d7cce83df740808cfbee4b510",
+        "meeting_id": "ES2011b",
+        "slice_index": 1
+      },
+      {
+        "content_sha256": "e35e4932ab6ab53509fe5933cc28d15cd61ab6e2f0976b8443fa6f0469e2b2a3",
+        "meeting_id": "ES2011b",
+        "slice_index": 2
+      },
+      {
+        "content_sha256": "4fa266a8702b5a69fd92d2caa627429bc4f089fc8387a79c60dc60ac5f00d2b4",
+        "meeting_id": "ES2011b",
+        "slice_index": 3
+      },
+      {
+        "content_sha256": "417e557bbc3d85a5d4eb39b2b58750e0ffce06c2e26bf9a36b9b9cfd3dbfbf50",
+        "meeting_id": "ES2011b",
+        "slice_index": 4
+      },
+      {
+        "content_sha256": "5d2a391476f971c0b29479413c6619a9dc977d1d7cce83df740808cfbee4b510",
+        "meeting_id": "ES2011b",
+        "slice_index": 5
+      },
+      {
+        "content_sha256": "3d5198d3710616a7382d3fe27e3ce710d1524e6949ff2477f9cd1c517fbff69a",
+        "meeting_id": "IS1008b",
+        "slice_index": 0
+      },
+      {
+        "content_sha256": "cc1a9ee460041533967abfe51e502d7bafdb47320617e3ced76021d47537083f",
+        "meeting_id": "IS1008b",
+        "slice_index": 1
+      },
+      {
+        "content_sha256": "cc1a9ee460041533967abfe51e502d7bafdb47320617e3ced76021d47537083f",
+        "meeting_id": "IS1008b",
+        "slice_index": 2
+      },
+      {
+        "content_sha256": "b49103905ead721d6dc1e73781ae2421eedcae9b25c17d66997d6935a4572277",
+        "meeting_id": "IS1008b",
+        "slice_index": 3
+      },
+      {
+        "content_sha256": "22b33a4e170a0f06807d015005b3bad14c7e64cf042d7ba1a46a785a48e2d20d",
+        "meeting_id": "IS1008b",
+        "slice_index": 4
+      },
+      {
+        "content_sha256": "22b33a4e170a0f06807d015005b3bad14c7e64cf042d7ba1a46a785a48e2d20d",
+        "meeting_id": "IS1008b",
+        "slice_index": 5
+      },
+      {
+        "content_sha256": "6e6ec17a4694551f597ec068fcf5ed2f803853c435468019b77b5bedf1019a02",
+        "meeting_id": "IS1008d",
+        "slice_index": 0
+      },
+      {
+        "content_sha256": "6e6ec17a4694551f597ec068fcf5ed2f803853c435468019b77b5bedf1019a02",
+        "meeting_id": "IS1008d",
+        "slice_index": 1
+      },
+      {
+        "content_sha256": "6bfe2b3532676d46ca95831afb499b75bb3424e3d331b8af299b674e5d4246d7",
+        "meeting_id": "IS1008d",
+        "slice_index": 2
+      },
+      {
+        "content_sha256": "6e6ec17a4694551f597ec068fcf5ed2f803853c435468019b77b5bedf1019a02",
+        "meeting_id": "IS1008d",
+        "slice_index": 3
+      },
+      {
+        "content_sha256": "6e6ec17a4694551f597ec068fcf5ed2f803853c435468019b77b5bedf1019a02",
+        "meeting_id": "IS1008d",
+        "slice_index": 4
+      },
+      {
+        "content_sha256": "6e6ec17a4694551f597ec068fcf5ed2f803853c435468019b77b5bedf1019a02",
+        "meeting_id": "IS1008d",
+        "slice_index": 5
+      },
+      {
+        "content_sha256": "95547def380eb1297fada1ddcd534023cc35a25775b5121a908b7480d4ed217a",
+        "meeting_id": "TS3004b",
+        "slice_index": 0
+      },
+      {
+        "content_sha256": "95547def380eb1297fada1ddcd534023cc35a25775b5121a908b7480d4ed217a",
+        "meeting_id": "TS3004b",
+        "slice_index": 1
+      },
+      {
+        "content_sha256": "1e4650c53b73386943e826a46f209e5eb38eadde7112acf5811b7c78f835ca54",
+        "meeting_id": "TS3004b",
+        "slice_index": 2
+      },
+      {
+        "content_sha256": "95547def380eb1297fada1ddcd534023cc35a25775b5121a908b7480d4ed217a",
+        "meeting_id": "TS3004b",
+        "slice_index": 3
+      },
+      {
+        "content_sha256": "1e4650c53b73386943e826a46f209e5eb38eadde7112acf5811b7c78f835ca54",
+        "meeting_id": "TS3004b",
+        "slice_index": 4
+      },
+      {
+        "content_sha256": "95547def380eb1297fada1ddcd534023cc35a25775b5121a908b7480d4ed217a",
+        "meeting_id": "TS3004b",
+        "slice_index": 5
+      }
+    ],
+    "T3-A1": [
+      {
+        "content_sha256": "e9cf7c60471737a994a86a5875cd8afd4df722980fce9c3ab13ab9ec3d84aef9",
+        "meeting_id": "ES2011b",
+        "slice_index": 0
+      },
+      {
+        "content_sha256": "fde8b36bf465b3647a91f4efba4ebd84c16656e6c8a5742bf3e9533fedd67f4d",
+        "meeting_id": "ES2011b",
+        "slice_index": 1
+      },
+      {
+        "content_sha256": "c707e25f1f7d972f031a7ff1ad0ecc81c4c46d64edfb5ac408d3507d7175360c",
+        "meeting_id": "ES2011b",
+        "slice_index": 2
+      },
+      {
+        "content_sha256": "c764920d4dbc62c596626e5295620498c2d6952711e77c5166f69d34ef074d95",
+        "meeting_id": "ES2011b",
+        "slice_index": 3
+      },
+      {
+        "content_sha256": "5ea451db0af5f4cfc9e99b141a568ba9999733ae87e8e6a82eb488c6ccc00c28",
+        "meeting_id": "ES2011b",
+        "slice_index": 4
+      },
+      {
+        "content_sha256": "fde8b36bf465b3647a91f4efba4ebd84c16656e6c8a5742bf3e9533fedd67f4d",
+        "meeting_id": "ES2011b",
+        "slice_index": 5
+      },
+      {
+        "content_sha256": "1f5106a21236a388a101f3eb19de42ddc579fba0df674608c8e4e80fc391ed53",
+        "meeting_id": "IS1008b",
+        "slice_index": 0
+      },
+      {
+        "content_sha256": "216679d8522ec1fdb2e403266efc84f0af3c033a08b8b8ea490860a913170004",
+        "meeting_id": "IS1008b",
+        "slice_index": 1
+      },
+      {
+        "content_sha256": "216679d8522ec1fdb2e403266efc84f0af3c033a08b8b8ea490860a913170004",
+        "meeting_id": "IS1008b",
+        "slice_index": 2
+      },
+      {
+        "content_sha256": "da1450aded734e0388992e45e01e079b452446adc599c54a73a6e9c090432c33",
+        "meeting_id": "IS1008b",
+        "slice_index": 3
+      },
+      {
+        "content_sha256": "fe1bbd0a2fd24845989f07188d99eef6011fb7b796c76997d4d8657c067621a5",
+        "meeting_id": "IS1008b",
+        "slice_index": 4
+      },
+      {
+        "content_sha256": "fe1bbd0a2fd24845989f07188d99eef6011fb7b796c76997d4d8657c067621a5",
+        "meeting_id": "IS1008b",
+        "slice_index": 5
+      },
+      {
+        "content_sha256": "c1b38cdb790e60c954db754e5d3f43d24d1cee34dc2560d84d0526756cf98bdd",
+        "meeting_id": "IS1008d",
+        "slice_index": 0
+      },
+      {
+        "content_sha256": "c1b38cdb790e60c954db754e5d3f43d24d1cee34dc2560d84d0526756cf98bdd",
+        "meeting_id": "IS1008d",
+        "slice_index": 1
+      },
+      {
+        "content_sha256": "fd4312332615c383fc4cb62bf7733c967968e58d65d61a5c77299492be6ea4ee",
+        "meeting_id": "IS1008d",
+        "slice_index": 2
+      },
+      {
+        "content_sha256": "c1b38cdb790e60c954db754e5d3f43d24d1cee34dc2560d84d0526756cf98bdd",
+        "meeting_id": "IS1008d",
+        "slice_index": 3
+      },
+      {
+        "content_sha256": "c1b38cdb790e60c954db754e5d3f43d24d1cee34dc2560d84d0526756cf98bdd",
+        "meeting_id": "IS1008d",
+        "slice_index": 4
+      },
+      {
+        "content_sha256": "c1b38cdb790e60c954db754e5d3f43d24d1cee34dc2560d84d0526756cf98bdd",
+        "meeting_id": "IS1008d",
+        "slice_index": 5
+      },
+      {
+        "content_sha256": "684f403d7cfa1dd3d334c7cce0cf8831114517b43480ce44e661aaad5dcbece3",
+        "meeting_id": "TS3004b",
+        "slice_index": 0
+      },
+      {
+        "content_sha256": "684f403d7cfa1dd3d334c7cce0cf8831114517b43480ce44e661aaad5dcbece3",
+        "meeting_id": "TS3004b",
+        "slice_index": 1
+      },
+      {
+        "content_sha256": "0229e90dddd0a27a7b4718657504f43ecd179aaefc39eb15633c9b9d110e588c",
+        "meeting_id": "TS3004b",
+        "slice_index": 2
+      },
+      {
+        "content_sha256": "684f403d7cfa1dd3d334c7cce0cf8831114517b43480ce44e661aaad5dcbece3",
+        "meeting_id": "TS3004b",
+        "slice_index": 3
+      },
+      {
+        "content_sha256": "0229e90dddd0a27a7b4718657504f43ecd179aaefc39eb15633c9b9d110e588c",
+        "meeting_id": "TS3004b",
+        "slice_index": 4
+      },
+      {
+        "content_sha256": "684f403d7cfa1dd3d334c7cce0cf8831114517b43480ce44e661aaad5dcbece3",
+        "meeting_id": "TS3004b",
+        "slice_index": 5
+      }
+    ],
+    "T3-A2": [
+      {
+        "content_sha256": "1ca933b2c00ad8971eaca934f3621096bbced2cf6fe5022ad28fb118ab508336",
+        "meeting_id": "ES2011b",
+        "slice_index": 0
+      },
+      {
+        "content_sha256": "9f6103da9f80b3f220dff57485a739da3d721de61296fd852adfbae78bd5f827",
+        "meeting_id": "ES2011b",
+        "slice_index": 1
+      },
+      {
+        "content_sha256": "328eca8d0fb8878079701f5f1f4543aaf150b83b9acdd936ff17141ed02794d0",
+        "meeting_id": "ES2011b",
+        "slice_index": 2
+      },
+      {
+        "content_sha256": "c1e089f863d558e1d01b3c7598207aacade848f64ecf8777748562fd53b4c7f2",
+        "meeting_id": "ES2011b",
+        "slice_index": 3
+      },
+      {
+        "content_sha256": "fbd6b7ec7d7f447e54bbea814bc67f6a2ff8ae0bd37eb18ab495f7023238f46a",
+        "meeting_id": "ES2011b",
+        "slice_index": 4
+      },
+      {
+        "content_sha256": "9f6103da9f80b3f220dff57485a739da3d721de61296fd852adfbae78bd5f827",
+        "meeting_id": "ES2011b",
+        "slice_index": 5
+      },
+      {
+        "content_sha256": "9333f259475e3b7c77c599f59cf8a79635c8cc055e1ddf4cf82cf6b32ae12439",
+        "meeting_id": "IS1008b",
+        "slice_index": 0
+      },
+      {
+        "content_sha256": "5cea588c1e0fa800d35f91fdf71105aa29b0d7a08483c216e53576b5e6d8ddd8",
+        "meeting_id": "IS1008b",
+        "slice_index": 1
+      },
+      {
+        "content_sha256": "5cea588c1e0fa800d35f91fdf71105aa29b0d7a08483c216e53576b5e6d8ddd8",
+        "meeting_id": "IS1008b",
+        "slice_index": 2
+      },
+      {
+        "content_sha256": "714e8e2cbe5ad8644c2c78c2e8e175c772b30800768cb64a5120d48d5f75f9b7",
+        "meeting_id": "IS1008b",
+        "slice_index": 3
+      },
+      {
+        "content_sha256": "35f3f50fb2c6e65c7ef7fed0d693092fd062e8260bdf27bb57e2a922f3ef6170",
+        "meeting_id": "IS1008b",
+        "slice_index": 4
+      },
+      {
+        "content_sha256": "35f3f50fb2c6e65c7ef7fed0d693092fd062e8260bdf27bb57e2a922f3ef6170",
+        "meeting_id": "IS1008b",
+        "slice_index": 5
+      },
+      {
+        "content_sha256": "1ea9fc0ecf05cca1b7c9c60be856af107ffe4c81ad24f382062bdeff51362543",
+        "meeting_id": "IS1008d",
+        "slice_index": 0
+      },
+      {
+        "content_sha256": "1ea9fc0ecf05cca1b7c9c60be856af107ffe4c81ad24f382062bdeff51362543",
+        "meeting_id": "IS1008d",
+        "slice_index": 1
+      },
+      {
+        "content_sha256": "38e6ecb830351d61d1af03b545463be81c3519f36d11a814bf7e61bcb932d76b",
+        "meeting_id": "IS1008d",
+        "slice_index": 2
+      },
+      {
+        "content_sha256": "1ea9fc0ecf05cca1b7c9c60be856af107ffe4c81ad24f382062bdeff51362543",
+        "meeting_id": "IS1008d",
+        "slice_index": 3
+      },
+      {
+        "content_sha256": "1ea9fc0ecf05cca1b7c9c60be856af107ffe4c81ad24f382062bdeff51362543",
+        "meeting_id": "IS1008d",
+        "slice_index": 4
+      },
+      {
+        "content_sha256": "1ea9fc0ecf05cca1b7c9c60be856af107ffe4c81ad24f382062bdeff51362543",
+        "meeting_id": "IS1008d",
+        "slice_index": 5
+      },
+      {
+        "content_sha256": "93bfb25ba1ee5d12a9e060686faafd686a8fef28c90eac0fd97af70828422133",
+        "meeting_id": "TS3004b",
+        "slice_index": 0
+      },
+      {
+        "content_sha256": "93bfb25ba1ee5d12a9e060686faafd686a8fef28c90eac0fd97af70828422133",
+        "meeting_id": "TS3004b",
+        "slice_index": 1
+      },
+      {
+        "content_sha256": "1d719bca09ba2c6adf099247c6c2122c33599f7fa5b4e499ad215b8777b16662",
+        "meeting_id": "TS3004b",
+        "slice_index": 2
+      },
+      {
+        "content_sha256": "93bfb25ba1ee5d12a9e060686faafd686a8fef28c90eac0fd97af70828422133",
+        "meeting_id": "TS3004b",
+        "slice_index": 3
+      },
+      {
+        "content_sha256": "1d719bca09ba2c6adf099247c6c2122c33599f7fa5b4e499ad215b8777b16662",
+        "meeting_id": "TS3004b",
+        "slice_index": 4
+      },
+      {
+        "content_sha256": "93bfb25ba1ee5d12a9e060686faafd686a8fef28c90eac0fd97af70828422133",
+        "meeting_id": "TS3004b",
+        "slice_index": 5
+      }
+    ],
+    "T3-A3": [
+      {
+        "content_sha256": "49e89f8ce6ff81d273c18c25d2015d44baa60ad4971184c79f60ea4f1d2719cf",
+        "meeting_id": "ES2011b",
+        "slice_index": 0
+      },
+      {
+        "content_sha256": "90c5c7cb3d68809e3ed892273f061d3684f780db7f3ef30bdc6d6970620070c5",
+        "meeting_id": "ES2011b",
+        "slice_index": 1
+      },
+      {
+        "content_sha256": "7af8b658987c8626375706add0918d2f47005182536b8df946443f89f2e1b4fe",
+        "meeting_id": "ES2011b",
+        "slice_index": 2
+      },
+      {
+        "content_sha256": "4f1d76ac8e547d3545553db0ac6d482c8acda81b53c1844d89b85f0d8d35807c",
+        "meeting_id": "ES2011b",
+        "slice_index": 3
+      },
+      {
+        "content_sha256": "4667843e3cea9368165f35d16e74c8306e94efe6494a884adfc26cfc371e6d74",
+        "meeting_id": "ES2011b",
+        "slice_index": 4
+      },
+      {
+        "content_sha256": "90c5c7cb3d68809e3ed892273f061d3684f780db7f3ef30bdc6d6970620070c5",
+        "meeting_id": "ES2011b",
+        "slice_index": 5
+      },
+      {
+        "content_sha256": "24ab01ce69a42259cd2307b2ad482a618e3b6f43e7920b061c950edbd15159d1",
+        "meeting_id": "IS1008b",
+        "slice_index": 0
+      },
+      {
+        "content_sha256": "c56d95b25352201b6bf01d7524c933ccb7a07e091f2c32599bf70e4f92524464",
+        "meeting_id": "IS1008b",
+        "slice_index": 1
+      },
+      {
+        "content_sha256": "c56d95b25352201b6bf01d7524c933ccb7a07e091f2c32599bf70e4f92524464",
+        "meeting_id": "IS1008b",
+        "slice_index": 2
+      },
+      {
+        "content_sha256": "476d78933de5da0f1fc610f8286a0f3e3ad921927b32f42ab429e0cfe9d8084f",
+        "meeting_id": "IS1008b",
+        "slice_index": 3
+      },
+      {
+        "content_sha256": "2a73ca3198dc85738633031dbcc0ccef1dd2d5f1c7c594673ea6a3905f66dc8e",
+        "meeting_id": "IS1008b",
+        "slice_index": 4
+      },
+      {
+        "content_sha256": "2a73ca3198dc85738633031dbcc0ccef1dd2d5f1c7c594673ea6a3905f66dc8e",
+        "meeting_id": "IS1008b",
+        "slice_index": 5
+      },
+      {
+        "content_sha256": "80511b96c20496ce33fdf1327f0f29a3ebe1278b5e12d442117bbfaf1760450b",
+        "meeting_id": "IS1008d",
+        "slice_index": 0
+      },
+      {
+        "content_sha256": "80511b96c20496ce33fdf1327f0f29a3ebe1278b5e12d442117bbfaf1760450b",
+        "meeting_id": "IS1008d",
+        "slice_index": 1
+      },
+      {
+        "content_sha256": "1f66eabd31e97472018020477cda8304ceffccc2599703fa591264edec85410e",
+        "meeting_id": "IS1008d",
+        "slice_index": 2
+      },
+      {
+        "content_sha256": "80511b96c20496ce33fdf1327f0f29a3ebe1278b5e12d442117bbfaf1760450b",
+        "meeting_id": "IS1008d",
+        "slice_index": 3
+      },
+      {
+        "content_sha256": "80511b96c20496ce33fdf1327f0f29a3ebe1278b5e12d442117bbfaf1760450b",
+        "meeting_id": "IS1008d",
+        "slice_index": 4
+      },
+      {
+        "content_sha256": "80511b96c20496ce33fdf1327f0f29a3ebe1278b5e12d442117bbfaf1760450b",
+        "meeting_id": "IS1008d",
+        "slice_index": 5
+      },
+      {
+        "content_sha256": "70dd4681ea95278579254bfd3d2c52600adef17006d9fdb03eae469fad3281f7",
+        "meeting_id": "TS3004b",
+        "slice_index": 0
+      },
+      {
+        "content_sha256": "70dd4681ea95278579254bfd3d2c52600adef17006d9fdb03eae469fad3281f7",
+        "meeting_id": "TS3004b",
+        "slice_index": 1
+      },
+      {
+        "content_sha256": "f1924fccc9420111fd850c9d3d7f26c0db30b8b3dca57971516e675559352c47",
+        "meeting_id": "TS3004b",
+        "slice_index": 2
+      },
+      {
+        "content_sha256": "70dd4681ea95278579254bfd3d2c52600adef17006d9fdb03eae469fad3281f7",
+        "meeting_id": "TS3004b",
+        "slice_index": 3
+      },
+      {
+        "content_sha256": "f1924fccc9420111fd850c9d3d7f26c0db30b8b3dca57971516e675559352c47",
+        "meeting_id": "TS3004b",
+        "slice_index": 4
+      },
+      {
+        "content_sha256": "70dd4681ea95278579254bfd3d2c52600adef17006d9fdb03eae469fad3281f7",
+        "meeting_id": "TS3004b",
+        "slice_index": 5
+      }
+    ],
+    "T4-A1": [
+      {
+        "content_sha256": "8a11a85161ef12ad278c0eee24db329fc1975773c811153d20086cb47cb13b7a",
+        "meeting_id": "ES2011b",
+        "slice_index": 0
+      },
+      {
+        "content_sha256": "188319ff1e039c6d8808235c7fb06b8c1a7fe8070e2cfb16592d1424b4c50922",
+        "meeting_id": "ES2011b",
+        "slice_index": 1
+      },
+      {
+        "content_sha256": "da4816d9b51f35d472bda20c918489a697492a8da8425ab99a00b7c1dddc150d",
+        "meeting_id": "ES2011b",
+        "slice_index": 2
+      },
+      {
+        "content_sha256": "cba7586299ebd0cc0e2da38a33c40849e43df57d8ad249764c7ca3d41519ea52",
+        "meeting_id": "ES2011b",
+        "slice_index": 3
+      },
+      {
+        "content_sha256": "a70dcdd1668f11bd387264e82415593dff496d0845a1ab6699847fe9dcb43e6d",
+        "meeting_id": "ES2011b",
+        "slice_index": 4
+      },
+      {
+        "content_sha256": "188319ff1e039c6d8808235c7fb06b8c1a7fe8070e2cfb16592d1424b4c50922",
+        "meeting_id": "ES2011b",
+        "slice_index": 5
+      },
+      {
+        "content_sha256": "dfb708bfa750ac80f000b9daae797e3542a466069ceea555e4f78bc484f92e7f",
+        "meeting_id": "IS1008b",
+        "slice_index": 0
+      },
+      {
+        "content_sha256": "f573abb666df082a5673a0cbdbfa542b6da5d70bc79c55294da5b401f8f52a85",
+        "meeting_id": "IS1008b",
+        "slice_index": 1
+      },
+      {
+        "content_sha256": "f573abb666df082a5673a0cbdbfa542b6da5d70bc79c55294da5b401f8f52a85",
+        "meeting_id": "IS1008b",
+        "slice_index": 2
+      },
+      {
+        "content_sha256": "bd234baea5840a35ef23d49ac07f4ef8105a5d74f78e7365897a7e2aacb2a2c7",
+        "meeting_id": "IS1008b",
+        "slice_index": 3
+      },
+      {
+        "content_sha256": "9d08e3c822c428b1781d0221c8c5039001f4dca6f6ecd48d8e2eff89fac24a53",
+        "meeting_id": "IS1008b",
+        "slice_index": 4
+      },
+      {
+        "content_sha256": "9d08e3c822c428b1781d0221c8c5039001f4dca6f6ecd48d8e2eff89fac24a53",
+        "meeting_id": "IS1008b",
+        "slice_index": 5
+      },
+      {
+        "content_sha256": "9824e1334246db60d012f615c6863955566bd930e731f09d3b3ee5330774f6e9",
+        "meeting_id": "IS1008d",
+        "slice_index": 0
+      },
+      {
+        "content_sha256": "9824e1334246db60d012f615c6863955566bd930e731f09d3b3ee5330774f6e9",
+        "meeting_id": "IS1008d",
+        "slice_index": 1
+      },
+      {
+        "content_sha256": "f51041ed5faf1b0cfede4a31c282fd106f5a8e814960f212de21d5bcde1878e9",
+        "meeting_id": "IS1008d",
+        "slice_index": 2
+      },
+      {
+        "content_sha256": "9824e1334246db60d012f615c6863955566bd930e731f09d3b3ee5330774f6e9",
+        "meeting_id": "IS1008d",
+        "slice_index": 3
+      },
+      {
+        "content_sha256": "9824e1334246db60d012f615c6863955566bd930e731f09d3b3ee5330774f6e9",
+        "meeting_id": "IS1008d",
+        "slice_index": 4
+      },
+      {
+        "content_sha256": "9824e1334246db60d012f615c6863955566bd930e731f09d3b3ee5330774f6e9",
+        "meeting_id": "IS1008d",
+        "slice_index": 5
+      },
+      {
+        "content_sha256": "ed0f18add4f94baa6542ea3f1507fac076423d4cf4151cf5ced8a5e5ec72f575",
+        "meeting_id": "TS3004b",
+        "slice_index": 0
+      },
+      {
+        "content_sha256": "ed0f18add4f94baa6542ea3f1507fac076423d4cf4151cf5ced8a5e5ec72f575",
+        "meeting_id": "TS3004b",
+        "slice_index": 1
+      },
+      {
+        "content_sha256": "e985bce3c2f0fa63ecbc7a8d20c78d3f1ba1bd6825ad433f18316a005f97507f",
+        "meeting_id": "TS3004b",
+        "slice_index": 2
+      },
+      {
+        "content_sha256": "ed0f18add4f94baa6542ea3f1507fac076423d4cf4151cf5ced8a5e5ec72f575",
+        "meeting_id": "TS3004b",
+        "slice_index": 3
+      },
+      {
+        "content_sha256": "e985bce3c2f0fa63ecbc7a8d20c78d3f1ba1bd6825ad433f18316a005f97507f",
+        "meeting_id": "TS3004b",
+        "slice_index": 4
+      },
+      {
+        "content_sha256": "ed0f18add4f94baa6542ea3f1507fac076423d4cf4151cf5ced8a5e5ec72f575",
+        "meeting_id": "TS3004b",
+        "slice_index": 5
+      }
+    ],
+    "T4-A2": [
+      {
+        "content_sha256": "6c6ce36c73aa6edbee159c7f39519dbe2ca4e1686a669423fac186a6fb6ba05a",
+        "meeting_id": "ES2011b",
+        "slice_index": 0
+      },
+      {
+        "content_sha256": "03ebd498df0325c6d1f1677dc18ab47c6eb5dc1c4db4e3407be3295b1b79f142",
+        "meeting_id": "ES2011b",
+        "slice_index": 1
+      },
+      {
+        "content_sha256": "dd546c76e627185a58e88afd9b7e0c9806d97f2dd874aeee243c102d3d79a25d",
+        "meeting_id": "ES2011b",
+        "slice_index": 2
+      },
+      {
+        "content_sha256": "3091050684930cffb69b142464c19cef58ce2527790eb7a94c592bfe2938a9ca",
+        "meeting_id": "ES2011b",
+        "slice_index": 3
+      },
+      {
+        "content_sha256": "885c92fc36e46c1a514ffffe70134237f68ce0fd99e09987d97b41c678e77ca2",
+        "meeting_id": "ES2011b",
+        "slice_index": 4
+      },
+      {
+        "content_sha256": "03ebd498df0325c6d1f1677dc18ab47c6eb5dc1c4db4e3407be3295b1b79f142",
+        "meeting_id": "ES2011b",
+        "slice_index": 5
+      },
+      {
+        "content_sha256": "b375f5ea2bbf5f01595f4f9f78cd3e4e5e449f8b2cc0a7ff1b42782a20c3b39e",
+        "meeting_id": "IS1008b",
+        "slice_index": 0
+      },
+      {
+        "content_sha256": "c32a811cfe6da06a6481f4d426650c060d82751e8f5384d7b2f990ad92033a05",
+        "meeting_id": "IS1008b",
+        "slice_index": 1
+      },
+      {
+        "content_sha256": "c32a811cfe6da06a6481f4d426650c060d82751e8f5384d7b2f990ad92033a05",
+        "meeting_id": "IS1008b",
+        "slice_index": 2
+      },
+      {
+        "content_sha256": "0e476fa03a824cce6d3a9983186d088856fb1f41ef91aa10b90336f1fc2d0a16",
+        "meeting_id": "IS1008b",
+        "slice_index": 3
+      },
+      {
+        "content_sha256": "de06b0fbccebde6f37d684df7ad82a1d8c95ba8036625f4247099aa84cae17f8",
+        "meeting_id": "IS1008b",
+        "slice_index": 4
+      },
+      {
+        "content_sha256": "de06b0fbccebde6f37d684df7ad82a1d8c95ba8036625f4247099aa84cae17f8",
+        "meeting_id": "IS1008b",
+        "slice_index": 5
+      },
+      {
+        "content_sha256": "ad572c3ac031416aa7b7519853c2ca8b78e9bffa325a05fef716034e27fd2dd2",
+        "meeting_id": "IS1008d",
+        "slice_index": 0
+      },
+      {
+        "content_sha256": "ad572c3ac031416aa7b7519853c2ca8b78e9bffa325a05fef716034e27fd2dd2",
+        "meeting_id": "IS1008d",
+        "slice_index": 1
+      },
+      {
+        "content_sha256": "ba47d7468f3fedba892128eff77a5e15cce8f4ec6e4cd14266d6ab4449d3d786",
+        "meeting_id": "IS1008d",
+        "slice_index": 2
+      },
+      {
+        "content_sha256": "ad572c3ac031416aa7b7519853c2ca8b78e9bffa325a05fef716034e27fd2dd2",
+        "meeting_id": "IS1008d",
+        "slice_index": 3
+      },
+      {
+        "content_sha256": "ad572c3ac031416aa7b7519853c2ca8b78e9bffa325a05fef716034e27fd2dd2",
+        "meeting_id": "IS1008d",
+        "slice_index": 4
+      },
+      {
+        "content_sha256": "ad572c3ac031416aa7b7519853c2ca8b78e9bffa325a05fef716034e27fd2dd2",
+        "meeting_id": "IS1008d",
+        "slice_index": 5
+      },
+      {
+        "content_sha256": "5ffdd0272dfb260942b8d929957196cdac34d506503f4514bb7912c71941ce6a",
+        "meeting_id": "TS3004b",
+        "slice_index": 0
+      },
+      {
+        "content_sha256": "5ffdd0272dfb260942b8d929957196cdac34d506503f4514bb7912c71941ce6a",
+        "meeting_id": "TS3004b",
+        "slice_index": 1
+      },
+      {
+        "content_sha256": "db34d03d1045badcd09645eeca49209ddc8a8ec2fe20944d23a42aef03dd371a",
+        "meeting_id": "TS3004b",
+        "slice_index": 2
+      },
+      {
+        "content_sha256": "5ffdd0272dfb260942b8d929957196cdac34d506503f4514bb7912c71941ce6a",
+        "meeting_id": "TS3004b",
+        "slice_index": 3
+      },
+      {
+        "content_sha256": "db34d03d1045badcd09645eeca49209ddc8a8ec2fe20944d23a42aef03dd371a",
+        "meeting_id": "TS3004b",
+        "slice_index": 4
+      },
+      {
+        "content_sha256": "5ffdd0272dfb260942b8d929957196cdac34d506503f4514bb7912c71941ce6a",
+        "meeting_id": "TS3004b",
+        "slice_index": 5
+      }
+    ],
+    "T4-A3": [
+      {
+        "content_sha256": "45bb0a9b3e23673e56889aa92c171f512a9cc42da13e4212c699393518184af7",
+        "meeting_id": "ES2011b",
+        "slice_index": 0
+      },
+      {
+        "content_sha256": "0696d0060f2d762dbc315f9c1c634538acac76292033e4b77a2cfef03c85d9a5",
+        "meeting_id": "ES2011b",
+        "slice_index": 1
+      },
+      {
+        "content_sha256": "2d3e9bfaf7f1dae8123130a58c7372b93639e1f6d9f8f252248fab93fe621ce2",
+        "meeting_id": "ES2011b",
+        "slice_index": 2
+      },
+      {
+        "content_sha256": "8430c67ba51e8a561547a6733b6d92bb0eb89cd829bfa62688e5016a3e0cb014",
+        "meeting_id": "ES2011b",
+        "slice_index": 3
+      },
+      {
+        "content_sha256": "948faf2dcb7130ffa8eeae9f1452d8c060dac855b27a3b038c2f494a8f9da1ec",
+        "meeting_id": "ES2011b",
+        "slice_index": 4
+      },
+      {
+        "content_sha256": "0696d0060f2d762dbc315f9c1c634538acac76292033e4b77a2cfef03c85d9a5",
+        "meeting_id": "ES2011b",
+        "slice_index": 5
+      },
+      {
+        "content_sha256": "da3c7173d754bbc5ad0c917e908090749687cd09b0763e15c2686df37221a493",
+        "meeting_id": "IS1008b",
+        "slice_index": 0
+      },
+      {
+        "content_sha256": "01d70c60fc350e62c851e955a4115bcc1507274559640c66f256f0c08c41cc71",
+        "meeting_id": "IS1008b",
+        "slice_index": 1
+      },
+      {
+        "content_sha256": "01d70c60fc350e62c851e955a4115bcc1507274559640c66f256f0c08c41cc71",
+        "meeting_id": "IS1008b",
+        "slice_index": 2
+      },
+      {
+        "content_sha256": "aa96bff0a7c2d1b2e1600dcaff1f7a792e9e7839d5a4629985df10f439789649",
+        "meeting_id": "IS1008b",
+        "slice_index": 3
+      },
+      {
+        "content_sha256": "cb43f56eba5acc0c1ab014979219d2ab4060327aab148d6e70c96f09a8d250eb",
+        "meeting_id": "IS1008b",
+        "slice_index": 4
+      },
+      {
+        "content_sha256": "cb43f56eba5acc0c1ab014979219d2ab4060327aab148d6e70c96f09a8d250eb",
+        "meeting_id": "IS1008b",
+        "slice_index": 5
+      },
+      {
+        "content_sha256": "bc006eba2acad75458d59005320259683c78feb0f2de600d78d44b299a209dee",
+        "meeting_id": "IS1008d",
+        "slice_index": 0
+      },
+      {
+        "content_sha256": "bc006eba2acad75458d59005320259683c78feb0f2de600d78d44b299a209dee",
+        "meeting_id": "IS1008d",
+        "slice_index": 1
+      },
+      {
+        "content_sha256": "27507c795f123a759083daf6d41994d7a6faa59de9111d249c4abd711e0652c6",
+        "meeting_id": "IS1008d",
+        "slice_index": 2
+      },
+      {
+        "content_sha256": "bc006eba2acad75458d59005320259683c78feb0f2de600d78d44b299a209dee",
+        "meeting_id": "IS1008d",
+        "slice_index": 3
+      },
+      {
+        "content_sha256": "bc006eba2acad75458d59005320259683c78feb0f2de600d78d44b299a209dee",
+        "meeting_id": "IS1008d",
+        "slice_index": 4
+      },
+      {
+        "content_sha256": "bc006eba2acad75458d59005320259683c78feb0f2de600d78d44b299a209dee",
+        "meeting_id": "IS1008d",
+        "slice_index": 5
+      },
+      {
+        "content_sha256": "cb99a3a46c5be3604cf4b88209ed1c148dd7aa65d9ef3fbe5cfbf01ab797ee6a",
+        "meeting_id": "TS3004b",
+        "slice_index": 0
+      },
+      {
+        "content_sha256": "cb99a3a46c5be3604cf4b88209ed1c148dd7aa65d9ef3fbe5cfbf01ab797ee6a",
+        "meeting_id": "TS3004b",
+        "slice_index": 1
+      },
+      {
+        "content_sha256": "8f541b7fed99831903b8aea74ff36bb2be399a8e3ac95914cab6bfa4945ee95a",
+        "meeting_id": "TS3004b",
+        "slice_index": 2
+      },
+      {
+        "content_sha256": "cb99a3a46c5be3604cf4b88209ed1c148dd7aa65d9ef3fbe5cfbf01ab797ee6a",
+        "meeting_id": "TS3004b",
+        "slice_index": 3
+      },
+      {
+        "content_sha256": "8f541b7fed99831903b8aea74ff36bb2be399a8e3ac95914cab6bfa4945ee95a",
+        "meeting_id": "TS3004b",
+        "slice_index": 4
+      },
+      {
+        "content_sha256": "cb99a3a46c5be3604cf4b88209ed1c148dd7aa65d9ef3fbe5cfbf01ab797ee6a",
+        "meeting_id": "TS3004b",
+        "slice_index": 5
+      }
+    ],
+    "X1": [
+      {
+        "content_sha256": "69b637074d71a7df2f91b084a73a4415c0e525bb788e19651d49eb60cf63c86b",
+        "meeting_id": "ES2011b",
+        "slice_index": 0
+      },
+      {
+        "content_sha256": "719b99f45f05439d5fe1643014fffcbe480317bda099f81e854b7f42f80c36bd",
+        "meeting_id": "ES2011b",
+        "slice_index": 1
+      },
+      {
+        "content_sha256": "baccd6960550f453cd4c2a94b9d9ba8b262a4ae4ea50de79aed739295834766b",
+        "meeting_id": "ES2011b",
+        "slice_index": 2
+      },
+      {
+        "content_sha256": "aa9faf2bcfb314f4e2e8c9dba9de250622e2c7b1c061f5f3cd862c6b1a22198e",
+        "meeting_id": "ES2011b",
+        "slice_index": 3
+      },
+      {
+        "content_sha256": "fa8ab6388efab9d6fad6bf855771881dbf1dfb8ec53b4c7b2f0400402e160776",
+        "meeting_id": "ES2011b",
+        "slice_index": 4
+      },
+      {
+        "content_sha256": "719b99f45f05439d5fe1643014fffcbe480317bda099f81e854b7f42f80c36bd",
+        "meeting_id": "ES2011b",
+        "slice_index": 5
+      },
+      {
+        "content_sha256": "8768c0caee84022b45d34ae91e4ea15d9fa1065203fd7af3279c9957f9fe6f41",
+        "meeting_id": "IS1008b",
+        "slice_index": 0
+      },
+      {
+        "content_sha256": "eb971a66ff20f964f1eceb4955223dad50b97d2cddcc24131850f642965708a3",
+        "meeting_id": "IS1008b",
+        "slice_index": 1
+      },
+      {
+        "content_sha256": "eb971a66ff20f964f1eceb4955223dad50b97d2cddcc24131850f642965708a3",
+        "meeting_id": "IS1008b",
+        "slice_index": 2
+      },
+      {
+        "content_sha256": "c934ea3210ff0294f0dfdb7ff8199302530894b3db4b05f5fb2505f304918457",
+        "meeting_id": "IS1008b",
+        "slice_index": 3
+      },
+      {
+        "content_sha256": "abf55e2c691c9084bf3ae2a12091d4538d134b192e18b7d377423eddcf8e0818",
+        "meeting_id": "IS1008b",
+        "slice_index": 4
+      },
+      {
+        "content_sha256": "abf55e2c691c9084bf3ae2a12091d4538d134b192e18b7d377423eddcf8e0818",
+        "meeting_id": "IS1008b",
+        "slice_index": 5
+      },
+      {
+        "content_sha256": "ff082fb4fcf1b3eb459289086a50c392cb90d6f2c4fcd55ddb0a5f7352f771a5",
+        "meeting_id": "IS1008d",
+        "slice_index": 0
+      },
+      {
+        "content_sha256": "ff082fb4fcf1b3eb459289086a50c392cb90d6f2c4fcd55ddb0a5f7352f771a5",
+        "meeting_id": "IS1008d",
+        "slice_index": 1
+      },
+      {
+        "content_sha256": "062ef482f0c44ac8f4659dde32795a907379347d3c06fff8ee2a8e6d46ed3f8d",
+        "meeting_id": "IS1008d",
+        "slice_index": 2
+      },
+      {
+        "content_sha256": "ff082fb4fcf1b3eb459289086a50c392cb90d6f2c4fcd55ddb0a5f7352f771a5",
+        "meeting_id": "IS1008d",
+        "slice_index": 3
+      },
+      {
+        "content_sha256": "ff082fb4fcf1b3eb459289086a50c392cb90d6f2c4fcd55ddb0a5f7352f771a5",
+        "meeting_id": "IS1008d",
+        "slice_index": 4
+      },
+      {
+        "content_sha256": "ff082fb4fcf1b3eb459289086a50c392cb90d6f2c4fcd55ddb0a5f7352f771a5",
+        "meeting_id": "IS1008d",
+        "slice_index": 5
+      },
+      {
+        "content_sha256": "484d6289b87d9981f1cbfaca7f7d9e67b597332650247ef4d6bd8fa9a341567f",
+        "meeting_id": "TS3004b",
+        "slice_index": 0
+      },
+      {
+        "content_sha256": "484d6289b87d9981f1cbfaca7f7d9e67b597332650247ef4d6bd8fa9a341567f",
+        "meeting_id": "TS3004b",
+        "slice_index": 1
+      },
+      {
+        "content_sha256": "16694eea2de7c7901d1531f4cc13b7b4e619ee76f1d0a2830a0778110c47a0a8",
+        "meeting_id": "TS3004b",
+        "slice_index": 2
+      },
+      {
+        "content_sha256": "484d6289b87d9981f1cbfaca7f7d9e67b597332650247ef4d6bd8fa9a341567f",
+        "meeting_id": "TS3004b",
+        "slice_index": 3
+      },
+      {
+        "content_sha256": "16694eea2de7c7901d1531f4cc13b7b4e619ee76f1d0a2830a0778110c47a0a8",
+        "meeting_id": "TS3004b",
+        "slice_index": 4
+      },
+      {
+        "content_sha256": "484d6289b87d9981f1cbfaca7f7d9e67b597332650247ef4d6bd8fa9a341567f",
+        "meeting_id": "TS3004b",
+        "slice_index": 5
+      }
+    ],
+    "X2": [
+      {
+        "content_sha256": "810c9305aefbcc84efb09ddba4ab238b4121d76e4367727e02bb0c30f324d716",
+        "meeting_id": "ES2011b",
+        "slice_index": 0
+      },
+      {
+        "content_sha256": "7ad73cfe18016bbde3d0aca4f60a3ab5129c8e0093fa027c2aa3297af053ab43",
+        "meeting_id": "ES2011b",
+        "slice_index": 1
+      },
+      {
+        "content_sha256": "7ba1e03345a14a030bf42162ccbb3d7df456fcdcdf252e49db3fd2fd13305390",
+        "meeting_id": "ES2011b",
+        "slice_index": 2
+      },
+      {
+        "content_sha256": "2afeedff61661c7ae7d0323521418ae9e681c53f262ca8981c3a4db7b04a383d",
+        "meeting_id": "ES2011b",
+        "slice_index": 3
+      },
+      {
+        "content_sha256": "2e8abcc804ea69f2f67ee89879c2829c4fa8b804ef85602c011282e3f5331bc5",
+        "meeting_id": "ES2011b",
+        "slice_index": 4
+      },
+      {
+        "content_sha256": "7ad73cfe18016bbde3d0aca4f60a3ab5129c8e0093fa027c2aa3297af053ab43",
+        "meeting_id": "ES2011b",
+        "slice_index": 5
+      },
+      {
+        "content_sha256": "7eaae32be00b6daab3d9cbd82d6be945fc2ce12dc8e2733593103d6fc0e7be76",
+        "meeting_id": "IS1008b",
+        "slice_index": 0
+      },
+      {
+        "content_sha256": "ba8eeda51eac0d57d5f697c5ee10d8488c9d02176d0ed9a72fed11596bc2c709",
+        "meeting_id": "IS1008b",
+        "slice_index": 1
+      },
+      {
+        "content_sha256": "ba8eeda51eac0d57d5f697c5ee10d8488c9d02176d0ed9a72fed11596bc2c709",
+        "meeting_id": "IS1008b",
+        "slice_index": 2
+      },
+      {
+        "content_sha256": "500b590bc5acf0ae44b9ad7dfe6c949338d1cd8a7b363ac790793cb7b0f30168",
+        "meeting_id": "IS1008b",
+        "slice_index": 3
+      },
+      {
+        "content_sha256": "a6e5c360f6e2a30239e94f96ac65ff4b8e7d9f3597ba1b34f2f0d97b431f3d16",
+        "meeting_id": "IS1008b",
+        "slice_index": 4
+      },
+      {
+        "content_sha256": "a6e5c360f6e2a30239e94f96ac65ff4b8e7d9f3597ba1b34f2f0d97b431f3d16",
+        "meeting_id": "IS1008b",
+        "slice_index": 5
+      },
+      {
+        "content_sha256": "eebda6dab5428cda33e9827e0428a451e473ca887d0fa26ecdd4965c09cf3051",
+        "meeting_id": "IS1008d",
+        "slice_index": 0
+      },
+      {
+        "content_sha256": "eebda6dab5428cda33e9827e0428a451e473ca887d0fa26ecdd4965c09cf3051",
+        "meeting_id": "IS1008d",
+        "slice_index": 1
+      },
+      {
+        "content_sha256": "e9c06bde5ae7fdc94955d8a06d831e82938ec917cf7d539db5e79261588bb125",
+        "meeting_id": "IS1008d",
+        "slice_index": 2
+      },
+      {
+        "content_sha256": "eebda6dab5428cda33e9827e0428a451e473ca887d0fa26ecdd4965c09cf3051",
+        "meeting_id": "IS1008d",
+        "slice_index": 3
+      },
+      {
+        "content_sha256": "eebda6dab5428cda33e9827e0428a451e473ca887d0fa26ecdd4965c09cf3051",
+        "meeting_id": "IS1008d",
+        "slice_index": 4
+      },
+      {
+        "content_sha256": "eebda6dab5428cda33e9827e0428a451e473ca887d0fa26ecdd4965c09cf3051",
+        "meeting_id": "IS1008d",
+        "slice_index": 5
+      },
+      {
+        "content_sha256": "ba8305644c87d0a739a213a5a5e611572220eb35265fadd7897f360cd9e7f6f9",
+        "meeting_id": "TS3004b",
+        "slice_index": 0
+      },
+      {
+        "content_sha256": "ba8305644c87d0a739a213a5a5e611572220eb35265fadd7897f360cd9e7f6f9",
+        "meeting_id": "TS3004b",
+        "slice_index": 1
+      },
+      {
+        "content_sha256": "3b231a59a80a80f7ddc4fdea28e488198be9c520c72b82d134cdabaca8cef579",
+        "meeting_id": "TS3004b",
+        "slice_index": 2
+      },
+      {
+        "content_sha256": "ba8305644c87d0a739a213a5a5e611572220eb35265fadd7897f360cd9e7f6f9",
+        "meeting_id": "TS3004b",
+        "slice_index": 3
+      },
+      {
+        "content_sha256": "3b231a59a80a80f7ddc4fdea28e488198be9c520c72b82d134cdabaca8cef579",
+        "meeting_id": "TS3004b",
+        "slice_index": 4
+      },
+      {
+        "content_sha256": "ba8305644c87d0a739a213a5a5e611572220eb35265fadd7897f360cd9e7f6f9",
+        "meeting_id": "TS3004b",
+        "slice_index": 5
+      }
+    ]
+  },
+  "renderings_combined_hash": {
+    "T1-A1": "4767866c0acce66635ade5a9f003959e1eef2edb4cf2c21cd617fc03657fa01f",
+    "T1-A2": "4767866c0acce66635ade5a9f003959e1eef2edb4cf2c21cd617fc03657fa01f",
+    "T1-A3": "4767866c0acce66635ade5a9f003959e1eef2edb4cf2c21cd617fc03657fa01f",
+    "T2-A1": "d26c5ee75566df629e7be644b938c9a58aa77efe7f8d0ecf25da2498a91c89d4",
+    "T2-A2": "0b3a8adcbca8967217625fe4111fdaaa9f066eac0979fb56d14aba8d6aca4e05",
+    "T2-A3": "232e8bcf73c8931b46d9ba741277325d1e5f4c71989bd598ac849bc420e41975",
+    "T3-A1": "68e1ed17c3825de8ac12a352d2db51d5d15d579eb1e23607afd7ccc2dc58fe7d",
+    "T3-A2": "55a0a4ae7f96b62c56069a8a819cf5f0c08463d47e03bd375d5280bfe2467b5b",
+    "T3-A3": "32a3a43b6f66180a9eceddc4abe2117f88a8e6995ea9198cafaafdca9e67a5fa",
+    "T4-A1": "e026ea352df136c4c5b22d78dfc9a3c23f5ce4c91a1563f25989c57f90feeff5",
+    "T4-A2": "5d439fde4cfad4e96821980ce710471e3a02aeaccc407a26e1e531388ef3b480",
+    "T4-A3": "6fde344346dcf88f06cf3dca900ec4f99b04580ec151a1d021af70284c3b6332",
+    "X1": "89eaa60c60935e2d79c3144f09f9b864bcde9c490ca56b497d6b1464018c57c5",
+    "X2": "e23c8420b31ecb2de9ef179c63d7a74fdaf7a3a3841e9a031140e429a218dd77"
+  },
+  "schema_version": "1.0.0",
+  "seed": 20260818,
+  "selected_meetings": [
+    "ES2011b",
+    "IS1008b",
+    "IS1008d",
+    "TS3004b"
+  ],
+  "templates": {
+    "T1": {
+      "description": "bare transcribe-and-attribute instruction + output-grammar contract (control)",
+      "extra_block_kind": null,
+      "task_instruction": "You are transcribing and attributing one chunk of a multi-speaker meeting recording. Produce one line per speech segment in EXACTLY this format:\n<speaker>|<text>\nUse the KNOWN TERMS spelling and SPEAKER MAP roster names supplied below when confident; otherwise use the raw speaker cluster id from the CONTEXT section. Output ONLY these lines, one segment per line, with no extra commentary before, between, or after them.",
+      "task_instruction_sha256": "eef611b2d097cc31bfc86d2cf69b8b7442b543812f06cd70114e2500a3a3337f"
+    },
+    "T2": {
+      "description": "T1 + the SS0b deployment context block (meeting id, per-slice speaker roster read from the frozen manifest's own turn metadata, task framing)",
+      "extra_block_kind": "meeting_context",
+      "extra_block_rule": "render_meeting_context_block(meeting_id, roster) -- varies per meeting/slice, see per_meeting_context below"
+    },
+    "T3": {
+      "description": "T2 + an explicitly EMPTY glossary slot (measures the slot's framing cost before any glossary supply exists)",
+      "empty_glossary_block": "=== KNOWN TERMS (glossary) ===\n(no known terms yet)",
+      "empty_glossary_block_sha256": "a70e84f2462336c82a292acb0a21be9b236a7966c68d89d080ad9bc891de9024",
+      "extra_block_kind": "meeting_context+empty_glossary"
+    },
+    "T4": {
+      "description": "T2 + reinforced output-grammar section restating the grammar with a per-line format example",
+      "extra_block_kind": "meeting_context+reinforced_grammar",
+      "reinforced_grammar_block": "=== OUTPUT FORMAT (reinforced) ===\nFollow the <speaker>|<text> grammar exactly, one line per speech segment. Example of one valid line:\nA|Let's get started with today's agenda.\nOutput nothing else: no headings, no blank lines, no commentary before, between, or after the lines.",
+      "reinforced_grammar_block_sha256": "7d774c1e2bf39e4ba1c85bb0ce9a91b9c461f0cda8b32a5cb0840577751d2fe1"
+    }
+  },
+  "totals": {
+    "n_grid_requests": 288,
+    "n_total_requests": 336,
+    "n_x1_requests": 24,
+    "n_x2_requests": 24
+  }
+}
