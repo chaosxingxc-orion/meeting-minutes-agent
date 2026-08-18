@@ -53,6 +53,30 @@ Timeline: G0 flies immediately (no meeting-side dependency); G1 launches as soon
 E2 land and fills a full day; E3/E4/E5 complete during G1; G2/G3 chain immediately after; G5
 provides sustained load. No GPU idle window after G0.
 
+## 4b. Owner rulings 2026-08-18 morning (BINDING)
+
+1. **Split philosophy (program-wide)**: training-free research uses train/dev splits freely for
+   optimization and metric analysis at every discovery stage; Stage-3 optimizes on dev; ONLY
+   test-split numbers are reported as final results. Role registries therefore protect final
+   reporting sets only (AMI eval-16; MeetingQA test questions) — registry v1.1 expands qa-eval
+   accordingly and retires the blanket 75% quarantine.
+2. **Derived datasets with an independent evaluation system are NOT leakage** — M3-SLU is
+   ADMITTED for discovery use (its content overlap with governed AMI meetings is documented as
+   hygiene context, not a bar).
+3. **G1 large-scale is GATED on three locks, in order**: (a) the agent-scheme architecture is
+   locked AND demonstrates benefit (mini-pilot through the real loop); (b) the scheme's tools
+   and run flow are locked (diarization tool selection, server flags, batching layout,
+   featcache routing); (c) **the chunk/slice granularity analysis is complete** — the owner
+   recalls the SAEA finding that ~90 s segmentation was the effect/cost optimum; the current
+   E3 assumption (a whole ~40-min chunk as one core request) must be checked against the real
+   audio-token budget, likely yielding a two-level design (task chunk = topic unit; transport
+   slice ≈ 90 s). Engineering flow is then optimized for maximal GPU parallelism (sample-level
+   batching per the SAEA ojw pattern, obs_batch_samples ≤ -np).
+4. Stage-2 A2T (SAEA side): fly ALL 120 headroom samples, no subsampling.
+5. Small items resolved: cn_college_listen dropped; public_sg IMDA terms get one verification;
+   TED-LIUM not acquired; SLURP one-working-copy+one-archive state confirmed canonical;
+   MeetingQA upstream-scorer comparability ticket approved.
+
 ## 5. Deep-check registered changes (2026-08-17 night — BINDING)
 
 The six-agent adversarial deep check (2 FATAL / 24 MAJOR) produced registered changes recorded
