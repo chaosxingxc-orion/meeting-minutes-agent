@@ -8,7 +8,13 @@ version = "0.1.0"
 description = "AI meeting-notes agent on a frozen speech-capable omni core (engineering scaffold)."
 requires-python = ">=3.12"
 readme = "README.md"
-dependencies = []
+# soundfile/librosa/numpy back the real transport slicer's audio I/O
+# (meeting_minutes_agent.chunking.slicer: decode -> 16kHz mono -> cut ->
+# hash; ffmpeg is absent by design). Imports stay lazy, inside the
+# functions that use them (program convention), but the dependency itself
+# is real, so it is declared here rather than assumed present in whatever
+# environment happens to run this code.
+dependencies = ["soundfile>=0.12", "librosa>=0.10", "numpy>=1.26"]
 
 [project.optional-dependencies]
 dev = ["pytest>=8"]
