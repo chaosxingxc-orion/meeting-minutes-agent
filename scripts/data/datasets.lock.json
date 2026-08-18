@@ -1,0 +1,283 @@
+{
+  "schema": "meeting-minutes-agent-data-lock-v1",
+  "provenance": {
+    "generated_from": "umbrella docs/datasets.lock.json (schema speechrl-asset-lock-v2)",
+    "umbrella_repo_path": "D:\\chao_workspace\\exploring-l4-intelligence (program umbrella, one level up from studies/papers repos)",
+    "umbrella_commit": "95e3b27c02a01f99ddc60cef398bc6d63f9dafb6",
+    "umbrella_commit_command": "git -C D:\\chao_workspace\\exploring-l4-intelligence rev-parse HEAD",
+    "generated_date": "2026-08-18",
+    "authority_note": "This file is a MEETING-SCOPED EXTRACT for external-collaborator reproduction of exactly the six datasets this repository consumes. The umbrella lock remains the single program-level authority for dataset identity (sources, revisions, hashes, acquisition status, license findings). Do not hand-edit this file to change an identity field; regenerate the affected entry from the umbrella lock instead, and keep the umbrella_commit above current.",
+    "entries_extracted": ["ami-meeting-corpus", "icsi-meeting-corpus", "meetingqa", "qmsum", "m3-slu", "meetingbank"]
+  },
+  "data_root": "${SPEECHRL_DATA_DIR:-<repo>/speechrl-data}",
+  "datasets": [
+    {
+      "name": "ami-meeting-corpus",
+      "kind": "dataset",
+      "local_subdir": "datasets/ami",
+      "source": {
+        "kind": "official-form",
+        "url": "https://groups.inf.ed.ac.uk/ami/download/",
+        "form_endpoint": "https://homepages.inf.ed.ac.uk/cgi/simonk/AMI/estimate.cgi",
+        "mirror_prefix": "https://groups.inf.ed.ac.uk/ami/AMICorpusMirror/amicorpus",
+        "media_type": "Mix-Headset",
+        "wav_files": 171,
+        "annotation_urls": [
+          "https://groups.inf.ed.ac.uk/ami/AMICorpusAnnotations/ami_public_manual_1.6.2.zip",
+          "https://groups.inf.ed.ac.uk/ami/AMICorpusAnnotations/ami_public_auto_1.5.1.zip"
+        ],
+        "license_url": "https://groups.inf.ed.ac.uk/ami/download/CCBY4.0.txt"
+      },
+      "revision": "AMI public corpus: all 171 available Mix-Headset WAVs selected 2026-08-02; manual annotations v1.6.2; automatic annotations v1.5.1",
+      "license": "cc-by-4.0",
+      "size": {"approx_bytes": 11641468822, "human": "10.8 GiB", "files": 174},
+      "expected_layout": [
+        "amicorpus/<MEETING_ID>/audio/<MEETING_ID>.Mix-Headset.wav   (171 files, one per available meeting)",
+        "annotations/ami_public_manual_1.6.2.zip",
+        "annotations/ami_public_auto_1.5.1.zip",
+        "annotations/manual_1.6.2/   (extracted: namedEntities, topics, dialogueActs, segments, words, summaries)",
+        "annotations/auto_1.5.1/    (extracted: ASR, wordAlignment, phonemes)",
+        "CCBY4.0.txt"
+      ],
+      "verification": {
+        "expected_file_count": 174,
+        "expected_total_size_bytes": 11641468822,
+        "hashes": {
+          "annotations/ami_public_manual_1.6.2.zip": "b56e5babb2496b8795deeeda7e71178d7fbc9963f94276cf2a3f4b56ebbc9f9d",
+          "annotations/ami_public_auto_1.5.1.zip": "eb7b8582acf53a5fa8ce2503fc079f193964ee144dc8da5700e973aa8f801439"
+        },
+        "hash_algorithm": "sha256",
+        "hash_coverage_note": "The umbrella lock records per-archive SHA-256 for both annotation zips (matched above) plus an aggregate manifest hash over all 174 payload files (payload_manifest_sha256, not reproducible here without the umbrella's exact manifest builder). It does NOT record a per-WAV hash for the 171 individual recordings, so verify.py falls back to file-count + total-size closure for the audio tree; this is a lock-coverage gap, not a download error."
+      },
+      "dependencies": [],
+      "research_role": "Primary meeting-speech carrier (Mix-Headset condition); MeetingQA and the Product domain of QMSum join to this corpus by AMI meeting id.",
+      "claim_limit": "CC BY 4.0. Catalog identity is the mixed Mix-Headset condition only; individual headsets/lapels, microphone arrays and video are deliberately not fetched and are not missing bytes for this record."
+    },
+    {
+      "name": "icsi-meeting-corpus",
+      "kind": "dataset",
+      "local_subdir": "datasets/icsi",
+      "source": {
+        "kind": "official-http",
+        "url": "https://groups.inf.ed.ac.uk/ami/icsi/",
+        "download_page": "https://groups.inf.ed.ac.uk/ami/icsi/download/",
+        "license_page": "https://groups.inf.ed.ac.uk/ami/icsi/license.shtml",
+        "signal_mirror_prefix": "https://groups.inf.ed.ac.uk/ami/ICSIsignals/NXT",
+        "annotation_prefix": "https://groups.inf.ed.ac.uk/ami/ICSICorpusAnnotations",
+        "media_type": "interaction (mixed headset), one WAV per meeting",
+        "meetings": 75,
+        "annotation_urls": [
+          "https://groups.inf.ed.ac.uk/ami/ICSICorpusAnnotations/ICSI_core_NXT.zip",
+          "https://groups.inf.ed.ac.uk/ami/ICSICorpusAnnotations/ICSI_plus_NXT.zip",
+          "https://groups.inf.ed.ac.uk/ami/ICSICorpusAnnotations/ICSI_original_transcripts.zip"
+        ],
+        "license_url": "https://groups.inf.ed.ac.uk/ami/download/CCBY4.0.txt"
+      },
+      "revision": "ICSI Meeting Corpus: all 75 mixed 'interaction' WAVs from the Edinburgh NXT signal mirror; annotation archives ICSI_core_NXT, ICSI_plus_NXT, ICSI_original_transcripts as published on the mirror (2016-07-25 build; the distribution carries no version numbers)",
+      "license": "cc-by-4.0",
+      "license_note": "DECLARED, not defaulted. Both the corpus home page and the license page state verbatim that signals, transcription, and some annotations are released under CC BY 4.0. Open HTTP distribution from Edinburgh, no registration or LDC gate; this is NOT the LDC-licensed ICSI release.",
+      "size": {"approx_bytes": 8337006709, "human": "7.8 GiB", "files": 80},
+      "expected_layout": [
+        "audio/<MeetingID>.interaction.wav   (75 files, 1ch 16-bit 16000 Hz PCM)",
+        "annotations/ICSI_core_NXT.zip",
+        "annotations/ICSI_plus_NXT.zip",
+        "annotations/ICSI_original_transcripts.zip",
+        "CCBY4.0.txt",
+        "LICENSE-ICSI-verbatim.txt"
+      ],
+      "verification": {
+        "expected_file_count": 80,
+        "expected_total_size_bytes": 8337006709,
+        "hashes": {
+          "annotations/ICSI_core_NXT.zip": "cf4860245b9ca9c9ed11a66e5a74cfea2a99a686a52f7580aa0a6bc2225895a9",
+          "annotations/ICSI_original_transcripts.zip": "9db98ebdd61a085b4f45f24f46e9c9f6c6f26c3c9cd41643a3b9e74362c85de7",
+          "annotations/ICSI_plus_NXT.zip": "e4ab79a8b638bdd29121d744c452c680fe23791e406ffe5125e2f5b118923439"
+        },
+        "hash_algorithm": "sha256",
+        "hash_coverage_note": "All 3 annotation archives carry an umbrella-verified SHA-256 (matched above). The 75 individual meeting WAVs have no per-file hash in the umbrella lock (only an aggregate payload_manifest_sha256 over all 80 files, not reproducible here), so verify.py falls back to file-count + total-size closure for the audio tree."
+      },
+      "dependencies": [],
+      "research_role": "Meeting-speech carrier: 71.7 h of mixed-headset multi-party speech with summaries, topic segmentation and MRDA dialogue acts. Supplies the speech bytes underlying the Academic_ICSI domain of QMSum.",
+      "claim_limit": "CC BY 4.0. Catalog identity is the mixed 'interaction' signal only; per-channel SPH (close-talking/tabletop) is deliberately not fetched. No named-entity annotation layer exists upstream for ICSI (unlike AMI's manual set)."
+    },
+    {
+      "name": "meetingqa",
+      "kind": "dataset",
+      "local_subdir": "datasets/meetingqa",
+      "source": {
+        "kind": "git",
+        "url": "https://github.com/adobe-research/meetingqa.git"
+      },
+      "revision": "5e3d1fbf4fefb60790d2445ce6721085b274024b",
+      "license": "cc-by-nc-sa-4.0",
+      "license_note": "DECLARED. The repository LICENSE file is the verbatim CC BY-NC-SA 4.0 legal code. NonCommercial and ShareAlike bind every downstream use.",
+      "size": {"approx_bytes": 311215568, "human": "297 MiB", "files": 255, "qa_instances": 7735, "meetings": 166},
+      "expected_layout": [
+        "AllData/",
+        "DataCollection/",
+        "PostAnnotationProcessing/",
+        "ProcessedTranscripts/",
+        "qaCode/",
+        "requirements/",
+        "LICENSE",
+        "README.md"
+      ],
+      "verification": {
+        "expected_file_count": 255,
+        "expected_total_size_bytes": 311215568,
+        "expected_git_head": "5e3d1fbf4fefb60790d2445ce6721085b274024b",
+        "hashes": {
+          "LICENSE": "1349a4b6148492b44f629e64eed676612e234fe9a839e4f3b277c1482c8849f1"
+        },
+        "hash_algorithm": "sha256",
+        "hash_coverage_note": "The umbrella lock verified this record primarily by full git clone at the pinned commit plus a per-file SHA-256 manifest built with an umbrella-internal tool (not reproducible here). Only the LICENSE file's hash is carried over as a spot-check; verify.py otherwise checks the checked-out git HEAD, file count and total size."
+      },
+      "dependencies": ["ami-meeting-corpus"],
+      "research_role": "Extractive question answering over meeting transcripts (ACL 2023, Prasad et al.). All 166 meeting ids resolve inside the ami-meeting-corpus record; ships processed AMI transcripts and QA annotations, no audio of its own.",
+      "claim_limit": "CC BY-NC-SA 4.0 forbids commercial use and imposes ShareAlike on derivatives."
+    },
+    {
+      "name": "qmsum",
+      "kind": "dataset",
+      "local_subdir": "datasets/qmsum",
+      "source": {
+        "kind": "git",
+        "url": "https://github.com/Yale-LILY/QMSum.git"
+      },
+      "revision": "83d7768c1f2b4dfeb091385d3dc7e239b8e5bb7e",
+      "license": "mit",
+      "license_note": "DECLARED. The repository LICENSE file is the verbatim MIT license, copyright Yale-LILY.",
+      "size": {"approx_bytes": 124261854, "human": "118 MiB", "files": 718, "meetings": 232, "queries": 1810},
+      "expected_layout": [
+        "data/   (jsonl transcripts + query/summary annotations, split by domain: Product=AMI, Academic=ICSI, Committee=parliamentary)",
+        "extracted_span/",
+        "figures/",
+        "model_output/",
+        "data_process.ipynb",
+        "LICENSE",
+        "README.md"
+      ],
+      "verification": {
+        "expected_file_count": 718,
+        "expected_total_size_bytes": 124261854,
+        "expected_git_head": "83d7768c1f2b4dfeb091385d3dc7e239b8e5bb7e",
+        "hashes": {
+          "LICENSE": "8308d90c6321345cbd4adc8b479ddbece28ddbdca44f3f0b9bf033c3999a4a80"
+        },
+        "hash_algorithm": "sha256",
+        "hash_coverage_note": "Same pattern as meetingqa: verified upstream by pinned git clone plus an umbrella-internal per-file manifest; only the LICENSE file's hash is carried here as a spot-check, plus git HEAD / file-count / total-size closure."
+      },
+      "dependencies": ["ami-meeting-corpus", "icsi-meeting-corpus"],
+      "research_role": "Query-based multi-domain meeting summarization (NAACL 2021, Zhong et al.). Text-layer ORG/SUPPLY carrier: 137 Product-domain meetings join to ami-meeting-corpus; 59 Academic-domain meetings join to icsi-meeting-corpus; 36 Committee-domain meetings are parliamentary transcripts with no local audio counterpart.",
+      "claim_limit": "MIT license on QMSum's own annotations. Only Product (AMI) and Academic (ICSI) domains have governed local audio in this repository; Committee-domain rows are transcript-only."
+    },
+    {
+      "name": "m3-slu",
+      "kind": "dataset",
+      "local_subdir": "datasets/m3-slu",
+      "source": {
+        "kind": "hf-multirepo",
+        "repos": [
+          {"id": "M3-SLU/M3-SLU-Task1", "revision": "c3836ecf34f2a1e7c4efb75ed84cb6e5f64cafe2", "parquet_shards": 44},
+          {"id": "M3-SLU/M3-SLU-Task2", "revision": "5ee25ccd444daadc40f331dc406b07f9617d66a7", "parquet_shards": 111}
+        ]
+      },
+      "revision": "M3-SLU/M3-SLU-Task1@c3836ecf34f2a1e7c4efb75ed84cb6e5f64cafe2; M3-SLU/M3-SLU-Task2@5ee25ccd444daadc40f331dc406b07f9617d66a7",
+      "license": "cc-by-4.0",
+      "license_note": "DECLARED. Both dataset cards carry `license: cc-by-4.0` verbatim in YAML front matter; both repos are gated=false, private=false.",
+      "size": {
+        "approx_bytes": 42790047368,
+        "human": "39.8 GiB",
+        "files": 162,
+        "rows": 10908,
+        "text_layer_bytes": 28103474,
+        "text_layer_files": 7,
+        "audio_shards": 155,
+        "audio_bytes": 42761943894
+      },
+      "expected_layout": [
+        "m3-slu-task1-preview.text.jsonl",
+        "m3-slu-task1-sample.text.jsonl",
+        "m3-slu-task2-preview.text.jsonl",
+        "m3-slu-task2-sample.text.jsonl",
+        "audio/task1/   (44 parquet shards, 14998977333 bytes upstream)",
+        "audio/task2/   (111 parquet shards, 27762966561 bytes upstream)",
+        "upstream-cards/"
+      ],
+      "verification": {
+        "expected_file_count": 162,
+        "expected_total_size_bytes": 42790047368,
+        "hashes": {},
+        "hash_algorithm": "sha256",
+        "hash_coverage_note": "The umbrella lock verifies all 155 audio-bearing parquet shards by per-shard LFS SHA-256, but the individual hash values live only in the umbrella's private acquisition receipt (datasets/m3-slu/.upstream-manifest.json), not in the umbrella lock's own JSON text, so none could be extracted into this file. verify.py substitutes shard-count (44+111=155) plus per-task and total byte-count closure. Rows (Task1 3780+50, Task2 7028+50 = 10908) are also checkable from the 4 text jsonl files."
+      },
+      "dependencies": ["ami-meeting-corpus", "meld"],
+      "research_role": "Speaker-attributed QA and speaker-attribution matching over multi-party speech (LREC 2026 submission, arXiv:2510.19358). M3-SLU ids are corpus-tagged sequence ids; no per-meeting join to ami-meeting-corpus is possible from the release metadata alone.",
+      "claim_limit": "Released row counts (3780+7028=10808 sampled + 100 preview) are below the arXiv:2510.19358 Table 3 figures (4926+7947=12873); any claim must scope to the released subset, never the paper's reported benchmark size."
+    },
+    {
+      "name": "meetingbank",
+      "kind": "dataset",
+      "local_subdir": "datasets/meetingbank",
+      "source": {
+        "kind": "hf-multirepo-plus-zenodo",
+        "repos": [
+          {"id": "huuuyeah/meetingbank", "role": "segment-level summarization instances (text layer)", "revision": "5b4fb6f67f490be93e249d70b732780932d19fe3"},
+          {"id": "huuuyeah/MeetingBank_Audio", "role": "per-city meeting audio archives and timestamped ASR transcripts", "revision": "27779a666ff5fd879f4c5567489ff47e82364abd"}
+        ],
+        "zenodo_record": {
+          "doi": "10.5281/zenodo.7989108",
+          "url": "https://zenodo.org/records/7989108",
+          "file": "MeetingBank.zip",
+          "size_bytes": 637072469,
+          "md5": "9c8303b01d25639388199ef625ccdb39",
+          "note": "Carries the full text/alignment layer for all six cities plus the shipped Legistar index Metadata/MeetingBank.json. Zenodo publishes MD5, not SHA-256, for this file."
+        },
+        "utils_repo": "https://github.com/YebowenHu/MeetingBank-utils"
+      },
+      "revision": "huuuyeah/meetingbank@5b4fb6f67f490be93e249d70b732780932d19fe3; huuuyeah/MeetingBank_Audio@27779a666ff5fd879f4c5567489ff47e82364abd; Zenodo 10.5281/zenodo.7989108 v2 (2023-05-30)",
+      "license": "cc-by-nc-nd-4.0",
+      "license_note": "DECLARED, BUT THE UPSTREAM SOURCES CONFLICT THREE WAYS; the most restrictive is recorded as binding. (a) LICENSE.txt shipped inside the official Zenodo release is headed 'Attribution-NonCommercial-NoDerivatives 4.0 International' = CC BY-NC-ND 4.0. (b) Both Hugging Face dataset cards declare `license: cc-by-nc-sa-4.0`. (c) The Zenodo record's own API metadata reports {\"id\": \"cc-by-4.0\"}. Binding obligations under the recorded (most restrictive) terms: NonCommercial forbids commercial use, and NoDerivatives forbids distributing adapted/derived material at all. Internal non-commercial research use is unaffected; any external release must resolve the conflict with the authors first.",
+      "size": {
+        "text_layer_bytes": 6216658691,
+        "text_layer_files": 1420,
+        "audio_subset_archives": 3,
+        "audio_subset_bytes": 4710708445,
+        "audio_subset_hours": 81.78,
+        "audio_subset_meetings": 50,
+        "full_corpus_audio_bytes": 197228441026,
+        "full_corpus_hours": 3579,
+        "human": "text layer 5.8 GiB; bounded audio subset 4.4 GiB (2.3% of the 3,579 h full corpus)"
+      },
+      "status": "PARTIAL_BY_DESIGN",
+      "expected_layout": [
+        "text/zenodo/   (MeetingBank.zip contents: all six cities, Legistar index Metadata/MeetingBank.json)",
+        "text/hf/       (huuuyeah/meetingbank segment-level summarization instances)",
+        "text/align/    (alignment layer)",
+        "audio-subset/archives/   (3 per-city mp3 zip chunks: Seattle, Denver, LongBeach)",
+        "audio-subset/mp3/        (extracted mp3s, 50 meetings, 81.78 h)",
+        "audio-subset/subset-manifest.json",
+        "audio-subset/archive-receipt.json",
+        "audio-subset/mp3-sha256.json",
+        "audio-subset/shipped-index-validation.json",
+        "sha256-receipt.json"
+      ],
+      "verification": {
+        "expected_text_layer_file_count": 1420,
+        "expected_text_layer_size_bytes": 6216658691,
+        "expected_audio_subset_archives": 3,
+        "expected_audio_subset_size_bytes": 4710708445,
+        "hashes": {
+          "text/zenodo/MeetingBank.zip": {"algorithm": "md5", "value": "9c8303b01d25639388199ef625ccdb39"},
+          "audio-subset/archives/Seattle-mp3-9.zip": {"algorithm": "sha256", "value": "5d81853658531f79f2f1ef7e6bda8d97cec68ee644ab8ca925c1212a5f897db4"},
+          "audio-subset/archives/Denver-13.zip": {"algorithm": "sha256", "value": "da49ad0c247af896ff0c76c630d40df78e64038de042d5784b7be8b3469cb028"},
+          "audio-subset/archives/LongBeach-mp3-4.zip": {"algorithm": "sha256", "value": "81e954f159801b521fc5adf1d10bd8216ef67a1ddb80a068a6878bdee5175a5b"}
+        },
+        "hash_coverage_note": "Zenodo publishes only an MD5 for MeetingBank.zip (not a lock-coverage gap, just Zenodo's own practice); the three audio-subset city archives carry umbrella-verified SHA-256. The 1420 individual HF text-layer files have no per-file hash in the umbrella lock (only an aggregate sha256_of_text_manifest over the umbrella's own receipt file, not reproducible here), so verify.py falls back to file-count + total-size closure for that tree."
+      },
+      "dependencies": [],
+      "research_role": "Entity-dense, long-form US city-council meetings (ACL 2023, Hu et al., arXiv:2305.17529) with per-bill Legistar agenda-item gold; the only meeting-minutes carrier in this catalogue that ships its own speech bytes.",
+      "claim_limit": "PARTIAL by design: audio is a deliberately bounded, city-stratified 81.78 h / 50-meeting subset (2.3% of the corpus), not a failed full download. Shipped reference transcripts are machine ASR output, so transcript-level WER against them measures agreement with another recognizer, not accuracy. NonCommercial + NoDerivatives bind (see license_note): commercial use and redistribution of derivatives are both prohibited."
+      }
+  ]
+}
