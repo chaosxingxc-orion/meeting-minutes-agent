@@ -31,6 +31,15 @@ from .constants import (
     TRANSPORT_SLICE_SNAP_S,
     TRANSPORT_SLICE_TARGET_S,
 )
+from .diarization import (
+    DiarizationBackend,
+    DiarizationResult,
+    DiarizationToolNotPinnedError,
+    NxtOracleDiarization,
+    PinnedToolDiarization,
+    build_turn_aware_slice_plan_for_resolved_meeting,
+    build_turn_aware_slice_plan_from_backend,
+)
 from .leakage import (
     BoundaryLeakageTier,
     BoundaryLeakageTierViolation,
@@ -103,4 +112,11 @@ __all__ = [
     "make_audio_chunk_resolver",
     "GlossaryStateLog",
     "StateEntry",
+    "DiarizationResult",
+    "DiarizationBackend",
+    "NxtOracleDiarization",
+    "DiarizationToolNotPinnedError",
+    "PinnedToolDiarization",
+    "build_turn_aware_slice_plan_from_backend",
+    "build_turn_aware_slice_plan_for_resolved_meeting",
 ]
