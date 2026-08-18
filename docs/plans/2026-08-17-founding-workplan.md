@@ -81,6 +81,14 @@ provides sustained load. No GPU idle window after G0.
    tables (AMI) are ceiling-tier metadata, tool-diar tables deployment-tier, and the manifest
    records which tier fed the packing. No transport unit is ever 40 minutes; that figure
    survives nowhere in the pipeline.
+   **Packing mode ruling (owner Q&A, same day): CHRONOLOGICAL packing is the ONLY transport
+   mode.** Speaker information travels on the metadata channel (the per-slice turn/speaker
+   table declared in the LISTEN prompt), never by audio rearrangement — so temporal context
+   and speaker identity are both preserved, each on its own channel. Speaker-grouped audio is
+   NEVER a transport mode (it destroys conversational adjacency and multiplies seams
+   turn-by-turn); it is reserved for two tool-level niches only: speaker-profile extraction
+   and a possible future targeted per-speaker re-listen head. Scoring-side per-speaker streams
+   are reconstructed from attributed transcripts by the metric machinery, not by transport.
 4. Stage-2 A2T (SAEA side): fly ALL 120 headroom samples, no subsampling.
 5. Small items resolved: cn_college_listen dropped; public_sg IMDA terms get one verification;
    TED-LIUM not acquired; SLURP one-working-copy+one-archive state confirmed canonical;
