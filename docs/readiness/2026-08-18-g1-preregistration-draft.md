@@ -4,6 +4,30 @@ Date: 2026-08-18 (night). Status: **DRAFT — not registered, not flyable.** Own
 binding pass required. This is the meeting topic's first flight; it establishes every floor the
 later glossary/supply arms are measured against.
 
+## 0. P-ATTR capability smoke (owner ruling 2026-08-18: PRECEDES everything below)
+
+The scheme's LISTEN design assumes the frozen core can attribute text within a multi-speaker
+slice to a DECLARED speaker grid. That assumption is UNPROVEN, and the prior evidence is
+pessimistic (M3-SLU's headline finding on this core family: models capture what was said but
+fail at who said it; AMUSE reports Qwen3-Omni failing multi-speaker reasoning). Per the
+owner's ruling — never design on an assumed capability — a small-scale smoke flies FIRST
+(merged with the 1-meeting timing smoke; ~25 slices from 3–4 AMI dev meetings, dev being a
+free surface under the split philosophy):
+
+| Arm | Design | Measures |
+|---|---|---|
+| A-grid | declared turn grid in prompt, model fills text per span (the main LISTEN design) | boundary respect + confusion cost |
+| A-free | no grid; model attributes freely | what the declared grid buys |
+| A-turn | one request per speaker turn — attribution BY CONSTRUCTION (label from the diar layer; model only transcribes) | the zero-attribution-risk fallback's WER and call-cost (expect ~5–10x call count at 4.3 s/call overhead) |
+
+Scored with cpWER-family confusion cost vs AMI gold (the metric family is permutation-matched
+per-speaker streams, so model-side cluster naming is irrelevant; utterance segmentation itself
+is NOT scored — an honest metric blind spot recorded here). PRE-REGISTERED branch: if A-grid's
+confusion cost is not materially better than A-free (grid unused), the LISTEN main design is
+RETIRED and G1 adopts the A-turn form (capability assumption replaced by construction);
+otherwise the main design is confirmed and the smoke's timing data binds G1's budgets. Either
+way G1 proceeds on a VERIFIED path.
+
 ## 1. Purpose
 
 Measure the frozen core's zero-supply floors on the meeting stack: (a) chunked transcription +
