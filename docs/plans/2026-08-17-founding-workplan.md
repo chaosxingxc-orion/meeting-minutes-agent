@@ -98,9 +98,20 @@ not on the repeat-payoff scalar; (d) the entity-metric glossary-GAIN claim lives
 earnings21 (G2) — no current meeting corpus hosts it; (e) the census's one favorable structural
 finding: 84–95% of MeetingBank's mention mass is speech-only (roster-unreachable), so
 episode-local supply is not redundant with rosters; (f) **the gap "meeting corpus with both
-entity density AND verbatim transcript gold" remains OPEN** — NOTSOFAR-1 (human-verified
-transcripts, second-tier in D1) is the queued gap-closing candidate: acquire + census before
-any claim re-expansion.
+entity density AND verbatim transcript gold" is now CLOSED AS UNFILLABLE with current public
+corpora** (NOTSOFAR-1 acquisition + census, 2026-08-18, lock `91407f7`): NOTSOFAR-1's
+transcripts are best-in-class human-verbatim (two transcribers + judge, no machine access,
+disfluency markup, word timings, per-segment attribution — the paper's own construction
+statement), but its entity density is REFUTED (scripted generic scenarios, pseudonymous
+`<PName>`-tagged participants, no entity layer, sparse common-knowledge entities). Every
+candidate fails one side: AMI verbatim/entity-poor, ICSI verbatim-summaries/no-NE-layer,
+MeetingBank entity-dense/ASR-references, NOTSOFAR verbatim/entity-sparse. The re-scoped claim
+surface is therefore FINAL, and the exhaustive search itself is a citable dataset-gap finding.
+NOTSOFAR-1's confirmed role: the **modern verbatim attribution carrier** (119.4 h SC + 123.8 h
+close-talk, published tcpWER baselines, CC BY 4.0 attribution-only — the least-encumbered
+license in the meeting set); candidate arms join G1/G4. Corrected facts of record: open
+release is 237 meetings (not 315); eval_small is byte-identical to eval_full (materialized by
+hardlink, 6.08 GiB saved per the no-duplication rule).
 
 Acquisition-evidence amendment (same night): **ICSI ships NO named-entity layer** (verified
 against all 6,437 annotation-archive entries — an upstream gap, not a fetch gap; the survey's
