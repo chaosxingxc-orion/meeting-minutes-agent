@@ -133,10 +133,11 @@ _LEDGER_SECTIONS: Mapping[str, LedgerEntryKind] = {
 class TaskDispatchNotImplementedError(NotImplementedError):
     """Raised by :func:`build_dispatch_unit` for a declared-but-unbuilt task
     kind (:class:`~.tasks.TaskKind.RE_LISTEN` /
-    :class:`~.tasks.TaskKind.ANSWER_QUESTION`) -- mirrors
-    :class:`meeting_minutes_agent.heads.qa.MeetingQAFloorNotMeasuredError`'s
-    own honest-stub discipline: name the precondition, never guess at an
-    unbuilt request shape."""
+    :class:`~.tasks.TaskKind.ANSWER_QUESTION`) -- honest-stub discipline:
+    name the precondition, never guess at an unbuilt request shape. For
+    ``ANSWER_QUESTION`` the outstanding precondition is controller wiring
+    only -- :mod:`meeting_minutes_agent.heads.qa` itself is real, see that
+    module's docstring."""
 
 
 _DISPATCH_PRECONDITION = (
@@ -295,8 +296,9 @@ def build_dispatch_unit(
         raise TaskDispatchNotImplementedError(
             _DISPATCH_PRECONDITION.format(
                 kind=task.kind.value,
-                reason="the qa head is an interface-complete stub pending the MeetingQA-floor "
-                "measurement (meeting_minutes_agent.heads.qa)",
+                reason="the qa head (meeting_minutes_agent.heads.qa) is built, but "
+                "build_dispatch_unit has no request-wiring for it yet -- a separate, "
+                "not-yet-built controller-integration ticket",
             )
         )
 

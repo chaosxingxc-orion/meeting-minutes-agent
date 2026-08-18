@@ -11,15 +11,17 @@ most recently produced minutes bullets' ACTIONS/DECISIONS sections into the
 episode's decision/action ledger; see :mod:`.dispatcher`'s module docstring
 for why this one task kind never touches the frozen core). Two,
 ``re_listen`` and ``answer_question``, are declared enum members ONLY --
-honest stubs, mirroring :mod:`meeting_minutes_agent.heads.qa`'s own stub
-discipline: they exist so a caller can reference/queue them today, but
+honest stubs at the CONTROLLER level: they exist so a caller can
+reference/queue them today, but
 :func:`meeting_minutes_agent.controller.dispatcher.build_dispatch_unit`
 refuses to dispatch either, raising :class:`TaskDispatchNotImplementedError`
 naming the precondition, rather than silently no-opping or guessing at a
 request shape nothing has designed yet (``re_listen`` needs the DIARIZE/
 re-ask apparatus backbone design doc SS5.3 reserves for a future
-model-invoked arm; ``answer_question`` needs the MeetingQA-floor
-measurement :mod:`meeting_minutes_agent.heads.qa` itself is stubbed behind).
+model-invoked arm; ``answer_question`` needs ``build_dispatch_unit`` wired
+to the now-real :mod:`meeting_minutes_agent.heads.qa` head -- the head
+itself is no longer a stub, only this controller-level wiring is a
+separate, not-yet-built ticket).
 
 Ordering rule (explicit data, never wall-clock, never randomness): a
 :class:`TaskQueue` is always kept sorted by ``(priority ascending, seq
