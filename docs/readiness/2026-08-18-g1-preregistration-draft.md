@@ -105,12 +105,24 @@ the deep-check ruling: 57.3 is a fine-tuned DeBERTa, not an LLM floor).
 
 ## 2. Arms (all zero-supply; the registered controls from the deep check)
 
-| Arm | Shape |
+**ARM REDESIGN per the P-ATTR verdict (`93aa7ee`, branch: main design RETIRED):**
+
+| Arm | Shape (v2) |
 |---|---|
-| Z-chunked | topic-aligned chunk plan (E3), oracle-diar speaker spans, transcribe+attribute head per chunk, minutes head at end |
-| Z-single-pass | meetings ≤ core window flown as ONE instance (E3 single-pass plan) — the chunking-cost control: chunking cost = (single-pass − chunked) is a named line item |
-| Z-no-diar | chunked, no speaker spans supplied — the attribution ablation floor |
-| Z-qa | MeetingQA dev questions over the meeting audio (qa head unstubbed first — precondition), abstention scored against empty string |
+| Z-turn | **A-turn form**: one transcription request per diar-layer turn (attribution BY CONSTRUCTION; oracle-diar turns on AMI = the ceiling tier; measured smoke economics 0.437 s/request, confusion cost 0.0165) — the transcription/attribution backbone |
+| Z-free | free-form attribution on 90 s slices, no grid (the smoke's A-free: cpWER 0.4352 / confusion 0.1110 with stable cluster labels 24/24) — the no-diar ablation, now with a measured expectation |
+| Z-single-pass | RETIRED as a transcription arm (nothing fits one request per the granularity analysis); the chunking-cost question re-scopes to minutes-head context assembly |
+| Z-qa | unchanged: MeetingQA usable-discovery questions, abstention scored against empty string |
+
+Consequences bound with the redesign: (a) **the diarization-tool selection ticket (lock b) is
+now on the critical path for any deployment-tier attribution claim** — Z-turn on oracle turns
+is a ceiling; the tool-diar arm re-enters diarization error as attribution error and must be
+measured when the tool lands; (b) the P-PROMPT sweep gains a mandatory **output-grammar
+contract + admission test** (the smoke's transferable lesson: a supplied structured block
+silently hijacked the reply grammar — grid-index keying, 22/24 — while the parser reported
+100% strict success; grammar conformance must be asserted per reply, never assumed from parse
+success); (c) the A-grid records remain available for a separately registered repair-parse
+read (the scoring agent correctly refused to invent a post-hoc parser).
 
 Timing rule (BINDING, from the E7b review): time-constrained metrics (tcpWER/tcORC) take
 segment timing from the **oracle-diar layer** (AMI gold turn times), never from the transcribe
