@@ -55,7 +55,24 @@ matrix from the deep check is its input.
 
 ## 6. Preconditions
 
-E-track complete (E1–E7b ✅, suite 508/2); qa head unstub + MeetingQA loader (small ticket);
-role registry (small ticket); 1-meeting timing smoke (first core contact of this repo —
-receipt + owner-visible note); oracle-diar span extraction from the NXT layer (E2 provides
-turns — a thin adapter).
+E-track complete (E1–E7b ✅); qa head + MeetingQA loader ✅ (2026-08-18, suite 584/2 — with the
+lossy-flat-file finding: multi-span gold decoded from the BIO file, and the upstream-scorer
+comparability gap flagged); AMI role registry ✅ (2026-08-18, PROPOSAL status — commits
+`069b910..efee858`); 1-meeting timing smoke (first core contact of this repo — receipt +
+owner-visible note) REMAINS; oracle-diar span extraction thin adapter REMAINS.
+
+## 7. Registry-derived binding corrections (2026-08-18)
+
+- "MeetingQA 80:10:10" is RETIRED: the release's own split is 64/48/54 meetings
+  (3,007/2,252/2,476 questions).
+- Z-qa flies on the **qa-eval role class (42 meetings, 1,918 usable questions)**; 5,817
+  questions are quarantined by role collision (every dev-18 and eval-16 meeting carries
+  MeetingQA questions — the registry was load-bearing, not formal). Owner decision pending:
+  admitting MeetingQA-dev meetings would recover 1,703 questions but shrink the
+  glossary-discovery pool 76 → 45.
+- **SAER-M is scoreable on 12 of the 18 ASR-eval meetings only** (IB meetings lack
+  extractive+summlink); minutes-metric power computations use n=12, and IB4001/2/4 lack a
+  topics layer, so the chunk plan's plain-duration fallback must be declared for them.
+- M3-SLU carries NO role and is barred from any discovery use pending a content-level leakage
+  check: field join is impossible, but a verbatim n-gram content join resolves its instances
+  into AMI meetings — including at least one inside our frozen dev-18.
