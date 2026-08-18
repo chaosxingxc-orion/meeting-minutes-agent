@@ -16,7 +16,7 @@
     "TS3004c",
     "TS3004d"
   ],
-  "created_utc": "2026-08-18T13:47:35+00:00",
+  "created_utc": "2026-08-18T14:20:14+00:00",
   "meetings": {
     "ES2011b": {
       "audio_relpath": "datasets/ami/amicorpus/ES2011b/audio/ES2011b.Mix-Headset.wav",
@@ -29,112 +29,112 @@
       "role": "asr-eval",
       "slice_plan": {
         "channels": 1,
-        "content_hash": "a0befeea0cbfa38f5dc8834ba97f3c9ff9e9a7ae7cce6f13ecc140b9fc3d10bb",
+        "content_hash": "401c7cf82e6afc0cc9e47fe03f2c4d5623ee049a5c1ac86320c26572d0abf49a",
         "entries": [
           {
-            "encoder_chunk_count": 5,
+            "encoder_chunk_count": 4,
             "end": 127.778,
             "filename": "ES2011b-slice0000.wav",
             "index": 0,
-            "sha256": "d3fbe2c6d51f578ce3c38420ceea1ff073353064b7be22716017cebada289f27",
-            "start": 0.0,
+            "sha256": "d583781535798b321aaf61e6325d549ff8c4a4d9a3c6b2f51c9fed32cd46ed23",
+            "start": 28.376,
             "turns": [
               {
                 "absolute_end": 31.885,
                 "absolute_start": 31.376,
-                "slice_offset_end": 31.885,
-                "slice_offset_start": 31.376,
+                "slice_offset_end": 3.5090000000000003,
+                "slice_offset_start": 3.0,
                 "speaker": "D"
               },
               {
                 "absolute_end": 86.288,
                 "absolute_start": 33.467,
-                "slice_offset_end": 86.288,
-                "slice_offset_start": 33.467,
+                "slice_offset_end": 57.91199999999999,
+                "slice_offset_start": 5.0909999999999975,
                 "speaker": "A"
               },
               {
                 "absolute_end": 85.589,
                 "absolute_start": 82.683,
-                "slice_offset_end": 85.589,
-                "slice_offset_start": 82.683,
+                "slice_offset_end": 57.212999999999994,
+                "slice_offset_start": 54.307,
                 "speaker": "D"
               },
               {
                 "absolute_end": 89.472,
                 "absolute_start": 86.185,
-                "slice_offset_end": 89.472,
-                "slice_offset_start": 86.185,
+                "slice_offset_end": 61.09599999999999,
+                "slice_offset_start": 57.809,
                 "speaker": "D"
               },
               {
                 "absolute_end": 88.842,
                 "absolute_start": 88.336,
-                "slice_offset_end": 88.842,
-                "slice_offset_start": 88.336,
+                "slice_offset_end": 60.465999999999994,
+                "slice_offset_start": 59.959999999999994,
                 "speaker": "A"
               },
               {
                 "absolute_end": 92.752,
                 "absolute_start": 90.128,
-                "slice_offset_end": 92.752,
-                "slice_offset_start": 90.128,
+                "slice_offset_end": 64.37599999999999,
+                "slice_offset_start": 61.751999999999995,
                 "speaker": "A"
               },
               {
                 "absolute_end": 96.768,
                 "absolute_start": 90.179,
-                "slice_offset_end": 96.768,
-                "slice_offset_start": 90.179,
+                "slice_offset_end": 68.392,
+                "slice_offset_start": 61.803,
                 "speaker": "D"
               },
               {
                 "absolute_end": 95.888,
                 "absolute_start": 95.21,
-                "slice_offset_end": 95.888,
-                "slice_offset_start": 95.21,
+                "slice_offset_end": 67.512,
+                "slice_offset_start": 66.83399999999999,
                 "speaker": "B"
               },
               {
                 "absolute_end": 100.496,
                 "absolute_start": 98.256,
-                "slice_offset_end": 100.496,
-                "slice_offset_start": 98.256,
+                "slice_offset_end": 72.11999999999999,
+                "slice_offset_start": 69.88,
                 "speaker": "A"
               },
               {
                 "absolute_end": 102.04,
                 "absolute_start": 101.235,
-                "slice_offset_end": 102.04,
-                "slice_offset_start": 101.235,
+                "slice_offset_end": 73.664,
+                "slice_offset_start": 72.859,
                 "speaker": "D"
               },
               {
                 "absolute_end": 111.51,
                 "absolute_start": 107.817,
-                "slice_offset_end": 111.51,
-                "slice_offset_start": 107.817,
+                "slice_offset_end": 83.134,
+                "slice_offset_start": 79.44099999999999,
                 "speaker": "D"
               },
               {
                 "absolute_end": 115.907,
                 "absolute_start": 113.936,
-                "slice_offset_end": 115.907,
-                "slice_offset_start": 113.936,
+                "slice_offset_end": 87.53099999999999,
+                "slice_offset_start": 85.56,
                 "speaker": "D"
               },
               {
                 "absolute_end": 118.0,
                 "absolute_start": 115.063,
-                "slice_offset_end": 118.0,
-                "slice_offset_start": 115.063,
+                "slice_offset_end": 89.624,
+                "slice_offset_start": 86.687,
                 "speaker": "A"
               },
               {
                 "absolute_end": 125.888,
                 "absolute_start": 124.96,
-                "slice_offset_end": 125.888,
-                "slice_offset_start": 124.96,
+                "slice_offset_end": 97.512,
+                "slice_offset_start": 96.58399999999999,
                 "speaker": "B"
               }
             ],
@@ -1372,147 +1372,147 @@
       "role": "asr-eval",
       "slice_plan": {
         "channels": 1,
-        "content_hash": "97084217f7131ec3f85af0776aa55543dc2fed1c7f07358d785ad7d1a3d8f5e5",
+        "content_hash": "429bae3dcfee5ad038e9cdb71e7a3c28b2c28b8f9da2159763f90f93c2d23036",
         "entries": [
           {
-            "encoder_chunk_count": 5,
+            "encoder_chunk_count": 4,
             "end": 125.376,
             "filename": "IS1008b-slice0000.wav",
             "index": 0,
-            "sha256": "043c0bdab198a1c76cf22d47eabac8bbdde00f0d1cf67ab71cdd7abbc8cb8a5f",
-            "start": 0.0,
+            "sha256": "614c1a52ebfead1a4c8fa63144bc5b1aab8f5f28cb95550947a7ef9393021fed",
+            "start": 31.03,
             "turns": [
               {
                 "absolute_end": 40.537,
                 "absolute_start": 34.03,
-                "slice_offset_end": 40.537,
-                "slice_offset_start": 34.03,
+                "slice_offset_end": 9.506999999999998,
+                "slice_offset_start": 3.0,
                 "speaker": "A"
               },
               {
                 "absolute_end": 38.05,
                 "absolute_start": 36.579,
-                "slice_offset_end": 38.05,
-                "slice_offset_start": 36.579,
+                "slice_offset_end": 7.019999999999996,
+                "slice_offset_start": 5.5489999999999995,
                 "speaker": "C"
               },
               {
                 "absolute_end": 42.982,
                 "absolute_start": 40.537,
-                "slice_offset_end": 42.982,
-                "slice_offset_start": 40.537,
+                "slice_offset_end": 11.951999999999998,
+                "slice_offset_start": 9.506999999999998,
                 "speaker": "A"
               },
               {
                 "absolute_end": 46.862,
                 "absolute_start": 42.982,
-                "slice_offset_end": 46.862,
-                "slice_offset_start": 42.982,
+                "slice_offset_end": 15.832,
+                "slice_offset_start": 11.951999999999998,
                 "speaker": "A"
               },
               {
                 "absolute_end": 58.089,
                 "absolute_start": 48.823,
-                "slice_offset_end": 58.089,
-                "slice_offset_start": 48.823,
+                "slice_offset_end": 27.058999999999997,
+                "slice_offset_start": 17.793,
                 "speaker": "A"
               },
               {
                 "absolute_end": 64.163,
                 "absolute_start": 59.502,
-                "slice_offset_end": 64.163,
-                "slice_offset_start": 59.502,
+                "slice_offset_end": 33.132999999999996,
+                "slice_offset_start": 28.472,
                 "speaker": "A"
               },
               {
                 "absolute_end": 68.419,
                 "absolute_start": 64.163,
-                "slice_offset_end": 68.419,
-                "slice_offset_start": 64.163,
+                "slice_offset_end": 37.388999999999996,
+                "slice_offset_start": 33.132999999999996,
                 "speaker": "A"
               },
               {
                 "absolute_end": 75.344,
                 "absolute_start": 68.419,
-                "slice_offset_end": 75.344,
-                "slice_offset_start": 68.419,
+                "slice_offset_end": 44.31399999999999,
+                "slice_offset_start": 37.388999999999996,
                 "speaker": "A"
               },
               {
                 "absolute_end": 79.716,
                 "absolute_start": 76.688,
-                "slice_offset_end": 79.716,
-                "slice_offset_start": 76.688,
+                "slice_offset_end": 48.68599999999999,
+                "slice_offset_start": 45.658,
                 "speaker": "A"
               },
               {
                 "absolute_end": 83.701,
                 "absolute_start": 79.716,
-                "slice_offset_end": 83.701,
-                "slice_offset_start": 79.716,
+                "slice_offset_end": 52.67099999999999,
+                "slice_offset_start": 48.68599999999999,
                 "speaker": "A"
               },
               {
                 "absolute_end": 92.984,
                 "absolute_start": 83.701,
-                "slice_offset_end": 92.984,
-                "slice_offset_start": 83.701,
+                "slice_offset_end": 61.95399999999999,
+                "slice_offset_start": 52.67099999999999,
                 "speaker": "A"
               },
               {
                 "absolute_end": 95.204,
                 "absolute_start": 92.984,
-                "slice_offset_end": 95.204,
-                "slice_offset_start": 92.984,
+                "slice_offset_end": 64.17399999999999,
+                "slice_offset_start": 61.95399999999999,
                 "speaker": "A"
               },
               {
                 "absolute_end": 97.537,
                 "absolute_start": 95.204,
-                "slice_offset_end": 97.537,
-                "slice_offset_start": 95.204,
+                "slice_offset_end": 66.507,
+                "slice_offset_start": 64.17399999999999,
                 "speaker": "A"
               },
               {
                 "absolute_end": 99.928,
                 "absolute_start": 97.537,
-                "slice_offset_end": 99.928,
-                "slice_offset_start": 97.537,
+                "slice_offset_end": 68.898,
+                "slice_offset_start": 66.507,
                 "speaker": "A"
               },
               {
                 "absolute_end": 103.556,
                 "absolute_start": 99.928,
-                "slice_offset_end": 103.556,
-                "slice_offset_start": 99.928,
+                "slice_offset_end": 72.526,
+                "slice_offset_start": 68.898,
                 "speaker": "A"
               },
               {
                 "absolute_end": 105.881,
                 "absolute_start": 103.556,
-                "slice_offset_end": 105.881,
-                "slice_offset_start": 103.556,
+                "slice_offset_end": 74.851,
+                "slice_offset_start": 72.526,
                 "speaker": "A"
               },
               {
                 "absolute_end": 111.814,
                 "absolute_start": 105.881,
-                "slice_offset_end": 111.814,
-                "slice_offset_start": 105.881,
+                "slice_offset_end": 80.78399999999999,
+                "slice_offset_start": 74.851,
                 "speaker": "A"
               },
               {
                 "absolute_end": 118.822,
                 "absolute_start": 111.814,
-                "slice_offset_end": 118.822,
-                "slice_offset_start": 111.814,
+                "slice_offset_end": 87.792,
+                "slice_offset_start": 80.78399999999999,
                 "speaker": "A"
               },
               {
                 "absolute_end": 124.416,
                 "absolute_start": 118.822,
-                "slice_offset_end": 124.416,
-                "slice_offset_start": 118.822,
+                "slice_offset_end": 93.386,
+                "slice_offset_start": 87.792,
                 "speaker": "A"
               }
             ],
@@ -3531,203 +3531,203 @@
       "role": "asr-eval",
       "slice_plan": {
         "channels": 1,
-        "content_hash": "fbce3473723f378caed250730c14c8640ee4b8cbbf88c77b62afb23da5486bc9",
+        "content_hash": "8cc5ae063ef536ab69db6f9ebc15e0fb751864e3566e5649e6fc34e36f868bb6",
         "entries": [
           {
-            "encoder_chunk_count": 5,
+            "encoder_chunk_count": 4,
             "end": 127.88,
             "filename": "IS1008d-slice0000.wav",
             "index": 0,
-            "sha256": "c1819a26f92d3fdbc0b5fabd11acf3416911ac0b68d03bb23808828161ee6c3a",
-            "start": 0.0,
+            "sha256": "8188dfa2bebddcc20f47b5a1775c829541e8da8e2eb6d9c9143e1dde913152e7",
+            "start": 27.572,
             "turns": [
               {
                 "absolute_end": 32.23,
                 "absolute_start": 30.572,
-                "slice_offset_end": 32.23,
-                "slice_offset_start": 30.572,
+                "slice_offset_end": 4.657999999999998,
+                "slice_offset_start": 3.0,
                 "speaker": "B"
               },
               {
                 "absolute_end": 35.344,
                 "absolute_start": 30.672,
-                "slice_offset_end": 35.344,
-                "slice_offset_start": 30.672,
+                "slice_offset_end": 7.772000000000002,
+                "slice_offset_start": 3.1000000000000014,
                 "speaker": "A"
               },
               {
                 "absolute_end": 37.124,
                 "absolute_start": 36.717,
-                "slice_offset_end": 37.124,
-                "slice_offset_start": 36.717,
+                "slice_offset_end": 9.552000000000003,
+                "slice_offset_start": 9.145,
                 "speaker": "C"
               },
               {
                 "absolute_end": 39.377,
                 "absolute_start": 37.702,
-                "slice_offset_end": 39.377,
-                "slice_offset_start": 37.702,
+                "slice_offset_end": 11.805000000000003,
+                "slice_offset_start": 10.129999999999999,
                 "speaker": "C"
               },
               {
                 "absolute_end": 46.08,
                 "absolute_start": 41.488,
-                "slice_offset_end": 46.08,
-                "slice_offset_start": 41.488,
+                "slice_offset_end": 18.508,
+                "slice_offset_start": 13.916,
                 "speaker": "A"
               },
               {
                 "absolute_end": 48.848,
                 "absolute_start": 47.984,
-                "slice_offset_end": 48.848,
-                "slice_offset_start": 47.984,
+                "slice_offset_end": 21.276,
+                "slice_offset_start": 20.412000000000003,
                 "speaker": "A"
               },
               {
                 "absolute_end": 59.904,
                 "absolute_start": 50.768,
-                "slice_offset_end": 59.904,
-                "slice_offset_start": 50.768,
+                "slice_offset_end": 32.33200000000001,
+                "slice_offset_start": 23.196,
                 "speaker": "A"
               },
               {
                 "absolute_end": 62.045,
                 "absolute_start": 60.214,
-                "slice_offset_end": 62.045,
-                "slice_offset_start": 60.214,
+                "slice_offset_end": 34.473,
+                "slice_offset_start": 32.641999999999996,
                 "speaker": "B"
               },
               {
                 "absolute_end": 63.68,
                 "absolute_start": 61.536,
-                "slice_offset_end": 63.68,
-                "slice_offset_start": 61.536,
+                "slice_offset_end": 36.108000000000004,
+                "slice_offset_start": 33.964,
                 "speaker": "A"
               },
               {
                 "absolute_end": 84.32,
                 "absolute_start": 65.072,
-                "slice_offset_end": 84.32,
-                "slice_offset_start": 65.072,
+                "slice_offset_end": 56.74799999999999,
+                "slice_offset_start": 37.5,
                 "speaker": "A"
               },
               {
                 "absolute_end": 94.24,
                 "absolute_start": 88.896,
-                "slice_offset_end": 94.24,
-                "slice_offset_start": 88.896,
+                "slice_offset_end": 66.66799999999999,
+                "slice_offset_start": 61.324,
                 "speaker": "A"
               },
               {
                 "absolute_end": 96.664,
                 "absolute_start": 95.776,
-                "slice_offset_end": 96.664,
-                "slice_offset_start": 95.776,
+                "slice_offset_end": 69.092,
+                "slice_offset_start": 68.204,
                 "speaker": "C"
               },
               {
                 "absolute_end": 97.632,
                 "absolute_start": 96.672,
-                "slice_offset_end": 97.632,
-                "slice_offset_start": 96.672,
+                "slice_offset_end": 70.06,
+                "slice_offset_start": 69.1,
                 "speaker": "A"
               },
               {
                 "absolute_end": 106.608,
                 "absolute_start": 99.232,
-                "slice_offset_end": 106.608,
-                "slice_offset_start": 99.232,
+                "slice_offset_end": 79.036,
+                "slice_offset_start": 71.66,
                 "speaker": "C"
               },
               {
                 "absolute_end": 106.677,
                 "absolute_start": 104.976,
-                "slice_offset_end": 106.677,
-                "slice_offset_start": 104.976,
+                "slice_offset_end": 79.105,
+                "slice_offset_start": 77.404,
                 "speaker": "A"
               },
               {
                 "absolute_end": 109.92,
                 "absolute_start": 105.76,
-                "slice_offset_end": 109.92,
-                "slice_offset_start": 105.76,
+                "slice_offset_end": 82.348,
+                "slice_offset_start": 78.188,
                 "speaker": "B"
               },
               {
                 "absolute_end": 107.632,
                 "absolute_start": 107.408,
-                "slice_offset_end": 107.632,
-                "slice_offset_start": 107.408,
+                "slice_offset_end": 80.06,
+                "slice_offset_start": 79.836,
                 "speaker": "A"
               },
               {
                 "absolute_end": 108.589,
                 "absolute_start": 107.954,
-                "slice_offset_end": 108.589,
-                "slice_offset_start": 107.954,
+                "slice_offset_end": 81.017,
+                "slice_offset_start": 80.38199999999999,
                 "speaker": "A"
               },
               {
                 "absolute_end": 112.09,
                 "absolute_start": 109.216,
-                "slice_offset_end": 112.09,
-                "slice_offset_start": 109.216,
+                "slice_offset_end": 84.518,
+                "slice_offset_start": 81.64399999999999,
                 "speaker": "A"
               },
               {
                 "absolute_end": 110.519,
                 "absolute_start": 110.0,
-                "slice_offset_end": 110.519,
-                "slice_offset_start": 110.0,
+                "slice_offset_end": 82.947,
+                "slice_offset_start": 82.428,
                 "speaker": "C"
               },
               {
                 "absolute_end": 117.115,
                 "absolute_start": 113.872,
-                "slice_offset_end": 117.115,
-                "slice_offset_start": 113.872,
+                "slice_offset_end": 89.54299999999999,
+                "slice_offset_start": 86.3,
                 "speaker": "C"
               },
               {
                 "absolute_end": 117.8,
                 "absolute_start": 116.368,
-                "slice_offset_end": 117.8,
-                "slice_offset_start": 116.368,
+                "slice_offset_end": 90.228,
+                "slice_offset_start": 88.79599999999999,
                 "speaker": "B"
               },
               {
                 "absolute_end": 117.84,
                 "absolute_start": 117.12,
-                "slice_offset_end": 117.84,
-                "slice_offset_start": 117.12,
+                "slice_offset_end": 90.268,
+                "slice_offset_start": 89.548,
                 "speaker": "D"
               },
               {
                 "absolute_end": 118.688,
                 "absolute_start": 118.352,
-                "slice_offset_end": 118.688,
-                "slice_offset_start": 118.352,
+                "slice_offset_end": 91.116,
+                "slice_offset_start": 90.78,
                 "speaker": "B"
               },
               {
                 "absolute_end": 119.936,
                 "absolute_start": 118.385,
-                "slice_offset_end": 119.936,
-                "slice_offset_start": 118.385,
+                "slice_offset_end": 92.364,
+                "slice_offset_start": 90.813,
                 "speaker": "A"
               },
               {
                 "absolute_end": 120.128,
                 "absolute_start": 119.856,
-                "slice_offset_end": 120.128,
-                "slice_offset_start": 119.856,
+                "slice_offset_end": 92.556,
+                "slice_offset_start": 92.28399999999999,
                 "speaker": "C"
               },
               {
                 "absolute_end": 127.216,
                 "absolute_start": 126.096,
-                "slice_offset_end": 127.216,
-                "slice_offset_start": 126.096,
+                "slice_offset_end": 99.64399999999999,
+                "slice_offset_start": 98.524,
                 "speaker": "C"
               }
             ],
@@ -6153,266 +6153,266 @@
       "role": "asr-eval",
       "slice_plan": {
         "channels": 1,
-        "content_hash": "e6d90a97b25aef05773ba14e565a22ccde1ec9f95b5b933496493a2cedc4872b",
+        "content_hash": "3c04b513e0a3b417b292b1a1b7d4029e0ffcf58619743ba374e88db0fcae25c5",
         "entries": [
           {
-            "encoder_chunk_count": 5,
+            "encoder_chunk_count": 4,
             "end": 124.816,
             "filename": "TS3004b-slice0000.wav",
             "index": 0,
-            "sha256": "0e4bf5ff17845347e51ade0509892925491dd2a7a7d6224f66dfaa70d086be2c",
-            "start": 0.0,
+            "sha256": "d26642add0812185298a03a8b7cbc23084f93d92831de9540c514636a6eefa01",
+            "start": 29.287999999999997,
             "turns": [
               {
                 "absolute_end": 32.794,
                 "absolute_start": 32.288,
-                "slice_offset_end": 32.794,
-                "slice_offset_start": 32.288,
+                "slice_offset_end": 3.5060000000000002,
+                "slice_offset_start": 3.0,
                 "speaker": "A"
               },
               {
                 "absolute_end": 40.08,
                 "absolute_start": 34.141,
-                "slice_offset_end": 40.08,
-                "slice_offset_start": 34.141,
+                "slice_offset_end": 10.792000000000002,
+                "slice_offset_start": 4.8530000000000015,
                 "speaker": "A"
               },
               {
                 "absolute_end": 41.038,
                 "absolute_start": 38.528,
-                "slice_offset_end": 41.038,
-                "slice_offset_start": 38.528,
+                "slice_offset_end": 11.75,
+                "slice_offset_start": 9.240000000000002,
                 "speaker": "D"
               },
               {
                 "absolute_end": 41.856,
                 "absolute_start": 41.376,
-                "slice_offset_end": 41.856,
-                "slice_offset_start": 41.376,
+                "slice_offset_end": 12.568000000000005,
+                "slice_offset_start": 12.088000000000001,
                 "speaker": "A"
               },
               {
                 "absolute_end": 43.094,
                 "absolute_start": 42.224,
-                "slice_offset_end": 43.094,
-                "slice_offset_start": 42.224,
+                "slice_offset_end": 13.806000000000004,
+                "slice_offset_start": 12.936,
                 "speaker": "D"
               },
               {
                 "absolute_end": 45.104,
                 "absolute_start": 43.6,
-                "slice_offset_end": 45.104,
-                "slice_offset_start": 43.6,
+                "slice_offset_end": 15.816000000000003,
+                "slice_offset_start": 14.312000000000005,
                 "speaker": "A"
               },
               {
                 "absolute_end": 46.768,
                 "absolute_start": 45.408,
-                "slice_offset_end": 46.768,
-                "slice_offset_start": 45.408,
+                "slice_offset_end": 17.480000000000004,
+                "slice_offset_start": 16.120000000000005,
                 "speaker": "D"
               },
               {
                 "absolute_end": 46.805,
                 "absolute_start": 46.376,
-                "slice_offset_end": 46.805,
-                "slice_offset_start": 46.376,
+                "slice_offset_end": 17.517000000000003,
+                "slice_offset_start": 17.088,
                 "speaker": "A"
               },
               {
                 "absolute_end": 50.784,
                 "absolute_start": 48.304,
-                "slice_offset_end": 50.784,
-                "slice_offset_start": 48.304,
+                "slice_offset_end": 21.496000000000002,
+                "slice_offset_start": 19.016000000000005,
                 "speaker": "D"
               },
               {
                 "absolute_end": 50.109,
                 "absolute_start": 49.689,
-                "slice_offset_end": 50.109,
-                "slice_offset_start": 49.689,
+                "slice_offset_end": 20.821000000000005,
+                "slice_offset_start": 20.401000000000003,
                 "speaker": "A"
               },
               {
                 "absolute_end": 53.678,
                 "absolute_start": 51.15,
-                "slice_offset_end": 53.678,
-                "slice_offset_start": 51.15,
+                "slice_offset_end": 24.39,
+                "slice_offset_start": 21.862000000000002,
                 "speaker": "A"
               },
               {
                 "absolute_end": 54.555,
                 "absolute_start": 53.51,
-                "slice_offset_end": 54.555,
-                "slice_offset_start": 53.51,
+                "slice_offset_end": 25.267000000000003,
+                "slice_offset_start": 24.222,
                 "speaker": "D"
               },
               {
                 "absolute_end": 59.039,
                 "absolute_start": 56.645,
-                "slice_offset_end": 59.039,
-                "slice_offset_start": 56.645,
+                "slice_offset_end": 29.751000000000005,
+                "slice_offset_start": 27.357000000000006,
                 "speaker": "D"
               },
               {
                 "absolute_end": 66.252,
                 "absolute_start": 62.622,
-                "slice_offset_end": 66.252,
-                "slice_offset_start": 62.622,
+                "slice_offset_end": 36.964,
+                "slice_offset_start": 33.334,
                 "speaker": "D"
               },
               {
                 "absolute_end": 64.404,
                 "absolute_start": 62.662,
-                "slice_offset_end": 64.404,
-                "slice_offset_start": 62.662,
+                "slice_offset_end": 35.116,
+                "slice_offset_start": 33.374,
                 "speaker": "A"
               },
               {
                 "absolute_end": 67.936,
                 "absolute_start": 67.28,
-                "slice_offset_end": 67.936,
-                "slice_offset_start": 67.28,
+                "slice_offset_end": 38.64800000000001,
+                "slice_offset_start": 37.992000000000004,
                 "speaker": "A"
               },
               {
                 "absolute_end": 71.071,
                 "absolute_start": 69.312,
-                "slice_offset_end": 71.071,
-                "slice_offset_start": 69.312,
+                "slice_offset_end": 41.783,
+                "slice_offset_start": 40.024,
                 "speaker": "A"
               },
               {
                 "absolute_end": 73.284,
                 "absolute_start": 71.126,
-                "slice_offset_end": 73.284,
-                "slice_offset_start": 71.126,
+                "slice_offset_end": 43.99600000000001,
+                "slice_offset_start": 41.83800000000001,
                 "speaker": "B"
               },
               {
                 "absolute_end": 83.592,
                 "absolute_start": 75.097,
-                "slice_offset_end": 83.592,
-                "slice_offset_start": 75.097,
+                "slice_offset_end": 54.304,
+                "slice_offset_start": 45.809,
                 "speaker": "A"
               },
               {
                 "absolute_end": 79.504,
                 "absolute_start": 75.142,
-                "slice_offset_end": 79.504,
-                "slice_offset_start": 75.142,
+                "slice_offset_end": 50.21600000000001,
+                "slice_offset_start": 45.854,
                 "speaker": "B"
               },
               {
                 "absolute_end": 81.568,
                 "absolute_start": 80.832,
-                "slice_offset_end": 81.568,
-                "slice_offset_start": 80.832,
+                "slice_offset_end": 52.28,
+                "slice_offset_start": 51.544,
                 "speaker": "B"
               },
               {
                 "absolute_end": 84.848,
                 "absolute_start": 83.776,
-                "slice_offset_end": 84.848,
-                "slice_offset_start": 83.776,
+                "slice_offset_end": 55.56,
+                "slice_offset_start": 54.488,
                 "speaker": "C"
               },
               {
                 "absolute_end": 87.03,
                 "absolute_start": 85.075,
-                "slice_offset_end": 87.03,
-                "slice_offset_start": 85.075,
+                "slice_offset_end": 57.742000000000004,
+                "slice_offset_start": 55.787000000000006,
                 "speaker": "A"
               },
               {
                 "absolute_end": 87.902,
                 "absolute_start": 87.295,
-                "slice_offset_end": 87.902,
-                "slice_offset_start": 87.295,
+                "slice_offset_end": 58.614000000000004,
+                "slice_offset_start": 58.007000000000005,
                 "speaker": "C"
               },
               {
                 "absolute_end": 88.749,
                 "absolute_start": 87.738,
-                "slice_offset_end": 88.749,
-                "slice_offset_start": 87.738,
+                "slice_offset_end": 59.461,
+                "slice_offset_start": 58.45,
                 "speaker": "A"
               },
               {
                 "absolute_end": 92.963,
                 "absolute_start": 88.98,
-                "slice_offset_end": 92.963,
-                "slice_offset_start": 88.98,
+                "slice_offset_end": 63.675,
+                "slice_offset_start": 59.69200000000001,
                 "speaker": "C"
               },
               {
                 "absolute_end": 94.094,
                 "absolute_start": 92.816,
-                "slice_offset_end": 94.094,
-                "slice_offset_start": 92.816,
+                "slice_offset_end": 64.806,
+                "slice_offset_start": 63.528000000000006,
                 "speaker": "A"
               },
               {
                 "absolute_end": 97.831,
                 "absolute_start": 96.905,
-                "slice_offset_end": 97.831,
-                "slice_offset_start": 96.905,
+                "slice_offset_end": 68.543,
+                "slice_offset_start": 67.617,
                 "speaker": "B"
               },
               {
                 "absolute_end": 99.506,
                 "absolute_start": 97.099,
-                "slice_offset_end": 99.506,
-                "slice_offset_start": 97.099,
+                "slice_offset_end": 70.218,
+                "slice_offset_start": 67.811,
                 "speaker": "C"
               },
               {
                 "absolute_end": 104.65,
                 "absolute_start": 98.665,
-                "slice_offset_end": 104.65,
-                "slice_offset_start": 98.665,
+                "slice_offset_end": 75.36200000000001,
+                "slice_offset_start": 69.37700000000001,
                 "speaker": "A"
               },
               {
                 "absolute_end": 101.394,
                 "absolute_start": 99.607,
-                "slice_offset_end": 101.394,
-                "slice_offset_start": 99.607,
+                "slice_offset_end": 72.10600000000001,
+                "slice_offset_start": 70.319,
                 "speaker": "B"
               },
               {
                 "absolute_end": 104.18,
                 "absolute_start": 102.529,
-                "slice_offset_end": 104.18,
-                "slice_offset_start": 102.529,
+                "slice_offset_end": 74.89200000000001,
+                "slice_offset_start": 73.241,
                 "speaker": "D"
               },
               {
                 "absolute_end": 110.216,
                 "absolute_start": 106.848,
-                "slice_offset_end": 110.216,
-                "slice_offset_start": 106.848,
+                "slice_offset_end": 80.928,
+                "slice_offset_start": 77.56,
                 "speaker": "B"
               },
               {
                 "absolute_end": 114.373,
                 "absolute_start": 109.182,
-                "slice_offset_end": 114.373,
-                "slice_offset_start": 109.182,
+                "slice_offset_end": 85.08500000000001,
+                "slice_offset_start": 79.894,
                 "speaker": "A"
               },
               {
                 "absolute_end": 118.216,
                 "absolute_start": 115.789,
-                "slice_offset_end": 118.216,
-                "slice_offset_start": 115.789,
+                "slice_offset_end": 88.928,
+                "slice_offset_start": 86.501,
                 "speaker": "A"
               },
               {
                 "absolute_end": 123.44,
                 "absolute_start": 119.193,
-                "slice_offset_end": 123.44,
-                "slice_offset_start": 119.193,
+                "slice_offset_end": 94.152,
+                "slice_offset_start": 89.905,
                 "speaker": "A"
               }
             ],
@@ -8124,34 +8124,9 @@
     "n_meetings": 4,
     "n_slices": 24,
     "n_turn_clips": 450,
-    "slice_audio_seconds": 2461.6395,
+    "slice_audio_seconds": 2345.3735,
     "turn_clip_audio_seconds": 2138.579
   },
-  "transport_bound_violations": [
-    {
-      "duration_s": 127.778,
-      "max_audio_seconds": 120.0,
-      "meeting_id": "ES2011b",
-      "slice_index": 0
-    },
-    {
-      "duration_s": 125.376,
-      "max_audio_seconds": 120.0,
-      "meeting_id": "IS1008b",
-      "slice_index": 0
-    },
-    {
-      "duration_s": 127.88,
-      "max_audio_seconds": 120.0,
-      "meeting_id": "IS1008d",
-      "slice_index": 0
-    },
-    {
-      "duration_s": 124.816,
-      "max_audio_seconds": 120.0,
-      "meeting_id": "TS3004b",
-      "slice_index": 0
-    }
-  ],
+  "transport_bound_violations": [],
   "turn_clip_output_dir_relative": "derived/meeting-minutes/pattr-smoke/turn-clips"
 }
