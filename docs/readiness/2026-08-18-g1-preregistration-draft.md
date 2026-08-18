@@ -28,6 +28,26 @@ RETIRED and G1 adopts the A-turn form (capability assumption replaced by constru
 otherwise the main design is confirmed and the smoke's timing data binds G1's budgets. Either
 way G1 proceeds on a VERIFIED path.
 
+## 0b. Prompt-context bindings (owner Q&A rulings, 2026-08-18)
+
+1. **Deployment-baseline context block**: every arm's STANDARD prompt carries the meeting's
+   ordinary knowledge — title/type, participant roster with roles, agenda where shipped (all
+   M0 legal tier). "Zero-supply" means zero EVIDENCE/glossary supply, never context
+   starvation; supply arms stack on top of this baseline. (The P-ATTR smoke stays
+   context-minimal ON PURPOSE — it isolates the attribution capability variable and must not
+   be read as the deployment prompt.)
+2. **P-PROMPT dev sweep precedes G1 floors**: a small, versioned template sweep on the smoke
+   slices (dev surface, per the split philosophy) — speaker-format phrasing, instruction
+   wording, exemplar on/off — selected on cpWER + parse rate; the winning template freezes
+   (id + hash) before any G1 floor is measured, so floors bind to an optimized prompt, with
+   the sweep fully receipted and test untouched.
+3. **Rolling transcript tail**: the chunked LISTEN carries the previous slice's last ~8–12
+   utterances as a prompt-side text tail (the granularity analysis's tail-continuity rule,
+   now bound into the arm design). History travels on the TEXT channel (1 token/word);
+   only the current slice travels as audio (13 tokens/s). Budget check: ~2,200 total tokens
+   against the 12,288 slot — ample. The tail is self-supplied-tier content; the copy-rate
+   instrument and short-tail cap are its standing guards (P2 copy-trap discipline).
+
 ## 1. Purpose
 
 Measure the frozen core's zero-supply floors on the meeting stack: (a) chunked transcription +
