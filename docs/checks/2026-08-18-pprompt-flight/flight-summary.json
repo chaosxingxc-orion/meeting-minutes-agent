@@ -1,0 +1,511 @@
+{
+  "arms": {
+    "T1-A1": {
+      "audio_seconds": 2345.373,
+      "budget_totals": {
+        "audio_seconds_used": 2345.3734999999997,
+        "calls_used": 24,
+        "max_audio_seconds": 2500.0,
+        "max_calls": 26
+      },
+      "completion_tokens": 7248,
+      "extra_retry_attempts": 0,
+      "ledger_entries": 24,
+      "max_completion_tokens_observed": 474,
+      "max_tokens_cap": 1024,
+      "mean_latency_seconds": 4.12,
+      "prompt_tokens": 33115,
+      "receipt_config_hash": "1d30742c68be28deb27fc0420d01d01d025793afaa331d9513050c9b416bb329",
+      "receipt_git": {
+        "commit": "132d984dbf4970d9a597d3c4041d27fe43523fe1",
+        "dirty": false
+      },
+      "receipt_run_id": "0f53b106740240d6ba8f50723fdc92e6",
+      "records_error": 0,
+      "records_ok": 24,
+      "records_without_usage": 0,
+      "replies_empty": 0,
+      "replies_under_20_chars": 0,
+      "reply_chars_max": 1807,
+      "reply_chars_median": 1276,
+      "reply_chars_min": 345,
+      "responses_at_max_tokens_cap": 0,
+      "sum_latency_seconds": 99.0,
+      "truncated_request_ids": []
+    },
+    "T1-A2": {
+      "audio_seconds": 2345.373,
+      "budget_totals": {
+        "audio_seconds_used": 2345.3734999999997,
+        "calls_used": 24,
+        "max_audio_seconds": 2500.0,
+        "max_calls": 26
+      },
+      "completion_tokens": 8097,
+      "extra_retry_attempts": 0,
+      "ledger_entries": 24,
+      "max_completion_tokens_observed": 1024,
+      "max_tokens_cap": 1024,
+      "mean_latency_seconds": 3.0,
+      "prompt_tokens": 33115,
+      "receipt_config_hash": "bc7290d875a034159d2635d71baf6e06fd93367d60c44792adececf819dc14a2",
+      "receipt_git": {
+        "commit": "132d984dbf4970d9a597d3c4041d27fe43523fe1",
+        "dirty": false
+      },
+      "receipt_run_id": "fcb8088cbf5f421d86e11a996a878bec",
+      "records_error": 0,
+      "records_ok": 24,
+      "records_without_usage": 0,
+      "replies_empty": 0,
+      "replies_under_20_chars": 0,
+      "reply_chars_max": 2625,
+      "reply_chars_median": 1285,
+      "reply_chars_min": 345,
+      "responses_at_max_tokens_cap": 1,
+      "sum_latency_seconds": 71.9,
+      "truncated_request_ids": [
+        "pprompt-T1-A2-TS3004b-slice0000"
+      ]
+    },
+    "T1-A3": {
+      "audio_seconds": 2345.373,
+      "budget_totals": {
+        "audio_seconds_used": 2345.3734999999997,
+        "calls_used": 24,
+        "max_audio_seconds": 2500.0,
+        "max_calls": 26
+      },
+      "completion_tokens": 8097,
+      "extra_retry_attempts": 0,
+      "ledger_entries": 24,
+      "max_completion_tokens_observed": 1024,
+      "max_tokens_cap": 1024,
+      "mean_latency_seconds": 3.01,
+      "prompt_tokens": 33115,
+      "receipt_config_hash": "4abb2fec1d59414abb7d3ca7ce0fc3d11096842e67c0bd5e73accbf9a5d9d3a3",
+      "receipt_git": {
+        "commit": "132d984dbf4970d9a597d3c4041d27fe43523fe1",
+        "dirty": false
+      },
+      "receipt_run_id": "d4976feb9d9f4b659cd5cb708318c9b7",
+      "records_error": 0,
+      "records_ok": 24,
+      "records_without_usage": 0,
+      "replies_empty": 0,
+      "replies_under_20_chars": 0,
+      "reply_chars_max": 2625,
+      "reply_chars_median": 1285,
+      "reply_chars_min": 345,
+      "responses_at_max_tokens_cap": 1,
+      "sum_latency_seconds": 72.2,
+      "truncated_request_ids": [
+        "pprompt-T1-A3-TS3004b-slice0000"
+      ]
+    },
+    "T2-A1": {
+      "audio_seconds": 2345.373,
+      "budget_totals": {
+        "audio_seconds_used": 2345.3734999999997,
+        "calls_used": 24,
+        "max_audio_seconds": 2500.0,
+        "max_calls": 26
+      },
+      "completion_tokens": 6292,
+      "extra_retry_attempts": 0,
+      "ledger_entries": 24,
+      "max_completion_tokens_observed": 446,
+      "max_tokens_cap": 1024,
+      "mean_latency_seconds": 3.9,
+      "prompt_tokens": 34623,
+      "receipt_config_hash": "0fd09798c0000ab58b3b60ea24b6411e353d7053ced31e8083e86a2e1dd794dd",
+      "receipt_git": {
+        "commit": "132d984dbf4970d9a597d3c4041d27fe43523fe1",
+        "dirty": false
+      },
+      "receipt_run_id": "40cb00bf118f45509d6fd893f786d8d5",
+      "records_error": 0,
+      "records_ok": 24,
+      "records_without_usage": 0,
+      "replies_empty": 0,
+      "replies_under_20_chars": 0,
+      "reply_chars_max": 1681,
+      "reply_chars_median": 1128,
+      "reply_chars_min": 33,
+      "responses_at_max_tokens_cap": 0,
+      "sum_latency_seconds": 93.6,
+      "truncated_request_ids": []
+    },
+    "T2-A2": {
+      "audio_seconds": 2345.373,
+      "budget_totals": {
+        "audio_seconds_used": 2345.3734999999997,
+        "calls_used": 24,
+        "max_audio_seconds": 2500.0,
+        "max_calls": 26
+      },
+      "completion_tokens": 7364,
+      "extra_retry_attempts": 0,
+      "ledger_entries": 24,
+      "max_completion_tokens_observed": 1024,
+      "max_tokens_cap": 1024,
+      "mean_latency_seconds": 4.22,
+      "prompt_tokens": 34623,
+      "receipt_config_hash": "577e41f7fab7759784938a322e766a2d4ae2798e6c7ec98231451cfd4e1edf5f",
+      "receipt_git": {
+        "commit": "132d984dbf4970d9a597d3c4041d27fe43523fe1",
+        "dirty": false
+      },
+      "receipt_run_id": "e1d5ef462e4c45e59ec17df8abae4264",
+      "records_error": 0,
+      "records_ok": 24,
+      "records_without_usage": 0,
+      "replies_empty": 0,
+      "replies_under_20_chars": 0,
+      "reply_chars_max": 1657,
+      "reply_chars_median": 1134,
+      "reply_chars_min": 335,
+      "responses_at_max_tokens_cap": 1,
+      "sum_latency_seconds": 101.2,
+      "truncated_request_ids": [
+        "pprompt-T2-A2-TS3004b-slice0000"
+      ]
+    },
+    "T2-A3": {
+      "audio_seconds": 2345.373,
+      "budget_totals": {
+        "audio_seconds_used": 2345.3734999999997,
+        "calls_used": 24,
+        "max_audio_seconds": 2500.0,
+        "max_calls": 26
+      },
+      "completion_tokens": 7422,
+      "extra_retry_attempts": 0,
+      "ledger_entries": 24,
+      "max_completion_tokens_observed": 1024,
+      "max_tokens_cap": 1024,
+      "mean_latency_seconds": 2.88,
+      "prompt_tokens": 34623,
+      "receipt_config_hash": "85c355c0953bf50e91851dec7427b8aea62ba092a521322b79a35362f68858b4",
+      "receipt_git": {
+        "commit": "132d984dbf4970d9a597d3c4041d27fe43523fe1",
+        "dirty": false
+      },
+      "receipt_run_id": "e600060bce2243008d2599703dabc2d0",
+      "records_error": 0,
+      "records_ok": 24,
+      "records_without_usage": 0,
+      "replies_empty": 0,
+      "replies_under_20_chars": 0,
+      "reply_chars_max": 1684,
+      "reply_chars_median": 1229,
+      "reply_chars_min": 343,
+      "responses_at_max_tokens_cap": 1,
+      "sum_latency_seconds": 69.1,
+      "truncated_request_ids": [
+        "pprompt-T2-A3-TS3004b-slice0000"
+      ]
+    },
+    "T3-A1": {
+      "audio_seconds": 2345.373,
+      "budget_totals": {
+        "audio_seconds_used": 2345.3734999999997,
+        "calls_used": 24,
+        "max_audio_seconds": 2500.0,
+        "max_calls": 26
+      },
+      "completion_tokens": 6569,
+      "extra_retry_attempts": 0,
+      "ledger_entries": 24,
+      "max_completion_tokens_observed": 452,
+      "max_tokens_cap": 1024,
+      "mean_latency_seconds": 3.96,
+      "prompt_tokens": 35007,
+      "receipt_config_hash": "02b580a8747d4bb080bd7bc418fc82de6a0a5bf2d6cab12163f6836949c52f21",
+      "receipt_git": {
+        "commit": "132d984dbf4970d9a597d3c4041d27fe43523fe1",
+        "dirty": false
+      },
+      "receipt_run_id": "ef8e6ef8bc954b10a078bc61511651da",
+      "records_error": 0,
+      "records_ok": 24,
+      "records_without_usage": 0,
+      "replies_empty": 0,
+      "replies_under_20_chars": 0,
+      "reply_chars_max": 1670,
+      "reply_chars_median": 1119,
+      "reply_chars_min": 335,
+      "responses_at_max_tokens_cap": 0,
+      "sum_latency_seconds": 94.9,
+      "truncated_request_ids": []
+    },
+    "T3-A2": {
+      "audio_seconds": 2345.373,
+      "budget_totals": {
+        "audio_seconds_used": 2345.3734999999997,
+        "calls_used": 24,
+        "max_audio_seconds": 2500.0,
+        "max_calls": 26
+      },
+      "completion_tokens": 7137,
+      "extra_retry_attempts": 0,
+      "ledger_entries": 24,
+      "max_completion_tokens_observed": 1024,
+      "max_tokens_cap": 1024,
+      "mean_latency_seconds": 4.12,
+      "prompt_tokens": 35007,
+      "receipt_config_hash": "80ad10cd86f541a2be943ba8bf31fb88077a3ba85e581689e60b536d63ca7adf",
+      "receipt_git": {
+        "commit": "132d984dbf4970d9a597d3c4041d27fe43523fe1",
+        "dirty": false
+      },
+      "receipt_run_id": "caf2cb4789d44ea0987861c2d487c0ff",
+      "records_error": 0,
+      "records_ok": 24,
+      "records_without_usage": 0,
+      "replies_empty": 0,
+      "replies_under_20_chars": 0,
+      "reply_chars_max": 2561,
+      "reply_chars_median": 1120,
+      "reply_chars_min": 33,
+      "responses_at_max_tokens_cap": 1,
+      "sum_latency_seconds": 98.8,
+      "truncated_request_ids": [
+        "pprompt-T3-A2-TS3004b-slice0000"
+      ]
+    },
+    "T3-A3": {
+      "audio_seconds": 2345.373,
+      "budget_totals": {
+        "audio_seconds_used": 2345.3734999999997,
+        "calls_used": 24,
+        "max_audio_seconds": 2500.0,
+        "max_calls": 26
+      },
+      "completion_tokens": 7308,
+      "extra_retry_attempts": 0,
+      "ledger_entries": 24,
+      "max_completion_tokens_observed": 1024,
+      "max_tokens_cap": 1024,
+      "mean_latency_seconds": 2.81,
+      "prompt_tokens": 35007,
+      "receipt_config_hash": "03fcac6d6c2780454bf902afcd67bf79f34678f05fdd9ced1c2894087b82e7e7",
+      "receipt_git": {
+        "commit": "132d984dbf4970d9a597d3c4041d27fe43523fe1",
+        "dirty": false
+      },
+      "receipt_run_id": "3a313ce4302d4cd586ec4716901f61bd",
+      "records_error": 0,
+      "records_ok": 24,
+      "records_without_usage": 0,
+      "replies_empty": 0,
+      "replies_under_20_chars": 0,
+      "reply_chars_max": 1671,
+      "reply_chars_median": 1181,
+      "reply_chars_min": 261,
+      "responses_at_max_tokens_cap": 1,
+      "sum_latency_seconds": 67.4,
+      "truncated_request_ids": [
+        "pprompt-T3-A3-TS3004b-slice0000"
+      ]
+    },
+    "T4-A1": {
+      "audio_seconds": 2345.373,
+      "budget_totals": {
+        "audio_seconds_used": 2345.3734999999997,
+        "calls_used": 24,
+        "max_audio_seconds": 2500.0,
+        "max_calls": 26
+      },
+      "completion_tokens": 6264,
+      "extra_retry_attempts": 0,
+      "ledger_entries": 24,
+      "max_completion_tokens_observed": 442,
+      "max_tokens_cap": 1024,
+      "mean_latency_seconds": 3.89,
+      "prompt_tokens": 36207,
+      "receipt_config_hash": "0535bb606374a928a561dc893ea07152b4e5a01a09dca28fbc3e1e9462308506",
+      "receipt_git": {
+        "commit": "132d984dbf4970d9a597d3c4041d27fe43523fe1",
+        "dirty": false
+      },
+      "receipt_run_id": "c09a081754c94f05a812ac1f4f23ff81",
+      "records_error": 0,
+      "records_ok": 24,
+      "records_without_usage": 0,
+      "replies_empty": 0,
+      "replies_under_20_chars": 0,
+      "reply_chars_max": 1678,
+      "reply_chars_median": 1121,
+      "reply_chars_min": 153,
+      "responses_at_max_tokens_cap": 0,
+      "sum_latency_seconds": 93.4,
+      "truncated_request_ids": []
+    },
+    "T4-A2": {
+      "audio_seconds": 2345.373,
+      "budget_totals": {
+        "audio_seconds_used": 2345.3734999999997,
+        "calls_used": 24,
+        "max_audio_seconds": 2500.0,
+        "max_calls": 26
+      },
+      "completion_tokens": 7244,
+      "extra_retry_attempts": 0,
+      "ledger_entries": 24,
+      "max_completion_tokens_observed": 1024,
+      "max_tokens_cap": 1024,
+      "mean_latency_seconds": 4.18,
+      "prompt_tokens": 36207,
+      "receipt_config_hash": "bee4115aee97f73b32735600ad12d8351a76b550dc26dc2c0507f2b677673812",
+      "receipt_git": {
+        "commit": "132d984dbf4970d9a597d3c4041d27fe43523fe1",
+        "dirty": false
+      },
+      "receipt_run_id": "168a074a1ca1436dbd36c955ef73e084",
+      "records_error": 0,
+      "records_ok": 24,
+      "records_without_usage": 0,
+      "replies_empty": 0,
+      "replies_under_20_chars": 0,
+      "reply_chars_max": 1954,
+      "reply_chars_median": 1123,
+      "reply_chars_min": 354,
+      "responses_at_max_tokens_cap": 1,
+      "sum_latency_seconds": 100.4,
+      "truncated_request_ids": [
+        "pprompt-T4-A2-TS3004b-slice0000"
+      ]
+    },
+    "T4-A3": {
+      "audio_seconds": 2345.373,
+      "budget_totals": {
+        "audio_seconds_used": 2345.3734999999997,
+        "calls_used": 24,
+        "max_audio_seconds": 2500.0,
+        "max_calls": 26
+      },
+      "completion_tokens": 7424,
+      "extra_retry_attempts": 0,
+      "ledger_entries": 24,
+      "max_completion_tokens_observed": 1024,
+      "max_tokens_cap": 1024,
+      "mean_latency_seconds": 2.85,
+      "prompt_tokens": 36207,
+      "receipt_config_hash": "43893b5632f0da2de48baa578b7c881d12d1647d2206b510bf32d591a3449e6d",
+      "receipt_git": {
+        "commit": "132d984dbf4970d9a597d3c4041d27fe43523fe1",
+        "dirty": false
+      },
+      "receipt_run_id": "46722e7d06494cda98cef1045a5344d9",
+      "records_error": 0,
+      "records_ok": 24,
+      "records_without_usage": 0,
+      "replies_empty": 0,
+      "replies_under_20_chars": 0,
+      "reply_chars_max": 1666,
+      "reply_chars_median": 1133,
+      "reply_chars_min": 357,
+      "responses_at_max_tokens_cap": 1,
+      "sum_latency_seconds": 68.4,
+      "truncated_request_ids": [
+        "pprompt-T4-A3-TS3004b-slice0000"
+      ]
+    },
+    "X1": {
+      "audio_seconds": 2345.373,
+      "budget_totals": {
+        "audio_seconds_used": 2345.3734999999997,
+        "calls_used": 24,
+        "max_audio_seconds": 2500.0,
+        "max_calls": 26
+      },
+      "completion_tokens": 6297,
+      "extra_retry_attempts": 0,
+      "ledger_entries": 24,
+      "max_completion_tokens_observed": 446,
+      "max_tokens_cap": 1024,
+      "mean_latency_seconds": 3.8,
+      "prompt_tokens": 34623,
+      "receipt_config_hash": "7a164af8c05d7dc26d2766277a7626d98a9f71acb13acac64bfc86d8861e856a",
+      "receipt_git": {
+        "commit": "132d984dbf4970d9a597d3c4041d27fe43523fe1",
+        "dirty": false
+      },
+      "receipt_run_id": "f7a7495ebe684bb5b06264d575191a5e",
+      "records_error": 0,
+      "records_ok": 24,
+      "records_without_usage": 0,
+      "replies_empty": 0,
+      "replies_under_20_chars": 0,
+      "reply_chars_max": 1681,
+      "reply_chars_median": 1125,
+      "reply_chars_min": 33,
+      "responses_at_max_tokens_cap": 0,
+      "sum_latency_seconds": 91.2,
+      "truncated_request_ids": []
+    },
+    "X2": {
+      "audio_seconds": 2345.373,
+      "budget_totals": {
+        "audio_seconds_used": 2345.3734999999997,
+        "calls_used": 24,
+        "max_audio_seconds": 2500.0,
+        "max_calls": 26
+      },
+      "completion_tokens": 7005,
+      "extra_retry_attempts": 0,
+      "ledger_entries": 24,
+      "max_completion_tokens_observed": 537,
+      "max_tokens_cap": 1024,
+      "mean_latency_seconds": 4.16,
+      "prompt_tokens": 39057,
+      "receipt_config_hash": "ab0306cc6776700dc3fc860a2a7bd7fe80387db75b284edb450ec565304ff139",
+      "receipt_git": {
+        "commit": "132d984dbf4970d9a597d3c4041d27fe43523fe1",
+        "dirty": false
+      },
+      "receipt_run_id": "be0aa286facb46e4bab2591a2be692e6",
+      "records_error": 0,
+      "records_ok": 24,
+      "records_without_usage": 0,
+      "replies_empty": 0,
+      "replies_under_20_chars": 0,
+      "reply_chars_max": 2183,
+      "reply_chars_median": 1246,
+      "reply_chars_min": 22,
+      "responses_at_max_tokens_cap": 0,
+      "sum_latency_seconds": 99.9,
+      "truncated_request_ids": []
+    }
+  },
+  "ceilings": {
+    "max_audio_seconds": 35000,
+    "max_gpu_hours": 1.0,
+    "max_requests": 380
+  },
+  "featcache_bytes": 502249200,
+  "featcache_dir": "/home/chao/feat-cache/ami-q4km",
+  "featcache_entries": 879,
+  "featcache_entries_before": 879,
+  "gpu_sampler": {
+    "max_temp_c": 64.0,
+    "samples": 43,
+    "sm_clocks_seen": [
+      "180MHz",
+      "232MHz"
+    ],
+    "throttle_reasons_seen": [
+      "0x0000000000000000",
+      "0x0000000000000004"
+    ],
+    "utilization_integrated_gpu_hours": 0.2857,
+    "utilization_integrated_gpu_seconds": 1028.4,
+    "wall_seconds_sampled": 1290
+  },
+  "grand_total_audio_seconds_metered": 32835.229,
+  "grand_total_calls_metered": 336,
+  "grand_total_request_latency_hours": 0.3393,
+  "grand_total_request_latency_seconds": 1221.4,
+  "server_log_encoding_lines": 0
+}

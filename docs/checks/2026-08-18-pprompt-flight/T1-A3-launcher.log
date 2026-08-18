@@ -1,0 +1,11 @@
+=== T1-A3 start 18:19:39Z ===
+232 MHz, 62, 17.49 W, 0 %, 23862 MiB, P4
+[T1-A3] 8/24 specs seen, 8 flown this process, 19.9s elapsed, 2.49s/request
+[T1-A3] 16/24 specs seen, 16 flown this process, 43.5s elapsed, 2.72s/request
+[T1-A3] 24/24 specs seen, 24 flown this process, 73.1s elapsed, 3.04s/request
+wrote /mnt/e/chao_workspace/exploring-l4-intelligence/speechrl-data/derived/meeting-minutes/pprompt-sweep/runs/2026-08-18-pprompt-sweep/T1-A3-receipt.json (ledger entries: 24, budget: {'calls_used': 24, 'audio_seconds_used': 2345.3734999999997, 'max_calls': 26, 'max_audio_seconds': 2500.0})
+=== T1-A3 done 18:20:53Z rc=0 ===
+wall_seconds=74
+records_ok=24 records_error=0 records_other=0
+featcache_entries: 879 -> 879
+180 MHz, 62, 17.96 W, 0 %, 23862 MiB, P4

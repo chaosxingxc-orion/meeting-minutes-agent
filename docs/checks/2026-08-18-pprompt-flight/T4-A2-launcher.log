@@ -1,0 +1,11 @@
+=== T4-A2 start 18:31:25Z ===
+180 MHz, 60, 17.90 W, 0 %, 23862 MiB, P4
+[T4-A2] 8/24 specs seen, 8 flown this process, 30.0s elapsed, 3.75s/request
+[T4-A2] 16/24 specs seen, 16 flown this process, 63.9s elapsed, 3.99s/request
+[T4-A2] 24/24 specs seen, 24 flown this process, 101.3s elapsed, 4.22s/request
+wrote /mnt/e/chao_workspace/exploring-l4-intelligence/speechrl-data/derived/meeting-minutes/pprompt-sweep/runs/2026-08-18-pprompt-sweep/T4-A2-receipt.json (ledger entries: 24, budget: {'calls_used': 24, 'audio_seconds_used': 2345.3734999999997, 'max_calls': 26, 'max_audio_seconds': 2500.0})
+=== T4-A2 done 18:33:08Z rc=0 ===
+wall_seconds=103
+records_ok=24 records_error=0 records_other=0
+featcache_entries: 879 -> 879
+180 MHz, 64, 17.82 W, 0 %, 23862 MiB, P4

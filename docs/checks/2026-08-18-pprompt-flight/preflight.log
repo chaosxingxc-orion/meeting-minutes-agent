@@ -1,0 +1,35 @@
+=== P-PROMPT preflight 2026-08-18T18:14:44Z ===
+--- repo state ---
+OK   git.dirty_paths = 0
+OK   git.head = 132d984dbf4970d9a597d3c4041d27fe43523fe1
+--- binding manifest ---
+OK   binding.sha256 = 11ca048ead1c5f957000e9a93475d95d63764fcf3590ed050e5ca8883d0b27e0
+--- llama-server identity ---
+OK   server.binary.sha256 = 097c96ec5a3f576f378d4d5e103928bf070647fdcc1f015eacb839503e121c68
+server.binary.bytes=17920
+server.version: version: 5 (5d9dfcb58) built with GNU 13.3.0 for Linux x86_64 
+OK   llamacpp.build_commit = 5d9dfcb58ea860295da8fc93c7b5bed9e2c71151
+OK   llamacpp.tree_dirty = 0
+--- model files (sha256 of 18.5 GB + 2.2 GB, also warms page cache) ---
+OK   model.gguf.sha256 = 0751c279498785c0b07130ae7748038d1e2cfd04617928e4557063807f98066d
+model.gguf.bytes=18557053952
+OK   mmproj.gguf.sha256 = f0dfe825fb692d426362b1ac79678fc08daa4758f7151526cad110515f122883
+mmproj.gguf.bytes=2207465568
+--- X2 donor source (P-ATTR smoke archived A-turn replies) ---
+OK   donor.jsonl.sha256 = 68afc29c5452fa014662776ce17c10cfe844ebd4d2620aa3e9f9c89c4a7f8266
+--- slice audio integrity (24 files vs frozen P-ATTR manifest) ---
+slices_verified=24 total_audio_seconds=2345.373 longest_slice_seconds=110.347
+transport_bound_violations=0
+PREFLIGHT-AUDIO: OK
+--- feature caches ---
+featcache ami-q4km: entries=879 dir_mtime=2026-08-18 10:50:16.917607885 -0400
+featcache q4km: entries=34350 dir_mtime=2026-08-16 14:09:12.587865213 -0400
+featcache slurp-q4km: entries=63 dir_mtime=2026-08-17 21:08:20.452621618 -0400
+featcache audio2tool-q4km: entries=480 dir_mtime=2026-08-18 02:36:43.478984940 -0400
+--- orphan server check ---
+OK   no llama-server running
+--- GPU state (idle expected) ---
+180 MHz, P8, 44, 7.99 W, 3 %, 493 MiB
+--- throttle-reason query-field probe ---
+0x0000000000000000
+=== PREFLIGHT: ALL OK ===

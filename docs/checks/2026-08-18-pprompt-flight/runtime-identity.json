@@ -1,0 +1,20 @@
+{
+  "captured_utc": "2026-08-18T18:16:10Z",
+  "study_repo": {"path": "/mnt/d/chao_workspace/exploring-l4-intelligence/papers/meeting-minutes-agent", "commit": "132d984dbf4970d9a597d3c4041d27fe43523fe1", "dirty_paths": 0},
+  "binding_manifest": {"path": "configs/probes/pprompt/2026-08-18-pprompt-binding.json", "sha256": "11ca048ead1c5f957000e9a93475d95d63764fcf3590ed050e5ca8883d0b27e0"},
+  "llama_cpp": {
+    "checkout": "/home/chao/llama.cpp-featcache",
+    "build_commit": "5d9dfcb58ea860295da8fc93c7b5bed9e2c71151",
+    "tree_dirty": 0,
+    "binary_path": "/home/chao/llama.cpp-featcache/build/bin/llama-server",
+    "binary_bytes": 17920,
+    "binary_sha256": "097c96ec5a3f576f378d4d5e103928bf070647fdcc1f015eacb839503e121c68",
+    "reported_version": "version: 5 (5d9dfcb58) built with GNU 13.3.0 for Linux x86_64 "
+  },
+  "model_files": [
+    {"path": "/home/chao/models/qwen3-omni-30b-a3b-instruct-gguf-q4km/Qwen3-Omni-30B-A3B-Instruct-Q4_K_M.gguf", "bytes": 18557053952, "sha256": "0751c279498785c0b07130ae7748038d1e2cfd04617928e4557063807f98066d"},
+    {"path": "/home/chao/models/qwen3-omni-30b-a3b-instruct-gguf-q4km/mmproj-Qwen3-Omni-30B-A3B-Instruct-bf16.gguf", "bytes": 2207465568, "sha256": "f0dfe825fb692d426362b1ac79678fc08daa4758f7151526cad110515f122883"}
+  ],
+  "feat_cache_dir": "/home/chao/feat-cache/ami-q4km",
+  "feat_cache_entries_before": 879
+}

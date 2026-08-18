@@ -1,0 +1,16 @@
+=== fly_all start 2026-08-18T18:16:44Z ===
+T1-A1 rc=0 wall=101s cache 879->879
+T1-A2 rc=0 wall=74s cache 879->879
+T1-A3 rc=0 wall=74s cache 879->879
+T2-A1 rc=0 wall=96s cache 879->879
+T2-A2 rc=0 wall=103s cache 879->879
+T2-A3 rc=0 wall=71s cache 879->879
+T3-A1 rc=0 wall=97s cache 879->879
+T3-A2 rc=0 wall=100s cache 879->879
+T3-A3 rc=0 wall=69s cache 879->879
+T4-A1 rc=0 wall=95s cache 879->879
+T4-A2 rc=0 wall=103s cache 879->879
+T4-A3 rc=0 wall=71s cache 879->879
+X1 rc=0 wall=93s cache 879->879
+X2 rc=0 wall=103s cache 879->879
+=== fly_all done 2026-08-18T18:37:35Z total_wall_seconds=1251 ===

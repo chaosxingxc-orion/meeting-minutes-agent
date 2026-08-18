@@ -1,0 +1,17 @@
+# Run-dir artefacts kept OUT of Git (raw traces), recorded by hash
+# run_dir: /mnt/e/chao_workspace/exploring-l4-intelligence/speechrl-data/derived/meeting-minutes/pprompt-sweep/runs/2026-08-18-pprompt-sweep
+78a9f4158dd6363831b57e342be2681df9fb6bc2b4679d4d909c11a3741e9ec7  server.log  3267845 bytes
+13f252d74ea511d2c9495103fd04c89c3dfaa3d57424f3dff846188eeab4f073  T1-A1-responses.jsonl  48674 bytes
+ebb0f196ed2aab1c83c328f71cc28117d82810001be1b1ccd1aba4186de68841  T1-A2-responses.jsonl  50697 bytes
+7d6cf18e4139b5d7342c040951ce3cd95e4181da6257c33500dd89a687368a24  T1-A3-responses.jsonl  50706 bytes
+1065d22dbe74defac783029e05ca41c493b6cd9d72768fc916e70a48cd991643  T2-A1-responses.jsonl  45175 bytes
+c43b90acacb8e21e48036ac2241c73d1ed090ded39de2df74caa62cd92c50c7e  T2-A2-responses.jsonl  47378 bytes
+90526aa06dbfeb343114d7d1207bb6d4d2cb40491403be5d26989d8072ea5156  T2-A3-responses.jsonl  47787 bytes
+c77ecbb00816216c34a6ebba8893916d36e4c851379c69f4ee666a2c72bce0be  T3-A1-responses.jsonl  46347 bytes
+bda210b2448bc8533dfe9dca75411b3288e27fc64c47bb9ab9bc9068205fe94b  T3-A2-responses.jsonl  47025 bytes
+dad43a4e9c6e5e55322cca8db049443697d554fde321cd67b175fa0119eb9497  T3-A3-responses.jsonl  47374 bytes
+193b6756e9a75269eca218700810ddb353305785a711b8b06b3daa99deda9761  T4-A1-responses.jsonl  45353 bytes
+eea84d57f517729512a4ad5a872f87e110bad5bb087bd51c33970c999eb09e02  T4-A2-responses.jsonl  47517 bytes
+1f8373e35d792e39877479e061ccf7f1247d68e63a2e7343b9140ffba85d4ed8  T4-A3-responses.jsonl  47453 bytes
+60b05e8ea0544886b852202a519cd1d91f6abe211b06fbe8c4324b2e697be558  X1-responses.jsonl  44897 bytes
+bb9d5725161a7187f324728c9661cfa98f5f017ce7009646707564e1b4a3c0a5  X2-responses.jsonl  48356 bytes

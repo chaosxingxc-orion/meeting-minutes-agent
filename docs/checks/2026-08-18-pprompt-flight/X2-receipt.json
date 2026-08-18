@@ -1,0 +1,295 @@
+{
+  "config": {
+    "budget_totals": {
+      "audio_seconds_used": 2345.3734999999997,
+      "calls_used": 24,
+      "max_audio_seconds": 2500.0,
+      "max_calls": 26
+    },
+    "request_ledger": [
+      {
+        "attempt_number": 1,
+        "audio_seconds": 99.402,
+        "error": null,
+        "latency_seconds": 3.3374928630000795,
+        "outcome": "ok",
+        "request_id": "pprompt-X2-ES2011b-slice0000",
+        "response_of": "pprompt-X2-ES2011b-slice0000",
+        "retry_of": null,
+        "started_at": "2026-08-18T18:35:53.043707+00:00"
+      },
+      {
+        "attempt_number": 1,
+        "audio_seconds": 100.43900000000001,
+        "error": null,
+        "latency_seconds": 6.134042263000083,
+        "outcome": "ok",
+        "request_id": "pprompt-X2-ES2011b-slice0001",
+        "response_of": "pprompt-X2-ES2011b-slice0001",
+        "retry_of": null,
+        "started_at": "2026-08-18T18:35:56.409703+00:00"
+      },
+      {
+        "attempt_number": 1,
+        "audio_seconds": 106.62100000000001,
+        "error": null,
+        "latency_seconds": 4.790427576001093,
+        "outcome": "ok",
+        "request_id": "pprompt-X2-ES2011b-slice0002",
+        "response_of": "pprompt-X2-ES2011b-slice0002",
+        "retry_of": null,
+        "started_at": "2026-08-18T18:36:03.099031+00:00"
+      },
+      {
+        "attempt_number": 1,
+        "audio_seconds": 94.21100000000001,
+        "error": null,
+        "latency_seconds": 3.4443290489998617,
+        "outcome": "ok",
+        "request_id": "pprompt-X2-ES2011b-slice0003",
+        "response_of": "pprompt-X2-ES2011b-slice0003",
+        "retry_of": null,
+        "started_at": "2026-08-18T18:36:07.910239+00:00"
+      },
+      {
+        "attempt_number": 1,
+        "audio_seconds": 91.84799999999996,
+        "error": null,
+        "latency_seconds": 4.079471651000858,
+        "outcome": "ok",
+        "request_id": "pprompt-X2-ES2011b-slice0004",
+        "response_of": "pprompt-X2-ES2011b-slice0004",
+        "retry_of": null,
+        "started_at": "2026-08-18T18:36:11.383286+00:00"
+      },
+      {
+        "attempt_number": 1,
+        "audio_seconds": 91.27300000000002,
+        "error": null,
+        "latency_seconds": 2.273043076000249,
+        "outcome": "ok",
+        "request_id": "pprompt-X2-ES2011b-slice0005",
+        "response_of": "pprompt-X2-ES2011b-slice0005",
+        "retry_of": null,
+        "started_at": "2026-08-18T18:36:15.565376+00:00"
+      },
+      {
+        "attempt_number": 1,
+        "audio_seconds": 94.346,
+        "error": null,
+        "latency_seconds": 3.5769659479992697,
+        "outcome": "ok",
+        "request_id": "pprompt-X2-IS1008b-slice0000",
+        "response_of": "pprompt-X2-IS1008b-slice0000",
+        "retry_of": null,
+        "started_at": "2026-08-18T18:36:17.883093+00:00"
+      },
+      {
+        "attempt_number": 1,
+        "audio_seconds": 110.34700000000001,
+        "error": null,
+        "latency_seconds": 4.532039931998952,
+        "outcome": "ok",
+        "request_id": "pprompt-X2-IS1008b-slice0001",
+        "response_of": "pprompt-X2-IS1008b-slice0001",
+        "retry_of": null,
+        "started_at": "2026-08-18T18:36:21.489971+00:00"
+      },
+      {
+        "attempt_number": 1,
+        "audio_seconds": 94.576,
+        "error": null,
+        "latency_seconds": 4.082570929000212,
+        "outcome": "ok",
+        "request_id": "pprompt-X2-IS1008b-slice0002",
+        "response_of": "pprompt-X2-IS1008b-slice0002",
+        "retry_of": null,
+        "started_at": "2026-08-18T18:36:26.050598+00:00"
+      },
+      {
+        "attempt_number": 1,
+        "audio_seconds": 94.41900000000004,
+        "error": null,
+        "latency_seconds": 3.979973659001189,
+        "outcome": "ok",
+        "request_id": "pprompt-X2-IS1008b-slice0003",
+        "response_of": "pprompt-X2-IS1008b-slice0003",
+        "retry_of": null,
+        "started_at": "2026-08-18T18:36:30.156883+00:00"
+      },
+      {
+        "attempt_number": 1,
+        "audio_seconds": 95.42000000000002,
+        "error": null,
+        "latency_seconds": 4.28687310299938,
+        "outcome": "ok",
+        "request_id": "pprompt-X2-IS1008b-slice0004",
+        "response_of": "pprompt-X2-IS1008b-slice0004",
+        "retry_of": null,
+        "started_at": "2026-08-18T18:36:34.170879+00:00"
+      },
+      {
+        "attempt_number": 1,
+        "audio_seconds": 110.1289999999999,
+        "error": null,
+        "latency_seconds": 3.553919316000247,
+        "outcome": "ok",
+        "request_id": "pprompt-X2-IS1008b-slice0005",
+        "response_of": "pprompt-X2-IS1008b-slice0005",
+        "retry_of": null,
+        "started_at": "2026-08-18T18:36:38.964355+00:00"
+      },
+      {
+        "attempt_number": 1,
+        "audio_seconds": 100.30799999999999,
+        "error": null,
+        "latency_seconds": 3.800674947000516,
+        "outcome": "ok",
+        "request_id": "pprompt-X2-IS1008d-slice0000",
+        "response_of": "pprompt-X2-IS1008d-slice0000",
+        "retry_of": null,
+        "started_at": "2026-08-18T18:36:42.544883+00:00"
+      },
+      {
+        "attempt_number": 1,
+        "audio_seconds": 92.63300000000001,
+        "error": null,
+        "latency_seconds": 1.7930430879987398,
+        "outcome": "ok",
+        "request_id": "pprompt-X2-IS1008d-slice0001",
+        "response_of": "pprompt-X2-IS1008d-slice0001",
+        "retry_of": null,
+        "started_at": "2026-08-18T18:36:46.365793+00:00"
+      },
+      {
+        "attempt_number": 1,
+        "audio_seconds": 104.41499999999999,
+        "error": null,
+        "latency_seconds": 4.749423148999995,
+        "outcome": "ok",
+        "request_id": "pprompt-X2-IS1008d-slice0002",
+        "response_of": "pprompt-X2-IS1008d-slice0002",
+        "retry_of": null,
+        "started_at": "2026-08-18T18:36:48.180567+00:00"
+      },
+      {
+        "attempt_number": 1,
+        "audio_seconds": 95.40800000000002,
+        "error": null,
+        "latency_seconds": 5.325160843000049,
+        "outcome": "ok",
+        "request_id": "pprompt-X2-IS1008d-slice0003",
+        "response_of": "pprompt-X2-IS1008d-slice0003",
+        "retry_of": null,
+        "started_at": "2026-08-18T18:36:52.953451+00:00"
+      },
+      {
+        "attempt_number": 1,
+        "audio_seconds": 101.12,
+        "error": null,
+        "latency_seconds": 4.0163609070004895,
+        "outcome": "ok",
+        "request_id": "pprompt-X2-IS1008d-slice0004",
+        "response_of": "pprompt-X2-IS1008d-slice0004",
+        "retry_of": null,
+        "started_at": "2026-08-18T18:36:58.302726+00:00"
+      },
+      {
+        "attempt_number": 1,
+        "audio_seconds": 93.06500000000005,
+        "error": null,
+        "latency_seconds": 4.366302340000402,
+        "outcome": "ok",
+        "request_id": "pprompt-X2-IS1008d-slice0005",
+        "response_of": "pprompt-X2-IS1008d-slice0005",
+        "retry_of": null,
+        "started_at": "2026-08-18T18:37:02.345835+00:00"
+      },
+      {
+        "attempt_number": 1,
+        "audio_seconds": 95.528,
+        "error": null,
+        "latency_seconds": 4.80248236800071,
+        "outcome": "ok",
+        "request_id": "pprompt-X2-TS3004b-slice0000",
+        "response_of": "pprompt-X2-TS3004b-slice0000",
+        "retry_of": null,
+        "started_at": "2026-08-18T18:37:06.739466+00:00"
+      },
+      {
+        "attempt_number": 1,
+        "audio_seconds": 94.719,
+        "error": null,
+        "latency_seconds": 3.355216243000541,
+        "outcome": "ok",
+        "request_id": "pprompt-X2-TS3004b-slice0001",
+        "response_of": "pprompt-X2-TS3004b-slice0001",
+        "retry_of": null,
+        "started_at": "2026-08-18T18:37:11.574843+00:00"
+      },
+      {
+        "attempt_number": 1,
+        "audio_seconds": 105.21700000000001,
+        "error": null,
+        "latency_seconds": 5.0431301850003365,
+        "outcome": "ok",
+        "request_id": "pprompt-X2-TS3004b-slice0002",
+        "response_of": "pprompt-X2-TS3004b-slice0002",
+        "retry_of": null,
+        "started_at": "2026-08-18T18:37:14.953299+00:00"
+      },
+      {
+        "attempt_number": 1,
+        "audio_seconds": 91.90100000000001,
+        "error": null,
+        "latency_seconds": 4.875187866000488,
+        "outcome": "ok",
+        "request_id": "pprompt-X2-TS3004b-slice0003",
+        "response_of": "pprompt-X2-TS3004b-slice0003",
+        "retry_of": null,
+        "started_at": "2026-08-18T18:37:20.019227+00:00"
+      },
+      {
+        "attempt_number": 1,
+        "audio_seconds": 95.51150000000001,
+        "error": null,
+        "latency_seconds": 4.927948201000618,
+        "outcome": "ok",
+        "request_id": "pprompt-X2-TS3004b-slice0004",
+        "response_of": "pprompt-X2-TS3004b-slice0004",
+        "retry_of": null,
+        "started_at": "2026-08-18T18:37:24.918177+00:00"
+      },
+      {
+        "attempt_number": 1,
+        "audio_seconds": 92.51699999999994,
+        "error": null,
+        "latency_seconds": 4.748221027999534,
+        "outcome": "ok",
+        "request_id": "pprompt-X2-TS3004b-slice0005",
+        "response_of": "pprompt-X2-TS3004b-slice0005",
+        "retry_of": null,
+        "started_at": "2026-08-18T18:37:29.868792+00:00"
+      }
+    ],
+    "server_identity": {
+      "base_url": "http://127.0.0.1:8080",
+      "model_files": [
+        {
+          "path": "/home/chao/models/qwen3-omni-30b-a3b-instruct-gguf-q4km/Qwen3-Omni-30B-A3B-Instruct-Q4_K_M.gguf",
+          "sha256": "0751c279498785c0b07130ae7748038d1e2cfd04617928e4557063807f98066d"
+        }
+      ],
+      "slots": 1
+    }
+  },
+  "config_hash": "ab0306cc6776700dc3fc860a2a7bd7fe80387db75b284edb450ec565304ff139",
+  "created_utc": "2026-08-18T18:37:35+00:00",
+  "extra": {},
+  "git": {
+    "commit": "132d984dbf4970d9a597d3c4041d27fe43523fe1",
+    "dirty": false,
+    "error": null
+  },
+  "run_id": "be0aa286facb46e4bab2591a2be692e6"
+}

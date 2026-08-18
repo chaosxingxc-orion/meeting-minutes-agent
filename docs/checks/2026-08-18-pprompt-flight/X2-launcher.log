@@ -1,0 +1,11 @@
+=== X2 start 18:35:52Z ===
+180 MHz, 64, 14.85 W, 0 %, 23862 MiB, P4
+[X2] 8/24 specs seen, 8 flown this process, 32.5s elapsed, 4.06s/request
+[X2] 16/24 specs seen, 16 flown this process, 64.3s elapsed, 4.02s/request
+[X2] 24/24 specs seen, 24 flown this process, 100.6s elapsed, 4.19s/request
+wrote /mnt/e/chao_workspace/exploring-l4-intelligence/speechrl-data/derived/meeting-minutes/pprompt-sweep/runs/2026-08-18-pprompt-sweep/X2-receipt.json (ledger entries: 24, budget: {'calls_used': 24, 'audio_seconds_used': 2345.3734999999997, 'max_calls': 26, 'max_audio_seconds': 2500.0})
+=== X2 done 18:37:35Z rc=0 ===
+wall_seconds=103
+records_ok=24 records_error=0 records_other=0
+featcache_entries: 879 -> 879
+180 MHz, 59, 17.62 W, 0 %, 23864 MiB, P4

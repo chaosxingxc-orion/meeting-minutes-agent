@@ -1,0 +1,128 @@
+=== summary-only 2026-08-18T18:15:45Z ===
+--- T1-A1 ---
+{
+  "T1-A1": {
+    "arm": "T1-A1",
+    "n_meetings": 4,
+    "n_requests": 24,
+    "total_audio_seconds": 2345.3735
+  }
+}
+--- T1-A2 ---
+{
+  "T1-A2": {
+    "arm": "T1-A2",
+    "n_meetings": 4,
+    "n_requests": 24,
+    "total_audio_seconds": 2345.3735
+  }
+}
+--- T1-A3 ---
+{
+  "T1-A3": {
+    "arm": "T1-A3",
+    "n_meetings": 4,
+    "n_requests": 24,
+    "total_audio_seconds": 2345.3735
+  }
+}
+--- T2-A1 ---
+{
+  "T2-A1": {
+    "arm": "T2-A1",
+    "n_meetings": 4,
+    "n_requests": 24,
+    "total_audio_seconds": 2345.3735
+  }
+}
+--- T2-A2 ---
+{
+  "T2-A2": {
+    "arm": "T2-A2",
+    "n_meetings": 4,
+    "n_requests": 24,
+    "total_audio_seconds": 2345.3735
+  }
+}
+--- T2-A3 ---
+{
+  "T2-A3": {
+    "arm": "T2-A3",
+    "n_meetings": 4,
+    "n_requests": 24,
+    "total_audio_seconds": 2345.3735
+  }
+}
+--- T3-A1 ---
+{
+  "T3-A1": {
+    "arm": "T3-A1",
+    "n_meetings": 4,
+    "n_requests": 24,
+    "total_audio_seconds": 2345.3735
+  }
+}
+--- T3-A2 ---
+{
+  "T3-A2": {
+    "arm": "T3-A2",
+    "n_meetings": 4,
+    "n_requests": 24,
+    "total_audio_seconds": 2345.3735
+  }
+}
+--- T3-A3 ---
+{
+  "T3-A3": {
+    "arm": "T3-A3",
+    "n_meetings": 4,
+    "n_requests": 24,
+    "total_audio_seconds": 2345.3735
+  }
+}
+--- T4-A1 ---
+{
+  "T4-A1": {
+    "arm": "T4-A1",
+    "n_meetings": 4,
+    "n_requests": 24,
+    "total_audio_seconds": 2345.3735
+  }
+}
+--- T4-A2 ---
+{
+  "T4-A2": {
+    "arm": "T4-A2",
+    "n_meetings": 4,
+    "n_requests": 24,
+    "total_audio_seconds": 2345.3735
+  }
+}
+--- T4-A3 ---
+{
+  "T4-A3": {
+    "arm": "T4-A3",
+    "n_meetings": 4,
+    "n_requests": 24,
+    "total_audio_seconds": 2345.3735
+  }
+}
+--- X1 ---
+{
+  "X1": {
+    "arm": "X1",
+    "n_meetings": 4,
+    "n_requests": 24,
+    "total_audio_seconds": 2345.3735
+  }
+}
+--- X2 ---
+{
+  "X2": {
+    "arm": "X2",
+    "n_meetings": 4,
+    "n_requests": 24,
+    "total_audio_seconds": 2345.3735
+  }
+}
+=== summary-only done rc=0 ===

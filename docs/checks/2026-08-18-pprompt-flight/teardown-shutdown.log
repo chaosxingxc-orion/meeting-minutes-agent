@@ -1,0 +1,16 @@
+=== before ===
+978 ./llama-server --host 127.0.0.1 --port 8080 -m /home/chao/models/qwen3-omni-30b-a3b-instruct-gguf-q4km/Qwen3-Omni-30B-A3B-Instruct-Q4_K_M.gguf --mmproj /home/chao/models/qwen3-omni-30b-a3b-instruct-gguf-q4km/mmproj-Qwen3-Omni-30B-A3B-Instruct-bf16.gguf -c 49152 -np 1 -fa on -ngl 999 -ctk q8_0 -ctv q8_0
+=== after ===
+no server process
+180 MHz, 53, 8.20 W, 0 %, 493 MiB, P8
+=== server log final size ===
+3267845
+=== server log encoding-line count (0 expected: featcache WARM) ===
+0
+=== featcache final ===
+879
+483M	/home/chao/feat-cache/ami-q4km
+=== sibling caches untouched (mtimes) ===
+2026-08-16 14:09:12.587865213 -0400 /home/chao/feat-cache/q4km
+2026-08-17 21:08:20.452621618 -0400 /home/chao/feat-cache/slurp-q4km
+2026-08-18 02:36:43.478984940 -0400 /home/chao/feat-cache/audio2tool-q4km

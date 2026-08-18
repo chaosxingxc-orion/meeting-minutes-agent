@@ -1,0 +1,31 @@
+=== pytest 2026-08-18T18:15:10Z ===
+..........ss............................................................ [  7%]
+........................................................................ [ 14%]
+.......................s................................................ [ 21%]
+........................................................................ [ 29%]
+........................................................................ [ 36%]
+........................................................................ [ 43%]
+........................................................................ [ 50%]
+........................................................................ [ 58%]
+........................................................................ [ 65%]
+........................................................................ [ 72%]
+........................................................................ [ 80%]
+........................................................................ [ 87%]
+........................................................................ [ 94%]
+......................................................                   [100%]
+=============================== warnings summary ===============================
+tests/unit/chunking/test_slicer.py::TestRealAudioVad::test_detect_energy_pause_transitions_finds_a_real_silence_gap
+  /home/chao/.venvs/speechrl/lib/python3.12/site-packages/audioread/rawread.py:16: DeprecationWarning: 'aifc' is deprecated and slated for removal in Python 3.13
+    import aifc
+
+tests/unit/chunking/test_slicer.py::TestRealAudioVad::test_detect_energy_pause_transitions_finds_a_real_silence_gap
+  /home/chao/.venvs/speechrl/lib/python3.12/site-packages/audioread/rawread.py:17: DeprecationWarning: 'audioop' is deprecated and slated for removal in Python 3.13
+    import audioop
+
+tests/unit/chunking/test_slicer.py::TestRealAudioVad::test_detect_energy_pause_transitions_finds_a_real_silence_gap
+  /home/chao/.venvs/speechrl/lib/python3.12/site-packages/audioread/rawread.py:19: DeprecationWarning: 'sunau' is deprecated and slated for removal in Python 3.13
+    import sunau
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+987 passed, 3 skipped, 3 warnings in 23.30s
+=== pytest done rc=0 2026-08-18T18:15:35Z ===
