@@ -22,7 +22,18 @@ free surface under the split philosophy):
 
 Scored with cpWER-family confusion cost vs AMI gold (the metric family is permutation-matched
 per-speaker streams, so model-side cluster naming is irrelevant; utterance segmentation itself
-is NOT scored — an honest metric blind spot recorded here). PRE-REGISTERED branch: if A-grid's
+is NOT scored — an honest metric blind spot recorded here).
+
+**BOUND 2026-08-18 (REGISTERED as the smoke's numbers):** meetings ES2011b / IS1008b /
+IS1008d / TS3004b (seed 20260818, asr-eval role, IB-free); frozen manifest
+`configs/probes/pattr/2026-08-18-pattr-smoke-manifest.json` (24 slices 91.27–110.35 s, zero
+transport-bound violations after fix `e627f8e`; 450 turn clips). Requests: A-grid 24 +
+A-free 24 + A-turn 450 = **498**; audio ≈ 2,345 + 2,345 + 2,139 s. Ceilings: ≤550 requests,
+≤7,500 metered audio-seconds, ≤2.0 GPU-h. One-shot read discipline applies (fly all arms
+before any scoring; the scoring path is committed in probes/pattr_scoring.py). This is the
+repository's FIRST core contact, under the lean FlightReceipt discipline the owner blessed at
+G1-gate ruling time. NOTE: the smoke is context-minimal BY DESIGN (isolating attribution
+capability) — its numbers are capability evidence, never deployment floors. PRE-REGISTERED branch: if A-grid's
 confusion cost is not materially better than A-free (grid unused), the LISTEN main design is
 RETIRED and G1 adopts the A-turn form (capability assumption replaced by construction);
 otherwise the main design is confirmed and the smoke's timing data binds G1's budgets. Either
