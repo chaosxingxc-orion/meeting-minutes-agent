@@ -1,0 +1,81 @@
+{
+  "budget_after": {
+    "ceilings": {
+      "max_cutting_wall_hours": 2.0,
+      "max_diar_gpu_hours": 0.5,
+      "max_encode_calls": 900,
+      "max_encode_gpu_hours": 2.0,
+      "wave": 1
+    },
+    "cutting_wall_seconds_used": 430.26506584500385,
+    "diar_gpu_seconds_used": 270.82428012793895,
+    "encode_calls_used": 692,
+    "encode_gpu_seconds_used": 3483.6589651741547
+  },
+  "cutting": {
+    "oracle": {
+      "content_hash": "1d8040eded90cb179a7dcfa92e5c4ba977bd9a9b439df92bcbdc98e1c070a354",
+      "n_entries": 29
+    },
+    "tool": {
+      "content_hash": "fb4c1d95ad074fab6a07db6556e7e79d54ef4d5039088720ea713bc4f91236d9",
+      "n_entries": 29
+    },
+    "wall_seconds": 131.19467254199844,
+    "workers": 8
+  },
+  "diar": {
+    "contact": {
+      "args": [
+        "/home/chao/nemo-speech.cpp/build/cuda-diar/bin/nemo-speech",
+        "diarize",
+        "/mnt/e/chao_workspace/exploring-l4-intelligence/speechrl-data/datasets/ami/amicorpus/TS3004d/audio/TS3004d.Mix-Headset.wav",
+        "--model",
+        "/mnt/e/chao_workspace/exploring-l4-intelligence/speechrl-data/models/diar-sortformer-4spk-v2/diar_streaming_sortformer_4spk-v2.q8_0.gguf",
+        "--format",
+        "rttm",
+        "--recording-id",
+        "TS3004d",
+        "--output",
+        "/mnt/e/chao_workspace/exploring-l4-intelligence/speechrl-data/derived/meeting-minutes/precomp/rttm/TS3004d.rttm",
+        "--force"
+      ],
+      "checkpoint_sha256": "0679cfeb1ce356d0dea9470b31274f4bfc7eb927497d82005483770666da998a",
+      "error": null,
+      "meeting_id": "TS3004d",
+      "recorded_utc": "2026-08-19T12:49:12.055372+00:00",
+      "return_code": 0,
+      "tool_name": "nemo-speech.cpp-cuda-q8_0",
+      "tool_version": "nemo-speech 1.0.0; commit 4c749a700500e077d4732a539eb082bf2208dac7; binary sha256 1a3e3f4fe7db4c48e5d6e44a76d5adf2bbfef80024c023b0eab2766eb61aca78; CMake preset cuda-diar; HF revision 5240a64075176943f677d30fa2171c780229f341; attempt-2 default streaming (DiarStream) mode: the registered --offline full-attention mode is hard-capped by the tool at 5000 encoder frames (~6 min audio) and refuses all six meetings",
+      "wall_seconds": 110.90155753699946
+    },
+    "gpu_seconds_estimate": 0.0,
+    "n_turns": 1024,
+    "wall_seconds": 111.173663896996
+  },
+  "encode_warm": {
+    "n_calls": 0,
+    "oracle": [],
+    "tool": [],
+    "wall_seconds": null
+  },
+  "error": "URLError: <urlopen error [Errno 104] Connection reset by peer>",
+  "meeting_id": "TS3004d",
+  "metrics": {},
+  "ok": false,
+  "recorded_utc": "2026-08-19T12:54:00.679311+00:00",
+  "schema_version": "1.0.0",
+  "slice_plans": {
+    "oracle": {
+      "content_hash": "fb094f5048e7585b9074e04d478e4575f79fe017b3c8eedc9cdc898b431aca8f",
+      "n_slices": 29,
+      "turn_provenance": "oracle-turn"
+    },
+    "tool": {
+      "content_hash": "ffd9d0168f0dbd2f53913ded0eaf938b5d9edb72f006eb43305ba2fc4adf0109",
+      "n_slices": 29,
+      "turn_provenance": "tool-diar"
+    }
+  },
+  "wave": 1
+}

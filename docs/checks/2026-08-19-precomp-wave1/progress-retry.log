@@ -1,0 +1,48 @@
+12:57:31Z llama-server child pid=635
+12:57:31Z WATCH cache_entries=9118 gpu=[0, 180, 16.14 ]
+server healthy at 12:57:58Z
+featcache before retry: entries=9118 bytes=7271479776
+--- ledger before the retry ---
+{"breaches": [], "ceilings": {"max_cutting_wall_hours": 2.0, "max_diar_gpu_hours": 0.5, "max_encode_calls": 900, "max_encode_gpu_hours": 2.0, "wave": 1}, "used": {"cutting_wall_seconds_used": 430.26506584500385, "diar_gpu_seconds_used": 270.82428012793895, "diar_wall_seconds": 1189.5064561700055, "encode_calls_used": 680, "encode_gpu_seconds_used": 3455.707254671692, "encode_wall_seconds": 4556.8679200320075, "n_ok": 17, "n_receipts": 18}}
+--- run_precomp.py --wave 1 --resume (only TS3004d is not ok) ---
+12:58:35Z WATCH cache_entries=9118 gpu=[0, 1200, 10.50 ]
+12:59:37Z WATCH cache_entries=9118 gpu=[74, 1200, 32.94 ]
+13:00:38Z WATCH cache_entries=9118 gpu=[0, 180, 17.02 ]
+13:01:41Z WATCH cache_entries=9118 gpu=[0, 1200, 10.47 ]
+13:02:43Z WATCH cache_entries=9118 gpu=[99, 1200, 41.75 ]
+13:03:45Z WATCH cache_entries=9118 gpu=[100, 907, 30.95 ]
+13:04:45Z WATCH cache_entries=9210 gpu=[99, 562, 37.24 ]
+13:05:46Z WATCH cache_entries=9318 gpu=[99, 1200, 41.99 ]
+13:06:48Z WATCH cache_entries=9427 gpu=[100, 1200, 36.90 ]
+13:07:50Z WATCH cache_entries=9529 gpu=[100, 427, 30.59 ]
+13:08:52Z WATCH cache_entries=9632 gpu=[100, 330, 36.47 ]
+13:09:36Z runner rc=0 wall=681s
+13:09:37Z ES2011a receipt=ok
+13:09:38Z ES2011b receipt=ok
+13:09:39Z ES2011c receipt=ok
+13:09:40Z ES2011d receipt=ok
+13:09:41Z IB4001 receipt=ok
+13:09:42Z IB4002 receipt=ok
+13:09:42Z IB4003 receipt=ok
+13:09:43Z IB4004 receipt=ok
+13:09:44Z IB4010 receipt=ok
+13:09:45Z IB4011 receipt=ok
+13:09:46Z IS1008a receipt=ok
+13:09:46Z IS1008b receipt=ok
+13:09:47Z IS1008c receipt=ok
+13:09:48Z IS1008d receipt=ok
+13:09:49Z TS3004a receipt=ok
+13:09:50Z TS3004b receipt=ok
+13:09:51Z TS3004c receipt=ok
+13:09:51Z TS3004d receipt=ok
+featcache after retry: entries=9685 bytes=7739858256 (retry delta entries=567 bytes=468378480)
+{
+  "encode_calls_used": 738,
+  "n_error": 0,
+  "n_meetings": 18,
+  "n_ok": 18,
+  "stopped_reason": null,
+  "wrote": "/mnt/d/chao_workspace/exploring-l4-intelligence/papers/meeting-minutes-agent/docs/checks/2026-08-19-precomp-wave1/wave-summary.json"
+}
+{"breaches": [], "ceilings": {"max_cutting_wall_hours": 2.0, "max_diar_gpu_hours": 0.5, "max_encode_calls": 900, "max_encode_gpu_hours": 2.0, "wave": 1}, "used": {"cutting_wall_seconds_used": 369.6503862540012, "diar_gpu_seconds_used": 270.82428012793895, "diar_wall_seconds": 1186.001027769009, "encode_calls_used": 738, "encode_gpu_seconds_used": 3633.15476272636, "encode_wall_seconds": 4955.058446388011, "n_ok": 18, "n_receipts": 18}}
+FLY-DONE state=COMPLETE

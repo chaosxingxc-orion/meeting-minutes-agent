@@ -1,0 +1,33 @@
+=== PRECOMP wave-1 RESUME start 2026-08-19T11:55:09Z ===
+repo HEAD: 83cf4b6dd1f1589229e929f57230e970351c42d0
+out-dir:   /mnt/d/chao_workspace/exploring-l4-intelligence/papers/meeting-minutes-agent/docs/checks/2026-08-19-precomp-wave1
+cache:     /home/chao/feat-cache/ami-q4km
+stop-file: /mnt/c/Users/35686/AppData/Local/Temp/claude/D--chao-workspace-exploring-l4-intelligence-studies-speech-aware-evidence-acquisition/6d9f1834-68e9-41a7-bbcc-724898cf15a9/scratchpad/PRECOMP_YIELD
+remaining: IB4011 IS1008a IS1008b IS1008c IS1008d TS3004a TS3004b TS3004c TS3004d
+--- waiting for llama-server at http://127.0.0.1:8080 ---
+server healthy at 11:55:09Z
+featcache before: entries=5419 bytes=4235539120; receipts before: 9
+--- ledger before the resume (operator cross-check of the native precharge) ---
+{"breaches": [], "ceilings": {"max_cutting_wall_hours": 2.0, "max_diar_gpu_hours": 0.5, "max_encode_calls": 900, "max_encode_gpu_hours": 2.0, "wave": 1}, "used": {"cutting_wall_seconds_used": 31.152022279991797, "diar_gpu_seconds_used": 209.83761618147076, "diar_wall_seconds": 537.2486724480041, "encode_calls_used": 374, "encode_gpu_seconds_used": 2284.870424970206, "encode_wall_seconds": 2461.5377595869977, "n_ok": 9, "n_receipts": 9}}
+--- single invocation: run_precomp.py --wave 1 --resume --stop-file ... ---
+12:54:20Z runner rc=0 wall=3550s
+12:54:21Z IB4011 receipt=ok
+12:54:23Z IS1008a receipt=ok
+12:54:24Z IS1008b receipt=ok
+12:54:25Z IS1008c receipt=ok
+12:54:26Z IS1008d receipt=ok
+12:54:28Z TS3004a receipt=ok
+12:54:29Z TS3004b receipt=ok
+12:54:30Z TS3004c receipt=ok
+12:54:31Z TS3004d receipt=ERR:URLError: <urlopen error [Errno 104] Connection reset by peer>
+featcache after: entries=9118 bytes=7271479776 (resume delta entries=3699 bytes=3035940656)
+--- aggregate wave summary over ALL receipts ---
+{
+  "encode_calls_used": 680,
+  "n_error": 1,
+  "n_meetings": 18,
+  "n_ok": 17,
+  "stopped_reason": "resume pass ended without a complete receipt for: TS3004d (runner rc=0)",
+  "wrote": "/mnt/d/chao_workspace/exploring-l4-intelligence/papers/meeting-minutes-agent/docs/checks/2026-08-19-precomp-wave1/wave-summary.json"
+}
+--- final ledger ---

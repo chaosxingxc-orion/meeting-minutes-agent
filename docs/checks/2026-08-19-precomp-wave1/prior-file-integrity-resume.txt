@@ -1,0 +1,12 @@
+Re-hash of every file the first pass landed (baseline: the MANIFEST.sha256 committed at
+b969add), performed after the resume pass and after this directory's README was updated.
+
+prior files checked: 48
+byte-intact:        46
+CHANGED:            ['README.md', 'wave-summary.json']
+MISSING:            []
+
+Expected to change (and only these): wave-summary.json -- the single registered wave
+artefact, which must describe all 18 meetings; README.md -- this directory's record,
+extended with the resume section. MANIFEST.sha256 is excluded from its own manifest.
+UNEXPECTED CHANGES: []

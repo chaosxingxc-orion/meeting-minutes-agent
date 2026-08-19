@@ -1,0 +1,82 @@
+server healthy at 11:55:09Z
+featcache before: entries=5419 bytes=4235539120; receipts before: 9
+--- ledger before the resume (operator cross-check of the native precharge) ---
+11:55:09Z WATCH receipts=9 latest=IB4010-receipt.json cache_entries=5419 gpu=[0, 1200, 10.58 ]
+{"breaches": [], "ceilings": {"max_cutting_wall_hours": 2.0, "max_diar_gpu_hours": 0.5, "max_encode_calls": 900, "max_encode_gpu_hours": 2.0, "wave": 1}, "used": {"cutting_wall_seconds_used": 31.152022279991797, "diar_gpu_seconds_used": 209.83761618147076, "diar_wall_seconds": 537.2486724480041, "encode_calls_used": 374, "encode_gpu_seconds_used": 2284.870424970206, "encode_wall_seconds": 2461.5377595869977, "n_ok": 9, "n_receipts": 9}}
+--- single invocation: run_precomp.py --wave 1 --resume --stop-file ... ---
+11:56:09Z WATCH receipts=9 latest=IB4010-receipt.json cache_entries=5419 gpu=[86, 1200, 34.21 ]
+11:57:13Z WATCH receipts=9 latest=IB4010-receipt.json cache_entries=5486 gpu=[100, 1200, 37.28 ]
+11:58:13Z WATCH receipts=9 latest=IB4010-receipt.json cache_entries=5598 gpu=[100, 1065, 34.47 ]
+11:59:15Z WATCH receipts=9 latest=IB4010-receipt.json cache_entries=5707 gpu=[100, 427, 35.01 ]
+12:00:17Z WATCH receipts=9 latest=IB4010-receipt.json cache_entries=5823 gpu=[99, 1200, 40.69 ]
+12:01:17Z WATCH receipts=9 latest=IB4010-receipt.json cache_entries=5934 gpu=[100, 1200, 34.77 ]
+12:02:19Z WATCH receipts=9 latest=IB4010-receipt.json cache_entries=6046 gpu=[100, 180, 26.82 ]
+12:03:21Z WATCH receipts=10 latest=IB4011-receipt.json cache_entries=6103 gpu=[99, 1200, 35.34 ]
+12:04:23Z WATCH receipts=10 latest=IB4011-receipt.json cache_entries=6216 gpu=[28, 1200, 26.08 ]
+12:05:24Z WATCH receipts=11 latest=IS1008a-receipt.json cache_entries=6315 gpu=[17, 1200, 30.36 ]
+12:06:27Z WATCH receipts=11 latest=IS1008a-receipt.json cache_entries=6331 gpu=[100, 420, 36.06 ]
+12:07:29Z WATCH receipts=11 latest=IS1008a-receipt.json cache_entries=6443 gpu=[100, 262, 35.93 ]
+12:08:31Z WATCH receipts=11 latest=IS1008a-receipt.json cache_entries=6546 gpu=[99, 1200, 34.62 ]
+12:09:32Z WATCH receipts=11 latest=IS1008a-receipt.json cache_entries=6597 gpu=[100, 1200, 38.43 ]
+12:10:35Z WATCH receipts=12 latest=IS1008b-receipt.json cache_entries=6696 gpu=[6, 1200, 18.88 ]
+12:11:37Z WATCH receipts=12 latest=IS1008b-receipt.json cache_entries=6723 gpu=[97, 1200, 41.80 ]
+12:12:41Z WATCH receipts=12 latest=IS1008b-receipt.json cache_entries=6835 gpu=[100, 1200, 35.20 ]
+12:13:43Z WATCH receipts=12 latest=IS1008b-receipt.json cache_entries=6929 gpu=[100, 1200, 42.10 ]
+12:14:46Z WATCH receipts=12 latest=IS1008b-receipt.json cache_entries=7024 gpu=[99, 1200, 38.70 ]
+12:15:48Z WATCH receipts=13 latest=IS1008c-receipt.json cache_entries=7116 gpu=[7, 1515, 14.28 ]
+12:16:50Z WATCH receipts=13 latest=IS1008c-receipt.json cache_entries=7116 gpu=[95, 1200, 34.53 ]
+12:17:52Z WATCH receipts=13 latest=IS1008c-receipt.json cache_entries=7116 gpu=[0, 1200, 10.26 ]
+12:18:54Z WATCH receipts=13 latest=IS1008c-receipt.json cache_entries=7141 gpu=[94, 1200, 32.83 ]
+12:19:55Z WATCH receipts=13 latest=IS1008c-receipt.json cache_entries=7280 gpu=[53, 1200, 56.99 ]
+12:20:58Z WATCH receipts=13 latest=IS1008c-receipt.json cache_entries=7329 gpu=[100, 1200, 40.72 ]
+12:21:59Z WATCH receipts=14 latest=IS1008d-receipt.json cache_entries=7426 gpu=[1, 1515, 14.57 ]
+12:23:00Z WATCH receipts=14 latest=IS1008d-receipt.json cache_entries=7426 gpu=[0, 1200, 11.05 ]
+12:24:03Z WATCH receipts=14 latest=IS1008d-receipt.json cache_entries=7447 gpu=[99, 240, 32.86 ]
+12:25:05Z WATCH receipts=14 latest=IS1008d-receipt.json cache_entries=7555 gpu=[99, 1200, 30.72 ]
+12:26:07Z WATCH receipts=14 latest=IS1008d-receipt.json cache_entries=7661 gpu=[100, 1200, 34.85 ]
+12:27:09Z WATCH receipts=14 latest=IS1008d-receipt.json cache_entries=7769 gpu=[99, 1200, 35.25 ]
+12:28:11Z WATCH receipts=15 latest=TS3004a-receipt.json cache_entries=7783 gpu=[78, 1185, 34.06 ]
+12:29:13Z WATCH receipts=15 latest=TS3004a-receipt.json cache_entries=7783 gpu=[0, 1200, 10.55 ]
+12:30:15Z WATCH receipts=15 latest=TS3004a-receipt.json cache_entries=7783 gpu=[0, 1200, 10.56 ]
+12:31:16Z WATCH receipts=15 latest=TS3004a-receipt.json cache_entries=7876 gpu=[100, 1192, 31.25 ]
+12:32:18Z WATCH receipts=15 latest=TS3004a-receipt.json cache_entries=7982 gpu=[99, 1200, 34.18 ]
+12:33:20Z WATCH receipts=15 latest=TS3004a-receipt.json cache_entries=8073 gpu=[99, 247, 29.40 ]
+12:34:22Z WATCH receipts=15 latest=TS3004a-receipt.json cache_entries=8123 gpu=[99, 195, 41.74 ]
+12:35:24Z WATCH receipts=15 latest=TS3004a-receipt.json cache_entries=8227 gpu=[100, 1200, 30.83 ]
+12:36:25Z WATCH receipts=16 latest=TS3004b-receipt.json cache_entries=8292 gpu=[0, 1200, 10.82 ]
+12:37:27Z WATCH receipts=16 latest=TS3004b-receipt.json cache_entries=8292 gpu=[72, 787, 34.00 ]
+12:38:29Z WATCH receipts=16 latest=TS3004b-receipt.json cache_entries=8292 gpu=[0, 1200, 10.85 ]
+12:39:31Z WATCH receipts=16 latest=TS3004b-receipt.json cache_entries=8292 gpu=[0, 1200, 17.43 ]
+12:40:33Z WATCH receipts=16 latest=TS3004b-receipt.json cache_entries=8292 gpu=[0, 1200, 10.34 ]
+12:41:36Z WATCH receipts=16 latest=TS3004b-receipt.json cache_entries=8386 gpu=[100, 495, 29.94 ]
+12:42:38Z WATCH receipts=16 latest=TS3004b-receipt.json cache_entries=8492 gpu=[100, 652, 31.07 ]
+12:43:39Z WATCH receipts=16 latest=TS3004b-receipt.json cache_entries=8597 gpu=[0, 1200, 13.25 ]
+12:44:40Z WATCH receipts=16 latest=TS3004b-receipt.json cache_entries=8703 gpu=[99, 180, 38.59 ]
+12:45:41Z WATCH receipts=16 latest=TS3004b-receipt.json cache_entries=8809 gpu=[100, 630, 31.95 ]
+12:46:43Z WATCH receipts=16 latest=TS3004b-receipt.json cache_entries=8908 gpu=[99, 180, 36.22 ]
+12:47:45Z WATCH receipts=17 latest=TS3004c-receipt.json cache_entries=8970 gpu=[0, 1200, 10.73 ]
+12:48:47Z WATCH receipts=17 latest=TS3004c-receipt.json cache_entries=8970 gpu=[83, 870, 34.98 ]
+12:49:49Z WATCH receipts=17 latest=TS3004c-receipt.json cache_entries=8970 gpu=[0, 1200, 10.74 ]
+12:50:51Z WATCH receipts=17 latest=TS3004c-receipt.json cache_entries=8970 gpu=[0, 1200, 10.64 ]
+12:51:53Z WATCH receipts=17 latest=TS3004c-receipt.json cache_entries=8970 gpu=[0, 1200, 14.44 ]
+12:52:55Z WATCH receipts=17 latest=TS3004c-receipt.json cache_entries=9007 gpu=[52, 1200, 48.78 ]
+12:53:56Z WATCH receipts=17 latest=TS3004c-receipt.json cache_entries=9115 gpu=[100, 637, 35.03 ]
+12:54:20Z runner rc=0 wall=3550s
+12:54:21Z IB4011 receipt=ok
+12:54:23Z IS1008a receipt=ok
+12:54:24Z IS1008b receipt=ok
+12:54:25Z IS1008c receipt=ok
+12:54:26Z IS1008d receipt=ok
+12:54:28Z TS3004a receipt=ok
+12:54:29Z TS3004b receipt=ok
+12:54:30Z TS3004c receipt=ok
+12:54:31Z TS3004d receipt=ERR:URLError: <urlopen error [Errno 104] Connection reset by peer>
+featcache after: entries=9118 bytes=7271479776 (resume delta entries=3699 bytes=3035940656)
+{
+  "encode_calls_used": 680,
+  "n_error": 1,
+  "n_meetings": 18,
+  "n_ok": 17,
+  "stopped_reason": "resume pass ended without a complete receipt for: TS3004d (runner rc=0)",
+  "wrote": "/mnt/d/chao_workspace/exploring-l4-intelligence/papers/meeting-minutes-agent/docs/checks/2026-08-19-precomp-wave1/wave-summary.json"
+}
