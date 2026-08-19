@@ -177,9 +177,19 @@ class TestMinutesAndQaArms:
         assert specs[0].audio_relpath.endswith("MTG1-slice0000.wav")
         assert specs[0].question_id == "q1" and specs[1].question_id == "q2"
 
-    def test_qa_requires_at_least_one_question(self):
+    def test_qa_tolerates_an_empty_per_meeting_question_set(self):
+        # A meeting the campaign-wide cap drew zero questions for (e.g.
+        # IS1008a) returns zero requests, not an error -- the empty-set case
+        # is a normal outcome of per-meeting routing, not a caller mistake.
+        specs = g1.build_qa_requests_for_meeting(g1.ARM_Z_TURN, "MTG1", _tool_plan(), [], slice_dir_relative="x")
+        assert specs == ()
+
+    def test_qa_still_validates_arm_and_plan_even_with_zero_questions(self):
+        # Empty-question tolerance must not smuggle past the arm/plan checks.
         with pytest.raises(g1.G1Error):
-            g1.build_qa_requests_for_meeting(g1.ARM_Z_TURN, "MTG1", _tool_plan(), [], slice_dir_relative="x")
+            g1.build_qa_requests_for_meeting(g1.ARM_Z_FREE, "MTG1", _tool_plan(), [], slice_dir_relative="x")
+        with pytest.raises(g1.G1Error):
+            g1.build_qa_requests_for_meeting(g1.ARM_Z_TURN, "MTG1", _oracle_plan(), [], slice_dir_relative="x")
 
     def test_minutes_requires_a_nonempty_plan(self):
         empty_plan = _plan("MTG1", SlicePlanMode.TURN_AWARE, BoundaryProvenance.TOOL_DIAR, ())
@@ -188,9 +198,36 @@ class TestMinutesAndQaArms:
 
 
 class _Q:
-    def __init__(self, example_id: str, question: str = "question?"):
+    def __init__(self, example_id: str, question: str = "question?", meeting_id: str = "MTG1"):
         self.example_id = example_id
         self.question = question
+        self.meeting_id = meeting_id
+
+
+# ---------------------------------------------------------------------------
+# per-meeting QA routing: questions_for_meeting
+# ---------------------------------------------------------------------------
+
+
+class TestQuestionsForMeeting:
+    def test_filters_to_exactly_the_named_meeting(self):
+        qs = [_Q("q1", meeting_id="ES2011a"), _Q("q2", meeting_id="IS1008a"), _Q("q3", meeting_id="ES2011a")]
+        routed = g1.questions_for_meeting(qs, "ES2011a")
+        assert [q.example_id for q in routed] == ["q1", "q3"]
+
+    def test_a_meeting_with_no_attached_questions_yields_empty(self):
+        qs = [_Q("q1", meeting_id="ES2011a")]
+        assert g1.questions_for_meeting(qs, "IS1008a") == ()
+
+    def test_preserves_input_relative_order(self):
+        qs = [_Q(f"q{i}", meeting_id="ES2011a" if i % 2 == 0 else "IS1008a") for i in range(6)]
+        routed = g1.questions_for_meeting(qs, "ES2011a")
+        assert [q.example_id for q in routed] == ["q0", "q2", "q4"]
+
+    def test_custom_meeting_id_of_seam(self):
+        qs = [{"mid": "M1", "id": "a"}, {"mid": "M2", "id": "b"}]
+        routed = g1.questions_for_meeting(qs, "M1", meeting_id_of=lambda q: q["mid"])
+        assert [q["id"] for q in routed] == ["a"]
 
 
 # ---------------------------------------------------------------------------

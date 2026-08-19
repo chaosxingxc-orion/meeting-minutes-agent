@@ -11,6 +11,7 @@ llama-server binary, a real GPU, or a real network call."""
 from __future__ import annotations
 
 import json
+import time
 from pathlib import Path
 
 import numpy as np
@@ -258,6 +259,25 @@ def _fake_transport(text: str = "A|hello world") -> LlamaServerTransport:
     return LlamaServerTransport(TransportConfig(base_url="http://x"), budget, post=_canned_post(text))
 
 
+def _slow_post(text: str = "A|hello world", delay_seconds: float = 0.05):
+    """A fake transport ``post`` that actually takes real wall time --
+    exercises ``run_item``'s real gpu_seconds accounting (a sum of response
+    latencies), which the instant ``_canned_post`` above cannot."""
+
+    def post(url, body):
+        time.sleep(delay_seconds)
+        return json.dumps(
+            {"choices": [{"message": {"content": text}}], "usage": {"prompt_tokens": 5, "completion_tokens": 3, "total_tokens": 8}}
+        ).encode("utf-8")
+
+    return post
+
+
+def _slow_transport(delay_seconds: float = 0.05) -> LlamaServerTransport:
+    budget = CallBudget(BudgetLimits(max_calls=1000, max_audio_seconds=100_000.0))
+    return LlamaServerTransport(TransportConfig(base_url="http://x"), budget, post=_slow_post(delay_seconds=delay_seconds))
+
+
 class TestRunItem:
     def test_transcribe_only_arm_dispatches_exactly_n_slice_calls(self, tmp_path):
         fx = _fixture(tmp_path)
@@ -299,9 +319,10 @@ class TestRunItem:
         item = g1_campaign.WorkItem(meeting_id="MTG1", arm=g1.ARM_Z_ORACLE, n_transcribe=len(plan.slices), n_minutes=1, n_qa=2)
 
         class Q:
-            def __init__(self, i):
+            def __init__(self, i, meeting_id="MTG1"):
                 self.example_id = f"q{i}"
                 self.question = f"question {i}?"
+                self.meeting_id = meeting_id
 
         receipt = runner.run_item(
             item, data_dir=fx["data_dir"], plan=plan, slice_dir_relative=slice_dir, transport=_fake_transport(),
@@ -309,6 +330,63 @@ class TestRunItem:
         )
         assert receipt["ok"] is True, receipt.get("error")
         assert receipt["n_calls"] == len(plan.slices) + 1 + 2
+
+    def test_qa_is_routed_to_only_the_items_own_meeting(self, tmp_path):
+        # The G1-PATH structural NOT-PASS: qa_questions carries the WHOLE
+        # campaign-wide capped set; run_item must dispatch only the
+        # questions attached to item.meeting_id, never every question in
+        # the set (a question about a different meeting must never be asked
+        # over this meeting's audio).
+        fx = _fixture(tmp_path)
+        plan, slice_dir = runner.resolve_slice_plan(
+            g1.ARM_Z_ORACLE, "MTG1", data_dir=fx["data_dir"], derived_root=fx["derived_root"],
+            nxt_corpus=fx["nxt_corpus"], vad_manifest_dir=None,
+        )
+        _materialize(fx, plan, slice_dir, "MTG1")
+        item = g1_campaign.WorkItem(meeting_id="MTG1", arm=g1.ARM_Z_ORACLE, n_transcribe=len(plan.slices), n_minutes=1, n_qa=2)
+
+        class Q:
+            def __init__(self, i, meeting_id):
+                self.example_id = f"q{i}"
+                self.question = f"question {i}?"
+                self.meeting_id = meeting_id
+
+        campaign_wide_questions = [Q(1, "MTG1"), Q(2, "MTG1"), Q(3, "OTHER-MEETING"), Q(4, "OTHER-MEETING")]
+        receipt = runner.run_item(
+            item, data_dir=fx["data_dir"], plan=plan, slice_dir_relative=slice_dir, transport=_fake_transport(),
+            sink=None, qa_questions=campaign_wide_questions,
+        )
+        assert receipt["ok"] is True, receipt.get("error")
+        # Only MTG1's own 2 questions were dispatched, never all 4.
+        assert receipt["n_calls"] == len(plan.slices) + 1 + 2
+        qa_request_ids = [c["request_id"] for c in receipt["contacts"] if c["kind"] == "qa"]
+        assert qa_request_ids == ["g1-Z-oracle-MTG1-qa-q1", "g1-Z-oracle-MTG1-qa-q2"]
+
+    def test_qa_meeting_with_zero_routed_questions_dispatches_none(self, tmp_path):
+        # IS1008a's own shape (floors prereg N=200 cap): zero questions
+        # attached to this meeting must dispatch zero qa calls, never an
+        # error -- build_qa_requests_for_meeting tolerates the empty set.
+        fx = _fixture(tmp_path)
+        plan, slice_dir = runner.resolve_slice_plan(
+            g1.ARM_Z_ORACLE, "MTG1", data_dir=fx["data_dir"], derived_root=fx["derived_root"],
+            nxt_corpus=fx["nxt_corpus"], vad_manifest_dir=None,
+        )
+        _materialize(fx, plan, slice_dir, "MTG1")
+        item = g1_campaign.WorkItem(meeting_id="MTG1", arm=g1.ARM_Z_ORACLE, n_transcribe=len(plan.slices), n_minutes=1, n_qa=0)
+
+        class Q:
+            def __init__(self, i, meeting_id):
+                self.example_id = f"q{i}"
+                self.question = f"question {i}?"
+                self.meeting_id = meeting_id
+
+        receipt = runner.run_item(
+            item, data_dir=fx["data_dir"], plan=plan, slice_dir_relative=slice_dir, transport=_fake_transport(),
+            sink=None, qa_questions=[Q(1, "OTHER-MEETING")],
+        )
+        assert receipt["ok"] is True, receipt.get("error")
+        assert receipt["n_calls"] == len(plan.slices) + 1  # transcribe + minutes only, zero qa
+        assert not [c for c in receipt["contacts"] if c["kind"] == "qa"]
 
     def test_a_transport_failure_is_caught_and_recorded_not_raised(self, tmp_path):
         fx = _fixture(tmp_path)
@@ -344,6 +422,169 @@ class TestRunItem:
         record = json.loads(lines[0])
         assert record["outcome"] == "ok"
         assert record["arm"] == g1.ARM_Z_FREE
+
+
+# ---------------------------------------------------------------------------
+# run_item: real gpu_seconds accounting (never the unconditional 0.0)
+# ---------------------------------------------------------------------------
+
+
+class TestRunItemGpuAccounting:
+    def test_nonzero_latency_fixture_yields_nonzero_gpu_seconds(self, tmp_path):
+        fx = _fixture(tmp_path)
+        plan, slice_dir = runner.resolve_slice_plan(
+            g1.ARM_Z_FREE, "MTG1", data_dir=fx["data_dir"], derived_root=fx["derived_root"],
+            nxt_corpus=fx["nxt_corpus"], vad_manifest_dir=None,
+        )
+        _materialize(fx, plan, slice_dir, "MTG1")
+        item = g1_campaign.WorkItem(meeting_id="MTG1", arm=g1.ARM_Z_FREE, n_transcribe=len(plan.slices))
+        receipt = runner.run_item(
+            item, data_dir=fx["data_dir"], plan=plan, slice_dir_relative=slice_dir,
+            transport=_slow_transport(delay_seconds=0.05), sink=None, qa_questions=(),
+        )
+        assert receipt["ok"] is True, receipt.get("error")
+        # Real accounting, never the unconditional 0.0 the runner used to
+        # record: at least one real response latency per dispatched slice.
+        assert receipt["gpu_seconds"] > 0.0
+        assert receipt["gpu_seconds"] >= 0.05 * len(plan.slices) * 0.5  # timing-tolerant lower bound
+
+    def test_gpu_seconds_covers_minutes_and_qa_contacts_too(self, tmp_path):
+        fx = _fixture(tmp_path)
+        plan, slice_dir = runner.resolve_slice_plan(
+            g1.ARM_Z_ORACLE, "MTG1", data_dir=fx["data_dir"], derived_root=fx["derived_root"],
+            nxt_corpus=fx["nxt_corpus"], vad_manifest_dir=None,
+        )
+        _materialize(fx, plan, slice_dir, "MTG1")
+        item = g1_campaign.WorkItem(meeting_id="MTG1", arm=g1.ARM_Z_ORACLE, n_transcribe=len(plan.slices), n_minutes=1, n_qa=1)
+
+        class Q:
+            def __init__(self, i, meeting_id="MTG1"):
+                self.example_id = f"q{i}"
+                self.question = f"question {i}?"
+                self.meeting_id = meeting_id
+
+        transcribe_only_item = g1_campaign.WorkItem(meeting_id="MTG1", arm=g1.ARM_Z_FREE, n_transcribe=len(plan.slices))
+        free_plan, free_slice_dir = runner.resolve_slice_plan(
+            g1.ARM_Z_FREE, "MTG1", data_dir=fx["data_dir"], derived_root=fx["derived_root"],
+            nxt_corpus=fx["nxt_corpus"], vad_manifest_dir=None,
+        )
+        _materialize(fx, free_plan, free_slice_dir, "MTG1")
+        transcribe_only_receipt = runner.run_item(
+            transcribe_only_item, data_dir=fx["data_dir"], plan=free_plan, slice_dir_relative=free_slice_dir,
+            transport=_slow_transport(delay_seconds=0.05), sink=None, qa_questions=(),
+        )
+        full_receipt = runner.run_item(
+            item, data_dir=fx["data_dir"], plan=plan, slice_dir_relative=slice_dir,
+            transport=_slow_transport(delay_seconds=0.05), sink=None, qa_questions=[Q(1)],
+        )
+        assert transcribe_only_receipt["ok"] is True and full_receipt["ok"] is True
+        # The minutes+qa item made 2 more real contacts than the
+        # transcribe-only item of the same slice count -- its gpu_seconds
+        # must reflect that, never stay flat at the transcribe-only figure.
+        assert full_receipt["gpu_seconds"] > transcribe_only_receipt["gpu_seconds"]
+
+    def test_real_gpu_seconds_trips_the_campaign_budget_ceiling(self, tmp_path):
+        fx = _fixture(tmp_path, "MTG1")
+        _fixture(tmp_path, "MTG2")
+        plans = {}
+        plans.update(
+            runner.resolve_all_slice_plans(
+                ["MTG1"], (g1.ARM_Z_FREE,), data_dir=fx["data_dir"], derived_root=fx["derived_root"],
+                nxt_corpus=fx["nxt_corpus"], vad_manifest_dir=None,
+            )
+        )
+        plans.update(
+            runner.resolve_all_slice_plans(
+                ["MTG2"], (g1.ARM_Z_FREE,), data_dir=fx["data_dir"], derived_root=fx["derived_root"],
+                nxt_corpus=fx["nxt_corpus"], vad_manifest_dir=None,
+            )
+        )
+        for (meeting_id, _arm), (plan, slice_dir) in plans.items():
+            _materialize(fx, plan, slice_dir, meeting_id)
+        items = (
+            g1_campaign.WorkItem(meeting_id="MTG1", arm=g1.ARM_Z_FREE, n_transcribe=len(plans[("MTG1", g1.ARM_Z_FREE)][0].slices)),
+            g1_campaign.WorkItem(meeting_id="MTG2", arm=g1.ARM_Z_FREE, n_transcribe=len(plans[("MTG2", g1.ARM_Z_FREE)][0].slices)),
+        )
+        chunk = g1_campaign.Chunk(index=0, items=items)
+        out_dir = tmp_path / "out"
+        # A ceiling far below one item's own real (nonzero) gpu_seconds --
+        # with the old unconditional gpu_seconds=0.0, this ceiling could
+        # NEVER bind (0.0 >= any positive threshold is always False).
+        budget = g1_campaign.G1Budget(max_gpu_hours=0.005 / 3600.0)
+
+        receipt = runner.run_chunk(
+            chunk, data_dir=fx["data_dir"], slice_plans_by_meeting_arm=plans, transport=_slow_transport(delay_seconds=0.05),
+            sink=None, qa_questions=(), out_dir=out_dir, resume=False, budget=budget,
+        )
+        assert receipt["n_items"] == 1  # only MTG1 ran; MTG2 was refused before dispatch
+        assert receipt["stopped_reason"] is not None
+        assert "GPU-hour" in receipt["stopped_reason"]
+        assert budget.gpu_seconds_used > 0.0
+
+
+# ---------------------------------------------------------------------------
+# build_plan: per-meeting QA routing at planning time (zero model contact)
+# ---------------------------------------------------------------------------
+
+
+class TestBuildPlanQaRouting:
+    """Regression coverage for the G1-PATH structural NOT-PASS's planning-
+    time defect: ``build_plan`` used to hand EVERY meeting the whole
+    campaign-wide capped QA set (``n_qa_per_meeting=len(qa_questions)``),
+    planning ``n_meetings x N x n_qa_arms`` QA calls. It must instead plan
+    each meeting's OWN routed count, summing back to exactly
+    ``N x n_qa_arms`` campaign-wide -- proven here at real (synthetic,
+    zero-model-contact) planning time, mirroring exactly what
+    ``run_g1.py --list-chunks`` does for a real campaign."""
+
+    class _Q:
+        def __init__(self, example_id: str, meeting_id: str):
+            self.example_id = example_id
+            self.meeting_id = meeting_id
+            self.question = "question?"
+
+    def test_qa_is_planned_per_meeting_never_uniformly_from_the_whole_cap(self, tmp_path):
+        from meeting_minutes_agent.chunking.slicer import build_vad_slice_plan
+        from meeting_minutes_agent.precomp.pipeline import write_vad_slice_plan_manifest
+
+        fx = _fixture(tmp_path, "MTG1")
+        _fixture(tmp_path, "MTG2")
+        _fixture(tmp_path, "MTG3")
+        # build_plan() resolves every arm, including Z-nodiar, whose slice
+        # plan is consumed (never rebuilt) from a VAD-supplement manifest.
+        vad_manifest_dir = tmp_path / "vad-manifests"
+        for meeting_id in ("MTG1", "MTG2", "MTG3"):
+            write_vad_slice_plan_manifest(vad_manifest_dir, build_vad_slice_plan(meeting_id, 3.0))
+
+        # A synthetic campaign-wide capped set, sparse like the real dev-18
+        # distribution: MTG1 carries most of the questions, MTG2 carries a
+        # few, MTG3 (like IS1008a) carries none.
+        qa_questions = (
+            [self._Q(f"m1-q{i}", "MTG1") for i in range(5)] + [self._Q(f"m2-q{i}", "MTG2") for i in range(2)]
+        )
+
+        meetings, _plans, work_items, _chunks = runner.build_plan(
+            "floors", data_dir=fx["data_dir"], derived_root=fx["derived_root"], nxt_corpus=fx["nxt_corpus"],
+            vad_manifest_dir=vad_manifest_dir, qa_questions=qa_questions, dev18=["MTG1", "MTG2", "MTG3"],
+        )
+        assert set(meetings) == {"MTG1", "MTG2", "MTG3"}
+
+        by_meeting_arm = {(i.meeting_id, i.arm): i for i in work_items}
+        assert by_meeting_arm[("MTG1", g1.ARM_Z_TURN)].n_qa == 5
+        assert by_meeting_arm[("MTG1", g1.ARM_Z_ORACLE)].n_qa == 5
+        assert by_meeting_arm[("MTG2", g1.ARM_Z_TURN)].n_qa == 2
+        assert by_meeting_arm[("MTG2", g1.ARM_Z_ORACLE)].n_qa == 2
+        # MTG3 (the IS1008a-shaped case): zero routed questions, zero
+        # planned QA calls -- never an error, never inherited from another
+        # meeting.
+        assert by_meeting_arm[("MTG3", g1.ARM_Z_TURN)].n_qa == 0
+        assert by_meeting_arm[("MTG3", g1.ARM_Z_ORACLE)].n_qa == 0
+
+        total_qa_calls = sum(i.n_qa for i in work_items)
+        n_meetings = len(meetings)
+        n_qa_arms = len(g1.ARMS_WITH_MINUTES_QA)
+        assert total_qa_calls == len(qa_questions) * n_qa_arms == 14  # the registered arithmetic
+        assert total_qa_calls != n_meetings * len(qa_questions) * n_qa_arms  # the NOT-PASS arithmetic (42)
 
 
 class TestRunChunk:

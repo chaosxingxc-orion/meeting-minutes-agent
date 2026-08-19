@@ -277,6 +277,7 @@ def build_work_items(
     *,
     n_transcribe_by_meeting_arm: Mapping[tuple[str, str], int],
     n_qa_per_meeting: int = 0,
+    n_qa_by_meeting: Mapping[str, int] | None = None,
     arms: Sequence[str] = ARMS,
 ) -> tuple[WorkItem, ...]:
     """Build the campaign's ordered :class:`WorkItem` list: for every
@@ -288,7 +289,22 @@ def build_work_items(
     :class:`~meeting_minutes_agent.chunking.slicer.SlicePlan` per
     meeting/arm -- this function performs no I/O of its own); a missing
     ``(meeting_id, arm)`` key raises rather than silently planning zero
-    calls for it."""
+    calls for it.
+
+    QA call counts are PER MEETING, never a single campaign-wide scalar
+    applied uniformly (the G1-PATH structural NOT-PASS this signature
+    repairs: dispatching every capped question to every meeting planned
+    ``n_meetings x N x 2`` QA calls instead of ``N x 2``). Pass
+    ``n_qa_by_meeting`` -- a ``meeting_id -> count`` mapping, e.g. built from
+    :func:`~meeting_minutes_agent.probes.g1.questions_for_meeting` over the
+    same capped set :func:`~meeting_minutes_agent.probes.g1.build_qa_requests_for_meeting`
+    will later route per meeting -- for the real campaign; a meeting absent
+    from the mapping plans zero QA calls (e.g. ``IS1008a``, which the
+    registered cap draws zero questions for), never an error.
+    ``n_qa_per_meeting`` is kept as the prior uniform-scalar shorthand (still
+    applied to every meeting alike) for callers -- tests, mainly -- that
+    have no need of per-meeting variation; it is ignored once
+    ``n_qa_by_meeting`` is given."""
 
     items: list[WorkItem] = []
     for meeting_id in meetings:
@@ -298,13 +314,14 @@ def build_work_items(
                 raise G1CampaignError(f"build_work_items: no transcribe-slice count supplied for {key!r}")
             n_transcribe = n_transcribe_by_meeting_arm[key]
             has_minutes_qa = arm in ARMS_WITH_MINUTES_QA
+            n_qa = (n_qa_by_meeting.get(meeting_id, 0) if n_qa_by_meeting is not None else n_qa_per_meeting)
             items.append(
                 WorkItem(
                     meeting_id=meeting_id,
                     arm=arm,
                     n_transcribe=n_transcribe,
                     n_minutes=1 if has_minutes_qa else 0,
-                    n_qa=n_qa_per_meeting if has_minutes_qa else 0,
+                    n_qa=n_qa if has_minutes_qa else 0,
                 )
             )
     return tuple(items)

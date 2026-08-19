@@ -227,6 +227,18 @@ def _parse_transcribe_reply_into_segments(
     )
 
 
+def _response_gpu_seconds(response: ModelResponse) -> float:
+    """The decode-occupancy estimate this campaign records as ``gpu_seconds``
+    for one dispatched request: the sum of every attempt's own
+    ``latency_seconds`` (retries included -- a retried attempt still held
+    the GPU for its own wall time), the same request-latency convention the
+    SAEA study's flight receipts use. Never wall-clock-around-the-whole-item
+    (that also counts CPU-side plan/parse time this request never occupied
+    the GPU for)."""
+
+    return sum(attempt.latency_seconds for attempt in response.attempts)
+
+
 def run_item(
     item: "g1_campaign.WorkItem",
     *,
@@ -242,10 +254,28 @@ def run_item(
     failure is caught and folded into an ``ok: False`` receipt with
     whatever contacts already completed -- mirrors
     ``precomp.pipeline.run_meeting``'s own per-meeting failure isolation,
-    one level down (per work item, not per meeting)."""
+    one level down (per work item, not per meeting).
+
+    ``qa_questions`` is the CAMPAIGN-WIDE capped set; this function is the
+    per-meeting QA router (the G1-PATH structural NOT-PASS repair): it
+    filters that set down to ``item.meeting_id``'s own questions via
+    :func:`~meeting_minutes_agent.probes.g1.questions_for_meeting` BEFORE
+    building any qa request, so a question is never asked over a different
+    meeting's audio. A meeting with zero routed questions (e.g. ``IS1008a``
+    under the registered N=200 cap) dispatches zero qa calls --
+    :func:`~meeting_minutes_agent.probes.g1.build_qa_requests_for_meeting`
+    itself tolerates an empty question set, so no campaign-wide
+    ``if qa_questions`` guard is needed here.
+
+    ``gpu_seconds`` on the returned receipt is real, not the unconditional
+    ``0.0`` this function used to record: it accumulates
+    :func:`_response_gpu_seconds` over every response actually received
+    (transcribe, minutes, and qa alike), so the campaign's GPU-hour ceiling
+    (``g1_campaign.G1Budget``) binds on real spend."""
 
     started = time.monotonic()
     contacts: list[dict[str, Any]] = []
+    gpu_seconds = 0.0
     try:
         transcribe_specs = g1.build_transcribe_requests(
             item.arm, item.meeting_id, plan, slice_dir_relative=slice_dir_relative
@@ -253,6 +283,7 @@ def run_item(
         resolved_transcript: list[Segment] = []
         for spec, sl in zip(transcribe_specs, plan.slices):
             response = _dispatch(spec, data_dir=data_dir, transport=transport, sink=sink)
+            gpu_seconds += _response_gpu_seconds(response)
             contacts.append({"request_id": spec.request_id, "kind": spec.kind, "outcome": "ok"})
             if item.arm in g1.ARMS_WITH_MINUTES_QA:
                 resolved_transcript.extend(
@@ -263,27 +294,29 @@ def run_item(
             minutes_spec = g1.build_minutes_request_for_meeting(
                 item.arm, item.meeting_id, plan, tuple(resolved_transcript), slice_dir_relative=slice_dir_relative
             )
-            _dispatch(minutes_spec, data_dir=data_dir, transport=transport, sink=sink)
+            minutes_response = _dispatch(minutes_spec, data_dir=data_dir, transport=transport, sink=sink)
+            gpu_seconds += _response_gpu_seconds(minutes_response)
             contacts.append({"request_id": minutes_spec.request_id, "kind": minutes_spec.kind, "outcome": "ok"})
 
-            if qa_questions:
-                qa_specs = g1.build_qa_requests_for_meeting(
-                    item.arm, item.meeting_id, plan, qa_questions, slice_dir_relative=slice_dir_relative
-                )
-                for spec in qa_specs:
-                    _dispatch(spec, data_dir=data_dir, transport=transport, sink=sink)
-                    contacts.append({"request_id": spec.request_id, "kind": spec.kind, "outcome": "ok"})
+            meeting_qa_questions = g1.questions_for_meeting(qa_questions, item.meeting_id)
+            qa_specs = g1.build_qa_requests_for_meeting(
+                item.arm, item.meeting_id, plan, meeting_qa_questions, slice_dir_relative=slice_dir_relative
+            )
+            for spec in qa_specs:
+                response = _dispatch(spec, data_dir=data_dir, transport=transport, sink=sink)
+                gpu_seconds += _response_gpu_seconds(response)
+                contacts.append({"request_id": spec.request_id, "kind": spec.kind, "outcome": "ok"})
 
         wall_seconds = time.monotonic() - started
         return g1_campaign.build_item_receipt(
             meeting_id=item.meeting_id, arm=item.arm, ok=True, error=None, n_calls=len(contacts),
-            gpu_seconds=0.0, wall_seconds=wall_seconds, contacts=contacts,
+            gpu_seconds=gpu_seconds, wall_seconds=wall_seconds, contacts=contacts,
         )
     except Exception as error:  # noqa: BLE001 -- isolated per item, recorded not raised
         wall_seconds = time.monotonic() - started
         return g1_campaign.build_item_receipt(
             meeting_id=item.meeting_id, arm=item.arm, ok=False, error=f"{type(error).__name__}: {error}",
-            n_calls=len(contacts), gpu_seconds=0.0, wall_seconds=wall_seconds, contacts=contacts,
+            n_calls=len(contacts), gpu_seconds=gpu_seconds, wall_seconds=wall_seconds, contacts=contacts,
         )
 
 
@@ -375,8 +408,16 @@ def build_plan(
         vad_manifest_dir=vad_manifest_dir,
     )
     n_transcribe_by_meeting_arm = {key: len(plan.slices) for key, (plan, _slice_dir) in slice_plans.items()}
+    # Per-meeting QA routing (the G1-PATH structural NOT-PASS repair): each
+    # meeting plans QA calls for ONLY the capped questions attached to it,
+    # never the whole campaign-wide capped set -- so the total QA call count
+    # is len(qa_questions) x len(ARMS_WITH_MINUTES_QA), never
+    # len(meetings) x len(qa_questions) x len(ARMS_WITH_MINUTES_QA). A
+    # meeting the cap drew zero questions for (e.g. IS1008a) plans zero QA
+    # calls, not an error.
+    n_qa_by_meeting = {meeting_id: len(g1.questions_for_meeting(qa_questions, meeting_id)) for meeting_id in meetings}
     work_items = g1_campaign.build_work_items(
-        meetings, n_transcribe_by_meeting_arm=n_transcribe_by_meeting_arm, n_qa_per_meeting=len(qa_questions)
+        meetings, n_transcribe_by_meeting_arm=n_transcribe_by_meeting_arm, n_qa_by_meeting=n_qa_by_meeting
     )
     chunks = g1_campaign.plan_chunks(
         work_items, max_chunk_wall_seconds=max_chunk_wall_seconds, seconds_per_request=seconds_per_request

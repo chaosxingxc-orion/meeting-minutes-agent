@@ -110,6 +110,48 @@ class TestBuildWorkItems:
         with pytest.raises(G1CampaignError):
             build_work_items(["M1"], n_transcribe_by_meeting_arm={}, arms=(g1.ARM_Z_TURN,))
 
+    def test_n_qa_by_meeting_routes_a_distinct_count_per_meeting(self):
+        # The G1-PATH structural NOT-PASS repair: QA counts are PER MEETING,
+        # never one campaign-wide scalar applied uniformly to every meeting.
+        counts = {(m, a): 5 for m in ("M1", "M2", "M3") for a in g1.ARMS}
+        items = build_work_items(
+            ["M1", "M2", "M3"], n_transcribe_by_meeting_arm=counts, n_qa_by_meeting={"M1": 7, "M2": 0}
+        )
+        by_meeting_arm = {(i.meeting_id, i.arm): i for i in items}
+        assert by_meeting_arm[("M1", g1.ARM_Z_TURN)].n_qa == 7
+        assert by_meeting_arm[("M1", g1.ARM_Z_ORACLE)].n_qa == 7
+        assert by_meeting_arm[("M2", g1.ARM_Z_TURN)].n_qa == 0
+        assert by_meeting_arm[("M2", g1.ARM_Z_ORACLE)].n_qa == 0
+        # M3 is absent from the mapping -- zero QA, never an error, never a
+        # fallback to some other meeting's count.
+        assert by_meeting_arm[("M3", g1.ARM_Z_TURN)].n_qa == 0
+        # Transcribe-only arms never carry qa regardless of the mapping.
+        assert by_meeting_arm[("M1", g1.ARM_Z_FREE)].n_qa == 0
+        assert by_meeting_arm[("M1", g1.ARM_Z_NODIAR)].n_qa == 0
+
+    def test_n_qa_by_meeting_total_is_never_n_meetings_times_a_shared_cap(self):
+        # Regression guard for the exact NOT-PASS arithmetic: dispatching a
+        # campaign-wide capped set to every meeting planned
+        # n_meetings x N x n_qa_arms QA calls instead of N x n_qa_arms.
+        meetings = [f"M{i}" for i in range(18)]  # dev-18-shaped roster size
+        counts = {(m, a): 1 for m in meetings for a in g1.ARMS}
+        capped_n = 200
+        # Only two meetings actually carry capped questions (mirrors the
+        # real dev-18 distribution's sparsity -- most meetings carry zero).
+        n_qa_by_meeting = {"M0": 150, "M1": 50}
+        items = build_work_items(meetings, n_transcribe_by_meeting_arm=counts, n_qa_by_meeting=n_qa_by_meeting)
+        total_qa = sum(i.n_qa for i in items)
+        assert total_qa == capped_n * len(g1.ARMS_WITH_MINUTES_QA)  # 400: the registered arithmetic
+        assert total_qa != len(meetings) * capped_n * len(g1.ARMS_WITH_MINUTES_QA)  # 7200: the NOT-PASS arithmetic
+
+    def test_n_qa_by_meeting_takes_precedence_over_n_qa_per_meeting(self):
+        counts = {(m, a): 1 for m in ("M1",) for a in g1.ARMS}
+        items = build_work_items(
+            ["M1"], n_transcribe_by_meeting_arm=counts, n_qa_per_meeting=200, n_qa_by_meeting={"M1": 3}
+        )
+        by_arm = {i.arm: i for i in items}
+        assert by_arm[g1.ARM_Z_TURN].n_qa == 3
+
 
 # ---------------------------------------------------------------------------
 # chunk planner: <=50-minute chunks

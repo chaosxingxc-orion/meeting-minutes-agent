@@ -379,6 +379,24 @@ def select_capped_qa_questions(
     return tuple(ordered[i] for i in chosen)
 
 
+def questions_for_meeting(
+    questions: Sequence[Any], meeting_id: str, *, meeting_id_of: Any = lambda q: q.meeting_id
+) -> tuple[Any, ...]:
+    """Filter an already-capped, campaign-wide QA question set (
+    :func:`select_capped_qa_questions`'s own output) down to exactly the
+    questions attached to ``meeting_id``, preserving the input's own
+    relative order. This is the per-meeting routing step
+    :func:`build_qa_requests_for_meeting` itself does not perform (that
+    function anchors whatever ``questions`` it is handed -- it never
+    filters by meeting): a caller (the campaign runner) must call this
+    FIRST, so a question about one meeting is never asked over a different
+    meeting's audio. ``meeting_id_of`` mirrors :func:`select_capped_qa_questions`'s
+    own ``id_of`` seam, so this stays decoupled from any one question
+    record's concrete shape."""
+
+    return tuple(q for q in questions if meeting_id_of(q) == meeting_id)
+
+
 def build_qa_requests_for_meeting(
     arm: str,
     meeting_id: str,
@@ -390,19 +408,25 @@ def build_qa_requests_for_meeting(
     id_of: Any = lambda q: q.example_id,
 ) -> tuple[G1RequestSpec, ...]:
     """One ``qa`` :class:`G1RequestSpec` per question in ``questions``
-    (already capped by :func:`select_capped_qa_questions` -- this function
-    does not apply the cap itself, so a caller can share one capped set
-    across both QA-bearing arms without re-sampling), all anchored on the
-    SAME first-slice audio window (module docstring)."""
+    (already capped by :func:`select_capped_qa_questions`, and already
+    routed to THIS meeting by :func:`questions_for_meeting` -- this function
+    applies neither the cap nor the routing itself, so a caller can share
+    one capped set across both QA-bearing arms without re-sampling), all
+    anchored on the SAME first-slice audio window (module docstring).
+    ``questions`` may legitimately be empty (a meeting the cap drew zero
+    questions for, e.g. ``IS1008a`` in the registered G1-PATH roster): this
+    is tolerated, returning zero requests, never an error -- the empty-set
+    case is a normal outcome of per-meeting routing, not a caller mistake
+    like an unknown arm or a mismatched plan."""
 
     _assert_arm(arm)
     if arm not in ARMS_WITH_MINUTES_QA:
         raise G1Error(f"{arm} carries no qa head; expected one of {ARMS_WITH_MINUTES_QA}")
     _assert_plan_matches_arm(arm, plan)
+    if not questions:
+        return ()
     if not plan.slices:
         raise G1Error(f"cannot anchor a qa request for meeting {meeting_id!r}: its slice plan is empty")
-    if not questions:
-        raise G1Error(f"build_qa_requests_for_meeting requires at least one question for meeting {meeting_id!r}")
 
     anchor = plan.slices[0]
     audio_relpath = _slice_audio_relpath(meeting_id, anchor.index, slice_dir_relative=slice_dir_relative)
@@ -512,6 +536,7 @@ __all__ = [
     "build_transcribe_requests",
     "build_minutes_request_for_meeting",
     "select_capped_qa_questions",
+    "questions_for_meeting",
     "build_qa_requests_for_meeting",
     "load_vad_slice_plan",
 ]
