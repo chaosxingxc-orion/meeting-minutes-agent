@@ -11,11 +11,14 @@ P-PROMPT read pair's own layout and one-shot guard
 (``scripts/pprompt_read.py``).
 
 Real I/O, zero model/tool contact: this script reads already-flown RTTM
-files (never invokes a tool subprocess) and resolves the AMI gold
+files (never invokes a tool subprocess), resolves the AMI gold
 transcript for the registered six meetings via
 :mod:`meeting_minutes_agent.corpora.nxt` (already-licensed, already-acquired
 annotation XML -- the same corpus access every other scoring/read path in
-this repository uses).
+this repository uses), and reads each registered meeting's Mix-Headset WAV
+for the two audio-derived slicer inputs the real transport packer always
+receives (header duration + signal-derived energy pause transitions --
+never gold, never a model contact).
 
 Usage::
 
@@ -40,9 +43,14 @@ if str(_SRC) not in sys.path:
 
 from meeting_minutes_agent.chunking.adapters import turn_table_from_resolved_meeting  # noqa: E402
 from meeting_minutes_agent.chunking.rttm import parse_rttm_file  # noqa: E402
+from meeting_minutes_agent.chunking.slicer import detect_energy_pause_transitions, read_audio_duration  # noqa: E402
 from meeting_minutes_agent.corpora.nxt.corpus import NxtCorpus  # noqa: E402
 from meeting_minutes_agent.corpora.nxt.resolver import resolve_meeting  # noqa: E402
-from meeting_minutes_agent.probes.diar_smoke import REGISTERED_MEETINGS, REQUIRED_ARMS  # noqa: E402
+from meeting_minutes_agent.probes.diar_smoke import (  # noqa: E402
+    REGISTERED_MEETINGS,
+    REQUIRED_ARMS,
+    require_meeting_audio_path,
+)
 from meeting_minutes_agent.probes.diar_smoke_scoring import (  # noqa: E402
     CONVENTION_NO_COLLAR_WITH_OVERLAP,
     assert_one_shot_output_dir,
@@ -69,6 +77,21 @@ def load_hypothesis_turns(flight_dir: Path, arm: str, meeting_id: str):
     if not path.is_file():
         return None
     return parse_rttm_file(path)
+
+
+def audio_derived_slicer_inputs(data_dir: Path, meeting_id: str) -> tuple[float, tuple[float, ...]]:
+    """The two audio-derived inputs the REAL transport packer always
+    receives (``build_slice_manifest`` / ``scripts/build_pattr_manifest.py``
+    ``build_meeting_entry``): the meeting WAV's header duration and its
+    signal-derived energy pause transitions. Without them a >120 s
+    boundary-free stretch in a turn table cannot fall back to a pause split
+    and trips the transport hard cap (``TransportBoundViolation`` -- the
+    2026-08-19 read attempt-1 crash on TS3004b's ORACLE turn table,
+    ``docs/checks/2026-08-18-diar-smoke-read/attempt-1-transportbound-crash.log``).
+    Signal-derived only: never gold annotation, never a model contact."""
+
+    audio_path = require_meeting_audio_path(meeting_id, data_dir=data_dir)
+    return read_audio_duration(audio_path), detect_energy_pause_transitions(audio_path)
 
 
 def build_report_text(document: Mapping[str, Any]) -> str:
@@ -107,18 +130,24 @@ def run_read(
     resolved_meetings: Mapping[str, object] | None = None,
 ) -> dict[str, Any]:
     """``resolved_meetings`` is an injection seam (defaults to ``None``,
-    meaning "resolve every meeting via :mod:`meeting_minutes_agent.
-    corpora.nxt` for real"): a test supplies a small hand-built
-    ``{meeting_id: ResolvedMeeting}`` mapping instead, exercising this
-    function's scoring/pooling/verdict wiring without real AMI annotation
-    bytes."""
+    meaning "resolve every meeting for real": the NXT gold transcript via
+    :mod:`meeting_minutes_agent.corpora.nxt` AND the meeting WAV's
+    audio-derived slicer inputs via :func:`audio_derived_slicer_inputs`): a
+    test supplies a small hand-built ``{meeting_id: ResolvedMeeting}``
+    mapping instead, exercising this function's scoring/pooling/verdict
+    wiring without real AMI annotation or audio bytes (the injected path
+    scores packing without duration/pause-transition fallbacks)."""
 
     assert_one_shot_output_dir(out_dir, force=force)
 
+    slicer_inputs: dict[str, tuple[float | None, tuple[float, ...]]]
     if resolved_meetings is None:
         annotations_root = Path(data_dir) / ami_annotations_root_relative
         corpus = NxtCorpus(annotations_root)
         resolved_meetings = {m: resolve_meeting(corpus, m) for m in meetings}
+        slicer_inputs = {m: audio_derived_slicer_inputs(Path(data_dir), m) for m in meetings}
+    else:
+        slicer_inputs = {m: (None, ()) for m in meetings}
 
     per_arm_meeting_metrics: dict[str, dict[str, Any]] = {arm: {} for arm in arms}
     per_arm_load_failed: dict[str, bool] = {arm: True for arm in arms}
@@ -133,7 +162,14 @@ def run_read(
                 meeting_record[arm] = None
                 continue
             per_arm_load_failed[arm] = False
-            metrics = score_meeting(meeting_id, oracle_turns, hypothesis_turns)
+            total_duration_s, pause_transitions = slicer_inputs[meeting_id]
+            metrics = score_meeting(
+                meeting_id,
+                oracle_turns,
+                hypothesis_turns,
+                total_duration_s=total_duration_s,
+                fallback_pause_transitions=pause_transitions,
+            )
             per_arm_meeting_metrics[arm][meeting_id] = metrics
             meeting_record[arm] = metrics.to_dict()
         per_meeting_records[meeting_id] = meeting_record
@@ -161,6 +197,10 @@ def run_read(
         "meetings": list(meetings),
         "arms": list(arms),
         "per_meeting": per_meeting_records,
+        "audio_slicer_inputs": {
+            m: {"total_duration_s": slicer_inputs[m][0], "n_pause_transitions": len(slicer_inputs[m][1])}
+            for m in meetings
+        },
         "pooled_no_collar_with_overlap": {a: (v.to_dict() if v is not None else None) for a, v in pooled.items()},
         "verdict": verdict.to_dict(),
     }

@@ -1,0 +1,39 @@
+# DIAR-SMOKE read attempt 1 — harness crash BEFORE any metric was computed/printed/written
+# 2026-08-19, HEAD b4a932674a22bdd4dd181f29c756589eab9dbd69 (clean tree), WSL Ubuntu-24.04,
+# ~/.venvs/speechrl, PYTHONDONTWRITEBYTECODE=1.
+# Command: python scripts/diar_smoke_read.py --data-dir "$SPEECHRL_DATA_DIR" \
+#   --flight-dir "$SPEECHRL_DATA_DIR/derived/meeting-minutes/diar-smoke/runs/2026-08-18-diar-smoke" \
+#   --out-dir docs/checks/2026-08-18-diar-smoke-read
+# Exit code: 1. No verdict.json / report.txt was written (the crash precedes both writes);
+# no DER/JER/packing number was produced or observed. Diagnosis: run_read() called
+# score_meeting() without the two audio-derived inputs the real transport packer always
+# receives (total_duration_s + fallback_pause_transitions — cf. build_slice_manifest and
+# scripts/build_pattr_manifest.py build_meeting_entry), so a >120 s boundary-free stretch in
+# TS3004b's ORACLE turn table could not fall back to an energy-pause split and tripped the
+# transport hard cap. Single diagnosed fix committed before the one-shot read re-execution;
+# the flown run directory was not touched.
+
+Traceback (most recent call last):
+  File "/mnt/d/chao_workspace/exploring-l4-intelligence/papers/meeting-minutes-agent/scripts/diar_smoke_read.py", line 202, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "/mnt/d/chao_workspace/exploring-l4-intelligence/papers/meeting-minutes-agent/scripts/diar_smoke_read.py", line 188, in main
+    document = run_read(
+               ^^^^^^^^^
+  File "/mnt/d/chao_workspace/exploring-l4-intelligence/papers/meeting-minutes-agent/scripts/diar_smoke_read.py", line 136, in run_read
+    metrics = score_meeting(meeting_id, oracle_turns, hypothesis_turns)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/d/chao_workspace/exploring-l4-intelligence/papers/meeting-minutes-agent/src/meeting_minutes_agent/probes/diar_smoke_scoring.py", line 119, in score_meeting
+    packing = packing_change_for_meeting(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/d/chao_workspace/exploring-l4-intelligence/papers/meeting-minutes-agent/src/meeting_minutes_agent/probes/diar_smoke_scoring.py", line 229, in packing_change_for_meeting
+    oracle_plan = build_turn_aware_slice_plan(
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/d/chao_workspace/exploring-l4-intelligence/papers/meeting-minutes-agent/src/meeting_minutes_agent/chunking/slicer.py", line 577, in build_turn_aware_slice_plan
+    return _finalize_slice_plan(meeting_id, SlicePlanMode.TURN_AWARE, turn_provenance, duration, slices)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/d/chao_workspace/exploring-l4-intelligence/papers/meeting-minutes-agent/src/meeting_minutes_agent/chunking/slicer.py", line 260, in _finalize_slice_plan
+    _assert_transport_bound(slices)
+  File "/mnt/d/chao_workspace/exploring-l4-intelligence/papers/meeting-minutes-agent/src/meeting_minutes_agent/chunking/slicer.py", line 249, in _assert_transport_bound
+    raise TransportBoundViolation(
+meeting_minutes_agent.chunking.slicer.TransportBoundViolation: slice 22 (start=2035.2585, end=2160.5665) has duration 125.30799999999999s, which exceeds the transport layer's hard cap TRANSPORT_SLICE_MAX_S=120.0s -- a slice plan must never carry a slice client/transport.py would refuse to send

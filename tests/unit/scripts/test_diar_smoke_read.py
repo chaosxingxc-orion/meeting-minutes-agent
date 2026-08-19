@@ -150,6 +150,18 @@ class TestMainCli:
         # (module-local binding), not the resolver module's own attribute.
         monkeypatch.setattr(reader, "resolve_meeting", lambda corpus, meeting_id: _resolved_meeting(meeting_id))
 
+        # The real-resolution path also reads each meeting's WAV for the
+        # transport packer's audio-derived slicer inputs (duration + energy
+        # pause transitions); fake it to keep this a zero-audio-bytes test
+        # while asserting the per-meeting wiring actually happens.
+        seen_audio: list[str] = []
+
+        def _fake_audio_inputs(data_dir, meeting_id):
+            seen_audio.append(meeting_id)
+            return None, ()
+
+        monkeypatch.setattr(reader, "audio_derived_slicer_inputs", _fake_audio_inputs)
+
         rc = reader.main(
             [
                 "--data-dir", str(tmp_path),
@@ -163,3 +175,8 @@ class TestMainCli:
         assert rc == 0
         payload = json.loads(capsys.readouterr().out)
         assert payload["verdict"]["status"] == STATUS_TOOL_LOCKED_B
+        assert seen_audio == meetings
+        on_disk = json.loads((out_dir / "verdict.json").read_text(encoding="utf-8"))
+        assert on_disk["audio_slicer_inputs"] == {
+            "MTG1": {"total_duration_s": None, "n_pause_transitions": 0}
+        }
