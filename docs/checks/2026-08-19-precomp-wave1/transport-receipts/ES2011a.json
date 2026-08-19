@@ -1,0 +1,30 @@
+{
+  "config": {
+    "budget_totals": {
+      "audio_seconds_used": 0.0,
+      "calls_used": 0,
+      "max_audio_seconds": 108000.0,
+      "max_calls": 900
+    },
+    "request_ledger": [],
+    "server_identity": {
+      "base_url": "http://127.0.0.1:8080",
+      "model_files": [
+        {
+          "path": "/home/chao/models/qwen3-omni-30b-a3b-instruct-gguf-q4km/Qwen3-Omni-30B-A3B-Instruct-Q4_K_M.gguf",
+          "sha256": "0751c279498785c0b07130ae7748038d1e2cfd04617928e4557063807f98066d"
+        }
+      ],
+      "slots": 1
+    }
+  },
+  "config_hash": "e5d000dfa419751c9a7d4b01ceebe7551ab27a0704c0ce67de677698f28a26a3",
+  "created_utc": "2026-08-19T09:42:25+00:00",
+  "extra": {},
+  "git": {
+    "commit": "86e1595c6cc91d545f774ac9b8489096413cc42a",
+    "dirty": true,
+    "error": null
+  },
+  "run_id": "e2f93b833f3145d089013964df9168ac"
+}

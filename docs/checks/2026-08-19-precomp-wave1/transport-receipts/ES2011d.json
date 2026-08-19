@@ -1,0 +1,493 @@
+{
+  "config": {
+    "budget_totals": {
+      "audio_seconds_used": 3972.38,
+      "calls_used": 42,
+      "max_audio_seconds": 108000.0,
+      "max_calls": 900
+    },
+    "request_ledger": [
+      {
+        "attempt_number": 1,
+        "audio_seconds": 98.485,
+        "error": null,
+        "latency_seconds": 6.507743678001134,
+        "outcome": "ok",
+        "request_id": "precomp-w1-tool-ES2011d-slice0000",
+        "response_of": "precomp-w1-tool-ES2011d-slice0000",
+        "retry_of": null,
+        "started_at": "2026-08-19T09:52:55.558242+00:00"
+      },
+      {
+        "attempt_number": 1,
+        "audio_seconds": 91.99400000000001,
+        "error": null,
+        "latency_seconds": 6.391960230001132,
+        "outcome": "ok",
+        "request_id": "precomp-w1-tool-ES2011d-slice0001",
+        "response_of": "precomp-w1-tool-ES2011d-slice0001",
+        "retry_of": null,
+        "started_at": "2026-08-19T09:53:02.155768+00:00"
+      },
+      {
+        "attempt_number": 1,
+        "audio_seconds": 92.99400000000003,
+        "error": null,
+        "latency_seconds": 6.33701351000127,
+        "outcome": "ok",
+        "request_id": "precomp-w1-tool-ES2011d-slice0002",
+        "response_of": "precomp-w1-tool-ES2011d-slice0002",
+        "retry_of": null,
+        "started_at": "2026-08-19T09:53:09.592079+00:00"
+      },
+      {
+        "attempt_number": 1,
+        "audio_seconds": 98.75999999999999,
+        "error": null,
+        "latency_seconds": 6.258941623000283,
+        "outcome": "ok",
+        "request_id": "precomp-w1-tool-ES2011d-slice0003",
+        "response_of": "precomp-w1-tool-ES2011d-slice0003",
+        "retry_of": null,
+        "started_at": "2026-08-19T09:53:16.011395+00:00"
+      },
+      {
+        "attempt_number": 1,
+        "audio_seconds": 99.83999999999997,
+        "error": null,
+        "latency_seconds": 6.579721673002496,
+        "outcome": "ok",
+        "request_id": "precomp-w1-tool-ES2011d-slice0004",
+        "response_of": "precomp-w1-tool-ES2011d-slice0004",
+        "retry_of": null,
+        "started_at": "2026-08-19T09:53:22.366090+00:00"
+      },
+      {
+        "attempt_number": 1,
+        "audio_seconds": 95.03399999999993,
+        "error": null,
+        "latency_seconds": 6.461222949998046,
+        "outcome": "ok",
+        "request_id": "precomp-w1-tool-ES2011d-slice0005",
+        "response_of": "precomp-w1-tool-ES2011d-slice0005",
+        "retry_of": null,
+        "started_at": "2026-08-19T09:53:29.019395+00:00"
+      },
+      {
+        "attempt_number": 1,
+        "audio_seconds": 92.0340000000001,
+        "error": null,
+        "latency_seconds": 5.969770404000883,
+        "outcome": "ok",
+        "request_id": "precomp-w1-tool-ES2011d-slice0006",
+        "response_of": "precomp-w1-tool-ES2011d-slice0006",
+        "retry_of": null,
+        "started_at": "2026-08-19T09:53:35.558773+00:00"
+      },
+      {
+        "attempt_number": 1,
+        "audio_seconds": 119.63999999999999,
+        "error": null,
+        "latency_seconds": 7.161512350998237,
+        "outcome": "ok",
+        "request_id": "precomp-w1-tool-ES2011d-slice0007",
+        "response_of": "precomp-w1-tool-ES2011d-slice0007",
+        "retry_of": null,
+        "started_at": "2026-08-19T09:53:42.482118+00:00"
+      },
+      {
+        "attempt_number": 1,
+        "audio_seconds": 95.7539999999999,
+        "error": null,
+        "latency_seconds": 5.985381356000289,
+        "outcome": "ok",
+        "request_id": "precomp-w1-tool-ES2011d-slice0008",
+        "response_of": "precomp-w1-tool-ES2011d-slice0008",
+        "retry_of": null,
+        "started_at": "2026-08-19T09:53:49.724464+00:00"
+      },
+      {
+        "attempt_number": 1,
+        "audio_seconds": 90.94800000000009,
+        "error": null,
+        "latency_seconds": 5.827778290000424,
+        "outcome": "ok",
+        "request_id": "precomp-w1-tool-ES2011d-slice0009",
+        "response_of": "precomp-w1-tool-ES2011d-slice0009",
+        "retry_of": null,
+        "started_at": "2026-08-19T09:53:55.777939+00:00"
+      },
+      {
+        "attempt_number": 1,
+        "audio_seconds": 90.47400000000005,
+        "error": null,
+        "latency_seconds": 5.972535372002312,
+        "outcome": "ok",
+        "request_id": "precomp-w1-tool-ES2011d-slice0010",
+        "response_of": "precomp-w1-tool-ES2011d-slice0010",
+        "retry_of": null,
+        "started_at": "2026-08-19T09:54:01.687015+00:00"
+      },
+      {
+        "attempt_number": 1,
+        "audio_seconds": 94.23399999999992,
+        "error": null,
+        "latency_seconds": 6.500638386998617,
+        "outcome": "ok",
+        "request_id": "precomp-w1-tool-ES2011d-slice0011",
+        "response_of": "precomp-w1-tool-ES2011d-slice0011",
+        "retry_of": null,
+        "started_at": "2026-08-19T09:54:07.740747+00:00"
+      },
+      {
+        "attempt_number": 1,
+        "audio_seconds": 93.39400000000023,
+        "error": null,
+        "latency_seconds": 6.494633225000143,
+        "outcome": "ok",
+        "request_id": "precomp-w1-tool-ES2011d-slice0012",
+        "response_of": "precomp-w1-tool-ES2011d-slice0012",
+        "retry_of": null,
+        "started_at": "2026-08-19T09:54:14.342542+00:00"
+      },
+      {
+        "attempt_number": 1,
+        "audio_seconds": 94.35999999999967,
+        "error": null,
+        "latency_seconds": 6.600443295999867,
+        "outcome": "ok",
+        "request_id": "precomp-w1-tool-ES2011d-slice0013",
+        "response_of": "precomp-w1-tool-ES2011d-slice0013",
+        "retry_of": null,
+        "started_at": "2026-08-19T09:54:20.953016+00:00"
+      },
+      {
+        "attempt_number": 1,
+        "audio_seconds": 94.60000000000036,
+        "error": null,
+        "latency_seconds": 6.642381756999384,
+        "outcome": "ok",
+        "request_id": "precomp-w1-tool-ES2011d-slice0014",
+        "response_of": "precomp-w1-tool-ES2011d-slice0014",
+        "retry_of": null,
+        "started_at": "2026-08-19T09:54:27.693135+00:00"
+      },
+      {
+        "attempt_number": 1,
+        "audio_seconds": 94.79999999999973,
+        "error": null,
+        "latency_seconds": 6.011133775002236,
+        "outcome": "ok",
+        "request_id": "precomp-w1-tool-ES2011d-slice0015",
+        "response_of": "precomp-w1-tool-ES2011d-slice0015",
+        "retry_of": null,
+        "started_at": "2026-08-19T09:54:35.134862+00:00"
+      },
+      {
+        "attempt_number": 1,
+        "audio_seconds": 91.15400000000022,
+        "error": null,
+        "latency_seconds": 6.3162293339992175,
+        "outcome": "ok",
+        "request_id": "precomp-w1-tool-ES2011d-slice0016",
+        "response_of": "precomp-w1-tool-ES2011d-slice0016",
+        "retry_of": null,
+        "started_at": "2026-08-19T09:54:41.228841+00:00"
+      },
+      {
+        "attempt_number": 1,
+        "audio_seconds": 97.43399999999997,
+        "error": null,
+        "latency_seconds": 6.821793032002461,
+        "outcome": "ok",
+        "request_id": "precomp-w1-tool-ES2011d-slice0017",
+        "response_of": "precomp-w1-tool-ES2011d-slice0017",
+        "retry_of": null,
+        "started_at": "2026-08-19T09:54:47.663822+00:00"
+      },
+      {
+        "attempt_number": 1,
+        "audio_seconds": 90.63999999999987,
+        "error": null,
+        "latency_seconds": 6.277322172998538,
+        "outcome": "ok",
+        "request_id": "precomp-w1-tool-ES2011d-slice0018",
+        "response_of": "precomp-w1-tool-ES2011d-slice0018",
+        "retry_of": null,
+        "started_at": "2026-08-19T09:54:54.616694+00:00"
+      },
+      {
+        "attempt_number": 1,
+        "audio_seconds": 91.00000000000023,
+        "error": null,
+        "latency_seconds": 6.472463575999427,
+        "outcome": "ok",
+        "request_id": "precomp-w1-tool-ES2011d-slice0019",
+        "response_of": "precomp-w1-tool-ES2011d-slice0019",
+        "retry_of": null,
+        "started_at": "2026-08-19T09:55:01.024662+00:00"
+      },
+      {
+        "attempt_number": 1,
+        "audio_seconds": 80.63399999999979,
+        "error": null,
+        "latency_seconds": 5.661791403999814,
+        "outcome": "ok",
+        "request_id": "precomp-w1-tool-ES2011d-slice0020",
+        "response_of": "precomp-w1-tool-ES2011d-slice0020",
+        "retry_of": null,
+        "started_at": "2026-08-19T09:55:08.424630+00:00"
+      },
+      {
+        "attempt_number": 1,
+        "audio_seconds": 108.537,
+        "error": null,
+        "latency_seconds": 7.328693751998799,
+        "outcome": "ok",
+        "request_id": "precomp-w1-oracle-ES2011d-slice0000",
+        "response_of": "precomp-w1-oracle-ES2011d-slice0000",
+        "retry_of": null,
+        "started_at": "2026-08-19T09:55:14.212046+00:00"
+      },
+      {
+        "attempt_number": 1,
+        "audio_seconds": 100.67150000000001,
+        "error": null,
+        "latency_seconds": 6.895465998000873,
+        "outcome": "ok",
+        "request_id": "precomp-w1-oracle-ES2011d-slice0001",
+        "response_of": "precomp-w1-oracle-ES2011d-slice0001",
+        "retry_of": null,
+        "started_at": "2026-08-19T09:55:21.631753+00:00"
+      },
+      {
+        "attempt_number": 1,
+        "audio_seconds": 103.50450000000001,
+        "error": null,
+        "latency_seconds": 6.975299379999342,
+        "outcome": "ok",
+        "request_id": "precomp-w1-oracle-ES2011d-slice0002",
+        "response_of": "precomp-w1-oracle-ES2011d-slice0002",
+        "retry_of": null,
+        "started_at": "2026-08-19T09:55:28.603545+00:00"
+      },
+      {
+        "attempt_number": 1,
+        "audio_seconds": 96.84099999999995,
+        "error": null,
+        "latency_seconds": 6.626619392001885,
+        "outcome": "ok",
+        "request_id": "precomp-w1-oracle-ES2011d-slice0003",
+        "response_of": "precomp-w1-oracle-ES2011d-slice0003",
+        "retry_of": null,
+        "started_at": "2026-08-19T09:55:35.673433+00:00"
+      },
+      {
+        "attempt_number": 1,
+        "audio_seconds": 91.41200000000003,
+        "error": null,
+        "latency_seconds": 6.403986209999857,
+        "outcome": "ok",
+        "request_id": "precomp-w1-oracle-ES2011d-slice0004",
+        "response_of": "precomp-w1-oracle-ES2011d-slice0004",
+        "retry_of": null,
+        "started_at": "2026-08-19T09:55:42.396015+00:00"
+      },
+      {
+        "attempt_number": 1,
+        "audio_seconds": 88.64100000000008,
+        "error": null,
+        "latency_seconds": 6.020021454001835,
+        "outcome": "ok",
+        "request_id": "precomp-w1-oracle-ES2011d-slice0005",
+        "response_of": "precomp-w1-oracle-ES2011d-slice0005",
+        "retry_of": null,
+        "started_at": "2026-08-19T09:55:48.888567+00:00"
+      },
+      {
+        "attempt_number": 1,
+        "audio_seconds": 120.0,
+        "error": null,
+        "latency_seconds": 7.655942563000281,
+        "outcome": "ok",
+        "request_id": "precomp-w1-oracle-ES2011d-slice0006",
+        "response_of": "precomp-w1-oracle-ES2011d-slice0006",
+        "retry_of": null,
+        "started_at": "2026-08-19T09:55:55.052161+00:00"
+      },
+      {
+        "attempt_number": 1,
+        "audio_seconds": 120.0,
+        "error": null,
+        "latency_seconds": 8.089044053998805,
+        "outcome": "ok",
+        "request_id": "precomp-w1-oracle-ES2011d-slice0007",
+        "response_of": "precomp-w1-oracle-ES2011d-slice0007",
+        "retry_of": null,
+        "started_at": "2026-08-19T09:56:02.840754+00:00"
+      },
+      {
+        "attempt_number": 1,
+        "audio_seconds": 94.19650000000001,
+        "error": null,
+        "latency_seconds": 6.200220923001325,
+        "outcome": "ok",
+        "request_id": "precomp-w1-oracle-ES2011d-slice0008",
+        "response_of": "precomp-w1-oracle-ES2011d-slice0008",
+        "retry_of": null,
+        "started_at": "2026-08-19T09:56:11.087721+00:00"
+      },
+      {
+        "attempt_number": 1,
+        "audio_seconds": 92.46849999999995,
+        "error": null,
+        "latency_seconds": 6.188814236000326,
+        "outcome": "ok",
+        "request_id": "precomp-w1-oracle-ES2011d-slice0009",
+        "response_of": "precomp-w1-oracle-ES2011d-slice0009",
+        "retry_of": null,
+        "started_at": "2026-08-19T09:56:17.441187+00:00"
+      },
+      {
+        "attempt_number": 1,
+        "audio_seconds": 96.44999999999982,
+        "error": null,
+        "latency_seconds": 6.8714361659986025,
+        "outcome": "ok",
+        "request_id": "precomp-w1-oracle-ES2011d-slice0010",
+        "response_of": "precomp-w1-oracle-ES2011d-slice0010",
+        "retry_of": null,
+        "started_at": "2026-08-19T09:56:23.760295+00:00"
+      },
+      {
+        "attempt_number": 1,
+        "audio_seconds": 90.03999999999996,
+        "error": null,
+        "latency_seconds": 6.413603590997809,
+        "outcome": "ok",
+        "request_id": "precomp-w1-oracle-ES2011d-slice0011",
+        "response_of": "precomp-w1-oracle-ES2011d-slice0011",
+        "retry_of": null,
+        "started_at": "2026-08-19T09:56:31.423393+00:00"
+      },
+      {
+        "attempt_number": 1,
+        "audio_seconds": 96.2360000000001,
+        "error": null,
+        "latency_seconds": 6.277265325999906,
+        "outcome": "ok",
+        "request_id": "precomp-w1-oracle-ES2011d-slice0012",
+        "response_of": "precomp-w1-oracle-ES2011d-slice0012",
+        "retry_of": null,
+        "started_at": "2026-08-19T09:56:37.945322+00:00"
+      },
+      {
+        "attempt_number": 1,
+        "audio_seconds": 92.61799999999994,
+        "error": null,
+        "latency_seconds": 6.320159519000299,
+        "outcome": "ok",
+        "request_id": "precomp-w1-oracle-ES2011d-slice0013",
+        "response_of": "precomp-w1-oracle-ES2011d-slice0013",
+        "retry_of": null,
+        "started_at": "2026-08-19T09:56:44.304564+00:00"
+      },
+      {
+        "attempt_number": 1,
+        "audio_seconds": 92.35300000000007,
+        "error": null,
+        "latency_seconds": 6.223972793002758,
+        "outcome": "ok",
+        "request_id": "precomp-w1-oracle-ES2011d-slice0014",
+        "response_of": "precomp-w1-oracle-ES2011d-slice0014",
+        "retry_of": null,
+        "started_at": "2026-08-19T09:56:50.707269+00:00"
+      },
+      {
+        "attempt_number": 1,
+        "audio_seconds": 93.43299999999999,
+        "error": null,
+        "latency_seconds": 6.4348302420003165,
+        "outcome": "ok",
+        "request_id": "precomp-w1-oracle-ES2011d-slice0015",
+        "response_of": "precomp-w1-oracle-ES2011d-slice0015",
+        "retry_of": null,
+        "started_at": "2026-08-19T09:56:57.019024+00:00"
+      },
+      {
+        "attempt_number": 1,
+        "audio_seconds": 90.45700000000011,
+        "error": null,
+        "latency_seconds": 6.389264340999944,
+        "outcome": "ok",
+        "request_id": "precomp-w1-oracle-ES2011d-slice0016",
+        "response_of": "precomp-w1-oracle-ES2011d-slice0016",
+        "retry_of": null,
+        "started_at": "2026-08-19T09:57:03.545526+00:00"
+      },
+      {
+        "attempt_number": 1,
+        "audio_seconds": 96.38400000000001,
+        "error": null,
+        "latency_seconds": 6.813566239001375,
+        "outcome": "ok",
+        "request_id": "precomp-w1-oracle-ES2011d-slice0017",
+        "response_of": "precomp-w1-oracle-ES2011d-slice0017",
+        "retry_of": null,
+        "started_at": "2026-08-19T09:57:10.780547+00:00"
+      },
+      {
+        "attempt_number": 1,
+        "audio_seconds": 93.27299999999991,
+        "error": null,
+        "latency_seconds": 6.6888319040008355,
+        "outcome": "ok",
+        "request_id": "precomp-w1-oracle-ES2011d-slice0018",
+        "response_of": "precomp-w1-oracle-ES2011d-slice0018",
+        "retry_of": null,
+        "started_at": "2026-08-19T09:57:17.685237+00:00"
+      },
+      {
+        "attempt_number": 1,
+        "audio_seconds": 90.61799999999994,
+        "error": null,
+        "latency_seconds": 6.329165422001097,
+        "outcome": "ok",
+        "request_id": "precomp-w1-oracle-ES2011d-slice0019",
+        "response_of": "precomp-w1-oracle-ES2011d-slice0019",
+        "retry_of": null,
+        "started_at": "2026-08-19T09:57:24.457954+00:00"
+      },
+      {
+        "attempt_number": 1,
+        "audio_seconds": 36.03899999999999,
+        "error": null,
+        "latency_seconds": 2.7224483280006098,
+        "outcome": "ok",
+        "request_id": "precomp-w1-oracle-ES2011d-slice0020",
+        "response_of": "precomp-w1-oracle-ES2011d-slice0020",
+        "retry_of": null,
+        "started_at": "2026-08-19T09:57:30.858018+00:00"
+      }
+    ],
+    "server_identity": {
+      "base_url": "http://127.0.0.1:8080",
+      "model_files": [
+        {
+          "path": "/home/chao/models/qwen3-omni-30b-a3b-instruct-gguf-q4km/Qwen3-Omni-30B-A3B-Instruct-Q4_K_M.gguf",
+          "sha256": "0751c279498785c0b07130ae7748038d1e2cfd04617928e4557063807f98066d"
+        }
+      ],
+      "slots": 1
+    }
+  },
+  "config_hash": "8c4b899175d513e66d150c609ba85dc037fa7e0d24c3d33eddbf9814d96f08d9",
+  "created_utc": "2026-08-19T09:57:34+00:00",
+  "extra": {},
+  "git": {
+    "commit": "86e1595c6cc91d545f774ac9b8489096413cc42a",
+    "dirty": true,
+    "error": null
+  },
+  "run_id": "683bd797409f45858df8fc2628d46ec1"
+}

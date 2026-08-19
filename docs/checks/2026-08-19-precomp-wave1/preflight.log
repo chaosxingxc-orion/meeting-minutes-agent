@@ -1,0 +1,131 @@
+=== preflight start 2026-08-19T09:31:07Z ===
+--- repo state ---
+86e1595c6cc91d545f774ac9b8489096413cc42a
+porcelain lines: 0
+
+--- hash pins ---
+OK   llama-server  097c96ec5a3f576f378d4d5e103928bf070647fdcc1f015eacb839503e121c68  /home/chao/llama.cpp-featcache/build/bin/llama-server
+OK   qwen3-omni-q4km  0751c279498785c0b07130ae7748038d1e2cfd04617928e4557063807f98066d  /home/chao/models/qwen3-omni-30b-a3b-instruct-gguf-q4km/Qwen3-Omni-30B-A3B-Instruct-Q4_K_M.gguf
+OK   qwen3-omni-mmproj  f0dfe825fb692d426362b1ac79678fc08daa4758f7151526cad110515f122883  /home/chao/models/qwen3-omni-30b-a3b-instruct-gguf-q4km/mmproj-Qwen3-Omni-30B-A3B-Instruct-bf16.gguf
+OK   nemo-speech-binary  1a3e3f4fe7db4c48e5d6e44a76d5adf2bbfef80024c023b0eab2766eb61aca78  /home/chao/nemo-speech.cpp/build/cuda-diar/bin/nemo-speech
+OK   diar-sortformer-q8  0679cfeb1ce356d0dea9470b31274f4bfc7eb927497d82005483770666da998a  /mnt/e/chao_workspace/exploring-l4-intelligence/speechrl-data/models/diar-sortformer-4spk-v2/diar_streaming_sortformer_4spk-v2.q8_0.gguf
+hash-pin fail flag: 0
+
+--- llama.cpp build commit ---
+5d9dfcb58ea860295da8fc93c7b5bed9e2c71151
+dirty: 0
+version: 5 (5d9dfcb58)
+built with GNU 13.3.0 for Linux x86_64
+
+--- arm-config (pinned Arm B source) ---
+-rwxrwxrwx 1 chao chao 1985 Aug 18 23:06 /mnt/e/chao_workspace/exploring-l4-intelligence/speechrl-data/derived/meeting-minutes/diar-smoke/tooling/arm-config.json
+608230d62d077671e66e7912bea097ee59d7fadaa72aa9025842ee385eb80158  /mnt/e/chao_workspace/exploring-l4-intelligence/speechrl-data/derived/meeting-minutes/diar-smoke/tooling/arm-config.json
+arms: ['A', 'B']
+tool_name: nemo-speech.cpp-cuda-q8_0
+checkpoint_sha256: 0679cfeb1ce356d0dea9470b31274f4bfc7eb927497d82005483770666da998a
+argv0: /home/chao/nemo-speech.cpp/build/cuda-diar/bin/nemo-speech
+
+--- feature cache (ami-q4km) BEFORE ---
+entries: 879
+bytes:   502249200
+
+--- NXT annotations root ---
+/mnt/e/chao_workspace/exploring-l4-intelligence/speechrl-data/datasets/ami/annotations/manual_1.6.2
+00README_MANUAL.txt
+AMI-metadata.xml
+LICENCE.txt
+MANIFEST_MANUAL.txt
+abstractive
+argumentation
+configuration
+corpusResources
+corpusdoc
+decision
+dialogueActs
+disfluency
+
+--- pytest (full meeting-repo suite) ---
+........................................................................ [ 52%]
+........................................................................ [ 58%]
+........................................................................ [ 64%]
+........................................................................ [ 69%]
+........................................................................ [ 75%]
+........................................................................ [ 81%]
+........................................................................ [ 87%]
+........................................................................ [ 93%]
+........................................................................ [ 98%]
+.............                                                            [100%]
+=============================== warnings summary ===============================
+tests/unit/chunking/test_slicer.py::TestRealAudioVad::test_detect_energy_pause_transitions_finds_a_real_silence_gap
+  /home/chao/.venvs/speechrl/lib/python3.12/site-packages/audioread/rawread.py:16: DeprecationWarning: 'aifc' is deprecated and slated for removal in Python 3.13
+    import aifc
+
+tests/unit/chunking/test_slicer.py::TestRealAudioVad::test_detect_energy_pause_transitions_finds_a_real_silence_gap
+  /home/chao/.venvs/speechrl/lib/python3.12/site-packages/audioread/rawread.py:17: DeprecationWarning: 'audioop' is deprecated and slated for removal in Python 3.13
+    import audioop
+
+tests/unit/chunking/test_slicer.py::TestRealAudioVad::test_detect_energy_pause_transitions_finds_a_real_silence_gap
+  /home/chao/.venvs/speechrl/lib/python3.12/site-packages/audioread/rawread.py:19: DeprecationWarning: 'sunau' is deprecated and slated for removal in Python 3.13
+    import sunau
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+1234 passed, 3 skipped, 3 warnings in 47.95s
+
+--- runner --summary-only (roster + ceilings, exclusion gate) ---
+{
+  "ceilings": {
+    "max_cutting_wall_hours": 2.0,
+    "max_diar_gpu_hours": 0.5,
+    "max_encode_calls": 900,
+    "max_encode_gpu_hours": 2.0,
+    "wave": 1
+  },
+  "meetings": [
+    "ES2011a",
+    "ES2011b",
+    "ES2011c",
+    "ES2011d",
+    "IB4001",
+    "IB4002",
+    "IB4003",
+    "IB4004",
+    "IB4010",
+    "IB4011",
+    "IS1008a",
+    "IS1008b",
+    "IS1008c",
+    "IS1008d",
+    "TS3004a",
+    "TS3004b",
+    "TS3004c",
+    "TS3004d"
+  ],
+  "n_meetings": 18,
+  "wave": 1
+}
+
+--- dev-18 audio presence + durations ---
+ES2011a:   1113.8s  est_slices/source~ 12  est_calls(2 sources)~ 24  /mnt/e/chao_workspace/exploring-l4-intelligence/speechrl-data/datasets/ami/amicorpus/ES2011a/audio/ES2011a.Mix-Headset.wav
+ES2011b:   1581.3s  est_slices/source~ 18  est_calls(2 sources)~ 36  /mnt/e/chao_workspace/exploring-l4-intelligence/speechrl-data/datasets/ami/amicorpus/ES2011b/audio/ES2011b.Mix-Headset.wav
+ES2011c:   1616.1s  est_slices/source~ 18  est_calls(2 sources)~ 36  /mnt/e/chao_workspace/exploring-l4-intelligence/speechrl-data/datasets/ami/amicorpus/ES2011c/audio/ES2011c.Mix-Headset.wav
+ES2011d:   1982.3s  est_slices/source~ 22  est_calls(2 sources)~ 44  /mnt/e/chao_workspace/exploring-l4-intelligence/speechrl-data/datasets/ami/amicorpus/ES2011d/audio/ES2011d.Mix-Headset.wav
+IB4001:   1780.7s  est_slices/source~ 20  est_calls(2 sources)~ 40  /mnt/e/chao_workspace/exploring-l4-intelligence/speechrl-data/datasets/ami/amicorpus/IB4001/audio/IB4001.Mix-Headset.wav
+IB4002:   1882.4s  est_slices/source~ 21  est_calls(2 sources)~ 42  /mnt/e/chao_workspace/exploring-l4-intelligence/speechrl-data/datasets/ami/amicorpus/IB4002/audio/IB4002.Mix-Headset.wav
+IB4003:   2023.3s  est_slices/source~ 22  est_calls(2 sources)~ 44  /mnt/e/chao_workspace/exploring-l4-intelligence/speechrl-data/datasets/ami/amicorpus/IB4003/audio/IB4003.Mix-Headset.wav
+IB4004:   2392.8s  est_slices/source~ 27  est_calls(2 sources)~ 54  /mnt/e/chao_workspace/exploring-l4-intelligence/speechrl-data/datasets/ami/amicorpus/IB4004/audio/IB4004.Mix-Headset.wav
+IB4010:   2960.6s  est_slices/source~ 33  est_calls(2 sources)~ 66  /mnt/e/chao_workspace/exploring-l4-intelligence/speechrl-data/datasets/ami/amicorpus/IB4010/audio/IB4010.Mix-Headset.wav
+IB4011:   2417.0s  est_slices/source~ 27  est_calls(2 sources)~ 54  /mnt/e/chao_workspace/exploring-l4-intelligence/speechrl-data/datasets/ami/amicorpus/IB4011/audio/IB4011.Mix-Headset.wav
+IS1008a:    943.8s  est_slices/source~ 10  est_calls(2 sources)~ 20  /mnt/e/chao_workspace/exploring-l4-intelligence/speechrl-data/datasets/ami/amicorpus/IS1008a/audio/IS1008a.Mix-Headset.wav
+IS1008b:   1768.5s  est_slices/source~ 20  est_calls(2 sources)~ 40  /mnt/e/chao_workspace/exploring-l4-intelligence/speechrl-data/datasets/ami/amicorpus/IS1008b/audio/IS1008b.Mix-Headset.wav
+IS1008c:   1546.3s  est_slices/source~ 17  est_calls(2 sources)~ 34  /mnt/e/chao_workspace/exploring-l4-intelligence/speechrl-data/datasets/ami/amicorpus/IS1008c/audio/IS1008c.Mix-Headset.wav
+IS1008d:   1480.8s  est_slices/source~ 16  est_calls(2 sources)~ 32  /mnt/e/chao_workspace/exploring-l4-intelligence/speechrl-data/datasets/ami/amicorpus/IS1008d/audio/IS1008d.Mix-Headset.wav
+TS3004a:   1345.3s  est_slices/source~ 15  est_calls(2 sources)~ 30  /mnt/e/chao_workspace/exploring-l4-intelligence/speechrl-data/datasets/ami/amicorpus/TS3004a/audio/TS3004a.Mix-Headset.wav
+TS3004b:   2246.1s  est_slices/source~ 25  est_calls(2 sources)~ 50  /mnt/e/chao_workspace/exploring-l4-intelligence/speechrl-data/datasets/ami/amicorpus/TS3004b/audio/TS3004b.Mix-Headset.wav
+TS3004c:   2970.0s  est_slices/source~ 33  est_calls(2 sources)~ 66  /mnt/e/chao_workspace/exploring-l4-intelligence/speechrl-data/datasets/ami/amicorpus/TS3004c/audio/TS3004c.Mix-Headset.wav
+TS3004d:   2750.8s  est_slices/source~ 31  est_calls(2 sources)~ 62  /mnt/e/chao_workspace/exploring-l4-intelligence/speechrl-data/datasets/ami/amicorpus/TS3004d/audio/TS3004d.Mix-Headset.wav
+TOTAL audio: 34801.8s = 9.67 h; crude est encode calls = 774
+
+--- GPU health ---
+name, utilization.gpu [%], memory.used [MiB], memory.total [MiB], clocks.current.sm [MHz], clocks.max.sm [MHz], pstate, temperature.gpu, power.draw [W], clocks_event_reasons.active
+NVIDIA GeForce RTX 5090 Laptop GPU, 0 %, 0 MiB, 24463 MiB, 1515 MHz, 3090 MHz, P5, 43, 15.86 W, 0x0000000000000000
+=== preflight end 2026-08-19T09:32:35Z ===

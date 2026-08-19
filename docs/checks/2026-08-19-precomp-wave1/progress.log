@@ -1,0 +1,41 @@
+featcache before: entries=1177 bytes=748579216
+09:42:23Z ledger before ES2011a: {"breaches": [], "ceilings": {"max_cutting_wall_hours": 2.0, "max_diar_gpu_hours": 0.5, "max_encode_calls": 900, "max_encode_gpu_hours": 2.0, "wave": 1}, "used": {"cutting_wall_seconds_used": 1.814798265000718, "diar_gpu_seconds_used": 0.0, "diar_wall_seconds": 31.639062943999306, "encode_calls_used": 24, "encode_gpu_seconds_used": 145.16468063087967, "encode_wall_seconds": 151.92618303899872, "n_ok": 1, "n_receipts": 1}}
+--- ES2011a start 2026-08-19T09:42:23Z ---
+09:42:25Z ES2011a rc=0 wall=2s receipt=ok
+09:42:26Z ledger before ES2011b: {"breaches": [], "ceilings": {"max_cutting_wall_hours": 2.0, "max_diar_gpu_hours": 0.5, "max_encode_calls": 900, "max_encode_gpu_hours": 2.0, "wave": 1}, "used": {"cutting_wall_seconds_used": 1.814798265000718, "diar_gpu_seconds_used": 0.0, "diar_wall_seconds": 31.639062943999306, "encode_calls_used": 24, "encode_gpu_seconds_used": 145.16468063087967, "encode_wall_seconds": 151.92618303899872, "n_ok": 1, "n_receipts": 1}}
+--- ES2011b start 2026-08-19T09:42:26Z ---
+09:46:59Z ES2011b rc=0 wall=273s receipt=ok
+09:47:00Z ledger before ES2011c: {"breaches": [], "ceilings": {"max_cutting_wall_hours": 2.0, "max_diar_gpu_hours": 0.5, "max_encode_calls": 900, "max_encode_gpu_hours": 2.0, "wave": 1}, "used": {"cutting_wall_seconds_used": 4.560848480999994, "diar_gpu_seconds_used": 30.446582917121706, "diar_wall_seconds": 79.21184875200197, "encode_calls_used": 58, "encode_gpu_seconds_used": 346.40903964046714, "encode_wall_seconds": 368.63331263799773, "n_ok": 2, "n_receipts": 2}}
+--- ES2011c start 2026-08-19T09:47:00Z ---
+09:51:44Z ES2011c rc=0 wall=284s receipt=ok
+09:51:45Z ledger before ES2011d: {"breaches": [], "ceilings": {"max_cutting_wall_hours": 2.0, "max_diar_gpu_hours": 0.5, "max_encode_calls": 900, "max_encode_gpu_hours": 2.0, "wave": 1}, "used": {"cutting_wall_seconds_used": 7.361937818001024, "diar_gpu_seconds_used": 30.446582917121706, "diar_wall_seconds": 128.19109539700366, "encode_calls_used": 92, "encode_gpu_seconds_used": 555.823586423912, "encode_wall_seconds": 592.6015183099953, "n_ok": 3, "n_receipts": 3}}
+--- ES2011d start 2026-08-19T09:51:45Z ---
+09:57:34Z ES2011d rc=0 wall=349s receipt=ok
+09:57:35Z ledger before IB4001: {"breaches": [], "ceilings": {"max_cutting_wall_hours": 2.0, "max_diar_gpu_hours": 0.5, "max_encode_calls": 900, "max_encode_gpu_hours": 2.0, "wave": 1}, "used": {"cutting_wall_seconds_used": 10.818375062000996, "diar_gpu_seconds_used": 42.586417837721676, "diar_wall_seconds": 188.8902700000035, "encode_calls_used": 134, "encode_gpu_seconds_used": 809.1326538241369, "encode_wall_seconds": 865.949958403995, "n_ok": 4, "n_receipts": 4}}
+--- IB4001 start 2026-08-19T09:57:35Z ---
+10:03:00Z IB4001 rc=0 wall=325s receipt=ok
+10:03:01Z ledger before IB4002: {"breaches": [], "ceilings": {"max_cutting_wall_hours": 2.0, "max_diar_gpu_hours": 0.5, "max_encode_calls": 900, "max_encode_gpu_hours": 2.0, "wave": 1}, "used": {"cutting_wall_seconds_used": 13.9097995000011, "diar_gpu_seconds_used": 48.0455625476216, "diar_wall_seconds": 243.4817170990027, "encode_calls_used": 172, "encode_gpu_seconds_used": 1044.4133423674105, "encode_wall_seconds": 1120.5823194849945, "n_ok": 5, "n_receipts": 5}}
+--- IB4002 start 2026-08-19T10:03:01Z ---
+10:08:40Z IB4002 rc=0 wall=339s receipt=ok
+10:08:41Z ledger before IB4003: {"breaches": [], "ceilings": {"max_cutting_wall_hours": 2.0, "max_diar_gpu_hours": 0.5, "max_encode_calls": 900, "max_encode_gpu_hours": 2.0, "wave": 1}, "used": {"cutting_wall_seconds_used": 17.441255886998988, "diar_gpu_seconds_used": 96.84055548587315, "diar_wall_seconds": 300.88759114400455, "encode_calls_used": 213, "encode_gpu_seconds_used": 1291.2464495462523, "encode_wall_seconds": 1387.8465156609927, "n_ok": 6, "n_receipts": 6}}
+--- IB4003 start 2026-08-19T10:08:41Z ---
+10:14:56Z IB4003 rc=0 wall=375s receipt=ok
+10:14:57Z ledger before IB4004: {"breaches": [], "ceilings": {"max_cutting_wall_hours": 2.0, "max_diar_gpu_hours": 0.5, "max_encode_calls": 900, "max_encode_gpu_hours": 2.0, "wave": 1}, "used": {"cutting_wall_seconds_used": 21.147370406997652, "diar_gpu_seconds_used": 112.87051058962282, "diar_wall_seconds": 365.00741155900323, "encode_calls_used": 257, "encode_gpu_seconds_used": 1566.36242125653, "encode_wall_seconds": 1684.6856416069968, "n_ok": 7, "n_receipts": 7}}
+--- IB4004 start 2026-08-19T10:14:57Z ---
+10:22:26Z IB4004 rc=0 wall=449s receipt=ok
+10:22:27Z ledger before IB4010: {"breaches": [], "ceilings": {"max_cutting_wall_hours": 2.0, "max_diar_gpu_hours": 0.5, "max_encode_calls": 900, "max_encode_gpu_hours": 2.0, "wave": 1}, "used": {"cutting_wall_seconds_used": 26.09769908799717, "diar_gpu_seconds_used": 131.86529439687405, "diar_wall_seconds": 440.9865467880081, "encode_calls_used": 310, "encode_gpu_seconds_used": 1897.045880830957, "encode_wall_seconds": 2040.518596838996, "n_ok": 8, "n_receipts": 8}}
+--- IB4010 start 2026-08-19T10:22:27Z ---
+10:31:28Z IB4010 rc=0 wall=541s receipt=ok
+10:31:28Z YIELD file present before IB4011 -- stopping cleanly
+featcache after: entries=5419 bytes=4235539120 (delta entries=4242 bytes=3486959904)
+{
+  "encode_calls_used": 374,
+  "n_error": 0,
+  "n_meetings": 9,
+  "n_ok": 9,
+  "stopped_reason": "operator yield (PRECOMP_YIELD stop-file present before IB4011)",
+  "wrote": "/mnt/d/chao_workspace/exploring-l4-intelligence/papers/meeting-minutes-agent/docs/checks/2026-08-19-precomp-wave1/wave-summary.json"
+}
+{"breaches": [], "ceilings": {"max_cutting_wall_hours": 2.0, "max_diar_gpu_hours": 0.5, "max_encode_calls": 900, "max_encode_gpu_hours": 2.0, "wave": 1}, "used": {"cutting_wall_seconds_used": 31.152022279991797, "diar_gpu_seconds_used": 209.83761618147076, "diar_wall_seconds": 537.2486724480041, "encode_calls_used": 374, "encode_gpu_seconds_used": 2284.870424970206, "encode_wall_seconds": 2461.5377595869977, "n_ok": 9, "n_receipts": 9}}
+completed meetings: ES2011a ES2011b ES2011c ES2011d IB4001 IB4002 IB4003 IB4004 IB4010
+FLY-DONE state=YIELDED

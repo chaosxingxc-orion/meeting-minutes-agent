@@ -1,0 +1,10 @@
+=== teardown 2026-08-19T10:32:14Z ===
+cache before shutdown: entries=5419 bytes=4235539120
+630 ./llama-server --host 127.0.0.1 --port 8080 -m /home/chao/models/qwen3-omni-30b-a3b-instruct-gguf-q4km/Qwen3-Omni-30B-A3B-Instruct-Q4_K_M.gguf --mmproj /home/chao/models/qwen3-omni-30b-a3b-instruct-gguf-q4km/mmproj-Qwen3-Omni-30B-A3B-Instruct-bf16.gguf -c 49152 -np 1 -fa on -ngl 999 -ctk q8_0 -ctv q8_0
+llama-server stopped
+cache after shutdown: entries=5419 bytes=4235539120
+--- server.log tail (operational lines only; no reply content is logged by llama-server at this verbosity) ---
+0.00.689.416 W common_fit_params: failed to fit params to free device memory: n_gpu_layers already set by user to 999, abort
+server.log lines: 48508
+0 %, 0 MiB, 1200 MHz, P5, 48
+=== teardown end 2026-08-19T10:32:15Z ===
