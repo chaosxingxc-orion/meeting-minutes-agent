@@ -1,0 +1,403 @@
+{
+  "arm": "Z-oracle",
+  "contacts": [
+    {
+      "kind": "transcribe",
+      "outcome": "ok",
+      "request_id": "g1-Z-oracle-IB4010-transcribe-slice0000"
+    },
+    {
+      "kind": "transcribe",
+      "outcome": "ok",
+      "request_id": "g1-Z-oracle-IB4010-transcribe-slice0001"
+    },
+    {
+      "kind": "transcribe",
+      "outcome": "ok",
+      "request_id": "g1-Z-oracle-IB4010-transcribe-slice0002"
+    },
+    {
+      "kind": "transcribe",
+      "outcome": "ok",
+      "request_id": "g1-Z-oracle-IB4010-transcribe-slice0003"
+    },
+    {
+      "kind": "transcribe",
+      "outcome": "ok",
+      "request_id": "g1-Z-oracle-IB4010-transcribe-slice0004"
+    },
+    {
+      "kind": "transcribe",
+      "outcome": "ok",
+      "request_id": "g1-Z-oracle-IB4010-transcribe-slice0005"
+    },
+    {
+      "kind": "transcribe",
+      "outcome": "ok",
+      "request_id": "g1-Z-oracle-IB4010-transcribe-slice0006"
+    },
+    {
+      "kind": "transcribe",
+      "outcome": "ok",
+      "request_id": "g1-Z-oracle-IB4010-transcribe-slice0007"
+    },
+    {
+      "kind": "transcribe",
+      "outcome": "ok",
+      "request_id": "g1-Z-oracle-IB4010-transcribe-slice0008"
+    },
+    {
+      "kind": "transcribe",
+      "outcome": "ok",
+      "request_id": "g1-Z-oracle-IB4010-transcribe-slice0009"
+    },
+    {
+      "kind": "transcribe",
+      "outcome": "ok",
+      "request_id": "g1-Z-oracle-IB4010-transcribe-slice0010"
+    },
+    {
+      "kind": "transcribe",
+      "outcome": "ok",
+      "request_id": "g1-Z-oracle-IB4010-transcribe-slice0011"
+    },
+    {
+      "kind": "transcribe",
+      "outcome": "ok",
+      "request_id": "g1-Z-oracle-IB4010-transcribe-slice0012"
+    },
+    {
+      "kind": "transcribe",
+      "outcome": "ok",
+      "request_id": "g1-Z-oracle-IB4010-transcribe-slice0013"
+    },
+    {
+      "kind": "transcribe",
+      "outcome": "ok",
+      "request_id": "g1-Z-oracle-IB4010-transcribe-slice0014"
+    },
+    {
+      "kind": "transcribe",
+      "outcome": "ok",
+      "request_id": "g1-Z-oracle-IB4010-transcribe-slice0015"
+    },
+    {
+      "kind": "transcribe",
+      "outcome": "ok",
+      "request_id": "g1-Z-oracle-IB4010-transcribe-slice0016"
+    },
+    {
+      "kind": "transcribe",
+      "outcome": "ok",
+      "request_id": "g1-Z-oracle-IB4010-transcribe-slice0017"
+    },
+    {
+      "kind": "transcribe",
+      "outcome": "ok",
+      "request_id": "g1-Z-oracle-IB4010-transcribe-slice0018"
+    },
+    {
+      "kind": "transcribe",
+      "outcome": "ok",
+      "request_id": "g1-Z-oracle-IB4010-transcribe-slice0019"
+    },
+    {
+      "kind": "transcribe",
+      "outcome": "ok",
+      "request_id": "g1-Z-oracle-IB4010-transcribe-slice0020"
+    },
+    {
+      "kind": "transcribe",
+      "outcome": "ok",
+      "request_id": "g1-Z-oracle-IB4010-transcribe-slice0021"
+    },
+    {
+      "kind": "transcribe",
+      "outcome": "ok",
+      "request_id": "g1-Z-oracle-IB4010-transcribe-slice0022"
+    },
+    {
+      "kind": "transcribe",
+      "outcome": "ok",
+      "request_id": "g1-Z-oracle-IB4010-transcribe-slice0023"
+    },
+    {
+      "kind": "transcribe",
+      "outcome": "ok",
+      "request_id": "g1-Z-oracle-IB4010-transcribe-slice0024"
+    },
+    {
+      "kind": "transcribe",
+      "outcome": "ok",
+      "request_id": "g1-Z-oracle-IB4010-transcribe-slice0025"
+    },
+    {
+      "kind": "transcribe",
+      "outcome": "ok",
+      "request_id": "g1-Z-oracle-IB4010-transcribe-slice0026"
+    },
+    {
+      "kind": "transcribe",
+      "outcome": "ok",
+      "request_id": "g1-Z-oracle-IB4010-transcribe-slice0027"
+    },
+    {
+      "kind": "transcribe",
+      "outcome": "ok",
+      "request_id": "g1-Z-oracle-IB4010-transcribe-slice0028"
+    },
+    {
+      "kind": "transcribe",
+      "outcome": "ok",
+      "request_id": "g1-Z-oracle-IB4010-transcribe-slice0029"
+    },
+    {
+      "kind": "transcribe",
+      "outcome": "ok",
+      "request_id": "g1-Z-oracle-IB4010-transcribe-slice0030"
+    },
+    {
+      "kind": "transcribe",
+      "outcome": "ok",
+      "request_id": "g1-Z-oracle-IB4010-transcribe-slice0031"
+    },
+    {
+      "kind": "minutes",
+      "outcome": "ok",
+      "request_id": "g1-Z-oracle-IB4010-minutes"
+    },
+    {
+      "kind": "qa",
+      "outcome": "ok",
+      "request_id": "g1-Z-oracle-IB4010-qa-0-0-1-IB4010-100"
+    },
+    {
+      "kind": "qa",
+      "outcome": "ok",
+      "request_id": "g1-Z-oracle-IB4010-qa-0-0-1-IB4010-1066"
+    },
+    {
+      "kind": "qa",
+      "outcome": "ok",
+      "request_id": "g1-Z-oracle-IB4010-qa-0-0-1-IB4010-117"
+    },
+    {
+      "kind": "qa",
+      "outcome": "ok",
+      "request_id": "g1-Z-oracle-IB4010-qa-0-0-1-IB4010-161"
+    },
+    {
+      "kind": "qa",
+      "outcome": "ok",
+      "request_id": "g1-Z-oracle-IB4010-qa-0-0-1-IB4010-199"
+    },
+    {
+      "kind": "qa",
+      "outcome": "ok",
+      "request_id": "g1-Z-oracle-IB4010-qa-0-0-1-IB4010-211"
+    },
+    {
+      "kind": "qa",
+      "outcome": "ok",
+      "request_id": "g1-Z-oracle-IB4010-qa-0-0-1-IB4010-213"
+    },
+    {
+      "kind": "qa",
+      "outcome": "ok",
+      "request_id": "g1-Z-oracle-IB4010-qa-0-0-1-IB4010-25"
+    },
+    {
+      "kind": "qa",
+      "outcome": "ok",
+      "request_id": "g1-Z-oracle-IB4010-qa-0-0-1-IB4010-29"
+    },
+    {
+      "kind": "qa",
+      "outcome": "ok",
+      "request_id": "g1-Z-oracle-IB4010-qa-0-0-1-IB4010-290"
+    },
+    {
+      "kind": "qa",
+      "outcome": "ok",
+      "request_id": "g1-Z-oracle-IB4010-qa-0-0-1-IB4010-296"
+    },
+    {
+      "kind": "qa",
+      "outcome": "ok",
+      "request_id": "g1-Z-oracle-IB4010-qa-0-0-1-IB4010-322"
+    },
+    {
+      "kind": "qa",
+      "outcome": "ok",
+      "request_id": "g1-Z-oracle-IB4010-qa-0-0-1-IB4010-358"
+    },
+    {
+      "kind": "qa",
+      "outcome": "ok",
+      "request_id": "g1-Z-oracle-IB4010-qa-0-0-1-IB4010-386"
+    },
+    {
+      "kind": "qa",
+      "outcome": "ok",
+      "request_id": "g1-Z-oracle-IB4010-qa-0-0-1-IB4010-390"
+    },
+    {
+      "kind": "qa",
+      "outcome": "ok",
+      "request_id": "g1-Z-oracle-IB4010-qa-0-0-1-IB4010-391"
+    },
+    {
+      "kind": "qa",
+      "outcome": "ok",
+      "request_id": "g1-Z-oracle-IB4010-qa-0-0-1-IB4010-406"
+    },
+    {
+      "kind": "qa",
+      "outcome": "ok",
+      "request_id": "g1-Z-oracle-IB4010-qa-0-0-1-IB4010-412"
+    },
+    {
+      "kind": "qa",
+      "outcome": "ok",
+      "request_id": "g1-Z-oracle-IB4010-qa-0-0-1-IB4010-422"
+    },
+    {
+      "kind": "qa",
+      "outcome": "ok",
+      "request_id": "g1-Z-oracle-IB4010-qa-0-0-1-IB4010-425"
+    },
+    {
+      "kind": "qa",
+      "outcome": "ok",
+      "request_id": "g1-Z-oracle-IB4010-qa-0-0-1-IB4010-435"
+    },
+    {
+      "kind": "qa",
+      "outcome": "ok",
+      "request_id": "g1-Z-oracle-IB4010-qa-0-0-1-IB4010-460"
+    },
+    {
+      "kind": "qa",
+      "outcome": "ok",
+      "request_id": "g1-Z-oracle-IB4010-qa-0-0-1-IB4010-477"
+    },
+    {
+      "kind": "qa",
+      "outcome": "ok",
+      "request_id": "g1-Z-oracle-IB4010-qa-0-0-1-IB4010-489"
+    },
+    {
+      "kind": "qa",
+      "outcome": "ok",
+      "request_id": "g1-Z-oracle-IB4010-qa-0-0-1-IB4010-500"
+    },
+    {
+      "kind": "qa",
+      "outcome": "ok",
+      "request_id": "g1-Z-oracle-IB4010-qa-0-0-1-IB4010-557"
+    },
+    {
+      "kind": "qa",
+      "outcome": "ok",
+      "request_id": "g1-Z-oracle-IB4010-qa-0-0-1-IB4010-593"
+    },
+    {
+      "kind": "qa",
+      "outcome": "ok",
+      "request_id": "g1-Z-oracle-IB4010-qa-0-0-1-IB4010-595"
+    },
+    {
+      "kind": "qa",
+      "outcome": "ok",
+      "request_id": "g1-Z-oracle-IB4010-qa-0-0-1-IB4010-604"
+    },
+    {
+      "kind": "qa",
+      "outcome": "ok",
+      "request_id": "g1-Z-oracle-IB4010-qa-0-0-1-IB4010-62"
+    },
+    {
+      "kind": "qa",
+      "outcome": "ok",
+      "request_id": "g1-Z-oracle-IB4010-qa-0-0-1-IB4010-627"
+    },
+    {
+      "kind": "qa",
+      "outcome": "ok",
+      "request_id": "g1-Z-oracle-IB4010-qa-0-0-1-IB4010-63"
+    },
+    {
+      "kind": "qa",
+      "outcome": "ok",
+      "request_id": "g1-Z-oracle-IB4010-qa-0-0-1-IB4010-651"
+    },
+    {
+      "kind": "qa",
+      "outcome": "ok",
+      "request_id": "g1-Z-oracle-IB4010-qa-0-0-1-IB4010-685"
+    },
+    {
+      "kind": "qa",
+      "outcome": "ok",
+      "request_id": "g1-Z-oracle-IB4010-qa-0-0-1-IB4010-741"
+    },
+    {
+      "kind": "qa",
+      "outcome": "ok",
+      "request_id": "g1-Z-oracle-IB4010-qa-0-0-1-IB4010-756"
+    },
+    {
+      "kind": "qa",
+      "outcome": "ok",
+      "request_id": "g1-Z-oracle-IB4010-qa-0-0-1-IB4010-782"
+    },
+    {
+      "kind": "qa",
+      "outcome": "ok",
+      "request_id": "g1-Z-oracle-IB4010-qa-0-0-1-IB4010-785"
+    },
+    {
+      "kind": "qa",
+      "outcome": "ok",
+      "request_id": "g1-Z-oracle-IB4010-qa-0-0-1-IB4010-840"
+    },
+    {
+      "kind": "qa",
+      "outcome": "ok",
+      "request_id": "g1-Z-oracle-IB4010-qa-0-0-1-IB4010-925"
+    },
+    {
+      "kind": "qa",
+      "outcome": "ok",
+      "request_id": "g1-Z-oracle-IB4010-qa-0-0-1-IB4010-926"
+    },
+    {
+      "kind": "qa",
+      "outcome": "ok",
+      "request_id": "g1-Z-oracle-IB4010-qa-0-0-1-IB4010-960"
+    },
+    {
+      "kind": "qa",
+      "outcome": "ok",
+      "request_id": "g1-Z-oracle-IB4010-qa-0-0-1-IB4010-970"
+    },
+    {
+      "kind": "qa",
+      "outcome": "ok",
+      "request_id": "g1-Z-oracle-IB4010-qa-0-0-1-IB4010-972"
+    },
+    {
+      "kind": "qa",
+      "outcome": "ok",
+      "request_id": "g1-Z-oracle-IB4010-qa-0-0-1-IB4010-998"
+    }
+  ],
+  "error": null,
+  "gpu_seconds": 291.2231757150439,
+  "meeting_id": "IB4010",
+  "n_calls": 78,
+  "ok": true,
+  "recorded_utc": "2026-08-19T20:18:14.311554+00:00",
+  "schema_version": "1.0.0",
+  "wall_seconds": 301.4073861239958
+}

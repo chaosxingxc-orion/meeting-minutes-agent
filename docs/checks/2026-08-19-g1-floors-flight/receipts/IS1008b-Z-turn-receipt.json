@@ -1,0 +1,158 @@
+{
+  "arm": "Z-turn",
+  "contacts": [
+    {
+      "kind": "transcribe",
+      "outcome": "ok",
+      "request_id": "g1-Z-turn-IS1008b-transcribe-slice0000"
+    },
+    {
+      "kind": "transcribe",
+      "outcome": "ok",
+      "request_id": "g1-Z-turn-IS1008b-transcribe-slice0001"
+    },
+    {
+      "kind": "transcribe",
+      "outcome": "ok",
+      "request_id": "g1-Z-turn-IS1008b-transcribe-slice0002"
+    },
+    {
+      "kind": "transcribe",
+      "outcome": "ok",
+      "request_id": "g1-Z-turn-IS1008b-transcribe-slice0003"
+    },
+    {
+      "kind": "transcribe",
+      "outcome": "ok",
+      "request_id": "g1-Z-turn-IS1008b-transcribe-slice0004"
+    },
+    {
+      "kind": "transcribe",
+      "outcome": "ok",
+      "request_id": "g1-Z-turn-IS1008b-transcribe-slice0005"
+    },
+    {
+      "kind": "transcribe",
+      "outcome": "ok",
+      "request_id": "g1-Z-turn-IS1008b-transcribe-slice0006"
+    },
+    {
+      "kind": "transcribe",
+      "outcome": "ok",
+      "request_id": "g1-Z-turn-IS1008b-transcribe-slice0007"
+    },
+    {
+      "kind": "transcribe",
+      "outcome": "ok",
+      "request_id": "g1-Z-turn-IS1008b-transcribe-slice0008"
+    },
+    {
+      "kind": "transcribe",
+      "outcome": "ok",
+      "request_id": "g1-Z-turn-IS1008b-transcribe-slice0009"
+    },
+    {
+      "kind": "transcribe",
+      "outcome": "ok",
+      "request_id": "g1-Z-turn-IS1008b-transcribe-slice0010"
+    },
+    {
+      "kind": "transcribe",
+      "outcome": "ok",
+      "request_id": "g1-Z-turn-IS1008b-transcribe-slice0011"
+    },
+    {
+      "kind": "transcribe",
+      "outcome": "ok",
+      "request_id": "g1-Z-turn-IS1008b-transcribe-slice0012"
+    },
+    {
+      "kind": "transcribe",
+      "outcome": "ok",
+      "request_id": "g1-Z-turn-IS1008b-transcribe-slice0013"
+    },
+    {
+      "kind": "transcribe",
+      "outcome": "ok",
+      "request_id": "g1-Z-turn-IS1008b-transcribe-slice0014"
+    },
+    {
+      "kind": "transcribe",
+      "outcome": "ok",
+      "request_id": "g1-Z-turn-IS1008b-transcribe-slice0015"
+    },
+    {
+      "kind": "transcribe",
+      "outcome": "ok",
+      "request_id": "g1-Z-turn-IS1008b-transcribe-slice0016"
+    },
+    {
+      "kind": "transcribe",
+      "outcome": "ok",
+      "request_id": "g1-Z-turn-IS1008b-transcribe-slice0017"
+    },
+    {
+      "kind": "transcribe",
+      "outcome": "ok",
+      "request_id": "g1-Z-turn-IS1008b-transcribe-slice0018"
+    },
+    {
+      "kind": "minutes",
+      "outcome": "ok",
+      "request_id": "g1-Z-turn-IS1008b-minutes"
+    },
+    {
+      "kind": "qa",
+      "outcome": "ok",
+      "request_id": "g1-Z-turn-IS1008b-qa-0-0-1-IS1008b-150"
+    },
+    {
+      "kind": "qa",
+      "outcome": "ok",
+      "request_id": "g1-Z-turn-IS1008b-qa-0-0-1-IS1008b-197"
+    },
+    {
+      "kind": "qa",
+      "outcome": "ok",
+      "request_id": "g1-Z-turn-IS1008b-qa-0-0-1-IS1008b-199"
+    },
+    {
+      "kind": "qa",
+      "outcome": "ok",
+      "request_id": "g1-Z-turn-IS1008b-qa-0-0-1-IS1008b-200"
+    },
+    {
+      "kind": "qa",
+      "outcome": "ok",
+      "request_id": "g1-Z-turn-IS1008b-qa-0-0-1-IS1008b-226"
+    },
+    {
+      "kind": "qa",
+      "outcome": "ok",
+      "request_id": "g1-Z-turn-IS1008b-qa-0-0-1-IS1008b-294"
+    },
+    {
+      "kind": "qa",
+      "outcome": "ok",
+      "request_id": "g1-Z-turn-IS1008b-qa-0-0-1-IS1008b-33"
+    },
+    {
+      "kind": "qa",
+      "outcome": "ok",
+      "request_id": "g1-Z-turn-IS1008b-qa-0-0-1-IS1008b-68"
+    },
+    {
+      "kind": "qa",
+      "outcome": "ok",
+      "request_id": "g1-Z-turn-IS1008b-qa-0-0-1-IS1008b-73"
+    }
+  ],
+  "error": null,
+  "gpu_seconds": 105.47296718798316,
+  "meeting_id": "IS1008b",
+  "n_calls": 29,
+  "ok": true,
+  "recorded_utc": "2026-08-19T20:48:02.130626+00:00",
+  "schema_version": "1.0.0",
+  "wall_seconds": 106.45750012899953
+}

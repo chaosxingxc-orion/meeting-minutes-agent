@@ -1,0 +1,31 @@
+=== G1-FLOORS chunk 1 start 2026-08-19T19:23:59Z ===
+repo HEAD: 9dd7aa08628d19c3851ad4d3be4c24aaf12dc0e9
+repo dirty lines: 0
+out-dir:  /mnt/e/chao_workspace/exploring-l4-intelligence/speechrl-data/derived/meeting-minutes/g1/runs/2026-08-19-g1-floors
+vad-manifest-dir: /mnt/e/chao_workspace/exploring-l4-intelligence/speechrl-data/derived/meeting-minutes/precomp/slices/vad-manifest (18 manifests)
+campaign ceilings: calls<=2900 gpu<=6.0h wall<=8.0h chunk-est<=1800s
+qa cap: REGISTERED (no override)
+stop-file: /mnt/c/Users/35686/AppData/Local/Temp/claude/D--chao-workspace-exploring-l4-intelligence-studies-speech-aware-evidence-acquisition/6d9f1834-68e9-41a7-bbcc-724898cf15a9/scratchpad/G1_YIELD present: no
+receipts already on disk: 18
+--- invocation: run_g1.py --mode floors --run-chunk 1 ---
+/mnt/c/Users/35686/AppData/Local/Temp/claude/D--chao-workspace-exploring-l4-intelligence-studies-speech-aware-evidence-acquisition/6d9f1834-68e9-41a7-bbcc-724898cf15a9/scratchpad/g1floors/fly-chunk.sh: line 66: /mnt/e/chao_workspace/exploring-l4-intelligence/speechrl-data/derived/meeting-minutes/g1/runs/2026-08-19-g1-floors/responses/chunk0001-responses.jsonl: No such file or directory
+/mnt/c/Users/35686/AppData/Local/Temp/claude/D--chao-workspace-exploring-l4-intelligence-studies-speech-aware-evidence-acquisition/6d9f1834-68e9-41a7-bbcc-724898cf15a9/scratchpad/g1floors/fly-chunk.sh: line 66: /mnt/e/chao_workspace/exploring-l4-intelligence/speechrl-data/derived/meeting-minutes/g1/runs/2026-08-19-g1-floors/responses/chunk0001-responses.jsonl: No such file or directory
+/mnt/c/Users/35686/AppData/Local/Temp/claude/D--chao-workspace-exploring-l4-intelligence-studies-speech-aware-evidence-acquisition/6d9f1834-68e9-41a7-bbcc-724898cf15a9/scratchpad/g1floors/fly-chunk.sh: line 66: /mnt/e/chao_workspace/exploring-l4-intelligence/speechrl-data/derived/meeting-minutes/g1/runs/2026-08-19-g1-floors/responses/chunk0001-responses.jsonl: No such file or directory
+/mnt/c/Users/35686/AppData/Local/Temp/claude/D--chao-workspace-exploring-l4-intelligence-studies-speech-aware-evidence-acquisition/6d9f1834-68e9-41a7-bbcc-724898cf15a9/scratchpad/g1floors/fly-chunk.sh: line 66: /mnt/e/chao_workspace/exploring-l4-intelligence/speechrl-data/derived/meeting-minutes/g1/runs/2026-08-19-g1-floors/responses/chunk0001-responses.jsonl: No such file or directory
+/mnt/c/Users/35686/AppData/Local/Temp/claude/D--chao-workspace-exploring-l4-intelligence-studies-speech-aware-evidence-acquisition/6d9f1834-68e9-41a7-bbcc-724898cf15a9/scratchpad/g1floors/fly-chunk.sh: line 66: /mnt/e/chao_workspace/exploring-l4-intelligence/speechrl-data/derived/meeting-minutes/g1/runs/2026-08-19-g1-floors/responses/chunk0001-responses.jsonl: No such file or directory
+/mnt/c/Users/35686/AppData/Local/Temp/claude/D--chao-workspace-exploring-l4-intelligence-studies-speech-aware-evidence-acquisition/6d9f1834-68e9-41a7-bbcc-724898cf15a9/scratchpad/g1floors/fly-chunk.sh: line 66: /mnt/e/chao_workspace/exploring-l4-intelligence/speechrl-data/derived/meeting-minutes/g1/runs/2026-08-19-g1-floors/responses/chunk0001-responses.jsonl: No such file or directory
+/mnt/c/Users/35686/AppData/Local/Temp/claude/D--chao-workspace-exploring-l4-intelligence-studies-speech-aware-evidence-acquisition/6d9f1834-68e9-41a7-bbcc-724898cf15a9/scratchpad/g1floors/fly-chunk.sh: line 66: /mnt/e/chao_workspace/exploring-l4-intelligence/speechrl-data/derived/meeting-minutes/g1/runs/2026-08-19-g1-floors/responses/chunk0001-responses.jsonl: No such file or directory
+/mnt/c/Users/35686/AppData/Local/Temp/claude/D--chao-workspace-exploring-l4-intelligence-studies-speech-aware-evidence-acquisition/6d9f1834-68e9-41a7-bbcc-724898cf15a9/scratchpad/g1floors/fly-chunk.sh: line 66: /mnt/e/chao_workspace/exploring-l4-intelligence/speechrl-data/derived/meeting-minutes/g1/runs/2026-08-19-g1-floors/responses/chunk0001-responses.jsonl: No such file or directory
+20:10:39Z runner rc=0 wall=2783s
+chunk receipt: n_items=15 n_ok=15 n_error=0 stopped_reason=None
+budget after: calls=958/2900 gpu=4506.1s/21600s wall=4672.2s/28800s
+llama-server stopped (no orphan)
+0 %, 9 MiB, 1200 MHz, P4, 57
+server.log lines: 103484
+0.00.447.531 W common_fit_params: failed to fit params to free device memory: n_gpu_layers already set by user to 999, abort
+0.00.412.871 W common_fit_params: failed to fit params to free device memory: n_gpu_layers already set by user to 999, abort
+featcache ENCODE lines in server.log (expect 0 -- fully warm): 0
+0
+featcache entries AFTER: 14324
+=== G1-FLOORS chunk 1 end 2026-08-19T20:10:44Z state=DONE ===
+FLY-DONE state=DONE chunk=1

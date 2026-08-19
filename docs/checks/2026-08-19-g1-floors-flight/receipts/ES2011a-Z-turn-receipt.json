@@ -1,0 +1,113 @@
+{
+  "arm": "Z-turn",
+  "contacts": [
+    {
+      "kind": "transcribe",
+      "outcome": "ok",
+      "request_id": "g1-Z-turn-ES2011a-transcribe-slice0000"
+    },
+    {
+      "kind": "transcribe",
+      "outcome": "ok",
+      "request_id": "g1-Z-turn-ES2011a-transcribe-slice0001"
+    },
+    {
+      "kind": "transcribe",
+      "outcome": "ok",
+      "request_id": "g1-Z-turn-ES2011a-transcribe-slice0002"
+    },
+    {
+      "kind": "transcribe",
+      "outcome": "ok",
+      "request_id": "g1-Z-turn-ES2011a-transcribe-slice0003"
+    },
+    {
+      "kind": "transcribe",
+      "outcome": "ok",
+      "request_id": "g1-Z-turn-ES2011a-transcribe-slice0004"
+    },
+    {
+      "kind": "transcribe",
+      "outcome": "ok",
+      "request_id": "g1-Z-turn-ES2011a-transcribe-slice0005"
+    },
+    {
+      "kind": "transcribe",
+      "outcome": "ok",
+      "request_id": "g1-Z-turn-ES2011a-transcribe-slice0006"
+    },
+    {
+      "kind": "transcribe",
+      "outcome": "ok",
+      "request_id": "g1-Z-turn-ES2011a-transcribe-slice0007"
+    },
+    {
+      "kind": "transcribe",
+      "outcome": "ok",
+      "request_id": "g1-Z-turn-ES2011a-transcribe-slice0008"
+    },
+    {
+      "kind": "transcribe",
+      "outcome": "ok",
+      "request_id": "g1-Z-turn-ES2011a-transcribe-slice0009"
+    },
+    {
+      "kind": "transcribe",
+      "outcome": "ok",
+      "request_id": "g1-Z-turn-ES2011a-transcribe-slice0010"
+    },
+    {
+      "kind": "transcribe",
+      "outcome": "ok",
+      "request_id": "g1-Z-turn-ES2011a-transcribe-slice0011"
+    },
+    {
+      "kind": "minutes",
+      "outcome": "ok",
+      "request_id": "g1-Z-turn-ES2011a-minutes"
+    },
+    {
+      "kind": "qa",
+      "outcome": "ok",
+      "request_id": "g1-Z-turn-ES2011a-qa-0-0-1-ES2011a-104"
+    },
+    {
+      "kind": "qa",
+      "outcome": "ok",
+      "request_id": "g1-Z-turn-ES2011a-qa-0-0-1-ES2011a-118"
+    },
+    {
+      "kind": "qa",
+      "outcome": "ok",
+      "request_id": "g1-Z-turn-ES2011a-qa-0-0-1-ES2011a-236"
+    },
+    {
+      "kind": "qa",
+      "outcome": "ok",
+      "request_id": "g1-Z-turn-ES2011a-qa-0-0-1-ES2011a-34"
+    },
+    {
+      "kind": "qa",
+      "outcome": "ok",
+      "request_id": "g1-Z-turn-ES2011a-qa-0-0-1-ES2011a-65"
+    },
+    {
+      "kind": "qa",
+      "outcome": "ok",
+      "request_id": "g1-Z-turn-ES2011a-qa-0-0-1-ES2011a-9"
+    },
+    {
+      "kind": "qa",
+      "outcome": "ok",
+      "request_id": "g1-Z-turn-ES2011a-qa-0-0-1-ES2011a-97"
+    }
+  ],
+  "error": null,
+  "gpu_seconds": 70.64425256101094,
+  "meeting_id": "ES2011a",
+  "n_calls": 20,
+  "ok": true,
+  "recorded_utc": "2026-08-19T18:42:50.267534+00:00",
+  "schema_version": "1.0.0",
+  "wall_seconds": 70.97384365100152
+}

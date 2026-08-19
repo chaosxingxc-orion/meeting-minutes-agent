@@ -1,0 +1,395 @@
+=== G1 structural validation (no metric, no result read) ===
+out-dir: /mnt/e/chao_workspace/exploring-l4-intelligence/speechrl-data/derived/meeting-minutes/g1/runs/2026-08-19-g1-floors
+chunk plan: /mnt/c/Users/35686/AppData/Local/Temp/claude/D--chao-workspace-exploring-l4-intelligence-studies-speech-aware-evidence-acquisition/6d9f1834-68e9-41a7-bbcc-724898cf15a9/scratchpad/g1floors/logs/chunkplan-flight.json
+planned items: 72  planned calls: 1932  planned qa calls: 400
+
+| meeting | arm | receipt | ok | schema | n_calls | transcribe | minutes | qa | gpu s | wall s | error |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| ES2011a | Z-free | yes | yes | 1.0.0 | 12 | 12 | 0 | 0 | 41.4 | 41.6 |  |
+| ES2011a | Z-nodiar | yes | yes | 1.0.0 | 13 | 13 | 0 | 0 | 40.2 | 40.4 |  |
+| ES2011a | Z-oracle | yes | yes | 1.0.0 | 20 | 12 | 1 | 7 | 370.8 | 371.2 |  |
+| ES2011a | Z-turn | yes | yes | 1.0.0 | 20 | 12 | 1 | 7 | 70.6 | 71.0 |  |
+| ES2011b | Z-free | yes | yes | 1.0.0 | 17 | 17 | 0 | 0 | 65.5 | 69.4 |  |
+| ES2011b | Z-nodiar | yes | yes | 1.0.0 | 18 | 18 | 0 | 0 | 60.9 | 65.5 |  |
+| ES2011b | Z-oracle | yes | yes | 1.0.0 | 33 | 17 | 1 | 15 | 114.0 | 122.8 |  |
+| ES2011b | Z-turn | yes | yes | 1.0.0 | 33 | 17 | 1 | 15 | 121.7 | 127.2 |  |
+| ES2011c | Z-free | yes | yes | 1.0.0 | 17 | 17 | 0 | 0 | 64.8 | 68.6 |  |
+| ES2011c | Z-nodiar | yes | yes | 1.0.0 | 18 | 18 | 0 | 0 | 64.6 | 69.2 |  |
+| ES2011c | Z-oracle | yes | yes | 1.0.0 | 36 | 17 | 1 | 18 | 131.3 | 141.1 |  |
+| ES2011c | Z-turn | yes | yes | 1.0.0 | 36 | 17 | 1 | 18 | 121.0 | 130.2 |  |
+| ES2011d | Z-free | yes | yes | 1.0.0 | 21 | 21 | 0 | 0 | 72.8 | 77.7 |  |
+| ES2011d | Z-nodiar | yes | yes | 1.0.0 | 22 | 22 | 0 | 0 | 73.4 | 78.8 |  |
+| ES2011d | Z-oracle | yes | yes | 1.0.0 | 45 | 21 | 1 | 23 | 459.1 | 474.7 |  |
+| ES2011d | Z-turn | yes | yes | 1.0.0 | 45 | 21 | 1 | 23 | 148.0 | 161.6 |  |
+| IB4001 | Z-free | yes | yes | 1.0.0 | 19 | 19 | 0 | 0 | 70.7 | 71.0 |  |
+| IB4001 | Z-nodiar | yes | yes | 1.0.0 | 20 | 20 | 0 | 0 | 65.8 | 66.5 |  |
+| IB4001 | Z-oracle | yes | yes | 1.0.0 | 37 | 19 | 1 | 17 | 148.7 | 159.3 |  |
+| IB4001 | Z-turn | yes | yes | 1.0.0 | 37 | 19 | 1 | 17 | 132.6 | 142.5 |  |
+| IB4002 | Z-free | yes | yes | 1.0.0 | 20 | 20 | 0 | 0 | 63.9 | 64.3 |  |
+| IB4002 | Z-nodiar | yes | yes | 1.0.0 | 21 | 21 | 0 | 0 | 62.1 | 62.9 |  |
+| IB4002 | Z-oracle | yes | yes | 1.0.0 | 42 | 21 | 1 | 20 | 465.5 | 466.7 |  |
+| IB4002 | Z-turn | yes | yes | 1.0.0 | 41 | 20 | 1 | 20 | 150.1 | 151.3 |  |
+| IB4003 | Z-free | yes | yes | 1.0.0 | 22 | 22 | 0 | 0 | 84.0 | 84.4 |  |
+| IB4003 | Z-nodiar | yes | yes | 1.0.0 | 23 | 23 | 0 | 0 | 85.5 | 86.7 |  |
+| IB4003 | Z-oracle | yes | yes | 1.0.0 | 42 | 22 | 1 | 19 | 159.3 | 160.5 |  |
+| IB4003 | Z-turn | yes | yes | 1.0.0 | 42 | 22 | 1 | 19 | 161.9 | 163.1 |  |
+| IB4004 | Z-free | yes | yes | 1.0.0 | 26 | 26 | 0 | 0 | 115.5 | 116.0 |  |
+| IB4004 | Z-nodiar | yes | yes | 1.0.0 | 27 | 27 | 0 | 0 | 107.8 | 114.6 |  |
+| IB4004 | Z-oracle | yes | yes | 1.0.0 | 28 | 27 | 1 | 0 | 163.1 | 170.5 |  |
+| IB4004 | Z-turn | yes | yes | 1.0.0 | 27 | 26 | 1 | 0 | 164.5 | 172.2 |  |
+| IB4010 | Z-free | yes | yes | 1.0.0 | 32 | 32 | 0 | 0 | 133.1 | 141.6 |  |
+| IB4010 | Z-nodiar | yes | yes | 1.0.0 | 33 | 33 | 0 | 0 | 120.2 | 128.9 |  |
+| IB4010 | Z-oracle | yes | yes | 1.0.0 | 78 | 32 | 1 | 45 | 291.2 | 301.4 |  |
+| IB4010 | Z-turn | yes | yes | 1.0.0 | 78 | 32 | 1 | 45 | 284.9 | 308.8 |  |
+| IB4011 | Z-free | yes | yes | 1.0.0 | 26 | 26 | 0 | 0 | 110.4 | 117.2 |  |
+| IB4011 | Z-nodiar | yes | yes | 1.0.0 | 27 | 27 | 0 | 0 | 97.5 | 104.9 |  |
+| IB4011 | Z-oracle | yes | yes | 1.0.0 | 28 | 27 | 1 | 0 | 468.4 | 476.9 |  |
+| IB4011 | Z-turn | yes | yes | 1.0.0 | 27 | 26 | 1 | 0 | 163.0 | 169.9 |  |
+| IS1008a | Z-free | yes | yes | 1.0.0 | 9 | 9 | 0 | 0 | 29.9 | 30.1 |  |
+| IS1008a | Z-nodiar | yes | yes | 1.0.0 | 11 | 11 | 0 | 0 | 33.3 | 33.5 |  |
+| IS1008a | Z-oracle | yes | yes | 1.0.0 | 11 | 10 | 1 | 0 | 359.4 | 361.7 |  |
+| IS1008a | Z-turn | yes | yes | 1.0.0 | 10 | 9 | 1 | 0 | 54.7 | 57.4 |  |
+| IS1008b | Z-free | yes | yes | 1.0.0 | 19 | 19 | 0 | 0 | 67.3 | 67.7 |  |
+| IS1008b | Z-nodiar | yes | yes | 1.0.0 | 20 | 20 | 0 | 0 | 67.1 | 67.8 |  |
+| IS1008b | Z-oracle | yes | yes | 1.0.0 | 28 | 18 | 1 | 9 | 105.0 | 106.1 |  |
+| IS1008b | Z-turn | yes | yes | 1.0.0 | 29 | 19 | 1 | 9 | 105.5 | 106.5 |  |
+| IS1008c | Z-free | yes | yes | 1.0.0 | 16 | 16 | 0 | 0 | 62.0 | 62.4 |  |
+| IS1008c | Z-nodiar | yes | yes | 1.0.0 | 17 | 17 | 0 | 0 | 60.1 | 60.8 |  |
+| IS1008c | Z-oracle | yes | yes | 1.0.0 | 19 | 18 | 1 | 0 | 88.4 | 89.5 |  |
+| IS1008c | Z-turn | yes | yes | 1.0.0 | 17 | 16 | 1 | 0 | 82.6 | 83.5 |  |
+| IS1008d | Z-free | yes | yes | 1.0.0 | 15 | 15 | 0 | 0 | 54.7 | 56.8 |  |
+| IS1008d | Z-nodiar | yes | yes | 1.0.0 | 17 | 17 | 0 | 0 | 60.5 | 63.6 |  |
+| IS1008d | Z-oracle | yes | yes | 1.0.0 | 25 | 16 | 1 | 8 | 104.5 | 109.7 |  |
+| IS1008d | Z-turn | yes | yes | 1.0.0 | 24 | 15 | 1 | 8 | 102.7 | 103.8 |  |
+| TS3004a | Z-free | yes | yes | 1.0.0 | 14 | 14 | 0 | 0 | 47.7 | 49.7 |  |
+| TS3004a | Z-nodiar | yes | yes | 1.0.0 | 15 | 15 | 0 | 0 | 45.3 | 48.2 |  |
+| TS3004a | Z-oracle | yes | yes | 1.0.0 | 16 | 15 | 1 | 0 | 76.2 | 79.5 |  |
+| TS3004a | Z-turn | yes | yes | 1.0.0 | 15 | 14 | 1 | 0 | 70.0 | 73.2 |  |
+| TS3004b | Z-free | yes | yes | 1.0.0 | 24 | 24 | 0 | 0 | 81.8 | 85.3 |  |
+| TS3004b | Z-nodiar | yes | yes | 1.0.0 | 25 | 25 | 0 | 0 | 81.9 | 86.7 |  |
+| TS3004b | Z-oracle | yes | yes | 1.0.0 | 44 | 24 | 1 | 19 | 169.5 | 178.3 |  |
+| TS3004b | Z-turn | yes | yes | 1.0.0 | 44 | 24 | 1 | 19 | 171.0 | 179.5 |  |
+| TS3004c | Z-free | yes | yes | 1.0.0 | 29 | 29 | 0 | 0 | 100.8 | 105.7 |  |
+| TS3004c | Z-nodiar | yes | yes | 1.0.0 | 33 | 33 | 0 | 0 | 96.5 | 107.2 |  |
+| TS3004c | Z-oracle | yes | yes | 1.0.0 | 27 | 26 | 1 | 0 | 235.3 | 241.5 |  |
+| TS3004c | Z-turn | yes | yes | 1.0.0 | 30 | 29 | 1 | 0 | 164.2 | 170.5 |  |
+| TS3004d | Z-free | yes | yes | 1.0.0 | 29 | 29 | 0 | 0 | 100.0 | 104.0 |  |
+| TS3004d | Z-nodiar | yes | yes | 1.0.0 | 31 | 31 | 0 | 0 | 93.9 | 99.4 |  |
+| TS3004d | Z-oracle | yes | yes | 1.0.0 | 30 | 29 | 1 | 0 | 161.1 | 167.4 |  |
+| TS3004d | Z-turn | yes | yes | 1.0.0 | 30 | 29 | 1 | 0 | 149.5 | 155.8 |  |
+
+items ok=72 error=0 missing=0 of 72 planned (meeting x arm)
+gpu_seconds receipt total: 9172.1s  every-ok-item-nonzero: PASS
+
+--- per-head PLAN CONFORMANCE (incl. the per-meeting QA routing fix) ---
+  ES2011a   Z-free    t= 12/ 12 m=0/0 q=  0/  0 OK
+  ES2011a   Z-nodiar  t= 13/ 13 m=0/0 q=  0/  0 OK
+  ES2011a   Z-oracle  t= 12/ 12 m=1/1 q=  7/  7 OK
+  ES2011a   Z-turn    t= 12/ 12 m=1/1 q=  7/  7 OK
+  ES2011b   Z-free    t= 17/ 17 m=0/0 q=  0/  0 OK
+  ES2011b   Z-nodiar  t= 18/ 18 m=0/0 q=  0/  0 OK
+  ES2011b   Z-oracle  t= 17/ 17 m=1/1 q= 15/ 15 OK
+  ES2011b   Z-turn    t= 17/ 17 m=1/1 q= 15/ 15 OK
+  ES2011c   Z-free    t= 17/ 17 m=0/0 q=  0/  0 OK
+  ES2011c   Z-nodiar  t= 18/ 18 m=0/0 q=  0/  0 OK
+  ES2011c   Z-oracle  t= 17/ 17 m=1/1 q= 18/ 18 OK
+  ES2011c   Z-turn    t= 17/ 17 m=1/1 q= 18/ 18 OK
+  ES2011d   Z-free    t= 21/ 21 m=0/0 q=  0/  0 OK
+  ES2011d   Z-nodiar  t= 22/ 22 m=0/0 q=  0/  0 OK
+  ES2011d   Z-oracle  t= 21/ 21 m=1/1 q= 23/ 23 OK
+  ES2011d   Z-turn    t= 21/ 21 m=1/1 q= 23/ 23 OK
+  IB4001    Z-free    t= 19/ 19 m=0/0 q=  0/  0 OK
+  IB4001    Z-nodiar  t= 20/ 20 m=0/0 q=  0/  0 OK
+  IB4001    Z-oracle  t= 19/ 19 m=1/1 q= 17/ 17 OK
+  IB4001    Z-turn    t= 19/ 19 m=1/1 q= 17/ 17 OK
+  IB4002    Z-free    t= 20/ 20 m=0/0 q=  0/  0 OK
+  IB4002    Z-nodiar  t= 21/ 21 m=0/0 q=  0/  0 OK
+  IB4002    Z-oracle  t= 21/ 21 m=1/1 q= 20/ 20 OK
+  IB4002    Z-turn    t= 20/ 20 m=1/1 q= 20/ 20 OK
+  IB4003    Z-free    t= 22/ 22 m=0/0 q=  0/  0 OK
+  IB4003    Z-nodiar  t= 23/ 23 m=0/0 q=  0/  0 OK
+  IB4003    Z-oracle  t= 22/ 22 m=1/1 q= 19/ 19 OK
+  IB4003    Z-turn    t= 22/ 22 m=1/1 q= 19/ 19 OK
+  IB4004    Z-free    t= 26/ 26 m=0/0 q=  0/  0 OK
+  IB4004    Z-nodiar  t= 27/ 27 m=0/0 q=  0/  0 OK
+  IB4004    Z-oracle  t= 27/ 27 m=1/1 q=  0/  0 OK
+  IB4004    Z-turn    t= 26/ 26 m=1/1 q=  0/  0 OK
+  IB4010    Z-free    t= 32/ 32 m=0/0 q=  0/  0 OK
+  IB4010    Z-nodiar  t= 33/ 33 m=0/0 q=  0/  0 OK
+  IB4010    Z-oracle  t= 32/ 32 m=1/1 q= 45/ 45 OK
+  IB4010    Z-turn    t= 32/ 32 m=1/1 q= 45/ 45 OK
+  IB4011    Z-free    t= 26/ 26 m=0/0 q=  0/  0 OK
+  IB4011    Z-nodiar  t= 27/ 27 m=0/0 q=  0/  0 OK
+  IB4011    Z-oracle  t= 27/ 27 m=1/1 q=  0/  0 OK
+  IB4011    Z-turn    t= 26/ 26 m=1/1 q=  0/  0 OK
+  IS1008a   Z-free    t=  9/  9 m=0/0 q=  0/  0 OK
+  IS1008a   Z-nodiar  t= 11/ 11 m=0/0 q=  0/  0 OK
+  IS1008a   Z-oracle  t= 10/ 10 m=1/1 q=  0/  0 OK
+  IS1008a   Z-turn    t=  9/  9 m=1/1 q=  0/  0 OK
+  IS1008b   Z-free    t= 19/ 19 m=0/0 q=  0/  0 OK
+  IS1008b   Z-nodiar  t= 20/ 20 m=0/0 q=  0/  0 OK
+  IS1008b   Z-oracle  t= 18/ 18 m=1/1 q=  9/  9 OK
+  IS1008b   Z-turn    t= 19/ 19 m=1/1 q=  9/  9 OK
+  IS1008c   Z-free    t= 16/ 16 m=0/0 q=  0/  0 OK
+  IS1008c   Z-nodiar  t= 17/ 17 m=0/0 q=  0/  0 OK
+  IS1008c   Z-oracle  t= 18/ 18 m=1/1 q=  0/  0 OK
+  IS1008c   Z-turn    t= 16/ 16 m=1/1 q=  0/  0 OK
+  IS1008d   Z-free    t= 15/ 15 m=0/0 q=  0/  0 OK
+  IS1008d   Z-nodiar  t= 17/ 17 m=0/0 q=  0/  0 OK
+  IS1008d   Z-oracle  t= 16/ 16 m=1/1 q=  8/  8 OK
+  IS1008d   Z-turn    t= 15/ 15 m=1/1 q=  8/  8 OK
+  TS3004a   Z-free    t= 14/ 14 m=0/0 q=  0/  0 OK
+  TS3004a   Z-nodiar  t= 15/ 15 m=0/0 q=  0/  0 OK
+  TS3004a   Z-oracle  t= 15/ 15 m=1/1 q=  0/  0 OK
+  TS3004a   Z-turn    t= 14/ 14 m=1/1 q=  0/  0 OK
+  TS3004b   Z-free    t= 24/ 24 m=0/0 q=  0/  0 OK
+  TS3004b   Z-nodiar  t= 25/ 25 m=0/0 q=  0/  0 OK
+  TS3004b   Z-oracle  t= 24/ 24 m=1/1 q= 19/ 19 OK
+  TS3004b   Z-turn    t= 24/ 24 m=1/1 q= 19/ 19 OK
+  TS3004c   Z-free    t= 29/ 29 m=0/0 q=  0/  0 OK
+  TS3004c   Z-nodiar  t= 33/ 33 m=0/0 q=  0/  0 OK
+  TS3004c   Z-oracle  t= 26/ 26 m=1/1 q=  0/  0 OK
+  TS3004c   Z-turn    t= 29/ 29 m=1/1 q=  0/  0 OK
+  TS3004d   Z-free    t= 29/ 29 m=0/0 q=  0/  0 OK
+  TS3004d   Z-nodiar  t= 31/ 31 m=0/0 q=  0/  0 OK
+  TS3004d   Z-oracle  t= 29/ 29 m=1/1 q=  0/  0 OK
+  TS3004d   Z-turn    t= 29/ 29 m=1/1 q=  0/  0 OK
+plan conformance (per meeting, arm, head): PASS
+
+--- budget adherence (chunk receipts) ---
+  chunk0000-receipt.json: n_items=18 n_ok=18 n_error=0 stopped_reason=None
+    calls 480/2900  wall 2412.8s/28800s  gpu 2301.5s/21600s  breaches=none
+  chunk0001-receipt.json: n_items=15 n_ok=15 n_error=0 stopped_reason=None
+    calls 958/2900  wall 4672.2s/28800s  gpu 4506.1s/21600s  breaches=none
+  chunk0002-receipt.json: n_items=20 n_ok=20 n_error=0 stopped_reason=None
+    calls 1439/2900  wall 7343.7s/28800s  gpu 7107.9s/21600s  breaches=none
+  chunk0003-receipt.json: n_items=18 n_ok=18 n_error=0 stopped_reason=None
+    calls 1901/2900  wall 9406.3s/28800s  gpu 9078.2s/21600s  breaches=none
+  chunk0004-receipt.json: n_items=1 n_ok=1 n_error=0 stopped_reason=None
+    calls 1932/2900  wall 9505.7s/28800s  gpu 9172.1s/21600s  breaches=none
+budget adherence: PASS
+budget gpu_seconds_used nonzero: PASS
+
+--- response sink: reconciliation + dispatch-chain parse health ---
+  sink files: ['chunk0000-responses.jsonl', 'chunk0001-responses.jsonl', 'chunk0002-responses.jsonl', 'chunk0003-responses.jsonl', 'chunk0004-responses.jsonl']  records: 1932
+  duplicate request_ids: 0
+
+| meeting | arm | head | sink records | empty replies | replies at max_tokens |
+|---|---|---|---|---|---|
+| ES2011a | Z-free | transcribe | 12 | 0 | 0 |
+| ES2011a | Z-nodiar | transcribe | 13 | 0 | 0 |
+| ES2011a | Z-oracle | minutes | 1 | 0 | 0 |
+| ES2011a | Z-oracle | qa | 7 | 0 | 0 |
+| ES2011a | Z-oracle | transcribe | 12 | 0 | 0 |
+| ES2011a | Z-turn | minutes | 1 | 0 | 0 |
+| ES2011a | Z-turn | qa | 7 | 0 | 0 |
+| ES2011a | Z-turn | transcribe | 12 | 0 | 0 |
+| ES2011b | Z-free | transcribe | 17 | 0 | 0 |
+| ES2011b | Z-nodiar | transcribe | 18 | 0 | 0 |
+| ES2011b | Z-oracle | minutes | 1 | 0 | 0 |
+| ES2011b | Z-oracle | qa | 15 | 0 | 0 |
+| ES2011b | Z-oracle | transcribe | 17 | 0 | 0 |
+| ES2011b | Z-turn | minutes | 1 | 0 | 0 |
+| ES2011b | Z-turn | qa | 15 | 0 | 0 |
+| ES2011b | Z-turn | transcribe | 17 | 0 | 0 |
+| ES2011c | Z-free | transcribe | 17 | 0 | 0 |
+| ES2011c | Z-nodiar | transcribe | 18 | 0 | 0 |
+| ES2011c | Z-oracle | minutes | 1 | 0 | 0 |
+| ES2011c | Z-oracle | qa | 18 | 0 | 0 |
+| ES2011c | Z-oracle | transcribe | 17 | 0 | 0 |
+| ES2011c | Z-turn | minutes | 1 | 0 | 0 |
+| ES2011c | Z-turn | qa | 18 | 0 | 0 |
+| ES2011c | Z-turn | transcribe | 17 | 0 | 0 |
+| ES2011d | Z-free | transcribe | 21 | 0 | 0 |
+| ES2011d | Z-nodiar | transcribe | 22 | 0 | 0 |
+| ES2011d | Z-oracle | minutes | 1 | 0 | 0 |
+| ES2011d | Z-oracle | qa | 23 | 0 | 0 |
+| ES2011d | Z-oracle | transcribe | 21 | 0 | 0 |
+| ES2011d | Z-turn | minutes | 1 | 0 | 0 |
+| ES2011d | Z-turn | qa | 23 | 0 | 0 |
+| ES2011d | Z-turn | transcribe | 21 | 0 | 0 |
+| IB4001 | Z-free | transcribe | 19 | 0 | 0 |
+| IB4001 | Z-nodiar | transcribe | 20 | 0 | 0 |
+| IB4001 | Z-oracle | minutes | 1 | 0 | 0 |
+| IB4001 | Z-oracle | qa | 17 | 0 | 0 |
+| IB4001 | Z-oracle | transcribe | 19 | 0 | 0 |
+| IB4001 | Z-turn | minutes | 1 | 0 | 0 |
+| IB4001 | Z-turn | qa | 17 | 0 | 0 |
+| IB4001 | Z-turn | transcribe | 19 | 0 | 0 |
+| IB4002 | Z-free | transcribe | 20 | 0 | 0 |
+| IB4002 | Z-nodiar | transcribe | 21 | 0 | 0 |
+| IB4002 | Z-oracle | minutes | 1 | 0 | 0 |
+| IB4002 | Z-oracle | qa | 20 | 0 | 0 |
+| IB4002 | Z-oracle | transcribe | 21 | 0 | 0 |
+| IB4002 | Z-turn | minutes | 1 | 0 | 0 |
+| IB4002 | Z-turn | qa | 20 | 0 | 0 |
+| IB4002 | Z-turn | transcribe | 20 | 0 | 0 |
+| IB4003 | Z-free | transcribe | 22 | 0 | 0 |
+| IB4003 | Z-nodiar | transcribe | 23 | 0 | 0 |
+| IB4003 | Z-oracle | minutes | 1 | 0 | 0 |
+| IB4003 | Z-oracle | qa | 19 | 0 | 0 |
+| IB4003 | Z-oracle | transcribe | 22 | 0 | 0 |
+| IB4003 | Z-turn | minutes | 1 | 0 | 0 |
+| IB4003 | Z-turn | qa | 19 | 0 | 0 |
+| IB4003 | Z-turn | transcribe | 22 | 0 | 0 |
+| IB4004 | Z-free | transcribe | 26 | 0 | 0 |
+| IB4004 | Z-nodiar | transcribe | 27 | 0 | 0 |
+| IB4004 | Z-oracle | minutes | 1 | 0 | 0 |
+| IB4004 | Z-oracle | transcribe | 27 | 0 | 0 |
+| IB4004 | Z-turn | minutes | 1 | 0 | 0 |
+| IB4004 | Z-turn | transcribe | 26 | 0 | 0 |
+| IB4010 | Z-free | transcribe | 32 | 0 | 0 |
+| IB4010 | Z-nodiar | transcribe | 33 | 0 | 0 |
+| IB4010 | Z-oracle | minutes | 1 | 0 | 0 |
+| IB4010 | Z-oracle | qa | 45 | 0 | 0 |
+| IB4010 | Z-oracle | transcribe | 32 | 0 | 0 |
+| IB4010 | Z-turn | minutes | 1 | 0 | 0 |
+| IB4010 | Z-turn | qa | 45 | 0 | 0 |
+| IB4010 | Z-turn | transcribe | 32 | 0 | 0 |
+| IB4011 | Z-free | transcribe | 26 | 0 | 0 |
+| IB4011 | Z-nodiar | transcribe | 27 | 0 | 0 |
+| IB4011 | Z-oracle | minutes | 1 | 0 | 0 |
+| IB4011 | Z-oracle | transcribe | 27 | 0 | 0 |
+| IB4011 | Z-turn | minutes | 1 | 0 | 0 |
+| IB4011 | Z-turn | transcribe | 26 | 0 | 0 |
+| IS1008a | Z-free | transcribe | 9 | 0 | 0 |
+| IS1008a | Z-nodiar | transcribe | 11 | 0 | 0 |
+| IS1008a | Z-oracle | minutes | 1 | 0 | 0 |
+| IS1008a | Z-oracle | transcribe | 10 | 0 | 0 |
+| IS1008a | Z-turn | minutes | 1 | 0 | 0 |
+| IS1008a | Z-turn | transcribe | 9 | 0 | 0 |
+| IS1008b | Z-free | transcribe | 19 | 0 | 0 |
+| IS1008b | Z-nodiar | transcribe | 20 | 0 | 0 |
+| IS1008b | Z-oracle | minutes | 1 | 0 | 0 |
+| IS1008b | Z-oracle | qa | 9 | 0 | 0 |
+| IS1008b | Z-oracle | transcribe | 18 | 0 | 0 |
+| IS1008b | Z-turn | minutes | 1 | 0 | 0 |
+| IS1008b | Z-turn | qa | 9 | 0 | 0 |
+| IS1008b | Z-turn | transcribe | 19 | 0 | 0 |
+| IS1008c | Z-free | transcribe | 16 | 0 | 0 |
+| IS1008c | Z-nodiar | transcribe | 17 | 0 | 0 |
+| IS1008c | Z-oracle | minutes | 1 | 0 | 0 |
+| IS1008c | Z-oracle | transcribe | 18 | 0 | 0 |
+| IS1008c | Z-turn | minutes | 1 | 0 | 0 |
+| IS1008c | Z-turn | transcribe | 16 | 0 | 0 |
+| IS1008d | Z-free | transcribe | 15 | 0 | 0 |
+| IS1008d | Z-nodiar | transcribe | 17 | 0 | 0 |
+| IS1008d | Z-oracle | minutes | 1 | 0 | 0 |
+| IS1008d | Z-oracle | qa | 8 | 0 | 0 |
+| IS1008d | Z-oracle | transcribe | 16 | 0 | 0 |
+| IS1008d | Z-turn | minutes | 1 | 0 | 0 |
+| IS1008d | Z-turn | qa | 8 | 0 | 0 |
+| IS1008d | Z-turn | transcribe | 15 | 0 | 0 |
+| TS3004a | Z-free | transcribe | 14 | 0 | 0 |
+| TS3004a | Z-nodiar | transcribe | 15 | 0 | 0 |
+| TS3004a | Z-oracle | minutes | 1 | 0 | 0 |
+| TS3004a | Z-oracle | transcribe | 15 | 0 | 0 |
+| TS3004a | Z-turn | minutes | 1 | 0 | 0 |
+| TS3004a | Z-turn | transcribe | 14 | 0 | 0 |
+| TS3004b | Z-free | transcribe | 24 | 0 | 0 |
+| TS3004b | Z-nodiar | transcribe | 25 | 0 | 0 |
+| TS3004b | Z-oracle | minutes | 1 | 0 | 0 |
+| TS3004b | Z-oracle | qa | 19 | 0 | 0 |
+| TS3004b | Z-oracle | transcribe | 24 | 0 | 0 |
+| TS3004b | Z-turn | minutes | 1 | 0 | 0 |
+| TS3004b | Z-turn | qa | 19 | 0 | 0 |
+| TS3004b | Z-turn | transcribe | 24 | 0 | 0 |
+| TS3004c | Z-free | transcribe | 29 | 0 | 0 |
+| TS3004c | Z-nodiar | transcribe | 33 | 0 | 0 |
+| TS3004c | Z-oracle | minutes | 1 | 0 | 0 |
+| TS3004c | Z-oracle | transcribe | 26 | 0 | 0 |
+| TS3004c | Z-turn | minutes | 1 | 0 | 0 |
+| TS3004c | Z-turn | transcribe | 29 | 0 | 0 |
+| TS3004d | Z-free | transcribe | 29 | 0 | 0 |
+| TS3004d | Z-nodiar | transcribe | 31 | 0 | 0 |
+| TS3004d | Z-oracle | minutes | 1 | 0 | 0 |
+| TS3004d | Z-oracle | transcribe | 29 | 0 | 0 |
+| TS3004d | Z-turn | minutes | 1 | 0 | 0 |
+| TS3004d | Z-turn | transcribe | 29 | 0 | 0 |
+
+attribution arms ('Z-turn', 'Z-oracle') -- the parse run_item itself performs to feed the minutes head:
+| meeting | arm | transcribe replies parsed >=1 segment | parse-failed | segments (count only) |
+|---|---|---|---|---|
+| ES2011a | Z-oracle | 12 | 0 | 172 |
+| ES2011a | Z-turn | 12 | 0 | 169 |
+| ES2011b | Z-oracle | 17 | 0 | 138 |
+| ES2011b | Z-turn | 17 | 0 | 208 |
+| ES2011c | Z-oracle | 17 | 0 | 176 |
+| ES2011c | Z-turn | 17 | 0 | 218 |
+| ES2011d | Z-oracle | 21 | 0 | 321 |
+| ES2011d | Z-turn | 21 | 0 | 322 |
+| IB4001 | Z-oracle | 19 | 0 | 353 |
+| IB4001 | Z-turn | 19 | 0 | 352 |
+| IB4002 | Z-oracle | 21 | 0 | 428 |
+| IB4002 | Z-turn | 20 | 0 | 456 |
+| IB4003 | Z-oracle | 22 | 0 | 253 |
+| IB4003 | Z-turn | 22 | 0 | 226 |
+| IB4004 | Z-oracle | 27 | 0 | 366 |
+| IB4004 | Z-turn | 26 | 0 | 404 |
+| IB4010 | Z-oracle | 32 | 0 | 629 |
+| IB4010 | Z-turn | 32 | 0 | 607 |
+| IB4011 | Z-oracle | 27 | 0 | 482 |
+| IB4011 | Z-turn | 26 | 0 | 488 |
+| IS1008a | Z-oracle | 10 | 0 | 76 |
+| IS1008a | Z-turn | 9 | 0 | 73 |
+| IS1008b | Z-oracle | 18 | 0 | 109 |
+| IS1008b | Z-turn | 19 | 0 | 133 |
+| IS1008c | Z-oracle | 18 | 0 | 172 |
+| IS1008c | Z-turn | 16 | 0 | 167 |
+| IS1008d | Z-oracle | 16 | 0 | 202 |
+| IS1008d | Z-turn | 15 | 0 | 206 |
+| TS3004a | Z-oracle | 15 | 0 | 269 |
+| TS3004a | Z-turn | 14 | 0 | 218 |
+| TS3004b | Z-oracle | 24 | 0 | 471 |
+| TS3004b | Z-turn | 24 | 0 | 375 |
+| TS3004c | Z-oracle | 26 | 0 | 588 |
+| TS3004c | Z-turn | 29 | 0 | 620 |
+| TS3004d | Z-oracle | 29 | 0 | 701 |
+| TS3004d | Z-turn | 29 | 0 | 577 |
+
+transcribe-only arms ('Z-free', 'Z-nodiar') -- no attribution grammar, never parsed in flight:
+| meeting | arm | non-empty transcribe replies |
+|---|---|---|
+| ES2011a | Z-free | 12 |
+| ES2011a | Z-nodiar | 13 |
+| ES2011b | Z-free | 17 |
+| ES2011b | Z-nodiar | 18 |
+| ES2011c | Z-free | 17 |
+| ES2011c | Z-nodiar | 18 |
+| ES2011d | Z-free | 21 |
+| ES2011d | Z-nodiar | 22 |
+| IB4001 | Z-free | 19 |
+| IB4001 | Z-nodiar | 20 |
+| IB4002 | Z-free | 20 |
+| IB4002 | Z-nodiar | 21 |
+| IB4003 | Z-free | 22 |
+| IB4003 | Z-nodiar | 23 |
+| IB4004 | Z-free | 26 |
+| IB4004 | Z-nodiar | 27 |
+| IB4010 | Z-free | 32 |
+| IB4010 | Z-nodiar | 33 |
+| IB4011 | Z-free | 26 |
+| IB4011 | Z-nodiar | 27 |
+| IS1008a | Z-free | 9 |
+| IS1008a | Z-nodiar | 11 |
+| IS1008b | Z-free | 19 |
+| IS1008b | Z-nodiar | 20 |
+| IS1008c | Z-free | 16 |
+| IS1008c | Z-nodiar | 17 |
+| IS1008d | Z-free | 15 |
+| IS1008d | Z-nodiar | 17 |
+| TS3004a | Z-free | 14 |
+| TS3004a | Z-nodiar | 15 |
+| TS3004b | Z-free | 24 |
+| TS3004b | Z-nodiar | 25 |
+| TS3004c | Z-free | 29 |
+| TS3004c | Z-nodiar | 33 |
+| TS3004d | Z-free | 29 |
+| TS3004d | Z-nodiar | 31 |
+
+(counts only -- no reply text is surfaced, no reference is consulted, no arm is compared)
+parse-chain health: PASS
+
+reconciliation: receipt n_calls total=1932  sink records=1932  MATCH
+
+STRUCTURAL-INPUTS {"budget_adherence": true, "budget_gpu_nonzero": true, "duplicate_request_ids": 0, "empty_replies": 0, "gpu_seconds_every_ok_item_nonzero": true, "gpu_seconds_receipt_total": 9172.1, "items_error": 0, "items_missing": 0, "items_ok": 72, "parse_chain_health": true, "plan_conformance": true, "replies_at_max_tokens": 0, "sink_receipt_reconciled": true}

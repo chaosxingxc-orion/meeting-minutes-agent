@@ -1,0 +1,207 @@
+=== G1-FLOORS preflight start 2026-08-19T18:37:59Z ===
+--- repo state ---
+9dd7aa08628d19c3851ad4d3be4c24aaf12dc0e9
+porcelain lines: 0
+9dd7aa0 flight(g1-path2): pathfinder re-run PASS - qa routing verified, no result read
+8aedcb9 fix(g1): per-meeting QA routing + real gpu accounting - floors unblocked
+228a497 flight(g1-path): pathfinder FLOWN - 2 meetings x 4 arms + heads, structural NOT-PASS, no result read
+
+--- hash pins ---
+OK   llama-server  097c96ec5a3f576f378d4d5e103928bf070647fdcc1f015eacb839503e121c68  /home/chao/llama.cpp-featcache/build/bin/llama-server
+OK   qwen3-omni-q4km  0751c279498785c0b07130ae7748038d1e2cfd04617928e4557063807f98066d  /home/chao/models/qwen3-omni-30b-a3b-instruct-gguf-q4km/Qwen3-Omni-30B-A3B-Instruct-Q4_K_M.gguf
+OK   qwen3-omni-mmproj  f0dfe825fb692d426362b1ac79678fc08daa4758f7151526cad110515f122883  /home/chao/models/qwen3-omni-30b-a3b-instruct-gguf-q4km/mmproj-Qwen3-Omni-30B-A3B-Instruct-bf16.gguf
+hash-pin fail flag: 0
+llama.cpp HEAD: 5d9dfcb58ea860295da8fc93c7b5bed9e2c71151
+build-commit: OK vs pin
+dirty: 0
+
+--- PRECOMP inputs (all dev-18) ---
+rttm files:        18
+tool slice dirs:   18
+oracle slice dirs: 18
+vad slice dirs:    18
+vad manifests:     18
+
+--- feature cache (ami-q4km) BEFORE the campaign ---
+entries: 14324
+bytes:   11486248768
+
+--- run-dir BEFORE ---
+run-dir: /mnt/e/chao_workspace/exploring-l4-intelligence/speechrl-data/derived/meeting-minutes/g1/runs/2026-08-19-g1-floors
+receipts already present: 0
+stop-file: /mnt/c/Users/35686/AppData/Local/Temp/claude/D--chao-workspace-exploring-l4-intelligence-studies-speech-aware-evidence-acquisition/6d9f1834-68e9-41a7-bbcc-724898cf15a9/scratchpad/G1_YIELD  present: no
+
+==========================================================================
+--- THE CAMPAIGN PLAN: floors, registered cap, per-meeting routed ---
+==========================================================================
+rc=0
+n_work_items: 72  n_chunks: 5
+  chunk 0: est_wall=1776.0s (29.6 min) items=18 calls=480
+  chunk 1: est_wall=1768.6s (29.5 min) items=15 calls=478
+  chunk 2: est_wall=1779.7s (29.7 min) items=20 calls=481
+  chunk 3: est_wall=1709.4s (28.5 min) items=18 calls=462
+  chunk 4: est_wall=114.7s (1.9 min) items=1 calls=31
+CAMPAIGN TOTAL CALLS: 1932  transcribe: 1496  minutes: 36  qa: 400
+per-meeting planned QA calls (both arms): {'ES2011a': 14, 'ES2011b': 30, 'ES2011c': 36, 'ES2011d': 46, 'IB4001': 34, 'IB4002': 40, 'IB4003': 38, 'IB4004': 0, 'IB4010': 90, 'IB4011': 0, 'IS1008a': 0, 'IS1008b': 18, 'IS1008c': 0, 'IS1008d': 16, 'TS3004a': 0, 'TS3004b': 38, 'TS3004c': 0, 'TS3004d': 0}
+registered ceilings: <=2,900 calls / <=6.0 GPU-h / <=8 h wall; est total wall 119.1 min
+
+--- per-item detail (all chunks) ---
+chunk 0:
+    ES2011a   Z-turn    transcribe= 12 minutes=1 qa=  7 -> calls= 20
+    ES2011a   Z-oracle  transcribe= 12 minutes=1 qa=  7 -> calls= 20
+    ES2011a   Z-free    transcribe= 12 minutes=0 qa=  0 -> calls= 12
+    ES2011a   Z-nodiar  transcribe= 13 minutes=0 qa=  0 -> calls= 13
+    ES2011b   Z-turn    transcribe= 17 minutes=1 qa= 15 -> calls= 33
+    ES2011b   Z-oracle  transcribe= 17 minutes=1 qa= 15 -> calls= 33
+    ES2011b   Z-free    transcribe= 17 minutes=0 qa=  0 -> calls= 17
+    ES2011b   Z-nodiar  transcribe= 18 minutes=0 qa=  0 -> calls= 18
+    ES2011c   Z-turn    transcribe= 17 minutes=1 qa= 18 -> calls= 36
+    ES2011c   Z-oracle  transcribe= 17 minutes=1 qa= 18 -> calls= 36
+    ES2011c   Z-free    transcribe= 17 minutes=0 qa=  0 -> calls= 17
+    ES2011c   Z-nodiar  transcribe= 18 minutes=0 qa=  0 -> calls= 18
+    ES2011d   Z-turn    transcribe= 21 minutes=1 qa= 23 -> calls= 45
+    ES2011d   Z-oracle  transcribe= 21 minutes=1 qa= 23 -> calls= 45
+    ES2011d   Z-free    transcribe= 21 minutes=0 qa=  0 -> calls= 21
+    ES2011d   Z-nodiar  transcribe= 22 minutes=0 qa=  0 -> calls= 22
+    IB4001    Z-turn    transcribe= 19 minutes=1 qa= 17 -> calls= 37
+    IB4001    Z-oracle  transcribe= 19 minutes=1 qa= 17 -> calls= 37
+chunk 1:
+    IB4001    Z-free    transcribe= 19 minutes=0 qa=  0 -> calls= 19
+    IB4001    Z-nodiar  transcribe= 20 minutes=0 qa=  0 -> calls= 20
+    IB4002    Z-turn    transcribe= 20 minutes=1 qa= 20 -> calls= 41
+    IB4002    Z-oracle  transcribe= 21 minutes=1 qa= 20 -> calls= 42
+    IB4002    Z-free    transcribe= 20 minutes=0 qa=  0 -> calls= 20
+    IB4002    Z-nodiar  transcribe= 21 minutes=0 qa=  0 -> calls= 21
+    IB4003    Z-turn    transcribe= 22 minutes=1 qa= 19 -> calls= 42
+    IB4003    Z-oracle  transcribe= 22 minutes=1 qa= 19 -> calls= 42
+    IB4003    Z-free    transcribe= 22 minutes=0 qa=  0 -> calls= 22
+    IB4003    Z-nodiar  transcribe= 23 minutes=0 qa=  0 -> calls= 23
+    IB4004    Z-turn    transcribe= 26 minutes=1 qa=  0 -> calls= 27
+    IB4004    Z-oracle  transcribe= 27 minutes=1 qa=  0 -> calls= 28
+    IB4004    Z-free    transcribe= 26 minutes=0 qa=  0 -> calls= 26
+    IB4004    Z-nodiar  transcribe= 27 minutes=0 qa=  0 -> calls= 27
+    IB4010    Z-turn    transcribe= 32 minutes=1 qa= 45 -> calls= 78
+chunk 2:
+    IB4010    Z-oracle  transcribe= 32 minutes=1 qa= 45 -> calls= 78
+    IB4010    Z-free    transcribe= 32 minutes=0 qa=  0 -> calls= 32
+    IB4010    Z-nodiar  transcribe= 33 minutes=0 qa=  0 -> calls= 33
+    IB4011    Z-turn    transcribe= 26 minutes=1 qa=  0 -> calls= 27
+    IB4011    Z-oracle  transcribe= 27 minutes=1 qa=  0 -> calls= 28
+    IB4011    Z-free    transcribe= 26 minutes=0 qa=  0 -> calls= 26
+    IB4011    Z-nodiar  transcribe= 27 minutes=0 qa=  0 -> calls= 27
+    IS1008a   Z-turn    transcribe=  9 minutes=1 qa=  0 -> calls= 10
+    IS1008a   Z-oracle  transcribe= 10 minutes=1 qa=  0 -> calls= 11
+    IS1008a   Z-free    transcribe=  9 minutes=0 qa=  0 -> calls=  9
+    IS1008a   Z-nodiar  transcribe= 11 minutes=0 qa=  0 -> calls= 11
+    IS1008b   Z-turn    transcribe= 19 minutes=1 qa=  9 -> calls= 29
+    IS1008b   Z-oracle  transcribe= 18 minutes=1 qa=  9 -> calls= 28
+    IS1008b   Z-free    transcribe= 19 minutes=0 qa=  0 -> calls= 19
+    IS1008b   Z-nodiar  transcribe= 20 minutes=0 qa=  0 -> calls= 20
+    IS1008c   Z-turn    transcribe= 16 minutes=1 qa=  0 -> calls= 17
+    IS1008c   Z-oracle  transcribe= 18 minutes=1 qa=  0 -> calls= 19
+    IS1008c   Z-free    transcribe= 16 minutes=0 qa=  0 -> calls= 16
+    IS1008c   Z-nodiar  transcribe= 17 minutes=0 qa=  0 -> calls= 17
+    IS1008d   Z-turn    transcribe= 15 minutes=1 qa=  8 -> calls= 24
+chunk 3:
+    IS1008d   Z-oracle  transcribe= 16 minutes=1 qa=  8 -> calls= 25
+    IS1008d   Z-free    transcribe= 15 minutes=0 qa=  0 -> calls= 15
+    IS1008d   Z-nodiar  transcribe= 17 minutes=0 qa=  0 -> calls= 17
+    TS3004a   Z-turn    transcribe= 14 minutes=1 qa=  0 -> calls= 15
+    TS3004a   Z-oracle  transcribe= 15 minutes=1 qa=  0 -> calls= 16
+    TS3004a   Z-free    transcribe= 14 minutes=0 qa=  0 -> calls= 14
+    TS3004a   Z-nodiar  transcribe= 15 minutes=0 qa=  0 -> calls= 15
+    TS3004b   Z-turn    transcribe= 24 minutes=1 qa= 19 -> calls= 44
+    TS3004b   Z-oracle  transcribe= 24 minutes=1 qa= 19 -> calls= 44
+    TS3004b   Z-free    transcribe= 24 minutes=0 qa=  0 -> calls= 24
+    TS3004b   Z-nodiar  transcribe= 25 minutes=0 qa=  0 -> calls= 25
+    TS3004c   Z-turn    transcribe= 29 minutes=1 qa=  0 -> calls= 30
+    TS3004c   Z-oracle  transcribe= 26 minutes=1 qa=  0 -> calls= 27
+    TS3004c   Z-free    transcribe= 29 minutes=0 qa=  0 -> calls= 29
+    TS3004c   Z-nodiar  transcribe= 33 minutes=0 qa=  0 -> calls= 33
+    TS3004d   Z-turn    transcribe= 29 minutes=1 qa=  0 -> calls= 30
+    TS3004d   Z-oracle  transcribe= 29 minutes=1 qa=  0 -> calls= 30
+    TS3004d   Z-free    transcribe= 29 minutes=0 qa=  0 -> calls= 29
+chunk 4:
+    TS3004d   Z-nodiar  transcribe= 31 minutes=0 qa=  0 -> calls= 31
+
+--- arm/plan provenance cross-check, all 18 x 4 (CPU-only, zero model contact) ---
+ES2011a   Z-turn    mode=turn_aware prov=tool-diar    slices= 12 missing_wavs=none
+ES2011a   Z-oracle  mode=turn_aware prov=oracle-turn  slices= 12 missing_wavs=none
+ES2011a   Z-free    mode=turn_aware prov=tool-diar    slices= 12 missing_wavs=none
+ES2011a   Z-nodiar  mode=vad        prov=None         slices= 13 missing_wavs=none
+ES2011b   Z-turn    mode=turn_aware prov=tool-diar    slices= 17 missing_wavs=none
+ES2011b   Z-oracle  mode=turn_aware prov=oracle-turn  slices= 17 missing_wavs=none
+ES2011b   Z-free    mode=turn_aware prov=tool-diar    slices= 17 missing_wavs=none
+ES2011b   Z-nodiar  mode=vad        prov=None         slices= 18 missing_wavs=none
+ES2011c   Z-turn    mode=turn_aware prov=tool-diar    slices= 17 missing_wavs=none
+ES2011c   Z-oracle  mode=turn_aware prov=oracle-turn  slices= 17 missing_wavs=none
+ES2011c   Z-free    mode=turn_aware prov=tool-diar    slices= 17 missing_wavs=none
+ES2011c   Z-nodiar  mode=vad        prov=None         slices= 18 missing_wavs=none
+ES2011d   Z-turn    mode=turn_aware prov=tool-diar    slices= 21 missing_wavs=none
+ES2011d   Z-oracle  mode=turn_aware prov=oracle-turn  slices= 21 missing_wavs=none
+ES2011d   Z-free    mode=turn_aware prov=tool-diar    slices= 21 missing_wavs=none
+ES2011d   Z-nodiar  mode=vad        prov=None         slices= 22 missing_wavs=none
+IS1008a   Z-turn    mode=turn_aware prov=tool-diar    slices=  9 missing_wavs=none
+IS1008a   Z-oracle  mode=turn_aware prov=oracle-turn  slices= 10 missing_wavs=none
+IS1008a   Z-free    mode=turn_aware prov=tool-diar    slices=  9 missing_wavs=none
+IS1008a   Z-nodiar  mode=vad        prov=None         slices= 11 missing_wavs=none
+IS1008b   Z-turn    mode=turn_aware prov=tool-diar    slices= 19 missing_wavs=none
+IS1008b   Z-oracle  mode=turn_aware prov=oracle-turn  slices= 18 missing_wavs=none
+IS1008b   Z-free    mode=turn_aware prov=tool-diar    slices= 19 missing_wavs=none
+IS1008b   Z-nodiar  mode=vad        prov=None         slices= 20 missing_wavs=none
+IS1008c   Z-turn    mode=turn_aware prov=tool-diar    slices= 16 missing_wavs=none
+IS1008c   Z-oracle  mode=turn_aware prov=oracle-turn  slices= 18 missing_wavs=none
+IS1008c   Z-free    mode=turn_aware prov=tool-diar    slices= 16 missing_wavs=none
+IS1008c   Z-nodiar  mode=vad        prov=None         slices= 17 missing_wavs=none
+IS1008d   Z-turn    mode=turn_aware prov=tool-diar    slices= 15 missing_wavs=none
+IS1008d   Z-oracle  mode=turn_aware prov=oracle-turn  slices= 16 missing_wavs=none
+IS1008d   Z-free    mode=turn_aware prov=tool-diar    slices= 15 missing_wavs=none
+IS1008d   Z-nodiar  mode=vad        prov=None         slices= 17 missing_wavs=none
+TS3004a   Z-turn    mode=turn_aware prov=tool-diar    slices= 14 missing_wavs=none
+TS3004a   Z-oracle  mode=turn_aware prov=oracle-turn  slices= 15 missing_wavs=none
+TS3004a   Z-free    mode=turn_aware prov=tool-diar    slices= 14 missing_wavs=none
+TS3004a   Z-nodiar  mode=vad        prov=None         slices= 15 missing_wavs=none
+TS3004b   Z-turn    mode=turn_aware prov=tool-diar    slices= 24 missing_wavs=none
+TS3004b   Z-oracle  mode=turn_aware prov=oracle-turn  slices= 24 missing_wavs=none
+TS3004b   Z-free    mode=turn_aware prov=tool-diar    slices= 24 missing_wavs=none
+TS3004b   Z-nodiar  mode=vad        prov=None         slices= 25 missing_wavs=none
+TS3004c   Z-turn    mode=turn_aware prov=tool-diar    slices= 29 missing_wavs=none
+TS3004c   Z-oracle  mode=turn_aware prov=oracle-turn  slices= 26 missing_wavs=none
+TS3004c   Z-free    mode=turn_aware prov=tool-diar    slices= 29 missing_wavs=none
+TS3004c   Z-nodiar  mode=vad        prov=None         slices= 33 missing_wavs=none
+TS3004d   Z-turn    mode=turn_aware prov=tool-diar    slices= 29 missing_wavs=none
+TS3004d   Z-oracle  mode=turn_aware prov=oracle-turn  slices= 29 missing_wavs=none
+TS3004d   Z-free    mode=turn_aware prov=tool-diar    slices= 29 missing_wavs=none
+TS3004d   Z-nodiar  mode=vad        prov=None         slices= 31 missing_wavs=none
+IB4001    Z-turn    mode=turn_aware prov=tool-diar    slices= 19 missing_wavs=none
+IB4001    Z-oracle  mode=turn_aware prov=oracle-turn  slices= 19 missing_wavs=none
+IB4001    Z-free    mode=turn_aware prov=tool-diar    slices= 19 missing_wavs=none
+IB4001    Z-nodiar  mode=vad        prov=None         slices= 20 missing_wavs=none
+IB4002    Z-turn    mode=turn_aware prov=tool-diar    slices= 20 missing_wavs=none
+IB4002    Z-oracle  mode=turn_aware prov=oracle-turn  slices= 21 missing_wavs=none
+IB4002    Z-free    mode=turn_aware prov=tool-diar    slices= 20 missing_wavs=none
+IB4002    Z-nodiar  mode=vad        prov=None         slices= 21 missing_wavs=none
+IB4003    Z-turn    mode=turn_aware prov=tool-diar    slices= 22 missing_wavs=none
+IB4003    Z-oracle  mode=turn_aware prov=oracle-turn  slices= 22 missing_wavs=none
+IB4003    Z-free    mode=turn_aware prov=tool-diar    slices= 22 missing_wavs=none
+IB4003    Z-nodiar  mode=vad        prov=None         slices= 23 missing_wavs=none
+IB4004    Z-turn    mode=turn_aware prov=tool-diar    slices= 26 missing_wavs=none
+IB4004    Z-oracle  mode=turn_aware prov=oracle-turn  slices= 27 missing_wavs=none
+IB4004    Z-free    mode=turn_aware prov=tool-diar    slices= 26 missing_wavs=none
+IB4004    Z-nodiar  mode=vad        prov=None         slices= 27 missing_wavs=none
+IB4010    Z-turn    mode=turn_aware prov=tool-diar    slices= 32 missing_wavs=none
+IB4010    Z-oracle  mode=turn_aware prov=oracle-turn  slices= 32 missing_wavs=none
+IB4010    Z-free    mode=turn_aware prov=tool-diar    slices= 32 missing_wavs=none
+IB4010    Z-nodiar  mode=vad        prov=None         slices= 33 missing_wavs=none
+IB4011    Z-turn    mode=turn_aware prov=tool-diar    slices= 26 missing_wavs=none
+IB4011    Z-oracle  mode=turn_aware prov=oracle-turn  slices= 27 missing_wavs=none
+IB4011    Z-free    mode=turn_aware prov=tool-diar    slices= 26 missing_wavs=none
+IB4011    Z-nodiar  mode=vad        prov=None         slices= 27 missing_wavs=none
+items with missing WAVs: 0
+
+--- GPU health / orphans ---
+name, utilization.gpu [%], memory.used [MiB], clocks.current.sm [MHz], pstate, temperature.gpu, power.draw [W]
+NVIDIA GeForce RTX 5090 Laptop GPU, 1 %, 209 MiB, 1200 MHz, P5, 43, 12.58 W
+llama-server: none
+run_g1: none
+=== G1-FLOORS preflight end 2026-08-19T18:40:07Z ===

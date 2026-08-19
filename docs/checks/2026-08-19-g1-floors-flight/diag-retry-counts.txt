@@ -1,0 +1,11 @@
+chunk0000-responses.jsonl: retried this sink = 2
+chunk0001-responses.jsonl: retried this sink = 1
+chunk0002-responses.jsonl: retried this sink = 2
+chunk0003-responses.jsonl: retried this sink = 0
+chunk0004-responses.jsonl: retried this sink = 0
+total records: 1932  total retried: 5
+  RETRIED chunk0000-responses.jsonl    ES2011a   Z-oracle  minutes    -> g1-Z-oracle-ES2011a-minutes-r1
+  RETRIED chunk0000-responses.jsonl    ES2011d   Z-oracle  transcribe -> g1-Z-oracle-ES2011d-transcribe-slice0009-r1
+  RETRIED chunk0001-responses.jsonl    IB4002    Z-oracle  transcribe -> g1-Z-oracle-IB4002-transcribe-slice0011-r1
+  RETRIED chunk0002-responses.jsonl    IB4011    Z-oracle  transcribe -> g1-Z-oracle-IB4011-transcribe-slice0020-r1
+  RETRIED chunk0002-responses.jsonl    IS1008a   Z-oracle  minutes    -> g1-Z-oracle-IS1008a-minutes-r1

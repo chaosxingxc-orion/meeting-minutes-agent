@@ -1,0 +1,2655 @@
+{
+  "budget_after": {
+    "calls_used": 480,
+    "ceilings": {
+      "max_calls": 2900,
+      "max_gpu_hours": 6.0,
+      "max_wall_hours": 8.0
+    },
+    "gpu_seconds_used": 2301.51883213604,
+    "wall_seconds_used": 2412.78754000301
+  },
+  "chunk_index": 0,
+  "item_outcomes": [
+    {
+      "arm": "Z-turn",
+      "contacts": [
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-turn-ES2011a-transcribe-slice0000"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-turn-ES2011a-transcribe-slice0001"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-turn-ES2011a-transcribe-slice0002"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-turn-ES2011a-transcribe-slice0003"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-turn-ES2011a-transcribe-slice0004"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-turn-ES2011a-transcribe-slice0005"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-turn-ES2011a-transcribe-slice0006"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-turn-ES2011a-transcribe-slice0007"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-turn-ES2011a-transcribe-slice0008"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-turn-ES2011a-transcribe-slice0009"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-turn-ES2011a-transcribe-slice0010"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-turn-ES2011a-transcribe-slice0011"
+        },
+        {
+          "kind": "minutes",
+          "outcome": "ok",
+          "request_id": "g1-Z-turn-ES2011a-minutes"
+        },
+        {
+          "kind": "qa",
+          "outcome": "ok",
+          "request_id": "g1-Z-turn-ES2011a-qa-0-0-1-ES2011a-104"
+        },
+        {
+          "kind": "qa",
+          "outcome": "ok",
+          "request_id": "g1-Z-turn-ES2011a-qa-0-0-1-ES2011a-118"
+        },
+        {
+          "kind": "qa",
+          "outcome": "ok",
+          "request_id": "g1-Z-turn-ES2011a-qa-0-0-1-ES2011a-236"
+        },
+        {
+          "kind": "qa",
+          "outcome": "ok",
+          "request_id": "g1-Z-turn-ES2011a-qa-0-0-1-ES2011a-34"
+        },
+        {
+          "kind": "qa",
+          "outcome": "ok",
+          "request_id": "g1-Z-turn-ES2011a-qa-0-0-1-ES2011a-65"
+        },
+        {
+          "kind": "qa",
+          "outcome": "ok",
+          "request_id": "g1-Z-turn-ES2011a-qa-0-0-1-ES2011a-9"
+        },
+        {
+          "kind": "qa",
+          "outcome": "ok",
+          "request_id": "g1-Z-turn-ES2011a-qa-0-0-1-ES2011a-97"
+        }
+      ],
+      "error": null,
+      "gpu_seconds": 70.64425256101094,
+      "meeting_id": "ES2011a",
+      "n_calls": 20,
+      "ok": true,
+      "recorded_utc": "2026-08-19T18:42:50.267534+00:00",
+      "schema_version": "1.0.0",
+      "wall_seconds": 70.97384365100152
+    },
+    {
+      "arm": "Z-oracle",
+      "contacts": [
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-ES2011a-transcribe-slice0000"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-ES2011a-transcribe-slice0001"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-ES2011a-transcribe-slice0002"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-ES2011a-transcribe-slice0003"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-ES2011a-transcribe-slice0004"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-ES2011a-transcribe-slice0005"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-ES2011a-transcribe-slice0006"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-ES2011a-transcribe-slice0007"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-ES2011a-transcribe-slice0008"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-ES2011a-transcribe-slice0009"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-ES2011a-transcribe-slice0010"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-ES2011a-transcribe-slice0011"
+        },
+        {
+          "kind": "minutes",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-ES2011a-minutes"
+        },
+        {
+          "kind": "qa",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-ES2011a-qa-0-0-1-ES2011a-104"
+        },
+        {
+          "kind": "qa",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-ES2011a-qa-0-0-1-ES2011a-118"
+        },
+        {
+          "kind": "qa",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-ES2011a-qa-0-0-1-ES2011a-236"
+        },
+        {
+          "kind": "qa",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-ES2011a-qa-0-0-1-ES2011a-34"
+        },
+        {
+          "kind": "qa",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-ES2011a-qa-0-0-1-ES2011a-65"
+        },
+        {
+          "kind": "qa",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-ES2011a-qa-0-0-1-ES2011a-9"
+        },
+        {
+          "kind": "qa",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-ES2011a-qa-0-0-1-ES2011a-97"
+        }
+      ],
+      "error": null,
+      "gpu_seconds": 370.8460246960094,
+      "meeting_id": "ES2011a",
+      "n_calls": 20,
+      "ok": true,
+      "recorded_utc": "2026-08-19T18:49:14.915405+00:00",
+      "schema_version": "1.0.0",
+      "wall_seconds": 371.18730787499953
+    },
+    {
+      "arm": "Z-free",
+      "contacts": [
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-free-ES2011a-transcribe-slice0000"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-free-ES2011a-transcribe-slice0001"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-free-ES2011a-transcribe-slice0002"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-free-ES2011a-transcribe-slice0003"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-free-ES2011a-transcribe-slice0004"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-free-ES2011a-transcribe-slice0005"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-free-ES2011a-transcribe-slice0006"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-free-ES2011a-transcribe-slice0007"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-free-ES2011a-transcribe-slice0008"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-free-ES2011a-transcribe-slice0009"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-free-ES2011a-transcribe-slice0010"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-free-ES2011a-transcribe-slice0011"
+        }
+      ],
+      "error": null,
+      "gpu_seconds": 41.396078432982904,
+      "meeting_id": "ES2011a",
+      "n_calls": 12,
+      "ok": true,
+      "recorded_utc": "2026-08-19T18:49:58.900435+00:00",
+      "schema_version": "1.0.0",
+      "wall_seconds": 41.607890195002255
+    },
+    {
+      "arm": "Z-nodiar",
+      "contacts": [
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-nodiar-ES2011a-transcribe-slice0000"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-nodiar-ES2011a-transcribe-slice0001"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-nodiar-ES2011a-transcribe-slice0002"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-nodiar-ES2011a-transcribe-slice0003"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-nodiar-ES2011a-transcribe-slice0004"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-nodiar-ES2011a-transcribe-slice0005"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-nodiar-ES2011a-transcribe-slice0006"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-nodiar-ES2011a-transcribe-slice0007"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-nodiar-ES2011a-transcribe-slice0008"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-nodiar-ES2011a-transcribe-slice0009"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-nodiar-ES2011a-transcribe-slice0010"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-nodiar-ES2011a-transcribe-slice0011"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-nodiar-ES2011a-transcribe-slice0012"
+        }
+      ],
+      "error": null,
+      "gpu_seconds": 40.222411902017484,
+      "meeting_id": "ES2011a",
+      "n_calls": 13,
+      "ok": true,
+      "recorded_utc": "2026-08-19T18:50:40.427578+00:00",
+      "schema_version": "1.0.0",
+      "wall_seconds": 40.41819364300318
+    },
+    {
+      "arm": "Z-turn",
+      "contacts": [
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-turn-ES2011b-transcribe-slice0000"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-turn-ES2011b-transcribe-slice0001"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-turn-ES2011b-transcribe-slice0002"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-turn-ES2011b-transcribe-slice0003"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-turn-ES2011b-transcribe-slice0004"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-turn-ES2011b-transcribe-slice0005"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-turn-ES2011b-transcribe-slice0006"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-turn-ES2011b-transcribe-slice0007"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-turn-ES2011b-transcribe-slice0008"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-turn-ES2011b-transcribe-slice0009"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-turn-ES2011b-transcribe-slice0010"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-turn-ES2011b-transcribe-slice0011"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-turn-ES2011b-transcribe-slice0012"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-turn-ES2011b-transcribe-slice0013"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-turn-ES2011b-transcribe-slice0014"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-turn-ES2011b-transcribe-slice0015"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-turn-ES2011b-transcribe-slice0016"
+        },
+        {
+          "kind": "minutes",
+          "outcome": "ok",
+          "request_id": "g1-Z-turn-ES2011b-minutes"
+        },
+        {
+          "kind": "qa",
+          "outcome": "ok",
+          "request_id": "g1-Z-turn-ES2011b-qa-0-0-1-ES2011b-11"
+        },
+        {
+          "kind": "qa",
+          "outcome": "ok",
+          "request_id": "g1-Z-turn-ES2011b-qa-0-0-1-ES2011b-129"
+        },
+        {
+          "kind": "qa",
+          "outcome": "ok",
+          "request_id": "g1-Z-turn-ES2011b-qa-0-0-1-ES2011b-135"
+        },
+        {
+          "kind": "qa",
+          "outcome": "ok",
+          "request_id": "g1-Z-turn-ES2011b-qa-0-0-1-ES2011b-142"
+        },
+        {
+          "kind": "qa",
+          "outcome": "ok",
+          "request_id": "g1-Z-turn-ES2011b-qa-0-0-1-ES2011b-197"
+        },
+        {
+          "kind": "qa",
+          "outcome": "ok",
+          "request_id": "g1-Z-turn-ES2011b-qa-0-0-1-ES2011b-208"
+        },
+        {
+          "kind": "qa",
+          "outcome": "ok",
+          "request_id": "g1-Z-turn-ES2011b-qa-0-0-1-ES2011b-23"
+        },
+        {
+          "kind": "qa",
+          "outcome": "ok",
+          "request_id": "g1-Z-turn-ES2011b-qa-0-0-1-ES2011b-276"
+        },
+        {
+          "kind": "qa",
+          "outcome": "ok",
+          "request_id": "g1-Z-turn-ES2011b-qa-0-0-1-ES2011b-326"
+        },
+        {
+          "kind": "qa",
+          "outcome": "ok",
+          "request_id": "g1-Z-turn-ES2011b-qa-0-0-1-ES2011b-351"
+        },
+        {
+          "kind": "qa",
+          "outcome": "ok",
+          "request_id": "g1-Z-turn-ES2011b-qa-0-0-1-ES2011b-39"
+        },
+        {
+          "kind": "qa",
+          "outcome": "ok",
+          "request_id": "g1-Z-turn-ES2011b-qa-0-0-1-ES2011b-46"
+        },
+        {
+          "kind": "qa",
+          "outcome": "ok",
+          "request_id": "g1-Z-turn-ES2011b-qa-0-0-1-ES2011b-68"
+        },
+        {
+          "kind": "qa",
+          "outcome": "ok",
+          "request_id": "g1-Z-turn-ES2011b-qa-0-0-1-ES2011b-74"
+        },
+        {
+          "kind": "qa",
+          "outcome": "ok",
+          "request_id": "g1-Z-turn-ES2011b-qa-0-0-1-ES2011b-91"
+        }
+      ],
+      "error": null,
+      "gpu_seconds": 121.73318499000015,
+      "meeting_id": "ES2011b",
+      "n_calls": 33,
+      "ok": true,
+      "recorded_utc": "2026-08-19T18:52:52.432935+00:00",
+      "schema_version": "1.0.0",
+      "wall_seconds": 127.20901885900093
+    },
+    {
+      "arm": "Z-oracle",
+      "contacts": [
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-ES2011b-transcribe-slice0000"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-ES2011b-transcribe-slice0001"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-ES2011b-transcribe-slice0002"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-ES2011b-transcribe-slice0003"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-ES2011b-transcribe-slice0004"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-ES2011b-transcribe-slice0005"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-ES2011b-transcribe-slice0006"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-ES2011b-transcribe-slice0007"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-ES2011b-transcribe-slice0008"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-ES2011b-transcribe-slice0009"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-ES2011b-transcribe-slice0010"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-ES2011b-transcribe-slice0011"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-ES2011b-transcribe-slice0012"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-ES2011b-transcribe-slice0013"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-ES2011b-transcribe-slice0014"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-ES2011b-transcribe-slice0015"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-ES2011b-transcribe-slice0016"
+        },
+        {
+          "kind": "minutes",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-ES2011b-minutes"
+        },
+        {
+          "kind": "qa",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-ES2011b-qa-0-0-1-ES2011b-11"
+        },
+        {
+          "kind": "qa",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-ES2011b-qa-0-0-1-ES2011b-129"
+        },
+        {
+          "kind": "qa",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-ES2011b-qa-0-0-1-ES2011b-135"
+        },
+        {
+          "kind": "qa",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-ES2011b-qa-0-0-1-ES2011b-142"
+        },
+        {
+          "kind": "qa",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-ES2011b-qa-0-0-1-ES2011b-197"
+        },
+        {
+          "kind": "qa",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-ES2011b-qa-0-0-1-ES2011b-208"
+        },
+        {
+          "kind": "qa",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-ES2011b-qa-0-0-1-ES2011b-23"
+        },
+        {
+          "kind": "qa",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-ES2011b-qa-0-0-1-ES2011b-276"
+        },
+        {
+          "kind": "qa",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-ES2011b-qa-0-0-1-ES2011b-326"
+        },
+        {
+          "kind": "qa",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-ES2011b-qa-0-0-1-ES2011b-351"
+        },
+        {
+          "kind": "qa",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-ES2011b-qa-0-0-1-ES2011b-39"
+        },
+        {
+          "kind": "qa",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-ES2011b-qa-0-0-1-ES2011b-46"
+        },
+        {
+          "kind": "qa",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-ES2011b-qa-0-0-1-ES2011b-68"
+        },
+        {
+          "kind": "qa",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-ES2011b-qa-0-0-1-ES2011b-74"
+        },
+        {
+          "kind": "qa",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-ES2011b-qa-0-0-1-ES2011b-91"
+        }
+      ],
+      "error": null,
+      "gpu_seconds": 113.96061547600402,
+      "meeting_id": "ES2011b",
+      "n_calls": 33,
+      "ok": true,
+      "recorded_utc": "2026-08-19T18:54:58.959719+00:00",
+      "schema_version": "1.0.0",
+      "wall_seconds": 122.84297122200223
+    },
+    {
+      "arm": "Z-free",
+      "contacts": [
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-free-ES2011b-transcribe-slice0000"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-free-ES2011b-transcribe-slice0001"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-free-ES2011b-transcribe-slice0002"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-free-ES2011b-transcribe-slice0003"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-free-ES2011b-transcribe-slice0004"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-free-ES2011b-transcribe-slice0005"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-free-ES2011b-transcribe-slice0006"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-free-ES2011b-transcribe-slice0007"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-free-ES2011b-transcribe-slice0008"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-free-ES2011b-transcribe-slice0009"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-free-ES2011b-transcribe-slice0010"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-free-ES2011b-transcribe-slice0011"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-free-ES2011b-transcribe-slice0012"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-free-ES2011b-transcribe-slice0013"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-free-ES2011b-transcribe-slice0014"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-free-ES2011b-transcribe-slice0015"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-free-ES2011b-transcribe-slice0016"
+        }
+      ],
+      "error": null,
+      "gpu_seconds": 65.5393438789979,
+      "meeting_id": "ES2011b",
+      "n_calls": 17,
+      "ok": true,
+      "recorded_utc": "2026-08-19T18:56:10.684785+00:00",
+      "schema_version": "1.0.0",
+      "wall_seconds": 69.38392646599823
+    },
+    {
+      "arm": "Z-nodiar",
+      "contacts": [
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-nodiar-ES2011b-transcribe-slice0000"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-nodiar-ES2011b-transcribe-slice0001"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-nodiar-ES2011b-transcribe-slice0002"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-nodiar-ES2011b-transcribe-slice0003"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-nodiar-ES2011b-transcribe-slice0004"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-nodiar-ES2011b-transcribe-slice0005"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-nodiar-ES2011b-transcribe-slice0006"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-nodiar-ES2011b-transcribe-slice0007"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-nodiar-ES2011b-transcribe-slice0008"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-nodiar-ES2011b-transcribe-slice0009"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-nodiar-ES2011b-transcribe-slice0010"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-nodiar-ES2011b-transcribe-slice0011"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-nodiar-ES2011b-transcribe-slice0012"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-nodiar-ES2011b-transcribe-slice0013"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-nodiar-ES2011b-transcribe-slice0014"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-nodiar-ES2011b-transcribe-slice0015"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-nodiar-ES2011b-transcribe-slice0016"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-nodiar-ES2011b-transcribe-slice0017"
+        }
+      ],
+      "error": null,
+      "gpu_seconds": 60.932481719013595,
+      "meeting_id": "ES2011b",
+      "n_calls": 18,
+      "ok": true,
+      "recorded_utc": "2026-08-19T18:57:18.600848+00:00",
+      "schema_version": "1.0.0",
+      "wall_seconds": 65.48444320199633
+    },
+    {
+      "arm": "Z-turn",
+      "contacts": [
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-turn-ES2011c-transcribe-slice0000"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-turn-ES2011c-transcribe-slice0001"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-turn-ES2011c-transcribe-slice0002"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-turn-ES2011c-transcribe-slice0003"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-turn-ES2011c-transcribe-slice0004"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-turn-ES2011c-transcribe-slice0005"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-turn-ES2011c-transcribe-slice0006"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-turn-ES2011c-transcribe-slice0007"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-turn-ES2011c-transcribe-slice0008"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-turn-ES2011c-transcribe-slice0009"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-turn-ES2011c-transcribe-slice0010"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-turn-ES2011c-transcribe-slice0011"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-turn-ES2011c-transcribe-slice0012"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-turn-ES2011c-transcribe-slice0013"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-turn-ES2011c-transcribe-slice0014"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-turn-ES2011c-transcribe-slice0015"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-turn-ES2011c-transcribe-slice0016"
+        },
+        {
+          "kind": "minutes",
+          "outcome": "ok",
+          "request_id": "g1-Z-turn-ES2011c-minutes"
+        },
+        {
+          "kind": "qa",
+          "outcome": "ok",
+          "request_id": "g1-Z-turn-ES2011c-qa-0-0-1-ES2011c-179"
+        },
+        {
+          "kind": "qa",
+          "outcome": "ok",
+          "request_id": "g1-Z-turn-ES2011c-qa-0-0-1-ES2011c-189"
+        },
+        {
+          "kind": "qa",
+          "outcome": "ok",
+          "request_id": "g1-Z-turn-ES2011c-qa-0-0-1-ES2011c-202"
+        },
+        {
+          "kind": "qa",
+          "outcome": "ok",
+          "request_id": "g1-Z-turn-ES2011c-qa-0-0-1-ES2011c-233"
+        },
+        {
+          "kind": "qa",
+          "outcome": "ok",
+          "request_id": "g1-Z-turn-ES2011c-qa-0-0-1-ES2011c-245"
+        },
+        {
+          "kind": "qa",
+          "outcome": "ok",
+          "request_id": "g1-Z-turn-ES2011c-qa-0-0-1-ES2011c-300"
+        },
+        {
+          "kind": "qa",
+          "outcome": "ok",
+          "request_id": "g1-Z-turn-ES2011c-qa-0-0-1-ES2011c-324"
+        },
+        {
+          "kind": "qa",
+          "outcome": "ok",
+          "request_id": "g1-Z-turn-ES2011c-qa-0-0-1-ES2011c-358"
+        },
+        {
+          "kind": "qa",
+          "outcome": "ok",
+          "request_id": "g1-Z-turn-ES2011c-qa-0-0-1-ES2011c-392"
+        },
+        {
+          "kind": "qa",
+          "outcome": "ok",
+          "request_id": "g1-Z-turn-ES2011c-qa-0-0-1-ES2011c-398"
+        },
+        {
+          "kind": "qa",
+          "outcome": "ok",
+          "request_id": "g1-Z-turn-ES2011c-qa-0-0-1-ES2011c-412"
+        },
+        {
+          "kind": "qa",
+          "outcome": "ok",
+          "request_id": "g1-Z-turn-ES2011c-qa-0-0-1-ES2011c-424"
+        },
+        {
+          "kind": "qa",
+          "outcome": "ok",
+          "request_id": "g1-Z-turn-ES2011c-qa-0-0-1-ES2011c-433"
+        },
+        {
+          "kind": "qa",
+          "outcome": "ok",
+          "request_id": "g1-Z-turn-ES2011c-qa-0-0-1-ES2011c-449"
+        },
+        {
+          "kind": "qa",
+          "outcome": "ok",
+          "request_id": "g1-Z-turn-ES2011c-qa-0-0-1-ES2011c-459"
+        },
+        {
+          "kind": "qa",
+          "outcome": "ok",
+          "request_id": "g1-Z-turn-ES2011c-qa-0-0-1-ES2011c-88"
+        },
+        {
+          "kind": "qa",
+          "outcome": "ok",
+          "request_id": "g1-Z-turn-ES2011c-qa-0-0-1-ES2011c-91"
+        },
+        {
+          "kind": "qa",
+          "outcome": "ok",
+          "request_id": "g1-Z-turn-ES2011c-qa-0-0-1-ES2011c-96"
+        }
+      ],
+      "error": null,
+      "gpu_seconds": 120.99374264499056,
+      "meeting_id": "ES2011c",
+      "n_calls": 36,
+      "ok": true,
+      "recorded_utc": "2026-08-19T18:59:33.748842+00:00",
+      "schema_version": "1.0.0",
+      "wall_seconds": 130.245920115005
+    },
+    {
+      "arm": "Z-oracle",
+      "contacts": [
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-ES2011c-transcribe-slice0000"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-ES2011c-transcribe-slice0001"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-ES2011c-transcribe-slice0002"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-ES2011c-transcribe-slice0003"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-ES2011c-transcribe-slice0004"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-ES2011c-transcribe-slice0005"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-ES2011c-transcribe-slice0006"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-ES2011c-transcribe-slice0007"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-ES2011c-transcribe-slice0008"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-ES2011c-transcribe-slice0009"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-ES2011c-transcribe-slice0010"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-ES2011c-transcribe-slice0011"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-ES2011c-transcribe-slice0012"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-ES2011c-transcribe-slice0013"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-ES2011c-transcribe-slice0014"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-ES2011c-transcribe-slice0015"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-ES2011c-transcribe-slice0016"
+        },
+        {
+          "kind": "minutes",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-ES2011c-minutes"
+        },
+        {
+          "kind": "qa",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-ES2011c-qa-0-0-1-ES2011c-179"
+        },
+        {
+          "kind": "qa",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-ES2011c-qa-0-0-1-ES2011c-189"
+        },
+        {
+          "kind": "qa",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-ES2011c-qa-0-0-1-ES2011c-202"
+        },
+        {
+          "kind": "qa",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-ES2011c-qa-0-0-1-ES2011c-233"
+        },
+        {
+          "kind": "qa",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-ES2011c-qa-0-0-1-ES2011c-245"
+        },
+        {
+          "kind": "qa",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-ES2011c-qa-0-0-1-ES2011c-300"
+        },
+        {
+          "kind": "qa",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-ES2011c-qa-0-0-1-ES2011c-324"
+        },
+        {
+          "kind": "qa",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-ES2011c-qa-0-0-1-ES2011c-358"
+        },
+        {
+          "kind": "qa",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-ES2011c-qa-0-0-1-ES2011c-392"
+        },
+        {
+          "kind": "qa",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-ES2011c-qa-0-0-1-ES2011c-398"
+        },
+        {
+          "kind": "qa",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-ES2011c-qa-0-0-1-ES2011c-412"
+        },
+        {
+          "kind": "qa",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-ES2011c-qa-0-0-1-ES2011c-424"
+        },
+        {
+          "kind": "qa",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-ES2011c-qa-0-0-1-ES2011c-433"
+        },
+        {
+          "kind": "qa",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-ES2011c-qa-0-0-1-ES2011c-449"
+        },
+        {
+          "kind": "qa",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-ES2011c-qa-0-0-1-ES2011c-459"
+        },
+        {
+          "kind": "qa",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-ES2011c-qa-0-0-1-ES2011c-88"
+        },
+        {
+          "kind": "qa",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-ES2011c-qa-0-0-1-ES2011c-91"
+        },
+        {
+          "kind": "qa",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-ES2011c-qa-0-0-1-ES2011c-96"
+        }
+      ],
+      "error": null,
+      "gpu_seconds": 131.33116921301553,
+      "meeting_id": "ES2011c",
+      "n_calls": 36,
+      "ok": true,
+      "recorded_utc": "2026-08-19T19:01:59.634436+00:00",
+      "schema_version": "1.0.0",
+      "wall_seconds": 141.08133739099867
+    },
+    {
+      "arm": "Z-free",
+      "contacts": [
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-free-ES2011c-transcribe-slice0000"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-free-ES2011c-transcribe-slice0001"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-free-ES2011c-transcribe-slice0002"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-free-ES2011c-transcribe-slice0003"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-free-ES2011c-transcribe-slice0004"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-free-ES2011c-transcribe-slice0005"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-free-ES2011c-transcribe-slice0006"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-free-ES2011c-transcribe-slice0007"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-free-ES2011c-transcribe-slice0008"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-free-ES2011c-transcribe-slice0009"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-free-ES2011c-transcribe-slice0010"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-free-ES2011c-transcribe-slice0011"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-free-ES2011c-transcribe-slice0012"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-free-ES2011c-transcribe-slice0013"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-free-ES2011c-transcribe-slice0014"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-free-ES2011c-transcribe-slice0015"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-free-ES2011c-transcribe-slice0016"
+        }
+      ],
+      "error": null,
+      "gpu_seconds": 64.78086389700911,
+      "meeting_id": "ES2011c",
+      "n_calls": 17,
+      "ok": true,
+      "recorded_utc": "2026-08-19T19:03:10.750611+00:00",
+      "schema_version": "1.0.0",
+      "wall_seconds": 68.64636632099428
+    },
+    {
+      "arm": "Z-nodiar",
+      "contacts": [
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-nodiar-ES2011c-transcribe-slice0000"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-nodiar-ES2011c-transcribe-slice0001"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-nodiar-ES2011c-transcribe-slice0002"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-nodiar-ES2011c-transcribe-slice0003"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-nodiar-ES2011c-transcribe-slice0004"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-nodiar-ES2011c-transcribe-slice0005"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-nodiar-ES2011c-transcribe-slice0006"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-nodiar-ES2011c-transcribe-slice0007"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-nodiar-ES2011c-transcribe-slice0008"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-nodiar-ES2011c-transcribe-slice0009"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-nodiar-ES2011c-transcribe-slice0010"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-nodiar-ES2011c-transcribe-slice0011"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-nodiar-ES2011c-transcribe-slice0012"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-nodiar-ES2011c-transcribe-slice0013"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-nodiar-ES2011c-transcribe-slice0014"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-nodiar-ES2011c-transcribe-slice0015"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-nodiar-ES2011c-transcribe-slice0016"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-nodiar-ES2011c-transcribe-slice0017"
+        }
+      ],
+      "error": null,
+      "gpu_seconds": 64.55235501399147,
+      "meeting_id": "ES2011c",
+      "n_calls": 18,
+      "ok": true,
+      "recorded_utc": "2026-08-19T19:04:22.503558+00:00",
+      "schema_version": "1.0.0",
+      "wall_seconds": 69.22132996800065
+    },
+    {
+      "arm": "Z-turn",
+      "contacts": [
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-turn-ES2011d-transcribe-slice0000"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-turn-ES2011d-transcribe-slice0001"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-turn-ES2011d-transcribe-slice0002"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-turn-ES2011d-transcribe-slice0003"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-turn-ES2011d-transcribe-slice0004"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-turn-ES2011d-transcribe-slice0005"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-turn-ES2011d-transcribe-slice0006"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-turn-ES2011d-transcribe-slice0007"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-turn-ES2011d-transcribe-slice0008"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-turn-ES2011d-transcribe-slice0009"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-turn-ES2011d-transcribe-slice0010"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-turn-ES2011d-transcribe-slice0011"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-turn-ES2011d-transcribe-slice0012"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-turn-ES2011d-transcribe-slice0013"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-turn-ES2011d-transcribe-slice0014"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-turn-ES2011d-transcribe-slice0015"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-turn-ES2011d-transcribe-slice0016"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-turn-ES2011d-transcribe-slice0017"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-turn-ES2011d-transcribe-slice0018"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-turn-ES2011d-transcribe-slice0019"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-turn-ES2011d-transcribe-slice0020"
+        },
+        {
+          "kind": "minutes",
+          "outcome": "ok",
+          "request_id": "g1-Z-turn-ES2011d-minutes"
+        },
+        {
+          "kind": "qa",
+          "outcome": "ok",
+          "request_id": "g1-Z-turn-ES2011d-qa-0-0-1-ES2011d-106"
+        },
+        {
+          "kind": "qa",
+          "outcome": "ok",
+          "request_id": "g1-Z-turn-ES2011d-qa-0-0-1-ES2011d-116"
+        },
+        {
+          "kind": "qa",
+          "outcome": "ok",
+          "request_id": "g1-Z-turn-ES2011d-qa-0-0-1-ES2011d-145"
+        },
+        {
+          "kind": "qa",
+          "outcome": "ok",
+          "request_id": "g1-Z-turn-ES2011d-qa-0-0-1-ES2011d-153"
+        },
+        {
+          "kind": "qa",
+          "outcome": "ok",
+          "request_id": "g1-Z-turn-ES2011d-qa-0-0-1-ES2011d-192"
+        },
+        {
+          "kind": "qa",
+          "outcome": "ok",
+          "request_id": "g1-Z-turn-ES2011d-qa-0-0-1-ES2011d-205"
+        },
+        {
+          "kind": "qa",
+          "outcome": "ok",
+          "request_id": "g1-Z-turn-ES2011d-qa-0-0-1-ES2011d-216"
+        },
+        {
+          "kind": "qa",
+          "outcome": "ok",
+          "request_id": "g1-Z-turn-ES2011d-qa-0-0-1-ES2011d-237"
+        },
+        {
+          "kind": "qa",
+          "outcome": "ok",
+          "request_id": "g1-Z-turn-ES2011d-qa-0-0-1-ES2011d-255"
+        },
+        {
+          "kind": "qa",
+          "outcome": "ok",
+          "request_id": "g1-Z-turn-ES2011d-qa-0-0-1-ES2011d-264"
+        },
+        {
+          "kind": "qa",
+          "outcome": "ok",
+          "request_id": "g1-Z-turn-ES2011d-qa-0-0-1-ES2011d-313"
+        },
+        {
+          "kind": "qa",
+          "outcome": "ok",
+          "request_id": "g1-Z-turn-ES2011d-qa-0-0-1-ES2011d-315"
+        },
+        {
+          "kind": "qa",
+          "outcome": "ok",
+          "request_id": "g1-Z-turn-ES2011d-qa-0-0-1-ES2011d-334"
+        },
+        {
+          "kind": "qa",
+          "outcome": "ok",
+          "request_id": "g1-Z-turn-ES2011d-qa-0-0-1-ES2011d-397"
+        },
+        {
+          "kind": "qa",
+          "outcome": "ok",
+          "request_id": "g1-Z-turn-ES2011d-qa-0-0-1-ES2011d-401"
+        },
+        {
+          "kind": "qa",
+          "outcome": "ok",
+          "request_id": "g1-Z-turn-ES2011d-qa-0-0-1-ES2011d-451"
+        },
+        {
+          "kind": "qa",
+          "outcome": "ok",
+          "request_id": "g1-Z-turn-ES2011d-qa-0-0-1-ES2011d-456"
+        },
+        {
+          "kind": "qa",
+          "outcome": "ok",
+          "request_id": "g1-Z-turn-ES2011d-qa-0-0-1-ES2011d-472"
+        },
+        {
+          "kind": "qa",
+          "outcome": "ok",
+          "request_id": "g1-Z-turn-ES2011d-qa-0-0-1-ES2011d-505"
+        },
+        {
+          "kind": "qa",
+          "outcome": "ok",
+          "request_id": "g1-Z-turn-ES2011d-qa-0-0-1-ES2011d-577"
+        },
+        {
+          "kind": "qa",
+          "outcome": "ok",
+          "request_id": "g1-Z-turn-ES2011d-qa-0-0-1-ES2011d-601"
+        },
+        {
+          "kind": "qa",
+          "outcome": "ok",
+          "request_id": "g1-Z-turn-ES2011d-qa-0-0-1-ES2011d-63"
+        },
+        {
+          "kind": "qa",
+          "outcome": "ok",
+          "request_id": "g1-Z-turn-ES2011d-qa-0-0-1-ES2011d-67"
+        }
+      ],
+      "error": null,
+      "gpu_seconds": 147.9666834839736,
+      "meeting_id": "ES2011d",
+      "n_calls": 45,
+      "ok": true,
+      "recorded_utc": "2026-08-19T19:07:10.348801+00:00",
+      "schema_version": "1.0.0",
+      "wall_seconds": 161.55657366700325
+    },
+    {
+      "arm": "Z-oracle",
+      "contacts": [
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-ES2011d-transcribe-slice0000"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-ES2011d-transcribe-slice0001"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-ES2011d-transcribe-slice0002"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-ES2011d-transcribe-slice0003"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-ES2011d-transcribe-slice0004"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-ES2011d-transcribe-slice0005"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-ES2011d-transcribe-slice0006"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-ES2011d-transcribe-slice0007"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-ES2011d-transcribe-slice0008"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-ES2011d-transcribe-slice0009"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-ES2011d-transcribe-slice0010"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-ES2011d-transcribe-slice0011"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-ES2011d-transcribe-slice0012"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-ES2011d-transcribe-slice0013"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-ES2011d-transcribe-slice0014"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-ES2011d-transcribe-slice0015"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-ES2011d-transcribe-slice0016"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-ES2011d-transcribe-slice0017"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-ES2011d-transcribe-slice0018"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-ES2011d-transcribe-slice0019"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-ES2011d-transcribe-slice0020"
+        },
+        {
+          "kind": "minutes",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-ES2011d-minutes"
+        },
+        {
+          "kind": "qa",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-ES2011d-qa-0-0-1-ES2011d-106"
+        },
+        {
+          "kind": "qa",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-ES2011d-qa-0-0-1-ES2011d-116"
+        },
+        {
+          "kind": "qa",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-ES2011d-qa-0-0-1-ES2011d-145"
+        },
+        {
+          "kind": "qa",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-ES2011d-qa-0-0-1-ES2011d-153"
+        },
+        {
+          "kind": "qa",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-ES2011d-qa-0-0-1-ES2011d-192"
+        },
+        {
+          "kind": "qa",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-ES2011d-qa-0-0-1-ES2011d-205"
+        },
+        {
+          "kind": "qa",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-ES2011d-qa-0-0-1-ES2011d-216"
+        },
+        {
+          "kind": "qa",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-ES2011d-qa-0-0-1-ES2011d-237"
+        },
+        {
+          "kind": "qa",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-ES2011d-qa-0-0-1-ES2011d-255"
+        },
+        {
+          "kind": "qa",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-ES2011d-qa-0-0-1-ES2011d-264"
+        },
+        {
+          "kind": "qa",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-ES2011d-qa-0-0-1-ES2011d-313"
+        },
+        {
+          "kind": "qa",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-ES2011d-qa-0-0-1-ES2011d-315"
+        },
+        {
+          "kind": "qa",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-ES2011d-qa-0-0-1-ES2011d-334"
+        },
+        {
+          "kind": "qa",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-ES2011d-qa-0-0-1-ES2011d-397"
+        },
+        {
+          "kind": "qa",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-ES2011d-qa-0-0-1-ES2011d-401"
+        },
+        {
+          "kind": "qa",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-ES2011d-qa-0-0-1-ES2011d-451"
+        },
+        {
+          "kind": "qa",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-ES2011d-qa-0-0-1-ES2011d-456"
+        },
+        {
+          "kind": "qa",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-ES2011d-qa-0-0-1-ES2011d-472"
+        },
+        {
+          "kind": "qa",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-ES2011d-qa-0-0-1-ES2011d-505"
+        },
+        {
+          "kind": "qa",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-ES2011d-qa-0-0-1-ES2011d-577"
+        },
+        {
+          "kind": "qa",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-ES2011d-qa-0-0-1-ES2011d-601"
+        },
+        {
+          "kind": "qa",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-ES2011d-qa-0-0-1-ES2011d-63"
+        },
+        {
+          "kind": "qa",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-ES2011d-qa-0-0-1-ES2011d-67"
+        }
+      ],
+      "error": null,
+      "gpu_seconds": 459.13242639702366,
+      "meeting_id": "ES2011d",
+      "n_calls": 45,
+      "ok": true,
+      "recorded_utc": "2026-08-19T19:15:21.852638+00:00",
+      "schema_version": "1.0.0",
+      "wall_seconds": 474.66188426400186
+    },
+    {
+      "arm": "Z-free",
+      "contacts": [
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-free-ES2011d-transcribe-slice0000"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-free-ES2011d-transcribe-slice0001"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-free-ES2011d-transcribe-slice0002"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-free-ES2011d-transcribe-slice0003"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-free-ES2011d-transcribe-slice0004"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-free-ES2011d-transcribe-slice0005"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-free-ES2011d-transcribe-slice0006"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-free-ES2011d-transcribe-slice0007"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-free-ES2011d-transcribe-slice0008"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-free-ES2011d-transcribe-slice0009"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-free-ES2011d-transcribe-slice0010"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-free-ES2011d-transcribe-slice0011"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-free-ES2011d-transcribe-slice0012"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-free-ES2011d-transcribe-slice0013"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-free-ES2011d-transcribe-slice0014"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-free-ES2011d-transcribe-slice0015"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-free-ES2011d-transcribe-slice0016"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-free-ES2011d-transcribe-slice0017"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-free-ES2011d-transcribe-slice0018"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-free-ES2011d-transcribe-slice0019"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-free-ES2011d-transcribe-slice0020"
+        }
+      ],
+      "error": null,
+      "gpu_seconds": 72.80059058799816,
+      "meeting_id": "ES2011d",
+      "n_calls": 21,
+      "ok": true,
+      "recorded_utc": "2026-08-19T19:16:42.044072+00:00",
+      "schema_version": "1.0.0",
+      "wall_seconds": 77.65857871500339
+    },
+    {
+      "arm": "Z-nodiar",
+      "contacts": [
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-nodiar-ES2011d-transcribe-slice0000"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-nodiar-ES2011d-transcribe-slice0001"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-nodiar-ES2011d-transcribe-slice0002"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-nodiar-ES2011d-transcribe-slice0003"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-nodiar-ES2011d-transcribe-slice0004"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-nodiar-ES2011d-transcribe-slice0005"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-nodiar-ES2011d-transcribe-slice0006"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-nodiar-ES2011d-transcribe-slice0007"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-nodiar-ES2011d-transcribe-slice0008"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-nodiar-ES2011d-transcribe-slice0009"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-nodiar-ES2011d-transcribe-slice0010"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-nodiar-ES2011d-transcribe-slice0011"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-nodiar-ES2011d-transcribe-slice0012"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-nodiar-ES2011d-transcribe-slice0013"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-nodiar-ES2011d-transcribe-slice0014"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-nodiar-ES2011d-transcribe-slice0015"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-nodiar-ES2011d-transcribe-slice0016"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-nodiar-ES2011d-transcribe-slice0017"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-nodiar-ES2011d-transcribe-slice0018"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-nodiar-ES2011d-transcribe-slice0019"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-nodiar-ES2011d-transcribe-slice0020"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-nodiar-ES2011d-transcribe-slice0021"
+        }
+      ],
+      "error": null,
+      "gpu_seconds": 73.3696714799953,
+      "meeting_id": "ES2011d",
+      "n_calls": 22,
+      "ok": true,
+      "recorded_utc": "2026-08-19T19:18:04.590988+00:00",
+      "schema_version": "1.0.0",
+      "wall_seconds": 78.77958420399955
+    },
+    {
+      "arm": "Z-turn",
+      "contacts": [
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-turn-IB4001-transcribe-slice0000"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-turn-IB4001-transcribe-slice0001"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-turn-IB4001-transcribe-slice0002"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-turn-IB4001-transcribe-slice0003"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-turn-IB4001-transcribe-slice0004"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-turn-IB4001-transcribe-slice0005"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-turn-IB4001-transcribe-slice0006"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-turn-IB4001-transcribe-slice0007"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-turn-IB4001-transcribe-slice0008"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-turn-IB4001-transcribe-slice0009"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-turn-IB4001-transcribe-slice0010"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-turn-IB4001-transcribe-slice0011"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-turn-IB4001-transcribe-slice0012"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-turn-IB4001-transcribe-slice0013"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-turn-IB4001-transcribe-slice0014"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-turn-IB4001-transcribe-slice0015"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-turn-IB4001-transcribe-slice0016"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-turn-IB4001-transcribe-slice0017"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-turn-IB4001-transcribe-slice0018"
+        },
+        {
+          "kind": "minutes",
+          "outcome": "ok",
+          "request_id": "g1-Z-turn-IB4001-minutes"
+        },
+        {
+          "kind": "qa",
+          "outcome": "ok",
+          "request_id": "g1-Z-turn-IB4001-qa-0-0-1-IB4001-234"
+        },
+        {
+          "kind": "qa",
+          "outcome": "ok",
+          "request_id": "g1-Z-turn-IB4001-qa-0-0-1-IB4001-255"
+        },
+        {
+          "kind": "qa",
+          "outcome": "ok",
+          "request_id": "g1-Z-turn-IB4001-qa-0-0-1-IB4001-259"
+        },
+        {
+          "kind": "qa",
+          "outcome": "ok",
+          "request_id": "g1-Z-turn-IB4001-qa-0-0-1-IB4001-263"
+        },
+        {
+          "kind": "qa",
+          "outcome": "ok",
+          "request_id": "g1-Z-turn-IB4001-qa-0-0-1-IB4001-325"
+        },
+        {
+          "kind": "qa",
+          "outcome": "ok",
+          "request_id": "g1-Z-turn-IB4001-qa-0-0-1-IB4001-331"
+        },
+        {
+          "kind": "qa",
+          "outcome": "ok",
+          "request_id": "g1-Z-turn-IB4001-qa-0-0-1-IB4001-362"
+        },
+        {
+          "kind": "qa",
+          "outcome": "ok",
+          "request_id": "g1-Z-turn-IB4001-qa-0-0-1-IB4001-412"
+        },
+        {
+          "kind": "qa",
+          "outcome": "ok",
+          "request_id": "g1-Z-turn-IB4001-qa-0-0-1-IB4001-447"
+        },
+        {
+          "kind": "qa",
+          "outcome": "ok",
+          "request_id": "g1-Z-turn-IB4001-qa-0-0-1-IB4001-451"
+        },
+        {
+          "kind": "qa",
+          "outcome": "ok",
+          "request_id": "g1-Z-turn-IB4001-qa-0-0-1-IB4001-467"
+        },
+        {
+          "kind": "qa",
+          "outcome": "ok",
+          "request_id": "g1-Z-turn-IB4001-qa-0-0-1-IB4001-486"
+        },
+        {
+          "kind": "qa",
+          "outcome": "ok",
+          "request_id": "g1-Z-turn-IB4001-qa-0-0-1-IB4001-51"
+        },
+        {
+          "kind": "qa",
+          "outcome": "ok",
+          "request_id": "g1-Z-turn-IB4001-qa-0-0-1-IB4001-525"
+        },
+        {
+          "kind": "qa",
+          "outcome": "ok",
+          "request_id": "g1-Z-turn-IB4001-qa-0-0-1-IB4001-527"
+        },
+        {
+          "kind": "qa",
+          "outcome": "ok",
+          "request_id": "g1-Z-turn-IB4001-qa-0-0-1-IB4001-540"
+        },
+        {
+          "kind": "qa",
+          "outcome": "ok",
+          "request_id": "g1-Z-turn-IB4001-qa-0-0-1-IB4001-74"
+        }
+      ],
+      "error": null,
+      "gpu_seconds": 132.62700471001153,
+      "meeting_id": "IB4001",
+      "n_calls": 37,
+      "ok": true,
+      "recorded_utc": "2026-08-19T19:20:32.289082+00:00",
+      "schema_version": "1.0.0",
+      "wall_seconds": 142.51354912899842
+    },
+    {
+      "arm": "Z-oracle",
+      "contacts": [
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-IB4001-transcribe-slice0000"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-IB4001-transcribe-slice0001"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-IB4001-transcribe-slice0002"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-IB4001-transcribe-slice0003"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-IB4001-transcribe-slice0004"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-IB4001-transcribe-slice0005"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-IB4001-transcribe-slice0006"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-IB4001-transcribe-slice0007"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-IB4001-transcribe-slice0008"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-IB4001-transcribe-slice0009"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-IB4001-transcribe-slice0010"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-IB4001-transcribe-slice0011"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-IB4001-transcribe-slice0012"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-IB4001-transcribe-slice0013"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-IB4001-transcribe-slice0014"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-IB4001-transcribe-slice0015"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-IB4001-transcribe-slice0016"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-IB4001-transcribe-slice0017"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-IB4001-transcribe-slice0018"
+        },
+        {
+          "kind": "minutes",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-IB4001-minutes"
+        },
+        {
+          "kind": "qa",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-IB4001-qa-0-0-1-IB4001-234"
+        },
+        {
+          "kind": "qa",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-IB4001-qa-0-0-1-IB4001-255"
+        },
+        {
+          "kind": "qa",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-IB4001-qa-0-0-1-IB4001-259"
+        },
+        {
+          "kind": "qa",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-IB4001-qa-0-0-1-IB4001-263"
+        },
+        {
+          "kind": "qa",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-IB4001-qa-0-0-1-IB4001-325"
+        },
+        {
+          "kind": "qa",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-IB4001-qa-0-0-1-IB4001-331"
+        },
+        {
+          "kind": "qa",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-IB4001-qa-0-0-1-IB4001-362"
+        },
+        {
+          "kind": "qa",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-IB4001-qa-0-0-1-IB4001-412"
+        },
+        {
+          "kind": "qa",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-IB4001-qa-0-0-1-IB4001-447"
+        },
+        {
+          "kind": "qa",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-IB4001-qa-0-0-1-IB4001-451"
+        },
+        {
+          "kind": "qa",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-IB4001-qa-0-0-1-IB4001-467"
+        },
+        {
+          "kind": "qa",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-IB4001-qa-0-0-1-IB4001-486"
+        },
+        {
+          "kind": "qa",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-IB4001-qa-0-0-1-IB4001-51"
+        },
+        {
+          "kind": "qa",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-IB4001-qa-0-0-1-IB4001-525"
+        },
+        {
+          "kind": "qa",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-IB4001-qa-0-0-1-IB4001-527"
+        },
+        {
+          "kind": "qa",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-IB4001-qa-0-0-1-IB4001-540"
+        },
+        {
+          "kind": "qa",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-IB4001-qa-0-0-1-IB4001-74"
+        }
+      ],
+      "error": null,
+      "gpu_seconds": 148.6899310519948,
+      "meeting_id": "IB4001",
+      "n_calls": 37,
+      "ok": true,
+      "recorded_utc": "2026-08-19T19:23:17.979028+00:00",
+      "schema_version": "1.0.0",
+      "wall_seconds": 159.31482111600053
+    }
+  ],
+  "n_error": 0,
+  "n_items": 18,
+  "n_ok": 18,
+  "recorded_utc": "2026-08-19T19:23:18.015385+00:00",
+  "schema_version": "1.0.0",
+  "stopped_reason": null
+}
