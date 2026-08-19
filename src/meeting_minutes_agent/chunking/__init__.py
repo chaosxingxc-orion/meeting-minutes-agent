@@ -37,6 +37,9 @@ from .diarization import (
     DiarizationToolNotPinnedError,
     NxtOracleDiarization,
     PinnedToolDiarization,
+    ToolContactRecord,
+    ToolDiarizationConfig,
+    ToolDiarizationInvocationError,
     build_turn_aware_slice_plan_for_resolved_meeting,
     build_turn_aware_slice_plan_from_backend,
 )
@@ -48,6 +51,13 @@ from .leakage import (
 )
 from .models import BoundarySource, Chunk, ChunkPlan, ChunkPlanKind, Segment, SegmentLike
 from .planner import SinglePassNotAdmittedError, build_chunk_plan
+from .rttm import (
+    RttmParseError,
+    parse_rttm_file,
+    parse_rttm_text,
+    write_rttm_file,
+    write_rttm_text,
+)
 from .slicer import (
     SlicerError,
     Slice,
@@ -116,7 +126,15 @@ __all__ = [
     "DiarizationBackend",
     "NxtOracleDiarization",
     "DiarizationToolNotPinnedError",
+    "ToolDiarizationConfig",
+    "ToolContactRecord",
+    "ToolDiarizationInvocationError",
     "PinnedToolDiarization",
     "build_turn_aware_slice_plan_from_backend",
     "build_turn_aware_slice_plan_for_resolved_meeting",
+    "RttmParseError",
+    "parse_rttm_text",
+    "parse_rttm_file",
+    "write_rttm_text",
+    "write_rttm_file",
 ]

@@ -1,11 +1,14 @@
 """Tests for :mod:`meeting_minutes_agent.chunking.diarization`: the
 DiarizationBackend seam -- :class:`NxtOracleDiarization` (wraps the existing
-NXT gold-turn path, tagged oracle) and :class:`PinnedToolDiarization` (an
-honest not-yet-pinned stub) -- plus the two turn-aware-slice-plan
-orchestration functions that thread a backend into :mod:`.slicer` instead of
-the old direct-to-NXT wiring."""
+NXT gold-turn path, tagged oracle) and :class:`PinnedToolDiarization` (the
+real, subprocess-driven pinned-tool backend, DIAR-SMOKE) -- plus the two
+turn-aware-slice-plan orchestration functions that thread a backend into
+:mod:`.slicer` instead of the old direct-to-NXT wiring."""
 
 from __future__ import annotations
+
+import subprocess
+from pathlib import Path
 
 import pytest
 
@@ -15,6 +18,9 @@ from meeting_minutes_agent.chunking.diarization import (
     DiarizationToolNotPinnedError,
     NxtOracleDiarization,
     PinnedToolDiarization,
+    ToolContactRecord,
+    ToolDiarizationConfig,
+    ToolDiarizationInvocationError,
     build_turn_aware_slice_plan_for_resolved_meeting,
     build_turn_aware_slice_plan_from_backend,
 )
@@ -24,6 +30,7 @@ from meeting_minutes_agent.chunking.leakage import (
     BoundaryProvenance,
     tier_of,
 )
+from meeting_minutes_agent.chunking.rttm import write_rttm_text
 from meeting_minutes_agent.chunking.slicer import SlicePlanMode, TurnSpan
 from meeting_minutes_agent.corpora.nxt.models import ResolvedMeeting, Utterance
 
@@ -129,26 +136,223 @@ class TestNxtOracleDiarizationMultiMeeting:
 
 
 # ---------------------------------------------------------------------------
-# PinnedToolDiarization: honest stub, names the not-yet-pinned ticket
+# PinnedToolDiarization: the real subprocess-driven pinned-tool backend
 # ---------------------------------------------------------------------------
 
 
-class TestPinnedToolDiarization:
-    def test_diarize_raises_naming_the_tool_selection_ticket(self):
-        backend = PinnedToolDiarization()
-        with pytest.raises(
-            DiarizationToolNotPinnedError,
-            match="docs/plans/2026-08-18-diarization-tool-selection.md",
-        ):
-            backend.diarize("M1", audio_ref="/some/meeting.wav")
+def _config(**overrides) -> ToolDiarizationConfig:
+    defaults = dict(
+        tool_name="fake-diarizer",
+        tool_version="1.2.3",
+        checkpoint_sha256="a" * 64,
+        command_template=("fake-diarizer", "diarize", "{audio_path}", "--output", "{rttm_path}"),
+    )
+    defaults.update(overrides)
+    return ToolDiarizationConfig(**defaults)
 
-    def test_is_a_diarization_backend(self):
-        assert isinstance(PinnedToolDiarization(), DiarizationBackend)
 
-    def test_error_names_the_meeting_id(self):
-        backend = PinnedToolDiarization()
-        with pytest.raises(DiarizationToolNotPinnedError, match="M42"):
-            backend.diarize("M42", audio_ref=None)
+class _FakeCompleted:
+    def __init__(self, returncode: int, stderr: str = "") -> None:
+        self.returncode = returncode
+        self.stderr = stderr
+
+
+def _rttm_arg(args):
+    (path,) = [a for a in args if a.endswith(".rttm")]
+    return path
+
+
+def _make_successful_run_subprocess(turns):
+    """A fake ``run_subprocess`` that writes RTTM output for the requested
+    meeting and reports success -- never touches a real binary."""
+
+    calls = []
+
+    def run(args, *, timeout):
+        calls.append((tuple(args), timeout))
+        Path(_rttm_arg(args)).write_text(write_rttm_text(turns, file_id="MTG"), encoding="utf-8")
+        return _FakeCompleted(returncode=0)
+
+    run.calls = calls
+    return run
+
+
+class TestPinnedToolDiarizationSuccess:
+    def test_diarize_returns_turns_parsed_from_the_written_rttm(self, tmp_path):
+        turns = (TurnSpan(0.0, 5.0, "A"), TurnSpan(5.0, 10.0, "B"))
+        backend = PinnedToolDiarization(_config(), output_dir=tmp_path, run_subprocess=_make_successful_run_subprocess(turns))
+
+        result = backend.diarize("M1", tmp_path / "M1.wav")
+
+        assert isinstance(result, DiarizationResult)
+        assert result.turns == turns
+        assert result.provenance is BoundaryProvenance.TOOL_DIAR
+        assert tier_of(result.provenance) is BoundaryLeakageTier.M0
+
+    def test_is_a_diarization_backend(self, tmp_path):
+        assert isinstance(PinnedToolDiarization(_config(), output_dir=tmp_path), DiarizationBackend)
+
+    def test_command_template_is_substituted_with_audio_and_rttm_paths(self, tmp_path):
+        run = _make_successful_run_subprocess(())
+        backend = PinnedToolDiarization(_config(), output_dir=tmp_path, run_subprocess=run)
+
+        backend.diarize("M1", tmp_path / "M1.wav")
+
+        (args, timeout) = run.calls[0]
+        assert args[0] == "fake-diarizer"
+        assert str(tmp_path / "M1.wav") in args
+        assert str(tmp_path / "M1.rttm") in args
+        assert timeout == _config().timeout_seconds
+
+    def test_extra_args_are_appended_and_substituted(self, tmp_path):
+        run = _make_successful_run_subprocess(())
+        backend = PinnedToolDiarization(
+            _config(extra_args=("--meeting", "{meeting_id}")), output_dir=tmp_path, run_subprocess=run
+        )
+
+        backend.diarize("M1", tmp_path / "M1.wav")
+
+        (args, _timeout) = run.calls[0]
+        assert args[-2:] == ("--meeting", "M1")
+
+    def test_audio_ref_none_raises_without_any_contact(self, tmp_path):
+        run = _make_successful_run_subprocess(())
+        backend = PinnedToolDiarization(_config(), output_dir=tmp_path, run_subprocess=run)
+
+        with pytest.raises(ValueError, match="audio_ref"):
+            backend.diarize("M1", None)
+        assert run.calls == []
+        assert backend.contact_log == ()
+
+
+class TestPinnedToolDiarizationContactLogging:
+    """Frozen-tool per-contact logging rule: EVERY contact -- success,
+    non-zero exit, missing RTTM, or a raised subprocess exception -- writes
+    exactly one :class:`ToolContactRecord` before/around any exception."""
+
+    def test_successful_contact_is_logged(self, tmp_path):
+        turns = (TurnSpan(0.0, 1.0, "A"),)
+        cfg = _config()
+        backend = PinnedToolDiarization(cfg, output_dir=tmp_path, run_subprocess=_make_successful_run_subprocess(turns))
+
+        backend.diarize("M1", tmp_path / "M1.wav")
+
+        assert len(backend.contact_log) == 1
+        record = backend.contact_log[0]
+        assert isinstance(record, ToolContactRecord)
+        assert record.tool_name == cfg.tool_name
+        assert record.tool_version == cfg.tool_version
+        assert record.checkpoint_sha256 == cfg.checkpoint_sha256
+        assert record.meeting_id == "M1"
+        assert record.return_code == 0
+        assert record.error is None
+        assert record.wall_seconds >= 0.0
+        assert record.recorded_utc
+
+    def test_on_contact_callback_receives_the_same_record(self, tmp_path):
+        received = []
+        backend = PinnedToolDiarization(
+            _config(), output_dir=tmp_path, run_subprocess=_make_successful_run_subprocess(()),
+            on_contact=received.append,
+        )
+
+        backend.diarize("M1", tmp_path / "M1.wav")
+
+        assert received == list(backend.contact_log)
+
+    def test_nonzero_return_code_is_logged_then_raises(self, tmp_path):
+        def run(args, *, timeout):
+            return _FakeCompleted(returncode=1, stderr="boom")
+
+        backend = PinnedToolDiarization(_config(), output_dir=tmp_path, run_subprocess=run)
+
+        with pytest.raises(ToolDiarizationInvocationError, match="exited 1"):
+            backend.diarize("M1", tmp_path / "M1.wav")
+
+        assert len(backend.contact_log) == 1
+        record = backend.contact_log[0]
+        assert record.return_code == 1
+        assert record.error == "boom"
+
+    def test_missing_rttm_after_success_is_logged_then_raises(self, tmp_path):
+        def run(args, *, timeout):
+            return _FakeCompleted(returncode=0)  # never writes the RTTM file
+
+        backend = PinnedToolDiarization(_config(), output_dir=tmp_path, run_subprocess=run)
+
+        with pytest.raises(ToolDiarizationInvocationError, match="wrote no RTTM"):
+            backend.diarize("M1", tmp_path / "M1.wav")
+
+        record = backend.contact_log[0]
+        assert record.return_code == 0
+        assert record.error is None  # the subprocess itself "succeeded"
+
+    def test_subprocess_launch_exception_is_logged_then_raises(self, tmp_path):
+        def run(args, *, timeout):
+            raise FileNotFoundError("no such binary: fake-diarizer")
+
+        backend = PinnedToolDiarization(_config(), output_dir=tmp_path, run_subprocess=run)
+
+        with pytest.raises(ToolDiarizationInvocationError, match="invocation failed"):
+            backend.diarize("M1", tmp_path / "M1.wav")
+
+        record = backend.contact_log[0]
+        assert record.return_code is None
+        assert "FileNotFoundError" in record.error
+
+    def test_timeout_exception_is_logged_then_raises(self, tmp_path):
+        def run(args, *, timeout):
+            raise subprocess.TimeoutExpired(cmd="fake-diarizer", timeout=timeout)
+
+        backend = PinnedToolDiarization(_config(timeout_seconds=5.0), output_dir=tmp_path, run_subprocess=run)
+
+        with pytest.raises(ToolDiarizationInvocationError):
+            backend.diarize("M1", tmp_path / "M1.wav")
+
+        assert backend.contact_log[0].return_code is None
+
+    def test_multiple_contacts_all_append_to_the_log(self, tmp_path):
+        run = _make_successful_run_subprocess((TurnSpan(0.0, 1.0, "A"),))
+        backend = PinnedToolDiarization(_config(), output_dir=tmp_path, run_subprocess=run)
+
+        backend.diarize("M1", tmp_path / "M1.wav")
+        backend.diarize("M2", tmp_path / "M2.wav")
+
+        assert [r.meeting_id for r in backend.contact_log] == ["M1", "M2"]
+
+
+class TestToolDiarizationConfigValidation:
+    def test_bad_checkpoint_sha256_raises(self):
+        with pytest.raises(ValueError, match="sha256"):
+            _config(checkpoint_sha256="not-a-hash").validate()
+
+    def test_empty_command_template_raises(self):
+        with pytest.raises(ValueError, match="command_template"):
+            _config(command_template=()).validate()
+
+    def test_from_dict_round_trips_to_dict(self):
+        cfg = _config(extra_args=("--offline",))
+        assert ToolDiarizationConfig.from_dict(cfg.to_dict()) == cfg
+
+    def test_from_dict_defaults_extra_args_and_timeout(self):
+        raw = {
+            "tool_name": "t",
+            "tool_version": "1",
+            "checkpoint_sha256": "b" * 64,
+            "command_template": ["t", "{audio_path}", "{rttm_path}"],
+        }
+        cfg = ToolDiarizationConfig.from_dict(raw)
+        assert cfg.extra_args == ()
+        assert cfg.timeout_seconds == 3600.0
+
+
+class TestDiarizationToolNotPinnedErrorStillDefined:
+    """Historical exception class: no longer raised by
+    :class:`PinnedToolDiarization` itself, but still exported for any
+    existing importer (module docstring)."""
+
+    def test_is_a_not_implemented_error(self):
+        assert issubclass(DiarizationToolNotPinnedError, NotImplementedError)
 
 
 # ---------------------------------------------------------------------------

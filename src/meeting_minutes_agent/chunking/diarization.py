@@ -28,17 +28,20 @@ Two implementations ship today:
   :func:`~.slicer.build_turn_aware_slice_plan` already enforces at the
   slicer boundary -- this seam sits one layer further out, ahead of that
   gate, never around it.
-- :class:`PinnedToolDiarization` -- an honest stub. The deployable
-  diarization tool (pyannote.audio vs NeMo vs wespeaker, per the backbone
-  doc SS5.2's open decision: "evaluate... under {no paid, pinnable revision,
-  license-compatible, WSL-venv installable with owner approval}") is not yet
-  selected or pinned. Calling it raises
-  :class:`DiarizationToolNotPinnedError` naming
-  ``docs/plans/2026-08-18-diarization-tool-selection.md`` rather than
-  guessing at a shape nothing has chosen yet -- the same honest-stub
-  discipline :class:`meeting_minutes_agent.controller.dispatcher.
-  TaskDispatchNotImplementedError` already uses for ``re_listen``/
-  ``answer_question``.
+- :class:`PinnedToolDiarization` -- the real, subprocess-driven pinned-tool
+  backend (DIAR-SMOKE, ``docs/readiness/2026-08-18-diar-smoke-
+  preregistration.md``; tool identity per ``docs/plans/2026-08-18-
+  diarization-tool-selection.md``). It replaces the earlier honest stub that
+  raised :class:`DiarizationToolNotPinnedError` unconditionally: the tool
+  choice is now registered (NVIDIA Sortformer, Arm A NeMo fp32 / Arm B
+  NeMo-Speech.cpp CUDA+GGUF, both RTTM-emitting per the selection ticket),
+  so this class runs a caller-configured command, parses its RTTM output
+  (:mod:`.rttm`) into a turn table, and logs the contact -- never guesses at
+  a tool this repository has not been told to pin. :class:`DiarizationToolNotPinnedError`
+  stays defined (still exported, still the right exception FAMILY -- it
+  subclasses no longer-reachable-by-default behaviour) for any caller that
+  still imports it; :class:`ToolDiarizationInvocationError` is the new
+  failure mode a real (mis)configured contact raises.
 
 :func:`build_turn_aware_slice_plan_from_backend` is the generic (corpus-
 agnostic) seam-threading entry point; :func:`build_turn_aware_slice_plan_for_resolved_meeting`
@@ -54,8 +57,11 @@ default; only the NXT-specific wrapper does).
 
 from __future__ import annotations
 
+import subprocess
+import time
 from abc import ABC, abstractmethod
 from dataclasses import dataclass
+from datetime import datetime, timezone
 from pathlib import Path
 from typing import TYPE_CHECKING, Any, Callable, Mapping, Sequence
 
@@ -66,6 +72,7 @@ from .constants import (
     TRANSPORT_SLICE_TARGET_S,
 )
 from .leakage import BoundaryProvenance
+from .rttm import parse_rttm_file
 from .slicer import SlicePlan, TurnSpan, build_turn_aware_slice_plan
 
 if TYPE_CHECKING:
@@ -76,6 +83,9 @@ __all__ = [
     "DiarizationBackend",
     "NxtOracleDiarization",
     "DiarizationToolNotPinnedError",
+    "ToolDiarizationConfig",
+    "ToolContactRecord",
+    "ToolDiarizationInvocationError",
     "PinnedToolDiarization",
     "build_turn_aware_slice_plan_from_backend",
     "build_turn_aware_slice_plan_for_resolved_meeting",
@@ -165,28 +175,238 @@ class NxtOracleDiarization(DiarizationBackend):
 
 
 class DiarizationToolNotPinnedError(NotImplementedError):
-    """Raised by :class:`PinnedToolDiarization` -- the deployable
-    diarization tool has not been selected or pinned yet (backbone doc
-    SS5.2's open decision between pyannote.audio / NeMo / wespeaker).
-    Honest-stub discipline: name the precondition, never guess at a request
-    shape nothing has chosen yet."""
+    """Historical: raised by the pre-DIAR-SMOKE :class:`PinnedToolDiarization`
+    stub, unconditionally, before ``docs/plans/2026-08-18-diarization-tool-
+    selection.md`` resolved the tool choice. Kept defined (and exported) so
+    any existing import of this name keeps working; it is no longer raised
+    by :class:`PinnedToolDiarization` itself (see
+    :class:`ToolDiarizationInvocationError` for its real failure mode)."""
+
+
+@dataclass(frozen=True)
+class ToolDiarizationConfig:
+    """One pinned tool's identity + how to invoke it -- exactly the fields
+    the frozen-tool-contact rule requires be logged (``docs/readiness/
+    2026-08-18-diar-smoke-preregistration.md`` SS7): a command template, the
+    tool's own name and version string, its checkpoint's sha256, and any
+    extra CLI args. Never hardcodes a real tool's path/command -- DIAR-SMOKE
+    is machinery-only at engineering time (no installs, no downloads); a
+    real flight supplies this via caller configuration (``scripts/
+    launch_diar_smoke.py --arm-config``), never a default baked in here.
+
+    ``command_template`` is a sequence of argv tokens; each token is run
+    through ``str.format(audio_path=..., rttm_path=..., meeting_id=...)``
+    before the subprocess is invoked, so a template names the audio input,
+    the RTTM output path, and/or the meeting id wherever the real tool's own
+    CLI expects them (e.g. NeMo-Speech.cpp's own
+    ``nemo-speech diarize {audio_path} --model <gguf> --offline --format
+    rttm --output {rttm_path}``, selection ticket SS2.4). ``extra_args`` are
+    appended after ``command_template``, substituted the same way -- a
+    caller-supplied knob (segmentation thresholds, etc.) kept separate from
+    the template's own fixed shape.
+    """
+
+    tool_name: str
+    tool_version: str
+    checkpoint_sha256: str
+    command_template: tuple[str, ...]
+    extra_args: tuple[str, ...] = ()
+    timeout_seconds: float = 3600.0
+
+    def validate(self) -> "ToolDiarizationConfig":
+        if not isinstance(self.tool_name, str) or not self.tool_name.strip():
+            raise ValueError(f"tool_name must be a non-empty string, got {self.tool_name!r}")
+        if not isinstance(self.tool_version, str) or not self.tool_version.strip():
+            raise ValueError(f"tool_version must be a non-empty string, got {self.tool_version!r}")
+        if (
+            not isinstance(self.checkpoint_sha256, str)
+            or len(self.checkpoint_sha256) != 64
+            or any(c not in "0123456789abcdef" for c in self.checkpoint_sha256.lower())
+        ):
+            raise ValueError(f"checkpoint_sha256 must be a 64-hex digest, got {self.checkpoint_sha256!r}")
+        if not self.command_template:
+            raise ValueError("command_template must carry at least one argv token")
+        if self.timeout_seconds <= 0:
+            raise ValueError(f"timeout_seconds must be positive, got {self.timeout_seconds!r}")
+        return self
+
+    def to_dict(self) -> dict[str, Any]:
+        return {
+            "tool_name": self.tool_name,
+            "tool_version": self.tool_version,
+            "checkpoint_sha256": self.checkpoint_sha256,
+            "command_template": list(self.command_template),
+            "extra_args": list(self.extra_args),
+            "timeout_seconds": self.timeout_seconds,
+        }
+
+    @staticmethod
+    def from_dict(raw: Mapping[str, Any]) -> "ToolDiarizationConfig":
+        return ToolDiarizationConfig(
+            tool_name=str(raw["tool_name"]),
+            tool_version=str(raw["tool_version"]),
+            checkpoint_sha256=str(raw["checkpoint_sha256"]),
+            command_template=tuple(str(t) for t in raw["command_template"]),
+            extra_args=tuple(str(t) for t in raw.get("extra_args", ())),
+            timeout_seconds=float(raw.get("timeout_seconds", 3600.0)),
+        ).validate()
+
+
+@dataclass(frozen=True)
+class ToolContactRecord:
+    """One pinned-tool subprocess contact, logged unconditionally --
+    success, a non-zero return code, missing RTTM output, or a raised
+    subprocess exception all produce exactly one of these (frozen-tool
+    per-contact logging rule, prereg SS7: "tool version, checkpoint hash,
+    args, wall/GPU"). GPU seconds are not this class's concern -- a
+    subprocess contact alone cannot observe them; the smoke runner
+    (:mod:`meeting_minutes_agent.probes.diar_smoke`) attaches a best-effort
+    ``nvidia-smi`` sample alongside this record instead."""
+
+    tool_name: str
+    tool_version: str
+    checkpoint_sha256: str
+    meeting_id: str
+    args: tuple[str, ...]
+    wall_seconds: float
+    return_code: int | None
+    error: str | None
+    recorded_utc: str
+
+    def to_dict(self) -> dict[str, Any]:
+        return {
+            "tool_name": self.tool_name,
+            "tool_version": self.tool_version,
+            "checkpoint_sha256": self.checkpoint_sha256,
+            "meeting_id": self.meeting_id,
+            "args": list(self.args),
+            "wall_seconds": self.wall_seconds,
+            "return_code": self.return_code,
+            "error": self.error,
+            "recorded_utc": self.recorded_utc,
+        }
+
+
+class ToolDiarizationInvocationError(RuntimeError):
+    """:class:`PinnedToolDiarization` refuses to return a fabricated turn
+    table: the pinned tool subprocess exited non-zero, raised while being
+    launched (missing binary, timeout, ...), or exited 0 but wrote no RTTM
+    at the expected path. A :class:`ToolContactRecord` for the attempt is
+    always logged BEFORE this is raised."""
+
+
+def _default_run_subprocess(args: Sequence[str], *, timeout: float) -> "subprocess.CompletedProcess[str]":
+    return subprocess.run(list(args), capture_output=True, text=True, timeout=timeout, check=False)
 
 
 class PinnedToolDiarization(DiarizationBackend):
-    """Stub for the eventual deployable (Tier-M0, ``TOOL_DIAR``) diarization
-    tool. There is nothing to implement here until
-    ``docs/plans/2026-08-18-diarization-tool-selection.md`` resolves the
-    tool choice; every call raises :class:`DiarizationToolNotPinnedError`
-    naming that ticket rather than shipping a fabricated turn table."""
+    """The real, subprocess-driven pinned-tool backend (module docstring).
+    Generic over WHICH tool: ``config`` names the argv template, tool
+    identity, and checkpoint hash, so this one class serves both DIAR-SMOKE
+    arms (Arm A's NeMo fp32 wrapper, Arm B's NeMo-Speech.cpp CUDA+GGUF CLI)
+    -- and the contingent Arm C -- without a tool-specific subclass.
+
+    ``run_subprocess`` is an injection seam (mirrors :class:`~meeting_minutes_agent.
+    client.transport.LlamaServerTransport`'s own ``post`` parameter and
+    ``run_arm``'s injected transport in ``scripts/launch_pattr_smoke.py``):
+    tests supply a fake callable, so this class is fully exercisable without
+    a real tool binary, a real GPU, or a real install -- the zero-model/
+    zero-tool-contact discipline this repository's test suite holds to.
+    """
+
+    def __init__(
+        self,
+        config: ToolDiarizationConfig,
+        *,
+        output_dir: Path | str,
+        run_subprocess: Callable[..., "subprocess.CompletedProcess[str]"] | None = None,
+        on_contact: Callable[[ToolContactRecord], None] | None = None,
+    ) -> None:
+        self.config = config.validate()
+        self._output_dir = Path(output_dir)
+        self._run_subprocess = run_subprocess or _default_run_subprocess
+        self._on_contact = on_contact
+        self._contact_log: list[ToolContactRecord] = []
+
+    @property
+    def contact_log(self) -> tuple[ToolContactRecord, ...]:
+        return tuple(self._contact_log)
+
+    def _rttm_path_for(self, meeting_id: str) -> Path:
+        return self._output_dir / f"{meeting_id}.rttm"
+
+    def _log_contact(self, *, meeting_id: str, args: Sequence[str], wall_seconds: float,
+                      return_code: int | None, error: str | None) -> ToolContactRecord:
+        record = ToolContactRecord(
+            tool_name=self.config.tool_name,
+            tool_version=self.config.tool_version,
+            checkpoint_sha256=self.config.checkpoint_sha256,
+            meeting_id=meeting_id,
+            args=tuple(args),
+            wall_seconds=wall_seconds,
+            return_code=return_code,
+            error=error,
+            recorded_utc=datetime.now(timezone.utc).isoformat(),
+        )
+        self._contact_log.append(record)
+        if self._on_contact is not None:
+            self._on_contact(record)
+        return record
 
     def diarize(self, meeting_id: str, audio_ref: Path | str | None) -> DiarizationResult:
-        raise DiarizationToolNotPinnedError(
-            "PinnedToolDiarization.diarize: no deployable diarization tool is selected or pinned "
-            "yet -- see docs/plans/2026-08-18-diarization-tool-selection.md (the open decision "
-            "between pyannote.audio / NeMo / wespeaker recorded in "
-            "docs/plans/2026-08-18-agent-backbone-and-layout.md SS5.2). This backend cannot "
-            f"diarize meeting_id={meeting_id!r} until that ticket lands a pinned tool."
+        if audio_ref is None:
+            raise ValueError(
+                "PinnedToolDiarization.diarize requires audio_ref -- a real tool backend cannot "
+                f"diarize meeting_id={meeting_id!r} without audio bytes"
+            )
+        audio_path = Path(audio_ref)
+        rttm_path = self._rttm_path_for(meeting_id)
+        rttm_path.parent.mkdir(parents=True, exist_ok=True)
+
+        substitutions = {
+            "audio_path": str(audio_path),
+            "rttm_path": str(rttm_path),
+            "meeting_id": meeting_id,
+        }
+        args = [
+            token.format(**substitutions)
+            for token in (*self.config.command_template, *self.config.extra_args)
+        ]
+
+        started = time.monotonic()
+        try:
+            completed = self._run_subprocess(args, timeout=self.config.timeout_seconds)
+        except Exception as error:  # noqa: BLE001 -- logged, then re-raised as our own error type
+            wall_seconds = time.monotonic() - started
+            self._log_contact(
+                meeting_id=meeting_id, args=args, wall_seconds=wall_seconds, return_code=None,
+                error=f"{type(error).__name__}: {error}",
+            )
+            raise ToolDiarizationInvocationError(
+                f"{self.config.tool_name}: subprocess invocation failed for meeting_id={meeting_id!r}: {error}"
+            ) from error
+
+        wall_seconds = time.monotonic() - started
+        stderr_text = getattr(completed, "stderr", None) or None
+        error_text = stderr_text if completed.returncode != 0 else None
+        self._log_contact(
+            meeting_id=meeting_id, args=args, wall_seconds=wall_seconds,
+            return_code=completed.returncode, error=error_text,
         )
+
+        if completed.returncode != 0:
+            raise ToolDiarizationInvocationError(
+                f"{self.config.tool_name} exited {completed.returncode} for meeting_id={meeting_id!r}: "
+                f"{stderr_text!r}"
+            )
+        if not rttm_path.is_file():
+            raise ToolDiarizationInvocationError(
+                f"{self.config.tool_name} exited 0 for meeting_id={meeting_id!r} but wrote no RTTM at "
+                f"{rttm_path}"
+            )
+
+        turns = parse_rttm_file(rttm_path)
+        return DiarizationResult(turns=turns, provenance=BoundaryProvenance.TOOL_DIAR)
 
 
 def build_turn_aware_slice_plan_from_backend(
