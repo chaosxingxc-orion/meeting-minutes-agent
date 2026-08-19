@@ -1,0 +1,23 @@
+DIAR-SMOKE -- registered one-shot scoring read
+==============================================================================
+created_utc  : 2026-08-19T08:29:41+00:00
+study_commit : 5a762cbca042a6ad16c9f75a77463a83490ff12f
+meetings     : ES2011a, ES2011b, IS1008b, IS1008d, TS3004b, TS3004d
+arms         : A, B
+
+VERDICT (mechanical, prereg SS5)
+------------------------------------------------------------------------------
+status : TOOL-LOCKED(B)
+DER(A) [no collar, with overlap] : 0.2373413496303162
+DER(B) [no collar, with overlap] : 0.20740534894441418
+best_arm : B  best_arm_der : 0.20740534894441418
+clauses:
+  parity                   fires=True  margin=1.970063999314098  |DER(B)=0.21 - DER(A)=0.24| = 0.03 (threshold 2.0)
+  tool_locked_b            fires=True  margin=21.792594651055587  parity AND DER(B) <= 22.0
+  tool_locked_a            fires=False margin=21.762658650369683  DER(A) <= 22.0 (when TOOL-LOCKED(B) did not fire)
+  tool_usable_with_caveat  fires=False margin=29.792594651055587  best-arm DER in (22.0, 30.0]
+  fallback_needed          fires=False margin=-29.792594651055587  best-arm DER > 30.0 or both arms failed to load (both_failed=False)
+
+IN-DOMAIN CAVEAT (carried in ALL outcomes)
+------------------------------------------------------------------------------
+AMI appears in the NVIDIA models' training data (partition unstated by the card); this smoke's DER is therefore an in-domain number and is cited as such -- it licenses tool USE, never a generalization claim. Carried in ALL outcomes (prereg SS5).
