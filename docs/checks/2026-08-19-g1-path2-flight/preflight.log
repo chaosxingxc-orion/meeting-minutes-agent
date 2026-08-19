@@ -1,0 +1,99 @@
+=== G1-PATH2 preflight start 2026-08-19T18:14:11Z ===
+--- repo state ---
+8aedcb9443bf59edecf18679a972b4969f390e02
+porcelain lines: 0
+8aedcb9 fix(g1): per-meeting QA routing + real gpu accounting - floors unblocked
+228a497 flight(g1-path): pathfinder FLOWN - 2 meetings x 4 arms + heads, structural NOT-PASS, no result read
+38fce4e precomp(g1-supplement): vad slices + manifests + encode-warm - 18/18
+
+--- hash pins ---
+OK   llama-server  097c96ec5a3f576f378d4d5e103928bf070647fdcc1f015eacb839503e121c68  /home/chao/llama.cpp-featcache/build/bin/llama-server
+OK   qwen3-omni-q4km  0751c279498785c0b07130ae7748038d1e2cfd04617928e4557063807f98066d  /home/chao/models/qwen3-omni-30b-a3b-instruct-gguf-q4km/Qwen3-Omni-30B-A3B-Instruct-Q4_K_M.gguf
+OK   qwen3-omni-mmproj  f0dfe825fb692d426362b1ac79678fc08daa4758f7151526cad110515f122883  /home/chao/models/qwen3-omni-30b-a3b-instruct-gguf-q4km/mmproj-Qwen3-Omni-30B-A3B-Instruct-bf16.gguf
+hash-pin fail flag: 0
+llama.cpp HEAD: 5d9dfcb58ea860295da8fc93c7b5bed9e2c71151
+build-commit: OK vs pin
+dirty: 0
+
+--- PRECOMP inputs the four arms rebuild from ---
+rttm files:    18
+tool slice dirs:   18
+oracle slice dirs: 18
+vad slice dirs:    18
+vad manifests:     18
+  ES2011a: rttm=yes vad_manifest=yes tool_wavs=12 oracle_wavs=12 vad_wavs=13
+  IS1008a: rttm=yes vad_manifest=yes tool_wavs=9 oracle_wavs=10 vad_wavs=11
+
+--- feature cache (ami-q4km) BEFORE the flight ---
+entries: 14324
+bytes:   11486248768
+
+--- run-dir BEFORE (must be FRESH: path2, not the first PATH run) ---
+run-dir: /mnt/e/chao_workspace/exploring-l4-intelligence/speechrl-data/derived/meeting-minutes/g1/runs/2026-08-19-g1-path2
+exists: YES
+receipts already present: 0
+stop-file: /mnt/c/Users/35686/AppData/Local/Temp/claude/D--chao-workspace-exploring-l4-intelligence-studies-speech-aware-evidence-acquisition/6d9f1834-68e9-41a7-bbcc-724898cf15a9/scratchpad/g1path2/G1PATH2_YIELD  present: no
+
+--- run_g1 --summary-only (roster, arms, registered QA cap) ---
+{
+  "arms": [
+    "Z-turn",
+    "Z-oracle",
+    "Z-free",
+    "Z-nodiar"
+  ],
+  "ceilings": {
+    "max_calls": 2900,
+    "max_chunk_wall_seconds": 3000.0,
+    "max_gpu_hours": 6.0,
+    "max_wall_hours": 8.0
+  },
+  "meetings": [
+    "ES2011a",
+    "IS1008a"
+  ],
+  "mode": "path",
+  "n_qa_questions_capped": 200,
+  "n_work_items": 8
+}
+
+--- per-meeting QA routing at the REGISTERED cap (the 8aedcb9 fix) ---
+dev-18 usable-discovery questions: 489  capped: 200
+  ES2011a   routed questions: 7
+  IS1008a   routed questions: 0
+capped-set per-meeting counts (dev-18): {'ES2011a': 7, 'ES2011b': 15, 'ES2011c': 18, 'ES2011d': 23, 'IB4001': 17, 'IB4002': 20, 'IB4003': 19, 'IB4010': 45, 'IS1008b': 9, 'IS1008d': 8, 'TS3004b': 19}
+total planned QA calls at floors scale (x2 arms): 400
+
+==========================================================================
+--- THE FLIGHT PLAN: registered N=200 cap, per-meeting routed (8aedcb9) ---
+==========================================================================
+rc=0
+n_work_items: 8  n_chunks: 1
+  chunk 0: est_wall=392.2s items=8
+    ES2011a   Z-turn    transcribe= 12 minutes=1 qa=  7 -> calls= 20
+    ES2011a   Z-oracle  transcribe= 12 minutes=1 qa=  7 -> calls= 20
+    ES2011a   Z-free    transcribe= 12 minutes=0 qa=  0 -> calls= 12
+    ES2011a   Z-nodiar  transcribe= 13 minutes=0 qa=  0 -> calls= 13
+    IS1008a   Z-turn    transcribe=  9 minutes=1 qa=  0 -> calls= 10
+    IS1008a   Z-oracle  transcribe= 10 minutes=1 qa=  0 -> calls= 11
+    IS1008a   Z-free    transcribe=  9 minutes=0 qa=  0 -> calls=  9
+    IS1008a   Z-nodiar  transcribe= 11 minutes=0 qa=  0 -> calls= 11
+FLIGHT TOTAL CALLS: 106  QA CALLS: 14 (registered cap, per-meeting routed)
+flight fail-closed ceilings: <=250 calls / <=0.5 GPU-h / <=2 h wall
+
+--- arm/plan provenance cross-check (CPU-only, zero model contact) ---
+ES2011a   Z-turn    mode=turn_aware prov=tool-diar    slices= 12 slice_dir=derived/meeting-minutes/precomp/slices/tool missing_wavs=none
+ES2011a   Z-oracle  mode=turn_aware prov=oracle-turn  slices= 12 slice_dir=derived/meeting-minutes/precomp/slices/oracle missing_wavs=none
+ES2011a   Z-free    mode=turn_aware prov=tool-diar    slices= 12 slice_dir=derived/meeting-minutes/precomp/slices/tool missing_wavs=none
+ES2011a   Z-nodiar  mode=vad   prov=None         slices= 13 slice_dir=derived/meeting-minutes/precomp/slices/vad missing_wavs=none
+IS1008a   Z-turn    mode=turn_aware prov=tool-diar    slices=  9 slice_dir=derived/meeting-minutes/precomp/slices/tool missing_wavs=none
+IS1008a   Z-oracle  mode=turn_aware prov=oracle-turn  slices= 10 slice_dir=derived/meeting-minutes/precomp/slices/oracle missing_wavs=none
+IS1008a   Z-free    mode=turn_aware prov=tool-diar    slices=  9 slice_dir=derived/meeting-minutes/precomp/slices/tool missing_wavs=none
+IS1008a   Z-nodiar  mode=vad   prov=None         slices= 11 slice_dir=derived/meeting-minutes/precomp/slices/vad missing_wavs=none
+
+--- GPU health / orphans ---
+name, utilization.gpu [%], memory.used [MiB], clocks.current.sm [MHz], pstate, temperature.gpu, power.draw [W]
+NVIDIA GeForce RTX 5090 Laptop GPU, 1 %, 209 MiB, 1200 MHz, P5, 44, 12.22 W
+llama-server: none
+run_g1: none
+=== G1-PATH2 preflight end 2026-08-19T18:14:41Z ===

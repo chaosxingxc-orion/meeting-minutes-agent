@@ -1,0 +1,76 @@
+{
+  "chunks": [
+    {
+      "estimated_wall_seconds": 392.20000000000005,
+      "index": 0,
+      "items": [
+        {
+          "arm": "Z-turn",
+          "meeting_id": "ES2011a",
+          "n_calls": 20,
+          "n_minutes": 1,
+          "n_qa": 7,
+          "n_transcribe": 12
+        },
+        {
+          "arm": "Z-oracle",
+          "meeting_id": "ES2011a",
+          "n_calls": 20,
+          "n_minutes": 1,
+          "n_qa": 7,
+          "n_transcribe": 12
+        },
+        {
+          "arm": "Z-free",
+          "meeting_id": "ES2011a",
+          "n_calls": 12,
+          "n_minutes": 0,
+          "n_qa": 0,
+          "n_transcribe": 12
+        },
+        {
+          "arm": "Z-nodiar",
+          "meeting_id": "ES2011a",
+          "n_calls": 13,
+          "n_minutes": 0,
+          "n_qa": 0,
+          "n_transcribe": 13
+        },
+        {
+          "arm": "Z-turn",
+          "meeting_id": "IS1008a",
+          "n_calls": 10,
+          "n_minutes": 1,
+          "n_qa": 0,
+          "n_transcribe": 9
+        },
+        {
+          "arm": "Z-oracle",
+          "meeting_id": "IS1008a",
+          "n_calls": 11,
+          "n_minutes": 1,
+          "n_qa": 0,
+          "n_transcribe": 10
+        },
+        {
+          "arm": "Z-free",
+          "meeting_id": "IS1008a",
+          "n_calls": 9,
+          "n_minutes": 0,
+          "n_qa": 0,
+          "n_transcribe": 9
+        },
+        {
+          "arm": "Z-nodiar",
+          "meeting_id": "IS1008a",
+          "n_calls": 11,
+          "n_minutes": 0,
+          "n_qa": 0,
+          "n_transcribe": 11
+        }
+      ]
+    }
+  ],
+  "n_chunks": 1,
+  "n_work_items": 8
+}

@@ -1,0 +1,58 @@
+{
+  "arm": "Z-free",
+  "contacts": [
+    {
+      "kind": "transcribe",
+      "outcome": "ok",
+      "request_id": "g1-Z-free-IS1008a-transcribe-slice0000"
+    },
+    {
+      "kind": "transcribe",
+      "outcome": "ok",
+      "request_id": "g1-Z-free-IS1008a-transcribe-slice0001"
+    },
+    {
+      "kind": "transcribe",
+      "outcome": "ok",
+      "request_id": "g1-Z-free-IS1008a-transcribe-slice0002"
+    },
+    {
+      "kind": "transcribe",
+      "outcome": "ok",
+      "request_id": "g1-Z-free-IS1008a-transcribe-slice0003"
+    },
+    {
+      "kind": "transcribe",
+      "outcome": "ok",
+      "request_id": "g1-Z-free-IS1008a-transcribe-slice0004"
+    },
+    {
+      "kind": "transcribe",
+      "outcome": "ok",
+      "request_id": "g1-Z-free-IS1008a-transcribe-slice0005"
+    },
+    {
+      "kind": "transcribe",
+      "outcome": "ok",
+      "request_id": "g1-Z-free-IS1008a-transcribe-slice0006"
+    },
+    {
+      "kind": "transcribe",
+      "outcome": "ok",
+      "request_id": "g1-Z-free-IS1008a-transcribe-slice0007"
+    },
+    {
+      "kind": "transcribe",
+      "outcome": "ok",
+      "request_id": "g1-Z-free-IS1008a-transcribe-slice0008"
+    }
+  ],
+  "error": null,
+  "gpu_seconds": 29.085640281984524,
+  "meeting_id": "IS1008a",
+  "n_calls": 9,
+  "ok": true,
+  "recorded_utc": "2026-08-19T18:32:05.719521+00:00",
+  "schema_version": "1.0.0",
+  "wall_seconds": 29.251165836001746
+}

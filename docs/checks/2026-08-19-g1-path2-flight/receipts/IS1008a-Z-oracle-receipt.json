@@ -1,0 +1,68 @@
+{
+  "arm": "Z-oracle",
+  "contacts": [
+    {
+      "kind": "transcribe",
+      "outcome": "ok",
+      "request_id": "g1-Z-oracle-IS1008a-transcribe-slice0000"
+    },
+    {
+      "kind": "transcribe",
+      "outcome": "ok",
+      "request_id": "g1-Z-oracle-IS1008a-transcribe-slice0001"
+    },
+    {
+      "kind": "transcribe",
+      "outcome": "ok",
+      "request_id": "g1-Z-oracle-IS1008a-transcribe-slice0002"
+    },
+    {
+      "kind": "transcribe",
+      "outcome": "ok",
+      "request_id": "g1-Z-oracle-IS1008a-transcribe-slice0003"
+    },
+    {
+      "kind": "transcribe",
+      "outcome": "ok",
+      "request_id": "g1-Z-oracle-IS1008a-transcribe-slice0004"
+    },
+    {
+      "kind": "transcribe",
+      "outcome": "ok",
+      "request_id": "g1-Z-oracle-IS1008a-transcribe-slice0005"
+    },
+    {
+      "kind": "transcribe",
+      "outcome": "ok",
+      "request_id": "g1-Z-oracle-IS1008a-transcribe-slice0006"
+    },
+    {
+      "kind": "transcribe",
+      "outcome": "ok",
+      "request_id": "g1-Z-oracle-IS1008a-transcribe-slice0007"
+    },
+    {
+      "kind": "transcribe",
+      "outcome": "ok",
+      "request_id": "g1-Z-oracle-IS1008a-transcribe-slice0008"
+    },
+    {
+      "kind": "transcribe",
+      "outcome": "ok",
+      "request_id": "g1-Z-oracle-IS1008a-transcribe-slice0009"
+    },
+    {
+      "kind": "minutes",
+      "outcome": "ok",
+      "request_id": "g1-Z-oracle-IS1008a-minutes"
+    }
+  ],
+  "error": null,
+  "gpu_seconds": 656.7348586480002,
+  "meeting_id": "IS1008a",
+  "n_calls": 11,
+  "ok": true,
+  "recorded_utc": "2026-08-19T18:31:35.209343+00:00",
+  "schema_version": "1.0.0",
+  "wall_seconds": 657.3084106419992
+}

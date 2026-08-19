@@ -1,0 +1,99 @@
+--- invocation: run_g1.py --mode path --run-chunk 0 ---
+18:15:10Z WATCH item_receipts=0 sink_lines=0 gpu=[0, 1200, 12.17 ]
+18:16:13Z WATCH item_receipts=0 sink_lines=11 gpu=[94, 1200, 69.38 ]
+18:17:15Z WATCH item_receipts=1 sink_lines=29 gpu=[99, 1200, 70.45 ]
+18:18:18Z WATCH item_receipts=2 sink_lines=46 gpu=[94, 1200, 69.93 ]
+18:19:21Z WATCH item_receipts=4 sink_lines=65 gpu=[91, 1200, 70.99 ]
+18:20:22Z WATCH item_receipts=5 sink_lines=76 gpu=[92, 1200, 70.42 ]
+18:21:25Z WATCH item_receipts=5 sink_lines=83 gpu=[94, 1200, 69.87 ]
+18:22:27Z WATCH item_receipts=5 sink_lines=83 gpu=[93, 1200, 69.88 ]
+18:23:30Z WATCH item_receipts=5 sink_lines=83 gpu=[95, 1170, 70.10 ]
+18:24:31Z WATCH item_receipts=5 sink_lines=83 gpu=[93, 1185, 69.72 ]
+18:25:34Z WATCH item_receipts=5 sink_lines=83 gpu=[96, 1117, 70.13 ]
+18:26:37Z WATCH item_receipts=5 sink_lines=83 gpu=[97, 1072, 69.77 ]
+18:27:39Z WATCH item_receipts=5 sink_lines=83 gpu=[97, 1080, 67.97 ]
+18:28:42Z WATCH item_receipts=5 sink_lines=83 gpu=[96, 997, 70.57 ]
+18:29:43Z WATCH item_receipts=5 sink_lines=83 gpu=[97, 1050, 69.80 ]
+18:30:46Z WATCH item_receipts=5 sink_lines=83 gpu=[96, 1005, 70.73 ]
+18:31:49Z WATCH item_receipts=6 sink_lines=89 gpu=[97, 750, 68.01 ]
+18:32:36Z runner rc=0 wall=1046s
+=== G1 structural validation (no metric, no result read) ===
+out-dir: /mnt/e/chao_workspace/exploring-l4-intelligence/speechrl-data/derived/meeting-minutes/g1/runs/2026-08-19-g1-path2
+chunk plan: /mnt/c/Users/35686/AppData/Local/Temp/claude/D--chao-workspace-exploring-l4-intelligence-studies-speech-aware-evidence-acquisition/6d9f1834-68e9-41a7-bbcc-724898cf15a9/scratchpad/g1path2/logs/chunkplan-flight.json
+planned items: 8  planned calls: 106  planned qa calls: 14
+
+| meeting | arm | receipt | ok | schema | n_calls | transcribe | minutes | qa | gpu s | wall s | error |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| ES2011a | Z-free | yes | yes | 1.0.0 | 12 | 12 | 0 | 0 | 41.9 | 42.1 |  |
+| ES2011a | Z-nodiar | yes | yes | 1.0.0 | 13 | 13 | 0 | 0 | 35.8 | 36.2 |  |
+| ES2011a | Z-oracle | yes | yes | 1.0.0 | 20 | 12 | 1 | 7 | 75.2 | 75.8 |  |
+| ES2011a | Z-turn | yes | yes | 1.0.0 | 20 | 12 | 1 | 7 | 71.6 | 72.1 |  |
+| IS1008a | Z-free | yes | yes | 1.0.0 | 9 | 9 | 0 | 0 | 29.1 | 29.3 |  |
+| IS1008a | Z-nodiar | yes | yes | 1.0.0 | 11 | 11 | 0 | 0 | 28.6 | 28.9 |  |
+| IS1008a | Z-oracle | yes | yes | 1.0.0 | 11 | 10 | 1 | 0 | 656.7 | 657.3 |  |
+| IS1008a | Z-turn | yes | yes | 1.0.0 | 10 | 9 | 1 | 0 | 53.1 | 53.4 |  |
+
+items ok=8 error=0 missing=0 of 8 planned (meeting x arm)
+gpu_seconds receipt total: 991.9s  every-ok-item-nonzero: PASS
+
+--- per-head PLAN CONFORMANCE (incl. the per-meeting QA routing fix) ---
+  ES2011a   Z-free    t= 12/ 12 m=0/0 q=  0/  0 OK
+  ES2011a   Z-nodiar  t= 13/ 13 m=0/0 q=  0/  0 OK
+  ES2011a   Z-oracle  t= 12/ 12 m=1/1 q=  7/  7 OK
+  ES2011a   Z-turn    t= 12/ 12 m=1/1 q=  7/  7 OK
+  IS1008a   Z-free    t=  9/  9 m=0/0 q=  0/  0 OK
+  IS1008a   Z-nodiar  t= 11/ 11 m=0/0 q=  0/  0 OK
+  IS1008a   Z-oracle  t= 10/ 10 m=1/1 q=  0/  0 OK
+  IS1008a   Z-turn    t=  9/  9 m=1/1 q=  0/  0 OK
+plan conformance (per meeting, arm, head): PASS
+
+--- budget adherence (chunk receipts) ---
+  chunk0000-receipt.json: n_items=8 n_ok=8 n_error=0 stopped_reason=None
+    calls 106/250  wall 995.1s/7200s  gpu 991.9s/1800s  breaches=none
+budget adherence: PASS
+budget gpu_seconds_used nonzero: PASS
+
+--- response sink: reconciliation + dispatch-chain parse health ---
+  sink files: ['chunk0000-responses.jsonl']  records: 106
+  duplicate request_ids: 0
+
+| meeting | arm | head | sink records | empty replies | replies at max_tokens |
+|---|---|---|---|---|---|
+| ES2011a | Z-free | transcribe | 12 | 0 | 0 |
+| ES2011a | Z-nodiar | transcribe | 13 | 0 | 0 |
+| ES2011a | Z-oracle | minutes | 1 | 0 | 0 |
+| ES2011a | Z-oracle | qa | 7 | 0 | 0 |
+| ES2011a | Z-oracle | transcribe | 12 | 0 | 0 |
+| ES2011a | Z-turn | minutes | 1 | 0 | 0 |
+| ES2011a | Z-turn | qa | 7 | 0 | 0 |
+| ES2011a | Z-turn | transcribe | 12 | 0 | 0 |
+| IS1008a | Z-free | transcribe | 9 | 0 | 0 |
+| IS1008a | Z-nodiar | transcribe | 11 | 0 | 0 |
+| IS1008a | Z-oracle | minutes | 1 | 0 | 0 |
+| IS1008a | Z-oracle | transcribe | 10 | 0 | 0 |
+| IS1008a | Z-turn | minutes | 1 | 0 | 0 |
+| IS1008a | Z-turn | transcribe | 9 | 0 | 0 |
+
+attribution arms ('Z-turn', 'Z-oracle') -- the parse run_item itself performs to feed the minutes head:
+| meeting | arm | transcribe replies parsed >=1 segment | parse-failed | segments (count only) |
+|---|---|---|---|---|
+| ES2011a | Z-oracle | 12 | 0 | 182 |
+| ES2011a | Z-turn | 12 | 0 | 164 |
+| IS1008a | Z-oracle | 10 | 0 | 88 |
+| IS1008a | Z-turn | 9 | 0 | 83 |
+
+transcribe-only arms ('Z-free', 'Z-nodiar') -- no attribution grammar, never parsed in flight:
+| meeting | arm | non-empty transcribe replies |
+|---|---|---|
+| ES2011a | Z-free | 12 |
+| ES2011a | Z-nodiar | 13 |
+| IS1008a | Z-free | 9 |
+| IS1008a | Z-nodiar | 11 |
+
+(counts only -- no reply text is surfaced, no reference is consulted, no arm is compared)
+parse-chain health: PASS
+
+reconciliation: receipt n_calls total=106  sink records=106  MATCH
+
+STRUCTURAL-INPUTS {"budget_adherence": true, "budget_gpu_nonzero": true, "duplicate_request_ids": 0, "empty_replies": 0, "gpu_seconds_every_ok_item_nonzero": true, "gpu_seconds_receipt_total": 991.9, "items_error": 0, "items_missing": 0, "items_ok": 8, "parse_chain_health": true, "plan_conformance": true, "replies_at_max_tokens": 0, "sink_receipt_reconciled": true}
+FLY-DONE state=DONE chunk=0

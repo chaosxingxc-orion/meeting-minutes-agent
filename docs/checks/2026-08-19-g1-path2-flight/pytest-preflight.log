@@ -1,0 +1,42 @@
+=== pytest preflight start 2026-08-19T18:14:04Z at 8aedcb9443bf59edecf18679a972b4969f390e02 ===
+..........sssss......................................................... [  4%]
+........................................................................ [  9%]
+...........................................................s............ [ 14%]
+........................................................................ [ 18%]
+........................................................................ [ 23%]
+........................................................................ [ 28%]
+........................................................................ [ 33%]
+........................................................................ [ 37%]
+........................................................................ [ 42%]
+........................................................................ [ 47%]
+........................................................................ [ 52%]
+........................................................................ [ 56%]
+........................................................................ [ 61%]
+........................................................................ [ 66%]
+........................................................................ [ 71%]
+........................................................................ [ 75%]
+........................................................................ [ 80%]
+........................................................................ [ 85%]
+........................................................................ [ 90%]
+........................................................................ [ 94%]
+........................................................................ [ 99%]
+......                                                                   [100%]
+=============================== warnings summary ===============================
+tests/unit/chunking/test_slicer.py::TestRealAudioVad::test_detect_energy_pause_transitions_finds_a_real_silence_gap
+  /home/chao/.venvs/speechrl/lib/python3.12/site-packages/audioread/rawread.py:16: DeprecationWarning: 'aifc' is deprecated and slated for removal in Python 3.13
+    import aifc
+
+tests/unit/chunking/test_slicer.py::TestRealAudioVad::test_detect_energy_pause_transitions_finds_a_real_silence_gap
+  /home/chao/.venvs/speechrl/lib/python3.12/site-packages/audioread/rawread.py:17: DeprecationWarning: 'audioop' is deprecated and slated for removal in Python 3.13
+    import audioop
+
+tests/unit/chunking/test_slicer.py::TestRealAudioVad::test_detect_energy_pause_transitions_finds_a_real_silence_gap
+  /home/chao/.venvs/speechrl/lib/python3.12/site-packages/audioread/rawread.py:19: DeprecationWarning: 'sunau' is deprecated and slated for removal in Python 3.13
+    import sunau
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+1512 passed, 6 skipped, 3 warnings in 45.64s
+pytest rc=0
+repo porcelain lines after pytest: 0
+=== pytest preflight end 2026-08-19T18:14:53Z rc=0 ===
+PYTEST-DONE rc=0
