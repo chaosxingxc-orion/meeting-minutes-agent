@@ -323,6 +323,53 @@ class TestTurnAwareSlicePlan:
         for s in plan.slices:
             assert s.duration <= TRANSPORT_SLICE_MAX_S
 
+    def test_a_wide_interior_silence_gap_does_not_push_a_slice_past_max_s(self):
+        # TS3004d's real AMI oracle turn table (first hit by the DIAR-SMOKE
+        # read, 2026-08-19): a 101.1s turn group followed by a 48.3s
+        # inter-group silence gap -- interior midpoint tiling used to add
+        # the full half-gap (24.2s) to the group's slice, pushing it to
+        # 125.3s (> TRANSPORT_SLICE_MAX_S=120s) and tripping
+        # TransportBoundViolation at finalize. Fixed: interior gap tiling
+        # is room-capped exactly like the edge margins, with any leftover
+        # spilling to the other side's remaining room; silence the pair
+        # cannot absorb stays uncovered rather than oversizing a slice.
+        turns = (
+            TurnSpan(0.0, 50.0, "A"),
+            TurnSpan(50.5, 101.0, "B"),  # group 1 closes at 101.0s (>= nominal 90)
+            TurnSpan(149.0, 199.0, "A"),
+            TurnSpan(199.5, 241.5, "B"),  # group 2: [149.0, 241.5], len 92.5
+        )
+        plan = build_turn_aware_slice_plan(
+            "m-wide-gap", turns, turn_provenance=BoundaryProvenance.TOOL_DIAR, total_duration_s=241.5
+        )
+        assert len(plan.slices) == 2
+        for s in plan.slices:
+            assert s.duration <= TRANSPORT_SLICE_MAX_S
+        # The left slice absorbs only its own room (120 - 101 = 19s), never
+        # the full 24.25s half-gap.
+        assert plan.slices[0].end == pytest.approx(120.0)
+        # The leftover spills to the right slice up to ITS room
+        # (120 - 92.5 = 27.5s); the residual 1.5s of silence stays uncovered.
+        assert plan.slices[1].start == pytest.approx(121.5)
+        assert plan.slices[1].end == pytest.approx(241.5)
+
+    def test_interior_gap_tiling_still_splits_at_the_midpoint_when_room_allows(self):
+        # Behavior-preserving guarantee for every previously-valid plan:
+        # when both neighbors have room for their half, the split IS the
+        # midpoint, exactly as before the room-cap fix.
+        turns = (
+            TurnSpan(0.0, 45.0, "A"),
+            TurnSpan(45.5, 91.0, "B"),  # group 1: [0, 91]
+            TurnSpan(101.0, 146.0, "A"),
+            TurnSpan(146.5, 192.0, "B"),  # group 2: [101, 192]
+        )
+        plan = build_turn_aware_slice_plan(
+            "m-mid", turns, turn_provenance=BoundaryProvenance.TOOL_DIAR, total_duration_s=192.0
+        )
+        assert len(plan.slices) == 2
+        assert plan.slices[0].end == pytest.approx(96.0)  # midpoint of [91, 101]
+        assert plan.slices[1].start == pytest.approx(96.0)
+
     def test_trailing_non_speech_does_not_get_pulled_into_the_last_slice(self):
         # A single 100s turn, then 25s of trailing non-speech before the
         # meeting's declared end at 125s -- with the pre-fix gap-tiling

@@ -86,7 +86,8 @@ def audio_derived_slicer_inputs(data_dir: Path, meeting_id: str) -> tuple[float,
     signal-derived energy pause transitions. Without them a >120 s
     boundary-free stretch in a turn table cannot fall back to a pause split
     and trips the transport hard cap (``TransportBoundViolation`` -- the
-    2026-08-19 read attempt-1 crash on TS3004b's ORACLE turn table,
+    2026-08-19 read attempt-1 crash, first hit on TS3004d's ORACLE turn
+    table together with the slicer's interior gap-tiling room-cap fix;
     ``docs/checks/2026-08-18-diar-smoke-read/attempt-1-transportbound-crash.log``).
     Signal-derived only: never gold annotation, never a model contact."""
 

@@ -12,6 +12,15 @@
 # TS3004b's ORACLE turn table could not fall back to an energy-pause split and tripped the
 # transport hard cap. Single diagnosed fix committed before the one-shot read re-execution;
 # the flown run directory was not touched.
+#
+# CORRECTION (2026-08-19, before the read): the crashing meeting is TS3004d, not TS3004b --
+# the slice bounds 2035.2585/2160.5665 match TS3004d's oracle turn-group geometry exactly
+# (group [2035.272, 2136.408] + half of a 48.317 s silence gap), and TS3004b's oracle plan
+# builds cleanly at HEAD. Attempt 2 (with audio-derived inputs wired, commit ec829d4) hit the
+# identical violation because TS3004d has ZERO detected energy-pause transitions, exposing the
+# real root cause: the slicer's INTERIOR gap-midpoint tiling was not room-capped (the e627f8e
+# edge fix covered only the first/last slice). See attempt-2-transportbound-crash.log and the
+# slicer fix commit that follows ec829d4.
 
 Traceback (most recent call last):
   File "/mnt/d/chao_workspace/exploring-l4-intelligence/papers/meeting-minutes-agent/scripts/diar_smoke_read.py", line 202, in <module>

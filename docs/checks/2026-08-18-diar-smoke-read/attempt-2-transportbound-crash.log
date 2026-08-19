@@ -1,0 +1,37 @@
+# DIAR-SMOKE read attempt 2 — identical harness crash, root cause isolated to the slicer
+# 2026-08-19, HEAD ec829d42f83782aebe17cfac1442bf4228107ba7 (clean tree; audio-derived slicer
+# inputs wired per attempt 1's diagnosis), WSL Ubuntu-24.04, ~/.venvs/speechrl,
+# PYTHONDONTWRITEBYTECODE=1. Same command as attempt 1. Exit code: 1. No verdict.json /
+# report.txt written; no DER/JER/packing number produced or observed.
+#
+# The violation reproduced byte-identically (slice 22, start=2035.2585, end=2160.5665,
+# 125.308 s > 120.0 s) at scripts/diar_smoke_read.py:166 -> diar_smoke_scoring.py:229
+# (packing_change_for_meeting, ORACLE plan) because the attempt-1 diagnosis was incomplete
+# on two counts, established by scratchpad-only structural diagnostics (turn-boundary times
+# and group bounds only; no transcript content, no tool-side exposure):
+#
+# 1. The crashing meeting is TS3004d (registered meeting six of six — ES2011a, ES2011b,
+#    IS1008b, IS1008d, and TS3004b all scored without error in both attempts), not TS3004b
+#    as attempt 1's log first recorded. TS3004b's oracle plan builds cleanly at HEAD
+#    (24 slices, no near-cap slice), with or without audio-derived inputs.
+# 2. Audio-derived pause transitions cannot rescue TS3004d: detect_energy_pause_transitions
+#    finds ZERO transitions on the whole 2750.8 s meeting (dense speech; TS3004b has 38).
+#    The real root cause is in meeting_minutes_agent/chunking/slicer.py itself: interior
+#    gap-midpoint tiling in build_turn_aware_slice_plan added a FLAT half-gap to each
+#    neighboring slice with no room cap. TS3004d's oracle turn table carries turn group
+#    [2035.272, 2136.408] (101.136 s, 23 turns) followed by a 48.317 s inter-group silence
+#    gap; midpoint tiling added 24.1585 s and 0.0135 s halves -> 125.308 s > 120.0 s.
+#    This is the same bug class commit e627f8e fixed for EDGE slices (room-capped snap
+#    margins); the interior case was latent because no prior consumer ever built a full
+#    turn-aware plan for TS3004d (the P-ATTR manifest's four meetings exclude it; its
+#    committed full plans carry no oversized slice).
+#
+# Resolution (committed immediately after this record, before the one-shot read execution):
+# room-capped interior gap tiling in build_turn_aware_slice_plan — each neighbor absorbs at
+# most its remaining room under max_s, leftover spills to the other side's room, residual
+# silence stays uncovered rather than oversizing a slice. Behavior-preserving for every
+# previously-valid plan: when both rooms cover their half-gaps the split is the plain
+# midpoint (regression-guarded by test_interior_gap_tiling_still_splits_at_the_midpoint_
+# when_room_allows; the TS3004d geometry is regression-guarded by
+# test_a_wide_interior_silence_gap_does_not_push_a_slice_past_max_s).
+# The flown run directory was not touched in either attempt.

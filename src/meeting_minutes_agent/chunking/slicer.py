@@ -520,7 +520,17 @@ def build_turn_aware_slice_plan(
                 bounds = bounds[:-2] + [(prev_start, last_end, False)]
 
     # Tile inter-turn silence gaps at their midpoint (never inside a turn,
-    # by construction) rather than dropping that audio. The OUTER edges
+    # by construction) rather than dropping that audio -- room-capped: each
+    # neighbor absorbs at most the room it has left under ``max_s``, with
+    # any leftover spilling to the other side's remaining room, and silence
+    # the pair cannot absorb staying uncovered rather than oversizing a
+    # slice. (A flat midpoint split used to push a near-cap group past
+    # ``max_s`` whenever a wide silence gap adjoined it -- first hit on
+    # TS3004d's real AMI oracle turn table during the 2026-08-19 DIAR-SMOKE
+    # read: a 101.1s group + half of a 48.3s gap = 125.3s > 120s,
+    # TransportBoundViolation at finalize. When both rooms cover their
+    # halves the split IS the plain midpoint, so every previously-valid
+    # plan is unchanged.) The OUTER edges
     # (before the first turn, after the last turn) are different: that
     # silence is not between two turns needing a midpoint split, it is
     # leading/trailing non-speech the meeting may carry arbitrarily much
@@ -546,9 +556,14 @@ def build_turn_aware_slice_plan(
         gap_end = tiled[k][1]
         gap_start = tiled[k + 1][0]
         if gap_start > gap_end:
-            midpoint = (gap_end + gap_start) / 2.0
-            tiled[k][1] = midpoint
-            tiled[k + 1][0] = midpoint
+            gap = gap_start - gap_end
+            left_room = max(0.0, max_s - (tiled[k][1] - tiled[k][0]))
+            right_room = max(0.0, max_s - (tiled[k + 1][1] - tiled[k + 1][0]))
+            take_left = min(gap / 2.0, left_room)
+            take_right = min(gap - take_left, right_room)
+            take_left = min(gap - take_right, left_room)  # spill right's shortfall back left
+            tiled[k][1] = gap_end + take_left
+            tiled[k + 1][0] = gap_start - take_right
     if total_duration_s is not None and tiled:
         first_start, first_end = tiled[0]
         pullback = min(snap_s, max(0.0, max_s - (first_end - first_start)))
