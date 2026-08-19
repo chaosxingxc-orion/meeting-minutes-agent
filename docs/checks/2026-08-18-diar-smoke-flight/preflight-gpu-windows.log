@@ -1,0 +1,9 @@
+# Windows-side nvidia-smi preflight (before the WSL preflight/pytest run),
+# query: name,pstate,clocks.sm,clocks.max.sm,utilization.gpu,memory.used,temperature.gpu,clocks_throttle_reasons.active
+NVIDIA GeForce RTX 5090 Laptop GPU, P5, 1507 MHz, 3090 MHz, 0 %, 0 MiB, 43, 0x0000000000000000
+# Verdict: idle, healthy clocks (1507 of max 3090 MHz at P5), no throttle
+# reasons, no orphan processes. During the flight the WSL sampler recorded the
+# known benign 232 MHz reading under load (throttle word 0x4) with utilization
+# up to 96% and NO throughput anomaly (Arm B 4.1-4.6% of real time per
+# meeting); per program memory the 232 reading alone is not a fault signal --
+# throughput is the judgment, and it was normal.

@@ -1,0 +1,11 @@
+resume: skipping A/ES2011a (already ok)
+resume: skipping A/ES2011b (already ok)
+resume: skipping A/IS1008b (already ok)
+resume: skipping A/IS1008d (already ok)
+resume: skipping A/TS3004b (already ok)
+resume: skipping A/TS3004d (already ok)
+{
+  "n_error": 0,
+  "n_ok": 6,
+  "stopped_reason": null
+}

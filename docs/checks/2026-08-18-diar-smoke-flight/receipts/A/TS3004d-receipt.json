@@ -1,0 +1,49 @@
+{
+  "arm": "A",
+  "audio_path": "/mnt/e/chao_workspace/exploring-l4-intelligence/speechrl-data/datasets/ami/amicorpus/TS3004d/audio/TS3004d.Mix-Headset.wav",
+  "budget_after": {
+    "gpu_seconds_used": 1.1011005203000241,
+    "max_gpu_seconds": 3600.0,
+    "max_wall_seconds": 7200.0,
+    "wall_seconds_used": 356.5105578140028
+  },
+  "contacts": [
+    {
+      "args": [
+        "/home/chao/.venvs/diar/bin/python",
+        "/mnt/e/chao_workspace/exploring-l4-intelligence/speechrl-data/derived/meeting-minutes/diar-smoke/tooling/sortformer_diarize_arm_a.py",
+        "--model",
+        "/mnt/e/chao_workspace/exploring-l4-intelligence/speechrl-data/models/diar-sortformer-4spk-v2/diar_streaming_sortformer_4spk-v2.nemo",
+        "--audio",
+        "/mnt/e/chao_workspace/exploring-l4-intelligence/speechrl-data/datasets/ami/amicorpus/TS3004d/audio/TS3004d.Mix-Headset.wav",
+        "--rttm",
+        "/mnt/e/chao_workspace/exploring-l4-intelligence/speechrl-data/derived/meeting-minutes/diar-smoke/runs/2026-08-18-diar-smoke/rttm/A/TS3004d.rttm",
+        "--recording-id",
+        "TS3004d"
+      ],
+      "checkpoint_sha256": "b371afce2c4958186469df33d939936b9746c89f38b10a69cfd2c61254e83329",
+      "error": null,
+      "meeting_id": "TS3004d",
+      "recorded_utc": "2026-08-19T03:03:20.875013+00:00",
+      "return_code": 0,
+      "tool_name": "nemo-sortformer-diar-fp32",
+      "tool_version": "nemo_toolkit 3.0.0; torch 2.9.1+cu128; venv /home/chao/.venvs/diar (freeze /home/chao/tmpops/diar-wheels/diar-venv-freeze-2026-08-18.txt); wrapper sortformer_diarize_arm_a.py; HF revision 5240a64075176943f677d30fa2171c780229f341",
+      "wall_seconds": 37.66418373800116
+    }
+  ],
+  "error": null,
+  "gpu_seconds_estimate": 0.37677602375999414,
+  "gpu_snapshot": {
+    "clocks_sm_mhz": 180.0,
+    "memory_used_mib": 0.0,
+    "power_draw_w": 6.52,
+    "temperature_c": 47.0,
+    "utilization_gpu_pct": 1.0
+  },
+  "meeting_id": "TS3004d",
+  "n_turns": 1210,
+  "ok": true,
+  "recorded_utc": "2026-08-19T03:03:20.953767+00:00",
+  "rttm_path": "/mnt/e/chao_workspace/exploring-l4-intelligence/speechrl-data/derived/meeting-minutes/diar-smoke/runs/2026-08-18-diar-smoke/rttm/A/TS3004d.rttm",
+  "wall_seconds": 37.67760237599941
+}

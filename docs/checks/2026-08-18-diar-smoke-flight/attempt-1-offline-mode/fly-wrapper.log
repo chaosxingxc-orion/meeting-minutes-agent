@@ -1,0 +1,24 @@
+=== flight start 2026-08-19T02:57:09Z ===
+--- pre-run GPU snapshot ---
+0 %, 0 MiB, 1515 MHz, P5, 44
+=== launcher rc=0 ===
+=== structural stats (line counts + speaker-label counts only) ===
+A/ES2011a: 462 lines, 4 speaker labels [speaker_0,speaker_1,speaker_2,speaker_3]
+A/ES2011b: 607 lines, 4 speaker labels [speaker_0,speaker_1,speaker_2,speaker_3]
+A/IS1008b: 424 lines, 4 speaker labels [speaker_0,speaker_1,speaker_2,speaker_3]
+A/IS1008d: 511 lines, 4 speaker labels [speaker_0,speaker_1,speaker_2,speaker_3]
+A/TS3004b: 919 lines, 4 speaker labels [speaker_0,speaker_1,speaker_2,speaker_3]
+A/TS3004d: 1210 lines, 4 speaker labels [speaker_0,speaker_1,speaker_2,speaker_3]
+B/ES2011a: NO RTTM
+B/ES2011b: NO RTTM
+B/IS1008b: NO RTTM
+B/IS1008d: NO RTTM
+B/TS3004b: NO RTTM
+B/TS3004d: NO RTTM
+=== run-dir artefact hashes ===
+19 /mnt/c/Users/35686/AppData/Local/Temp/claude/D--chao-workspace-exploring-l4-intelligence-studies-speech-aware-evidence-acquisition/6d9f1834-68e9-41a7-bbcc-724898cf15a9/scratchpad/diar/logs/run-dir-artefacts.sha256
+=== post-run GPU snapshot ===
+0 %, 0 MiB, 180 MHz, P8, 47
+=== tree state after flight ===
+53bc5e191c56f2125953a7411c9ce9baa64023dd
+=== flight end 2026-08-19T03:03:31Z rc=0 ===

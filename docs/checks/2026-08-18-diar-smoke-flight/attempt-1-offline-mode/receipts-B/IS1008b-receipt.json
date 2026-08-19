@@ -1,0 +1,52 @@
+{
+  "arm": "B",
+  "audio_path": "/mnt/e/chao_workspace/exploring-l4-intelligence/speechrl-data/datasets/ami/amicorpus/IS1008b/audio/IS1008b.Mix-Headset.wav",
+  "budget_after": {
+    "gpu_seconds_used": 0.3090492616300253,
+    "max_gpu_seconds": 3600.0,
+    "max_wall_seconds": 7200.0,
+    "wall_seconds_used": 241.14623766799923
+  },
+  "contacts": [
+    {
+      "args": [
+        "/home/chao/nemo-speech.cpp/build/cuda-diar/bin/nemo-speech",
+        "diarize",
+        "/mnt/e/chao_workspace/exploring-l4-intelligence/speechrl-data/datasets/ami/amicorpus/IS1008b/audio/IS1008b.Mix-Headset.wav",
+        "--model",
+        "/mnt/e/chao_workspace/exploring-l4-intelligence/speechrl-data/models/diar-sortformer-4spk-v2/diar_streaming_sortformer_4spk-v2.q8_0.gguf",
+        "--offline",
+        "--format",
+        "rttm",
+        "--recording-id",
+        "IS1008b",
+        "--output",
+        "/mnt/e/chao_workspace/exploring-l4-intelligence/speechrl-data/derived/meeting-minutes/diar-smoke/runs/2026-08-18-diar-smoke/rttm/B/IS1008b.rttm",
+        "--force"
+      ],
+      "checkpoint_sha256": "0679cfeb1ce356d0dea9470b31274f4bfc7eb927497d82005483770666da998a",
+      "error": "ggml_cuda_init: found 1 CUDA devices (Total VRAM: 24462 MiB):\n  Device 0: NVIDIA GeForce RTX 5090 Laptop GPU, compute capability 12.0, VMM: yes, VRAM: 24462 MiB\n/home/chao/nemo-speech.cpp/src/runtime/ggml/backend.cpp:43:<init_backends> Found 2 devices.\n/home/chao/nemo-speech.cpp/src/runtime/ggml/backend.cpp:50:<init_backends> Device 0: CUDA0\n/home/chao/nemo-speech.cpp/src/runtime/ggml/backend.cpp:73:<init_backends> Using GPU backend: CUDA0\n/home/chao/nemo-speech.cpp/src/runtime/ggml/backend.cpp:101:<init_backends> Using CPU backend\n/home/chao/nemo-speech.cpp/src/runtime/ggml/backend.cpp:120:<init_backends> Buffer type: CUDA0\n/home/chao/nemo-speech.cpp/src/runtime/ggml/backend.cpp:120:<init_backends> Buffer type: CPU_REPACK\n/home/chao/nemo-speech.cpp/src/runtime/ggml/backend.cpp:120:<init_backends> Buffer type: CPU\n/home/chao/nemo-speech.cpp/src/runtime/ggml/loader.cpp:246:<GGUFLoader> GGUF file size: 147075776\n/home/chao/nemo-speech.cpp/src/runtime/ggml/loader.cpp:249:<GGUFLoader> GGUF has 971 tensors\n/home/chao/nemo-speech.cpp/src/runtime/ggml/loader.cpp:270:<GGUFLoader> Max tensor size: 19 MB\nnemo-speech diarize: /mnt/e/chao_workspace/exploring-l4-intelligence/speechrl-data/datasets/ami/amicorpus/IS1008b/audio/IS1008b.Mix-Headset.wav: diarize_offline: 22107 encoder frames exceeds the rel-pos table (5000 = ~6 min); use DiarStream for long-form audio\n",
+      "meeting_id": "IS1008b",
+      "recorded_utc": "2026-08-19T03:01:24.579818+00:00",
+      "return_code": 1,
+      "tool_name": "nemo-speech.cpp-cuda-q8_0",
+      "tool_version": "nemo-speech 1.0.0; commit 4c749a700500e077d4732a539eb082bf2208dac7; binary sha256 1a3e3f4fe7db4c48e5d6e44a76d5adf2bbfef80024c023b0eab2766eb61aca78; CMake preset cuda-diar; HF revision 5240a64075176943f677d30fa2171c780229f341",
+      "wall_seconds": 6.3020197529986035
+    }
+  ],
+  "error": "ToolDiarizationInvocationError: nemo-speech.cpp-cuda-q8_0 exited 1 for meeting_id='IS1008b': 'ggml_cuda_init: found 1 CUDA devices (Total VRAM: 24462 MiB):\\n  Device 0: NVIDIA GeForce RTX 5090 Laptop GPU, compute capability 12.0, VMM: yes, VRAM: 24462 MiB\\n/home/chao/nemo-speech.cpp/src/runtime/ggml/backend.cpp:43:<init_backends> Found 2 devices.\\n/home/chao/nemo-speech.cpp/src/runtime/ggml/backend.cpp:50:<init_backends> Device 0: CUDA0\\n/home/chao/nemo-speech.cpp/src/runtime/ggml/backend.cpp:73:<init_backends> Using GPU backend: CUDA0\\n/home/chao/nemo-speech.cpp/src/runtime/ggml/backend.cpp:101:<init_backends> Using CPU backend\\n/home/chao/nemo-speech.cpp/src/runtime/ggml/backend.cpp:120:<init_backends> Buffer type: CUDA0\\n/home/chao/nemo-speech.cpp/src/runtime/ggml/backend.cpp:120:<init_backends> Buffer type: CPU_REPACK\\n/home/chao/nemo-speech.cpp/src/runtime/ggml/backend.cpp:120:<init_backends> Buffer type: CPU\\n/home/chao/nemo-speech.cpp/src/runtime/ggml/loader.cpp:246:<GGUFLoader> GGUF file size: 147075776\\n/home/chao/nemo-speech.cpp/src/runtime/ggml/loader.cpp:249:<GGUFLoader> GGUF has 971 tensors\\n/home/chao/nemo-speech.cpp/src/runtime/ggml/loader.cpp:270:<GGUFLoader> Max tensor size: 19 MB\\nnemo-speech diarize: /mnt/e/chao_workspace/exploring-l4-intelligence/speechrl-data/datasets/ami/amicorpus/IS1008b/audio/IS1008b.Mix-Headset.wav: diarize_offline: 22107 encoder frames exceeds the rel-pos table (5000 = ~6 min); use DiarStream for long-form audio\\n'",
+  "gpu_seconds_estimate": 0.0,
+  "gpu_snapshot": {
+    "clocks_sm_mhz": 1515.0,
+    "memory_used_mib": 0.0,
+    "power_draw_w": 13.79,
+    "temperature_c": 46.0,
+    "utilization_gpu_pct": 0.0
+  },
+  "meeting_id": "IS1008b",
+  "n_turns": 0,
+  "ok": false,
+  "recorded_utc": "2026-08-19T03:01:24.658644+00:00",
+  "rttm_path": "/mnt/e/chao_workspace/exploring-l4-intelligence/speechrl-data/derived/meeting-minutes/diar-smoke/runs/2026-08-18-diar-smoke/rttm/B/IS1008b.rttm",
+  "wall_seconds": 6.307958143999713
+}

@@ -1,0 +1,40 @@
+{
+  "A": {
+    "tool_name": "nemo-sortformer-diar-fp32",
+    "tool_version": "nemo_toolkit 3.0.0; torch 2.9.1+cu128; venv /home/chao/.venvs/diar (freeze /home/chao/tmpops/diar-wheels/diar-venv-freeze-2026-08-18.txt); wrapper sortformer_diarize_arm_a.py; HF revision 5240a64075176943f677d30fa2171c780229f341",
+    "checkpoint_sha256": "b371afce2c4958186469df33d939936b9746c89f38b10a69cfd2c61254e83329",
+    "command_template": [
+      "/home/chao/.venvs/diar/bin/python",
+      "/mnt/e/chao_workspace/exploring-l4-intelligence/speechrl-data/derived/meeting-minutes/diar-smoke/tooling/sortformer_diarize_arm_a.py",
+      "--model",
+      "/mnt/e/chao_workspace/exploring-l4-intelligence/speechrl-data/models/diar-sortformer-4spk-v2/diar_streaming_sortformer_4spk-v2.nemo",
+      "--audio",
+      "{audio_path}",
+      "--rttm",
+      "{rttm_path}",
+      "--recording-id",
+      "{meeting_id}"
+    ],
+    "timeout_seconds": 3600
+  },
+  "B": {
+    "tool_name": "nemo-speech.cpp-cuda-q8_0",
+    "tool_version": "nemo-speech 1.0.0; commit 4c749a700500e077d4732a539eb082bf2208dac7; binary sha256 1a3e3f4fe7db4c48e5d6e44a76d5adf2bbfef80024c023b0eab2766eb61aca78; CMake preset cuda-diar; HF revision 5240a64075176943f677d30fa2171c780229f341; attempt-2 default streaming (DiarStream) mode: the registered --offline full-attention mode is hard-capped by the tool at 5000 encoder frames (~6 min audio) and refuses all six meetings",
+    "checkpoint_sha256": "0679cfeb1ce356d0dea9470b31274f4bfc7eb927497d82005483770666da998a",
+    "command_template": [
+      "/home/chao/nemo-speech.cpp/build/cuda-diar/bin/nemo-speech",
+      "diarize",
+      "{audio_path}",
+      "--model",
+      "/mnt/e/chao_workspace/exploring-l4-intelligence/speechrl-data/models/diar-sortformer-4spk-v2/diar_streaming_sortformer_4spk-v2.q8_0.gguf",
+      "--format",
+      "rttm",
+      "--recording-id",
+      "{meeting_id}",
+      "--output",
+      "{rttm_path}",
+      "--force"
+    ],
+    "timeout_seconds": 3600
+  }
+}

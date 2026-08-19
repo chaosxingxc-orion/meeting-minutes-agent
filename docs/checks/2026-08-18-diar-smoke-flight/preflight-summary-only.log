@@ -1,0 +1,21 @@
+{
+  "all_arms": [
+    "A",
+    "B",
+    "C"
+  ],
+  "gpu_hour_ceiling": 1.0,
+  "meetings": [
+    "ES2011a",
+    "ES2011b",
+    "IS1008b",
+    "IS1008d",
+    "TS3004b",
+    "TS3004d"
+  ],
+  "required_arms": [
+    "A",
+    "B"
+  ],
+  "wall_hour_ceiling": 2.0
+}

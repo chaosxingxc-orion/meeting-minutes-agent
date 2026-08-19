@@ -1,0 +1,325 @@
+{
+  "budget": {
+    "gpu_seconds_used": 0.0,
+    "max_gpu_seconds": 3600.0,
+    "max_wall_seconds": 7200.0,
+    "wall_seconds_used": 467.90258378499857
+  },
+  "ceilings": {
+    "max_gpu_hours": 1.0,
+    "max_wall_hours": 2.0
+  },
+  "n_contacts": 6,
+  "n_error": 0,
+  "n_ok": 6,
+  "outcomes": [
+    {
+      "arm": "B",
+      "audio_path": "/mnt/e/chao_workspace/exploring-l4-intelligence/speechrl-data/datasets/ami/amicorpus/ES2011a/audio/ES2011a.Mix-Headset.wav",
+      "budget_after": {
+        "gpu_seconds_used": 0.0,
+        "max_gpu_seconds": 3600.0,
+        "max_wall_seconds": 7200.0,
+        "wall_seconds_used": 49.95989769800144
+      },
+      "contacts": [
+        {
+          "args": [
+            "/home/chao/nemo-speech.cpp/build/cuda-diar/bin/nemo-speech",
+            "diarize",
+            "/mnt/e/chao_workspace/exploring-l4-intelligence/speechrl-data/datasets/ami/amicorpus/ES2011a/audio/ES2011a.Mix-Headset.wav",
+            "--model",
+            "/mnt/e/chao_workspace/exploring-l4-intelligence/speechrl-data/models/diar-sortformer-4spk-v2/diar_streaming_sortformer_4spk-v2.q8_0.gguf",
+            "--format",
+            "rttm",
+            "--recording-id",
+            "ES2011a",
+            "--output",
+            "/mnt/e/chao_workspace/exploring-l4-intelligence/speechrl-data/derived/meeting-minutes/diar-smoke/runs/2026-08-18-diar-smoke/rttm/B/ES2011a.rttm",
+            "--force"
+          ],
+          "checkpoint_sha256": "0679cfeb1ce356d0dea9470b31274f4bfc7eb927497d82005483770666da998a",
+          "error": null,
+          "meeting_id": "ES2011a",
+          "recorded_utc": "2026-08-19T03:07:59.973390+00:00",
+          "return_code": 0,
+          "tool_name": "nemo-speech.cpp-cuda-q8_0",
+          "tool_version": "nemo-speech 1.0.0; commit 4c749a700500e077d4732a539eb082bf2208dac7; binary sha256 1a3e3f4fe7db4c48e5d6e44a76d5adf2bbfef80024c023b0eab2766eb61aca78; CMake preset cuda-diar; HF revision 5240a64075176943f677d30fa2171c780229f341; attempt-2 default streaming (DiarStream) mode: the registered --offline full-attention mode is hard-capped by the tool at 5000 encoder frames (~6 min audio) and refuses all six meetings",
+          "wall_seconds": 49.67279675299869
+        }
+      ],
+      "error": null,
+      "gpu_seconds_estimate": 0.0,
+      "gpu_snapshot": {
+        "clocks_sm_mhz": 232.0,
+        "memory_used_mib": 0.0,
+        "power_draw_w": 8.3,
+        "temperature_c": 46.0,
+        "utilization_gpu_pct": 0.0
+      },
+      "meeting_id": "ES2011a",
+      "n_turns": 341,
+      "ok": true,
+      "recorded_utc": "2026-08-19T03:08:00.723202+00:00",
+      "rttm_path": "/mnt/e/chao_workspace/exploring-l4-intelligence/speechrl-data/derived/meeting-minutes/diar-smoke/runs/2026-08-18-diar-smoke/rttm/B/ES2011a.rttm",
+      "wall_seconds": 49.95989769800144
+    },
+    {
+      "arm": "B",
+      "audio_path": "/mnt/e/chao_workspace/exploring-l4-intelligence/speechrl-data/datasets/ami/amicorpus/ES2011b/audio/ES2011b.Mix-Headset.wav",
+      "budget_after": {
+        "gpu_seconds_used": 0.0,
+        "max_gpu_seconds": 3600.0,
+        "max_wall_seconds": 7200.0,
+        "wall_seconds_used": 115.11468257099841
+      },
+      "contacts": [
+        {
+          "args": [
+            "/home/chao/nemo-speech.cpp/build/cuda-diar/bin/nemo-speech",
+            "diarize",
+            "/mnt/e/chao_workspace/exploring-l4-intelligence/speechrl-data/datasets/ami/amicorpus/ES2011b/audio/ES2011b.Mix-Headset.wav",
+            "--model",
+            "/mnt/e/chao_workspace/exploring-l4-intelligence/speechrl-data/models/diar-sortformer-4spk-v2/diar_streaming_sortformer_4spk-v2.q8_0.gguf",
+            "--format",
+            "rttm",
+            "--recording-id",
+            "ES2011b",
+            "--output",
+            "/mnt/e/chao_workspace/exploring-l4-intelligence/speechrl-data/derived/meeting-minutes/diar-smoke/runs/2026-08-18-diar-smoke/rttm/B/ES2011b.rttm",
+            "--force"
+          ],
+          "checkpoint_sha256": "0679cfeb1ce356d0dea9470b31274f4bfc7eb927497d82005483770666da998a",
+          "error": null,
+          "meeting_id": "ES2011b",
+          "recorded_utc": "2026-08-19T03:09:07.146844+00:00",
+          "return_code": 0,
+          "tool_name": "nemo-speech.cpp-cuda-q8_0",
+          "tool_version": "nemo-speech 1.0.0; commit 4c749a700500e077d4732a539eb082bf2208dac7; binary sha256 1a3e3f4fe7db4c48e5d6e44a76d5adf2bbfef80024c023b0eab2766eb61aca78; CMake preset cuda-diar; HF revision 5240a64075176943f677d30fa2171c780229f341; attempt-2 default streaming (DiarStream) mode: the registered --offline full-attention mode is hard-capped by the tool at 5000 encoder frames (~6 min audio) and refuses all six meetings",
+          "wall_seconds": 64.85936317400046
+        }
+      ],
+      "error": null,
+      "gpu_seconds_estimate": 0.0,
+      "gpu_snapshot": {
+        "clocks_sm_mhz": 232.0,
+        "memory_used_mib": 0.0,
+        "power_draw_w": 11.92,
+        "temperature_c": 48.0,
+        "utilization_gpu_pct": 0.0
+      },
+      "meeting_id": "ES2011b",
+      "n_turns": 436,
+      "ok": true,
+      "recorded_utc": "2026-08-19T03:09:07.644956+00:00",
+      "rttm_path": "/mnt/e/chao_workspace/exploring-l4-intelligence/speechrl-data/derived/meeting-minutes/diar-smoke/runs/2026-08-18-diar-smoke/rttm/B/ES2011b.rttm",
+      "wall_seconds": 65.15478487299697
+    },
+    {
+      "arm": "B",
+      "audio_path": "/mnt/e/chao_workspace/exploring-l4-intelligence/speechrl-data/datasets/ami/amicorpus/IS1008b/audio/IS1008b.Mix-Headset.wav",
+      "budget_after": {
+        "gpu_seconds_used": 0.0,
+        "max_gpu_seconds": 3600.0,
+        "max_wall_seconds": 7200.0,
+        "wall_seconds_used": 187.41706258799604
+      },
+      "contacts": [
+        {
+          "args": [
+            "/home/chao/nemo-speech.cpp/build/cuda-diar/bin/nemo-speech",
+            "diarize",
+            "/mnt/e/chao_workspace/exploring-l4-intelligence/speechrl-data/datasets/ami/amicorpus/IS1008b/audio/IS1008b.Mix-Headset.wav",
+            "--model",
+            "/mnt/e/chao_workspace/exploring-l4-intelligence/speechrl-data/models/diar-sortformer-4spk-v2/diar_streaming_sortformer_4spk-v2.q8_0.gguf",
+            "--format",
+            "rttm",
+            "--recording-id",
+            "IS1008b",
+            "--output",
+            "/mnt/e/chao_workspace/exploring-l4-intelligence/speechrl-data/derived/meeting-minutes/diar-smoke/runs/2026-08-18-diar-smoke/rttm/B/IS1008b.rttm",
+            "--force"
+          ],
+          "checkpoint_sha256": "0679cfeb1ce356d0dea9470b31274f4bfc7eb927497d82005483770666da998a",
+          "error": null,
+          "meeting_id": "IS1008b",
+          "recorded_utc": "2026-08-19T03:10:20.342780+00:00",
+          "return_code": 0,
+          "tool_name": "nemo-speech.cpp-cuda-q8_0",
+          "tool_version": "nemo-speech 1.0.0; commit 4c749a700500e077d4732a539eb082bf2208dac7; binary sha256 1a3e3f4fe7db4c48e5d6e44a76d5adf2bbfef80024c023b0eab2766eb61aca78; CMake preset cuda-diar; HF revision 5240a64075176943f677d30fa2171c780229f341; attempt-2 default streaming (DiarStream) mode: the registered --offline full-attention mode is hard-capped by the tool at 5000 encoder frames (~6 min audio) and refuses all six meetings",
+          "wall_seconds": 72.05033436099984
+        }
+      ],
+      "error": null,
+      "gpu_seconds_estimate": 0.0,
+      "gpu_snapshot": {
+        "clocks_sm_mhz": 232.0,
+        "memory_used_mib": 0.0,
+        "power_draw_w": 8.26,
+        "temperature_c": 47.0,
+        "utilization_gpu_pct": 0.0
+      },
+      "meeting_id": "IS1008b",
+      "n_turns": 317,
+      "ok": true,
+      "recorded_utc": "2026-08-19T03:10:21.010264+00:00",
+      "rttm_path": "/mnt/e/chao_workspace/exploring-l4-intelligence/speechrl-data/derived/meeting-minutes/diar-smoke/runs/2026-08-18-diar-smoke/rttm/B/IS1008b.rttm",
+      "wall_seconds": 72.30238001699763
+    },
+    {
+      "arm": "B",
+      "audio_path": "/mnt/e/chao_workspace/exploring-l4-intelligence/speechrl-data/datasets/ami/amicorpus/IS1008d/audio/IS1008d.Mix-Headset.wav",
+      "budget_after": {
+        "gpu_seconds_used": 0.0,
+        "max_gpu_seconds": 3600.0,
+        "max_wall_seconds": 7200.0,
+        "wall_seconds_used": 250.66293547899477
+      },
+      "contacts": [
+        {
+          "args": [
+            "/home/chao/nemo-speech.cpp/build/cuda-diar/bin/nemo-speech",
+            "diarize",
+            "/mnt/e/chao_workspace/exploring-l4-intelligence/speechrl-data/datasets/ami/amicorpus/IS1008d/audio/IS1008d.Mix-Headset.wav",
+            "--model",
+            "/mnt/e/chao_workspace/exploring-l4-intelligence/speechrl-data/models/diar-sortformer-4spk-v2/diar_streaming_sortformer_4spk-v2.q8_0.gguf",
+            "--format",
+            "rttm",
+            "--recording-id",
+            "IS1008d",
+            "--output",
+            "/mnt/e/chao_workspace/exploring-l4-intelligence/speechrl-data/derived/meeting-minutes/diar-smoke/runs/2026-08-18-diar-smoke/rttm/B/IS1008d.rttm",
+            "--force"
+          ],
+          "checkpoint_sha256": "0679cfeb1ce356d0dea9470b31274f4bfc7eb927497d82005483770666da998a",
+          "error": null,
+          "meeting_id": "IS1008d",
+          "recorded_utc": "2026-08-19T03:11:24.528467+00:00",
+          "return_code": 0,
+          "tool_name": "nemo-speech.cpp-cuda-q8_0",
+          "tool_version": "nemo-speech 1.0.0; commit 4c749a700500e077d4732a539eb082bf2208dac7; binary sha256 1a3e3f4fe7db4c48e5d6e44a76d5adf2bbfef80024c023b0eab2766eb61aca78; CMake preset cuda-diar; HF revision 5240a64075176943f677d30fa2171c780229f341; attempt-2 default streaming (DiarStream) mode: the registered --offline full-attention mode is hard-capped by the tool at 5000 encoder frames (~6 min audio) and refuses all six meetings",
+          "wall_seconds": 62.969298758998775
+        }
+      ],
+      "error": null,
+      "gpu_seconds_estimate": 0.0,
+      "gpu_snapshot": {
+        "clocks_sm_mhz": 232.0,
+        "memory_used_mib": 0.0,
+        "power_draw_w": 7.68,
+        "temperature_c": 48.0,
+        "utilization_gpu_pct": 0.0
+      },
+      "meeting_id": "IS1008d",
+      "n_turns": 414,
+      "ok": true,
+      "recorded_utc": "2026-08-19T03:11:25.538441+00:00",
+      "rttm_path": "/mnt/e/chao_workspace/exploring-l4-intelligence/speechrl-data/derived/meeting-minutes/diar-smoke/runs/2026-08-18-diar-smoke/rttm/B/IS1008d.rttm",
+      "wall_seconds": 63.245872890998726
+    },
+    {
+      "arm": "B",
+      "audio_path": "/mnt/e/chao_workspace/exploring-l4-intelligence/speechrl-data/datasets/ami/amicorpus/TS3004b/audio/TS3004b.Mix-Headset.wav",
+      "budget_after": {
+        "gpu_seconds_used": 0.0,
+        "max_gpu_seconds": 3600.0,
+        "max_wall_seconds": 7200.0,
+        "wall_seconds_used": 353.7598657289964
+      },
+      "contacts": [
+        {
+          "args": [
+            "/home/chao/nemo-speech.cpp/build/cuda-diar/bin/nemo-speech",
+            "diarize",
+            "/mnt/e/chao_workspace/exploring-l4-intelligence/speechrl-data/datasets/ami/amicorpus/TS3004b/audio/TS3004b.Mix-Headset.wav",
+            "--model",
+            "/mnt/e/chao_workspace/exploring-l4-intelligence/speechrl-data/models/diar-sortformer-4spk-v2/diar_streaming_sortformer_4spk-v2.q8_0.gguf",
+            "--format",
+            "rttm",
+            "--recording-id",
+            "TS3004b",
+            "--output",
+            "/mnt/e/chao_workspace/exploring-l4-intelligence/speechrl-data/derived/meeting-minutes/diar-smoke/runs/2026-08-18-diar-smoke/rttm/B/TS3004b.rttm",
+            "--force"
+          ],
+          "checkpoint_sha256": "0679cfeb1ce356d0dea9470b31274f4bfc7eb927497d82005483770666da998a",
+          "error": null,
+          "meeting_id": "TS3004b",
+          "recorded_utc": "2026-08-19T03:13:09.021788+00:00",
+          "return_code": 0,
+          "tool_name": "nemo-speech.cpp-cuda-q8_0",
+          "tool_version": "nemo-speech 1.0.0; commit 4c749a700500e077d4732a539eb082bf2208dac7; binary sha256 1a3e3f4fe7db4c48e5d6e44a76d5adf2bbfef80024c023b0eab2766eb61aca78; CMake preset cuda-diar; HF revision 5240a64075176943f677d30fa2171c780229f341; attempt-2 default streaming (DiarStream) mode: the registered --offline full-attention mode is hard-capped by the tool at 5000 encoder frames (~6 min audio) and refuses all six meetings",
+          "wall_seconds": 102.76883802500015
+        }
+      ],
+      "error": null,
+      "gpu_seconds_estimate": 0.0,
+      "gpu_snapshot": {
+        "clocks_sm_mhz": 232.0,
+        "memory_used_mib": 0.0,
+        "power_draw_w": 8.0,
+        "temperature_c": 50.0,
+        "utilization_gpu_pct": 0.0
+      },
+      "meeting_id": "TS3004b",
+      "n_turns": 738,
+      "ok": true,
+      "recorded_utc": "2026-08-19T03:13:09.791017+00:00",
+      "rttm_path": "/mnt/e/chao_workspace/exploring-l4-intelligence/speechrl-data/derived/meeting-minutes/diar-smoke/runs/2026-08-18-diar-smoke/rttm/B/TS3004b.rttm",
+      "wall_seconds": 103.0969302500016
+    },
+    {
+      "arm": "B",
+      "audio_path": "/mnt/e/chao_workspace/exploring-l4-intelligence/speechrl-data/datasets/ami/amicorpus/TS3004d/audio/TS3004d.Mix-Headset.wav",
+      "budget_after": {
+        "gpu_seconds_used": 0.0,
+        "max_gpu_seconds": 3600.0,
+        "max_wall_seconds": 7200.0,
+        "wall_seconds_used": 467.90258378499857
+      },
+      "contacts": [
+        {
+          "args": [
+            "/home/chao/nemo-speech.cpp/build/cuda-diar/bin/nemo-speech",
+            "diarize",
+            "/mnt/e/chao_workspace/exploring-l4-intelligence/speechrl-data/datasets/ami/amicorpus/TS3004d/audio/TS3004d.Mix-Headset.wav",
+            "--model",
+            "/mnt/e/chao_workspace/exploring-l4-intelligence/speechrl-data/models/diar-sortformer-4spk-v2/diar_streaming_sortformer_4spk-v2.q8_0.gguf",
+            "--format",
+            "rttm",
+            "--recording-id",
+            "TS3004d",
+            "--output",
+            "/mnt/e/chao_workspace/exploring-l4-intelligence/speechrl-data/derived/meeting-minutes/diar-smoke/runs/2026-08-18-diar-smoke/rttm/B/TS3004d.rttm",
+            "--force"
+          ],
+          "checkpoint_sha256": "0679cfeb1ce356d0dea9470b31274f4bfc7eb927497d82005483770666da998a",
+          "error": null,
+          "meeting_id": "TS3004d",
+          "recorded_utc": "2026-08-19T03:15:04.604028+00:00",
+          "return_code": 0,
+          "tool_name": "nemo-speech.cpp-cuda-q8_0",
+          "tool_version": "nemo-speech 1.0.0; commit 4c749a700500e077d4732a539eb082bf2208dac7; binary sha256 1a3e3f4fe7db4c48e5d6e44a76d5adf2bbfef80024c023b0eab2766eb61aca78; CMake preset cuda-diar; HF revision 5240a64075176943f677d30fa2171c780229f341; attempt-2 default streaming (DiarStream) mode: the registered --offline full-attention mode is hard-capped by the tool at 5000 encoder frames (~6 min audio) and refuses all six meetings",
+          "wall_seconds": 113.8437274909993
+        }
+      ],
+      "error": null,
+      "gpu_seconds_estimate": 0.0,
+      "gpu_snapshot": {
+        "clocks_sm_mhz": 232.0,
+        "memory_used_mib": 0.0,
+        "power_draw_w": 7.97,
+        "temperature_c": 51.0,
+        "utilization_gpu_pct": 0.0
+      },
+      "meeting_id": "TS3004d",
+      "n_turns": 1024,
+      "ok": true,
+      "recorded_utc": "2026-08-19T03:15:05.150015+00:00",
+      "rttm_path": "/mnt/e/chao_workspace/exploring-l4-intelligence/speechrl-data/derived/meeting-minutes/diar-smoke/runs/2026-08-18-diar-smoke/rttm/B/TS3004d.rttm",
+      "wall_seconds": 114.1427180560022
+    }
+  ],
+  "schema_version": "1.0.0",
+  "stopped_reason": null
+}

@@ -1,0 +1,20 @@
+# expected-hash table (pin sources: umbrella docs/datasets.lock.json diar-sortformer-4spk-v2;
+# umbrella docs/checks/meeting-minutes-agent/2026-08-18-diar-acquisition/README.md;
+# meeting repo configs/probes/pattr/2026-08-18-pattr-smoke-manifest.json audio_sha256)
+OK   arm-A-nemo-checkpoint  b371afce2c4958186469df33d939936b9746c89f38b10a69cfd2c61254e83329
+OK   arm-B-gguf-checkpoint  0679cfeb1ce356d0dea9470b31274f4bfc7eb927497d82005483770666da998a
+OK   arm-B-binary-nemo-speech  1a3e3f4fe7db4c48e5d6e44a76d5adf2bbfef80024c023b0eab2766eb61aca78
+OK   wav-ES2011b  63459ac9811903fe49f79982e9155b457425fa62c5f1f47d4047f512cd348c83
+OK   wav-IS1008b  0d992a210480c6e9652b317ed7f66261e80a1aa86f7e5c3dffd10e81b8e30de2
+OK   wav-IS1008d  22bc4c5ef7c033427426e84b168f71d162a42ed287ae4781aa2f6c06b67a6177
+OK   wav-TS3004b  3c8e8e9f4b24cc9a8c2fa5932cbecebcf9d14b6b415ac48d6229547fc014c9b2
+--- first-pin hashes (no prior per-file pin exists in any Git manifest for these two) ---
+PIN  wav-ES2011a  130bc4218891a5b4cdbedcd716c94cd062f6ea13b2c19b77fe9d82e4023e1c78
+PIN  wav-TS3004d  d89950bb537e05939994c06083447bd820a86a64cb32aec4d691e7096f974cdf
+--- WAV header sanity (all six) ---
+OK   ES2011a: 16000 Hz, 1 ch, 16-bit, 1113.8 s
+OK   ES2011b: 16000 Hz, 1 ch, 16-bit, 1581.3 s
+OK   IS1008b: 16000 Hz, 1 ch, 16-bit, 1768.5 s
+OK   IS1008d: 16000 Hz, 1 ch, 16-bit, 1480.8 s
+OK   TS3004b: 16000 Hz, 1 ch, 16-bit, 2246.1 s
+OK   TS3004d: 16000 Hz, 1 ch, 16-bit, 2750.8 s
