@@ -80,8 +80,13 @@ g1-supplement`` (500 calls / 1.0 GPU-h encode / 1.0 h CPU-cutting wall,
 silently reusing ``--wave``'s own ceilings; its receipts default to a
 separate ``docs/checks/2026-08-19-g1-supplement/`` output directory so its
 own budget precharge (:func:`load_wave_receipts`) never inherits wave-1's
-already-spent usage. Example (still MACHINERY ONLY until a coordinator-
-reviewed real flight)::
+already-spent usage. Every ``--turn-sources vad`` invocation also persists
+each meeting's built :class:`~meeting_minutes_agent.chunking.slicer.SlicePlan`
+as JSON under ``vad_manifest_dir(derived_root)`` (a flat sibling of
+``vad_slice_dir``, one ``<meeting_id>.json`` per meeting) -- point
+``scripts/run_g1.py --vad-manifest-dir`` at that SAME directory to run
+Z-nodiar over this wave's output. Example (still MACHINERY ONLY until a
+coordinator-reviewed real flight)::
 
     python scripts/run_precomp.py \\
         --wave 1 --data-dir "$SPEECHRL_DATA_DIR" \\
@@ -205,6 +210,17 @@ def oracle_slice_dir(derived_root: Path, meeting_id: str) -> Path:
 
 def vad_slice_dir(derived_root: Path, meeting_id: str) -> Path:
     return derived_root / "slices" / "vad" / meeting_id
+
+
+def vad_manifest_dir(derived_root: Path) -> Path:
+    """Where this wave persists every meeting's VAD :class:`SlicePlan`
+    manifest (``precomp.pipeline.write_vad_slice_plan_manifest``): a FLAT
+    sibling of ``vad_slice_dir`` (no per-meeting subdirectory -- the
+    manifest filename itself already carries the meeting id), matching
+    exactly what ``run_g1.py --vad-manifest-dir`` is meant to be pointed
+    at."""
+
+    return derived_root / "slices" / "vad-manifest"
 
 
 def missing_required_args(
@@ -377,6 +393,7 @@ def run_wave(
                 tool_slice_dir=tool_slice_dir(derived_root, meeting_id),
                 oracle_slice_dir=oracle_slice_dir(derived_root, meeting_id),
                 vad_slice_dir=vad_slice_dir(derived_root, meeting_id),
+                vad_manifest_dir=vad_manifest_dir(derived_root),
                 transport=transport,
                 budget=budget,
                 cache_dir=cache_dir,

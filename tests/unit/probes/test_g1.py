@@ -275,6 +275,36 @@ class TestVadSupplement:
             g1.load_vad_slice_plan(missing_dir / "MTG1.json")
 
 
+class TestVadSupplementPrecompIntegration:
+    """End to end across the two, concurrently-developed modules: the REAL
+    PRECOMP writer (``precomp.pipeline.write_vad_slice_plan_manifest``)
+    persists a manifest this module's own fail-closed loader then reads
+    back and hands to a real Z-nodiar request builder -- proving the gap
+    between "PRECOMP writes cut WAVs + receipt hashes" and "Z-nodiar
+    consumes a SlicePlan manifest JSON" is actually closed, not just each
+    side's own isolated fixtures happening to agree."""
+
+    def test_precomp_written_manifest_loads_and_builds_z_nodiar_requests(self, tmp_path):
+        from meeting_minutes_agent.chunking.slicer import build_vad_slice_plan, SlicePlanMode
+        from meeting_minutes_agent.precomp.pipeline import write_vad_slice_plan_manifest
+
+        plan = build_vad_slice_plan("MTG1", 200.0)
+        manifest_dir = tmp_path / "vad-manifests"
+        written_path = write_vad_slice_plan_manifest(manifest_dir, plan)
+        assert written_path == manifest_dir / "MTG1.json"  # the naming/dir convention this loader expects
+
+        loaded = g1.load_vad_slice_plan(written_path)
+        assert loaded.meeting_id == "MTG1"
+        assert loaded.mode == SlicePlanMode.VAD
+        assert loaded.turn_provenance is None
+        assert loaded.content_hash == plan.content_hash
+        assert len(loaded.slices) == len(plan.slices)
+
+        specs = g1.build_transcribe_requests(g1.ARM_Z_NODIAR, "MTG1", loaded, slice_dir_relative="derived/slices/vad")
+        assert len(specs) == len(loaded.slices)
+        assert specs[0].audio_relpath == f"derived/slices/vad/MTG1/{g1.slice_filename('MTG1', 0)}"
+
+
 # ---------------------------------------------------------------------------
 # slice_filename convention
 # ---------------------------------------------------------------------------

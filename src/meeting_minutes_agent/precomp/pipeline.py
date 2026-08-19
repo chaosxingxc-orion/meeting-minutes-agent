@@ -52,6 +52,19 @@ and the receipt's ``slice_plans``/``cutting``/``encode_warm`` blocks always
 carry all three keys (``"tool"``/``"oracle"``/``"vad"``), ``None``/empty
 for whichever source was not requested this call -- see
 :mod:`.receipts`'s schema-versioning note.
+
+Whenever :data:`VAD_SOURCE` is requested, this pipeline also PERSISTS the
+built :class:`~..chunking.slicer.SlicePlan` as JSON under
+``vad_manifest_dir`` (:func:`write_vad_slice_plan_manifest`, the
+``SlicePlan.to_dict()`` shape, one ``<meeting_id>.json`` file per meeting)
+-- the one artifact G1's Z-nodiar arm actually consumes
+(:func:`meeting_minutes_agent.probes.g1.load_vad_slice_plan`, fail-closed
+via ``G1VadSupplementMissingError``, read through ``scripts/run_g1.py``'s
+``--vad-manifest-dir``). Before this, the VAD source cut real slice WAVs
+and warmed the feature cache but never materialized this manifest, so a
+real Z-nodiar flight had no supplement to read. ``vad_manifest_dir`` is
+therefore required exactly like ``vad_slice_dir`` whenever ``"vad"`` is
+requested (fail-closed, :class:`InvalidTurnSourcesError`).
 """
 
 from __future__ import annotations
@@ -94,7 +107,7 @@ from ..probes.diar_smoke import (
 from .budget import PrecompBudget, PrecompBudgetExceeded
 from .encode_warm import DEFAULT_ENCODE_WARM_MAX_TOKENS, encode_warm_manifest
 from .metrics import build_meeting_metrics, snapshot_cache_dir
-from .receipts import build_meeting_receipt
+from .receipts import build_meeting_receipt, fsync_write_json
 
 __all__ = [
     "DEFAULT_WORKERS",
@@ -109,6 +122,8 @@ __all__ = [
     "require_meeting_audio_path",
     "query_gpu_utilization_snapshot",
     "cut_slice_plans_parallel",
+    "vad_slice_plan_manifest_path",
+    "write_vad_slice_plan_manifest",
     "run_meeting",
 ]
 
@@ -181,6 +196,42 @@ def _iso_now() -> str:
     return datetime.now(timezone.utc).isoformat()
 
 
+# ---------------------------------------------------------------------------
+# VAD slice-plan manifest persistence (closes the G1 Z-nodiar gap: this
+# supplement previously cut real slice WAVs and warmed the feature cache but
+# never materialized the one artifact Z-nodiar's own fail-closed loader
+# requires -- ``probes/g1.py``'s ``load_vad_slice_plan``/
+# ``G1VadSupplementMissingError``, consumed via ``scripts/run_g1.py``'s
+# ``--vad-manifest-dir``)
+# ---------------------------------------------------------------------------
+
+
+def vad_slice_plan_manifest_path(vad_manifest_dir: Path | str, meeting_id: str) -> Path:
+    """Where the VAD supplement persists ``meeting_id``'s materialized
+    :class:`~..chunking.slicer.SlicePlan` as JSON: ``<vad_manifest_dir>/
+    <meeting_id>.json`` -- the EXACT naming/dir convention
+    :func:`meeting_minutes_agent.probes.g1.load_vad_slice_plan` reads
+    (``scripts/run_g1.py``'s own ``resolve_slice_plan``:
+    ``Path(vad_manifest_dir) / f"{meeting_id}.json"``), so a real flight
+    only needs to point ``--vad-manifest-dir`` at the SAME directory this
+    module's own ``vad_manifest_dir`` argument names -- no translation, no
+    second convention to keep in sync."""
+
+    return Path(vad_manifest_dir) / f"{meeting_id}.json"
+
+
+def write_vad_slice_plan_manifest(vad_manifest_dir: Path | str, plan: SlicePlan) -> Path:
+    """Persist ``plan`` (already ``_assert_transport_bound``-checked inside
+    :func:`~..chunking.slicer.build_vad_slice_plan` itself) as the
+    ``SlicePlan.to_dict()``-shaped JSON G1's Z-nodiar arm loads, fsynced --
+    the same durability discipline :func:`~.receipts.fsync_write_json`
+    already applies to every other PRECOMP receipt this pipeline writes."""
+
+    path = vad_slice_plan_manifest_path(vad_manifest_dir, plan.meeting_id)
+    fsync_write_json(path, plan.to_dict())
+    return path
+
+
 def cut_slice_plans_parallel(
     jobs: Mapping[str, tuple[SlicePlan, Path, Path]],
     *,
@@ -222,6 +273,7 @@ def run_meeting(
     tool_slice_dir: Path,
     oracle_slice_dir: Path,
     vad_slice_dir: Path | None = None,
+    vad_manifest_dir: Path | None = None,
     transport: LlamaServerTransport,
     budget: PrecompBudget,
     cache_dir: Path,
@@ -251,7 +303,15 @@ def run_meeting(
     pure-VAD stage: the diar contact, the oracle resolution, and both
     turn-aware slice plans are skipped entirely (never even attempted), and
     ``tool_config``/``nxt_corpus`` go unused for that call -- ``tool_config``
-    may be left ``None`` whenever :data:`TOOL_SOURCE` is not requested."""
+    may be left ``None`` whenever :data:`TOOL_SOURCE` is not requested.
+    Whenever :data:`VAD_SOURCE` IS requested, the built VAD
+    :class:`~..chunking.slicer.SlicePlan` is also persisted, fsynced, to
+    ``vad_manifest_dir`` (:func:`write_vad_slice_plan_manifest`) -- required
+    exactly like ``vad_slice_dir`` (same fail-closed rule, one level up:
+    Z-nodiar's own loader, ``probes/g1.py``'s ``load_vad_slice_plan``, fails
+    closed on a missing manifest; this pipeline now fails closed BEFORE that
+    point, on a missing ``vad_manifest_dir``, rather than silently cutting
+    WAVs a later G1 flight could never resolve a slice plan for)."""
 
     turn_sources = _normalize_turn_sources(turn_sources)
     need_tool = TOOL_SOURCE in turn_sources
@@ -259,6 +319,8 @@ def run_meeting(
     need_vad = VAD_SOURCE in turn_sources
     if need_vad and vad_slice_dir is None:
         raise InvalidTurnSourcesError("turn_sources includes 'vad' but vad_slice_dir was not given")
+    if need_vad and vad_manifest_dir is None:
+        raise InvalidTurnSourcesError("turn_sources includes 'vad' but vad_manifest_dir was not given")
     if need_tool and tool_config is None:
         raise InvalidTurnSourcesError("turn_sources includes 'tool' but tool_config was not given")
 
@@ -359,10 +421,12 @@ def run_meeting(
                 max_s=max_s,
                 snap_s=snap_s,
             )
+            manifest_path = write_vad_slice_plan_manifest(vad_manifest_dir, vad_plan)
             slice_plans_block["vad"] = {
                 "content_hash": vad_plan.content_hash,
                 "n_slices": len(vad_plan.slices),
                 "turn_provenance": None,
+                "manifest_path": str(manifest_path),
             }
 
         # -- 4. CPU slice cutting: worker pool, one job per requested

@@ -32,6 +32,8 @@ from meeting_minutes_agent.precomp.pipeline import (
     InvalidTurnSourcesError,
     cut_slice_plans_parallel,
     run_meeting,
+    vad_slice_plan_manifest_path,
+    write_vad_slice_plan_manifest,
 )
 
 _SECRET_MARKER = "SECRET-GENERATED-TEXT-MARKER-0xDEADBEEF"
@@ -371,6 +373,10 @@ def _vad_slice_dir(tmp_path: Path, meeting_id: str) -> Path:
     return tmp_path / "derived" / "slices" / "vad" / meeting_id
 
 
+def _vad_manifest_dir(tmp_path: Path) -> Path:
+    return tmp_path / "derived" / "slices" / "vad-manifest"
+
+
 class TestRunMeetingVadSource:
     def test_vad_only_skips_diar_and_oracle_entirely_and_populates_only_vad_blocks(self, tmp_path, monkeypatch):
         fx = _fixtures(tmp_path)
@@ -396,6 +402,7 @@ class TestRunMeetingVadSource:
             tool_slice_dir=fx["tool_slice_dir"],
             oracle_slice_dir=fx["oracle_slice_dir"],
             vad_slice_dir=_vad_slice_dir(tmp_path, fx["meeting_id"]),
+            vad_manifest_dir=_vad_manifest_dir(tmp_path),
             transport=fx["transport"],
             budget=budget,
             cache_dir=fx["cache_dir"],
@@ -433,6 +440,18 @@ class TestRunMeetingVadSource:
         assert "cache" in receipt["metrics"]
         assert "walls" in receipt["metrics"]
 
+        # the G1 Z-nodiar gap this closes: a real, loadable SlicePlan
+        # manifest, at the EXACT path probes/g1.py's loader expects.
+        manifest_path = _vad_manifest_dir(tmp_path) / f"{fx['meeting_id']}.json"
+        assert manifest_path.is_file()
+        assert receipt["slice_plans"]["vad"]["manifest_path"] == str(manifest_path)
+        manifest_document = json.loads(manifest_path.read_text(encoding="utf-8"))
+        assert manifest_document["meeting_id"] == fx["meeting_id"]
+        assert manifest_document["mode"] == "vad"
+        assert manifest_document["turn_provenance"] is None
+        assert manifest_document["content_hash"] == receipt["slice_plans"]["vad"]["content_hash"]
+        assert len(manifest_document["slices"]) == receipt["slice_plans"]["vad"]["n_slices"]
+
     def test_vad_only_succeeds_even_when_the_diar_ceiling_is_already_exhausted(self, tmp_path):
         # Proves the diar budget axis is never even CHECKED for a vad-only
         # call (module docstring): a ceiling that would refuse the very
@@ -452,6 +471,7 @@ class TestRunMeetingVadSource:
             tool_slice_dir=fx["tool_slice_dir"],
             oracle_slice_dir=fx["oracle_slice_dir"],
             vad_slice_dir=_vad_slice_dir(tmp_path, fx["meeting_id"]),
+            vad_manifest_dir=_vad_manifest_dir(tmp_path),
             transport=fx["transport"],
             budget=budget,
             cache_dir=fx["cache_dir"],
@@ -501,6 +521,7 @@ class TestRunMeetingVadSource:
             tool_slice_dir=fx["tool_slice_dir"],
             oracle_slice_dir=fx["oracle_slice_dir"],
             vad_slice_dir=_vad_slice_dir(tmp_path, fx["meeting_id"]),
+            vad_manifest_dir=_vad_manifest_dir(tmp_path),
             transport=fx["transport"],
             budget=budget,
             cache_dir=fx["cache_dir"],
@@ -533,6 +554,7 @@ class TestRunMeetingVadSource:
             tool_slice_dir=fx["tool_slice_dir"],
             oracle_slice_dir=fx["oracle_slice_dir"],
             vad_slice_dir=_vad_slice_dir(tmp_path, fx["meeting_id"]),
+            vad_manifest_dir=_vad_manifest_dir(tmp_path),
             transport=fx["transport"],
             budget=PrecompBudget(ceilings_for_wave(1)),
             cache_dir=fx["cache_dir"],
@@ -544,6 +566,12 @@ class TestRunMeetingVadSource:
         assert "vad cutting exploded" in receipt["error"]
         assert receipt["slice_plans"]["vad"] is not None  # plan built before cutting failed
         assert receipt["cutting"]["vad"] is None  # cutting itself never completed
+        # the manifest is written BEFORE cutting (module docstring: it
+        # depends only on the plan, never on cutting succeeding) -- proves
+        # a real flight still gets a loadable Z-nodiar manifest for a
+        # meeting whose cutting stage later fails.
+        manifest_path = _vad_manifest_dir(tmp_path) / f"{fx['meeting_id']}.json"
+        assert manifest_path.is_file()
 
 
 # ---------------------------------------------------------------------------
@@ -580,9 +608,73 @@ class TestRunMeetingTurnSourceValidation:
         with pytest.raises(InvalidTurnSourcesError):
             run_meeting(fx["meeting_id"], tool_config=None, turn_sources=("vad",), **self._base_kwargs(fx, tmp_path))
 
+    def test_vad_requested_without_vad_manifest_dir_raises(self, tmp_path):
+        # vad_slice_dir alone is not enough: the manifest directory is
+        # required independently (module docstring), so a caller cannot
+        # silently cut VAD slice WAVs without also persisting the manifest
+        # G1's Z-nodiar arm needs.
+        fx = _fixtures(tmp_path)
+        with pytest.raises(InvalidTurnSourcesError):
+            run_meeting(
+                fx["meeting_id"],
+                tool_config=None,
+                turn_sources=("vad",),
+                vad_slice_dir=_vad_slice_dir(tmp_path, fx["meeting_id"]),
+                **self._base_kwargs(fx, tmp_path),
+            )
+
     def test_tool_requested_without_tool_config_raises(self, tmp_path):
         fx = _fixtures(tmp_path)
         with pytest.raises(InvalidTurnSourcesError):
             run_meeting(
                 fx["meeting_id"], tool_config=None, turn_sources=("tool", "oracle"), **self._base_kwargs(fx, tmp_path)
             )
+
+
+# ---------------------------------------------------------------------------
+# vad_slice_plan_manifest_path / write_vad_slice_plan_manifest: the pure
+# helpers closing the G1 Z-nodiar gap, exercised directly (no full
+# run_meeting needed) -- and round-tripped through the REAL consumer,
+# meeting_minutes_agent.probes.g1.load_vad_slice_plan, proving the two,
+# concurrently-developed modules actually agree on the manifest shape/path
+# convention rather than each side's own isolated tests merely assuming it.
+# ---------------------------------------------------------------------------
+
+
+class TestVadSlicePlanManifestHelpers:
+    def test_manifest_path_is_meeting_id_json_under_the_given_dir(self, tmp_path):
+        path = vad_slice_plan_manifest_path(tmp_path / "vad-manifests", "MTG1")
+        assert path == tmp_path / "vad-manifests" / "MTG1.json"
+
+    def test_write_persists_the_to_dict_shape_fsynced(self, tmp_path):
+        from meeting_minutes_agent.chunking.slicer import build_vad_slice_plan
+
+        plan = build_vad_slice_plan("MTG9", 200.0)
+        manifest_dir = tmp_path / "vad-manifests"
+
+        written_path = write_vad_slice_plan_manifest(manifest_dir, plan)
+
+        assert written_path == manifest_dir / "MTG9.json"
+        assert written_path.is_file()
+        document = json.loads(written_path.read_text(encoding="utf-8"))
+        assert document == plan.to_dict()
+
+    def test_written_manifest_loads_end_to_end_via_the_g1_loader(self, tmp_path):
+        # The actual gap this mission closes: a manifest THIS module wrote
+        # is readable, unchanged, by probes/g1.py's own fail-closed loader
+        # -- the two modules agree on the shape without either importing
+        # the other's test fixtures.
+        from meeting_minutes_agent.chunking.slicer import build_vad_slice_plan
+        from meeting_minutes_agent.probes import g1
+
+        plan = build_vad_slice_plan("MTG7", 150.0, pause_transitions=(30.0, 60.0))
+        manifest_dir = tmp_path / "vad-manifests"
+        write_vad_slice_plan_manifest(manifest_dir, plan)
+
+        loaded = g1.load_vad_slice_plan(vad_slice_plan_manifest_path(manifest_dir, "MTG7"))
+
+        assert loaded.meeting_id == plan.meeting_id
+        assert loaded.mode == plan.mode
+        assert loaded.turn_provenance is None
+        assert loaded.content_hash == plan.content_hash
+        assert len(loaded.slices) == len(plan.slices)

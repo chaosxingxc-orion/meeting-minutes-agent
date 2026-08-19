@@ -459,6 +459,12 @@ class TestRunWaveVadSupplement:
             assert receipt["slice_plans"]["tool"] is None
             assert receipt["slice_plans"]["oracle"] is None
             assert receipt["slice_plans"]["vad"] is not None
+            # the wave runner auto-wires vad_manifest_dir (mirrors
+            # vad_slice_dir's own unconditional wiring) -- a real flight's
+            # G1 --vad-manifest-dir points at this SAME directory.
+            manifest_path = launcher.vad_manifest_dir(tmp_path / "derived") / f"{meeting_id}.json"
+            assert manifest_path.is_file()
+            assert receipt["slice_plans"]["vad"]["manifest_path"] == str(manifest_path)
         assert summary["budget"]["ceilings"]["max_encode_calls"] == 500
 
     def test_ceilings_profile_object_is_used_instead_of_the_per_wave_default(self, tmp_path):

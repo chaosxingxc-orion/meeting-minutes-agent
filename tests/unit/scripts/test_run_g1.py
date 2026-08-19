@@ -209,6 +209,27 @@ class TestResolveSlicePlan:
                 nxt_corpus=fx["nxt_corpus"], vad_manifest_dir=tmp_path / "vad-manifests",
             )
 
+    def test_z_nodiar_loads_a_real_precomp_written_manifest_end_to_end(self, tmp_path):
+        # Closes the gap this mission targets: a manifest written by the
+        # REAL PRECOMP VAD-supplement writer resolves cleanly through this
+        # script's own --vad-manifest-dir seam -- the exact path a real
+        # Z-nodiar flight takes.
+        from meeting_minutes_agent.chunking.slicer import build_vad_slice_plan
+        from meeting_minutes_agent.precomp.pipeline import write_vad_slice_plan_manifest
+
+        fx = _fixture(tmp_path)
+        manifest_dir = fx["derived_root"] / "slices" / "vad-manifest"
+        plan = build_vad_slice_plan("MTG1", 3.0)
+        write_vad_slice_plan_manifest(manifest_dir, plan)
+
+        loaded_plan, slice_dir = runner.resolve_slice_plan(
+            g1.ARM_Z_NODIAR, "MTG1", data_dir=fx["data_dir"], derived_root=fx["derived_root"],
+            nxt_corpus=fx["nxt_corpus"], vad_manifest_dir=manifest_dir,
+        )
+        assert loaded_plan.meeting_id == "MTG1"
+        assert loaded_plan.content_hash == plan.content_hash
+        assert slice_dir == runner.DEFAULT_SLICE_DIR_RELATIVE_VAD
+
     def test_resolve_all_slice_plans_covers_every_meeting_arm_pair(self, tmp_path):
         fx = _fixture(tmp_path)
         plans = runner.resolve_all_slice_plans(
