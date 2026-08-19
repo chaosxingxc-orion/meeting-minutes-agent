@@ -1,7 +1,8 @@
-# DIAR-SMOKE — pinned-tool diarization smoke — DRAFT (awaiting owner pin confirmation)
+# DIAR-SMOKE — pinned-tool diarization smoke — REGISTERED
 
-Date: 2026-08-18. Status: **DRAFT** — becomes REGISTERED on the owner's confirmation of the
-v2 pin; flight additionally waits for the umbrella-lock acquisition step (below). Parent:
+Date: 2026-08-18. Status: **REGISTERED** — owner confirmed the v2 pin and authorized the
+download the same day ("diar v2 锁定，并且可以下载"); flight waits only for the
+umbrella-lock acquisition step (below) and the smoke machinery. Parent:
 the selection ticket `docs/plans/2026-08-18-diarization-tool-selection.md` (owner ruling:
 NVIDIA-first) and the DiarizationBackend seam (commit `81db918`). This smoke closes the
 third G1 lock (tools/run-flow).
