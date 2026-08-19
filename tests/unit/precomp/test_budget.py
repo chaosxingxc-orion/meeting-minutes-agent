@@ -12,7 +12,9 @@ from meeting_minutes_agent.precomp.budget import (
     PrecompBudgetExceeded,
     WaveCeilings,
     ceilings_for_wave,
+    wave_usage_from_receipts,
 )
+from meeting_minutes_agent.precomp.receipts import build_meeting_receipt
 
 
 # ---------------------------------------------------------------------------
@@ -147,3 +149,143 @@ class TestBudgetToDict:
         assert d["cutting_wall_seconds_used"] == 2.0
         assert d["encode_gpu_seconds_used"] == 3.0
         assert d["encode_calls_used"] == 4
+
+
+# ---------------------------------------------------------------------------
+# wave_usage_from_receipts / PrecompBudget.precharge / check_all
+# ---------------------------------------------------------------------------
+
+
+def _receipt(
+    meeting_id: str = "MTG1",
+    *,
+    ok: bool = True,
+    diar_gpu_seconds: float = 0.0,
+    cutting_wall_seconds: float = 0.0,
+    encode_calls: int = 0,
+    encode_gpu_seconds_per_call: float = 0.0,
+) -> dict:
+    """A fixture receipt shaped exactly like
+    :func:`~meeting_minutes_agent.precomp.receipts.build_meeting_receipt`
+    produces, with the four axes :func:`wave_usage_from_receipts` reads
+    parameterized directly."""
+
+    encode_outcomes = [{"gpu_seconds_estimate": encode_gpu_seconds_per_call} for _ in range(encode_calls)]
+    return build_meeting_receipt(
+        wave=1,
+        meeting_id=meeting_id,
+        ok=ok,
+        error=None if ok else "boom",
+        diar={"contact": None, "n_turns": 3, "wall_seconds": 1.0, "gpu_seconds_estimate": diar_gpu_seconds},
+        slice_plans={"tool": {"n_slices": 2}, "oracle": {"n_slices": 2}},
+        cutting={
+            "tool": {"n_entries": 2}, "oracle": {"n_entries": 2},
+            "wall_seconds": cutting_wall_seconds, "workers": 8,
+        },
+        encode_warm={"tool": encode_outcomes, "oracle": [], "wall_seconds": 0.2, "n_calls": encode_calls},
+        metrics={},
+        budget_after={},
+        recorded_utc="2026-08-19T00:00:00+00:00",
+    )
+
+
+class TestWaveUsageFromReceipts:
+    def test_sums_across_multiple_receipts(self):
+        receipts = [
+            _receipt("MTG1", diar_gpu_seconds=10.0, cutting_wall_seconds=1.0, encode_calls=2, encode_gpu_seconds_per_call=3.0),
+            _receipt("MTG2", diar_gpu_seconds=5.0, cutting_wall_seconds=2.0, encode_calls=1, encode_gpu_seconds_per_call=4.0),
+        ]
+        used = wave_usage_from_receipts(receipts)
+        assert used["diar_gpu_seconds_used"] == 15.0
+        assert used["cutting_wall_seconds_used"] == 3.0
+        assert used["encode_calls_used"] == 3
+        assert used["encode_gpu_seconds_used"] == 10.0  # 2*3.0 + 1*4.0
+
+    def test_counts_a_failed_receipts_completed_stages(self):
+        # A meeting whose pipeline failed partway (ok=False) still spent
+        # real diar/cutting resources for the stages that ran before the
+        # failure -- never filtered out.
+        receipt = _receipt("MTG1", ok=False, diar_gpu_seconds=7.0, cutting_wall_seconds=0.5, encode_calls=0)
+        used = wave_usage_from_receipts([receipt])
+        assert used["diar_gpu_seconds_used"] == 7.0
+        assert used["cutting_wall_seconds_used"] == 0.5
+        assert used["encode_calls_used"] == 0
+
+    def test_missing_fields_default_to_zero(self):
+        used = wave_usage_from_receipts([{"schema_version": "1.0.0", "ok": True}])
+        assert used == {
+            "diar_gpu_seconds_used": 0.0,
+            "cutting_wall_seconds_used": 0.0,
+            "encode_gpu_seconds_used": 0.0,
+            "encode_calls_used": 0,
+        }
+
+    def test_empty_receipt_list_is_all_zero(self):
+        assert wave_usage_from_receipts([]) == {
+            "diar_gpu_seconds_used": 0.0,
+            "cutting_wall_seconds_used": 0.0,
+            "encode_gpu_seconds_used": 0.0,
+            "encode_calls_used": 0,
+        }
+
+    def test_non_mapping_entries_are_skipped(self):
+        used = wave_usage_from_receipts([None, "not-a-dict", 42, _receipt("MTG1", diar_gpu_seconds=1.0)])
+        assert used["diar_gpu_seconds_used"] == 1.0
+
+
+class TestPrecompBudgetPrecharge:
+    def test_precharge_is_additive_into_a_fresh_budget(self):
+        budget = PrecompBudget(ceilings_for_wave(1))
+        receipts = [_receipt("MTG1", diar_gpu_seconds=100.0, cutting_wall_seconds=10.0, encode_calls=5, encode_gpu_seconds_per_call=2.0)]
+        budget.precharge(receipts)
+        assert budget.diar_gpu_seconds_used == 100.0
+        assert budget.cutting_wall_seconds_used == 10.0
+        assert budget.encode_calls_used == 5
+        assert budget.encode_gpu_seconds_used == 10.0
+
+    def test_precharge_adds_on_top_of_existing_usage_rather_than_replacing(self):
+        budget = PrecompBudget(ceilings_for_wave(1))
+        budget.record_diar(3.0)
+        budget.precharge([_receipt("MTG1", diar_gpu_seconds=1.0)])
+        assert budget.diar_gpu_seconds_used == 4.0
+
+    def test_precharge_from_an_empty_receipt_set_leaves_budget_untouched(self):
+        budget = PrecompBudget(ceilings_for_wave(1))
+        budget.precharge([])
+        d = budget.to_dict()
+        assert d["diar_gpu_seconds_used"] == 0.0
+        assert d["encode_calls_used"] == 0
+
+    def test_a_would_exceed_meeting_refuses_after_precharge(self):
+        # A fixture receipt set that, cumulatively, already exhausts the
+        # wave's encode call-count ceiling.
+        ceilings = WaveCeilings(wave=1, max_diar_gpu_hours=1.0, max_encode_gpu_hours=1.0, max_cutting_wall_hours=1.0, max_encode_calls=10)
+        budget = PrecompBudget(ceilings)
+        receipts = [_receipt(f"MTG{i}", encode_calls=5) for i in range(2)]  # 10 calls total == ceiling
+        budget.precharge(receipts)
+        assert budget.encode_calls_used == 10
+        with pytest.raises(PrecompBudgetExceeded):
+            budget.check_before_encode()  # the next meeting refuses before it starts
+
+    def test_check_all_passes_when_precharge_stays_under_every_ceiling(self):
+        budget = PrecompBudget(ceilings_for_wave(1))
+        budget.precharge(
+            [_receipt("MTG1", diar_gpu_seconds=1.0, cutting_wall_seconds=1.0, encode_calls=1, encode_gpu_seconds_per_call=1.0)]
+        )
+        budget.check_all()  # must not raise
+
+    def test_check_all_refuses_when_precharge_alone_already_reached_the_diar_ceiling(self):
+        ceilings = WaveCeilings(wave=1, max_diar_gpu_hours=0.5, max_encode_gpu_hours=2.0, max_cutting_wall_hours=2.0, max_encode_calls=900)
+        budget = PrecompBudget(ceilings)
+        receipts = [_receipt("MTG1", diar_gpu_seconds=1800.0)]  # 0.5h == 1800s, exactly the ceiling
+        budget.precharge(receipts)
+        with pytest.raises(PrecompBudgetExceeded):
+            budget.check_all()
+
+    def test_check_all_catches_a_non_diar_axis_breach_too(self):
+        ceilings = WaveCeilings(wave=1, max_diar_gpu_hours=1.0, max_encode_gpu_hours=1.0, max_cutting_wall_hours=1.0, max_encode_calls=3)
+        budget = PrecompBudget(ceilings)
+        receipts = [_receipt("MTG1", encode_calls=3)]  # exactly at the call-count ceiling; diar/cutting untouched
+        budget.precharge(receipts)
+        with pytest.raises(PrecompBudgetExceeded):
+            budget.check_all()

@@ -35,7 +35,19 @@ Budget guard (prereg SS4): a :class:`~meeting_minutes_agent.precomp.
 budget.PrecompBudget` sized to the wave's registered ceilings is shared
 across every meeting; a :class:`~meeting_minutes_agent.precomp.budget.
 PrecompBudgetExceeded` stops the wave immediately and still writes the wave
-summary for whatever already completed, rather than losing it.
+summary for whatever already completed, rather than losing it. Before this
+process's own loop runs any meeting, the budget is pre-charged
+(:meth:`~meeting_minutes_agent.precomp.budget.PrecompBudget.precharge`)
+with wave-cumulative usage re-derived from every receipt already on disk
+under ``--out-dir`` -- native support for the same reconciliation the
+wave-1 operator wrapper's ``docs/checks/2026-08-19-precomp-wave1/
+budget_ledger.py`` performed externally, once per meeting-invocation, back
+when this runner had no in-flight stop hook. That external per-process
+workaround is retired by ``--stop-file <path>``: checked before every
+meeting inside a single, long-lived invocation, its presence ends the wave
+cleanly (whatever completed is already receipted and fsynced; the wave
+summary is written; the process exits 0) and the run resumes at meeting
+granularity with ``--resume``, no external wrapper required.
 
 Usage (safe right now -- no diar contact, no server contact)::
 
@@ -97,8 +109,13 @@ from meeting_minutes_agent.precomp.roster import (  # noqa: E402
 )
 from meeting_minutes_agent.probes.diar_smoke import ArmConfigError  # noqa: E402
 
-DEFAULT_FEATCACHE_DATASET = "meeting-minutes-precomp"
-DEFAULT_ENCODER_ID = "qwen3-omni-30b-a3b-instruct"
+#: Match the warm cache directory the server writes and G1 reads
+#: (``<root>/ami-q4km/`` -- the same per-dataset directory the P-ATTR/
+#: P-PROMPT meeting flights used, `docs/checks/2026-08-19-precomp-wave1/
+#: README.md`'s identity table). Overridable per-invocation via
+#: ``--featcache-dataset``/``--encoder``; only the *default* changes here.
+DEFAULT_FEATCACHE_DATASET = "ami"
+DEFAULT_ENCODER_ID = "q4km"
 DEFAULT_DERIVED_ROOT_RELATIVE = "derived/meeting-minutes/precomp"
 DEFAULT_ENCODE_MAX_TOKENS = 1
 REPO_ROOT = Path(__file__).resolve().parent.parent
@@ -137,6 +154,32 @@ def oracle_slice_dir(derived_root: Path, meeting_id: str) -> Path:
     return derived_root / "slices" / "oracle" / meeting_id
 
 
+def load_wave_receipts(out_dir: Path) -> list[dict[str, Any]]:
+    """Every per-meeting receipt already on disk under ``out_dir/receipts/``,
+    parsed as JSON -- the wave-1 operator wrapper's own
+    ``docs/checks/2026-08-19-precomp-wave1/budget_ledger.py::load_receipts``,
+    ported into the runner itself so :func:`run_wave` can precharge a
+    fresh :class:`~meeting_minutes_agent.precomp.budget.PrecompBudget`
+    from them on startup. An unparsable or non-object file is skipped
+    rather than raising -- never expected from this runner's own fsynced
+    ``write_meeting_receipt``, but a resumed wave's output directory is
+    otherwise untrusted input, exactly as that operator script treated
+    it."""
+
+    receipts_dir = Path(out_dir) / "receipts"
+    if not receipts_dir.is_dir():
+        return []
+    out: list[dict[str, Any]] = []
+    for path in sorted(receipts_dir.glob("*-receipt.json")):
+        try:
+            data = json.loads(path.read_text(encoding="utf-8"))
+        except ValueError:
+            continue
+        if isinstance(data, dict):
+            out.append(data)
+    return out
+
+
 def run_wave(
     *,
     wave: int,
@@ -158,17 +201,48 @@ def run_wave(
     materialize_fn: Any | None = None,
     flight_receipt: FlightReceipt | None = None,
     budget: PrecompBudget | None = None,
+    stop_file: Path | str | None = None,
 ) -> dict[str, Any]:
     """The whole wave loop: every meeting, in sorted order, budget-guarded
     and resumable at meeting granularity. ``skip_roster_check`` is a test
     seam only (mirrors ``scripts/launch_diar_smoke.py::run_flight``'s own
-    ``skip_registry_check``) -- a real wave always leaves it ``False``."""
+    ``skip_registry_check``) -- a real wave always leaves it ``False``.
+
+    When ``budget`` is not supplied, the fresh, all-zero
+    :class:`~meeting_minutes_agent.precomp.budget.PrecompBudget` this
+    function builds is pre-charged (:meth:`~.budget.PrecompBudget.precharge`)
+    with wave-cumulative usage re-derived from every receipt already under
+    ``out_dir`` (:func:`load_wave_receipts`) BEFORE the loop below runs any
+    meeting, then checked (:meth:`~.budget.PrecompBudget.check_all`) --
+    fail-closed, exactly like a mid-wave :class:`PrecompBudgetExceeded`,
+    including the same wave-summary write and clean return. A caller
+    supplying its own ``budget`` (a test seam, matching ``run_subprocess``/
+    ``query_gpu``/``materialize_fn`` above) opts out of precharging
+    entirely -- that budget is used exactly as given.
+
+    ``stop_file``, checked before every meeting (including the first), is
+    the native replacement for the wave-1 operator wrapper's external
+    per-meeting invocation loop (``docs/checks/2026-08-19-precomp-wave1/
+    README.md``'s "Deviation recorded for coordinator review"): its mere
+    presence ends the wave cleanly -- every receipt already written stays
+    fsynced and complete, a wave summary is written for whatever finished,
+    and the run resumes at meeting granularity with ``--resume``. The file
+    itself is never deleted or otherwise touched here; clearing it between
+    waves is the operator's job."""
 
     if not skip_roster_check:
         assert_wave_roster_admissible(meetings)
 
     if budget is None:
         budget = PrecompBudget(ceilings_for_wave(wave))
+        budget.precharge(load_wave_receipts(out_dir))
+        try:
+            budget.check_all()
+        except PrecompBudgetExceeded as error:
+            print(f"BUDGET STOP before the wave starts (re-derived from existing receipts): {error}", file=sys.stderr)
+            summary = build_wave_summary([], wave=wave, budget_totals=budget.to_dict(), stopped_reason=str(error))
+            write_wave_summary(out_dir, summary)
+            return summary
     nxt_corpus = NxtCorpus(data_dir / ami_annotations_root_relative)
 
     kwargs: dict[str, Any] = {}
@@ -177,6 +251,16 @@ def run_wave(
 
     outcomes: list[dict[str, Any]] = []
     for meeting_id in sorted(meetings):
+        if stop_file is not None and Path(stop_file).is_file():
+            print(f"stop-file present ({stop_file}): yielding before {meeting_id}", file=sys.stderr)
+            summary = build_wave_summary(
+                outcomes,
+                wave=wave,
+                budget_totals=budget.to_dict(),
+                stopped_reason=f"stop-file present at {stop_file}, yielded before {meeting_id}",
+            )
+            write_wave_summary(out_dir, summary)
+            return summary
         if resume and already_done(out_dir, meeting_id):
             print(f"resume: skipping {meeting_id} (already ok)", file=sys.stderr)
             continue
@@ -258,6 +342,15 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--workers", type=int, default=DEFAULT_WORKERS, help="CPU slice-cutting worker pool size")
     parser.add_argument("--encode-max-tokens", type=int, default=DEFAULT_ENCODE_MAX_TOKENS)
     parser.add_argument("--resume", action="store_true")
+    parser.add_argument(
+        "--stop-file", default=None,
+        help=(
+            "path checked for existence before every meeting (including the first); its mere presence "
+            "ends the wave cleanly (receipts already written stay complete, a wave summary is written, "
+            "exit 0) -- the native replacement for the wave-1 per-meeting invocation-loop workaround. "
+            "Resume with --resume once the file is cleared or gone."
+        ),
+    )
     parser.add_argument("--ami-audio-root-relative", default=DEFAULT_AMI_AUDIO_ROOT_RELATIVE)
     parser.add_argument("--ami-annotations-root-relative", default=DEFAULT_AMI_ANNOTATIONS_ROOT_RELATIVE)
     parser.add_argument(
@@ -333,6 +426,7 @@ def main(argv: list[str] | None = None) -> int:
             ami_annotations_root_relative=args.ami_annotations_root_relative,
             query_gpu=query_gpu_utilization_snapshot,
             flight_receipt=flight_receipt,
+            stop_file=args.stop_file,
         )
     finally:
         flight_receipt.write(out_dir / "transport-receipt.json", repo_root=REPO_ROOT)

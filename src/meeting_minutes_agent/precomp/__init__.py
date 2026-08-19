@@ -26,6 +26,7 @@ from .budget import (
     PrecompBudgetExceeded,
     WaveCeilings,
     ceilings_for_wave,
+    wave_usage_from_receipts,
 )
 from .encode_warm import (
     DEFAULT_ENCODE_WARM_MAX_TOKENS,
@@ -82,6 +83,7 @@ __all__ = [
     "WAVE_2_CEILINGS",
     "ceilings_for_wave",
     "PrecompBudget",
+    "wave_usage_from_receipts",
     "turn_counts",
     "slice_counts",
     "interior_boundaries",
