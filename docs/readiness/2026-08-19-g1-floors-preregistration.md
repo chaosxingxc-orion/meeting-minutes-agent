@@ -1,7 +1,7 @@
-# G1 floors campaign — REGISTRATION FOR OWNER GO
+# G1 floors campaign — REGISTERED (owner GO)
 
-Date: 2026-08-19. Status: **AWAITING OWNER GO** (the M-e gate); G1-PATH flies first on GO
-("少量探测" ruling). All four locks are closed: architecture (Z-turn, `93aa7ee`/`d3cbf4a`),
+Date: 2026-08-19. Status: **REGISTERED — owner GO granted same day ("按你的建议执行")**;
+G1-PATH flies first ("少量探测" ruling), then the VAD supplement, then the floors campaign. All four locks are closed: architecture (Z-turn, `93aa7ee`/`d3cbf4a`),
 chunking (two-level 90 s), prompt form (T1-A1, `b6c07f0`), tools/run-flow (TOOL-LOCKED(B)
 adjudication 2026-08-19). PRECOMP wave-1 is COMPLETE (`4631f68`): all dev-18 meetings carry
 cached tool-turn AND oracle-turn slice sets (367 + 371 slices, featcache warm).
