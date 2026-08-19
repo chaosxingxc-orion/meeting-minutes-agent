@@ -332,19 +332,25 @@ class DiarSmokeVerdict:
 
 def evaluate_diar_smoke_verdict(
     *,
-    der_a: float | None,
-    der_b: float | None,
+    der_a_pct: float | None,
+    der_b_pct: float | None,
     a_load_failed: bool = False,
     b_load_failed: bool = False,
 ) -> DiarSmokeVerdict:
     """Mechanically evaluate the five registered clauses (prereg SS5) in
     priority order, each carrying a numeric margin to its own threshold
     regardless of whether it ends up deciding ``status`` -- so a read stays
-    auditable even far from a threshold. ``der_a``/``der_b`` are expected to
-    be the POOLED DER under the no-collar-with-overlap convention
+    auditable even far from a threshold. ``der_a_pct``/``der_b_pct`` are
+    expected to be the POOLED DER, in PERCENTAGE POINTS (0..100 -- e.g.
+    ``20.74`` for a 20.74% DER, i.e. :attr:`~meeting_minutes_agent.metrics.
+    diarization_error.DerBreakdown.der_pct`, NEVER the 0..1 ``der`` fraction),
+    under the no-collar-with-overlap convention
     (:data:`CONVENTION_NO_COLLAR_WITH_OVERLAP`); the parity clause and both
     TOOL-LOCKED clauses are explicitly registered against that convention
-    (prereg SS5).
+    (prereg SS5) with thresholds (2.0 / 22.0 / 30.0) that are themselves
+    percentage points -- passing fractions silently trivially satisfies
+    every comparison (the as-run defect recorded in
+    ``docs/readiness/2026-08-18-diar-smoke-verdict.md`` SS0.1).
 
     Spec-ambiguity note (recorded, mirroring ``scripts/
     build_pattr_manifest.py``'s own such notes): SS5 item 3 reads "parity
@@ -356,26 +362,28 @@ def evaluate_diar_smoke_verdict(
     which the four clauses jointly cover every ``(der_a, der_b,
     load-failure)`` combination without a gap."""
 
-    a_ok = (not a_load_failed) and der_a is not None
-    b_ok = (not b_load_failed) and der_b is not None
+    a_ok = (not a_load_failed) and der_a_pct is not None
+    b_ok = (not b_load_failed) and der_b_pct is not None
 
     if a_ok and b_ok:
-        parity_gap = abs(der_b - der_a)
+        parity_gap = abs(der_b_pct - der_a_pct)
         parity_passed = parity_gap <= PARITY_ABS_THRESHOLD_DER
         parity_margin: float | None = PARITY_ABS_THRESHOLD_DER - parity_gap
-        parity_detail = f"|DER(B)={der_b:.2f} - DER(A)={der_a:.2f}| = {parity_gap:.2f} (threshold {PARITY_ABS_THRESHOLD_DER})"
+        parity_detail = (
+            f"|DER(B)={der_b_pct:.2f} - DER(A)={der_a_pct:.2f}| = {parity_gap:.2f} (threshold {PARITY_ABS_THRESHOLD_DER})"
+        )
     else:
         parity_passed = False
         parity_margin = None
         parity_detail = "parity not evaluable: at least one arm failed to load / produce a DER"
 
-    tool_locked_b_fires = bool(parity_passed) and b_ok and der_b <= TOOL_LOCKED_MAX_DER
-    tool_locked_b_margin = (TOOL_LOCKED_MAX_DER - der_b) if b_ok else None
+    tool_locked_b_fires = bool(parity_passed) and b_ok and der_b_pct <= TOOL_LOCKED_MAX_DER
+    tool_locked_b_margin = (TOOL_LOCKED_MAX_DER - der_b_pct) if b_ok else None
 
-    tool_locked_a_fires = (not tool_locked_b_fires) and a_ok and der_a <= TOOL_LOCKED_MAX_DER
-    tool_locked_a_margin = (TOOL_LOCKED_MAX_DER - der_a) if a_ok else None
+    tool_locked_a_fires = (not tool_locked_b_fires) and a_ok and der_a_pct <= TOOL_LOCKED_MAX_DER
+    tool_locked_a_margin = (TOOL_LOCKED_MAX_DER - der_a_pct) if a_ok else None
 
-    candidates = [(name, value) for name, value, ok in (("A", der_a, a_ok), ("B", der_b, b_ok)) if ok]
+    candidates = [(name, value) for name, value, ok in (("A", der_a_pct, a_ok), ("B", der_b_pct, b_ok)) if ok]
     both_failed = not candidates
     best_arm, best_der = min(candidates, key=lambda kv: kv[1]) if candidates else (None, None)
 
@@ -421,8 +429,8 @@ def evaluate_diar_smoke_verdict(
 
     return DiarSmokeVerdict(
         status=status,
-        der_a_no_collar_overlap=der_a,
-        der_b_no_collar_overlap=der_b,
+        der_a_no_collar_overlap=der_a_pct,
+        der_b_no_collar_overlap=der_b_pct,
         a_load_failed=a_load_failed,
         b_load_failed=b_load_failed,
         best_arm=best_arm,

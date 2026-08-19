@@ -38,7 +38,13 @@ def _write_rttm(flight_dir: Path, arm: str, meeting_id: str, turns) -> None:
 
 
 _PERFECT_TURNS = (TurnSpan(0.0, 10.0, "A"), TurnSpan(10.0, 20.0, "B"))
-_SHIFTED_TURNS = (TurnSpan(0.0, 9.0, "A"), TurnSpan(9.0, 20.0, "B"))  # DER 0.05 vs the perfect oracle
+# 0.2 s boundary shift vs the perfect oracle -> 0.2 s confusion / 20 s
+# reference per meeting = 1.0 percentage point DER per meeting, small enough
+# that pooling two meetings still clears both the parity gate (<= 2.0 pct)
+# and the TOOL-LOCKED(B) threshold (<= 22.0 pct) -- see
+# TestRunRead.test_end_to_end_tool_locked_b below, which asserts the pooled
+# DER in PERCENTAGE POINTS (not the 0..1 DerBreakdown.der fraction).
+_SHIFTED_TURNS = (TurnSpan(0.0, 9.8, "A"), TurnSpan(9.8, 20.0, "B"))
 
 
 class TestLoadHypothesisTurns:
@@ -70,8 +76,11 @@ class TestRunRead:
         )
 
         assert document["verdict"]["status"] == STATUS_TOOL_LOCKED_B
+        # Percentage points (the evaluator's registered unit), not the 0..1
+        # DerBreakdown.der fraction: pooled 0.4 s error / 40 s reference =
+        # 1.0 percentage point, not 0.01.
         assert document["verdict"]["der_a_no_collar_overlap"] == pytest.approx(0.0)
-        assert document["verdict"]["der_b_no_collar_overlap"] == pytest.approx(2.0 / 40.0)
+        assert document["verdict"]["der_b_no_collar_overlap"] == pytest.approx(1.0)
         assert document["verdict"]["a_load_failed"] is False
         assert document["verdict"]["b_load_failed"] is False
         assert (out_dir / "verdict.json").is_file()

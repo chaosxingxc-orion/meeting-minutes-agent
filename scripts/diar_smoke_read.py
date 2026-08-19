@@ -180,11 +180,17 @@ def run_read(
         scored = list(per_arm_meeting_metrics[arm].values())
         pooled[arm] = pool_meeting_metrics_by_convention(scored, CONVENTION_NO_COLLAR_WITH_OVERLAP) if scored else None
 
-    der_a = pooled.get("A").der if pooled.get("A") is not None else None
-    der_b = pooled.get("B").der if pooled.get("B") is not None else None
+    # Unit boundary: evaluate_diar_smoke_verdict's registered thresholds
+    # (2.0 / 22.0 / 30.0, prereg SS5) are PERCENTAGE POINTS, not the 0..1
+    # DerBreakdown.der fraction -- use .der_pct (der * 100.0) here, once,
+    # at the call boundary (the as-run defect recorded in
+    # docs/readiness/2026-08-18-diar-smoke-verdict.md SS0.1 fed fractions
+    # straight through and made every clause trivially satisfied).
+    der_a_pct = pooled.get("A").der_pct if pooled.get("A") is not None else None
+    der_b_pct = pooled.get("B").der_pct if pooled.get("B") is not None else None
     verdict = evaluate_diar_smoke_verdict(
-        der_a=der_a,
-        der_b=der_b,
+        der_a_pct=der_a_pct,
+        der_b_pct=der_b_pct,
         a_load_failed=per_arm_load_failed.get("A", True),
         b_load_failed=per_arm_load_failed.get("B", True),
     )

@@ -169,9 +169,16 @@ class TestPoolMeetingMetricsByConvention:
 
 
 class TestEvaluateDiarSmokeVerdict:
+    """``der_a_pct``/``der_b_pct`` are PERCENTAGE POINTS throughout this
+    class (the units the registered thresholds -- 2.0 / 22.0 / 30.0 -- are
+    defined in), matching :attr:`~meeting_minutes_agent.metrics.
+    diarization_error.DerBreakdown.der_pct`, never the 0..1 ``der``
+    fraction the as-run DIAR-SMOKE read defect fed in by mistake
+    (``docs/readiness/2026-08-18-diar-smoke-verdict.md`` SS0.1)."""
+
     def test_tool_locked_b(self):
         # parity: |21-20|=1 <= 2 -> passes. B=21 <= 22 -> TOOL-LOCKED(B).
-        verdict = evaluate_diar_smoke_verdict(der_a=20.0, der_b=21.0)
+        verdict = evaluate_diar_smoke_verdict(der_a_pct=20.0, der_b_pct=21.0)
         assert verdict.status == STATUS_TOOL_LOCKED_B
         assert verdict.clauses["parity"].fires is True
         assert verdict.clauses["tool_locked_b"].fires is True
@@ -179,7 +186,7 @@ class TestEvaluateDiarSmokeVerdict:
 
     def test_tool_locked_a_via_parity_failure(self):
         # parity: |25-15|=10 > 2 -> fails. A=15 <= 22 -> TOOL-LOCKED(A).
-        verdict = evaluate_diar_smoke_verdict(der_a=15.0, der_b=25.0)
+        verdict = evaluate_diar_smoke_verdict(der_a_pct=15.0, der_b_pct=25.0)
         assert verdict.status == STATUS_TOOL_LOCKED_A
         assert verdict.clauses["parity"].fires is False
         assert verdict.clauses["tool_locked_a"].fires is True
@@ -188,7 +195,7 @@ class TestEvaluateDiarSmokeVerdict:
         # Dedicated parity-fail-path fixture: parity fails even though B's
         # OWN DER would satisfy the TOOL-LOCKED(B) DER threshold -- parity
         # failing must still block TOOL-LOCKED(B).
-        verdict = evaluate_diar_smoke_verdict(der_a=10.0, der_b=20.0)
+        verdict = evaluate_diar_smoke_verdict(der_a_pct=10.0, der_b_pct=20.0)
         gap = abs(20.0 - 10.0)
         assert gap > PARITY_ABS_THRESHOLD_DER
         assert verdict.clauses["parity"].fires is False
@@ -198,47 +205,83 @@ class TestEvaluateDiarSmokeVerdict:
     def test_tool_usable_with_caveat(self):
         # parity fails (gap 3 > 2); A=25 > 22 so neither lock fires;
         # best arm (A, 25.0) is in (22, 30] -> caveat.
-        verdict = evaluate_diar_smoke_verdict(der_a=25.0, der_b=28.0)
+        verdict = evaluate_diar_smoke_verdict(der_a_pct=25.0, der_b_pct=28.0)
         assert verdict.status == STATUS_TOOL_USABLE_WITH_CAVEAT
         assert verdict.best_arm == "A"
         assert verdict.best_arm_der == pytest.approx(25.0)
         assert verdict.clauses["tool_usable_with_caveat"].fires is True
 
     def test_fallback_needed_when_best_der_exceeds_caveat_ceiling(self):
-        verdict = evaluate_diar_smoke_verdict(der_a=35.0, der_b=40.0)
+        verdict = evaluate_diar_smoke_verdict(der_a_pct=35.0, der_b_pct=40.0)
         assert verdict.status == STATUS_FALLBACK_NEEDED
         assert verdict.best_arm_der == pytest.approx(35.0)
         assert verdict.clauses["fallback_needed"].fires is True
 
     def test_fallback_needed_when_both_arms_fail_to_load(self):
-        verdict = evaluate_diar_smoke_verdict(der_a=None, der_b=None, a_load_failed=True, b_load_failed=True)
+        verdict = evaluate_diar_smoke_verdict(der_a_pct=None, der_b_pct=None, a_load_failed=True, b_load_failed=True)
         assert verdict.status == STATUS_FALLBACK_NEEDED
         assert verdict.best_arm is None
         assert verdict.clauses["parity"].fires is False
         assert verdict.in_domain_caveat  # carried in every outcome
 
     def test_fallback_needed_when_one_arm_fails_and_the_other_exceeds_caveat(self):
-        verdict = evaluate_diar_smoke_verdict(der_a=None, der_b=40.0, a_load_failed=True)
+        verdict = evaluate_diar_smoke_verdict(der_a_pct=None, der_b_pct=40.0, a_load_failed=True)
         assert verdict.status == STATUS_FALLBACK_NEEDED
         assert verdict.best_arm == "B"
 
     def test_boundary_values_at_exactly_the_thresholds(self):
         # DER(B) exactly at the TOOL_LOCKED_MAX_DER boundary still locks.
-        verdict = evaluate_diar_smoke_verdict(der_a=TOOL_LOCKED_MAX_DER, der_b=TOOL_LOCKED_MAX_DER)
+        verdict = evaluate_diar_smoke_verdict(der_a_pct=TOOL_LOCKED_MAX_DER, der_b_pct=TOOL_LOCKED_MAX_DER)
         assert verdict.status == STATUS_TOOL_LOCKED_B
         assert verdict.clauses["tool_locked_b"].margin == pytest.approx(0.0)
 
     def test_caveat_upper_boundary_is_inclusive(self):
-        verdict = evaluate_diar_smoke_verdict(der_a=CAVEAT_MAX_DER, der_b=CAVEAT_MAX_DER + 20.0)
+        verdict = evaluate_diar_smoke_verdict(der_a_pct=CAVEAT_MAX_DER, der_b_pct=CAVEAT_MAX_DER + 20.0)
         assert verdict.status == STATUS_TOOL_USABLE_WITH_CAVEAT
+
+    def test_regression_2026_08_19_smoke_numbers_land_in_uncovered_cell(self):
+        # Exact pooled no-collar-with-overlap DER, in percentage points,
+        # from the spent DIAR-SMOKE read (docs/readiness/
+        # 2026-08-18-diar-smoke-verdict.md SS0): A 23.7341, B 20.7405.
+        # The as-run defect fed these as the 0..1 fractions (0.237341 /
+        # 0.207405) straight into thresholds written in points, so every
+        # clause was trivially satisfied and the void status TOOL-LOCKED(B)
+        # landed in the written verdict.json -- SS0.1 records that as void.
+        # With the correct percentage-point units the parity gate fails
+        # (gap 2.9936 > 2.0), DER(B) alone clears the 22.0 lock but parity
+        # blocks TOOL-LOCKED(B), and DER(A) misses the 22.0 lock too --
+        # exactly the "uncovered cell" SS0 documents: none of the four
+        # outcome clauses' own conditions hold, so the evaluator's total
+        # ordering (see its docstring) falls through to FALLBACK-NEEDED,
+        # never TOOL-LOCKED(B).
+        der_a_pct = 23.7341
+        der_b_pct = 20.7405
+
+        gap = round(der_a_pct - der_b_pct, 4)
+        assert gap == pytest.approx(2.9936)
+        assert gap > PARITY_ABS_THRESHOLD_DER
+        assert der_b_pct <= TOOL_LOCKED_MAX_DER
+        assert der_a_pct > TOOL_LOCKED_MAX_DER
+
+        verdict = evaluate_diar_smoke_verdict(der_a_pct=der_a_pct, der_b_pct=der_b_pct)
+
+        assert verdict.status != STATUS_TOOL_LOCKED_B
+        assert verdict.status == STATUS_FALLBACK_NEEDED
+        assert verdict.clauses["parity"].fires is False
+        assert verdict.clauses["tool_locked_b"].fires is False
+        assert verdict.clauses["tool_locked_a"].fires is False
+        assert verdict.clauses["tool_usable_with_caveat"].fires is False
+        assert verdict.clauses["fallback_needed"].fires is True
+        assert verdict.best_arm == "B"
+        assert verdict.best_arm_der == pytest.approx(der_b_pct)
 
     def test_in_domain_caveat_is_present_in_every_outcome(self):
         outcomes = [
-            evaluate_diar_smoke_verdict(der_a=20.0, der_b=21.0),
-            evaluate_diar_smoke_verdict(der_a=15.0, der_b=25.0),
-            evaluate_diar_smoke_verdict(der_a=25.0, der_b=28.0),
-            evaluate_diar_smoke_verdict(der_a=35.0, der_b=40.0),
-            evaluate_diar_smoke_verdict(der_a=None, der_b=None, a_load_failed=True, b_load_failed=True),
+            evaluate_diar_smoke_verdict(der_a_pct=20.0, der_b_pct=21.0),
+            evaluate_diar_smoke_verdict(der_a_pct=15.0, der_b_pct=25.0),
+            evaluate_diar_smoke_verdict(der_a_pct=25.0, der_b_pct=28.0),
+            evaluate_diar_smoke_verdict(der_a_pct=35.0, der_b_pct=40.0),
+            evaluate_diar_smoke_verdict(der_a_pct=None, der_b_pct=None, a_load_failed=True, b_load_failed=True),
         ]
         for verdict in outcomes:
             assert verdict.in_domain_caveat
