@@ -1,0 +1,59 @@
+From 1c806481cdeca99fdaf133c5886518cd24a45d4c Mon Sep 17 00:00:00 2001
+From: SAEA study <saea@local>
+Date: Tue, 11 Aug 2026 13:00:32 -0400
+Subject: [PATCH 3/4] feat-cache: media-ordinal keys - invariant to text-prefix
+ length (position keys broke under rolling-tail drift, 60% hit rate)
+
+---
+ tools/server/server-context.cpp | 22 +++++++++++++++++++---
+ 1 file changed, 19 insertions(+), 3 deletions(-)
+
+diff --git a/tools/server/server-context.cpp b/tools/server/server-context.cpp
+index ce9b1b217..f2e585f66 100644
+--- a/tools/server/server-context.cpp
++++ b/tools/server/server-context.cpp
+@@ -3,6 +3,7 @@
+ #include <cctype>
+ #include <cstdio>
+ #include <cstdlib>
++#include <cstring>
+ #include <mutex>
+ #include <unordered_map>
+ #include "server-chat.h"
+@@ -715,15 +716,30 @@ struct server_slot {
+         static std::unordered_map<std::string, std::vector<float>> feat_ram;
+         static const char * feat_dir = std::getenv("LLAMA_MTMD_FEAT_CACHE_DIR");
+         const int64_t n_embd_model = llama_model_n_embd(llama_get_model(ctx_tgt));
++        auto media_ordinal = [&](size_t my_idx, const char * my_id) -> size_t {
++            size_t ord = 0;
++            size_t i = 0;
++            while (true) {
++                auto next = input_tokens.find_next_media_chunk(i);
++                const mtmd::input_chunk_ptr * pchunk = next.first;
++                size_t start = next.second;
++                if (pchunk == nullptr || start >= my_idx) { break; }
++                const char * cid = mtmd_input_chunk_get_id(pchunk->get());
++                if (cid && my_id && strcmp(cid, my_id) == 0) { ord++; }
++                i = start + mtmd_input_chunk_get_n_tokens(pchunk->get());
++            }
++            return ord;
++        };
+         auto feat_key = [&](const mtmd_input_chunk * c, size_t chunk_idx) -> std::string {
+             const char * cid = mtmd_input_chunk_get_id(c);
+             std::string k = cid ? cid : "";
+             for (auto & ch : k) { if (!isalnum((unsigned char) ch)) ch = '_'; }
+             if (k.empty()) { return k; }
+             // the id is BITMAP-level (shared by every chunk cut from one
+-            // audio buffer) — disambiguate by prompt position; identical
+-            // prompts (this cache's reuse contract) keep positions stable.
+-            k += "_i" + std::to_string(chunk_idx);
++            // audio buffer); the media ORDINAL within that bitmap is
++            // invariant to text-prefix length (the position-based key broke
++            // under rolling-tail drift: 60% hit rate, 2026-08-11 read-out).
++            k += "_o" + std::to_string(media_ordinal(chunk_idx, cid));
+             return k;
+         };
+         auto feat_store = [&](const mtmd_input_chunk * c, size_t chunk_idx, const float * embd) {
+-- 
+2.43.0
+

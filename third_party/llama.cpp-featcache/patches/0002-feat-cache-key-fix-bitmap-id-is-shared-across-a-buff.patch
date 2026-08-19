@@ -1,0 +1,72 @@
+From 862effd0fc0acf857bdf1c93ff1460b5f60ca194 Mon Sep 17 00:00:00 2001
+From: SAEA study <saea@local>
+Date: Tue, 11 Aug 2026 12:13:01 -0400
+Subject: [PATCH 2/4] feat-cache key fix: bitmap id is shared across a buffer's
+ chunks - key by (id, prompt position). Caught live: 52 slices produced 382
+ false hits injecting the first chunk's features into every later chunk.
+
+---
+ tools/server/server-context.cpp | 19 ++++++++++++-------
+ 1 file changed, 12 insertions(+), 7 deletions(-)
+
+diff --git a/tools/server/server-context.cpp b/tools/server/server-context.cpp
+index c2f63a761..ce9b1b217 100644
+--- a/tools/server/server-context.cpp
++++ b/tools/server/server-context.cpp
+@@ -715,15 +715,20 @@ struct server_slot {
+         static std::unordered_map<std::string, std::vector<float>> feat_ram;
+         static const char * feat_dir = std::getenv("LLAMA_MTMD_FEAT_CACHE_DIR");
+         const int64_t n_embd_model = llama_model_n_embd(llama_get_model(ctx_tgt));
+-        auto feat_key = [&](const mtmd_input_chunk * c) -> std::string {
++        auto feat_key = [&](const mtmd_input_chunk * c, size_t chunk_idx) -> std::string {
+             const char * cid = mtmd_input_chunk_get_id(c);
+             std::string k = cid ? cid : "";
+             for (auto & ch : k) { if (!isalnum((unsigned char) ch)) ch = '_'; }
++            if (k.empty()) { return k; }
++            // the id is BITMAP-level (shared by every chunk cut from one
++            // audio buffer) — disambiguate by prompt position; identical
++            // prompts (this cache's reuse contract) keep positions stable.
++            k += "_i" + std::to_string(chunk_idx);
+             return k;
+         };
+-        auto feat_store = [&](const mtmd_input_chunk * c, const float * embd) {
++        auto feat_store = [&](const mtmd_input_chunk * c, size_t chunk_idx, const float * embd) {
+             if (!feat_dir || !embd) { return; }
+-            const std::string key = feat_key(c);
++            const std::string key = feat_key(c, chunk_idx);
+             if (key.empty()) { return; }
+             const size_t n = (size_t) mtmd_input_chunk_get_n_tokens(c) * (size_t) n_embd_model;
+             {
+@@ -741,9 +746,9 @@ struct server_slot {
+             if (ok) { std::rename((path + ".tmp").c_str(), path.c_str()); }
+             else    { std::remove((path + ".tmp").c_str()); }
+         };
+-        auto feat_load = [&](const mtmd_input_chunk * c) -> const std::vector<float> * {
++        auto feat_load = [&](const mtmd_input_chunk * c, size_t chunk_idx) -> const std::vector<float> * {
+             if (!feat_dir) { return nullptr; }
+-            const std::string key = feat_key(c);
++            const std::string key = feat_key(c, chunk_idx);
+             if (key.empty()) { return nullptr; }
+             {
+                 std::lock_guard<std::mutex> lk(feat_mu);
+@@ -772,7 +777,7 @@ struct server_slot {
+             if (mbatch) {
+                 float * embd = mtmd_batch_get_output_embd(mbatch.get(), chunk.get());
+                 if (embd) {
+-                    feat_store(chunk.get(), embd);
++                    feat_store(chunk.get(), idx, embd);
+                     void * cb_data = spec;
+                     static auto cb = [](llama_batch batch, void * user_data) {
+                         common_speculative * spec = static_cast<common_speculative *>(user_data);
+@@ -818,7 +823,7 @@ struct server_slot {
+ 
+         // SAEA feature cache: decode this chunk from a cached embd and skip
+         // the encoder entirely (RAM layer, then LLAMA_MTMD_FEAT_CACHE_DIR).
+-        if (const std::vector<float> * cached = feat_load(chunk.get())) {
++        if (const std::vector<float> * cached = feat_load(chunk.get(), idx)) {
+             void * cb_data = spec;
+             static auto cb = [](llama_batch batch, void * user_data) {
+                 common_speculative * spec = static_cast<common_speculative *>(user_data);
+-- 
+2.43.0
+

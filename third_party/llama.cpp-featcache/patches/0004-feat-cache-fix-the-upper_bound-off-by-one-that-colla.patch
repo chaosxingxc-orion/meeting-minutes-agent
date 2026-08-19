@@ -1,0 +1,70 @@
+From 5d9dfcb58ea860295da8fc93c7b5bed9e2c71151 Mon Sep 17 00:00:00 2001
+From: SAEA study <saea@local>
+Date: Tue, 11 Aug 2026 20:20:00 -0400
+Subject: [PATCH 4/4] feat-cache: fix the upper_bound off-by-one that collapsed
+ even ordinals onto odd ones; add VALIDATE mode (encode-everything +
+ byte-compare against cache)
+
+---
+ tools/server/server-context.cpp | 24 +++++++++++++++++++++---
+ 1 file changed, 21 insertions(+), 3 deletions(-)
+
+diff --git a/tools/server/server-context.cpp b/tools/server/server-context.cpp
+index f2e585f66..e369822f0 100644
+--- a/tools/server/server-context.cpp
++++ b/tools/server/server-context.cpp
+@@ -715,6 +715,7 @@ struct server_slot {
+         static std::mutex feat_mu;
+         static std::unordered_map<std::string, std::vector<float>> feat_ram;
+         static const char * feat_dir = std::getenv("LLAMA_MTMD_FEAT_CACHE_DIR");
++        static const bool feat_validate = std::getenv("LLAMA_MTMD_FEAT_CACHE_VALIDATE") != nullptr;
+         const int64_t n_embd_model = llama_model_n_embd(llama_get_model(ctx_tgt));
+         auto media_ordinal = [&](size_t my_idx, const char * my_id) -> size_t {
+             size_t ord = 0;
+@@ -726,7 +727,11 @@ struct server_slot {
+                 if (pchunk == nullptr || start >= my_idx) { break; }
+                 const char * cid = mtmd_input_chunk_get_id(pchunk->get());
+                 if (cid && my_id && strcmp(cid, my_id) == 0) { ord++; }
+-                i = start + mtmd_input_chunk_get_n_tokens(pchunk->get());
++                // upper_bound is STRICTLY greater: advancing past the
++                // chunk's end lands exactly on the next chunk's start and
++                // SKIPS it (round-3 forensics: even ordinals collapsed onto
++                // odd ones -> o2/o4/o6 false-hit with o1/o3/o5's features).
++                i = start;
+             }
+             return ord;
+         };
+@@ -749,7 +754,20 @@ struct server_slot {
+             const size_t n = (size_t) mtmd_input_chunk_get_n_tokens(c) * (size_t) n_embd_model;
+             {
+                 std::lock_guard<std::mutex> lk(feat_mu);
+-                if (feat_ram.count(key)) { return; }
++                auto it = feat_ram.find(key);
++                if (it != feat_ram.end()) {
++                    if (feat_validate) {
++                        const bool same = it->second.size() == n &&
++                            std::memcmp(it->second.data(), embd, n * sizeof(float)) == 0;
++                        if (same) {
++                            SLT_INF(*this, "feat-cache VALIDATE MATCH key=%s\n", key.c_str());
++                        } else {
++                            SLT_ERR(*this, "feat-cache VALIDATE MISMATCH key=%s — overwriting with encoder truth\n", key.c_str());
++                            it->second.assign(embd, embd + n);
++                        }
++                    }
++                    return;
++                }
+                 feat_ram[key].assign(embd, embd + n);
+             }
+             const std::string path = std::string(feat_dir) + "/" + key + ".feat";
+@@ -839,7 +857,7 @@ struct server_slot {
+ 
+         // SAEA feature cache: decode this chunk from a cached embd and skip
+         // the encoder entirely (RAM layer, then LLAMA_MTMD_FEAT_CACHE_DIR).
+-        if (const std::vector<float> * cached = feat_load(chunk.get(), idx)) {
++        if (const std::vector<float> * cached = feat_validate ? nullptr : feat_load(chunk.get(), idx)) {
+             void * cb_data = spec;
+             static auto cb = [](llama_batch batch, void * user_data) {
+                 common_speculative * spec = static_cast<common_speculative *>(user_data);
+-- 
+2.43.0
+

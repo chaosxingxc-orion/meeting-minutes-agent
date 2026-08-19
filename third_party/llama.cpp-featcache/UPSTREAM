@@ -1,0 +1,61 @@
+Upstream repository: https://github.com/ggml-org/llama.cpp
+
+Base commit (pinned by this program's scripts/env-setup.sh as LLAMACPP_COMMIT):
+  hash:    fdbd6abee20e408de21e90ca77a24cd50a6ea073
+  subject: tests : synchronize contexts at end of test-thread-safety (#24935)
+  author:  Christopher Albert <albert@tugraz.at>
+  date:    2026-06-25 08:22:51 +0200
+
+Our tip commit (branch saea-featcache-2026-08-11 in the modified checkout,
+/home/chao/llama.cpp-featcache):
+  hash:    5d9dfcb58ea860295da8fc93c7b5bed9e2c71151
+  subject: feat-cache: fix the upper_bound off-by-one that collapsed even
+           ordinals onto odd ones; add VALIDATE mode (encode-everything +
+           byte-compare against cache)
+  author:  SAEA study <saea@local>
+  date:    2026-08-11 20:20:00 -0400
+
+Patch count: 4 (0001-0004, applied in order on top of the base commit).
+
+diff --stat base..tip:
+  tools/server/server-context.cpp | 132 ++++++++++++++++++++++++++++++++++++++++
+  1 file changed, 132 insertions(+)
+
+Per-commit breakdown (git log --oneline, oldest first):
+  b3dc62149  SAEA feature cache: audio-chunk embd keyed by FNV content hash
+             (RAM + LLAMA_MTMD_FEAT_CACHE_DIR); hit decodes from cache and
+             skips the encoder; miss encodes and back-fills. Fail-safe
+             fallback to the stock path.                        (+93/-0)
+  862effd0f  feat-cache key fix: bitmap id is shared across a buffer's
+             chunks - key by (id, prompt position). Caught live: 52 slices
+             produced 382 false hits injecting the first chunk's features
+             into every later chunk.                            (+12/-7)
+  1c806481c  feat-cache: media-ordinal keys - invariant to text-prefix
+             length (position keys broke under rolling-tail drift, 60% hit
+             rate)                                               (+19/-3)
+  5d9dfcb58  feat-cache: fix the upper_bound off-by-one that collapsed even
+             ordinals onto odd ones; add VALIDATE mode (encode-everything +
+             byte-compare against cache)                         (+21/-3)
+
+Single file touched throughout: tools/server/server-context.cpp. No build
+files, headers, or other translation units are modified.
+
+Notes on how the base was identified: the modified checkout's local
+`origin/master` ref is periodically re-fetched shallow (`git rev-list
+--count origin/master` = 1 in that checkout), so `git merge-base` against it
+is not meaningful there. The base commit above was instead confirmed two
+independent ways: (1) `git log -1 b3dc62149^` in the modified checkout
+resolves directly to fdbd6abee with its full upstream commit message and
+author intact; (2) this program's own `scripts/env-setup.sh`
+(`LLAMACPP_COMMIT`, umbrella repo) independently pins the exact same hash
+with a matching dated comment ("2026-06-25, tests: synchronize contexts at
+end of test-thread-safety (#24935)") as the commit any fresh clone should
+build from. Both agree.
+
+Binary identity (informational; toolchain-dependent, see README.md):
+  built llama-server sha256: 097c96ec5a3f576f378d4d5e103928bf070647fdcc1f015eacb839503e121c68
+
+License: llama.cpp is MIT-licensed (upstream LICENSE). This patch series is
+a set of textual diffs against upstream source, redistributed here with
+upstream attribution; it grants no additional rights beyond upstream's MIT
+license and carries none of its own.
