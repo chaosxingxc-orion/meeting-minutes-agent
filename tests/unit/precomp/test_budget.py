@@ -6,11 +6,14 @@ from __future__ import annotations
 import pytest
 
 from meeting_minutes_agent.precomp.budget import (
+    CEILINGS_PROFILES,
+    G1_SUPPLEMENT_CEILINGS,
     WAVE_1_CEILINGS,
     WAVE_2_CEILINGS,
     PrecompBudget,
     PrecompBudgetExceeded,
     WaveCeilings,
+    ceilings_for_profile,
     ceilings_for_wave,
     wave_usage_from_receipts,
 )
@@ -54,6 +57,67 @@ class TestCeilingsForWave:
             "max_cutting_wall_hours": 2.0,
             "max_encode_calls": 900,
         }
+
+
+# ---------------------------------------------------------------------------
+# G1 supplement ceilings PROFILE (docs/readiness/2026-08-19-g1-floors-
+# preregistration.md SS6): budgeted SEPARATELY from wave-1's own ceiling.
+# ---------------------------------------------------------------------------
+
+
+class TestG1SupplementCeilings:
+    def test_matches_the_task_instruction_numbers(self):
+        assert G1_SUPPLEMENT_CEILINGS.max_encode_calls == 500
+        assert G1_SUPPLEMENT_CEILINGS.max_encode_gpu_hours == 1.0
+        assert G1_SUPPLEMENT_CEILINGS.max_cutting_wall_hours == 1.0
+
+    def test_500_calls_comfortably_covers_the_370_call_estimate(self):
+        # SS3: "~370 slices"; wave-1 alone already used 738/900 of its OWN
+        # ceiling, so the supplement must never reuse that one.
+        assert G1_SUPPLEMENT_CEILINGS.max_encode_calls > 370
+
+    def test_diar_ceiling_is_a_nonzero_placeholder_never_expected_to_bind(self):
+        # A literal 0.0 would trip check_all's pre-flight sanity check
+        # (0 used >= 0 ceiling) before the wave even starts.
+        assert G1_SUPPLEMENT_CEILINGS.max_diar_gpu_hours > 0.0
+
+
+class TestCeilingsForProfile:
+    def test_wave_1_and_wave_2_profiles_alias_the_per_wave_lookup(self):
+        assert ceilings_for_profile("wave-1") is WAVE_1_CEILINGS
+        assert ceilings_for_profile("wave-2") is WAVE_2_CEILINGS
+
+    def test_g1_supplement_profile_resolves(self):
+        assert ceilings_for_profile("g1-supplement") is G1_SUPPLEMENT_CEILINGS
+
+    def test_unknown_profile_raises_key_error(self):
+        with pytest.raises(KeyError):
+            ceilings_for_profile("bogus-profile")
+
+    def test_ceilings_profiles_lists_all_three(self):
+        assert set(CEILINGS_PROFILES) == {"wave-1", "wave-2", "g1-supplement"}
+
+
+class TestG1SupplementBudgetPreflight:
+    def test_check_all_passes_on_a_fresh_zero_usage_budget(self):
+        # The degenerate zero-ceiling-meets-zero-usage edge case
+        # G1_SUPPLEMENT_CEILINGS.max_diar_gpu_hours is deliberately nonzero
+        # to avoid (see TestG1SupplementCeilings above).
+        budget = PrecompBudget(G1_SUPPLEMENT_CEILINGS)
+        budget.check_all()  # must not raise
+
+    def test_precharging_from_an_empty_receipt_set_still_passes(self):
+        # Simulates the supplement's own separate, initially-empty out-dir:
+        # precharging zero receipts must never trip the pre-flight check.
+        budget = PrecompBudget(G1_SUPPLEMENT_CEILINGS)
+        budget.precharge([])
+        budget.check_all()  # must not raise
+
+    def test_500_call_ceiling_trips_after_500_recorded_calls(self):
+        budget = PrecompBudget(G1_SUPPLEMENT_CEILINGS)
+        budget.record_encode(gpu_seconds=0.0, n_calls=500)
+        with pytest.raises(PrecompBudgetExceeded):
+            budget.check_before_encode()
 
 
 # ---------------------------------------------------------------------------
@@ -231,6 +295,35 @@ class TestWaveUsageFromReceipts:
     def test_non_mapping_entries_are_skipped(self):
         used = wave_usage_from_receipts([None, "not-a-dict", 42, _receipt("MTG1", diar_gpu_seconds=1.0)])
         assert used["diar_gpu_seconds_used"] == 1.0
+
+    def test_vad_only_encode_outcomes_are_summed_too(self):
+        # A vad-only supplement receipt: no "tool"/"oracle" keys under
+        # encode_warm at all, only "vad" -- wave_usage_from_receipts must
+        # still recover its GPU-seconds/call usage (module: G1 VAD
+        # supplement extension).
+        receipt = build_meeting_receipt(
+            wave=1, meeting_id="MTG1", ok=True, error=None,
+            diar={"contact": None, "n_turns": None, "wall_seconds": None, "gpu_seconds_estimate": None},
+            slice_plans={"tool": None, "oracle": None, "vad": {"n_slices": 2}},
+            cutting={"tool": None, "oracle": None, "vad": {"n_entries": 2}, "wall_seconds": 0.1, "workers": 8},
+            encode_warm={
+                "tool": [], "oracle": [],
+                "vad": [{"gpu_seconds_estimate": 3.0}, {"gpu_seconds_estimate": 4.0}],
+                "wall_seconds": 0.2, "n_calls": 2,
+            },
+            metrics={}, budget_after={}, recorded_utc="2026-08-19T00:00:00+00:00",
+        )
+        used = wave_usage_from_receipts([receipt])
+        assert used["encode_calls_used"] == 2
+        assert used["encode_gpu_seconds_used"] == 7.0
+
+    def test_an_old_receipt_with_no_vad_key_contributes_zero_vad_usage(self):
+        # The 18 committed wave-1 receipts have no "vad" key at all under
+        # encode_warm; summation must default that to zero, not raise.
+        receipt = _receipt("MTG1", encode_calls=1, encode_gpu_seconds_per_call=2.0)
+        assert "vad" not in receipt["encode_warm"]
+        used = wave_usage_from_receipts([receipt])
+        assert used["encode_gpu_seconds_used"] == 2.0
 
 
 class TestPrecompBudgetPrecharge:

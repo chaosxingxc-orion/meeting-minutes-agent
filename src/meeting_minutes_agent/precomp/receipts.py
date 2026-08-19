@@ -12,6 +12,23 @@ module's shape) carries hashes/counts/paths -- never audio bytes -- so it
 is exactly the "manifest" that prereg line means is safe to commit; the
 RTTM files, slice WAVs, and feature-cache entries it references all live
 under the caller's data root and are never written here.
+
+Schema versioning (the G1 VAD-supplement extension,
+``docs/readiness/2026-08-19-g1-floors-preregistration.md`` SS3): bumping
+``SCHEMA_VERSION`` to ``"1.1.0"`` adds an OPTIONAL third ``"vad"`` key
+alongside the existing ``"tool"``/``"oracle"`` keys under
+``slice_plans``/``cutting``/``encode_warm`` (:mod:`.pipeline`'s
+``TURN_SOURCES``) -- purely additive over ``"1.0.0"``, never a field
+removed or a meaning changed. :func:`already_done`'s compatibility check is
+therefore MAJOR-version-only (:func:`_schema_major`), not an exact string
+match: the 18 already-committed wave-1 receipts
+(``docs/checks/2026-08-19-precomp-wave1/receipts/*.json``, all
+``schema_version: "1.0.0"``, no ``"vad"`` key at all) are read as
+already-done exactly as before this change, and every reader that sums a
+per-source field (:func:`~.budget.wave_usage_from_receipts`) already
+defaults a missing key to zero/empty, so an absent ``"vad"`` key reads as
+"that source was never requested for this receipt" everywhere, not as a
+parse failure.
 """
 
 from __future__ import annotations
@@ -21,7 +38,26 @@ import os
 from pathlib import Path
 from typing import Any, Mapping
 
-SCHEMA_VERSION = "1.0.0"
+SCHEMA_VERSION = "1.1.0"
+
+
+def _schema_major(version: Any) -> str | None:
+    """The leading dot-separated component of a ``schema_version`` string,
+    or ``None`` for anything that is not a non-empty string (module
+    docstring's compatibility check operates on this, never on the full
+    version string)."""
+
+    if not isinstance(version, str) or not version:
+        return None
+    return version.split(".", 1)[0]
+
+
+def _schema_compatible(version: Any) -> bool:
+    """``True`` iff ``version`` shares this module's own SCHEMA_VERSION
+    major component (module docstring) -- the backward-compatibility test
+    :func:`already_done` applies instead of an exact string match."""
+
+    return _schema_major(version) == _schema_major(SCHEMA_VERSION)
 
 
 def meeting_receipt_path(out_dir: Path, meeting_id: str) -> Path:
@@ -93,11 +129,14 @@ def write_meeting_receipt(out_dir: Path, receipt: Mapping[str, Any]) -> Path:
 def already_done(out_dir: Path, meeting_id: str) -> bool:
     """Resume support (prereg SS6 / task instruction: "resumable at meeting
     granularity: skip meetings whose receipt is complete+verified"). A
-    receipt is complete+verified when it parses as JSON, declares THIS
-    module's :data:`SCHEMA_VERSION` (a stale/incompatible receipt shape is
-    neither complete nor verified against the current schema), and records
-    ``ok: true``. A missing, unparsable, schema-mismatched, or errored
-    receipt is NOT done -- it (or the whole meeting) will be retried."""
+    receipt is complete+verified when it parses as JSON, declares a
+    schema-COMPATIBLE ``schema_version`` (module docstring:
+    :func:`_schema_compatible`, major-version match rather than an exact
+    string match, so the 18 committed ``"1.0.0"`` wave-1 receipts remain
+    recognized as done under this module's current ``"1.1.0"``), and
+    records ``ok: true``. A missing, unparsable, schema-INCOMPATIBLE, or
+    errored receipt is NOT done -- it (or the whole meeting) will be
+    retried."""
 
     path = meeting_receipt_path(out_dir, meeting_id)
     if not path.is_file():
@@ -108,7 +147,7 @@ def already_done(out_dir: Path, meeting_id: str) -> bool:
         return False
     if not isinstance(data, dict):
         return False
-    return data.get("schema_version") == SCHEMA_VERSION and bool(data.get("ok"))
+    return _schema_compatible(data.get("schema_version")) and bool(data.get("ok"))
 
 
 def build_wave_summary(

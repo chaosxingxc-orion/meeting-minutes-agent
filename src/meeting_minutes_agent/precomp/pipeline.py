@@ -30,6 +30,28 @@ is the one exception this function does NOT swallow: a ceiling crossing is
 a flight-level stop, not a per-meeting failure, and propagates to the wave
 runner exactly like ``scripts/launch_diar_smoke.py``'s own
 ``SmokeBudgetExceeded`` handling.
+
+Turn sources (the G1 VAD-supplement extension,
+``docs/readiness/2026-08-19-g1-floors-preregistration.md`` SS3): wave-1/2's
+registered pass always builds BOTH the pinned-tool AND oracle-NXT turn
+sources together (:data:`DEFAULT_TURN_SOURCES`, unchanged). A caller may
+instead pass ``turn_sources=("vad",)`` (:data:`VAD_SOURCE`) to build ONLY
+the pure-VAD/no-diarization source that feeds G1's Z-nodiar ablation
+(:func:`~..chunking.slicer.build_vad_slice_plan`, the module's own
+"explicit fallback/ablation mode... the no-diarization arm"): this skips
+the pinned diar tool contact and the NXT oracle resolution ENTIRELY --
+neither :func:`~..budget.PrecompBudget.check_before_diar` nor a diar
+subprocess call happens when ``"tool"`` is not requested, and
+:func:`~..corpora.nxt.resolver.resolve_meeting` is never called when
+``"oracle"`` is not requested -- so a ``turn_sources=("vad",)`` supplement
+invocation never re-pays (or re-risks) work wave-1 already receipted,
+structurally, without needing to inspect any existing receipt. Any subset
+of :data:`TURN_SOURCES` may be requested together in one call; each
+requested source gets its own slice-plan/cutting/encode-warm sub-stage,
+and the receipt's ``slice_plans``/``cutting``/``encode_warm`` blocks always
+carry all three keys (``"tool"``/``"oracle"``/``"vad"``), ``None``/empty
+for whichever source was not requested this call -- see
+:mod:`.receipts`'s schema-versioning note.
 """
 
 from __future__ import annotations
@@ -38,7 +60,7 @@ import time
 from concurrent.futures import ThreadPoolExecutor
 from datetime import datetime, timezone
 from pathlib import Path
-from typing import Any, Callable, Mapping
+from typing import Any, Callable, Mapping, Sequence
 
 from ..chunking.constants import (
     TRANSPORT_SLICE_MAX_S,
@@ -55,6 +77,7 @@ from ..chunking.slicer import (
     SliceManifest,
     SlicePlan,
     build_turn_aware_slice_plan,
+    build_vad_slice_plan,
     detect_energy_pause_transitions,
     materialize_slice_plan,
     read_audio_duration,
@@ -77,11 +100,57 @@ __all__ = [
     "DEFAULT_WORKERS",
     "DEFAULT_AMI_AUDIO_ROOT_RELATIVE",
     "DEFAULT_AMI_ANNOTATIONS_ROOT_RELATIVE",
+    "TOOL_SOURCE",
+    "ORACLE_SOURCE",
+    "VAD_SOURCE",
+    "TURN_SOURCES",
+    "DEFAULT_TURN_SOURCES",
+    "InvalidTurnSourcesError",
     "require_meeting_audio_path",
     "query_gpu_utilization_snapshot",
     "cut_slice_plans_parallel",
     "run_meeting",
 ]
+
+#: The three PRECOMP turn sources (module docstring). ``"tool"`` (pinned
+#: Arm B diar) and ``"oracle"`` (NXT gold turns) are wave-1/2's registered
+#: pair; ``"vad"`` (pure-VAD/no-diarization, :func:`~..chunking.slicer.
+#: build_vad_slice_plan`) is the G1 floors campaign's Z-nodiar-ablation
+#: supplement source.
+TOOL_SOURCE = "tool"
+ORACLE_SOURCE = "oracle"
+VAD_SOURCE = "vad"
+TURN_SOURCES: tuple[str, ...] = (TOOL_SOURCE, ORACLE_SOURCE, VAD_SOURCE)
+
+#: Backward-compatible default: unchanged wave-1/2 behaviour, both
+#: registered sources together, every existing caller that never passes
+#: ``turn_sources`` at all.
+DEFAULT_TURN_SOURCES: tuple[str, ...] = (TOOL_SOURCE, ORACLE_SOURCE)
+
+
+class InvalidTurnSourcesError(ValueError):
+    """``turn_sources`` was empty, carried an unknown source name, or
+    requested a source whose required companion argument
+    (``tool_config`` for :data:`TOOL_SOURCE`, ``vad_slice_dir`` for
+    :data:`VAD_SOURCE`) was not given."""
+
+
+def _normalize_turn_sources(turn_sources: Sequence[str]) -> tuple[str, ...]:
+    """Validate and de-duplicate (order-preserving) a caller's
+    ``turn_sources``. Fail-closed: an empty sequence or an unknown source
+    name raises :class:`InvalidTurnSourcesError` rather than silently
+    running nothing or an unrecognized stage."""
+
+    if not turn_sources:
+        raise InvalidTurnSourcesError("turn_sources must be non-empty")
+    ordered: list[str] = []
+    for source in turn_sources:
+        if source not in TURN_SOURCES:
+            raise InvalidTurnSourcesError(f"unknown turn source {source!r}; expected one of {TURN_SOURCES}")
+        if source not in ordered:
+            ordered.append(source)
+    return tuple(ordered)
+
 
 #: Owner baseline (CPU preprocessing parallelism convention already used
 #: elsewhere in this program: ~20 workers idle, capped at 8 while a GPU
@@ -101,9 +170,9 @@ DEFAULT_AMI_ANNOTATIONS_ROOT_RELATIVE = "datasets/ami/annotations/manual_1.6.2"
 #: constant by this name).
 FAILURE_STAGE_DEFAULTS: dict[str, Any] = {
     "diar": {"contact": None, "n_turns": None, "wall_seconds": None, "gpu_seconds_estimate": None},
-    "slice_plans": {"tool": None, "oracle": None},
-    "cutting": {"tool": None, "oracle": None, "wall_seconds": None, "workers": None},
-    "encode_warm": {"tool": [], "oracle": [], "wall_seconds": None, "n_calls": 0},
+    "slice_plans": {"tool": None, "oracle": None, "vad": None},
+    "cutting": {"tool": None, "oracle": None, "vad": None, "wall_seconds": None, "workers": None},
+    "encode_warm": {"tool": [], "oracle": [], "vad": [], "wall_seconds": None, "n_calls": 0},
     "metrics": {},
 }
 
@@ -147,11 +216,12 @@ def run_meeting(
     *,
     wave: int,
     audio_path: Path,
-    tool_config: ToolDiarizationConfig,
+    tool_config: ToolDiarizationConfig | None = None,
     nxt_corpus: NxtCorpus,
     rttm_dir: Path,
     tool_slice_dir: Path,
     oracle_slice_dir: Path,
+    vad_slice_dir: Path | None = None,
     transport: LlamaServerTransport,
     budget: PrecompBudget,
     cache_dir: Path,
@@ -161,6 +231,7 @@ def run_meeting(
     min_s: float = TRANSPORT_SLICE_MIN_S,
     max_s: float = TRANSPORT_SLICE_MAX_S,
     snap_s: float = TRANSPORT_SLICE_SNAP_S,
+    turn_sources: Sequence[str] = DEFAULT_TURN_SOURCES,
     run_subprocess: Callable[..., Any] | None = None,
     query_gpu: Callable[[], Mapping[str, float] | None] | None = None,
     materialize_fn: Callable[..., SliceManifest] = materialize_slice_plan,
@@ -172,7 +243,24 @@ def run_meeting(
     metrics, folded into one :func:`~.receipts.build_meeting_receipt`.
     Never raises except :class:`~.budget.PrecompBudgetExceeded` (module
     docstring) -- every other failure is caught and recorded as an
-    ``ok: False`` receipt."""
+    ``ok: False`` receipt.
+
+    ``turn_sources`` (module docstring) defaults to
+    :data:`DEFAULT_TURN_SOURCES` -- both registered sources, byte-for-byte
+    the original behaviour. Passing ``turn_sources=("vad",)`` runs ONLY the
+    pure-VAD stage: the diar contact, the oracle resolution, and both
+    turn-aware slice plans are skipped entirely (never even attempted), and
+    ``tool_config``/``nxt_corpus`` go unused for that call -- ``tool_config``
+    may be left ``None`` whenever :data:`TOOL_SOURCE` is not requested."""
+
+    turn_sources = _normalize_turn_sources(turn_sources)
+    need_tool = TOOL_SOURCE in turn_sources
+    need_oracle = ORACLE_SOURCE in turn_sources
+    need_vad = VAD_SOURCE in turn_sources
+    if need_vad and vad_slice_dir is None:
+        raise InvalidTurnSourcesError("turn_sources includes 'vad' but vad_slice_dir was not given")
+    if need_tool and tool_config is None:
+        raise InvalidTurnSourcesError("turn_sources includes 'tool' but tool_config was not given")
 
     diar_block = dict(FAILURE_STAGE_DEFAULTS["diar"])
     slice_plans_block = dict(FAILURE_STAGE_DEFAULTS["slice_plans"])
@@ -181,137 +269,159 @@ def run_meeting(
     metrics_block: dict[str, Any] = dict(FAILURE_STAGE_DEFAULTS["metrics"])
 
     try:
-        # -- 1. diarization: pinned Arm B, per-contact log -------------
-        budget.check_before_diar()
-        backend = PinnedToolDiarization(tool_config, output_dir=rttm_dir, run_subprocess=run_subprocess)
         tool_result = None
-        started = time.monotonic()
-        try:
-            tool_result = backend.diarize(meeting_id, audio_path)
-        finally:
-            diar_wall = time.monotonic() - started
-            snapshot = query_gpu() if query_gpu is not None else None
-            diar_gpu_seconds = estimate_gpu_seconds(diar_wall, snapshot)
-            budget.record_diar(diar_gpu_seconds)
-            diar_block = {
-                "contact": backend.contact_log[-1].to_dict() if backend.contact_log else None,
-                "n_turns": len(tool_result.turns) if tool_result is not None else None,
-                "wall_seconds": diar_wall,
-                "gpu_seconds_estimate": diar_gpu_seconds,
-            }
+        oracle_result = None
+        tool_plan: SlicePlan | None = None
+        oracle_plan: SlicePlan | None = None
+        vad_plan: SlicePlan | None = None
 
-        # -- 2. oracle turns: NXT gold, ceiling-arm admitted -----------
-        resolved = resolve_meeting(nxt_corpus, meeting_id)
-        oracle_result = NxtOracleDiarization(resolved).diarize(meeting_id)
+        # -- 1. diarization: pinned Arm B, per-contact log (TOOL_SOURCE
+        # only -- skipped entirely, no subprocess/GPU contact, budget check
+        # never even called, when "tool" is not requested) --------------
+        if need_tool:
+            budget.check_before_diar()
+            backend = PinnedToolDiarization(tool_config, output_dir=rttm_dir, run_subprocess=run_subprocess)
+            started = time.monotonic()
+            try:
+                tool_result = backend.diarize(meeting_id, audio_path)
+            finally:
+                diar_wall = time.monotonic() - started
+                snapshot = query_gpu() if query_gpu is not None else None
+                diar_gpu_seconds = estimate_gpu_seconds(diar_wall, snapshot)
+                budget.record_diar(diar_gpu_seconds)
+                diar_block = {
+                    "contact": backend.contact_log[-1].to_dict() if backend.contact_log else None,
+                    "n_turns": len(tool_result.turns) if tool_result is not None else None,
+                    "wall_seconds": diar_wall,
+                    "gpu_seconds_estimate": diar_gpu_seconds,
+                }
 
-        # -- 3. slice plans: tool AND oracle (prereg SS2: "BOTH turn
-        # sources... G1's ceiling arm needs both slice sets") -----------
-        duration = read_audio_duration(audio_path)
-        transitions = detect_energy_pause_transitions(audio_path)
-        tool_plan = build_turn_aware_slice_plan(
-            meeting_id,
-            tool_result.turns,
-            turn_provenance=tool_result.provenance,
-            allow_oracle_turns=False,
-            total_duration_s=duration,
-            fallback_pause_transitions=transitions,
-            nominal_s=nominal_s,
-            min_s=min_s,
-            max_s=max_s,
-            snap_s=snap_s,
-        )
-        oracle_plan = build_turn_aware_slice_plan(
-            meeting_id,
-            oracle_result.turns,
-            turn_provenance=oracle_result.provenance,
-            allow_oracle_turns=True,
-            total_duration_s=duration,
-            fallback_pause_transitions=transitions,
-            nominal_s=nominal_s,
-            min_s=min_s,
-            max_s=max_s,
-            snap_s=snap_s,
-        )
-        slice_plans_block = {
-            "tool": {
+        # -- 2. oracle turns: NXT gold, ceiling-arm admitted (ORACLE_SOURCE
+        # only -- skipped entirely, no NXT resolution, when "oracle" is
+        # not requested) --------------------------------------------------
+        if need_oracle:
+            resolved = resolve_meeting(nxt_corpus, meeting_id)
+            oracle_result = NxtOracleDiarization(resolved).diarize(meeting_id)
+
+        # -- 3. slice plans: whichever of tool/oracle/vad was requested
+        # (prereg SS2: "BOTH turn sources... G1's ceiling arm needs both
+        # slice sets"; the G1 VAD supplement adds a third, independent
+        # source, module docstring) -----------------------------------
+        duration: float | None = None
+        transitions: tuple[float, ...] = ()
+        if need_tool or need_oracle or need_vad:
+            duration = read_audio_duration(audio_path)
+            transitions = detect_energy_pause_transitions(audio_path)
+
+        if need_tool:
+            tool_plan = build_turn_aware_slice_plan(
+                meeting_id,
+                tool_result.turns,
+                turn_provenance=tool_result.provenance,
+                allow_oracle_turns=False,
+                total_duration_s=duration,
+                fallback_pause_transitions=transitions,
+                nominal_s=nominal_s,
+                min_s=min_s,
+                max_s=max_s,
+                snap_s=snap_s,
+            )
+            slice_plans_block["tool"] = {
                 "content_hash": tool_plan.content_hash,
                 "n_slices": len(tool_plan.slices),
                 "turn_provenance": tool_plan.turn_provenance.value if tool_plan.turn_provenance else None,
-            },
-            "oracle": {
+            }
+        if need_oracle:
+            oracle_plan = build_turn_aware_slice_plan(
+                meeting_id,
+                oracle_result.turns,
+                turn_provenance=oracle_result.provenance,
+                allow_oracle_turns=True,
+                total_duration_s=duration,
+                fallback_pause_transitions=transitions,
+                nominal_s=nominal_s,
+                min_s=min_s,
+                max_s=max_s,
+                snap_s=snap_s,
+            )
+            slice_plans_block["oracle"] = {
                 "content_hash": oracle_plan.content_hash,
                 "n_slices": len(oracle_plan.slices),
                 "turn_provenance": oracle_plan.turn_provenance.value if oracle_plan.turn_provenance else None,
-            },
-        }
+            }
+        if need_vad:
+            vad_plan = build_vad_slice_plan(
+                meeting_id,
+                duration,
+                pause_transitions=transitions,
+                nominal_s=nominal_s,
+                min_s=min_s,
+                max_s=max_s,
+                snap_s=snap_s,
+            )
+            slice_plans_block["vad"] = {
+                "content_hash": vad_plan.content_hash,
+                "n_slices": len(vad_plan.slices),
+                "turn_provenance": None,
+            }
 
-        # -- 4. CPU slice cutting: worker pool --------------------------
+        # -- 4. CPU slice cutting: worker pool, one job per requested
+        # source only ----------------------------------------------------
+        jobs: dict[str, tuple[SlicePlan, Path, Path]] = {}
+        if need_tool:
+            jobs["tool"] = (tool_plan, audio_path, tool_slice_dir)
+        if need_oracle:
+            jobs["oracle"] = (oracle_plan, audio_path, oracle_slice_dir)
+        if need_vad:
+            jobs["vad"] = (vad_plan, audio_path, vad_slice_dir)
+
         budget.check_before_cutting()
         started = time.monotonic()
-        manifests = cut_slice_plans_parallel(
-            {
-                "tool": (tool_plan, audio_path, tool_slice_dir),
-                "oracle": (oracle_plan, audio_path, oracle_slice_dir),
-            },
-            workers=workers,
-            materialize_fn=materialize_fn,
-        )
+        manifests = cut_slice_plans_parallel(jobs, workers=workers, materialize_fn=materialize_fn)
         cutting_wall = time.monotonic() - started
         budget.record_cutting(cutting_wall)
-        cutting_block = {
-            "tool": {
-                "content_hash": manifests["tool"].content_hash,
-                "n_entries": len(manifests["tool"].entries),
-            },
-            "oracle": {
-                "content_hash": manifests["oracle"].content_hash,
-                "n_entries": len(manifests["oracle"].entries),
-            },
-            "wall_seconds": cutting_wall,
-            "workers": workers,
-        }
+        for source, manifest in manifests.items():
+            cutting_block[source] = {"content_hash": manifest.content_hash, "n_entries": len(manifest.entries)}
+        cutting_block["wall_seconds"] = cutting_wall
+        cutting_block["workers"] = workers
 
-        # -- 5. featcache encode-warm pass: outputs discarded unread ---
+        # -- 5. featcache encode-warm pass: outputs discarded unread,
+        # one pass per requested source only ------------------------------
+        slice_dir_by_source: dict[str, Path] = {"tool": tool_slice_dir, "oracle": oracle_slice_dir}
+        if vad_slice_dir is not None:
+            slice_dir_by_source["vad"] = vad_slice_dir
         cache_before = snapshot_cache_dir(cache_dir)
         started = time.monotonic()
-        tool_outcomes = encode_warm_manifest(
-            transport,
-            manifests["tool"],
-            tool_slice_dir,
-            request_id_prefix=f"precomp-w{wave}-tool-{meeting_id}",
-            max_tokens=encode_max_tokens,
-            budget=budget,
-            query_gpu=query_gpu,
-            flight_receipt=flight_receipt,
-        )
-        oracle_outcomes = encode_warm_manifest(
-            transport,
-            manifests["oracle"],
-            oracle_slice_dir,
-            request_id_prefix=f"precomp-w{wave}-oracle-{meeting_id}",
-            max_tokens=encode_max_tokens,
-            budget=budget,
-            query_gpu=query_gpu,
-            flight_receipt=flight_receipt,
-        )
+        total_calls = 0
+        for source, manifest in manifests.items():
+            outcomes = encode_warm_manifest(
+                transport,
+                manifest,
+                slice_dir_by_source[source],
+                request_id_prefix=f"precomp-w{wave}-{source}-{meeting_id}",
+                max_tokens=encode_max_tokens,
+                budget=budget,
+                query_gpu=query_gpu,
+                flight_receipt=flight_receipt,
+            )
+            encode_block[source] = outcomes
+            total_calls += len(outcomes)
         encode_wall = time.monotonic() - started
         cache_after = snapshot_cache_dir(cache_dir)
-        encode_block = {
-            "tool": tool_outcomes,
-            "oracle": oracle_outcomes,
-            "wall_seconds": encode_wall,
-            "n_calls": len(tool_outcomes) + len(oracle_outcomes),
-        }
+        encode_block["wall_seconds"] = encode_wall
+        encode_block["n_calls"] = total_calls
 
-        # -- 6. descriptive metrics (verdict-free) ----------------------
+        # -- 6. descriptive metrics (verdict-free), whichever blocks the
+        # requested source(s) actually support ---------------------------
         metrics_block = build_meeting_metrics(
             tool_result=tool_result,
             oracle_result=oracle_result,
             tool_plan=tool_plan,
             oracle_plan=oracle_plan,
+            vad_plan=vad_plan,
             cache_before=cache_before,
             cache_after=cache_after,
-            diar_wall_s=diar_block["wall_seconds"],
+            diar_wall_s=diar_block["wall_seconds"] or 0.0,
             cutting_wall_s=cutting_block["wall_seconds"],
             encode_wall_s=encode_block["wall_seconds"],
         )

@@ -5,6 +5,9 @@ helpers."""
 from __future__ import annotations
 
 import json
+from pathlib import Path
+
+import pytest
 
 from meeting_minutes_agent.precomp.receipts import (
     SCHEMA_VERSION,
@@ -17,6 +20,9 @@ from meeting_minutes_agent.precomp.receipts import (
     write_meeting_receipt,
     write_wave_summary,
 )
+
+_REPO_ROOT = Path(__file__).resolve().parents[3]
+_WAVE_1_RECEIPTS_DIR = _REPO_ROOT / "docs" / "checks" / "2026-08-19-precomp-wave1"
 
 
 def _receipt(meeting_id: str = "MTG1", *, ok: bool = True) -> dict:
@@ -119,6 +125,75 @@ class TestAlreadyDone:
         path.parent.mkdir(parents=True)
         path.write_text("[1, 2, 3]", encoding="utf-8")
         assert already_done(tmp_path, "MTG1") is False
+
+
+# ---------------------------------------------------------------------------
+# schema-version backward compatibility (the G1 VAD-supplement extension):
+# SCHEMA_VERSION bumped to "1.1.0" must still recognize the 18 already-
+# committed wave-1 receipts (schema_version "1.0.0", no "vad" key at all)
+# as already-done -- module docstring / already_done's own docstring.
+# ---------------------------------------------------------------------------
+
+
+class TestSchemaVersionBackwardCompatibility:
+    def test_current_schema_version_is_a_minor_bump_over_1_0_0(self):
+        # Documents the exact compatibility contract this class tests: a
+        # MINOR bump (same major "1"), never a major bump, is what keeps
+        # old "1.0.0" receipts readable as already-done below.
+        assert SCHEMA_VERSION.split(".")[0] == "1"
+
+    def test_an_old_1_0_0_ok_receipt_with_no_vad_key_is_still_already_done(self, tmp_path):
+        receipt = build_meeting_receipt(
+            wave=1,
+            meeting_id="MTG1",
+            ok=True,
+            error=None,
+            diar={"contact": None, "n_turns": 3, "wall_seconds": 1.0, "gpu_seconds_estimate": 0.5},
+            slice_plans={"tool": {"n_slices": 2}, "oracle": {"n_slices": 2}},  # no "vad" key, like the real ones
+            cutting={"tool": {"n_entries": 2}, "oracle": {"n_entries": 2}, "wall_seconds": 0.1, "workers": 8},
+            encode_warm={"tool": [], "oracle": [], "wall_seconds": 0.2, "n_calls": 4},
+            metrics={},
+            budget_after={},
+            recorded_utc="2026-08-19T00:00:00+00:00",
+        )
+        receipt["schema_version"] = "1.0.0"  # simulate a receipt written before this bump
+        write_meeting_receipt(tmp_path, receipt)
+        assert already_done(tmp_path, "MTG1") is True
+
+    def test_a_future_major_bump_would_not_be_recognized(self, tmp_path):
+        receipt = build_meeting_receipt(
+            wave=1, meeting_id="MTG1", ok=True, error=None,
+            diar={}, slice_plans={}, cutting={}, encode_warm={}, metrics={}, budget_after={},
+            recorded_utc="2026-08-19T00:00:00+00:00",
+        )
+        receipt["schema_version"] = "2.0.0"
+        write_meeting_receipt(tmp_path, receipt)
+        assert already_done(tmp_path, "MTG1") is False
+
+    @pytest.mark.skipif(
+        not _WAVE_1_RECEIPTS_DIR.is_dir(), reason="wave-1 committed receipts not present in this checkout"
+    )
+    def test_a_real_committed_wave_1_receipt_is_recognized_as_already_done(self):
+        # Concrete regression against the ACTUAL 18 committed wave-1
+        # receipts (task instruction: "backward-compatible with the 18
+        # committed wave-1 receipts") -- not a hand-built fixture.
+        assert already_done(_WAVE_1_RECEIPTS_DIR, "ES2011a") is True
+
+    @pytest.mark.skipif(
+        not _WAVE_1_RECEIPTS_DIR.is_dir(), reason="wave-1 committed receipts not present in this checkout"
+    )
+    def test_every_real_committed_wave_1_receipt_declares_schema_1_0_0_with_no_vad_key(self):
+        # Pins the exact on-disk shape this compatibility layer must keep
+        # reading: "1.0.0", no "vad" key under slice_plans/cutting/encode_warm.
+        receipts_dir = _WAVE_1_RECEIPTS_DIR / "receipts"
+        paths = sorted(receipts_dir.glob("*-receipt.json"))
+        assert len(paths) == 18
+        for path in paths:
+            data = json.loads(path.read_text(encoding="utf-8"))
+            assert data["schema_version"] == "1.0.0"
+            assert "vad" not in data["slice_plans"]
+            assert "vad" not in data["cutting"]
+            assert "vad" not in data["encode_warm"]
 
 
 # ---------------------------------------------------------------------------

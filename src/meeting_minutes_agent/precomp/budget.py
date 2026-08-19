@@ -85,6 +85,61 @@ def ceilings_for_wave(wave: int) -> WaveCeilings:
         raise KeyError(f"no registered ceilings for PRECOMP wave {wave!r}; expected one of {sorted(_CEILINGS_BY_WAVE)}") from None
 
 
+#: The G1 floors campaign's registered VAD supplement
+#: (``docs/readiness/2026-08-19-g1-floors-preregistration.md`` SS3/SS6):
+#: "Z-nodiar's slices are NOT precomputed -- either a small PRECOMP
+#: supplement (~370 slices, ~=0.6 GPU-h) runs first... the supplement is
+#: the default" -- and SS6: "~370 supplement encodes... budgeted under the
+#: G1 campaign ceilings (<=2,900 core calls)". Wave-1 ALONE already used
+#: 738 of its own <=900-call ceiling (``docs/checks/2026-08-19-precomp-
+#: wave1/wave-summary.json``): 370 more encode calls would overrun that
+#: ceiling if the supplement silently reused it, so this is its own,
+#: separate, explicitly-selected profile
+#: (``scripts/run_precomp.py --ceilings-profile g1-supplement``) rather
+#: than a wave-1/2 ceilings lookup by another name. Sized with headroom
+#: above the ~370-call estimate: 500 calls / 1.0 GPU-h encode / 1.0 h wall
+#: CPU cutting (task instruction).
+#:
+#: ``max_diar_gpu_hours`` is a small nonzero placeholder, never expected to
+#: bind: this profile's ONLY intended invocation is a VAD-only turn source
+#: (``--turn-sources vad``), which never contacts the pinned diar tool at
+#: all (:mod:`.pipeline`'s ``VAD_SOURCE`` alone never sets ``need_tool``).
+#: A literal ``0.0`` ceiling would instead trip
+#: :meth:`PrecompBudget.check_all`'s pre-flight sanity check the instant 0
+#: GPU-seconds of USED diar time meets a 0-second ceiling (``0.0 >= 0.0``),
+#: before the wave even starts -- so this stays nonzero purely to keep that
+#: check's degenerate edge case out of the supplement's own critical path.
+G1_SUPPLEMENT_CEILINGS = WaveCeilings(
+    wave=1, max_diar_gpu_hours=0.1, max_encode_gpu_hours=1.0, max_cutting_wall_hours=1.0, max_encode_calls=500
+)
+
+#: Named ceilings PROFILES, decoupled from ``--wave`` (module docstring):
+#: ``"wave-1"``/``"wave-2"`` alias :func:`ceilings_for_wave`'s own per-wave
+#: ceilings; ``"g1-supplement"`` has no corresponding wave number and is
+#: selected explicitly via ``--ceilings-profile`` rather than derived from
+#: ``--wave``.
+_CEILINGS_BY_PROFILE: dict[str, WaveCeilings] = {
+    "wave-1": WAVE_1_CEILINGS,
+    "wave-2": WAVE_2_CEILINGS,
+    "g1-supplement": G1_SUPPLEMENT_CEILINGS,
+}
+CEILINGS_PROFILES: tuple[str, ...] = tuple(_CEILINGS_BY_PROFILE)
+
+
+def ceilings_for_profile(profile: str) -> WaveCeilings:
+    """The registered :class:`WaveCeilings` for a named ceilings PROFILE
+    (module-level docstring above :data:`G1_SUPPLEMENT_CEILINGS`). Raises
+    :class:`KeyError` for any other name -- there is no default profile to
+    silently fall back to, exactly like :func:`ceilings_for_wave`."""
+
+    try:
+        return _CEILINGS_BY_PROFILE[profile]
+    except KeyError:
+        raise KeyError(
+            f"no registered ceilings profile {profile!r}; expected one of {sorted(_CEILINGS_BY_PROFILE)}"
+        ) from None
+
+
 def _as_float(value: Any) -> float:
     return float(value) if isinstance(value, (int, float)) and not isinstance(value, bool) else 0.0
 
@@ -123,7 +178,7 @@ def wave_usage_from_receipts(receipts: Iterable[Mapping[str, Any]]) -> dict[str,
         used["diar_gpu_seconds_used"] += _as_float(diar.get("gpu_seconds_estimate"))
         used["cutting_wall_seconds_used"] += _as_float(cutting.get("wall_seconds"))
         used["encode_calls_used"] += int(_as_float(encode.get("n_calls")))
-        for key in ("tool", "oracle"):
+        for key in ("tool", "oracle", "vad"):
             for outcome in encode.get(key) or []:
                 if isinstance(outcome, Mapping):
                     used["encode_gpu_seconds_used"] += _as_float(outcome.get("gpu_seconds_estimate"))
@@ -261,7 +316,10 @@ __all__ = [
     "WaveCeilings",
     "WAVE_1_CEILINGS",
     "WAVE_2_CEILINGS",
+    "G1_SUPPLEMENT_CEILINGS",
+    "CEILINGS_PROFILES",
     "ceilings_for_wave",
+    "ceilings_for_profile",
     "PrecompBudget",
     "wave_usage_from_receipts",
 ]

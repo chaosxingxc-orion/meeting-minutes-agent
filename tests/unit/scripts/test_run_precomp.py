@@ -27,7 +27,7 @@ from meeting_minutes_agent.client.transport import LlamaServerTransport, Transpo
 from meeting_minutes_agent.corpora.nxt.corpus import NxtCorpus
 from meeting_minutes_agent.corpora.roles import HeldOutLeakageError
 from meeting_minutes_agent.client.featcache import campaign_cache_dir
-from meeting_minutes_agent.precomp.budget import PrecompBudget, WaveCeilings
+from meeting_minutes_agent.precomp.budget import G1_SUPPLEMENT_CEILINGS, PrecompBudget, WaveCeilings, ceilings_for_wave
 from meeting_minutes_agent.precomp.receipts import build_meeting_receipt
 from meeting_minutes_agent.probes.diar_smoke import ArmConfigError
 
@@ -87,6 +87,104 @@ class TestSummaryOnly:
     def test_unknown_wave_is_rejected_by_argparse(self):
         with pytest.raises(SystemExit):
             launcher.main(["--wave", "3", "--data-dir", "unused", "--summary-only"])
+
+
+# ---------------------------------------------------------------------------
+# --turn-sources / --ceilings-profile: the G1 VAD-supplement extension
+# (docs/readiness/2026-08-19-g1-floors-preregistration.md SS3/SS6)
+# ---------------------------------------------------------------------------
+
+
+class TestTurnSourcesAndCeilingsProfileFlags:
+    def test_turn_sources_defaults_to_tool_and_oracle(self, capsys):
+        rc = launcher.main(["--wave", "1", "--data-dir", "unused", "--summary-only"])
+        assert rc == 0
+        payload = json.loads(capsys.readouterr().out)
+        assert payload["turn_sources"] == ["tool", "oracle"]
+        assert payload["ceilings_profile"] == "wave-1"
+
+    def test_turn_sources_vad_is_accepted(self, capsys):
+        rc = launcher.main(["--wave", "1", "--data-dir", "unused", "--turn-sources", "vad", "--summary-only"])
+        assert rc == 0
+        payload = json.loads(capsys.readouterr().out)
+        assert payload["turn_sources"] == ["vad"]
+
+    def test_unknown_turn_source_is_rejected_by_argparse(self):
+        with pytest.raises(SystemExit):
+            launcher.main(["--wave", "1", "--data-dir", "unused", "--turn-sources", "bogus", "--summary-only"])
+
+    def test_ceilings_profile_g1_supplement_overrides_the_wave_derived_default(self, capsys):
+        rc = launcher.main(
+            ["--wave", "1", "--data-dir", "unused", "--ceilings-profile", "g1-supplement", "--summary-only"]
+        )
+        assert rc == 0
+        payload = json.loads(capsys.readouterr().out)
+        assert payload["ceilings_profile"] == "g1-supplement"
+        assert payload["ceilings"] == G1_SUPPLEMENT_CEILINGS.to_dict()
+        assert payload["ceilings"]["max_encode_calls"] == 500
+        # never wave-1's own, already-738/900-spent ceiling
+        assert payload["ceilings"]["max_encode_calls"] != ceilings_for_wave(1).max_encode_calls
+
+    def test_unknown_ceilings_profile_is_rejected_by_argparse(self):
+        with pytest.raises(SystemExit):
+            launcher.main(["--wave", "1", "--data-dir", "unused", "--ceilings-profile", "bogus", "--summary-only"])
+
+    def test_meetings_roster_is_unaffected_by_ceilings_profile(self, capsys):
+        # The g1-supplement ceilings profile still rides wave-1's own dev-18
+        # roster (registered: "over dev-18") -- only the CEILINGS differ.
+        rc = launcher.main(
+            ["--wave", "1", "--data-dir", "unused", "--ceilings-profile", "g1-supplement", "--summary-only"]
+        )
+        assert rc == 0
+        payload = json.loads(capsys.readouterr().out)
+        assert payload["n_meetings"] == 18
+
+
+class TestMissingRequiredArgs:
+    def test_arm_config_required_when_tool_is_among_turn_sources(self):
+        missing = launcher.missing_required_args(
+            turn_sources=("tool", "oracle"), arm_config=None,
+            server_url="http://x", model_path="m.gguf", model_sha256="a" * 64,
+        )
+        assert "--arm-config" in missing
+
+    def test_arm_config_not_required_for_a_vad_only_invocation(self):
+        missing = launcher.missing_required_args(
+            turn_sources=("vad",), arm_config=None,
+            server_url="http://x", model_path="m.gguf", model_sha256="a" * 64,
+        )
+        assert missing == []
+
+    def test_server_url_model_path_and_sha256_are_always_required(self):
+        missing = launcher.missing_required_args(
+            turn_sources=("vad",), arm_config=None, server_url=None, model_path=None, model_sha256=None,
+        )
+        assert set(missing) == {"--server-url", "--model-path", "--model-sha256"}
+
+    def test_vad_only_invocation_without_arm_config_passes_the_cli_gate(self):
+        # main()'s own required-args check, exercised WITHOUT --arm-config,
+        # for a --turn-sources vad invocation -- proves the gate itself
+        # (not just the helper) never demands --arm-config here. Stops at
+        # the next required arg (--server-url) rather than attempting any
+        # real network/diar contact.
+        with pytest.raises(SystemExit) as excinfo:
+            launcher.main(["--wave", "1", "--data-dir", "unused", "--turn-sources", "vad"])
+        assert excinfo.value.code != 0
+
+
+class TestDefaultOutDirCeilingsProfile:
+    def test_no_profile_is_unchanged_from_before(self):
+        assert launcher.default_out_dir(1) == launcher.default_out_dir(1, None)
+        assert launcher.default_out_dir(1).name == "2026-08-19-precomp-wave1"
+
+    def test_g1_supplement_profile_uses_its_own_separate_directory(self):
+        out_dir = launcher.default_out_dir(1, "g1-supplement")
+        assert out_dir.name == launcher.G1_SUPPLEMENT_OUT_DIR_NAME
+        assert out_dir != launcher.default_out_dir(1)
+
+    def test_wave_1_and_wave_2_profile_names_are_unchanged_from_the_bare_wave_default(self):
+        assert launcher.default_out_dir(1, "wave-1") == launcher.default_out_dir(1)
+        assert launcher.default_out_dir(2, "wave-2") == launcher.default_out_dir(2)
 
 
 # ---------------------------------------------------------------------------
@@ -319,6 +417,146 @@ class TestRunWave:
                 resume=False,
                 run_subprocess=_rttm_writer(),
             )
+
+
+# ---------------------------------------------------------------------------
+# run_wave: the VAD-supplement turn source, its own ceilings profile, and
+# resume-skip of already-receipted tool/oracle work (the G1 VAD-supplement
+# extension, docs/readiness/2026-08-19-g1-floors-preregistration.md SS3/SS6)
+# ---------------------------------------------------------------------------
+
+
+class TestRunWaveVadSupplement:
+    def test_turn_sources_vad_skips_diar_and_populates_only_vad_receipts(self, tmp_path):
+        fx = _wave_fixture(tmp_path, ["MTG1", "MTG2"])
+        out_dir = tmp_path / "out"
+        calls: list = []
+
+        def tracking_run_subprocess(args, *, timeout):
+            calls.append(args)
+            return _rttm_writer()(args, timeout=timeout)
+
+        summary = launcher.run_wave(
+            wave=1,
+            data_dir=fx["data_dir"],
+            meetings=["MTG1", "MTG2"],
+            tool_config=None,
+            transport=fx["transport"],
+            out_dir=out_dir,
+            derived_root=tmp_path / "derived",
+            cache_dir=tmp_path / "cache",
+            resume=False,
+            skip_roster_check=True,
+            run_subprocess=tracking_run_subprocess,
+            turn_sources=("vad",),
+            ceilings=G1_SUPPLEMENT_CEILINGS,
+        )
+
+        assert summary["n_ok"] == 2
+        assert calls == []  # the pinned diar tool was never contacted
+        for meeting_id in ("MTG1", "MTG2"):
+            receipt = json.loads((out_dir / "receipts" / f"{meeting_id}-receipt.json").read_text(encoding="utf-8"))
+            assert receipt["slice_plans"]["tool"] is None
+            assert receipt["slice_plans"]["oracle"] is None
+            assert receipt["slice_plans"]["vad"] is not None
+        assert summary["budget"]["ceilings"]["max_encode_calls"] == 500
+
+    def test_ceilings_profile_object_is_used_instead_of_the_per_wave_default(self, tmp_path):
+        fx = _wave_fixture(tmp_path, ["MTG1"])
+        out_dir = tmp_path / "out"
+
+        summary = launcher.run_wave(
+            wave=1,
+            data_dir=fx["data_dir"],
+            meetings=["MTG1"],
+            tool_config=None,
+            transport=fx["transport"],
+            out_dir=out_dir,
+            derived_root=tmp_path / "derived",
+            cache_dir=tmp_path / "cache",
+            resume=False,
+            skip_roster_check=True,
+            turn_sources=("vad",),
+            ceilings=G1_SUPPLEMENT_CEILINGS,
+        )
+
+        assert summary["budget"]["ceilings"] == G1_SUPPLEMENT_CEILINGS.to_dict()
+        assert summary["budget"]["ceilings"]["max_encode_calls"] != ceilings_for_wave(1).max_encode_calls
+
+    def test_supplements_own_separate_out_dir_precharge_never_inherits_wave1_usage(self, tmp_path):
+        # A prior receipt sitting under WAVE-1's own out-dir that alone
+        # already exhausts wave-1's 900-call ceiling must NOT affect the
+        # supplement's own, separately-out-dir'd budget (module docstring).
+        fx = _wave_fixture(tmp_path, ["MTG1"])
+        wave1_out_dir = tmp_path / "wave1-out"
+        (wave1_out_dir / "receipts").mkdir(parents=True)
+        heavy_receipt = build_meeting_receipt(
+            wave=1, meeting_id="MTG0", ok=True, error=None,
+            diar={"contact": None, "n_turns": 1, "wall_seconds": 1.0, "gpu_seconds_estimate": 0.0},
+            slice_plans={"tool": {"n_slices": 1}, "oracle": {"n_slices": 1}},
+            cutting={"tool": {"n_entries": 1}, "oracle": {"n_entries": 1}, "wall_seconds": 0.0, "workers": 8},
+            encode_warm={"tool": [{}] * 738, "oracle": [], "wall_seconds": 0.0, "n_calls": 738},
+            metrics={}, budget_after={}, recorded_utc="2026-08-19T00:00:00+00:00",
+        )
+        (wave1_out_dir / "receipts" / "MTG0-receipt.json").write_text(json.dumps(heavy_receipt), encoding="utf-8")
+
+        supplement_out_dir = tmp_path / "g1-supplement-out"  # a SEPARATE directory
+        summary = launcher.run_wave(
+            wave=1,
+            data_dir=fx["data_dir"],
+            meetings=["MTG1"],
+            tool_config=None,
+            transport=fx["transport"],
+            out_dir=supplement_out_dir,
+            derived_root=tmp_path / "derived",
+            cache_dir=tmp_path / "cache",
+            resume=False,
+            skip_roster_check=True,
+            turn_sources=("vad",),
+            ceilings=G1_SUPPLEMENT_CEILINGS,
+        )
+
+        assert summary["n_ok"] == 1
+        assert summary["stopped_reason"] is None
+        assert summary["budget"]["encode_calls_used"] < 500  # never precharged wave-1's 738
+
+    def test_resume_skips_an_already_ok_supplement_receipt(self, tmp_path):
+        fx = _wave_fixture(tmp_path, ["MTG1"])
+        out_dir = tmp_path / "out"
+        (out_dir / "receipts").mkdir(parents=True)
+        vad_only_receipt = build_meeting_receipt(
+            wave=1, meeting_id="MTG1", ok=True, error=None,
+            diar={"contact": None, "n_turns": None, "wall_seconds": None, "gpu_seconds_estimate": None},
+            slice_plans={"tool": None, "oracle": None, "vad": {"n_slices": 1}},
+            cutting={"tool": None, "oracle": None, "vad": {"n_entries": 1}, "wall_seconds": 0.0, "workers": 8},
+            encode_warm={"tool": [], "oracle": [], "vad": [{}], "wall_seconds": 0.0, "n_calls": 1},
+            metrics={}, budget_after={}, recorded_utc="2026-08-19T00:00:00+00:00",
+        )
+        (out_dir / "receipts" / "MTG1-receipt.json").write_text(json.dumps(vad_only_receipt), encoding="utf-8")
+        calls: list = []
+
+        def tracking_run_subprocess(args, *, timeout):
+            calls.append(args)
+            return _rttm_writer()(args, timeout=timeout)
+
+        summary = launcher.run_wave(
+            wave=1,
+            data_dir=fx["data_dir"],
+            meetings=["MTG1"],
+            tool_config=None,
+            transport=fx["transport"],
+            out_dir=out_dir,
+            derived_root=tmp_path / "derived",
+            cache_dir=tmp_path / "cache",
+            resume=True,
+            skip_roster_check=True,
+            run_subprocess=tracking_run_subprocess,
+            turn_sources=("vad",),
+            ceilings=G1_SUPPLEMENT_CEILINGS,
+        )
+
+        assert calls == []
+        assert summary["n_meetings"] == 0  # MTG1 skipped: its own vad-only receipt is already ok
 
 
 # ---------------------------------------------------------------------------

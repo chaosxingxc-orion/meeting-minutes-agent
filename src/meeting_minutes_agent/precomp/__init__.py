@@ -22,9 +22,12 @@ from __future__ import annotations
 from .budget import (
     WAVE_1_CEILINGS,
     WAVE_2_CEILINGS,
+    CEILINGS_PROFILES,
+    G1_SUPPLEMENT_CEILINGS,
     PrecompBudget,
     PrecompBudgetExceeded,
     WaveCeilings,
+    ceilings_for_profile,
     ceilings_for_wave,
     wave_usage_from_receipts,
 )
@@ -42,9 +45,20 @@ from .metrics import (
     slice_counts,
     snapshot_cache_dir,
     turn_counts,
+    vad_slice_count,
     wall_summary,
 )
-from .pipeline import DEFAULT_WORKERS, cut_slice_plans_parallel, run_meeting
+from .pipeline import (
+    DEFAULT_TURN_SOURCES,
+    DEFAULT_WORKERS,
+    ORACLE_SOURCE,
+    TOOL_SOURCE,
+    TURN_SOURCES,
+    VAD_SOURCE,
+    InvalidTurnSourcesError,
+    cut_slice_plans_parallel,
+    run_meeting,
+)
 from .receipts import (
     SCHEMA_VERSION,
     already_done,
@@ -81,11 +95,15 @@ __all__ = [
     "WaveCeilings",
     "WAVE_1_CEILINGS",
     "WAVE_2_CEILINGS",
+    "G1_SUPPLEMENT_CEILINGS",
+    "CEILINGS_PROFILES",
     "ceilings_for_wave",
+    "ceilings_for_profile",
     "PrecompBudget",
     "wave_usage_from_receipts",
     "turn_counts",
     "slice_counts",
+    "vad_slice_count",
     "interior_boundaries",
     "boundary_displacement_distribution",
     "snapshot_cache_dir",
@@ -105,6 +123,12 @@ __all__ = [
     "build_wave_summary",
     "write_wave_summary",
     "DEFAULT_WORKERS",
+    "TOOL_SOURCE",
+    "ORACLE_SOURCE",
+    "VAD_SOURCE",
+    "TURN_SOURCES",
+    "DEFAULT_TURN_SOURCES",
+    "InvalidTurnSourcesError",
     "cut_slice_plans_parallel",
     "run_meeting",
 ]

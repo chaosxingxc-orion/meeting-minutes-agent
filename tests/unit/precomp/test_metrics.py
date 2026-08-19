@@ -17,6 +17,7 @@ from meeting_minutes_agent.precomp.metrics import (
     slice_counts,
     snapshot_cache_dir,
     turn_counts,
+    vad_slice_count,
     wall_summary,
 )
 
@@ -161,3 +162,53 @@ def test_build_meeting_metrics_composes_every_block():
     assert metrics["boundary_displacement"]["n"] >= 0
     assert metrics["cache"]["delta"] == {"entries_added": 1, "bytes_added": 50}
     assert metrics["walls"]["total_wall_s"] == 6.0
+    assert "vad_slice_count" not in metrics  # no vad_plan given
+
+
+# ---------------------------------------------------------------------------
+# vad_slice_count / build_meeting_metrics: the VAD turn source (the G1
+# Z-nodiar-ablation PRECOMP supplement)
+# ---------------------------------------------------------------------------
+
+
+def test_vad_slice_count_reports_the_plan_size():
+    plan = build_vad_slice_plan("m1", 400.0)  # 5 slices
+    assert vad_slice_count(plan) == {"vad_slices": len(plan.slices)}
+
+
+def test_build_meeting_metrics_vad_only_never_claims_a_tool_oracle_comparison():
+    vad_plan = build_vad_slice_plan("m1", 400.0)
+    metrics = build_meeting_metrics(
+        vad_plan=vad_plan,
+        cache_before={"n_entries": 0, "total_bytes": 0},
+        cache_after={"n_entries": 2, "total_bytes": 80},
+        cutting_wall_s=1.0,
+        encode_wall_s=2.0,
+    )
+    assert metrics["vad_slice_count"] == {"vad_slices": len(vad_plan.slices)}
+    assert "turn_counts" not in metrics
+    assert "slice_counts" not in metrics
+    assert "boundary_displacement" not in metrics
+    assert metrics["cache"]["delta"] == {"entries_added": 2, "bytes_added": 80}
+    assert metrics["walls"] == {"diar_wall_s": 0.0, "cutting_wall_s": 1.0, "encode_wall_s": 2.0, "total_wall_s": 3.0}
+
+
+def test_build_meeting_metrics_all_three_sources_together():
+    tool_plan = build_vad_slice_plan("m1", 400.0)
+    oracle_plan = build_vad_slice_plan("m1", 200.0)
+    vad_plan = build_vad_slice_plan("m1", 300.0)
+    metrics = build_meeting_metrics(
+        tool_result=_result(4),
+        oracle_result=_result(2),
+        tool_plan=tool_plan,
+        oracle_plan=oracle_plan,
+        vad_plan=vad_plan,
+        cache_before={"n_entries": 0, "total_bytes": 0},
+        cache_after={"n_entries": 1, "total_bytes": 50},
+        diar_wall_s=1.0,
+        cutting_wall_s=2.0,
+        encode_wall_s=3.0,
+    )
+    for key in ("turn_counts", "slice_counts", "boundary_displacement", "vad_slice_count", "cache", "walls"):
+        assert key in metrics
+    assert metrics["vad_slice_count"] == {"vad_slices": len(vad_plan.slices)}

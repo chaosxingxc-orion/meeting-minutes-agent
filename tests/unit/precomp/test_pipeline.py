@@ -16,6 +16,7 @@ import numpy as np
 import pytest
 import soundfile as sf
 
+import meeting_minutes_agent.precomp.pipeline as pipeline_module
 from meeting_minutes_agent.chunking.diarization import ToolDiarizationConfig
 from meeting_minutes_agent.chunking.rttm import write_rttm_text
 from meeting_minutes_agent.chunking.slicer import (
@@ -27,7 +28,11 @@ from meeting_minutes_agent.client.budgets import BudgetLimits, CallBudget
 from meeting_minutes_agent.client.transport import LlamaServerTransport, TransportConfig
 from meeting_minutes_agent.corpora.nxt.corpus import NxtCorpus
 from meeting_minutes_agent.precomp.budget import PrecompBudget, PrecompBudgetExceeded, WaveCeilings, ceilings_for_wave
-from meeting_minutes_agent.precomp.pipeline import cut_slice_plans_parallel, run_meeting
+from meeting_minutes_agent.precomp.pipeline import (
+    InvalidTurnSourcesError,
+    cut_slice_plans_parallel,
+    run_meeting,
+)
 
 _SECRET_MARKER = "SECRET-GENERATED-TEXT-MARKER-0xDEADBEEF"
 _NITE_XMLNS = 'xmlns:nite="http://nite.sourceforge.net/"'
@@ -320,7 +325,7 @@ class TestRunMeetingFailureIsolation:
         assert receipt["diar"]["contact"]["return_code"] == 1
         assert receipt["diar"]["n_turns"] is None
         # nothing downstream of diar was reached
-        assert receipt["slice_plans"] == {"tool": None, "oracle": None}
+        assert receipt["slice_plans"] == {"tool": None, "oracle": None, "vad": None}
         assert receipt["encode_warm"]["n_calls"] == 0
         assert len(calls) == 1  # exactly one subprocess attempt, never retried silently
 
@@ -354,3 +359,230 @@ class TestRunMeetingBudgetGuard:
                 run_subprocess=tracking_run,
             )
         assert calls == []
+
+
+# ---------------------------------------------------------------------------
+# run_meeting: the VAD turn source (the G1 Z-nodiar-ablation PRECOMP
+# supplement, docs/readiness/2026-08-19-g1-floors-preregistration.md SS3)
+# ---------------------------------------------------------------------------
+
+
+def _vad_slice_dir(tmp_path: Path, meeting_id: str) -> Path:
+    return tmp_path / "derived" / "slices" / "vad" / meeting_id
+
+
+class TestRunMeetingVadSource:
+    def test_vad_only_skips_diar_and_oracle_entirely_and_populates_only_vad_blocks(self, tmp_path, monkeypatch):
+        fx = _fixtures(tmp_path)
+        budget = PrecompBudget(ceilings_for_wave(1))
+        diar_calls: list = []
+
+        def tracking_run_subprocess(args, *, timeout):
+            diar_calls.append(args)
+            return _rttm_writer()(args, timeout=timeout)
+
+        def _resolve_meeting_must_not_be_called(corpus, meeting_id):
+            raise AssertionError("resolve_meeting must never be called for a vad-only turn_sources request")
+
+        monkeypatch.setattr(pipeline_module, "resolve_meeting", _resolve_meeting_must_not_be_called)
+
+        receipt = run_meeting(
+            fx["meeting_id"],
+            wave=1,
+            audio_path=fx["audio_path"],
+            tool_config=None,
+            nxt_corpus=fx["nxt_corpus"],
+            rttm_dir=fx["rttm_dir"],
+            tool_slice_dir=fx["tool_slice_dir"],
+            oracle_slice_dir=fx["oracle_slice_dir"],
+            vad_slice_dir=_vad_slice_dir(tmp_path, fx["meeting_id"]),
+            transport=fx["transport"],
+            budget=budget,
+            cache_dir=fx["cache_dir"],
+            workers=2,
+            turn_sources=("vad",),
+            run_subprocess=tracking_run_subprocess,
+        )
+
+        assert receipt["ok"] is True
+        assert receipt["error"] is None
+        assert diar_calls == []  # the pinned diar tool was never contacted
+
+        # diar untouched, at its failure/skip default
+        assert receipt["diar"] == {"contact": None, "n_turns": None, "wall_seconds": None, "gpu_seconds_estimate": None}
+
+        # tool/oracle stages never ran; vad populated
+        assert receipt["slice_plans"]["tool"] is None
+        assert receipt["slice_plans"]["oracle"] is None
+        assert receipt["slice_plans"]["vad"]["n_slices"] >= 1
+        assert receipt["cutting"]["tool"] is None
+        assert receipt["cutting"]["oracle"] is None
+        assert receipt["cutting"]["vad"]["n_entries"] == receipt["slice_plans"]["vad"]["n_slices"]
+        assert receipt["encode_warm"]["tool"] == []
+        assert receipt["encode_warm"]["oracle"] == []
+        assert len(receipt["encode_warm"]["vad"]) == receipt["slice_plans"]["vad"]["n_slices"]
+        assert receipt["encode_warm"]["n_calls"] == len(receipt["encode_warm"]["vad"])
+        assert budget.encode_calls_used == len(receipt["encode_warm"]["vad"])
+        assert budget.diar_gpu_seconds_used == 0.0  # never charged: the diar stage never ran
+
+        # metrics: only what vad-only actually supports
+        assert receipt["metrics"]["vad_slice_count"] == {"vad_slices": receipt["slice_plans"]["vad"]["n_slices"]}
+        assert "turn_counts" not in receipt["metrics"]
+        assert "slice_counts" not in receipt["metrics"]
+        assert "boundary_displacement" not in receipt["metrics"]
+        assert "cache" in receipt["metrics"]
+        assert "walls" in receipt["metrics"]
+
+    def test_vad_only_succeeds_even_when_the_diar_ceiling_is_already_exhausted(self, tmp_path):
+        # Proves the diar budget axis is never even CHECKED for a vad-only
+        # call (module docstring): a ceiling that would refuse the very
+        # first diar contact does not block a run that never attempts one.
+        fx = _fixtures(tmp_path)
+        budget = PrecompBudget(
+            WaveCeilings(wave=1, max_diar_gpu_hours=0.0, max_encode_gpu_hours=1.0, max_cutting_wall_hours=1.0, max_encode_calls=100)
+        )
+
+        receipt = run_meeting(
+            fx["meeting_id"],
+            wave=1,
+            audio_path=fx["audio_path"],
+            tool_config=None,
+            nxt_corpus=fx["nxt_corpus"],
+            rttm_dir=fx["rttm_dir"],
+            tool_slice_dir=fx["tool_slice_dir"],
+            oracle_slice_dir=fx["oracle_slice_dir"],
+            vad_slice_dir=_vad_slice_dir(tmp_path, fx["meeting_id"]),
+            transport=fx["transport"],
+            budget=budget,
+            cache_dir=fx["cache_dir"],
+            turn_sources=("vad",),
+        )
+
+        assert receipt["ok"] is True
+
+    def test_default_turn_sources_run_never_populates_a_vad_block(self, tmp_path):
+        # Regression: the unchanged wave-1/2 default (turn_sources omitted)
+        # carries a "vad" key (schema-versioning, module docstring) but it
+        # stays null/empty -- never silently populated.
+        fx = _fixtures(tmp_path)
+        receipt = run_meeting(
+            fx["meeting_id"],
+            wave=1,
+            audio_path=fx["audio_path"],
+            tool_config=_tool_config(),
+            nxt_corpus=fx["nxt_corpus"],
+            rttm_dir=fx["rttm_dir"],
+            tool_slice_dir=fx["tool_slice_dir"],
+            oracle_slice_dir=fx["oracle_slice_dir"],
+            transport=fx["transport"],
+            budget=PrecompBudget(ceilings_for_wave(1)),
+            cache_dir=fx["cache_dir"],
+            workers=2,
+            run_subprocess=_rttm_writer(),
+        )
+
+        assert receipt["ok"] is True
+        assert receipt["slice_plans"]["vad"] is None
+        assert receipt["cutting"]["vad"] is None
+        assert receipt["encode_warm"]["vad"] == []
+        assert "vad_slice_count" not in receipt["metrics"]
+
+    def test_all_three_sources_together_populate_every_block(self, tmp_path):
+        fx = _fixtures(tmp_path)
+        budget = PrecompBudget(ceilings_for_wave(1))
+
+        receipt = run_meeting(
+            fx["meeting_id"],
+            wave=1,
+            audio_path=fx["audio_path"],
+            tool_config=_tool_config(),
+            nxt_corpus=fx["nxt_corpus"],
+            rttm_dir=fx["rttm_dir"],
+            tool_slice_dir=fx["tool_slice_dir"],
+            oracle_slice_dir=fx["oracle_slice_dir"],
+            vad_slice_dir=_vad_slice_dir(tmp_path, fx["meeting_id"]),
+            transport=fx["transport"],
+            budget=budget,
+            cache_dir=fx["cache_dir"],
+            workers=2,
+            turn_sources=("tool", "oracle", "vad"),
+            run_subprocess=_rttm_writer(),
+        )
+
+        assert receipt["ok"] is True
+        for source in ("tool", "oracle", "vad"):
+            assert receipt["slice_plans"][source] is not None
+            assert receipt["cutting"][source] is not None
+            assert len(receipt["encode_warm"][source]) == receipt["slice_plans"][source]["n_slices"]
+        for key in ("turn_counts", "slice_counts", "boundary_displacement", "vad_slice_count", "cache", "walls"):
+            assert key in receipt["metrics"]
+
+    def test_vad_failure_is_isolated_like_every_other_stage(self, tmp_path):
+        fx = _fixtures(tmp_path)
+
+        def boom(plan, audio_path, out_dir):
+            raise RuntimeError("vad cutting exploded")
+
+        receipt = run_meeting(
+            fx["meeting_id"],
+            wave=1,
+            audio_path=fx["audio_path"],
+            tool_config=None,
+            nxt_corpus=fx["nxt_corpus"],
+            rttm_dir=fx["rttm_dir"],
+            tool_slice_dir=fx["tool_slice_dir"],
+            oracle_slice_dir=fx["oracle_slice_dir"],
+            vad_slice_dir=_vad_slice_dir(tmp_path, fx["meeting_id"]),
+            transport=fx["transport"],
+            budget=PrecompBudget(ceilings_for_wave(1)),
+            cache_dir=fx["cache_dir"],
+            turn_sources=("vad",),
+            materialize_fn=boom,
+        )
+
+        assert receipt["ok"] is False
+        assert "vad cutting exploded" in receipt["error"]
+        assert receipt["slice_plans"]["vad"] is not None  # plan built before cutting failed
+        assert receipt["cutting"]["vad"] is None  # cutting itself never completed
+
+
+# ---------------------------------------------------------------------------
+# run_meeting: turn_sources validation (fail-closed)
+# ---------------------------------------------------------------------------
+
+
+class TestRunMeetingTurnSourceValidation:
+    def _base_kwargs(self, fx: dict, tmp_path: Path) -> dict:
+        return dict(
+            wave=1,
+            audio_path=fx["audio_path"],
+            nxt_corpus=fx["nxt_corpus"],
+            rttm_dir=fx["rttm_dir"],
+            tool_slice_dir=fx["tool_slice_dir"],
+            oracle_slice_dir=fx["oracle_slice_dir"],
+            transport=fx["transport"],
+            budget=PrecompBudget(ceilings_for_wave(1)),
+            cache_dir=fx["cache_dir"],
+        )
+
+    def test_unknown_turn_source_raises(self, tmp_path):
+        fx = _fixtures(tmp_path)
+        with pytest.raises(InvalidTurnSourcesError):
+            run_meeting(fx["meeting_id"], tool_config=None, turn_sources=("bogus",), **self._base_kwargs(fx, tmp_path))
+
+    def test_empty_turn_sources_raises(self, tmp_path):
+        fx = _fixtures(tmp_path)
+        with pytest.raises(InvalidTurnSourcesError):
+            run_meeting(fx["meeting_id"], tool_config=None, turn_sources=(), **self._base_kwargs(fx, tmp_path))
+
+    def test_vad_requested_without_vad_slice_dir_raises(self, tmp_path):
+        fx = _fixtures(tmp_path)
+        with pytest.raises(InvalidTurnSourcesError):
+            run_meeting(fx["meeting_id"], tool_config=None, turn_sources=("vad",), **self._base_kwargs(fx, tmp_path))
+
+    def test_tool_requested_without_tool_config_raises(self, tmp_path):
+        fx = _fixtures(tmp_path)
+        with pytest.raises(InvalidTurnSourcesError):
+            run_meeting(
+                fx["meeting_id"], tool_config=None, turn_sources=("tool", "oracle"), **self._base_kwargs(fx, tmp_path)
+            )

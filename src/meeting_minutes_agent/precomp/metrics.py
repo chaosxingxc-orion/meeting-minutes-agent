@@ -22,6 +22,19 @@ boundary the independently-built oracle-turn plan emits over the SAME
 audio. A distribution of these nearest-neighbour distances, not a single
 number, so a later G1 read can characterize the whole shape (median vs.
 tail) rather than lose it to one aggregate.
+
+The VAD turn source (``docs/readiness/2026-08-19-g1-floors-preregistration.md``
+SS3, the Z-nodiar ablation's default PRECOMP supplement) has no tool/oracle
+counterpart to delta or displace against -- it is the no-diarization arm by
+definition -- so it carries its own, simpler descriptive metric,
+:func:`vad_slice_count`, rather than being forced through
+:func:`slice_counts`/:func:`boundary_displacement_distribution`.
+:func:`build_meeting_metrics` composes whichever of ``turn_counts``/
+``slice_counts``/``boundary_displacement``/``vad_slice_count`` its inputs
+actually support (module-level: every argument beyond ``cache_before``/
+``cache_after``/``cutting_wall_s``/``encode_wall_s`` is optional), so a
+VAD-only PRECOMP-supplement pass's metrics block never claims a tool-vs-
+oracle comparison it never computed.
 """
 
 from __future__ import annotations
@@ -48,6 +61,14 @@ def slice_counts(tool_plan: "SlicePlan", oracle_plan: "SlicePlan") -> dict[str, 
     n_tool = len(tool_plan.slices)
     n_oracle = len(oracle_plan.slices)
     return {"tool_slices": n_tool, "oracle_slices": n_oracle, "delta": n_tool - n_oracle}
+
+
+def vad_slice_count(vad_plan: "SlicePlan") -> dict[str, int]:
+    """The VAD turn source's own slice-plan size (module docstring) --
+    the Z-nodiar ablation has no tool/oracle counterpart to delta against,
+    so this is a plain count, not :func:`slice_counts`'s signed delta."""
+
+    return {"vad_slices": len(vad_plan.slices)}
 
 
 def interior_boundaries(plan: "SlicePlan") -> tuple[float, ...]:
@@ -137,25 +158,35 @@ def wall_summary(*, diar_wall_s: float, cutting_wall_s: float, encode_wall_s: fl
 
 def build_meeting_metrics(
     *,
-    tool_result: "DiarizationResult",
-    oracle_result: "DiarizationResult",
-    tool_plan: "SlicePlan",
-    oracle_plan: "SlicePlan",
+    tool_result: "DiarizationResult | None" = None,
+    oracle_result: "DiarizationResult | None" = None,
+    tool_plan: "SlicePlan | None" = None,
+    oracle_plan: "SlicePlan | None" = None,
+    vad_plan: "SlicePlan | None" = None,
     cache_before: Mapping[str, int],
     cache_after: Mapping[str, int],
-    diar_wall_s: float,
+    diar_wall_s: float = 0.0,
     cutting_wall_s: float,
     encode_wall_s: float,
 ) -> dict[str, Any]:
-    """One meeting's whole descriptive-metrics block (prereg SS5), composed
-    from the pure functions above -- the shape
+    """One meeting's whole descriptive-metrics block (prereg SS5 + the G1
+    VAD-supplement extension, module docstring), composed from the pure
+    functions above -- the shape
     :mod:`meeting_minutes_agent.precomp.receipts`' ``MeetingReceipt``
-    carries as its ``metrics`` field."""
+    carries as its ``metrics`` field. ``cache``/``walls`` are always
+    present (every PRECOMP pipeline run touches the feature cache and
+    spends wall time regardless of which turn source(s) ran); the
+    tool/oracle pair's ``turn_counts``/``slice_counts``/
+    ``boundary_displacement`` and the VAD source's own ``vad_slice_count``
+    are each included ONLY when their inputs are given -- a VAD-only
+    supplement call (``tool_result``/``oracle_result``/``tool_plan``/
+    ``oracle_plan`` all left at their ``None`` default) never claims a
+    tool-vs-oracle comparison it never computed, and a plain wave-1/2 call
+    (``vad_plan`` left ``None``) carries no ``vad_slice_count`` key, so an
+    existing reader keying off metric presence sees exactly the metrics
+    that were actually computed."""
 
-    return {
-        "turn_counts": turn_counts(tool_result, oracle_result),
-        "slice_counts": slice_counts(tool_plan, oracle_plan),
-        "boundary_displacement": boundary_displacement_distribution(tool_plan, oracle_plan),
+    metrics: dict[str, Any] = {
         "cache": {
             "before": dict(cache_before),
             "after": dict(cache_after),
@@ -163,11 +194,20 @@ def build_meeting_metrics(
         },
         "walls": wall_summary(diar_wall_s=diar_wall_s, cutting_wall_s=cutting_wall_s, encode_wall_s=encode_wall_s),
     }
+    if tool_result is not None and oracle_result is not None:
+        metrics["turn_counts"] = turn_counts(tool_result, oracle_result)
+    if tool_plan is not None and oracle_plan is not None:
+        metrics["slice_counts"] = slice_counts(tool_plan, oracle_plan)
+        metrics["boundary_displacement"] = boundary_displacement_distribution(tool_plan, oracle_plan)
+    if vad_plan is not None:
+        metrics["vad_slice_count"] = vad_slice_count(vad_plan)
+    return metrics
 
 
 __all__ = [
     "turn_counts",
     "slice_counts",
+    "vad_slice_count",
     "interior_boundaries",
     "boundary_displacement_distribution",
     "snapshot_cache_dir",

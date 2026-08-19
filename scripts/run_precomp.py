@@ -62,6 +62,33 @@ Arm B tool and an already-running server)::
         --server-url http://127.0.0.1:8080 \\
         --model-path /home/chao/models/<pinned-gguf> --model-sha256 <sha256> \\
         --out-dir docs/checks/2026-08-19-precomp-wave1 --resume
+
+Turn sources + the G1 VAD supplement (``docs/readiness/2026-08-19-g1-floors-
+preregistration.md`` SS3): ``--turn-sources`` selects which of
+:data:`~meeting_minutes_agent.precomp.pipeline.TURN_SOURCES` this
+invocation builds -- default ``tool oracle`` (unchanged wave-1/2
+behaviour). ``--turn-sources vad`` builds ONLY the pure-VAD/no-diarization
+source that feeds G1's Z-nodiar ablation: it skips the pinned diar tool
+contact and the NXT oracle resolution entirely (so ``--arm-config`` is not
+required for a vad-only invocation) and never re-runs already-receipted
+tool/oracle work, because it structurally never requests those stages.
+This is the registered default supplement for G1's Z-nodiar arm -- ~370
+extra encode calls the wave-1 ceiling (already at 738/900) cannot absorb,
+so it is budgeted under a SEPARATE, explicit ``--ceilings-profile
+g1-supplement`` (500 calls / 1.0 GPU-h encode / 1.0 h CPU-cutting wall,
+``docs/readiness/2026-08-19-g1-floors-preregistration.md`` SS6) rather than
+silently reusing ``--wave``'s own ceilings; its receipts default to a
+separate ``docs/checks/2026-08-19-g1-supplement/`` output directory so its
+own budget precharge (:func:`load_wave_receipts`) never inherits wave-1's
+already-spent usage. Example (still MACHINERY ONLY until a coordinator-
+reviewed real flight)::
+
+    python scripts/run_precomp.py \\
+        --wave 1 --data-dir "$SPEECHRL_DATA_DIR" \\
+        --turn-sources vad --ceilings-profile g1-supplement \\
+        --server-url http://127.0.0.1:8080 \\
+        --model-path /home/chao/models/<pinned-gguf> --model-sha256 <sha256> \\
+        --resume
 """
 
 from __future__ import annotations
@@ -70,7 +97,7 @@ import argparse
 import json
 import sys
 from pathlib import Path
-from typing import Any
+from typing import Any, Sequence
 
 _SRC = Path(__file__).resolve().parent.parent / "src"
 if str(_SRC) not in sys.path:
@@ -84,14 +111,20 @@ from meeting_minutes_agent.client.transport import LlamaServerTransport, Transpo
 from meeting_minutes_agent.chunking.constants import TRANSPORT_SLICE_MAX_S  # noqa: E402
 from meeting_minutes_agent.corpora.nxt.corpus import NxtCorpus  # noqa: E402
 from meeting_minutes_agent.precomp.budget import (  # noqa: E402
+    CEILINGS_PROFILES,
     PrecompBudget,
     PrecompBudgetExceeded,
+    WaveCeilings,
+    ceilings_for_profile,
     ceilings_for_wave,
 )
 from meeting_minutes_agent.precomp.pipeline import (  # noqa: E402
     DEFAULT_AMI_ANNOTATIONS_ROOT_RELATIVE,
     DEFAULT_AMI_AUDIO_ROOT_RELATIVE,
+    DEFAULT_TURN_SOURCES,
     DEFAULT_WORKERS,
+    TOOL_SOURCE,
+    TURN_SOURCES,
     query_gpu_utilization_snapshot,
     require_meeting_audio_path,
     run_meeting,
@@ -121,7 +154,23 @@ DEFAULT_ENCODE_MAX_TOKENS = 1
 REPO_ROOT = Path(__file__).resolve().parent.parent
 
 
-def default_out_dir(wave: int) -> Path:
+#: The G1 VAD supplement's own receipts root (module docstring): separate
+#: from every ``2026-08-19-precomp-wave{1,2}`` directory so its budget
+#: precharge (:func:`load_wave_receipts`) never inherits wave-1/2's
+#: already-spent usage.
+G1_SUPPLEMENT_OUT_DIR_NAME = "2026-08-19-g1-supplement"
+
+
+def default_out_dir(wave: int, ceilings_profile: str | None = None) -> Path:
+    """The conventional receipts root for ``wave``. ``ceilings_profile ==
+    "g1-supplement"`` overrides this to the supplement's own SEPARATE
+    directory (:data:`G1_SUPPLEMENT_OUT_DIR_NAME`, module docstring) rather
+    than wave-1's own -- callers that omit ``ceilings_profile`` (every
+    existing caller) see byte-identical behaviour to before this
+    parameter existed."""
+
+    if ceilings_profile == "g1-supplement":
+        return REPO_ROOT / "docs" / "checks" / G1_SUPPLEMENT_OUT_DIR_NAME
     return REPO_ROOT / "docs" / "checks" / f"2026-08-19-precomp-wave{wave}"
 
 
@@ -152,6 +201,41 @@ def tool_slice_dir(derived_root: Path, meeting_id: str) -> Path:
 
 def oracle_slice_dir(derived_root: Path, meeting_id: str) -> Path:
     return derived_root / "slices" / "oracle" / meeting_id
+
+
+def vad_slice_dir(derived_root: Path, meeting_id: str) -> Path:
+    return derived_root / "slices" / "vad" / meeting_id
+
+
+def missing_required_args(
+    *,
+    turn_sources: Sequence[str],
+    arm_config: str | None,
+    server_url: str | None,
+    model_path: str | None,
+    model_sha256: str | None,
+) -> list[str]:
+    """Which CLI arguments a REAL (non ``--summary-only``) invocation is
+    still missing. ``--server-url``/``--model-path``/``--model-sha256`` are
+    required for ANY requested turn source -- every source, including
+    ``"vad"``, ends in a real frozen-core encode-warm contact.
+    ``--arm-config`` is required ONLY when :data:`TOOL_SOURCE` is among
+    ``turn_sources`` -- the one turn source that actually needs the pinned
+    Arm B diar-tool config; a ``--turn-sources vad`` supplement invocation
+    therefore never needs it (module docstring)."""
+
+    missing = [
+        name
+        for name, value in (
+            ("--server-url", server_url),
+            ("--model-path", model_path),
+            ("--model-sha256", model_sha256),
+        )
+        if value is None
+    ]
+    if TOOL_SOURCE in turn_sources and arm_config is None:
+        missing.append("--arm-config")
+    return missing
 
 
 def load_wave_receipts(out_dir: Path) -> list[dict[str, Any]]:
@@ -185,7 +269,7 @@ def run_wave(
     wave: int,
     data_dir: Path,
     meetings: list[str],
-    tool_config: ToolDiarizationConfig,
+    tool_config: ToolDiarizationConfig | None,
     transport: LlamaServerTransport,
     out_dir: Path,
     derived_root: Path,
@@ -195,6 +279,8 @@ def run_wave(
     encode_max_tokens: int = DEFAULT_ENCODE_MAX_TOKENS,
     ami_audio_root_relative: str = DEFAULT_AMI_AUDIO_ROOT_RELATIVE,
     ami_annotations_root_relative: str = DEFAULT_AMI_ANNOTATIONS_ROOT_RELATIVE,
+    turn_sources: Sequence[str] = DEFAULT_TURN_SOURCES,
+    ceilings: WaveCeilings | None = None,
     skip_roster_check: bool = False,
     run_subprocess: Any | None = None,
     query_gpu: Any | None = None,
@@ -228,13 +314,26 @@ def run_wave(
     fsynced and complete, a wave summary is written for whatever finished,
     and the run resumes at meeting granularity with ``--resume``. The file
     itself is never deleted or otherwise touched here; clearing it between
-    waves is the operator's job."""
+    waves is the operator's job.
+
+    ``turn_sources`` (module docstring, the G1 VAD-supplement extension)
+    is threaded unchanged into every :func:`~meeting_minutes_agent.precomp.
+    pipeline.run_meeting` call this loop makes -- default
+    :data:`DEFAULT_TURN_SOURCES`, byte-for-byte the original tool+oracle
+    behaviour. ``ceilings``, when given, is used INSTEAD of
+    :func:`~meeting_minutes_agent.precomp.budget.ceilings_for_wave`'s own
+    per-``wave`` lookup for the fresh budget this function builds when
+    ``budget`` is not supplied -- this is how a ``--ceilings-profile
+    g1-supplement`` invocation enforces the G1 campaign's own ceiling
+    instead of ``wave``'s (module docstring: wave-1 alone already used
+    738/900 of its own ceiling, which the supplement's ~370 extra encode
+    calls would overrun if it silently inherited it)."""
 
     if not skip_roster_check:
         assert_wave_roster_admissible(meetings)
 
     if budget is None:
-        budget = PrecompBudget(ceilings_for_wave(wave))
+        budget = PrecompBudget(ceilings if ceilings is not None else ceilings_for_wave(wave))
         budget.precharge(load_wave_receipts(out_dir))
         try:
             budget.check_all()
@@ -277,11 +376,13 @@ def run_wave(
                 rttm_dir=rttm_dir(derived_root),
                 tool_slice_dir=tool_slice_dir(derived_root, meeting_id),
                 oracle_slice_dir=oracle_slice_dir(derived_root, meeting_id),
+                vad_slice_dir=vad_slice_dir(derived_root, meeting_id),
                 transport=transport,
                 budget=budget,
                 cache_dir=cache_dir,
                 workers=workers,
                 encode_max_tokens=encode_max_tokens,
+                turn_sources=turn_sources,
                 run_subprocess=run_subprocess,
                 query_gpu=query_gpu,
                 flight_receipt=flight_receipt,
@@ -365,39 +466,70 @@ def main(argv: list[str] | None = None) -> int:
         "--summary-only", action="store_true",
         help="print the resolved wave roster and ceilings and exit -- no diar/server contact required",
     )
+    parser.add_argument(
+        "--turn-sources", nargs="+", default=None, choices=list(TURN_SOURCES),
+        help=(
+            "which turn source(s) this invocation builds: 'tool'/'oracle' (the registered wave-1/2 pair, "
+            "default) and/or 'vad' (the pure-VAD, no-diarization Z-nodiar-ablation source -- the G1 floors "
+            "campaign's default supplement, docs/readiness/2026-08-19-g1-floors-preregistration.md SS3). "
+            "'--turn-sources vad' skips the pinned diar contact and NXT oracle resolution entirely and "
+            "ADDS only the VAD slice set + its encode-warm pass -- already-receipted tool/oracle work is "
+            "never touched or re-run, because this invocation simply never requests it. Default: tool oracle."
+        ),
+    )
+    parser.add_argument(
+        "--ceilings-profile", default=None, choices=list(CEILINGS_PROFILES),
+        help=(
+            "which registered ceilings to enforce: 'wave-1'/'wave-2' (default: derived from --wave) or "
+            "'g1-supplement' (500 encode calls / 1.0 GPU-h encode / 1.0 h CPU-cutting wall -- the G1 "
+            "campaign's own ceiling, docs/readiness/2026-08-19-g1-floors-preregistration.md SS6). Budgeted "
+            "SEPARATELY from --wave's own ceiling: wave-1 alone already used 738 of its own 900-call "
+            "ceiling, so a --turn-sources vad supplement's ~370 extra encode calls would overrun it if this "
+            "silently defaulted to --wave's profile instead. Pass 'g1-supplement' explicitly for any "
+            "'--turn-sources vad' supplement invocation; its receipts also default to their own separate "
+            f"docs/checks/{G1_SUPPLEMENT_OUT_DIR_NAME}/ directory (see --out-dir) so its own budget "
+            "precharge never inherits wave-1/2's already-spent usage."
+        ),
+    )
     args = parser.parse_args(argv)
 
-    ceilings = ceilings_for_wave(args.wave)
+    turn_sources = tuple(args.turn_sources) if args.turn_sources is not None else DEFAULT_TURN_SOURCES
+    ceilings_profile = args.ceilings_profile if args.ceilings_profile is not None else f"wave-{args.wave}"
+    ceilings = ceilings_for_profile(ceilings_profile)
     meetings = list(args.meetings) if args.meetings is not None else list(default_wave_meetings(args.wave))
 
     if args.summary_only:
         assert_wave_roster_admissible(meetings)
         print(
             json.dumps(
-                {"wave": args.wave, "n_meetings": len(meetings), "meetings": sorted(meetings), "ceilings": ceilings.to_dict()},
+                {
+                    "wave": args.wave,
+                    "n_meetings": len(meetings),
+                    "meetings": sorted(meetings),
+                    "ceilings": ceilings.to_dict(),
+                    "ceilings_profile": ceilings_profile,
+                    "turn_sources": list(turn_sources),
+                },
                 indent=2,
                 sort_keys=True,
             )
         )
         return 0
 
-    missing = [
-        name
-        for name, value in (
-            ("--arm-config", args.arm_config),
-            ("--server-url", args.server_url),
-            ("--model-path", args.model_path),
-            ("--model-sha256", args.model_sha256),
-        )
-        if value is None
-    ]
+    missing = missing_required_args(
+        turn_sources=turn_sources,
+        arm_config=args.arm_config,
+        server_url=args.server_url,
+        model_path=args.model_path,
+        model_sha256=args.model_sha256,
+    )
     if missing:
         parser.error(f"the following arguments are required for a real wave (omit only with --summary-only): {missing}")
 
-    tool_config = load_arm_b_config(args.arm_config)
+    tool_config = load_arm_b_config(args.arm_config) if args.arm_config is not None else None
     data_dir = Path(args.data_dir)
     derived_root = data_dir / args.derived_root_relative
-    out_dir = Path(args.out_dir) if args.out_dir is not None else default_out_dir(args.wave)
+    out_dir = Path(args.out_dir) if args.out_dir is not None else default_out_dir(args.wave, ceilings_profile)
     cache_dir = campaign_cache_dir(args.featcache_dataset, args.encoder, root=args.featcache_root)
 
     transport, flight_receipt = build_transport(
@@ -424,6 +556,8 @@ def main(argv: list[str] | None = None) -> int:
             encode_max_tokens=args.encode_max_tokens,
             ami_audio_root_relative=args.ami_audio_root_relative,
             ami_annotations_root_relative=args.ami_annotations_root_relative,
+            turn_sources=turn_sources,
+            ceilings=ceilings,
             query_gpu=query_gpu_utilization_snapshot,
             flight_receipt=flight_receipt,
             stop_file=args.stop_file,
