@@ -1,0 +1,249 @@
+{
+  "budget_after": {
+    "ceilings": {
+      "max_cutting_wall_hours": 1.0,
+      "max_diar_gpu_hours": 0.1,
+      "max_encode_calls": 500,
+      "max_encode_gpu_hours": 1.0,
+      "wave": 1
+    },
+    "cutting_wall_seconds_used": 0.9799444780001068,
+    "diar_gpu_seconds_used": 0.0,
+    "encode_calls_used": 13,
+    "encode_gpu_seconds_used": 18.624240670955693
+  },
+  "cutting": {
+    "oracle": null,
+    "tool": null,
+    "vad": {
+      "content_hash": "95653a3baff94a1522552a53f5eb186ccfa9fba1a4d8dee832df61bb5c0f0e39",
+      "n_entries": 13
+    },
+    "wall_seconds": 0.9799444780001068,
+    "workers": 8
+  },
+  "diar": {
+    "contact": null,
+    "gpu_seconds_estimate": null,
+    "n_turns": null,
+    "wall_seconds": null
+  },
+  "encode_warm": {
+    "n_calls": 13,
+    "oracle": [],
+    "tool": [],
+    "vad": [
+      {
+        "gpu_seconds_estimate": 1.688124848410007,
+        "max_tokens": 1,
+        "n_attempts": 1,
+        "request_id": "precomp-w1-vad-ES2011a-slice0000",
+        "text_discarded_unread": true,
+        "usage": {
+          "completion_tokens": 1,
+          "prompt_tokens": 1276,
+          "total_tokens": 1277
+        },
+        "wall_seconds": 2.192369933000009
+      },
+      {
+        "gpu_seconds_estimate": 1.1194593522013747,
+        "max_tokens": 1,
+        "n_attempts": 1,
+        "request_id": "precomp-w1-vad-ES2011a-slice0001",
+        "text_discarded_unread": true,
+        "usage": {
+          "completion_tokens": 1,
+          "prompt_tokens": 1276,
+          "total_tokens": 1277
+        },
+        "wall_seconds": 1.5992276460019639
+      },
+      {
+        "gpu_seconds_estimate": 1.4654226412810385,
+        "max_tokens": 1,
+        "n_attempts": 1,
+        "request_id": "precomp-w1-vad-ES2011a-slice0002",
+        "text_discarded_unread": true,
+        "usage": {
+          "completion_tokens": 1,
+          "prompt_tokens": 1276,
+          "total_tokens": 1277
+        },
+        "wall_seconds": 1.5264819180010818
+      },
+      {
+        "gpu_seconds_estimate": 1.4972792876386665,
+        "max_tokens": 1,
+        "n_attempts": 1,
+        "request_id": "precomp-w1-vad-ES2011a-slice0003",
+        "text_discarded_unread": true,
+        "usage": {
+          "completion_tokens": 1,
+          "prompt_tokens": 1276,
+          "total_tokens": 1277
+        },
+        "wall_seconds": 1.5928503059985815
+      },
+      {
+        "gpu_seconds_estimate": 1.5213085384601435,
+        "max_tokens": 1,
+        "n_attempts": 1,
+        "request_id": "precomp-w1-vad-ES2011a-slice0004",
+        "text_discarded_unread": true,
+        "usage": {
+          "completion_tokens": 1,
+          "prompt_tokens": 1276,
+          "total_tokens": 1277
+        },
+        "wall_seconds": 1.568359318000148
+      },
+      {
+        "gpu_seconds_estimate": 1.4896029202969656,
+        "max_tokens": 1,
+        "n_attempts": 1,
+        "request_id": "precomp-w1-vad-ES2011a-slice0005",
+        "text_discarded_unread": true,
+        "usage": {
+          "completion_tokens": 1,
+          "prompt_tokens": 1276,
+          "total_tokens": 1277
+        },
+        "wall_seconds": 1.568003073996806
+      },
+      {
+        "gpu_seconds_estimate": 1.5328350578801473,
+        "max_tokens": 1,
+        "n_attempts": 1,
+        "request_id": "precomp-w1-vad-ES2011a-slice0006",
+        "text_discarded_unread": true,
+        "usage": {
+          "completion_tokens": 1,
+          "prompt_tokens": 1276,
+          "total_tokens": 1277
+        },
+        "wall_seconds": 1.5641174060001504
+      },
+      {
+        "gpu_seconds_estimate": 1.6026999899407384,
+        "max_tokens": 1,
+        "n_attempts": 1,
+        "request_id": "precomp-w1-vad-ES2011a-slice0007",
+        "text_discarded_unread": true,
+        "usage": {
+          "completion_tokens": 1,
+          "prompt_tokens": 1276,
+          "total_tokens": 1277
+        },
+        "wall_seconds": 1.6354081530007534
+      },
+      {
+        "gpu_seconds_estimate": 1.5673347629760246,
+        "max_tokens": 1,
+        "n_attempts": 1,
+        "request_id": "precomp-w1-vad-ES2011a-slice0008",
+        "text_discarded_unread": true,
+        "usage": {
+          "completion_tokens": 1,
+          "prompt_tokens": 1276,
+          "total_tokens": 1277
+        },
+        "wall_seconds": 1.6158090339959017
+      },
+      {
+        "gpu_seconds_estimate": 1.520571360400936,
+        "max_tokens": 1,
+        "n_attempts": 1,
+        "request_id": "precomp-w1-vad-ES2011a-slice0009",
+        "text_discarded_unread": true,
+        "usage": {
+          "completion_tokens": 1,
+          "prompt_tokens": 1276,
+          "total_tokens": 1277
+        },
+        "wall_seconds": 1.6006014320009854
+      },
+      {
+        "gpu_seconds_estimate": 1.4705249568093859,
+        "max_tokens": 1,
+        "n_attempts": 1,
+        "request_id": "precomp-w1-vad-ES2011a-slice0010",
+        "text_discarded_unread": true,
+        "usage": {
+          "completion_tokens": 1,
+          "prompt_tokens": 1276,
+          "total_tokens": 1277
+        },
+        "wall_seconds": 1.6159614909993252
+      },
+      {
+        "gpu_seconds_estimate": 1.569878845220228,
+        "max_tokens": 1,
+        "n_attempts": 1,
+        "request_id": "precomp-w1-vad-ES2011a-slice0011",
+        "text_discarded_unread": true,
+        "usage": {
+          "completion_tokens": 1,
+          "prompt_tokens": 1276,
+          "total_tokens": 1277
+        },
+        "wall_seconds": 1.6019171890002326
+      },
+      {
+        "gpu_seconds_estimate": 0.5791981094400398,
+        "max_tokens": 1,
+        "n_attempts": 1,
+        "request_id": "precomp-w1-vad-ES2011a-slice0012",
+        "text_discarded_unread": true,
+        "usage": {
+          "completion_tokens": 1,
+          "prompt_tokens": 535,
+          "total_tokens": 536
+        },
+        "wall_seconds": 0.6033313640000415
+      }
+    ],
+    "wall_seconds": 21.13090518899844
+  },
+  "error": null,
+  "meeting_id": "ES2011a",
+  "metrics": {
+    "cache": {
+      "after": {
+        "n_entries": 9834,
+        "total_bytes": 7859775136
+      },
+      "before": {
+        "n_entries": 9685,
+        "total_bytes": 7739858256
+      },
+      "delta": {
+        "bytes_added": 119916880,
+        "entries_added": 149
+      }
+    },
+    "vad_slice_count": {
+      "vad_slices": 13
+    },
+    "walls": {
+      "cutting_wall_s": 0.9799444780001068,
+      "diar_wall_s": 0.0,
+      "encode_wall_s": 21.13090518899844,
+      "total_wall_s": 22.110849666998547
+    }
+  },
+  "ok": true,
+  "recorded_utc": "2026-08-19T17:18:05.812110+00:00",
+  "schema_version": "1.1.0",
+  "slice_plans": {
+    "oracle": null,
+    "tool": null,
+    "vad": {
+      "content_hash": "31fc0b340269be3e06781114f98989ad75aa71433e92a64ed66e6fdcaa9bea42",
+      "manifest_path": "/mnt/e/chao_workspace/exploring-l4-intelligence/speechrl-data/derived/meeting-minutes/precomp/slices/vad-manifest/ES2011a.json",
+      "n_slices": 13,
+      "turn_provenance": null
+    }
+  },
+  "wave": 1
+}

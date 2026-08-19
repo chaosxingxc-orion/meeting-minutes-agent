@@ -1,0 +1,127 @@
+=== G1 VAD supplement preflight start 2026-08-19T17:13:42Z ===
+--- repo state ---
+f13ad6f2b77409e9728190a57564f0ecaa2637bd
+porcelain lines: 0
+f13ad6f fix(precomp+g1): persist vad slice-plan manifests for the Z-nodiar arm
+d7fa8dc feat(g1): scoring read CLI with clustered-CI deployment gap
+54a90e7 feat(g1): chunked campaign runner with reap-safe server ownership
+
+--- hash pins ---
+OK   llama-server  097c96ec5a3f576f378d4d5e103928bf070647fdcc1f015eacb839503e121c68  /home/chao/llama.cpp-featcache/build/bin/llama-server
+OK   qwen3-omni-q4km  0751c279498785c0b07130ae7748038d1e2cfd04617928e4557063807f98066d  /home/chao/models/qwen3-omni-30b-a3b-instruct-gguf-q4km/Qwen3-Omni-30B-A3B-Instruct-Q4_K_M.gguf
+OK   qwen3-omni-mmproj  f0dfe825fb692d426362b1ac79678fc08daa4758f7151526cad110515f122883  /home/chao/models/qwen3-omni-30b-a3b-instruct-gguf-q4km/mmproj-Qwen3-Omni-30B-A3B-Instruct-bf16.gguf
+hash-pin fail flag: 0
+
+--- llama.cpp build commit (pinned 5d9dfcb58ea860295da8fc93c7b5bed9e2c71151) ---
+HEAD: 5d9dfcb58ea860295da8fc93c7b5bed9e2c71151
+build-commit: OK vs pin
+dirty: 0
+version: 5 (5d9dfcb58)
+built with GNU 13.3.0 for Linux x86_64
+
+--- feature cache (ami-q4km) BEFORE the supplement ---
+entries: 9685
+bytes:   7739858256
+
+--- supplement out-dir / derived VAD dirs BEFORE ---
+out-dir exists: no
+0
+vad slice meeting dirs: 0
+vad manifests:          0
+wave-1 receipts (must stay untouched): 18
+
+--- pytest (full meeting-repo suite) ---
+........................................................................ [ 81%]
+........................................................................ [ 86%]
+........................................................................ [ 91%]
+........................................................................ [ 95%]
+.............................................................            [100%]
+=============================== warnings summary ===============================
+tests/unit/chunking/test_slicer.py::TestRealAudioVad::test_detect_energy_pause_transitions_finds_a_real_silence_gap
+  /home/chao/.venvs/speechrl/lib/python3.12/site-packages/audioread/rawread.py:16: DeprecationWarning: 'aifc' is deprecated and slated for removal in Python 3.13
+    import aifc
+
+tests/unit/chunking/test_slicer.py::TestRealAudioVad::test_detect_energy_pause_transitions_finds_a_real_silence_gap
+  /home/chao/.venvs/speechrl/lib/python3.12/site-packages/audioread/rawread.py:17: DeprecationWarning: 'audioop' is deprecated and slated for removal in Python 3.13
+    import audioop
+
+tests/unit/chunking/test_slicer.py::TestRealAudioVad::test_detect_energy_pause_transitions_finds_a_real_silence_gap
+  /home/chao/.venvs/speechrl/lib/python3.12/site-packages/audioread/rawread.py:19: DeprecationWarning: 'sunau' is deprecated and slated for removal in Python 3.13
+    import sunau
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+1498 passed, 3 skipped, 3 warnings in 36.40s
+
+--- runner --summary-only : vad turn source + g1-supplement ceilings ---
+{
+  "ceilings": {
+    "max_cutting_wall_hours": 1.0,
+    "max_diar_gpu_hours": 0.1,
+    "max_encode_calls": 500,
+    "max_encode_gpu_hours": 1.0,
+    "wave": 1
+  },
+  "ceilings_profile": "g1-supplement",
+  "meetings": [
+    "ES2011a",
+    "ES2011b",
+    "ES2011c",
+    "ES2011d",
+    "IB4001",
+    "IB4002",
+    "IB4003",
+    "IB4004",
+    "IB4010",
+    "IB4011",
+    "IS1008a",
+    "IS1008b",
+    "IS1008c",
+    "IS1008d",
+    "TS3004a",
+    "TS3004b",
+    "TS3004c",
+    "TS3004d"
+  ],
+  "n_meetings": 18,
+  "turn_sources": [
+    "vad"
+  ],
+  "wave": 1
+}
+
+--- default out-dir resolution for the g1-supplement profile ---
+default_out_dir(1, 'g1-supplement') = /mnt/d/chao_workspace/exploring-l4-intelligence/papers/meeting-minutes-agent/docs/checks/2026-08-19-g1-supplement
+vad_manifest_dir = /mnt/e/chao_workspace/exploring-l4-intelligence/speechrl-data/derived/meeting-minutes/precomp/slices/vad-manifest
+vad_slice_dir(ES2011a) = /mnt/e/chao_workspace/exploring-l4-intelligence/speechrl-data/derived/meeting-minutes/precomp/slices/vad/ES2011a
+missing args for a vad-only real run (no --arm-config): []
+
+--- per-meeting audio presence + crude VAD slice projection ---
+ES2011a  passA    1113.8s  est_vad_slices~ 12
+ES2011b  passA    1581.3s  est_vad_slices~ 18
+ES2011c  passA    1616.1s  est_vad_slices~ 18
+ES2011d  passA    1982.3s  est_vad_slices~ 22
+IB4001  passA    1780.7s  est_vad_slices~ 20
+IB4002  passA    1882.4s  est_vad_slices~ 21
+IB4003  passA    2023.3s  est_vad_slices~ 22
+IB4004  passA    2392.8s  est_vad_slices~ 27
+IB4010  passA    2960.6s  est_vad_slices~ 33
+IB4011  passB    2417.0s  est_vad_slices~ 27
+IS1008a  passB     943.8s  est_vad_slices~ 10
+IS1008b  passB    1768.5s  est_vad_slices~ 20
+IS1008c  passB    1546.3s  est_vad_slices~ 17
+IS1008d  passB    1480.8s  est_vad_slices~ 16
+TS3004a  passB    1345.3s  est_vad_slices~ 15
+TS3004b  passB    2246.1s  est_vad_slices~ 25
+TS3004c  passB    2970.0s  est_vad_slices~ 33
+TS3004d  passB    2750.8s  est_vad_slices~ 31
+pass A: audio 17333.2s (4.81 h)  est calls~193  est encode wall~21.9 min (6.8 s/contact, wave-1 measured)
+pass B: audio 17468.7s (4.85 h)  est calls~194  est encode wall~22.0 min (6.8 s/contact, wave-1 measured)
+TOTAL est calls~387 against the 500-call g1-supplement ceiling
+
+--- GPU health ---
+name, utilization.gpu [%], memory.used [MiB], memory.total [MiB], clocks.current.sm [MHz], clocks.max.sm [MHz], pstate, temperature.gpu, power.draw [W], clocks_event_reasons.active
+NVIDIA GeForce RTX 5090 Laptop GPU, 2 %, 180 MiB, 24463 MiB, 1200 MHz, 3090 MHz, P5, 44, 12.78 W, 0x0000000000000000
+--- orphan processes ---
+llama-server: none
+run_precomp: none
+=== G1 VAD supplement preflight end 2026-08-19T17:14:41Z ===

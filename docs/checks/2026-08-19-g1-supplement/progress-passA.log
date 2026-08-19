@@ -1,0 +1,29 @@
+17:17:20Z llama-server child pid=609
+17:17:20Z WATCH receipts=0 manifests=0 vad_wavs=0 cache_entries=9685 gpu=[0, 1200, 12.55 ]
+server healthy at 17:17:37Z
+featcache before: entries=9685 bytes=7739858256; supplement receipts before: 0
+--- ledger before pass A (operator cross-check of the native precharge) ---
+{"breaches": [], "ceilings": {"max_cutting_wall_hours": 1.0, "max_diar_gpu_hours": 0.1, "max_encode_calls": 500, "max_encode_gpu_hours": 1.0, "wave": 1}, "profile": "g1-supplement", "used": {"cutting_wall_seconds_used": 0, "diar_gpu_seconds_used": 0, "encode_calls_used": 0, "encode_gpu_seconds_used": 0, "encode_wall_seconds": 0, "n_ok": 0, "n_receipts": 0, "vad_slices": 0}}
+--- invocation: run_precomp.py --turn-sources vad --ceilings-profile g1-supplement --resume ---
+17:18:23Z WATCH receipts=1 manifests=2 vad_wavs=31 cache_entries=9946 gpu=[98, 1200, 66.14 ]
+17:19:26Z WATCH receipts=3 manifests=4 vad_wavs=71 cache_entries=10317 gpu=[99, 1185, 71.90 ]
+17:20:28Z WATCH receipts=4 manifests=5 vad_wavs=91 cache_entries=10719 gpu=[78, 1200, 67.36 ]
+17:21:29Z WATCH receipts=6 manifests=7 vad_wavs=135 cache_entries=11092 gpu=[99, 1072, 71.03 ]
+17:22:30Z WATCH receipts=7 manifests=8 vad_wavs=162 cache_entries=11466 gpu=[97, 1200, 67.14 ]
+17:23:32Z WATCH receipts=8 manifests=9 vad_wavs=195 cache_entries=11840 gpu=[98, 1200, 77.58 ]
+17:23:56Z runner rc=0 wall=379s
+17:23:57Z ES2011a receipt=ok
+17:23:57Z ES2011b receipt=ok
+17:23:57Z ES2011c receipt=ok
+17:23:57Z ES2011d receipt=ok
+17:23:57Z IB4001 receipt=ok
+17:23:57Z IB4002 receipt=ok
+17:23:57Z IB4003 receipt=ok
+17:23:57Z IB4004 receipt=ok
+17:23:57Z IB4010 receipt=ok
+featcache after: entries=11996 bytes=9605598656 (pass delta entries=2311 bytes=1865740400)
+vad manifests now: 9
+vad slice wavs now: 195
+--- ledger after pass A ---
+{"breaches": [], "ceilings": {"max_cutting_wall_hours": 1.0, "max_diar_gpu_hours": 0.1, "max_encode_calls": 500, "max_encode_gpu_hours": 1.0, "wave": 1}, "profile": "g1-supplement", "used": {"cutting_wall_seconds_used": 15.807058340993535, "diar_gpu_seconds_used": 0.0, "encode_calls_used": 195, "encode_gpu_seconds_used": 295.9697337315743, "encode_wall_seconds": 336.6906677119914, "n_ok": 9, "n_receipts": 9, "vad_slices": 195}}
+FLY-DONE state=COMPLETE pass=A

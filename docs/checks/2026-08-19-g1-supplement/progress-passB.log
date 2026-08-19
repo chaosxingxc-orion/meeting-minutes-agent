@@ -1,0 +1,29 @@
+17:24:39Z llama-server child pid=587
+17:24:39Z WATCH receipts=9 manifests=9 vad_wavs=195 cache_entries=11996 gpu=[1, 1200, 13.38 ]
+server healthy at 17:24:49Z
+featcache before: entries=11996 bytes=9605598656; supplement receipts before: 9
+--- ledger before pass B (operator cross-check of the native precharge) ---
+{"breaches": [], "ceilings": {"max_cutting_wall_hours": 1.0, "max_diar_gpu_hours": 0.1, "max_encode_calls": 500, "max_encode_gpu_hours": 1.0, "wave": 1}, "profile": "g1-supplement", "used": {"cutting_wall_seconds_used": 15.807058340993535, "diar_gpu_seconds_used": 0.0, "encode_calls_used": 195, "encode_gpu_seconds_used": 295.9697337315743, "encode_wall_seconds": 336.6906677119914, "n_ok": 9, "n_receipts": 9, "vad_slices": 195}}
+--- invocation: run_precomp.py --turn-sources vad --ceilings-profile g1-supplement --resume ---
+17:25:40Z WATCH receipts=9 manifests=10 vad_wavs=222 cache_entries=12284 gpu=[8, 1200, 60.60 ]
+17:26:41Z WATCH receipts=11 manifests=12 vad_wavs=253 cache_entries=12659 gpu=[98, 1200, 69.58 ]
+17:27:43Z WATCH receipts=13 manifests=14 vad_wavs=287 cache_entries=13036 gpu=[98, 645, 67.98 ]
+17:28:45Z WATCH receipts=15 manifests=16 vad_wavs=327 cache_entries=13413 gpu=[98, 697, 67.03 ]
+17:29:48Z WATCH receipts=16 manifests=17 vad_wavs=360 cache_entries=13799 gpu=[98, 1200, 71.01 ]
+17:30:48Z WATCH receipts=17 manifests=18 vad_wavs=391 cache_entries=14192 gpu=[99, 615, 69.95 ]
+17:31:09Z runner rc=0 wall=380s
+17:31:09Z IB4011 receipt=ok
+17:31:10Z IS1008a receipt=ok
+17:31:10Z IS1008b receipt=ok
+17:31:10Z IS1008c receipt=ok
+17:31:10Z IS1008d receipt=ok
+17:31:10Z TS3004a receipt=ok
+17:31:10Z TS3004b receipt=ok
+17:31:10Z TS3004c receipt=ok
+17:31:10Z TS3004d receipt=ok
+featcache after: entries=14324 bytes=11486248768 (pass delta entries=2328 bytes=1880650112)
+vad manifests now: 18
+vad slice wavs now: 391
+--- ledger after pass B ---
+{"breaches": [], "ceilings": {"max_cutting_wall_hours": 1.0, "max_diar_gpu_hours": 0.1, "max_encode_calls": 500, "max_encode_gpu_hours": 1.0, "wave": 1}, "profile": "g1-supplement", "used": {"cutting_wall_seconds_used": 32.241158207994886, "diar_gpu_seconds_used": 0.0, "encode_calls_used": 391, "encode_gpu_seconds_used": 598.715351833358, "encode_wall_seconds": 672.9457074039892, "n_ok": 18, "n_receipts": 18, "vad_slices": 391}}
+FLY-DONE state=COMPLETE pass=B

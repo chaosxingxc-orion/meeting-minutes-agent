@@ -1,0 +1,223 @@
+{
+  "budget_after": {
+    "ceilings": {
+      "max_cutting_wall_hours": 1.0,
+      "max_diar_gpu_hours": 0.1,
+      "max_encode_calls": 500,
+      "max_encode_gpu_hours": 1.0,
+      "wave": 1
+    },
+    "cutting_wall_seconds_used": 18.872445311986667,
+    "diar_gpu_seconds_used": 0.0,
+    "encode_calls_used": 233,
+    "encode_gpu_seconds_used": 353.74657853827034
+  },
+  "cutting": {
+    "oracle": null,
+    "tool": null,
+    "vad": {
+      "content_hash": "1958cd01a9384f88a56dda6a1cda3b5a82bcd2479e8605782d140b7f634298b6",
+      "n_entries": 11
+    },
+    "wall_seconds": 0.8899320259952219,
+    "workers": 8
+  },
+  "diar": {
+    "contact": null,
+    "gpu_seconds_estimate": null,
+    "n_turns": null,
+    "wall_seconds": null
+  },
+  "encode_warm": {
+    "n_calls": 11,
+    "oracle": [],
+    "tool": [],
+    "vad": [
+      {
+        "gpu_seconds_estimate": 1.4999249951601814,
+        "max_tokens": 1,
+        "n_attempts": 1,
+        "request_id": "precomp-w1-vad-IS1008a-slice0000",
+        "text_discarded_unread": true,
+        "usage": {
+          "completion_tokens": 1,
+          "prompt_tokens": 1276,
+          "total_tokens": 1277
+        },
+        "wall_seconds": 1.546314428000187
+      },
+      {
+        "gpu_seconds_estimate": 1.60174478451474,
+        "max_tokens": 1,
+        "n_attempts": 1,
+        "request_id": "precomp-w1-vad-IS1008a-slice0001",
+        "text_discarded_unread": true,
+        "usage": {
+          "completion_tokens": 1,
+          "prompt_tokens": 1276,
+          "total_tokens": 1277
+        },
+        "wall_seconds": 1.6512832830048865
+      },
+      {
+        "gpu_seconds_estimate": 1.6671357204354718,
+        "max_tokens": 1,
+        "n_attempts": 1,
+        "request_id": "precomp-w1-vad-IS1008a-slice0002",
+        "text_discarded_unread": true,
+        "usage": {
+          "completion_tokens": 1,
+          "prompt_tokens": 1276,
+          "total_tokens": 1277
+        },
+        "wall_seconds": 1.718696619005641
+      },
+      {
+        "gpu_seconds_estimate": 1.6401591503369854,
+        "max_tokens": 1,
+        "n_attempts": 1,
+        "request_id": "precomp-w1-vad-IS1008a-slice0003",
+        "text_discarded_unread": true,
+        "usage": {
+          "completion_tokens": 1,
+          "prompt_tokens": 1276,
+          "total_tokens": 1277
+        },
+        "wall_seconds": 1.6908857219968922
+      },
+      {
+        "gpu_seconds_estimate": 1.6095311702345498,
+        "max_tokens": 1,
+        "n_attempts": 1,
+        "request_id": "precomp-w1-vad-IS1008a-slice0004",
+        "text_discarded_unread": true,
+        "usage": {
+          "completion_tokens": 1,
+          "prompt_tokens": 1276,
+          "total_tokens": 1277
+        },
+        "wall_seconds": 1.6765949689943227
+      },
+      {
+        "gpu_seconds_estimate": 1.5699320540149346,
+        "max_tokens": 1,
+        "n_attempts": 1,
+        "request_id": "precomp-w1-vad-IS1008a-slice0005",
+        "text_discarded_unread": true,
+        "usage": {
+          "completion_tokens": 1,
+          "prompt_tokens": 1276,
+          "total_tokens": 1277
+        },
+        "wall_seconds": 1.6701404829946114
+      },
+      {
+        "gpu_seconds_estimate": 1.6180689341450487,
+        "max_tokens": 1,
+        "n_attempts": 1,
+        "request_id": "precomp-w1-vad-IS1008a-slice0006",
+        "text_discarded_unread": true,
+        "usage": {
+          "completion_tokens": 1,
+          "prompt_tokens": 1276,
+          "total_tokens": 1277
+        },
+        "wall_seconds": 1.7032304569947883
+      },
+      {
+        "gpu_seconds_estimate": 1.620761817999737,
+        "max_tokens": 1,
+        "n_attempts": 1,
+        "request_id": "precomp-w1-vad-IS1008a-slice0007",
+        "text_discarded_unread": true,
+        "usage": {
+          "completion_tokens": 1,
+          "prompt_tokens": 1276,
+          "total_tokens": 1277
+        },
+        "wall_seconds": 1.7242146999997203
+      },
+      {
+        "gpu_seconds_estimate": 1.583103077400301,
+        "max_tokens": 1,
+        "n_attempts": 1,
+        "request_id": "precomp-w1-vad-IS1008a-slice0008",
+        "text_discarded_unread": true,
+        "usage": {
+          "completion_tokens": 1,
+          "prompt_tokens": 1276,
+          "total_tokens": 1277
+        },
+        "wall_seconds": 1.6841522100003203
+      },
+      {
+        "gpu_seconds_estimate": 1.528485109065732,
+        "max_tokens": 1,
+        "n_attempts": 1,
+        "request_id": "precomp-w1-vad-IS1008a-slice0009",
+        "text_discarded_unread": true,
+        "usage": {
+          "completion_tokens": 1,
+          "prompt_tokens": 1276,
+          "total_tokens": 1277
+        },
+        "wall_seconds": 1.679653966006299
+      },
+      {
+        "gpu_seconds_estimate": 0.675711403900641,
+        "max_tokens": 1,
+        "n_attempts": 1,
+        "request_id": "precomp-w1-vad-IS1008a-slice0010",
+        "text_discarded_unread": true,
+        "usage": {
+          "completion_tokens": 1,
+          "prompt_tokens": 665,
+          "total_tokens": 666
+        },
+        "wall_seconds": 0.7112751620006748
+      }
+    ],
+    "wall_seconds": 18.13168125700031
+  },
+  "error": null,
+  "meeting_id": "IS1008a",
+  "metrics": {
+    "cache": {
+      "after": {
+        "n_entries": 12444,
+        "total_bytes": 9967372736
+      },
+      "before": {
+        "n_entries": 12318,
+        "total_bytes": 9865773536
+      },
+      "delta": {
+        "bytes_added": 101599200,
+        "entries_added": 126
+      }
+    },
+    "vad_slice_count": {
+      "vad_slices": 11
+    },
+    "walls": {
+      "cutting_wall_s": 0.8899320259952219,
+      "diar_wall_s": 0.0,
+      "encode_wall_s": 18.13168125700031,
+      "total_wall_s": 19.02161328299553
+    }
+  },
+  "ok": true,
+  "recorded_utc": "2026-08-19T17:26:05.673883+00:00",
+  "schema_version": "1.1.0",
+  "slice_plans": {
+    "oracle": null,
+    "tool": null,
+    "vad": {
+      "content_hash": "53bb3452ce439f53b6a98a224db25114d4d72977e6bc23a6ebbe7731538ceedc",
+      "manifest_path": "/mnt/e/chao_workspace/exploring-l4-intelligence/speechrl-data/derived/meeting-minutes/precomp/slices/vad-manifest/IS1008a.json",
+      "n_slices": 11,
+      "turn_provenance": null
+    }
+  },
+  "wave": 1
+}

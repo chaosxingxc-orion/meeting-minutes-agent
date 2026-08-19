@@ -1,0 +1,61 @@
+{
+  "captured_utc": "2026-08-19T17:31:28Z",
+  "ceilings_profile": "g1-supplement (500 encode calls / 1.0 GPU-h encode / 1.0 h CPU cutting)",
+  "derived_root": "/mnt/e/chao_workspace/exploring-l4-intelligence/speechrl-data/derived/meeting-minutes/precomp",
+  "diar_contact": "none -- --turn-sources vad never contacts the pinned Arm B diar tool",
+  "feat_cache_bytes_after": 11486248768,
+  "feat_cache_dir": "/home/chao/feat-cache/ami-q4km",
+  "feat_cache_entries_after": 14324,
+  "invocation": "two run_precomp.py --wave 1 --turn-sources vad --ceilings-profile g1-supplement --meetings <nine> --workers 8 --resume --stop-file <G1SUP_YIELD> invocations",
+  "llama_cpp": {
+    "binary_bytes": 17920,
+    "binary_path": "/home/chao/llama.cpp-featcache/build/bin/llama-server",
+    "binary_sha256": "097c96ec5a3f576f378d4d5e103928bf070647fdcc1f015eacb839503e121c68",
+    "build_commit": "5d9dfcb58ea860295da8fc93c7b5bed9e2c71151",
+    "checkout": "/home/chao/llama.cpp-featcache",
+    "tree_dirty": 0
+  },
+  "model_files": [
+    {
+      "bytes": 18557053952,
+      "path": "/home/chao/models/qwen3-omni-30b-a3b-instruct-gguf-q4km/Qwen3-Omni-30B-A3B-Instruct-Q4_K_M.gguf",
+      "sha256": "0751c279498785c0b07130ae7748038d1e2cfd04617928e4557063807f98066d"
+    },
+    {
+      "bytes": 2207465568,
+      "path": "/home/chao/models/qwen3-omni-30b-a3b-instruct-gguf-q4km/mmproj-Qwen3-Omni-30B-A3B-Instruct-bf16.gguf",
+      "sha256": "f0dfe825fb692d426362b1ac79678fc08daa4758f7151526cad110515f122883"
+    }
+  ],
+  "pass": "G1 VAD supplement (dev-18, Z-nodiar slice source) -- pass A + pass B",
+  "registration": "docs/readiness/2026-08-19-g1-floors-preregistration.md (REGISTERED, owner GO)",
+  "server_argv": [
+    "--host",
+    "127.0.0.1",
+    "--port",
+    "8080",
+    "-m",
+    "/home/chao/models/qwen3-omni-30b-a3b-instruct-gguf-q4km/Qwen3-Omni-30B-A3B-Instruct-Q4_K_M.gguf",
+    "--mmproj",
+    "/home/chao/models/qwen3-omni-30b-a3b-instruct-gguf-q4km/mmproj-Qwen3-Omni-30B-A3B-Instruct-bf16.gguf",
+    "-c",
+    "49152",
+    "-np",
+    "1",
+    "-fa",
+    "on",
+    "-ngl",
+    "999",
+    "-ctk",
+    "q8_0",
+    "-ctv",
+    "q8_0"
+  ],
+  "study_repo": {
+    "commit": "f13ad6f2b77409e9728190a57564f0ecaa2637bd",
+    "dirty_paths": 1,
+    "path": "/mnt/d/chao_workspace/exploring-l4-intelligence/papers/meeting-minutes-agent"
+  },
+  "vad_manifest_dir": "/mnt/e/chao_workspace/exploring-l4-intelligence/speechrl-data/derived/meeting-minutes/precomp/slices/vad-manifest",
+  "vad_slice_root": "/mnt/e/chao_workspace/exploring-l4-intelligence/speechrl-data/derived/meeting-minutes/precomp/slices/vad"
+}

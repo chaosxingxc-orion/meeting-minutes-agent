@@ -1,0 +1,38 @@
+=== G1 VAD supplement pass A start 2026-08-19T17:17:19Z ===
+repo HEAD: f13ad6f2b77409e9728190a57564f0ecaa2637bd
+repo dirty lines: 0
+out-dir:   /mnt/d/chao_workspace/exploring-l4-intelligence/papers/meeting-minutes-agent/docs/checks/2026-08-19-g1-supplement
+cache:     /home/chao/feat-cache/ami-q4km
+stop-file: /mnt/c/Users/35686/AppData/Local/Temp/claude/D--chao-workspace-exploring-l4-intelligence-studies-speech-aware-evidence-acquisition/6d9f1834-68e9-41a7-bbcc-724898cf15a9/scratchpad/g1sup/G1SUP_YIELD
+meetings:  ES2011a ES2011b ES2011c ES2011d IB4001 IB4002 IB4003 IB4004 IB4010
+17:17:20Z llama-server child pid=609
+--- waiting for llama-server at http://127.0.0.1:8080 ---
+server healthy at 17:17:37Z
+featcache before: entries=9685 bytes=7739858256; supplement receipts before: 0
+--- ledger before pass A (operator cross-check of the native precharge) ---
+{"breaches": [], "ceilings": {"max_cutting_wall_hours": 1.0, "max_diar_gpu_hours": 0.1, "max_encode_calls": 500, "max_encode_gpu_hours": 1.0, "wave": 1}, "profile": "g1-supplement", "used": {"cutting_wall_seconds_used": 0, "diar_gpu_seconds_used": 0, "encode_calls_used": 0, "encode_gpu_seconds_used": 0, "encode_wall_seconds": 0, "n_ok": 0, "n_receipts": 0, "vad_slices": 0}}
+--- invocation: run_precomp.py --turn-sources vad --ceilings-profile g1-supplement --resume ---
+17:23:56Z runner rc=0 wall=379s
+17:23:57Z ES2011a receipt=ok
+17:23:57Z ES2011b receipt=ok
+17:23:57Z ES2011c receipt=ok
+17:23:57Z ES2011d receipt=ok
+17:23:57Z IB4001 receipt=ok
+17:23:57Z IB4002 receipt=ok
+17:23:57Z IB4003 receipt=ok
+17:23:57Z IB4004 receipt=ok
+17:23:57Z IB4010 receipt=ok
+featcache after: entries=11996 bytes=9605598656 (pass delta entries=2311 bytes=1865740400)
+vad manifests now: 9
+vad slice wavs now: 195
+--- ledger after pass A ---
+{"breaches": [], "ceilings": {"max_cutting_wall_hours": 1.0, "max_diar_gpu_hours": 0.1, "max_encode_calls": 500, "max_encode_gpu_hours": 1.0, "wave": 1}, "profile": "g1-supplement", "used": {"cutting_wall_seconds_used": 15.807058340993535, "diar_gpu_seconds_used": 0.0, "encode_calls_used": 195, "encode_gpu_seconds_used": 295.9697337315743, "encode_wall_seconds": 336.6906677119914, "n_ok": 9, "n_receipts": 9, "vad_slices": 195}}
+--- teardown 17:23:58Z ---
+llama-server stopped
+1 %, 173 MiB, 1200 MHz, P4, 53
+server.log lines: 21984
+0.00.444.719 W common_fit_params: failed to fit params to free device memory: n_gpu_layers already set by user to 999, abort
+completed this pass: ES2011a ES2011b ES2011c ES2011d IB4001 IB4002 IB4003 IB4004 IB4010
+not completed:
+=== G1 VAD supplement pass A end 2026-08-19T17:24:01Z state=COMPLETE ===
+FLY-DONE state=COMPLETE pass=A
