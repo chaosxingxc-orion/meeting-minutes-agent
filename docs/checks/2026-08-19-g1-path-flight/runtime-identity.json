@@ -1,0 +1,74 @@
+{
+  "captured_utc": "2026-08-19T17:45:14Z",
+  "feat_cache_bytes_after": 11486248768,
+  "feat_cache_dir": "/home/chao/feat-cache/ami-q4km",
+  "feat_cache_entries_after": 14324,
+  "flight": "G1-PATH pathfinder (ES2011a + IS1008a, four arms, transcribe + minutes + qa heads)",
+  "flight_ceilings": {
+    "max_calls": 250,
+    "max_gpu_hours": 0.5,
+    "max_wall_hours": 2.0,
+    "qa_cap_registered": 200,
+    "qa_cap_used": 3
+  },
+  "llama_cpp": {
+    "binary_bytes": 17920,
+    "binary_path": "/home/chao/llama.cpp-featcache/build/bin/llama-server",
+    "binary_sha256": "097c96ec5a3f576f378d4d5e103928bf070647fdcc1f015eacb839503e121c68",
+    "build_commit": "5d9dfcb58ea860295da8fc93c7b5bed9e2c71151",
+    "checkout": "/home/chao/llama.cpp-featcache",
+    "tree_dirty": 0
+  },
+  "model_files": [
+    {
+      "bytes": 18557053952,
+      "path": "/home/chao/models/qwen3-omni-30b-a3b-instruct-gguf-q4km/Qwen3-Omni-30B-A3B-Instruct-Q4_K_M.gguf",
+      "sha256": "0751c279498785c0b07130ae7748038d1e2cfd04617928e4557063807f98066d"
+    },
+    {
+      "bytes": 2207465568,
+      "path": "/home/chao/models/qwen3-omni-30b-a3b-instruct-gguf-q4km/mmproj-Qwen3-Omni-30B-A3B-Instruct-bf16.gguf",
+      "sha256": "f0dfe825fb692d426362b1ac79678fc08daa4758f7151526cad110515f122883"
+    }
+  ],
+  "registration": "docs/readiness/2026-08-19-g1-floors-preregistration.md SS5 (REGISTERED, owner GO)",
+  "response_sinks": [
+    {
+      "bytes": 161421,
+      "lines": 104,
+      "path": "/mnt/e/chao_workspace/exploring-l4-intelligence/speechrl-data/derived/meeting-minutes/g1/runs/2026-08-19-g1-path/responses/chunk0000-responses.jsonl",
+      "sha256": "7d0b9fc7c4a0bf69214672d0b2d30ecd9564039d1e1e609a65a646aa74df5173"
+    }
+  ],
+  "run_dir": "/mnt/e/chao_workspace/exploring-l4-intelligence/speechrl-data/derived/meeting-minutes/g1/runs/2026-08-19-g1-path",
+  "scope": "STRUCTURAL validation only -- no metric scoring, no result interpretation",
+  "server_argv": [
+    "--host",
+    "127.0.0.1",
+    "--port",
+    "8080",
+    "-m",
+    "/home/chao/models/qwen3-omni-30b-a3b-instruct-gguf-q4km/Qwen3-Omni-30B-A3B-Instruct-Q4_K_M.gguf",
+    "--mmproj",
+    "/home/chao/models/qwen3-omni-30b-a3b-instruct-gguf-q4km/mmproj-Qwen3-Omni-30B-A3B-Instruct-bf16.gguf",
+    "-c",
+    "49152",
+    "-np",
+    "1",
+    "-fa",
+    "on",
+    "-ngl",
+    "999",
+    "-ctk",
+    "q8_0",
+    "-ctv",
+    "q8_0"
+  ],
+  "server_ownership": "child of the run_g1.py chunk invocation (g1_campaign.ManagedLlamaServer)",
+  "study_repo": {
+    "commit": "38fce4ecb5fd06b5624d0a38e8df8e611c473af8",
+    "dirty_paths": 0,
+    "path": "/mnt/d/chao_workspace/exploring-l4-intelligence/papers/meeting-minutes-agent"
+  },
+  "vad_manifest_dir": "/mnt/e/chao_workspace/exploring-l4-intelligence/speechrl-data/derived/meeting-minutes/precomp/slices/vad-manifest"
+}

@@ -1,0 +1,645 @@
+{
+  "budget_after": {
+    "calls_used": 104,
+    "ceilings": {
+      "max_calls": 250,
+      "max_gpu_hours": 0.5,
+      "max_wall_hours": 2.0
+    },
+    "gpu_seconds_used": 0.0,
+    "wall_seconds_used": 408.0427221130012
+  },
+  "chunk_index": 0,
+  "item_outcomes": [
+    {
+      "arm": "Z-turn",
+      "contacts": [
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-turn-ES2011a-transcribe-slice0000"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-turn-ES2011a-transcribe-slice0001"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-turn-ES2011a-transcribe-slice0002"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-turn-ES2011a-transcribe-slice0003"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-turn-ES2011a-transcribe-slice0004"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-turn-ES2011a-transcribe-slice0005"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-turn-ES2011a-transcribe-slice0006"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-turn-ES2011a-transcribe-slice0007"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-turn-ES2011a-transcribe-slice0008"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-turn-ES2011a-transcribe-slice0009"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-turn-ES2011a-transcribe-slice0010"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-turn-ES2011a-transcribe-slice0011"
+        },
+        {
+          "kind": "minutes",
+          "outcome": "ok",
+          "request_id": "g1-Z-turn-ES2011a-minutes"
+        },
+        {
+          "kind": "qa",
+          "outcome": "ok",
+          "request_id": "g1-Z-turn-ES2011a-qa-0-0-1-ES2011d-237"
+        },
+        {
+          "kind": "qa",
+          "outcome": "ok",
+          "request_id": "g1-Z-turn-ES2011a-qa-0-0-1-IB4003-494"
+        },
+        {
+          "kind": "qa",
+          "outcome": "ok",
+          "request_id": "g1-Z-turn-ES2011a-qa-0-0-1-IB4010-100"
+        }
+      ],
+      "error": null,
+      "gpu_seconds": 0.0,
+      "meeting_id": "ES2011a",
+      "n_calls": 16,
+      "ok": true,
+      "recorded_utc": "2026-08-19T17:37:32.399453+00:00",
+      "schema_version": "1.0.0",
+      "wall_seconds": 70.63311166600033
+    },
+    {
+      "arm": "Z-oracle",
+      "contacts": [
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-ES2011a-transcribe-slice0000"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-ES2011a-transcribe-slice0001"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-ES2011a-transcribe-slice0002"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-ES2011a-transcribe-slice0003"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-ES2011a-transcribe-slice0004"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-ES2011a-transcribe-slice0005"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-ES2011a-transcribe-slice0006"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-ES2011a-transcribe-slice0007"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-ES2011a-transcribe-slice0008"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-ES2011a-transcribe-slice0009"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-ES2011a-transcribe-slice0010"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-ES2011a-transcribe-slice0011"
+        },
+        {
+          "kind": "minutes",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-ES2011a-minutes"
+        },
+        {
+          "kind": "qa",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-ES2011a-qa-0-0-1-ES2011d-237"
+        },
+        {
+          "kind": "qa",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-ES2011a-qa-0-0-1-IB4003-494"
+        },
+        {
+          "kind": "qa",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-ES2011a-qa-0-0-1-IB4010-100"
+        }
+      ],
+      "error": null,
+      "gpu_seconds": 0.0,
+      "meeting_id": "ES2011a",
+      "n_calls": 16,
+      "ok": true,
+      "recorded_utc": "2026-08-19T17:38:42.837177+00:00",
+      "schema_version": "1.0.0",
+      "wall_seconds": 68.45923288299673
+    },
+    {
+      "arm": "Z-free",
+      "contacts": [
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-free-ES2011a-transcribe-slice0000"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-free-ES2011a-transcribe-slice0001"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-free-ES2011a-transcribe-slice0002"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-free-ES2011a-transcribe-slice0003"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-free-ES2011a-transcribe-slice0004"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-free-ES2011a-transcribe-slice0005"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-free-ES2011a-transcribe-slice0006"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-free-ES2011a-transcribe-slice0007"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-free-ES2011a-transcribe-slice0008"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-free-ES2011a-transcribe-slice0009"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-free-ES2011a-transcribe-slice0010"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-free-ES2011a-transcribe-slice0011"
+        }
+      ],
+      "error": null,
+      "gpu_seconds": 0.0,
+      "meeting_id": "ES2011a",
+      "n_calls": 12,
+      "ok": true,
+      "recorded_utc": "2026-08-19T17:39:24.139155+00:00",
+      "schema_version": "1.0.0",
+      "wall_seconds": 40.349743974002195
+    },
+    {
+      "arm": "Z-nodiar",
+      "contacts": [
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-nodiar-ES2011a-transcribe-slice0000"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-nodiar-ES2011a-transcribe-slice0001"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-nodiar-ES2011a-transcribe-slice0002"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-nodiar-ES2011a-transcribe-slice0003"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-nodiar-ES2011a-transcribe-slice0004"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-nodiar-ES2011a-transcribe-slice0005"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-nodiar-ES2011a-transcribe-slice0006"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-nodiar-ES2011a-transcribe-slice0007"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-nodiar-ES2011a-transcribe-slice0008"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-nodiar-ES2011a-transcribe-slice0009"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-nodiar-ES2011a-transcribe-slice0010"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-nodiar-ES2011a-transcribe-slice0011"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-nodiar-ES2011a-transcribe-slice0012"
+        }
+      ],
+      "error": null,
+      "gpu_seconds": 0.0,
+      "meeting_id": "ES2011a",
+      "n_calls": 13,
+      "ok": true,
+      "recorded_utc": "2026-08-19T17:40:08.326761+00:00",
+      "schema_version": "1.0.0",
+      "wall_seconds": 42.27804575600021
+    },
+    {
+      "arm": "Z-turn",
+      "contacts": [
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-turn-IS1008a-transcribe-slice0000"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-turn-IS1008a-transcribe-slice0001"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-turn-IS1008a-transcribe-slice0002"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-turn-IS1008a-transcribe-slice0003"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-turn-IS1008a-transcribe-slice0004"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-turn-IS1008a-transcribe-slice0005"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-turn-IS1008a-transcribe-slice0006"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-turn-IS1008a-transcribe-slice0007"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-turn-IS1008a-transcribe-slice0008"
+        },
+        {
+          "kind": "minutes",
+          "outcome": "ok",
+          "request_id": "g1-Z-turn-IS1008a-minutes"
+        },
+        {
+          "kind": "qa",
+          "outcome": "ok",
+          "request_id": "g1-Z-turn-IS1008a-qa-0-0-1-ES2011d-237"
+        },
+        {
+          "kind": "qa",
+          "outcome": "ok",
+          "request_id": "g1-Z-turn-IS1008a-qa-0-0-1-IB4003-494"
+        },
+        {
+          "kind": "qa",
+          "outcome": "ok",
+          "request_id": "g1-Z-turn-IS1008a-qa-0-0-1-IB4010-100"
+        }
+      ],
+      "error": null,
+      "gpu_seconds": 0.0,
+      "meeting_id": "IS1008a",
+      "n_calls": 13,
+      "ok": true,
+      "recorded_utc": "2026-08-19T17:41:13.783612+00:00",
+      "schema_version": "1.0.0",
+      "wall_seconds": 63.562233280994406
+    },
+    {
+      "arm": "Z-oracle",
+      "contacts": [
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-IS1008a-transcribe-slice0000"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-IS1008a-transcribe-slice0001"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-IS1008a-transcribe-slice0002"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-IS1008a-transcribe-slice0003"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-IS1008a-transcribe-slice0004"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-IS1008a-transcribe-slice0005"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-IS1008a-transcribe-slice0006"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-IS1008a-transcribe-slice0007"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-IS1008a-transcribe-slice0008"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-IS1008a-transcribe-slice0009"
+        },
+        {
+          "kind": "minutes",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-IS1008a-minutes"
+        },
+        {
+          "kind": "qa",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-IS1008a-qa-0-0-1-ES2011d-237"
+        },
+        {
+          "kind": "qa",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-IS1008a-qa-0-0-1-IB4003-494"
+        },
+        {
+          "kind": "qa",
+          "outcome": "ok",
+          "request_id": "g1-Z-oracle-IS1008a-qa-0-0-1-IB4010-100"
+        }
+      ],
+      "error": null,
+      "gpu_seconds": 0.0,
+      "meeting_id": "IS1008a",
+      "n_calls": 14,
+      "ok": true,
+      "recorded_utc": "2026-08-19T17:42:16.941023+00:00",
+      "schema_version": "1.0.0",
+      "wall_seconds": 62.24063017800654
+    },
+    {
+      "arm": "Z-free",
+      "contacts": [
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-free-IS1008a-transcribe-slice0000"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-free-IS1008a-transcribe-slice0001"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-free-IS1008a-transcribe-slice0002"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-free-IS1008a-transcribe-slice0003"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-free-IS1008a-transcribe-slice0004"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-free-IS1008a-transcribe-slice0005"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-free-IS1008a-transcribe-slice0006"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-free-IS1008a-transcribe-slice0007"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-free-IS1008a-transcribe-slice0008"
+        }
+      ],
+      "error": null,
+      "gpu_seconds": 0.0,
+      "meeting_id": "IS1008a",
+      "n_calls": 9,
+      "ok": true,
+      "recorded_utc": "2026-08-19T17:42:47.976009+00:00",
+      "schema_version": "1.0.0",
+      "wall_seconds": 31.03003788999922
+    },
+    {
+      "arm": "Z-nodiar",
+      "contacts": [
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-nodiar-IS1008a-transcribe-slice0000"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-nodiar-IS1008a-transcribe-slice0001"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-nodiar-IS1008a-transcribe-slice0002"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-nodiar-IS1008a-transcribe-slice0003"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-nodiar-IS1008a-transcribe-slice0004"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-nodiar-IS1008a-transcribe-slice0005"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-nodiar-IS1008a-transcribe-slice0006"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-nodiar-IS1008a-transcribe-slice0007"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-nodiar-IS1008a-transcribe-slice0008"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-nodiar-IS1008a-transcribe-slice0009"
+        },
+        {
+          "kind": "transcribe",
+          "outcome": "ok",
+          "request_id": "g1-Z-nodiar-IS1008a-transcribe-slice0010"
+        }
+      ],
+      "error": null,
+      "gpu_seconds": 0.0,
+      "meeting_id": "IS1008a",
+      "n_calls": 11,
+      "ok": true,
+      "recorded_utc": "2026-08-19T17:43:17.471004+00:00",
+      "schema_version": "1.0.0",
+      "wall_seconds": 29.489686485001585
+    }
+  ],
+  "n_error": 0,
+  "n_items": 8,
+  "n_ok": 8,
+  "recorded_utc": "2026-08-19T17:43:17.475354+00:00",
+  "schema_version": "1.0.0",
+  "stopped_reason": null
+}

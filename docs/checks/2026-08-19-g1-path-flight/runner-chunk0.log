@@ -1,0 +1,7 @@
+WARNING: --qa-cap/--qa-seed override the registered N=200/seed=20260818 (floors prereg SS2) -- only for machinery testing, never for a registered flight
+{
+  "chunk_index": 0,
+  "n_error": 0,
+  "n_ok": 8,
+  "stopped_reason": null
+}

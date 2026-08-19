@@ -1,0 +1,110 @@
+=== G1-PATH preflight start 2026-08-19T17:34:54Z ===
+--- repo state ---
+38fce4ecb5fd06b5624d0a38e8df8e611c473af8
+porcelain lines: 0
+38fce4e precomp(g1-supplement): vad slices + manifests + encode-warm - 18/18
+f13ad6f fix(precomp+g1): persist vad slice-plan manifests for the Z-nodiar arm
+d7fa8dc feat(g1): scoring read CLI with clustered-CI deployment gap
+
+--- hash pins ---
+OK   llama-server  097c96ec5a3f576f378d4d5e103928bf070647fdcc1f015eacb839503e121c68  /home/chao/llama.cpp-featcache/build/bin/llama-server
+OK   qwen3-omni-q4km  0751c279498785c0b07130ae7748038d1e2cfd04617928e4557063807f98066d  /home/chao/models/qwen3-omni-30b-a3b-instruct-gguf-q4km/Qwen3-Omni-30B-A3B-Instruct-Q4_K_M.gguf
+OK   qwen3-omni-mmproj  f0dfe825fb692d426362b1ac79678fc08daa4758f7151526cad110515f122883  /home/chao/models/qwen3-omni-30b-a3b-instruct-gguf-q4km/mmproj-Qwen3-Omni-30B-A3B-Instruct-bf16.gguf
+hash-pin fail flag: 0
+llama.cpp HEAD: 5d9dfcb58ea860295da8fc93c7b5bed9e2c71151
+build-commit: OK vs pin
+dirty: 0
+
+--- PRECOMP inputs the four arms rebuild from ---
+rttm files:    18
+tool slice dirs:   18
+oracle slice dirs: 18
+vad slice dirs:    18
+vad manifests:     18
+  ES2011a: rttm=yes vad_manifest=yes tool_wavs=12 oracle_wavs=12 vad_wavs=13
+  IS1008a: rttm=yes vad_manifest=yes tool_wavs=9 oracle_wavs=10 vad_wavs=11
+
+--- feature cache (ami-q4km) BEFORE the flight ---
+entries: 14324
+bytes:   11486248768
+
+--- run-dir BEFORE ---
+exists: YES
+0
+
+--- run_g1 --summary-only (roster, arms, registered ceilings) ---
+{
+  "arms": [
+    "Z-turn",
+    "Z-oracle",
+    "Z-free",
+    "Z-nodiar"
+  ],
+  "ceilings": {
+    "max_calls": 2900,
+    "max_chunk_wall_seconds": 3000.0,
+    "max_gpu_hours": 6.0,
+    "max_wall_hours": 8.0
+  },
+  "meetings": [
+    "ES2011a",
+    "IS1008a"
+  ],
+  "mode": "path",
+  "n_qa_questions_capped": 200,
+  "n_work_items": 8
+}
+
+==========================================================================
+--- STRUCTURAL FINDING: the plan at the REGISTERED N=200 QA cap ---
+run_g1.run_item dispatches the WHOLE capped question set to EVERY
+(meeting, arm), instead of the questions attached to THAT meeting.
+==========================================================================
+rc=0
+n_work_items: 8  n_chunks: 2
+  chunk 0: est_wall=2445.7s items=5
+    ES2011a   Z-turn    transcribe= 12 minutes=1 qa=200 -> calls=213
+    ES2011a   Z-oracle  transcribe= 12 minutes=1 qa=200 -> calls=213
+    ES2011a   Z-free    transcribe= 12 minutes=0 qa=  0 -> calls= 12
+    ES2011a   Z-nodiar  transcribe= 13 minutes=0 qa=  0 -> calls= 13
+    IS1008a   Z-turn    transcribe=  9 minutes=1 qa=200 -> calls=210
+  chunk 1: est_wall=854.7s items=3
+    IS1008a   Z-oracle  transcribe= 10 minutes=1 qa=200 -> calls=211
+    IS1008a   Z-free    transcribe=  9 minutes=0 qa=  0 -> calls=  9
+    IS1008a   Z-nodiar  transcribe= 11 minutes=0 qa=  0 -> calls= 11
+PLANNED TOTAL CALLS AT THE REGISTERED CAP: 892
+floors prereg SS5 registered PATH size: ~250 requests, <=0.5 GPU-h
+
+==========================================================================
+--- THE PLAN THIS FLIGHT RUNS: QA head at machinery-probe cap 3 ---
+==========================================================================
+rc=0
+WARNING: --qa-cap/--qa-seed override the registered N=200/seed=20260818 (floors prereg SS2) -- only for machinery testing, never for a registered flight
+n_work_items: 8  n_chunks: 1
+  chunk 0: est_wall=384.8s items=8
+    ES2011a   Z-turn    transcribe= 12 minutes=1 qa=  3 -> calls= 16
+    ES2011a   Z-oracle  transcribe= 12 minutes=1 qa=  3 -> calls= 16
+    ES2011a   Z-free    transcribe= 12 minutes=0 qa=  0 -> calls= 12
+    ES2011a   Z-nodiar  transcribe= 13 minutes=0 qa=  0 -> calls= 13
+    IS1008a   Z-turn    transcribe=  9 minutes=1 qa=  3 -> calls= 13
+    IS1008a   Z-oracle  transcribe= 10 minutes=1 qa=  3 -> calls= 14
+    IS1008a   Z-free    transcribe=  9 minutes=0 qa=  0 -> calls=  9
+    IS1008a   Z-nodiar  transcribe= 11 minutes=0 qa=  0 -> calls= 11
+FLIGHT TOTAL CALLS: 104 against this flight's own fail-closed max-calls ceiling
+
+--- arm/plan provenance cross-check (CPU-only, zero model contact) ---
+ES2011a   Z-turn    mode=turn_aware prov=tool-diar    slices= 12 slice_dir=derived/meeting-minutes/precomp/slices/tool missing_wavs=none
+ES2011a   Z-oracle  mode=turn_aware prov=oracle-turn  slices= 12 slice_dir=derived/meeting-minutes/precomp/slices/oracle missing_wavs=none
+ES2011a   Z-free    mode=turn_aware prov=tool-diar    slices= 12 slice_dir=derived/meeting-minutes/precomp/slices/tool missing_wavs=none
+ES2011a   Z-nodiar  mode=vad   prov=None         slices= 13 slice_dir=derived/meeting-minutes/precomp/slices/vad missing_wavs=none
+IS1008a   Z-turn    mode=turn_aware prov=tool-diar    slices=  9 slice_dir=derived/meeting-minutes/precomp/slices/tool missing_wavs=none
+IS1008a   Z-oracle  mode=turn_aware prov=oracle-turn  slices= 10 slice_dir=derived/meeting-minutes/precomp/slices/oracle missing_wavs=none
+IS1008a   Z-free    mode=turn_aware prov=tool-diar    slices=  9 slice_dir=derived/meeting-minutes/precomp/slices/tool missing_wavs=none
+IS1008a   Z-nodiar  mode=vad   prov=None         slices= 11 slice_dir=derived/meeting-minutes/precomp/slices/vad missing_wavs=none
+
+--- GPU health / orphans ---
+name, utilization.gpu [%], memory.used [MiB], clocks.current.sm [MHz], pstate, temperature.gpu, power.draw [W]
+NVIDIA GeForce RTX 5090 Laptop GPU, 0 %, 174 MiB, 1200 MHz, P5, 44, 12.77 W
+llama-server: none
+run_g1: none
+=== G1-PATH preflight end 2026-08-19T17:35:20Z ===

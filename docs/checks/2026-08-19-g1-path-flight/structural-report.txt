@@ -1,0 +1,77 @@
+=== G1-PATH structural validation (no metric, no result read) ===
+out-dir: /mnt/e/chao_workspace/exploring-l4-intelligence/speechrl-data/derived/meeting-minutes/g1/runs/2026-08-19-g1-path
+
+| meeting | arm | receipt | ok | schema | n_calls | transcribe | minutes | qa | wall s | error |
+|---|---|---|---|---|---|---|---|---|---|---|
+| ES2011a | Z-turn | yes | yes | 1.0.0 | 16 | 12 | 1 | 3 | 70.6 |  |
+| ES2011a | Z-oracle | yes | yes | 1.0.0 | 16 | 12 | 1 | 3 | 68.5 |  |
+| ES2011a | Z-free | yes | yes | 1.0.0 | 12 | 12 | 0 | 0 | 40.3 |  |
+| ES2011a | Z-nodiar | yes | yes | 1.0.0 | 13 | 13 | 0 | 0 | 42.3 |  |
+| IS1008a | Z-turn | yes | yes | 1.0.0 | 13 | 9 | 1 | 3 | 63.6 |  |
+| IS1008a | Z-oracle | yes | yes | 1.0.0 | 14 | 10 | 1 | 3 | 62.2 |  |
+| IS1008a | Z-free | yes | yes | 1.0.0 | 9 | 9 | 0 | 0 | 31.0 |  |
+| IS1008a | Z-nodiar | yes | yes | 1.0.0 | 11 | 11 | 0 | 0 | 29.5 |  |
+
+items ok=8 error=0 missing=0 of 8 expected (meeting x arm)
+
+--- head-set conformance vs the registered arm table ---
+  ES2011a   Z-turn    OK
+  ES2011a   Z-oracle  OK
+  ES2011a   Z-free    OK
+  ES2011a   Z-nodiar  OK
+  IS1008a   Z-turn    OK
+  IS1008a   Z-oracle  OK
+  IS1008a   Z-free    OK
+  IS1008a   Z-nodiar  OK
+head-set conformance: PASS
+
+--- budget adherence (chunk receipts) ---
+  chunk0000-receipt.json: n_items=8 n_ok=8 n_error=0 stopped_reason=None
+    calls 104/250  wall 408.0s/7200s  gpu 0.0s/1800s  breaches=none
+budget adherence: PASS
+
+--- response sink: reconciliation + dispatch-chain parse health ---
+  sink files: ['chunk0000-responses.jsonl']  records: 104
+  duplicate request_ids: 0
+
+| meeting | arm | head | sink records | empty replies | replies at max_tokens |
+|---|---|---|---|---|---|
+| ES2011a | Z-free | transcribe | 12 | 0 | 0 |
+| ES2011a | Z-nodiar | transcribe | 13 | 0 | 0 |
+| ES2011a | Z-oracle | minutes | 1 | 0 | 0 |
+| ES2011a | Z-oracle | qa | 3 | 0 | 0 |
+| ES2011a | Z-oracle | transcribe | 12 | 0 | 0 |
+| ES2011a | Z-turn | minutes | 1 | 0 | 0 |
+| ES2011a | Z-turn | qa | 3 | 0 | 0 |
+| ES2011a | Z-turn | transcribe | 12 | 0 | 0 |
+| IS1008a | Z-free | transcribe | 9 | 0 | 0 |
+| IS1008a | Z-nodiar | transcribe | 11 | 0 | 0 |
+| IS1008a | Z-oracle | minutes | 1 | 0 | 0 |
+| IS1008a | Z-oracle | qa | 3 | 0 | 0 |
+| IS1008a | Z-oracle | transcribe | 10 | 0 | 0 |
+| IS1008a | Z-turn | minutes | 1 | 0 | 0 |
+| IS1008a | Z-turn | qa | 3 | 0 | 0 |
+| IS1008a | Z-turn | transcribe | 9 | 0 | 0 |
+
+attribution arms ('Z-turn', 'Z-oracle') -- the parse run_item itself performs to feed the minutes head:
+| meeting | arm | transcribe replies parsed >=1 segment | parse-failed | segments (count only) |
+|---|---|---|---|---|
+| ES2011a | Z-oracle | 12 | 0 | 172 |
+| ES2011a | Z-turn | 12 | 0 | 163 |
+| IS1008a | Z-oracle | 10 | 0 | 77 |
+| IS1008a | Z-turn | 9 | 0 | 104 |
+
+transcribe-only arms ('Z-free', 'Z-nodiar') -- no attribution grammar, never parsed in flight:
+| meeting | arm | non-empty transcribe replies |
+|---|---|---|
+| ES2011a | Z-free | 12 |
+| ES2011a | Z-nodiar | 13 |
+| IS1008a | Z-free | 9 |
+| IS1008a | Z-nodiar | 11 |
+
+(counts only -- no reply text is surfaced, no reference is consulted, no arm is compared)
+parse-chain health: PASS
+
+reconciliation: receipt n_calls total=104  sink records=104  MATCH
+
+STRUCTURAL-INPUTS {"budget_adherence": true, "duplicate_request_ids": 0, "empty_replies": 0, "head_set_conformance": true, "items_error": 0, "items_missing": 0, "items_ok": 8, "parse_chain_health": true, "replies_at_max_tokens": 0, "sink_receipt_reconciled": true}
