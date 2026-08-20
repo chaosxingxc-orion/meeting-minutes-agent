@@ -1,0 +1,121 @@
+{
+  "schema": "meeting-minutes-agent-model-asset-lock-v1",
+  "provenance": {
+    "generated_from": "umbrella docs/datasets.lock.json (schema speechrl-asset-lock-v2), key 'models'",
+    "umbrella_repo_path": "D:\\chao_workspace\\exploring-l4-intelligence (program umbrella, one level up from studies/papers repos)",
+    "umbrella_commit": "80d8d81d912d9b3b556142b010c064f8c7236fbf",
+    "umbrella_commit_command": "git -C D:\\chao_workspace\\exploring-l4-intelligence rev-parse HEAD",
+    "generated_date": "2026-08-20",
+    "authority_note": "This file is a VENDORED, MODEL-ONLY EXTRACT of the umbrella lock's 'models' array, for external-collaborator reproduction of the model-side inputs of this repository's pipeline (llama.cpp encoder core + the pinned diarization tool). The umbrella lock remains the single program-level authority for model identity (sources, revisions, hashes, license findings); colleagues without umbrella repo access cannot read that file directly, which is why this extract exists. Do not hand-edit this file to change an identity field; regenerate the affected entry from the umbrella lock instead, and keep the umbrella_commit above current. The umbrella lock also carries a much larger 'datasets' array (speech/QA/agent-benchmark corpora unrelated to this repository, e.g. LibriSpeech, MMAU, VoiceBench) and other 'models' entries this repository does not consume (e.g. nemotron3-nano-omni, omni-embed-nemotron, mms-fa-torchaudio, spkrec-ecapa-voxceleb, qwen3-embedding) -- none of those are extracted here.",
+    "entries_extracted": [
+      "qwen3-omni-30b-a3b-instruct-gguf-q4km",
+      "diar-sortformer-4spk-v2"
+    ],
+    "not_extracted_but_referenced": {
+      "qwen3-omni-30b-a3b-instruct-gguf": "the Q8_0 source GGUF the q4km entry below was requantized from. This repository's own flights consume ONLY the q4km pair (runtime-identity.json across every docs/checks/*/ receipt); the Q8_0 source is recorded here informationally (see qwen3-omni-30b-a3b-instruct-gguf-q4km.source.provenance_chain) so a colleague who wants to reproduce the requant step from scratch, rather than fetch the q4km pair pre-built, has the exact source hashes to start from."
+    }
+  },
+  "data_root": "${SPEECHRL_DATA_DIR:-<repo>/speechrl-data}/models",
+  "models": [
+    {
+      "name": "qwen3-omni-30b-a3b-instruct-gguf-q4km",
+      "kind": "model",
+      "local_subdir": "models/qwen3-omni-30b-a3b-instruct-gguf-q4km",
+      "consumed_by": "the frozen core: llama.cpp-featcache llama-server's -m / --mmproj flags in every flown receipt (e.g. docs/checks/2026-08-19-precomp-wave1/runtime-identity.json, docs/checks/2026-08-19-precomp-wave1/script-serve.sh)",
+      "source": {
+        "kind": "hf-manual",
+        "id": "ggml-org/Qwen3-Omni-30B-A3B-Instruct-GGUF",
+        "note": "the Q4_K_M + matching bf16 mmproj pair is fetched directly from this HF repo's published files (file-selective, whole-repo pull >110 GB deliberately avoided); do NOT requantize locally unless reproducing the provenance chain from the Q8_0 source is itself the goal (see provenance_chain below).",
+        "provenance_chain": {
+          "requant_method": "llama-quantize --allow-requantize Q4_K_M, llama.cpp commit fdbd6abee20e408de21e90ca77a24cd50a6ea073 (clean tree) -- the SAME base commit third_party/llama.cpp-featcache/UPSTREAM pins, before the featcache patch series is applied",
+          "source_q8_0_sha256": "8a50e5a7d29ae6a28fea9ca45e3bb0a142e76ec07e6787a7703cd498eb08ffaa",
+          "source_mmproj_sha256": "f0dfe825fb692d426362b1ac79678fc08daa4758f7151526cad110515f122883",
+          "verification": "requant product byte-size matches ggml-org's own published Q4_K_M (18557053952 B) with a tensor-for-tensor identical q4_K/q6_K mixture (llama-quantize --dry-run comparison, per the umbrella lock note); the mmproj is copied unchanged, so its sha256 is identical between the Q8_0 pair and this q4km pair"
+        }
+      },
+      "revision": "unknown upstream (no local metadata on the umbrella side -- content-fingerprinted only); requant recipe above is exact and reproducible",
+      "license": "apache-2.0",
+      "license_note": "Qwen/Qwen3-Omni-30B-A3B-Instruct (the base model ggml-org's GGUF conversion is built from) publishes an apache-2.0 license tag on its Hugging Face model card; the GGUF conversion and this repository's own Q4_K_M requant carry the same license, unmodified.",
+      "size": {"approx_bytes": 20764519520, "human": "19.3 GiB", "files": 2},
+      "files": [
+        {
+          "filename": "Qwen3-Omni-30B-A3B-Instruct-Q4_K_M.gguf",
+          "size_bytes": 18557053952,
+          "sha256": "0751c279498785c0b07130ae7748038d1e2cfd04617928e4557063807f98066d"
+        },
+        {
+          "filename": "mmproj-Qwen3-Omni-30B-A3B-Instruct-bf16.gguf",
+          "size_bytes": 2207465568,
+          "sha256": "f0dfe825fb692d426362b1ac79678fc08daa4758f7151526cad110515f122883"
+        }
+      ],
+      "hash_algorithm": "sha256",
+      "expected_layout": [
+        "models/qwen3-omni-30b-a3b-instruct-gguf-q4km/Qwen3-Omni-30B-A3B-Instruct-Q4_K_M.gguf",
+        "models/qwen3-omni-30b-a3b-instruct-gguf-q4km/mmproj-Qwen3-Omni-30B-A3B-Instruct-bf16.gguf"
+      ],
+      "verification_receipt_examples": [
+        "docs/checks/2026-08-19-precomp-wave1/runtime-identity.json (model_files[])",
+        "docs/checks/2026-08-19-precomp-wave1/README.md (Identity table: 'core GGUF' / 'mmproj GGUF' rows)"
+      ],
+      "note": "Selected over the Q8_0 pair for measured throughput (16.24 s vs 67.64 s per 60 s audio slice, a 4.17x speedup) at fully resident 21.6 GiB VRAM (no CPU-expert offload) with measured Q4-vs-Q8 transcript agreement mean WER 1.50% on an 8-slice dev sample (entity names identical across all slices). This is the ONLY core GGUF pair this repository's flown receipts reference; the umbrella lock's Q8_0 twin exists for a sibling study's W1 engine and is not this repository's own concern beyond being the requant source."
+    },
+    {
+      "name": "diar-sortformer-4spk-v2",
+      "kind": "model",
+      "local_subdir": "models/diar-sortformer-4spk-v2",
+      "consumed_by": "the pinned diarization tool (Arm B, TOOL-LOCKED per docs/readiness/2026-08-19-diar-adjudication-TOOL-LOCKED-B.md): NVIDIA NeMo-Speech.cpp's --model flag, e.g. docs/checks/2026-08-19-precomp-wave1/runtime-identity.json diarization_pin.checkpoint_path. The .nemo (fp32) file is Arm A's reference-only NeMo-toolkit checkpoint, used only in the one-shot docs/checks/2026-08-18-diar-smoke-flight/ comparison that selected Arm B; PRECOMP/G1 production flights consume the .q8_0.gguf file only.",
+      "source": {
+        "kind": "hf",
+        "id": "nvidia/diar_streaming_sortformer_4spk-v2",
+        "repo_type": "model",
+        "revision": "5240a64075176943f677d30fa2171c780229f341",
+        "fetch_example": "hf download nvidia/diar_streaming_sortformer_4spk-v2 diar_streaming_sortformer_4spk-v2.q8_0.gguf diar_streaming_sortformer_4spk-v2.nemo --revision 5240a64075176943f677d30fa2171c780229f341 --local-dir <SPEECHRL_DATA_DIR>/models/diar-sortformer-4spk-v2"
+      },
+      "revision": "5240a64075176943f677d30fa2171c780229f341",
+      "license": "cc-by-4.0",
+      "size": {"approx_bytes": 618443456, "human": "590 MiB", "files": 2},
+      "files": [
+        {
+          "filename": "diar_streaming_sortformer_4spk-v2.nemo",
+          "size_bytes": 471367680,
+          "sha256": "b371afce2c4958186469df33d939936b9746c89f38b10a69cfd2c61254e83329",
+          "role": "fp32 reference checkpoint (Arm A, NeMo-toolkit inference, isolated venv -- diar-smoke comparison only, not a production PRECOMP/G1 input)"
+        },
+        {
+          "filename": "diar_streaming_sortformer_4spk-v2.q8_0.gguf",
+          "size_bytes": 147075776,
+          "sha256": "0679cfeb1ce356d0dea9470b31274f4bfc7eb927497d82005483770666da998a",
+          "role": "q8_0 GGUF deployment checkpoint (Arm B, NeMo-Speech.cpp inference -- the TOOL-LOCKED production pin every PRECOMP/G1 diar receipt uses)"
+        }
+      ],
+      "hash_algorithm": "sha256",
+      "expected_layout": [
+        "models/diar-sortformer-4spk-v2/diar_streaming_sortformer_4spk-v2.nemo",
+        "models/diar-sortformer-4spk-v2/diar_streaming_sortformer_4spk-v2.q8_0.gguf"
+      ],
+      "verification_receipt_examples": [
+        "docs/checks/2026-08-19-precomp-wave1/runtime-identity.json (diarization_pin.checkpoint_sha256)",
+        "docs/checks/2026-08-18-diar-smoke-flight/preflight-hash-verify.log (arm-A-nemo-checkpoint / arm-B-gguf-checkpoint rows)"
+      ],
+      "note": "Owner-locked primary diarization TOOL for this topic (owner ruling 2026-08-18; download authorized same day). AMI appears in this model's published training-data list (exact partition unstated) -- any AMI DER measured with this tool carries an in-domain caveat, recorded in every smoke/adjudication record that cites a DER number (docs/readiness/2026-08-18-diar-smoke-verdict.md, docs/readiness/2026-08-19-diar-adjudication-TOOL-LOCKED-B.md). Segmentation pre-pass only; the frozen Qwen3-Omni core keeps final answer authority."
+    }
+  ],
+  "no_separate_vad_asset": "This repository's no-diarization ablation (chunking.slicer.build_vad_slice_plan, the 'vad' turn source in precomp/pipeline.py) is a pure, deterministic, signal-derived energy-pause detector over the decoded waveform -- no external VAD model, checkpoint, or weight file is used anywhere in this pipeline. There is therefore no third 'VAD asset' entry in this lock beyond the two diar-sortformer files above.",
+  "deployment_runtime_for_diar_sortformer_gguf": {
+    "runtime": "NVIDIA NeMo-Speech.cpp (Apache-2.0), CUDA build, ggml/llama.cpp-based, public repo",
+    "source_url": "https://github.com/NVIDIA/NeMo-Speech.cpp",
+    "clone": "git clone --recursive https://github.com/NVIDIA/NeMo-Speech.cpp",
+    "this_program_pinned_build": {
+      "commit": "4c749a700500e077d4732a539eb082bf2208dac7",
+      "binary_sha256": "1a3e3f4fe7db4c48e5d6e44a76d5adf2bbfef80024c023b0eab2766eb61aca78",
+      "binary_size_bytes": 366048,
+      "cmake_preset": "cuda-diar (Ninja, Release, GGML_CUDA=ON, CMAKE_CUDA_ARCHITECTURES=120)",
+      "submodules": {
+        "ggml": "c03b4e2bcece5134827881af90242086daf75be5 (project's own pinned CUDA patch series applied by that project's scripts/configure.sh; reports c03b4e2b-dirty by design, per the upstream project's own build docs -- this is NOT a patch series this repository vendors, unlike third_party/llama.cpp-featcache/)",
+        "llama.cpp": "560445bf34c87356ad0f8d80fb03ec5488850b65 (present in the checkout, not linked by the diar CMake preset)"
+      },
+      "note": "Unlike third_party/llama.cpp-featcache/, this repository vendors NO patch series for NeMo-Speech.cpp -- it is built from NVIDIA's public repo and public submodules with only the upstream project's own CMake preset, no source modification. Binary sha256 is informational (toolchain-dependent, same caveat as third_party/llama.cpp-featcache/README.md's own binary-hash note); the reproducible pin is the commit + submodule commits + CMake preset above."
+    }
+  }
+}
