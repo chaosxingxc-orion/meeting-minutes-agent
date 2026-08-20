@@ -231,6 +231,163 @@ def _turn_train(n: int, turn_len: float, gap: float, start: float = 0.0, speaker
     return tuple(turns)
 
 
+class TestTransportBoundEpsilonTolerance:
+    """Coordinator-directed repair for the wave-2 ES2005d refusal
+    (``docs/checks/2026-08-19-precomp-wave2/README.md`` "The one refused
+    meeting"): a slice landing on ``TRANSPORT_SLICE_MAX_S`` can carry a few
+    ULPs of pure IEEE-754 accumulation residue from upstream packing/
+    gap-tiling arithmetic, not a real overrun -- ``_assert_transport_bound``
+    now tolerates exactly that residue via a small, named epsilon, never a
+    wider bound. Placed here (after :func:`_turn_train`) rather than beside
+    ``TestTransportBoundPostCondition`` because the turn-aware fixture below
+    needs that helper."""
+
+    # ES2005d's own refused slice, taken verbatim from the receipt's error
+    # string (wave-2 README): "slice 10 (start=904.148,
+    # end=1024.1480000000001) has duration 120.00000000000011s". Reproduced
+    # from those exact literals so these tests carry the identical float bit
+    # pattern the real refusal did, not an approximation of it.
+    _ES2005D_START = 904.148
+    _ES2005D_END = 1024.1480000000001
+
+    def test_es2005d_shape_is_pure_float_residue_not_a_real_overrun(self):
+        # Documents the magnitude this fix exists for: confirm the overrun
+        # really is float noise (~1e-13s) before any test here asserts
+        # acceptance -- if this ever drifted to something like 1e-6s that
+        # would be a real overrun, and asserting acceptance would be wrong.
+        duration = self._ES2005D_END - self._ES2005D_START
+        assert duration == pytest.approx(TRANSPORT_SLICE_MAX_S, abs=1e-9)
+        overrun = duration - TRANSPORT_SLICE_MAX_S
+        assert 0.0 < overrun < 1e-9
+
+    def test_accepts_the_exact_es2005d_float_shape_vad_mode(self):
+        # Reproduces ES2005d's exact duration bit-for-bit through the public
+        # builder, not by hand-constructing a Slice: 0.0 + total_duration_s
+        # is exact under IEEE 754, so a single-slice VAD plan sized to
+        # exactly this total carries the identical (start=0.0, end=<that
+        # float>) shape the real refusal hit, without needing ES2005d's
+        # actual RTTM turn data (not available outside SPEECHRL_DATA_DIR).
+        total = self._ES2005D_END - self._ES2005D_START
+        plan = build_vad_slice_plan("m-es2005d-shape", total, nominal_s=total, min_s=100.0, max_s=130.0, snap_s=0.0)
+        assert len(plan.slices) == 1
+        sl = plan.slices[0]
+        assert sl.start == 0.0
+        assert sl.duration == total  # bit-exact, not approx: geometry must be untouched by the fix
+        assert sl.duration == 120.00000000000011
+
+    def test_accepts_the_exact_es2005d_float_shape_turn_aware_mode(self):
+        # Same shape via the turn-aware GROUP path (bounds.append at
+        # group_start/group_end, slicer.py's turn-group packing): two
+        # abutting turns whose combined span is the ES2005d duration,
+        # packed into one group with zero inter-turn gap so gap-tiling
+        # cannot perturb the boundary and the group's own (start, end) is a
+        # direct copy of the turn endpoints, exactly as production hit it.
+        mid = self._ES2005D_START + 60.0
+        turns = (TurnSpan(self._ES2005D_START, mid, "A"), TurnSpan(mid, self._ES2005D_END, "B"))
+        plan = build_turn_aware_slice_plan(
+            "m-es2005d-shape-turn",
+            turns,
+            turn_provenance=BoundaryProvenance.TOOL_DIAR,
+            nominal_s=200.0,
+            min_s=50.0,
+            max_s=200.0,
+            snap_s=0.0,
+        )
+        assert len(plan.slices) == 1
+        sl = plan.slices[0]
+        assert sl.start == self._ES2005D_START
+        assert sl.end == self._ES2005D_END
+        assert sl.duration == 120.00000000000011
+
+    def test_the_epsilon_does_not_widen_the_cap_a_real_overrun_still_refuses(self):
+        # A microsecond over (1e-6s) is six orders of magnitude past the
+        # 1e-9s epsilon and nothing a packing bug could confuse with float
+        # residue -- must still refuse exactly as before the fix.
+        with pytest.raises(TransportBoundViolation):
+            build_vad_slice_plan(
+                "m-real-overrun",
+                TRANSPORT_SLICE_MAX_S + 1e-6,
+                nominal_s=TRANSPORT_SLICE_MAX_S + 1e-6,
+                min_s=100.0,
+                max_s=130.0,
+                snap_s=0.0,
+            )
+
+    def test_a_slice_exactly_at_the_cap_with_no_float_residue_is_unaffected(self):
+        # The ordinary, no-residue case must behave exactly as before: right
+        # at the cap is fine -- this is not new behaviour introduced by the
+        # epsilon, just confirming the epsilon didn't disturb it.
+        plan = build_vad_slice_plan(
+            "m-exact-cap", TRANSPORT_SLICE_MAX_S, nominal_s=TRANSPORT_SLICE_MAX_S, min_s=100.0, max_s=130.0, snap_s=0.0
+        )
+        assert plan.slices[0].duration == TRANSPORT_SLICE_MAX_S
+
+
+def _pre_fix_bound_check_would_accept(slices) -> bool:
+    """A byte-for-byte copy of the PRE-FIX ``_assert_transport_bound``
+    comparison (plain ``>``, no epsilon) -- kept ONLY as a regression oracle
+    in this test file, never as production logic: proves the fixtures in
+    :class:`TestTransportBoundEpsilonIsAcceptanceToleranceOnly` were already
+    ACCEPTED before this fix, so the fix cannot be credited with silently
+    changing their outcome (coordinator invariant: "acceptance-tolerance
+    ONLY -- every previously-ACCEPTED plan must remain byte-identical")."""
+
+    return all(sl.duration <= TRANSPORT_SLICE_MAX_S for sl in slices)
+
+
+class TestTransportBoundEpsilonIsAcceptanceToleranceOnly:
+    """Regression guard (coordinator instruction): a representative
+    synthetic plan set, run through the pre-fix strict comparator and the
+    current epsilon-tolerant one, must agree on every plan that is not the
+    float-accumulation edge case, and the slice geometry the current code
+    ships must be reproducible byte-for-byte across repeated construction
+    (the epsilon adds no nondeterminism to accepted plans)."""
+
+    @pytest.mark.parametrize(
+        "build",
+        [
+            pytest.param(lambda: build_vad_slice_plan("m-reg-a", 400.0), id="vad-plain-grid"),
+            pytest.param(
+                lambda: build_vad_slice_plan("m-reg-b", 733.0, pause_transitions=[90.0, 91.5, 300.0, 301.0]),
+                id="vad-with-snap",
+            ),
+            pytest.param(
+                lambda: build_turn_aware_slice_plan(
+                    "m-reg-c", _turn_train(40, 7.0, 2.3), turn_provenance=BoundaryProvenance.TOOL_DIAR
+                ),
+                id="turn-aware-packed",
+            ),
+            pytest.param(
+                lambda: build_turn_aware_slice_plan(
+                    "m-reg-d",
+                    (TurnSpan(0.0, 200.0, "A"),),
+                    turn_provenance=BoundaryProvenance.TOOL_DIAR,
+                    total_duration_s=200.0,
+                    fallback_pause_transitions=[100.0],
+                ),
+                id="turn-aware-long-turn-internal-split",
+            ),
+            pytest.param(
+                lambda: build_turn_aware_slice_plan(
+                    "m-reg-e", _turn_train(6, 40.0, 45.0), turn_provenance=BoundaryProvenance.TOOL_DIAR
+                ),
+                id="turn-aware-wide-gaps",
+            ),
+        ],
+    )
+    def test_pre_and_post_fix_comparators_agree_and_geometry_is_reproducible(self, build):
+        plan_a = build()
+        plan_b = build()
+        assert _pre_fix_bound_check_would_accept(plan_a.slices), (
+            "fixture must already have been accepted by the pre-fix strict comparator -- "
+            "this class only proves the fix does not disturb already-accepted plans"
+        )
+        assert plan_a.content_hash == plan_b.content_hash
+        assert plan_a.slices == plan_b.slices
+        for sl in plan_a.slices:
+            assert sl.duration <= TRANSPORT_SLICE_MAX_S
+
+
 class TestTurnAwareSlicePlan:
     def test_refuses_an_oracle_turn_table_without_explicit_admission(self):
         turns = _turn_train(10, 8.0, 1.5)

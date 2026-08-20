@@ -40,7 +40,9 @@ neither mode ever stretches an edge slice all the way to absolute 0 or the
 full meeting duration just because that is where the audio file happens to
 end. Both modes finish behind the same hard post-condition
 (:func:`_finalize_slice_plan`): every emitted slice's duration is
-re-checked against :data:`TRANSPORT_SLICE_MAX_S` and a violation raises
+re-checked against :data:`TRANSPORT_SLICE_MAX_S` (plus
+:data:`TRANSPORT_SLICE_MAX_EPSILON_S`, a float-accumulation tolerance only
+-- never a bound relaxation) and a violation raises
 :class:`TransportBoundViolation` rather than shipping a manifest
 ``client/transport.py`` would refuse mid-flight.
 
@@ -67,6 +69,7 @@ from typing import Any, Callable, Sequence
 from ..runreceipt import config_hash
 from .constants import (
     ENCODER_CHUNK_S,
+    TRANSPORT_SLICE_MAX_EPSILON_S,
     TRANSPORT_SLICE_MAX_S,
     TRANSPORT_SLICE_MIN_S,
     TRANSPORT_SLICE_SNAP_S,
@@ -237,18 +240,23 @@ def _assert_transport_bound(slices: Sequence[Slice]) -> None:
     """Hard post-condition (module docstring, both modes): every emitted
     slice's duration must fit the transport layer's own hard per-request
     cap regardless of what ``max_s`` a caller packed against -- checked
-    against the fixed :data:`TRANSPORT_SLICE_MAX_S` constant, never the
-    caller's own (possibly wider) ``max_s`` parameter, because that
-    constant is what ``client/transport.py``'s
+    against the fixed :data:`TRANSPORT_SLICE_MAX_S` constant, widened by
+    :data:`TRANSPORT_SLICE_MAX_EPSILON_S` to absorb float-accumulation
+    residue only. Never the caller's own (possibly wider) ``max_s``
+    parameter, because that constant is what ``client/transport.py``'s
     ``max_audio_seconds_per_request`` actually enforces as a hard refusal.
     Fail-closed: a violation raises rather than shipping a manifest a real
-    flight's transport layer would refuse mid-run."""
+    flight's transport layer would refuse mid-run. A slice that clears this
+    check is shipped at its own computed ``(start, end)`` bounds, unrounded
+    and unclamped -- this guard only ever decides accept/refuse, it never
+    rewrites slice geometry."""
 
     for sl in slices:
-        if sl.duration > TRANSPORT_SLICE_MAX_S:
+        if sl.duration > TRANSPORT_SLICE_MAX_S + TRANSPORT_SLICE_MAX_EPSILON_S:
             raise TransportBoundViolation(
                 f"slice {sl.index} (start={sl.start}, end={sl.end}) has duration {sl.duration}s, which "
-                f"exceeds the transport layer's hard cap TRANSPORT_SLICE_MAX_S={TRANSPORT_SLICE_MAX_S}s -- "
+                f"exceeds the transport layer's hard cap TRANSPORT_SLICE_MAX_S={TRANSPORT_SLICE_MAX_S}s "
+                f"(+ float-accumulation epsilon {TRANSPORT_SLICE_MAX_EPSILON_S}s) -- "
                 "a slice plan must never carry a slice client/transport.py would refuse to send"
             )
 
@@ -918,6 +926,7 @@ __all__ = [
     "DEFAULT_ENERGY_FRAME_S",
     "SlicerError",
     "TransportBoundViolation",
+    "TRANSPORT_SLICE_MAX_EPSILON_S",
     "TurnSpan",
     "SliceTurnEntry",
     "Slice",

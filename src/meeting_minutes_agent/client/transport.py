@@ -71,7 +71,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Callable, Mapping, Sequence
 
-from ..chunking.constants import TRANSPORT_SLICE_MAX_S
+from ..chunking.constants import TRANSPORT_SLICE_MAX_EPSILON_S, TRANSPORT_SLICE_MAX_S
 from .budgets import CallBudget
 
 # Network-level failures only -- an HTTP error response (urllib.error.HTTPError,
@@ -285,11 +285,21 @@ class LlamaServerTransport:
             raise TransportError(f"request_id must be a non-empty string, got {request_id!r}")
         # Slice-bounds guard (module docstring): checked once, before any
         # attempt, budget reservation, or byte read -- a request may carry
-        # AT MOST one transport slice's audio.
-        if audio_seconds > self._config.max_audio_seconds_per_request:
+        # AT MOST one transport slice's audio. Widened by
+        # TRANSPORT_SLICE_MAX_EPSILON_S (chunking/constants.py): a
+        # float-accumulation tolerance only, never a bound relaxation --
+        # audio_seconds is a slice's own computed `end - start`, so it
+        # carries the exact same packing-arithmetic residue the slicer's own
+        # TRANSPORT_SLICE_MAX_S post-condition tolerates
+        # (meeting_minutes_agent.chunking.slicer._assert_transport_bound;
+        # first hit in production one call-site downstream of that fix, wave
+        # -2 supplemental invocation 6, ES2005d). A request genuinely over
+        # the bound by any humanly-meaningful margin still refuses.
+        if audio_seconds > self._config.max_audio_seconds_per_request + TRANSPORT_SLICE_MAX_EPSILON_S:
             raise TransportError(
                 f"request {request_id!r} carries audio_seconds={audio_seconds}, which exceeds this "
-                f"transport's max_audio_seconds_per_request={self._config.max_audio_seconds_per_request}; "
+                f"transport's max_audio_seconds_per_request={self._config.max_audio_seconds_per_request} "
+                f"(+ float-accumulation epsilon {TRANSPORT_SLICE_MAX_EPSILON_S}s); "
                 "a core request may carry at most one transport slice's audio "
                 "(docs/readiness/2026-08-18-chunk-slice-granularity-analysis.md SS8.1) -- resolve "
                 "audio from the frozen slice manifest (meeting_minutes_agent.chunking.slicer), "

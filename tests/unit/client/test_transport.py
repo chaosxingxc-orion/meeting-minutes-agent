@@ -343,6 +343,75 @@ class TestLlamaServerTransportSliceBoundsGuard:
             transport.request(request_id="req-1", task_instruction="t", audio_path=audio, audio_seconds=900.0)
 
 
+class TestLlamaServerTransportSliceBoundsGuardEpsilonTolerance:
+    """Same root cause and fix as :mod:`meeting_minutes_agent.chunking.
+    slicer`'s ``_assert_transport_bound`` (``TRANSPORT_SLICE_MAX_EPSILON_S``,
+    ``chunking/constants.py``): this guard's ``audio_seconds`` argument is a
+    slice's own computed ``end - start``, so it inherits the exact same
+    float-accumulation residue. First observed in production one layer
+    downstream of the slicer fix (wave-2 supplemental invocation 6, ES2005d):
+    once the slicer's plan-level epsilon let the plan through, THIS guard --
+    a separate strict ``>`` at request time -- refused the identical
+    ``audio_seconds=120.00000000000011`` (error: "request
+    'precomp-w2-oracle-ES2005d-slice0010' carries
+    audio_seconds=120.00000000000011, which exceeds this transport's
+    max_audio_seconds_per_request=120.0"). Same fix, same epsilon constant,
+    same acceptance-tolerance-only invariant."""
+
+    _ES2005D_AUDIO_SECONDS = 1024.1480000000001 - 904.148  # == 120.00000000000011, bit-exact (see test_slicer.py)
+
+    def test_accepts_the_exact_es2005d_float_shape(self, tmp_path):
+        audio = _write_wav(tmp_path / "clip.wav")
+        transport = LlamaServerTransport(
+            TransportConfig(base_url="http://x/", max_audio_seconds_per_request=120.0),
+            _budget(),
+            post=lambda u, b: _canned_response(),
+        )
+        response = transport.request(
+            request_id="req-es2005d",
+            task_instruction="t",
+            audio_path=audio,
+            audio_seconds=self._ES2005D_AUDIO_SECONDS,
+        )
+        assert response.text == "hello world"
+
+    def test_the_epsilon_does_not_widen_the_bound_a_real_overrun_still_refuses(self, tmp_path):
+        # A microsecond over (1e-6s) is six orders of magnitude past the
+        # 1e-9s epsilon -- nothing a packing bug could confuse with float
+        # residue -- must still refuse without calling post.
+        audio = _write_wav(tmp_path / "clip.wav")
+        calls = []
+        transport = LlamaServerTransport(
+            TransportConfig(base_url="http://x/", max_audio_seconds_per_request=120.0),
+            _budget(),
+            post=lambda u, b: calls.append(b) or _canned_response(),
+        )
+        with pytest.raises(TransportError, match="exceeds this transport's max_audio_seconds_per_request"):
+            transport.request(
+                request_id="req-real-overrun",
+                task_instruction="t",
+                audio_path=audio,
+                audio_seconds=120.0 + 1e-6,
+            )
+        assert calls == []
+
+    def test_exactly_at_the_bound_with_no_float_residue_is_unaffected(self, tmp_path):
+        # The ordinary, no-residue case (already covered by
+        # test_audio_seconds_at_the_bound_is_accepted above) must stay
+        # unaffected by this change -- re-asserted here alongside the
+        # epsilon-specific cases for a single self-contained read.
+        audio = _write_wav(tmp_path / "clip.wav")
+        transport = LlamaServerTransport(
+            TransportConfig(base_url="http://x/", max_audio_seconds_per_request=120.0),
+            _budget(),
+            post=lambda u, b: _canned_response(),
+        )
+        response = transport.request(
+            request_id="req-exact", task_instruction="t", audio_path=audio, audio_seconds=120.0
+        )
+        assert response.text == "hello world"
+
+
 class TestLlamaServerTransportBudgetIntegration:
     def test_budget_refusal_prevents_the_call_entirely(self, tmp_path):
         audio = _write_wav(tmp_path / "clip.wav")
