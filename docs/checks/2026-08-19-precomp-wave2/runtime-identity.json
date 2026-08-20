@@ -1,6 +1,6 @@
 {
   "adjudication": "docs/readiness/2026-08-19-diar-adjudication-TOOL-LOCKED-B.md",
-  "captured_utc": "2026-08-20T05:39:16Z",
+  "captured_utc": "2026-08-20T07:09:48Z",
   "derived_root": "/mnt/e/chao_workspace/exploring-l4-intelligence/speechrl-data/derived/meeting-minutes/precomp",
   "diarization_pin": {
     "arm": "B (TOOL-LOCKED(B))",
@@ -11,10 +11,10 @@
     "checkpoint_path": "/mnt/e/chao_workspace/exploring-l4-intelligence/speechrl-data/models/diar-sortformer-4spk-v2/diar_streaming_sortformer_4spk-v2.q8_0.gguf",
     "checkpoint_sha256": "0679cfeb1ce356d0dea9470b31274f4bfc7eb927497d82005483770666da998a"
   },
-  "feat_cache_bytes_after": 42538636912,
+  "feat_cache_bytes_after": 42915320592,
   "feat_cache_dir": "/home/chao/feat-cache/ami-q4km",
-  "feat_cache_entries_after": 52071,
-  "invocation": "5 x [own llama-server child -> run_precomp.py --wave 2 --resume --stop-file <per-invocation> --workers 8 --slots 1 -> teardown]",
+  "feat_cache_entries_after": 52529,
+  "invocation": "6 x [own llama-server child -> run_precomp.py --wave 2 --resume --stop-file <per-invocation> --workers 8 --slots 1 -> teardown]; invocation 6 is the supplemental ES2005d-only run, after the slicer plus transport float-epsilon fix (commit baaf41c), preceded by an aborted first attempt that surfaced the transport-layer gate (archived under invocation-6-attempt1-transport-bound-discovery)",
   "llama_cpp": {
     "binary_bytes": 17920,
     "binary_path": "/home/chao/llama.cpp-featcache/build/bin/llama-server",
@@ -35,7 +35,7 @@
       "sha256": "f0dfe825fb692d426362b1ac79678fc08daa4758f7151526cad110515f122883"
     }
   ],
-  "pass": "PRECOMP wave-2 (remaining usable-discovery meetings) -- night batch",
+  "pass": "PRECOMP wave-2 (remaining usable-discovery meetings) -- night batch plus ES2005d supplement",
   "registration": "docs/readiness/2026-08-19-precomp-preregistration.md",
   "server_argv": [
     "--host",
@@ -60,8 +60,8 @@
     "q8_0"
   ],
   "study_repo": {
-    "commit": "3d5e2e12d32fef151627b588e9da11bad7bc7d49",
-    "dirty_paths": 1,
+    "commit": "baaf41c394db340ddf4c4c16ae190b6c24f459c5",
+    "dirty_paths": 3,
     "path": "/mnt/d/chao_workspace/exploring-l4-intelligence/papers/meeting-minutes-agent"
   }
 }

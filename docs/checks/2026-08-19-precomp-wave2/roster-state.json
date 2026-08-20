@@ -1,9 +1,7 @@
 {
-  "complete_n": 75,
-  "remaining": [
-    "ES2005d"
-  ],
-  "remaining_n": 1,
+  "complete_n": 76,
+  "remaining": [],
+  "remaining_n": 0,
   "roster_n": 76,
-  "state": "PARTIAL"
+  "state": "COMPLETE"
 }

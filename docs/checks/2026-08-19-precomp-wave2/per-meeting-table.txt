@@ -7,8 +7,7 @@
 | ES2003d | yes | 57.0 | 716/520 | 25/25 (0) | 72.46 | 50 | 111.0 | 621 / 512362192 | 18.5/34.9 |
 | ES2005a | yes | 21.9 | 99/91 | 5/4 (1) | 13.87 | 9 | 18.5 | 102 / 83920480 | 5.3/95.5 |
 | ES2005c | yes | 54.6 | 797/691 | 26/26 (0) | 36.94 | 52 | 104.9 | 629 / 517580624 | 32.7/58.0 |
-| ES2005d | NO | 40.0 | -/- | -/- (-) | - | 0 | - | - / - | -/- |
-|   error | TransportBoundViolation: slice 10 (start=904.148, end=1024.1480000000001) has duration 120.00000000000011s, which exceeds the transport layer's hard cap TRANSPORT_SLICE_MAX_S=120.0s -- a slice plan must never carry a slice client/transport.py would refuse to send | | | | | | | | |
+| ES2005d | yes | 29.9 | 560/485 | 18/18 (0) | 5.64 | 36 | 73.1 | 109 / 89458384 | 24.2/59.4 |
 | ES2006a | yes | 30.8 | 349/288 | 14/14 (0) | 18.64 | 28 | 57.2 | 346 / 283497888 | 7.4/50.4 |
 | ES2006b | yes | 47.8 | 600/449 | 23/26 (-3) | 37.92 | 49 | 104.6 | 618 / 509060768 | 22.4/46.5 |
 | ES2007c | yes | 52.6 | 718/583 | 26/26 (0) | 35.32 | 52 | 108.3 | 642 / 529401888 | 18.5/47.4 |
@@ -79,12 +78,12 @@
 | TS3012d | yes | 52.7 | 887/769 | 25/27 (-2) | 51.17 | 52 | 583.6 | 644 / 527591488 | 26.5/38.0 |
 
 {
-  "cutting_wall_seconds_used": 1523.0076887159667,
+  "cutting_wall_seconds_used": 1528.651956564965,
   "diar_gpu_seconds_used": 692.1581248029286,
-  "diar_wall_seconds": 2976.0384237599646,
-  "encode_calls_used": 3063,
-  "encode_gpu_seconds_used": 4728.512528317403,
-  "encode_wall_seconds": 6905.092898603034,
-  "n_ok": 75,
+  "diar_wall_seconds": 2966.007313940965,
+  "encode_calls_used": 3099,
+  "encode_gpu_seconds_used": 4760.859248965637,
+  "encode_wall_seconds": 6978.165553622035,
+  "n_ok": 76,
   "n_receipts": 76
 }

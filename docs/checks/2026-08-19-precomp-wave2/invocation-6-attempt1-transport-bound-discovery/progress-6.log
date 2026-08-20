@@ -1,0 +1,15 @@
+receipts before: 76; featcache before: entries=52071 bytes=42538636912
+llama-server child pid=585
+server healthy after 15 s at 06:44:59Z
+--- run_precomp.py --wave 2 --resume --stop-file --meetings ES2005d ---
+06:46:49Z runner rc=0 wall=110s
+receipts: 76 -> 76 (+0)
+featcache: entries +349 bytes +287225296
+--- wave-cumulative ledger vs registered wave-2 ceilings ---
+{"breaches": [], "ceilings": {"max_cutting_wall_hours": null, "max_diar_gpu_hours": 2.0, "max_encode_calls": 4500, "max_encode_gpu_hours": 8.0, "wave": 2}, "used": {"cutting_wall_seconds_used": 1529.6641361199727, "diar_gpu_seconds_used": 692.4670242398486, "diar_wall_seconds": 2966.9690579289745, "encode_calls_used": 3063, "encode_gpu_seconds_used": 4753.832290684907, "encode_wall_seconds": 6905.092898603034, "n_ok": 75, "n_receipts": 76}}
+--- ES2005d receipt outcome ---
+  ES2005d ok=False calls=0 enc_wall=0.0s diar_wall=30.9s
+  ERROR: TransportError: request 'precomp-w2-oracle-ES2005d-slice0010' carries audio_seconds=120.00000000000011, which exceeds this transport's max_audio_seconds_per_request=120.0; a core request may carry at most one transport slice's audio (docs/readiness/2026-08-18-chunk-slice-granularity-analysis.md SS8.1) -- resolve audio from the frozen slice manifest (meeting_minutes_agent.chunking.slicer), never a 
+wave-2 remaining after invocation 6: 1 todo=['ES2005d']
+invocation wall: 137s (server start 15s, runner 110s)
+FLY-DONE state=SLICE-DONE remaining=1 todo=['ES2005d'] wall=137s

@@ -1,0 +1,319 @@
+{
+  "budget_after": {
+    "ceilings": {
+      "max_cutting_wall_hours": null,
+      "max_diar_gpu_hours": 2.0,
+      "max_encode_calls": 4500,
+      "max_encode_gpu_hours": 8.0,
+      "wave": 2
+    },
+    "cutting_wall_seconds_used": 1529.6641361199727,
+    "diar_gpu_seconds_used": 692.4670242398485,
+    "encode_calls_used": 3091,
+    "encode_gpu_seconds_used": 4769.84638406595
+  },
+  "cutting": {
+    "oracle": {
+      "content_hash": "c7a0f9e88e154482c71e9f84f4789ad1626a6a99e0eac4ae02d1cdf22b83e277",
+      "n_entries": 18
+    },
+    "tool": {
+      "content_hash": "9b8a612e29e873da1d6a085588ab85709726a6d51928a0c08de94bfbac801691",
+      "n_entries": 18
+    },
+    "vad": null,
+    "wall_seconds": 6.65644740400603,
+    "workers": 8
+  },
+  "diar": {
+    "contact": {
+      "args": [
+        "/home/chao/nemo-speech.cpp/build/cuda-diar/bin/nemo-speech",
+        "diarize",
+        "/mnt/e/chao_workspace/exploring-l4-intelligence/speechrl-data/datasets/ami/amicorpus/ES2005d/audio/ES2005d.Mix-Headset.wav",
+        "--model",
+        "/mnt/e/chao_workspace/exploring-l4-intelligence/speechrl-data/models/diar-sortformer-4spk-v2/diar_streaming_sortformer_4spk-v2.q8_0.gguf",
+        "--format",
+        "rttm",
+        "--recording-id",
+        "ES2005d",
+        "--output",
+        "/mnt/e/chao_workspace/exploring-l4-intelligence/speechrl-data/derived/meeting-minutes/precomp/rttm/ES2005d.rttm",
+        "--force"
+      ],
+      "checkpoint_sha256": "0679cfeb1ce356d0dea9470b31274f4bfc7eb927497d82005483770666da998a",
+      "error": null,
+      "meeting_id": "ES2005d",
+      "recorded_utc": "2026-08-20T06:45:33.370658+00:00",
+      "return_code": 0,
+      "tool_name": "nemo-speech.cpp-cuda-q8_0",
+      "tool_version": "nemo-speech 1.0.0; commit 4c749a700500e077d4732a539eb082bf2208dac7; binary sha256 1a3e3f4fe7db4c48e5d6e44a76d5adf2bbfef80024c023b0eab2766eb61aca78; CMake preset cuda-diar; HF revision 5240a64075176943f677d30fa2171c780229f341; attempt-2 default streaming (DiarStream) mode: the registered --offline full-attention mode is hard-capped by the tool at 5000 encoder frames (~6 min audio) and refuses all six meetings",
+      "wall_seconds": 30.877712481000344
+    },
+    "gpu_seconds_estimate": 0.30889943692003724,
+    "n_turns": 560,
+    "wall_seconds": 30.889943692003726
+  },
+  "encode_warm": {
+    "n_calls": 0,
+    "oracle": [],
+    "tool": [
+      {
+        "gpu_seconds_estimate": 1.4696495665406109,
+        "max_tokens": 1,
+        "n_attempts": 1,
+        "request_id": "precomp-w2-tool-ES2005d-slice0000",
+        "text_discarded_unread": true,
+        "usage": {
+          "completion_tokens": 1,
+          "prompt_tokens": 1354,
+          "total_tokens": 1355
+        },
+        "wall_seconds": 2.5338785630010534
+      },
+      {
+        "gpu_seconds_estimate": 1.6536098420387133,
+        "max_tokens": 1,
+        "n_attempts": 1,
+        "request_id": "precomp-w2-tool-ES2005d-slice0001",
+        "text_discarded_unread": true,
+        "usage": {
+          "completion_tokens": 1,
+          "prompt_tokens": 1302,
+          "total_tokens": 1303
+        },
+        "wall_seconds": 1.7406419389881194
+      },
+      {
+        "gpu_seconds_estimate": 1.6146022705553333,
+        "max_tokens": 1,
+        "n_attempts": 1,
+        "request_id": "precomp-w2-tool-ES2005d-slice0002",
+        "text_discarded_unread": true,
+        "usage": {
+          "completion_tokens": 1,
+          "prompt_tokens": 1302,
+          "total_tokens": 1303
+        },
+        "wall_seconds": 1.7550024679949274
+      },
+      {
+        "gpu_seconds_estimate": 1.3858107509971889,
+        "max_tokens": 1,
+        "n_attempts": 1,
+        "request_id": "precomp-w2-tool-ES2005d-slice0003",
+        "text_discarded_unread": true,
+        "usage": {
+          "completion_tokens": 1,
+          "prompt_tokens": 1289,
+          "total_tokens": 1290
+        },
+        "wall_seconds": 2.132016539995675
+      },
+      {
+        "gpu_seconds_estimate": 1.6166556807731103,
+        "max_tokens": 1,
+        "n_attempts": 1,
+        "request_id": "precomp-w2-tool-ES2005d-slice0004",
+        "text_discarded_unread": true,
+        "usage": {
+          "completion_tokens": 1,
+          "prompt_tokens": 1289,
+          "total_tokens": 1290
+        },
+        "wall_seconds": 1.6666553410032066
+      },
+      {
+        "gpu_seconds_estimate": 0.0,
+        "max_tokens": 1,
+        "n_attempts": 1,
+        "request_id": "precomp-w2-tool-ES2005d-slice0005",
+        "text_discarded_unread": true,
+        "usage": {
+          "completion_tokens": 1,
+          "prompt_tokens": 1367,
+          "total_tokens": 1368
+        },
+        "wall_seconds": 1.7322651040012715
+      },
+      {
+        "gpu_seconds_estimate": 1.2598338342364879,
+        "max_tokens": 1,
+        "n_attempts": 1,
+        "request_id": "precomp-w2-tool-ES2005d-slice0006",
+        "text_discarded_unread": true,
+        "usage": {
+          "completion_tokens": 1,
+          "prompt_tokens": 1341,
+          "total_tokens": 1342
+        },
+        "wall_seconds": 1.968490365994512
+      },
+      {
+        "gpu_seconds_estimate": 1.780235993284732,
+        "max_tokens": 1,
+        "n_attempts": 1,
+        "request_id": "precomp-w2-tool-ES2005d-slice0007",
+        "text_discarded_unread": true,
+        "usage": {
+          "completion_tokens": 1,
+          "prompt_tokens": 1354,
+          "total_tokens": 1355
+        },
+        "wall_seconds": 1.8544124930049293
+      },
+      {
+        "gpu_seconds_estimate": 1.0770521802948496,
+        "max_tokens": 1,
+        "n_attempts": 1,
+        "request_id": "precomp-w2-tool-ES2005d-slice0008",
+        "text_discarded_unread": true,
+        "usage": {
+          "completion_tokens": 1,
+          "prompt_tokens": 1458,
+          "total_tokens": 1459
+        },
+        "wall_seconds": 1.8255121699912706
+      },
+      {
+        "gpu_seconds_estimate": 1.363866061202134,
+        "max_tokens": 1,
+        "n_attempts": 1,
+        "request_id": "precomp-w2-tool-ES2005d-slice0009",
+        "text_discarded_unread": true,
+        "usage": {
+          "completion_tokens": 1,
+          "prompt_tokens": 1497,
+          "total_tokens": 1498
+        },
+        "wall_seconds": 2.2731101020035567
+      },
+      {
+        "gpu_seconds_estimate": 1.2878203879806096,
+        "max_tokens": 1,
+        "n_attempts": 1,
+        "request_id": "precomp-w2-tool-ES2005d-slice0010",
+        "text_discarded_unread": true,
+        "usage": {
+          "completion_tokens": 1,
+          "prompt_tokens": 1666,
+          "total_tokens": 1667
+        },
+        "wall_seconds": 2.2593340140010696
+      },
+      {
+        "gpu_seconds_estimate": 1.5726697742394753,
+        "max_tokens": 1,
+        "n_attempts": 1,
+        "request_id": "precomp-w2-tool-ES2005d-slice0011",
+        "text_discarded_unread": true,
+        "usage": {
+          "completion_tokens": 1,
+          "prompt_tokens": 1302,
+          "total_tokens": 1303
+        },
+        "wall_seconds": 1.82868578399939
+      },
+      {
+        "gpu_seconds_estimate": 2.031402335400344,
+        "max_tokens": 1,
+        "n_attempts": 1,
+        "request_id": "precomp-w2-tool-ES2005d-slice0012",
+        "text_discarded_unread": true,
+        "usage": {
+          "completion_tokens": 1,
+          "prompt_tokens": 1536,
+          "total_tokens": 1537
+        },
+        "wall_seconds": 2.257113706000382
+      },
+      {
+        "gpu_seconds_estimate": 0.7410140752285951,
+        "max_tokens": 1,
+        "n_attempts": 1,
+        "request_id": "precomp-w2-tool-ES2005d-slice0013",
+        "text_discarded_unread": true,
+        "usage": {
+          "completion_tokens": 1,
+          "prompt_tokens": 1289,
+          "total_tokens": 1290
+        },
+        "wall_seconds": 1.8073514029965736
+      },
+      {
+        "gpu_seconds_estimate": 1.739155025240616,
+        "max_tokens": 1,
+        "n_attempts": 1,
+        "request_id": "precomp-w2-tool-ES2005d-slice0014",
+        "text_discarded_unread": true,
+        "usage": {
+          "completion_tokens": 1,
+          "prompt_tokens": 1315,
+          "total_tokens": 1316
+        },
+        "wall_seconds": 1.8903858970006695
+      },
+      {
+        "gpu_seconds_estimate": 1.8862063049535207,
+        "max_tokens": 1,
+        "n_attempts": 1,
+        "request_id": "precomp-w2-tool-ES2005d-slice0015",
+        "text_discarded_unread": true,
+        "usage": {
+          "completion_tokens": 1,
+          "prompt_tokens": 1328,
+          "total_tokens": 1329
+        },
+        "wall_seconds": 1.9854803210037062
+      },
+      {
+        "gpu_seconds_estimate": 1.1409343013976467,
+        "max_tokens": 1,
+        "n_attempts": 1,
+        "request_id": "precomp-w2-tool-ES2005d-slice0016",
+        "text_discarded_unread": true,
+        "usage": {
+          "completion_tokens": 1,
+          "prompt_tokens": 1302,
+          "total_tokens": 1303
+        },
+        "wall_seconds": 1.901557168996078
+      },
+      {
+        "gpu_seconds_estimate": 1.6992439831403316,
+        "max_tokens": 1,
+        "n_attempts": 1,
+        "request_id": "precomp-w2-tool-ES2005d-slice0017",
+        "text_discarded_unread": true,
+        "usage": {
+          "completion_tokens": 1,
+          "prompt_tokens": 1289,
+          "total_tokens": 1290
+        },
+        "wall_seconds": 1.7886778769898228
+      }
+    ],
+    "vad": [],
+    "wall_seconds": null
+  },
+  "error": "TransportError: request 'precomp-w2-oracle-ES2005d-slice0010' carries audio_seconds=120.00000000000011, which exceeds this transport's max_audio_seconds_per_request=120.0; a core request may carry at most one transport slice's audio (docs/readiness/2026-08-18-chunk-slice-granularity-analysis.md SS8.1) -- resolve audio from the frozen slice manifest (meeting_minutes_agent.chunking.slicer), never a whole task chunk or meeting file",
+  "meeting_id": "ES2005d",
+  "metrics": {},
+  "ok": false,
+  "recorded_utc": "2026-08-20T06:46:46.056895+00:00",
+  "schema_version": "1.1.0",
+  "slice_plans": {
+    "oracle": {
+      "content_hash": "89faf2bc930ab2cd0921d8a5d1ffa89fac6bfb7106aca030f3653807c7391156",
+      "n_slices": 18,
+      "turn_provenance": "oracle-turn"
+    },
+    "tool": {
+      "content_hash": "e8de98e00479b65a56d6dfced89a8f352c033e62ed29a83c32f865c18e051f04",
+      "n_slices": 18,
+      "turn_provenance": "tool-diar"
+    },
+    "vad": null
+  },
+  "wave": 2
+}

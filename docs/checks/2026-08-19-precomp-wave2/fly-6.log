@@ -1,0 +1,26 @@
+=== PRECOMP wave-2 invocation 6 (supplemental, ES2005d only) start 2026-08-20T07:00:30Z ===
+repo HEAD:  baaf41c394db340ddf4c4c16ae190b6c24f459c5
+repo dirty: 0 paths
+budget_s:   1200 (hard runner SIGTERM at 1500s)
+meetings:   ES2005d
+receipts before: 76; featcache before: entries=52420 bytes=42825862208
+llama-server child pid=698
+--- waiting for llama-server at http://127.0.0.1:8080 ---
+starting llama-server at 07:00:36Z, cache=/home/chao/feat-cache/ami-q4km
+server healthy after 22 s at 07:00:58Z
+--- run_precomp.py --wave 2 --resume --stop-file --meetings ES2005d ---
+07:03:01Z runner rc=0 wall=123s
+--- teardown ---
+llama-server stopped
+receipts: 76 -> 76 (+0)
+featcache: entries +109 bytes +89458384
+--- wave-cumulative ledger vs registered wave-2 ceilings ---
+{"breaches": [], "ceilings": {"max_cutting_wall_hours": null, "max_diar_gpu_hours": 2.0, "max_encode_calls": 4500, "max_encode_gpu_hours": 8.0, "wave": 2}, "used": {"cutting_wall_seconds_used": 1528.651956564965, "diar_gpu_seconds_used": 692.1581248029286, "diar_wall_seconds": 2966.007313940965, "encode_calls_used": 3099, "encode_gpu_seconds_used": 4760.859248965637, "encode_wall_seconds": 6978.165553622035, "n_ok": 76, "n_receipts": 76}}
+--- ES2005d receipt outcome ---
+  ES2005d ok=True calls=36 enc_wall=73.1s diar_wall=29.9s
+  tool slice_plan: n_slices=18 content_hash=e8de98e00479b65a56d6dfced89a8f352c033e62ed29a83c32f865c18e051f04
+wave-2 remaining after invocation 6: 0 todo=[]
+invocation wall: 157s (server start 22s, runner 123s)
+0 %, 114 MiB, 1200 MHz, P5, 55
+=== PRECOMP wave-2 invocation 6 end 2026-08-20T07:03:07Z state=WAVE-COMPLETE ===
+FLY-DONE state=WAVE-COMPLETE remaining=0 todo=[] wall=157s

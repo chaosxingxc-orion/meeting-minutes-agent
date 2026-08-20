@@ -3,4 +3,11 @@
 0.00.537.112 W common_fit_params: failed to fit params to free device memory: n_gpu_layers already set by user to 999, abort
 0.01.730.643 W common_fit_params: failed to fit params to free device memory: n_gpu_layers already set by user to 999, abort
 0.01.997.867 W common_fit_params: failed to fit params to free device memory: n_gpu_layers already set by user to 999, abort
-server.log lines: 421832
+0.00.544.704 W common_fit_params: failed to fit params to free device memory: n_gpu_layers already set by user to 999, abort
+0.00.494.099 W common_fit_params: failed to fit params to free device memory: n_gpu_layers already set by user to 999, abort
+server.log lines: 421832 (invocations 1-5) + 2803 (invocation 6, two server starts: the
+aborted transport-bound-discovery attempt and the successful supplemental run) = 424635
+total. The two new lines above are invocation 6's only matches, scoped to server.log
+lines 421833 onward (server.log accumulates across invocations via append, so a plain
+re-grep of the whole file would have re-matched invocations 1-5's five lines a second
+time). No error, OOM, assert, or abort occurred in invocation 6 either.
