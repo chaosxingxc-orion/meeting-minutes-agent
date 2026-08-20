@@ -1,0 +1,193 @@
+# AMI Meeting Corpus (Mix-Headset condition) -- per-file SHA-256 manifest
+# Source corpus release: AMI public corpus, all 171 available Mix-Headset WAVs
+#   selected 2026-08-02; manual annotations v1.6.2; automatic annotations v1.5.1
+#   (scripts/data/datasets.lock.json, dataset "ami-meeting-corpus").
+# Generated: 2026-08-20, by direct `sha256sum` over the local corpus under
+#   $SPEECHRL_DATA_DIR/datasets/ami (WSL2 Ubuntu-24.04, primary dev machine), one
+#   read pass, no parallelism.
+# Paths below are relative to the AMI root ($SPEECHRL_DATA_DIR/datasets/ami), i.e.
+#   the same root scripts/data/datasets.lock.json's "ami-meeting-corpus" entry uses
+#   for its expected_layout.
+# Aggregate-closure provenance this manifest supersedes for the per-file case: the
+#   umbrella lock's own hash_coverage_note for this dataset (see
+#   scripts/data/datasets.lock.json) records only a per-archive SHA-256 for the two
+#   annotation zips plus an aggregate payload_manifest_sha256 over all 174 payload
+#   files -- not a per-WAV hash -- so scripts/data/verify.py falls back to
+#   file-count + total-size closure for the audio tree. This file closes that
+#   per-file gap by direct computation on the primary dev machine; it does not
+#   change, and was not cross-checked against, any umbrella-private per-file hash
+#   (none exists for the individual WAVs).
+# Verify: cd "$SPEECHRL_DATA_DIR/datasets/ami" && sha256sum -c docs/ami-file-manifest.sha256
+#   (run from this repository's root with a path adjustment, or copy this file next
+#   to the AMI root first).
+81e06be816e9d94d0bee410bef1b158b2cdfba8e2b80f44a6e62cf6b9fd780f9  amicorpus/EN2001a/audio/EN2001a.Mix-Headset.wav
+1db444de2d5b2eaa73d1831bff84ae97b9d73cc286c51cf6c8c588ca44d41296  amicorpus/EN2001b/audio/EN2001b.Mix-Headset.wav
+12646b67dd73da62e51e89482b5bfd432e72da34614be61c8294f3c2c3b7ab51  amicorpus/EN2001d/audio/EN2001d.Mix-Headset.wav
+99c2d597913777811ece709c13ee02335d6c6dc4fc7d2c09a814e2145d915d7c  amicorpus/EN2001e/audio/EN2001e.Mix-Headset.wav
+a15017d0d3c871866971ee178052a0ce3a7e44d6fbf89fc23dcab326511b65f5  amicorpus/EN2002a/audio/EN2002a.Mix-Headset.wav
+50e2c8e4737850c4bf3cc24e7087c755e1c733cd91822106afd0df485ba64893  amicorpus/EN2002b/audio/EN2002b.Mix-Headset.wav
+a057708b3adb553f709fcde97d2af8e0455076bc3f88c250975227433d6e0270  amicorpus/EN2002c/audio/EN2002c.Mix-Headset.wav
+6aa99d9d71cb695ea699d6be277f78eff68e847c93560031486eba9f18164ebe  amicorpus/EN2002d/audio/EN2002d.Mix-Headset.wav
+008bc0cc470f33e81eaad8c4167c7a24852e85ac3a577fc1edf9865cc7339d64  amicorpus/EN2003a/audio/EN2003a.Mix-Headset.wav
+d188219aff66264adc8d6a8192f272ca4155b483cf7eaa9498a8f0f6ac0ed9dc  amicorpus/EN2004a/audio/EN2004a.Mix-Headset.wav
+de22e698d8590d2370fde94ceb708c7e53f980036a34a62b465fcad1b0a2053b  amicorpus/EN2005a/audio/EN2005a.Mix-Headset.wav
+4e10dd0209c661af4769e2fa9c34a3b4804c852e8ba098d9dc9026127261e211  amicorpus/EN2006a/audio/EN2006a.Mix-Headset.wav
+2998358d8ee9524252ad3d5864cea3c66d07c5ca97a6b3a3f3cb42173acb71b2  amicorpus/EN2006b/audio/EN2006b.Mix-Headset.wav
+fe1c5f8251b932422623d0081ba3faac14ed46fdb5c694c01b5a2b5862583b3a  amicorpus/EN2009b/audio/EN2009b.Mix-Headset.wav
+5108a3f293aca23fb2cee072575404cf02d496fe69812d36268c975d66f3cbe9  amicorpus/EN2009c/audio/EN2009c.Mix-Headset.wav
+eeb4a5ff47cadba8c75bdf32213b9264805027faa943c7f55eec0423c6ea4312  amicorpus/EN2009d/audio/EN2009d.Mix-Headset.wav
+9c76866990fcc8b84006dc32d273ad99df439090b748ebe72103bb78c3216ee7  amicorpus/ES2002a/audio/ES2002a.Mix-Headset.wav
+977fbf6cd473cfb1984b41755762eea4d7ffdad3fb15adcfdebcb8842163ec66  amicorpus/ES2002b/audio/ES2002b.Mix-Headset.wav
+8aa5dca8a0d31aaa596ecec8e0d7d8df1646fd4328d2740b287650d8012412df  amicorpus/ES2002c/audio/ES2002c.Mix-Headset.wav
+b8e0c2d0df9fccfcfab8e5d148f399a679bd2d90299c2262194b9db941749374  amicorpus/ES2002d/audio/ES2002d.Mix-Headset.wav
+41cf861afafc20e70061c6cc82b2cb1c620d630be6d13361da928f04fc00beea  amicorpus/ES2003a/audio/ES2003a.Mix-Headset.wav
+71ba1c132d1957bd9b20f4c0ccae8b05ebf2399302b451897624a6de9611032f  amicorpus/ES2003b/audio/ES2003b.Mix-Headset.wav
+828faf52f14ae584c299c35009fa519b4780bfcc2c966288eebb6af091ef0fd7  amicorpus/ES2003c/audio/ES2003c.Mix-Headset.wav
+c0657bd0ac840244d3e94f52323e4f01702d3e76ed752eeb239fd45481eb7108  amicorpus/ES2003d/audio/ES2003d.Mix-Headset.wav
+3e2560b19bee6952c7c7ce041b0f1ea8a7ea9468044c4eea79d2a2c67e24ab0f  amicorpus/ES2004a/audio/ES2004a.Mix-Headset.wav
+ad0cf07c42b1694ccf7bea8f1a37348d9cfab194787abc7d050b29ba56e365c8  amicorpus/ES2004b/audio/ES2004b.Mix-Headset.wav
+47dc9bd2e3b1d174842091ae9e1fe765218f0c87658b17d6469c404e03ec2ac5  amicorpus/ES2004c/audio/ES2004c.Mix-Headset.wav
+3cfce3297ebb7faeb53c02727eea5e9f2c76e9ed4b62db3b03d73e66836e91f3  amicorpus/ES2004d/audio/ES2004d.Mix-Headset.wav
+ac33e7b18ae72931e65dc279af4b129370ad62ca6ed64299b9e35f356e3f8ed8  amicorpus/ES2005a/audio/ES2005a.Mix-Headset.wav
+c96d83f955852773353861c880f0898d95d916d22e1caf4dd9df2ac572f1a281  amicorpus/ES2005b/audio/ES2005b.Mix-Headset.wav
+f70fc24dcd7fa67a5a5aabedc546af5bfc0d2df34632eb3266abf26c98cdae26  amicorpus/ES2005c/audio/ES2005c.Mix-Headset.wav
+6a3d4dae9540e7f4847c33124dbfc51ad3916bb5dfae9ee3cde9c280e717a4da  amicorpus/ES2005d/audio/ES2005d.Mix-Headset.wav
+1b1a0b273f2f589abc8788b6f9a2ba5ae343c2aa71fc425f48c8b79ce1406eef  amicorpus/ES2006a/audio/ES2006a.Mix-Headset.wav
+6305a877557fd4687f79a44475e7ee843a79e495846e76e854f2c26d4a5d4b07  amicorpus/ES2006b/audio/ES2006b.Mix-Headset.wav
+d7d9a3005908f8616938f3be6ed0fa0c4a629085aded85f4aa212a06449c6f04  amicorpus/ES2006c/audio/ES2006c.Mix-Headset.wav
+94749fc7e8a6e0957d56d83c9021cd94052889ed40049a55a061b29f2e00c3d4  amicorpus/ES2006d/audio/ES2006d.Mix-Headset.wav
+57a4e0015ca37f9d6fa5c7ce91e78538b772a80234ed774009e8c7c3e89908a1  amicorpus/ES2007a/audio/ES2007a.Mix-Headset.wav
+d7d2207b7bc504d3121ef02c074af23ae8a88fdc627a47d768ab619137c807fa  amicorpus/ES2007b/audio/ES2007b.Mix-Headset.wav
+20978cecd99cb9f17b9cf61e3a929c9ddf617a4e42926454043350462f3eda4f  amicorpus/ES2007c/audio/ES2007c.Mix-Headset.wav
+dda3c37a0d6a19775deb8347c2ad19223d5e2aa510795856abbc7c4bab1210f2  amicorpus/ES2007d/audio/ES2007d.Mix-Headset.wav
+65fcfc924e9bdb0388cbc3242a17bda88291ebc638f486e39a9ede78e92cb1e6  amicorpus/ES2008a/audio/ES2008a.Mix-Headset.wav
+8aa976aa242e895775857b028db2ca5c5f56a2a2d8a096adc81cc82a9c4b6ba4  amicorpus/ES2008b/audio/ES2008b.Mix-Headset.wav
+99d48ed73a4602a34a507133a65dcacf1159d89be16ae72b264a8897a5436fce  amicorpus/ES2008c/audio/ES2008c.Mix-Headset.wav
+5df7d9e5286802d79ccc5d8930eed7179b14ed2d2b1788e3da547da20b115e74  amicorpus/ES2008d/audio/ES2008d.Mix-Headset.wav
+472adcae2cff535a251469bf5a9647ac9166de0f1bc049ce24504104cae9b1fc  amicorpus/ES2009a/audio/ES2009a.Mix-Headset.wav
+7bef2999aa6dc63c516f8ef4260a0e6354cb63bf0fd34df894af6f716f78c359  amicorpus/ES2009b/audio/ES2009b.Mix-Headset.wav
+350661f98c86a8a5973f1131e36444d93c0f44d07db5b12e174a49cb97f620a4  amicorpus/ES2009c/audio/ES2009c.Mix-Headset.wav
+b5ef423361ce67c804042ec479c6aeaf2cb8c19f73a779d61fabb7501e9e9b10  amicorpus/ES2009d/audio/ES2009d.Mix-Headset.wav
+bd188f52a76a0eb2cf1036b3179fff8ed1d075e6f90bc4b0e035e069816ed180  amicorpus/ES2010a/audio/ES2010a.Mix-Headset.wav
+d26a677fe959bfa3d4a56462a930878c975446abf5c217fb2ec0bbc8d260fdf6  amicorpus/ES2010b/audio/ES2010b.Mix-Headset.wav
+2cbb3b8876e61687c1b804e4ce5055bf5acc07720ab2eeccda4a5f95c4c4dfb3  amicorpus/ES2010c/audio/ES2010c.Mix-Headset.wav
+0435f583b7ffa7055e7c5a884ed6eafcbfcb3b4f4fe6f04a16e34f7e04c2455e  amicorpus/ES2010d/audio/ES2010d.Mix-Headset.wav
+130bc4218891a5b4cdbedcd716c94cd062f6ea13b2c19b77fe9d82e4023e1c78  amicorpus/ES2011a/audio/ES2011a.Mix-Headset.wav
+63459ac9811903fe49f79982e9155b457425fa62c5f1f47d4047f512cd348c83  amicorpus/ES2011b/audio/ES2011b.Mix-Headset.wav
+8c2d75e76817ab770ccab71e48e1d41e62729992e6f928bf2a6a8a4bd381e111  amicorpus/ES2011c/audio/ES2011c.Mix-Headset.wav
+8f4f6d823d691037c04a9f7f0bb6ffa3db512d85aa69245144a55d55cfe4f102  amicorpus/ES2011d/audio/ES2011d.Mix-Headset.wav
+73c9779d2d78c9cea65e8f3b4eca8ab523a97ba2e5392e002828b520cd875e88  amicorpus/ES2012a/audio/ES2012a.Mix-Headset.wav
+9039ab2b729bd2429ae2d464a7fed50efeaf4022255f945828c66b0f8426f667  amicorpus/ES2012b/audio/ES2012b.Mix-Headset.wav
+3be7c659956c09ed1a32730f1a3b9924a2d379dc7058a5966c0d74d933fde506  amicorpus/ES2012c/audio/ES2012c.Mix-Headset.wav
+39fcde566e2d1bc7ec40a31dec19251cc253aac54be94713e68eea3008af4f8d  amicorpus/ES2012d/audio/ES2012d.Mix-Headset.wav
+96fd96fce2c735b75e370f626c06ea149d2a57b249528e1c6cfda17d32d0c0ff  amicorpus/ES2013a/audio/ES2013a.Mix-Headset.wav
+09931b8ded46208fe9906b71e09b41fdeabbd7965bb17f48f67f39b3c2bc0c2b  amicorpus/ES2013b/audio/ES2013b.Mix-Headset.wav
+f31e8d004236d4d36eb5d5ac826db1c2d93417d510a9746d5f548d660c5b4179  amicorpus/ES2013c/audio/ES2013c.Mix-Headset.wav
+f6c59242b0808b6a6cf8e12ff8d79e38b4fb0f13426fe09329b47dad8d93e9e5  amicorpus/ES2013d/audio/ES2013d.Mix-Headset.wav
+9d29e308566b8c7be4c328f4a2998e371e5f506384f111042ec91b465f7f792c  amicorpus/ES2014a/audio/ES2014a.Mix-Headset.wav
+472969899eb229d56e4c68576dd641afecae1a2300591d3be1c8561f6a41d79d  amicorpus/ES2014b/audio/ES2014b.Mix-Headset.wav
+36a475ae5febcbbfa28bdf847afe2c1c49bf22e910145fde5709ea16fd9b0720  amicorpus/ES2014c/audio/ES2014c.Mix-Headset.wav
+5293a8197d393e61b06d4c5ea1bf3b340a8a77178ba6facacd6be32bd6978005  amicorpus/ES2014d/audio/ES2014d.Mix-Headset.wav
+918aeaf28fe9025378f33e089f44f29906842c0b247b1b775e709673801212dd  amicorpus/ES2015a/audio/ES2015a.Mix-Headset.wav
+261e76702792b499779743e4b83a6caadb181d5dbcd3202d99fc058be6d70f00  amicorpus/ES2015b/audio/ES2015b.Mix-Headset.wav
+50999075fa47769474ecb2b39629db674f0b2a33ca5368df6af07ea106253dcb  amicorpus/ES2015c/audio/ES2015c.Mix-Headset.wav
+0e7a2c371f73c461bfca6244f491760fa76047f7b64dc74cbecfff67af921222  amicorpus/ES2015d/audio/ES2015d.Mix-Headset.wav
+152c6970818df773e0c44de1da077288f0d966f9a22530819ed1b4400353d128  amicorpus/ES2016a/audio/ES2016a.Mix-Headset.wav
+bb2e6f082fa82e5cb0edb39d5fdd99911589c5f40add575f7ffabc3b7178effd  amicorpus/ES2016b/audio/ES2016b.Mix-Headset.wav
+8885f3d72b9f15b20002ef15491545af7c7339e650f9b245cfb8d7fc5f8c20a0  amicorpus/ES2016c/audio/ES2016c.Mix-Headset.wav
+ffadb2cd9ad3d090463f3da0071931276bdfdbd6a1d8a26b230df5e0da98a244  amicorpus/ES2016d/audio/ES2016d.Mix-Headset.wav
+11e395326e9d8922801c736822a91477aa8bb2a65ce353585e3b19724e294c5d  amicorpus/IB4001/audio/IB4001.Mix-Headset.wav
+a97ec6a4118347b5a18dc5ec98df2412f1de8581a2b0542d8c82ba6b4d56aec4  amicorpus/IB4002/audio/IB4002.Mix-Headset.wav
+a28e876a8dc3ed076ce38a167d8de4cc1d3ff8c0b5142c57d4c194ece7752fc2  amicorpus/IB4003/audio/IB4003.Mix-Headset.wav
+106be8125d20fe35ca483d48a782866f1b99c9aaa1a1a51cbf94c50933540b18  amicorpus/IB4004/audio/IB4004.Mix-Headset.wav
+96465a9b66128d50bf6e0ee0ccf6b509e9d743aacb248a38ffaa063cb378e65a  amicorpus/IB4005/audio/IB4005.Mix-Headset.wav
+996c2f77648eb34adc9221a08d1cf4a4d7a4c1daddbe2b25cd9bff4e6495b3e0  amicorpus/IB4010/audio/IB4010.Mix-Headset.wav
+fa1e9060e7314dd703d919a493145b5d20a1b9e8a23f6903f362fbbaccc842d5  amicorpus/IB4011/audio/IB4011.Mix-Headset.wav
+9bffc290193022169e7cb46af699eccf383cae37b412d47b1462fd8619b296f0  amicorpus/IN1001/audio/IN1001.Mix-Headset.wav
+e925ffaca1ca1cfc74fe0368e8d312b4f7d9f5e20998b7371ee61f09d6c898d3  amicorpus/IN1002/audio/IN1002.Mix-Headset.wav
+e00cac97fd5dbab71397e6eb32f871f3f8c2b6e59c5581d9e37bf209bbfefc7c  amicorpus/IN1005/audio/IN1005.Mix-Headset.wav
+1eaa121c19bf35253e64836d4b81175c50df21b7da3869672839b6c27dd985da  amicorpus/IN1007/audio/IN1007.Mix-Headset.wav
+550dba8b80571bbf5a2c293fe6d94c76b6b7537b2c7c186ce6908c2496f68eb9  amicorpus/IN1008/audio/IN1008.Mix-Headset.wav
+7ee90aac9105734ab40d3085dcb4d0ad4ba06adc1c24facb2ad843529b489506  amicorpus/IN1009/audio/IN1009.Mix-Headset.wav
+cc121921d743a3c88f53e60eabd1824f6f34f802b3c9679af20b32067ca44300  amicorpus/IN1012/audio/IN1012.Mix-Headset.wav
+8f0a59bd50722f71e46062136db702daea8c69a6940f18bc78cede80f3638dc0  amicorpus/IN1013/audio/IN1013.Mix-Headset.wav
+ea8c65624b0a4ea4a1fad83fddbc34fcc2c0ff6912dc570e68699ce92da5b00a  amicorpus/IN1014/audio/IN1014.Mix-Headset.wav
+104707e7bf2b05865bacd997751f89b9080a295610e57790d79df4fc9f2f4bb5  amicorpus/IN1016/audio/IN1016.Mix-Headset.wav
+25c9a48237c1f23bc419702f89234467a1b9efedbac16d9673f52d6a8c1c6a57  amicorpus/IS1000a/audio/IS1000a.Mix-Headset.wav
+0f71e5018a283adf85e949f456a4c360d4fb8d9c195d29ed82b4b38d0d9a724d  amicorpus/IS1000b/audio/IS1000b.Mix-Headset.wav
+3703479fdc0d2f9168c1874eabace7d55bd2a2f44db2f911e0d4c538222b01aa  amicorpus/IS1000c/audio/IS1000c.Mix-Headset.wav
+77643e759067ddfae82140deda6b9044ef2f62e92d08d9372d8eebf5a965504a  amicorpus/IS1000d/audio/IS1000d.Mix-Headset.wav
+3630cc7415931e4dc91e3cd022cd7b6123057a055e8ac4114bdf010398ed89f0  amicorpus/IS1001a/audio/IS1001a.Mix-Headset.wav
+d637c9262a47bd37fc3e0a8669b75100ee07a357eb938977930177d7ec3cfccb  amicorpus/IS1001b/audio/IS1001b.Mix-Headset.wav
+43aebd5d3ebbeafe4548d04e2f1174552e91f73fb90cdd4cee49efdef9d889c9  amicorpus/IS1001c/audio/IS1001c.Mix-Headset.wav
+67814feae09a7c692ae153b566f3534c24690c9ff8bd95e23f3540ccc5fb31e0  amicorpus/IS1001d/audio/IS1001d.Mix-Headset.wav
+2714833e12db9318fdf2f5165e192a0ee3d4a596e858aac7f85c33c7bf5fac9b  amicorpus/IS1002b/audio/IS1002b.Mix-Headset.wav
+d652be347b21a5e19627a50a9a0e76c785eb658d4db6954d4568ba4694280ce7  amicorpus/IS1002c/audio/IS1002c.Mix-Headset.wav
+449db8492292544b955dd0ea1acbb40d83b5528a5e4d006f82e554bc3635f559  amicorpus/IS1002d/audio/IS1002d.Mix-Headset.wav
+10d768ad3cf53d02aff96057fb80631c1047e79221ee8f3edb3614dfa23507b5  amicorpus/IS1003a/audio/IS1003a.Mix-Headset.wav
+996b3781d63e85c42f84d49edb8b6c8224db4e985a346dfecf741d0ec5d83ae5  amicorpus/IS1003b/audio/IS1003b.Mix-Headset.wav
+c7d18200a4a831c515ccf817d7c42608146c285f30089d008bbdc272ea8508c7  amicorpus/IS1003c/audio/IS1003c.Mix-Headset.wav
+bfeffddd293aa952be24a28eb54e69124760c432015cc361f858fca82ad6e64a  amicorpus/IS1003d/audio/IS1003d.Mix-Headset.wav
+c37050e46bf3d339e896cc75baf31b191f4a3c491109d6faa44d9d55cd79666b  amicorpus/IS1004a/audio/IS1004a.Mix-Headset.wav
+a477f5a67c2c82eadc007a015596d0a47df2a8cc465d3880126b89deb13aaedf  amicorpus/IS1004b/audio/IS1004b.Mix-Headset.wav
+b9a4974943fc3bae1c816eb68f6694616a0e0ee1acc41d46133bd70982c83869  amicorpus/IS1004c/audio/IS1004c.Mix-Headset.wav
+af30388e1849af758229cd747493821de69c5f058d179ef0e3a4542009a42c16  amicorpus/IS1004d/audio/IS1004d.Mix-Headset.wav
+cfb67dda357aa1281f610a98ff99d2247c409a9f0bc5fcef2622175ec5c57e6c  amicorpus/IS1005a/audio/IS1005a.Mix-Headset.wav
+713197cc6ee2fd74810c3b0c73b7ec7358e02baca331ca67e9f502d28f881e9a  amicorpus/IS1005b/audio/IS1005b.Mix-Headset.wav
+843ab87cc01ebb5e6d546e99c2246a948200d18d71e99f8d529cc598db1834e6  amicorpus/IS1005c/audio/IS1005c.Mix-Headset.wav
+24b58e38cb625606658045c7c4aeb66f72f73aa9af71dee5e63d948dbc933025  amicorpus/IS1006a/audio/IS1006a.Mix-Headset.wav
+27de32c98c9b3f906a0063f51aa05347ae24303b5af22a080561926bfdb8b0f6  amicorpus/IS1006b/audio/IS1006b.Mix-Headset.wav
+dc2b56362eb45a8384d57fbfff118874f6eac8915a3c74ff91e854f795daef5f  amicorpus/IS1006c/audio/IS1006c.Mix-Headset.wav
+cee3f73b16051893a90f68f681af470a8682cd6858c64f021776baf5bc02800f  amicorpus/IS1006d/audio/IS1006d.Mix-Headset.wav
+df2cee040ad065649ce4285d1f3244579dd06ece2f0e16d0c8091d4698e39fc4  amicorpus/IS1007a/audio/IS1007a.Mix-Headset.wav
+eea0adb204e18b68e2197fa26fd13a2d9a3d464ad36bbfe76164a6dc1b67a00f  amicorpus/IS1007b/audio/IS1007b.Mix-Headset.wav
+ccc56bb3980c1027e8ff313e018a8b53c2bd730f1a378f4870e3371616e2ed1f  amicorpus/IS1007c/audio/IS1007c.Mix-Headset.wav
+470b25ca979716d23c05fa30e854b11d22670754dd236da7634b7e8fda221c73  amicorpus/IS1007d/audio/IS1007d.Mix-Headset.wav
+75ae8796ca2177fa0c77055de2fe2f95325b412dc7152a9b32c76c9884a3d382  amicorpus/IS1008a/audio/IS1008a.Mix-Headset.wav
+0d992a210480c6e9652b317ed7f66261e80a1aa86f7e5c3dffd10e81b8e30de2  amicorpus/IS1008b/audio/IS1008b.Mix-Headset.wav
+1965c56162efb29953d21a5e7f5659f7f78a41e8923b7c399d3b4bbf9ae4b0a9  amicorpus/IS1008c/audio/IS1008c.Mix-Headset.wav
+22bc4c5ef7c033427426e84b168f71d162a42ed287ae4781aa2f6c06b67a6177  amicorpus/IS1008d/audio/IS1008d.Mix-Headset.wav
+6eb5a0ede0d9e72794f976ce7bea5b78133eae969f99b4c5418b43c2468d25b1  amicorpus/IS1009a/audio/IS1009a.Mix-Headset.wav
+07c2891ae6ad7c507b2a4f15b2dcd0a2343491df9e4e6a58f9db0d0b2c5e1382  amicorpus/IS1009b/audio/IS1009b.Mix-Headset.wav
+f317910070db0f2649315decbb34686d648bbe9dc3f7576710184f4d572bdbcc  amicorpus/IS1009c/audio/IS1009c.Mix-Headset.wav
+470440114ee2ed076cfc77c53136ad5d3af500d8a5a6ca36755e83534f5ca4ea  amicorpus/IS1009d/audio/IS1009d.Mix-Headset.wav
+b6ce59ff735c234afdd94b13744aa26f6785af746170543fd03b33160e920a6d  amicorpus/TS3003a/audio/TS3003a.Mix-Headset.wav
+0c94f3a09ab747caa7714efe8852f5ff37d36cf272b75709344991df1aa266ca  amicorpus/TS3003b/audio/TS3003b.Mix-Headset.wav
+b9f455870e8cb0ba765523a1767cc366775ab7e5e3eabf37d9c91289e5a1a70a  amicorpus/TS3003c/audio/TS3003c.Mix-Headset.wav
+ece4a41c37c1092c737d1dfe313afb18248364625991f745fed4b372c3c67eb3  amicorpus/TS3003d/audio/TS3003d.Mix-Headset.wav
+ca3bc00d6c85451918290b0a3dd137e322ad8b063fd26f71fe3bdaa42ad66719  amicorpus/TS3004a/audio/TS3004a.Mix-Headset.wav
+3c8e8e9f4b24cc9a8c2fa5932cbecebcf9d14b6b415ac48d6229547fc014c9b2  amicorpus/TS3004b/audio/TS3004b.Mix-Headset.wav
+4fea0b90a24164511a902f9bc148322ee9dea236195690af081bc0033db640ea  amicorpus/TS3004c/audio/TS3004c.Mix-Headset.wav
+d89950bb537e05939994c06083447bd820a86a64cb32aec4d691e7096f974cdf  amicorpus/TS3004d/audio/TS3004d.Mix-Headset.wav
+431faf4e85eeeb4653256bc8e4f36aaf06dc71538a58b1b6c1a78f2df81276ea  amicorpus/TS3005a/audio/TS3005a.Mix-Headset.wav
+8020ab7c3f26f1a876e4675b00dadba38f01b7f3b6639990999b1ee4c37513db  amicorpus/TS3005b/audio/TS3005b.Mix-Headset.wav
+ea98038a538ccec3bfc017192f3f0f5282ead185f35c6b6c4bcca890b867832b  amicorpus/TS3005c/audio/TS3005c.Mix-Headset.wav
+a0c2882124f31fb5d0bf46548a7777702ed6012e4319f61cf536c6ab3e5b91b0  amicorpus/TS3005d/audio/TS3005d.Mix-Headset.wav
+d3a14878e387563dd7f6cc4d9fa26e70cd1073f2b7f90102a076878cb29bb6f3  amicorpus/TS3006a/audio/TS3006a.Mix-Headset.wav
+65008347971a4da203260860cbf0266814dcd8db3ac63a5242628e21d06c88c0  amicorpus/TS3006b/audio/TS3006b.Mix-Headset.wav
+9922fc1f145d5089e56401f044ebff84ad30a9d0caab8a8e46a51d1d74d1d265  amicorpus/TS3006c/audio/TS3006c.Mix-Headset.wav
+f25a091b6f7b18370b1173c30eda92dd7d2e208741c996c14ab6360507324b3e  amicorpus/TS3006d/audio/TS3006d.Mix-Headset.wav
+eb758a584903a8d894790764b7217a43634f80d147b8db879815e74d1d1a7882  amicorpus/TS3007a/audio/TS3007a.Mix-Headset.wav
+414e49da13f0831166d3b92d62f96eef6b7802f734b356eff570f7e37beffe5d  amicorpus/TS3007b/audio/TS3007b.Mix-Headset.wav
+237e75fcd50161cb087a38cec8e54dbc46a1aa3916b58fec24090e4f2b683f29  amicorpus/TS3007c/audio/TS3007c.Mix-Headset.wav
+c4868077605c42ea26506c5ea482ec17bdd839fbb872f4b68ab712f9f676ff23  amicorpus/TS3007d/audio/TS3007d.Mix-Headset.wav
+e5c190189edb01338abb570d7d618109a34c9eef7ac6295239d4692e75c3d7aa  amicorpus/TS3008a/audio/TS3008a.Mix-Headset.wav
+49d3c9bc7718e9a2b7739b1a481eab8c2f5bc067d8742e2e111876a0b3565734  amicorpus/TS3008b/audio/TS3008b.Mix-Headset.wav
+196e36624840eec139e2277a6f02f5a943622226e305ed9047bf122816f51ac3  amicorpus/TS3008c/audio/TS3008c.Mix-Headset.wav
+b52dd29a8e0d9b0a6bf19d0fe92a17b83786ec7424c6798304cd69e7c243f076  amicorpus/TS3008d/audio/TS3008d.Mix-Headset.wav
+54caac8bcbd22f1a5d66ba122f6fb7febef344e5163c289ff84943476d83185f  amicorpus/TS3009a/audio/TS3009a.Mix-Headset.wav
+97267d50549d64cff3ae5fb81f4d7db54deeaf625a79f2e0a2b2dde84070f5d1  amicorpus/TS3009b/audio/TS3009b.Mix-Headset.wav
+4fe7430b0edc2f414e888eeec32706f2ff67f76a44d88f3a9699fd045a58d465  amicorpus/TS3009c/audio/TS3009c.Mix-Headset.wav
+a163a6e77bc23ae6406b04eec1fe7304e28cdba7e4a3648305dd97011fafbc98  amicorpus/TS3009d/audio/TS3009d.Mix-Headset.wav
+d3a7d934b73fa5b9cfcff54ce3909ba59b544ef43c248c931082aa62056c1625  amicorpus/TS3010a/audio/TS3010a.Mix-Headset.wav
+b973b8dcd69c01ff782f77da7ada6979f7999e063b8de30d89f5b8dd1d53a043  amicorpus/TS3010b/audio/TS3010b.Mix-Headset.wav
+6fae7327a367f3ea11ee91c35da708d5484c5924f51b309669409043a9c30a56  amicorpus/TS3010c/audio/TS3010c.Mix-Headset.wav
+ff642ecea1b3709a8e8cd71414a8ddd37c04cac46319fea6db63be4ff40fdaf8  amicorpus/TS3010d/audio/TS3010d.Mix-Headset.wav
+cafbc1f039b5fb7aee4edd40ef3b3c1236c0c30eb9a9249a5df68740e8be9248  amicorpus/TS3011a/audio/TS3011a.Mix-Headset.wav
+310e11e9819759aba450c910a1bf52c770e363fd9565227b2f6b1fcff09a9812  amicorpus/TS3011b/audio/TS3011b.Mix-Headset.wav
+c6a5da21dddbc9450dc3ebd3fcef32ec69f2e901ba1e321b8d6e431bd055481b  amicorpus/TS3011c/audio/TS3011c.Mix-Headset.wav
+5405f0959f5fa1442c8b29e8bd51c10d37a9c833d195ed6d1655ff69ff331724  amicorpus/TS3011d/audio/TS3011d.Mix-Headset.wav
+812d1b31e4cd160bbe6434fee2dde2de8bdc3a918cdc48ef3d34b3163c6e96cf  amicorpus/TS3012a/audio/TS3012a.Mix-Headset.wav
+382fd0f2f41f97df38f8e5ff61ed93f0a1af30ff4b1877e40ff39ab8110139b0  amicorpus/TS3012b/audio/TS3012b.Mix-Headset.wav
+55db4479ddcd055b4e514f2bfaf63d02d76da4c3a13e67b0fcb4aeb30698ea17  amicorpus/TS3012c/audio/TS3012c.Mix-Headset.wav
+da504dfba820f5ee2fc913c0efedcdb41577b2d32b4b61b722b1974c3b8bd854  amicorpus/TS3012d/audio/TS3012d.Mix-Headset.wav

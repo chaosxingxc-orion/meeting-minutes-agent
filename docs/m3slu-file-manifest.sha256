@@ -1,0 +1,176 @@
+# M3-SLU (Task1 + Task2) audio parquet shards -- per-file SHA-256 manifest
+# Source corpus release: HF M3-SLU/M3-SLU-Task1@c3836ecf34f2a1e7c4efb75ed84cb6e5f64cafe2
+#   (44 audio parquet shards) and M3-SLU/M3-SLU-Task2@5ee25ccd444daadc40f331dc406b07f9617d66a7
+#   (111 audio parquet shards); 155 shards total (scripts/data/datasets.lock.json, dataset
+#   "m3-slu").
+# Generated: 2026-08-20, by direct `sha256sum` over the local corpus under
+#   $SPEECHRL_DATA_DIR/datasets/m3-slu/audio (WSL2 Ubuntu-24.04, primary dev machine), one
+#   read pass, no parallelism.
+# Paths below are relative to the M3-SLU root ($SPEECHRL_DATA_DIR/datasets/m3-slu).
+# Aggregate-closure provenance this manifest supersedes for the per-file case: the umbrella
+#   lock's own hash_coverage_note for this dataset (see scripts/data/datasets.lock.json) says
+#   the per-shard LFS SHA-256 values were never extracted into this repository, so
+#   scripts/data/verify.py falls back to file-count + total-size closure for the audio tree.
+#   This file closes that gap. All 155 hashes computed here were additionally cross-checked
+#   against the pre-existing per-shard `lfs_sha256` values already recorded locally in
+#   datasets/m3-slu/.upstream-manifest.json (a receipt that lives under $SPEECHRL_DATA_DIR,
+#   outside this repository, and was itself never committed here before now): all 155 values
+#   matched byte-for-byte.
+# Verify: cd "$SPEECHRL_DATA_DIR/datasets/m3-slu" && sha256sum -c docs/m3slu-file-manifest.sha256
+#   (run from this repository's root with a path adjustment, or copy this file next to the
+#   M3-SLU root first).
+b8840d757da922fd00f9d348c2336eb1ef8093b09b534b9014e9a2bcfb8a476f  audio/task1/preview-00000-of-00001.parquet
+c95203357e64739a75dfed22a31f485e83b7cec79158d07b28494e467bbc0537  audio/task1/sample-00000-of-00043.parquet
+96d492c6b03c68219f4b61bad21fda8e8e08a36771877ee226f8c2cdd0e324a7  audio/task1/sample-00001-of-00043.parquet
+4ff84efe6fb6bc8219f030ad21b1439e9de04ea95c5e6e09fc2f51755d31c517  audio/task1/sample-00002-of-00043.parquet
+6faa74d90779fc73817a505124870538d8b53d1d01b854975ade68420cb92e22  audio/task1/sample-00003-of-00043.parquet
+d0c5f29a9fc0c10e8367f96cc228ad9b89ac1826104fa1241c3fa353e6185162  audio/task1/sample-00004-of-00043.parquet
+157c9a20d42a2dc551df398a504167529b83648e6e88a09f24c5f9b8219ac813  audio/task1/sample-00005-of-00043.parquet
+abf2d707c6e90a1a26e82e69513531e8e4154030e892c46a888acf729ec95f6b  audio/task1/sample-00006-of-00043.parquet
+9d1d646d4d87a09f2970b14319bfbe5bedfa21b22d117704d5e5ef59f49b3545  audio/task1/sample-00007-of-00043.parquet
+15e4150d70ff3938fa3b81a4d0ff0b382d43b72947105243a1ee0db97f69475b  audio/task1/sample-00008-of-00043.parquet
+5784e0792e8bd5d551a045dd1b96eef9a2662fadfdd5b12fc09a0ad9647293c6  audio/task1/sample-00009-of-00043.parquet
+9055e3563fd7f90cfe0f422881f1c66e1bc8633e1fbc6b6702d87e3d4f6fa902  audio/task1/sample-00010-of-00043.parquet
+132c0d7b526f41c0fa7d74b6df705723380bdc303a6976eaa16974189ffa841f  audio/task1/sample-00011-of-00043.parquet
+b484f5d43f798ae23980619fa3eb32704e4d470e243be42b88bc83aed703c3dc  audio/task1/sample-00012-of-00043.parquet
+9ae2e068fe478b947c2cbbf1f8519f9d6fa47b14a65f5c71172c624a3ccf690a  audio/task1/sample-00013-of-00043.parquet
+0186a4ecaff058671179abeeec58b49d6039641dd3d7fe3d696411e94fcad6ac  audio/task1/sample-00014-of-00043.parquet
+e138ded1b122f12ef12532cf64fd9c99796df6244ebcb8571642e39a19d3cca4  audio/task1/sample-00015-of-00043.parquet
+f698cde21f842d87bfb1a45e189415369c1a3e20805979d87092b1ec189d947b  audio/task1/sample-00016-of-00043.parquet
+ee88c6536fe66dae9467c0e414769ffb67d779d971c9e80f6ce892f5ccdf64e9  audio/task1/sample-00017-of-00043.parquet
+3eebb713e199eb591b0ee2e2b0eec44832531dd6ee30a4f291c6da3bab766b3d  audio/task1/sample-00018-of-00043.parquet
+a7e7e28f40c804c6f5b3859e5ea82311c6513adb773dd73f8fd1bc7c1d5e7338  audio/task1/sample-00019-of-00043.parquet
+fbda79c6bd92ea0aff8d745d2b030fb1dd49b805ae2995de4cc65748f8f2c9b3  audio/task1/sample-00020-of-00043.parquet
+9f55907effd7437923480fd54244dab07daa19d334504150cba7930415c4ee9c  audio/task1/sample-00021-of-00043.parquet
+83cfe223557e1692232bd9daf2c8e79a5e80ed5a3b07cbd92669783c9e5d9e4e  audio/task1/sample-00022-of-00043.parquet
+28a35381a1f11f5698c2637777fab76a7e7951daa99a3162ebc149f92ed71dc8  audio/task1/sample-00023-of-00043.parquet
+e8b39ebaa1b5aa32af52d9ca2ac9f135ce564e702a44e76cc64df846ae72ce3e  audio/task1/sample-00024-of-00043.parquet
+221dda083bc8bef3cacbb95a5d23c1c0cf977ed4719ec06ae714cd38c12e2f25  audio/task1/sample-00025-of-00043.parquet
+ed22240ca8530130d5eed47aff81aeace8759c04d16621333cbec5784da3210c  audio/task1/sample-00026-of-00043.parquet
+7df55b0a1635d9d152aea50afa666d512955a08e76f373c3928a2c943c2b0e89  audio/task1/sample-00027-of-00043.parquet
+f29500790ab8f52711e1afbf04baf5a4456d7a6a5c2425d37e16e5bbba572753  audio/task1/sample-00028-of-00043.parquet
+ce8cdec8ebe99d8648a73bac568d0c4a0f31a7d926753bfc1ed7b593f07a99fa  audio/task1/sample-00029-of-00043.parquet
+980843ddc5c8c3f5eeb591c27622aa251b8afb7a0bed61eedaa296edd6eeca64  audio/task1/sample-00030-of-00043.parquet
+5b3d8b97881095eb4fc8b3acf6ab27b472990b4d8e8d4c0e4e5d94d416240bd2  audio/task1/sample-00031-of-00043.parquet
+d563250285d70881cf8397a2b91a8d7c3132ddf505150f679654911f19c4e7b8  audio/task1/sample-00032-of-00043.parquet
+cdc3c727935e9ff5140734c53a0472db3dd31539579d7bc73c357ef08ef270ca  audio/task1/sample-00033-of-00043.parquet
+f90491ed8f3751b5b35afa80b60d25eefffd6165a714d093098d9707b8e4cefe  audio/task1/sample-00034-of-00043.parquet
+813ef855796d1c0c2f72a564772c162c3f653865282442b8cba4ae19d28543c6  audio/task1/sample-00035-of-00043.parquet
+5d59930aa84b8aa417bc6bc97aacdee9465888ecaf815baf841a6e4512f72346  audio/task1/sample-00036-of-00043.parquet
+e1e3dbaf53b05ba3018c5a34aee4809fa2e3511f5aa332e7fa06a79e57e491e9  audio/task1/sample-00037-of-00043.parquet
+54eecdb016bfaef68c9340ce3ffe8bf7557323d1666142d65a3352f155cedc7b  audio/task1/sample-00038-of-00043.parquet
+578ff2c9cd8b0203ac13004668607e1384f4f3d8a25cd9c4bcf0805bdf098e39  audio/task1/sample-00039-of-00043.parquet
+0d9122d1afc902076b2945971557b2b9cd13f1da36b7fec5f9ac83bb4bb89dda  audio/task1/sample-00040-of-00043.parquet
+219e68093911d7ddf0352822b6f8b3d02c8a6df30b8bd8d10a4393267f5468d7  audio/task1/sample-00041-of-00043.parquet
+923aaca524c00221d415a9c99bb36262d9252b90c703571826b890a51db4b794  audio/task1/sample-00042-of-00043.parquet
+a3bf7a611991bc631fdc78eafd8cd2e512789064ad014c0b241632bfec170478  audio/task2/preview-00000-of-00001.parquet
+dcb77dfc2e78da2b49ef1bc9f98448f5d8b8d4b10f7a764a697cbcd8c83159b0  audio/task2/sample-00000-of-00110.parquet
+3a51bab5a52fd6c4c52b6ce831b86483604a3c1e2340be19a765a9c9dc1a3bc5  audio/task2/sample-00001-of-00110.parquet
+31bae45e2a0302fde72bec3873bc9a3cdaa4924f4b7db18d9de71ee6a5e8a95f  audio/task2/sample-00002-of-00110.parquet
+29d83be28858d454f751990497ed9541327b2e394c1ab9f158aff59b269b22d2  audio/task2/sample-00003-of-00110.parquet
+696051392f95d20d2d37f3ba0615e0b1628c6b57ca0a80328c2db3a4e95504e7  audio/task2/sample-00004-of-00110.parquet
+4f58b384fe36b7748459bcdad55dc63cbd393b3abe25bb6582a1bda516f8d18b  audio/task2/sample-00005-of-00110.parquet
+5122bfe3b9242466b302f43b0481667644e26180f9767d699298eeb7b9d65777  audio/task2/sample-00006-of-00110.parquet
+c8b95defe405094561e8491a3c8b72215b985929e85f1eeb3664ba3617fcf5e4  audio/task2/sample-00007-of-00110.parquet
+31ef30dece1e76438d819b4767e53527c440cafb1b901f252cfa1068201defcc  audio/task2/sample-00008-of-00110.parquet
+faab1867929941606a000a1e27285c26557f5cef6cd5ff8c68ac208d5ddb83a4  audio/task2/sample-00009-of-00110.parquet
+3131c642ece31dd2101371f5e118c060061476ea4cd78885ca92cdc4d59e2954  audio/task2/sample-00010-of-00110.parquet
+ae9a220a68d4523e7ae88f322acc9bb8a7599c50de533ed0e74271c9e6e15337  audio/task2/sample-00011-of-00110.parquet
+b652fe09d46dac86a3bd815cabe7cc8976b00be56af2461916e74ede1e407209  audio/task2/sample-00012-of-00110.parquet
+b573c8948c992416eeaff1c72336349c1fea4d100a1f8174949472dd41b5af58  audio/task2/sample-00013-of-00110.parquet
+93290e0dde19a43ce14dfe59e45b611b8f1054f63145899c0ee0492192486615  audio/task2/sample-00014-of-00110.parquet
+4feca0071a41136cc2dab672c0d7e1ad9d39f54be558a1cede79855d55232b69  audio/task2/sample-00015-of-00110.parquet
+899968798697d18b36e844faf9da3a7a2eecdad0b5666ca7d18e589c43aebe22  audio/task2/sample-00016-of-00110.parquet
+63dfe451f2a32330fa768ba49f0dd03b019b222ce3143799b81f97de42d7b4ae  audio/task2/sample-00017-of-00110.parquet
+83cbd140b4c891aed6389b79de0c471136fb661b4c2ca802b261577234cbfa05  audio/task2/sample-00018-of-00110.parquet
+48e86eb8fe72f4266fd495d78e40db5572be87b14261484726592600602ddfbd  audio/task2/sample-00019-of-00110.parquet
+cf65297948f0e252ccd3eca8d4ad2a567cfcb4bdc4f0de231ee73b8e6c7f034b  audio/task2/sample-00020-of-00110.parquet
+bb2b8d618a7bb0cf0c9cfca2ffdc7fdc764ea2068904be9c2cc18a59cc539e56  audio/task2/sample-00021-of-00110.parquet
+d331920eafe03a1bf36626f7fb7e39d22d965cf689f8ace77df45bac3aef608e  audio/task2/sample-00022-of-00110.parquet
+1d8c7591584d042e5d61ce29299b0c7f936ef1e3fa0785c4af34eb0c133c68ef  audio/task2/sample-00023-of-00110.parquet
+560608ec0bf1da804de6499d3ff427528bf9f65b48b46b22b211368277b90679  audio/task2/sample-00024-of-00110.parquet
+60daf61ca10a93f722dbcdb04c5621db435df350eee153af9daed40008e3e08f  audio/task2/sample-00025-of-00110.parquet
+e7b4bc6b98d68c38ea8ea56769c3cde032f1b84cc459d2e6937531718070cb18  audio/task2/sample-00026-of-00110.parquet
+32559dd7011ced9c66ffc261fd7e599de52e0acf3b32b8e4564448348d6839b6  audio/task2/sample-00027-of-00110.parquet
+2ca8c196c967680133f4192b10155b64c7ad9667361767f6e79a377779f43bc9  audio/task2/sample-00028-of-00110.parquet
+53f8a788418160b853c23af5032b55a4f8ef89fa4da138f50aa46a89cbce5ed5  audio/task2/sample-00029-of-00110.parquet
+05855963047a90e14b7b41b86efa6ca39c3833594ed305417a0640af168cf7bb  audio/task2/sample-00030-of-00110.parquet
+c063f01bcf68be327ecd84bc99e0fb86712bc1f4656ea2951747752718132a71  audio/task2/sample-00031-of-00110.parquet
+ceb0cfa61f5dc7424a7e365bb61f553a8a252a1c0e45639e0d8e50ce40b9a9b1  audio/task2/sample-00032-of-00110.parquet
+90523afd3c73540031bd097922ff10cf4c4b2a575796e47b4b37b6a2963c29fd  audio/task2/sample-00033-of-00110.parquet
+ac1a2485d920691edbadf75c5d0203ecfba4bddc3b073abb10138e5eb616f1a0  audio/task2/sample-00034-of-00110.parquet
+99e47266cc80722bef36afc7595fd6bec080c64f36fc5d96185d4ba2c7b0425b  audio/task2/sample-00035-of-00110.parquet
+6d479c4ee6bdf7df064b5394b14c5d98a778e8b9944db61c058efdb65024e64d  audio/task2/sample-00036-of-00110.parquet
+f13c15c70c0caaf998b5e7ab8d9fd27771ea372cd70dde45af62d34c81795e73  audio/task2/sample-00037-of-00110.parquet
+b46733f37b142cffdaa3a4c0a7a143b24b64a1638457e8e724782e35faa94369  audio/task2/sample-00038-of-00110.parquet
+8a28cd372ffa19dc92a938e037c8b90564c3f817f1b2e85c940b7cacda301ae7  audio/task2/sample-00039-of-00110.parquet
+6b4464b11dcd78c4e927417b31959bd23c9ca6be06d5c133308440c9dc8f9745  audio/task2/sample-00040-of-00110.parquet
+504f22b7bd25d1a80ffa582ade142ce9de4054271ac13ad715b41b1e59a29ace  audio/task2/sample-00041-of-00110.parquet
+6f0577af3913302879db416020f3c2f106a3b96b89358405795b780def6bb5d5  audio/task2/sample-00042-of-00110.parquet
+3f2eecabb3377201350dcac5a548f02cfa07e8d3a9ae91fac538375faabd2a76  audio/task2/sample-00043-of-00110.parquet
+04ae6014983bf6ad2b2b5b2ba0283ed9df37857950c30b6bb5a7db40eecd35e2  audio/task2/sample-00044-of-00110.parquet
+77342f5e11a4b1c37d287aab15f6a2e0158fdfd69223a9fe17aa1ad702a67cd6  audio/task2/sample-00045-of-00110.parquet
+4dad84ca2334c7163cc2276e1deeed1517ac1e0a353d88a97aa0d443b363632e  audio/task2/sample-00046-of-00110.parquet
+9079678e64fd61ed74847ef3ba439d02e35df8d0142f8b180e62a80233cc3e05  audio/task2/sample-00047-of-00110.parquet
+7842547db5ce16512977ebf0d448d22b379d24e23523d62435fedb39644e7752  audio/task2/sample-00048-of-00110.parquet
+5a0f3c071e70e48a06483c9da8d705b64883722e9bcb7cb79d3cd74ba08333cb  audio/task2/sample-00049-of-00110.parquet
+6e1989af934320d599d4e41ad100ee48fb72d1eaf5c353f3ff1ce7bfaac3e485  audio/task2/sample-00050-of-00110.parquet
+0177053fef790f4eb7ccd88544087046e91677d368f83c3f7898c055d4d257cd  audio/task2/sample-00051-of-00110.parquet
+22e295e1fa12354a6cdd5523cb5f84df045886a785acae501689fa16b27d5564  audio/task2/sample-00052-of-00110.parquet
+06ac8447c4209e45548a3ffe11b2a4dc97c299c6405e895c473c480608b1fe66  audio/task2/sample-00053-of-00110.parquet
+098e320e7d6e89b513d075f0bb0819582a9102a897438d9f69c75897fbdbf4a1  audio/task2/sample-00054-of-00110.parquet
+c26359ae8ed0e5498169c40025e228fa22a2304abb1a13bbb8469e45621695eb  audio/task2/sample-00055-of-00110.parquet
+4ccf1822f2557d6fb762c22e3928c83c13f8021191b2d1e965770100ac477181  audio/task2/sample-00056-of-00110.parquet
+860216548154c287a4c792bc37fc69235dba2758078634d1d2ffb8991c02b5ad  audio/task2/sample-00057-of-00110.parquet
+0a370a321387ab5396ca684be8382541150fb1675bcaf29378be43d84ef427ef  audio/task2/sample-00058-of-00110.parquet
+02a6190ab2c724e23ca326601f7038241664939842084195815d7b4e79d7a9f1  audio/task2/sample-00059-of-00110.parquet
+86bfba07e3e8dda8af703e4bcca63b50a91040e2bb84d363c7e6c71655422ca8  audio/task2/sample-00060-of-00110.parquet
+ad2f9c555dfbe2fef91538e4867de06929e4816f74ba6ff8ed0d3191cf83a362  audio/task2/sample-00061-of-00110.parquet
+4e84f38026df6af54afd80090f2d677c792b19ccfe1db1286ad4a00c1a8127d4  audio/task2/sample-00062-of-00110.parquet
+aef1597f3a369c7a190d4475aad2803c03b2b1af7306622a4f4c3dc42a202870  audio/task2/sample-00063-of-00110.parquet
+906361abb0efaa123093d2e2b4f8c4f93e683980d260240a13d1b415520a57bf  audio/task2/sample-00064-of-00110.parquet
+523bffa1d9d07765fa0f13060263aa197e3512bd3f4577f1de6ca83ef5a8a3a0  audio/task2/sample-00065-of-00110.parquet
+5a40aa46bd9a02d008c374383be5a6a4ce7d55572687908cda2bb6397efeb007  audio/task2/sample-00066-of-00110.parquet
+0638100aaef5a2e978abc4e4198cf3ef3b7c735263404e7d05e182d6df6c56f6  audio/task2/sample-00067-of-00110.parquet
+d49936e580b2e65782fec58f425312965a4add89201844ad2002e55cde35e10a  audio/task2/sample-00068-of-00110.parquet
+317e21b9ec65581fd8459894aecac427c63257a554a3ff357b0f7c2473731bd9  audio/task2/sample-00069-of-00110.parquet
+d2ec938449b4b2141f0ca1874787c8c5c35025f18f6e847648f3432bcf5061fa  audio/task2/sample-00070-of-00110.parquet
+d9f8f0955f8566eec8c36ba9ac37337c71983cb28681a7a599cef51d54a5ed98  audio/task2/sample-00071-of-00110.parquet
+0a8110d21a184d8c2c0777a35293762ce831be3bf89dffc9f17761207a619a79  audio/task2/sample-00072-of-00110.parquet
+d2640e9d1e739703383f5be09a07268a41c7c0b810bcf13531beb0a216f5d5b3  audio/task2/sample-00073-of-00110.parquet
+04e14ff43d53f0cb2fff734bbf616a5b80abcad86f591898e66ce74b690e8b99  audio/task2/sample-00074-of-00110.parquet
+744b1317ef24a709b85bcfccc6b8c259fcd8d89a9f0d7b9d6307c941ca43905d  audio/task2/sample-00075-of-00110.parquet
+60443520db9d12e28c8b2f61c9aae4585707a13e0c9afc9646bcc289be89bc14  audio/task2/sample-00076-of-00110.parquet
+5041615f67bfba58518b131cba93d744d829777f923a14002b182241c4fb6626  audio/task2/sample-00077-of-00110.parquet
+9ab95e287aa8268f7de31f63b77afeb120bffa9dd9e67a8f4a35c7f0e42130f0  audio/task2/sample-00078-of-00110.parquet
+eb2c14fd659475e58f5bccd8715dc87f87dd274a65989d6d832f53deeb0162c7  audio/task2/sample-00079-of-00110.parquet
+987aab34a7b50387d4aa405dc97c3b7f11f56624a282213ffd263cfdbfa9730d  audio/task2/sample-00080-of-00110.parquet
+1d28c422debc75b8946cf00e0745ba58214983d95363d3621d4aa19fcf73b468  audio/task2/sample-00081-of-00110.parquet
+6937da676bcffe142eab4225b8c9f4edb0f00eeacf021d3659fef9429c844a41  audio/task2/sample-00082-of-00110.parquet
+2eaf57781f36baaf5d4798cf656e0824d158050ea3a7ef3f994690b9f26479e9  audio/task2/sample-00083-of-00110.parquet
+26b68861c89f64dcb8218ca17e5e841aec8d95be4f531de16e071cc77013fd8e  audio/task2/sample-00084-of-00110.parquet
+27cf77b36b6d63fea0b43139e3ec503f3896281792cf78fcae1fb97417014967  audio/task2/sample-00085-of-00110.parquet
+43a4fddadbe42fe3461fd5dc748f19c2b7f0516a7178872e44acc5d3711bce6a  audio/task2/sample-00086-of-00110.parquet
+4209c87cee708e64cdcbec9354f053507133aa81a3da9b8654d0a974141766ef  audio/task2/sample-00087-of-00110.parquet
+ac50cacd1e424e4aa915a2ddd8e1120ff06515ce7501365bc6859ecc6cad74db  audio/task2/sample-00088-of-00110.parquet
+2ff301db2d3821021f1e427d8a861c62eb3963d21c111bd953163c07ac1b0f5b  audio/task2/sample-00089-of-00110.parquet
+0272466cb799f1b9350194cd29fdc4b6e24a2587b5f5642698cfb97e9d4395dd  audio/task2/sample-00090-of-00110.parquet
+a90edef49a091cf47f1d352a98ecff6a3837c33f7b75118eb9b81da929105e67  audio/task2/sample-00091-of-00110.parquet
+cefdee537aafb6cb3b8168dcfe8a802786957e3dcb9e3fb45bf91f7140f7c82a  audio/task2/sample-00092-of-00110.parquet
+34341a6544da0069cde6aa5c72ed3177bb243edfbb63a0c30e336b78e2f898d5  audio/task2/sample-00093-of-00110.parquet
+cc7cd9050e311418f1f39e71665bd529dc12362920b4cc82542b14839d5ad8cf  audio/task2/sample-00094-of-00110.parquet
+bbd65c752a1ceefd2a899838fffccd92d10ddffb9035d5e1c25ce5c244e2c0bf  audio/task2/sample-00095-of-00110.parquet
+97ce2dbfccd854f900f17b343a73daf12224c15b07cea94831645413ae64dd3b  audio/task2/sample-00096-of-00110.parquet
+e990f01c1e64d0e86cce796a89ec6c39e87254adc65c9cfb15cd83ccf0a76c0e  audio/task2/sample-00097-of-00110.parquet
+e24d0ae981e015b9525053d3179316b8dd96543450b9fdf9117c538da6cfd73e  audio/task2/sample-00098-of-00110.parquet
+0e35c282ff8dd2e92214638541805514c69d4a0a72accde81f34f73fb329a17c  audio/task2/sample-00099-of-00110.parquet
+a482560b30f4132f096af2306f46eba63c2b889b4256b347b0e9f78eccfa0c70  audio/task2/sample-00100-of-00110.parquet
+a600cc6a0abe59a550c4a243850f716ca5e01799aedd01e662ade8efd48df0a6  audio/task2/sample-00101-of-00110.parquet
+9ebd480b49377c4e5e2ee55d45d279caeba11a3cef092f442307e066a2bade6f  audio/task2/sample-00102-of-00110.parquet
+26810f410792ad3896186475cd712158310988c530885c2ba50e04601dbf6ece  audio/task2/sample-00103-of-00110.parquet
+27a6ea628b1b8be3b83faf4d426a6334d4e063a23d2dead4e4a9cef06dbbcac0  audio/task2/sample-00104-of-00110.parquet
+44c44bfde8442a1a559f73ce5cd0322d232390b0194ba42611ec6a59480fc95b  audio/task2/sample-00105-of-00110.parquet
+ab79b9ee7e63bb81dc44926761efba9cf993ad2343cb7e33357ccdcee1985149  audio/task2/sample-00106-of-00110.parquet
+bf6fc91d7dd5afc62af4466bbe71e43317981ab4ff56c449b94f44743c8c3b8b  audio/task2/sample-00107-of-00110.parquet
+5b82cbabf078ddbb711a72d1889b3876b7f11bb6768fe86ac65685f071033ce5  audio/task2/sample-00108-of-00110.parquet
+256c0661d083835cc53a372b787525270c5bc615d29421b62cd8661a59cc4c98  audio/task2/sample-00109-of-00110.parquet

@@ -511,23 +511,38 @@ and model bytes should reproduce it, in two different senses depending on the ar
 ## 14. Not reproducible without contacting us
 
 Everything in this repository's own pipeline is reproducible from public sources plus this
-repository's vendored lock files, with two narrow, honestly-disclosed exceptions:
+repository's vendored lock files, with one narrow, honestly-disclosed exception:
 
-- **Exact HF LFS per-shard hashes for M3-SLU's 155 audio parquet shards and AMI's 171 individual
-  WAVs.** `scripts/data/datasets.lock.json`'s own `hash_coverage_note` fields say so explicitly:
-  the umbrella lock records an aggregate manifest hash and file-count/total-size closure for these
-  subtrees, but not a per-file hash for every payload file (the per-shard LFS SHA-256 values live
-  only in the umbrella's private acquisition receipt, never extracted into this repository).
-  `verify.py` falls back to file-count + total-size closure for exactly these two subtrees. This
-  is a **lock-coverage gap, not a missing-bytes problem** -- the datasets themselves are fully
-  public and independently downloadable; only byte-exact per-file verification of these two
-  specific large multi-file payloads is unavailable outside the primary dev machine.
 - **The compiled binary bytes** of `llama-server` and `nemo-speech` (sha256es recorded in every
   runtime-identity receipt as "informational" per their own README notes) are toolchain-dependent
   and were never claimed to be reproducible byte-for-byte -- only the source tips they were built
   from are pinned and reproducible (Sections 3-4). If a receipt's binary hash does not match yours
   after following Sections 3-4 exactly, that is expected toolchain variance, not a sign anything
   applied incorrectly.
+
+This section used to also disclose a **lock-coverage gap, not a missing-bytes problem**: exact
+per-file hashes for AMI's 171 individual Mix-Headset WAVs and M3-SLU's 155 audio parquet shards,
+neither carried by the umbrella lock's own `hash_coverage_note` fields
+(`scripts/data/datasets.lock.json` records only an aggregate manifest hash plus file-count/
+total-size closure for these two subtrees, so `verify.py` falls back to that coarser check). Both
+are now closed, generated directly on the primary dev machine by one full read pass with
+`sha256sum` (no parallelism) over the actual local corpus bytes:
+
+- **AMI's 171 Mix-Headset WAVs**: `docs/ami-file-manifest.sha256` (standard `sha256sum` format,
+  paths relative to `$SPEECHRL_DATA_DIR/datasets/ami`). No per-file hash existed anywhere before
+  this manifest. Verify with
+  `cd "$SPEECHRL_DATA_DIR/datasets/ami" && sha256sum -c <repo>/docs/ami-file-manifest.sha256`.
+- **M3-SLU's 155 audio parquet shards**: `docs/m3slu-file-manifest.sha256` (same format, paths
+  relative to `$SPEECHRL_DATA_DIR/datasets/m3-slu`). All 155 computed hashes were cross-checked
+  byte-for-byte against the per-shard `lfs_sha256` values already recorded locally in
+  `datasets/m3-slu/.upstream-manifest.json` -- a receipt that lives under `$SPEECHRL_DATA_DIR`,
+  outside this repository, and was never committed here before now; every value matched. This
+  repository's own flown receipts consume AMI only (Section 6), so this manifest closes the
+  disclosed gap for completeness rather than for PRECOMP/G1 reproduction.
+
+Both manifests are a reproduction-side supplement generated on the primary dev machine, not a
+change to the umbrella lock's own upstream identity record; `scripts/data/datasets.lock.json`
+remains the single authority for dataset identity and is not hand-edited to reflect them.
 
 No pipeline STEP in this repository depends on owner-private data, an internal service, or a
 credential you do not have. If you hit a wall this document does not explain, it is a gap in this
