@@ -76,7 +76,7 @@ def build_minutes_artifact(meeting_id: str, minutes_parses: Sequence[MinutesPars
 
     resolved_sections = {section: tuple(bullets) for section, bullets in sections.items()}
     predictions = tuple(
-        SpeakerAttributionPrediction(sentence_id=b.sentence_id, predicted_speaker=b.claimed_speaker)
+        SpeakerAttributionPrediction(sentence_id=b.sentence_id, predicted_speaker=b.claimed_speaker, text=b.text)
         for section in MINUTES_SECTIONS
         for b in resolved_sections[section]
     )

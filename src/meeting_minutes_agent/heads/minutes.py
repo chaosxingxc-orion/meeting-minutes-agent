@@ -100,10 +100,14 @@ class MinutesParseResult:
         :mod:`meeting_minutes_agent.metrics.saer_m`'s prediction input, by
         construction: one :class:`SpeakerAttributionPrediction` per bullet,
         naming its claimed speaker (``None`` if the bullet made no
-        attribution claim)."""
+        attribution claim) and carrying its own bullet ``text`` (SAER-M
+        definition v1.1: this head's ``sentence_id`` is a synthesized
+        ``"<section>-<index>"``, never a corpus id, so ``text`` is what
+        ``metrics.saer_m.align_predictions_to_gold_sentences`` content-
+        matches against a gold sentence -- see that module's docstring)."""
 
         return tuple(
-            SpeakerAttributionPrediction(sentence_id=b.sentence_id, predicted_speaker=b.claimed_speaker)
+            SpeakerAttributionPrediction(sentence_id=b.sentence_id, predicted_speaker=b.claimed_speaker, text=b.text)
             for b in self.bullets
         )
 

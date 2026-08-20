@@ -86,10 +86,25 @@ class TestSpeakerAttributionPredictionProjection:
         parse = parse_minutes_response(STRICT_MINUTES_REPLY)
         artifact = build_minutes_artifact("meeting-1", [parse])
         predictions = artifact.speaker_attribution_predictions
-        assert SpeakerAttributionPrediction(sentence_id="abstract-0", predicted_speaker="S1") in predictions
-        assert SpeakerAttributionPrediction(sentence_id="decisions-0", predicted_speaker="S2") in predictions
+        assert (
+            SpeakerAttributionPrediction(
+                sentence_id="abstract-0", predicted_speaker="S1", text="The team approved the budget."
+            )
+            in predictions
+        )
+        assert (
+            SpeakerAttributionPrediction(
+                sentence_id="decisions-0", predicted_speaker="S2", text="Ship v2 by Friday."
+            )
+            in predictions
+        )
         # a bullet with an explicit "[evidence: none]" tag claims no speaker
-        assert SpeakerAttributionPrediction(sentence_id="actions-0", predicted_speaker=None) in predictions
+        assert (
+            SpeakerAttributionPrediction(
+                sentence_id="actions-0", predicted_speaker=None, text="Follow up with legal."
+            )
+            in predictions
+        )
 
     def test_score_against_is_compute_saer_m_compatible(self):
         parse = parse_minutes_response(STRICT_MINUTES_REPLY)

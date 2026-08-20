@@ -218,10 +218,14 @@ def test_speaker_attribution_predictions_matches_saer_m_input_shape():
     result = parse_minutes_response(STRICT_MINUTES_REPLY)
     predictions = result.speaker_attribution_predictions()
     assert predictions == (
-        SpeakerAttributionPrediction(sentence_id="abstract-0", predicted_speaker="S1"),
-        SpeakerAttributionPrediction(sentence_id="actions-0", predicted_speaker=None),
-        SpeakerAttributionPrediction(sentence_id="decisions-0", predicted_speaker="S2"),
-        SpeakerAttributionPrediction(sentence_id="problems-0", predicted_speaker=None),
+        SpeakerAttributionPrediction(
+            sentence_id="abstract-0", predicted_speaker="S1", text="The team approved the budget."
+        ),
+        SpeakerAttributionPrediction(sentence_id="actions-0", predicted_speaker=None, text="Follow up with legal."),
+        SpeakerAttributionPrediction(sentence_id="decisions-0", predicted_speaker="S2", text="Ship v2 by Friday."),
+        SpeakerAttributionPrediction(
+            sentence_id="problems-0", predicted_speaker=None, text="None identified this chunk."
+        ),
     )
 
 
