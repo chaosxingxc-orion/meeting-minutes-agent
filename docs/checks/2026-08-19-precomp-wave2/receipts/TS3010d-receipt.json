@@ -1,0 +1,651 @@
+{
+  "budget_after": {
+    "ceilings": {
+      "max_cutting_wall_hours": null,
+      "max_diar_gpu_hours": 2.0,
+      "max_encode_calls": 4500,
+      "max_encode_gpu_hours": 8.0,
+      "wave": 2
+    },
+    "cutting_wall_seconds_used": 1348.4478034309723,
+    "diar_gpu_seconds_used": 692.1581248029285,
+    "encode_calls_used": 2871,
+    "encode_gpu_seconds_used": 4151.437840231864
+  },
+  "cutting": {
+    "oracle": {
+      "content_hash": "6f3991b06cadc51440bd408bf0503d293aaddb1a97b609f6cd9115f130529a4e",
+      "n_entries": 19
+    },
+    "tool": {
+      "content_hash": "541911c4f94866719e454a6d2adeb9ca0b3cc03725338e756d0e7e4617198d42",
+      "n_entries": 20
+    },
+    "vad": null,
+    "wall_seconds": 3.673923634996754,
+    "workers": 8
+  },
+  "diar": {
+    "contact": {
+      "args": [
+        "/home/chao/nemo-speech.cpp/build/cuda-diar/bin/nemo-speech",
+        "diarize",
+        "/mnt/e/chao_workspace/exploring-l4-intelligence/speechrl-data/datasets/ami/amicorpus/TS3010d/audio/TS3010d.Mix-Headset.wav",
+        "--model",
+        "/mnt/e/chao_workspace/exploring-l4-intelligence/speechrl-data/models/diar-sortformer-4spk-v2/diar_streaming_sortformer_4spk-v2.q8_0.gguf",
+        "--format",
+        "rttm",
+        "--recording-id",
+        "TS3010d",
+        "--output",
+        "/mnt/e/chao_workspace/exploring-l4-intelligence/speechrl-data/derived/meeting-minutes/precomp/rttm/TS3010d.rttm",
+        "--force"
+      ],
+      "checkpoint_sha256": "0679cfeb1ce356d0dea9470b31274f4bfc7eb927497d82005483770666da998a",
+      "error": null,
+      "meeting_id": "TS3010d",
+      "recorded_utc": "2026-08-20T05:09:03.632740+00:00",
+      "return_code": 0,
+      "tool_name": "nemo-speech.cpp-cuda-q8_0",
+      "tool_version": "nemo-speech 1.0.0; commit 4c749a700500e077d4732a539eb082bf2208dac7; binary sha256 1a3e3f4fe7db4c48e5d6e44a76d5adf2bbfef80024c023b0eab2766eb61aca78; CMake preset cuda-diar; HF revision 5240a64075176943f677d30fa2171c780229f341; attempt-2 default streaming (DiarStream) mode: the registered --offline full-attention mode is hard-capped by the tool at 5000 encoder frames (~6 min audio) and refuses all six meetings",
+      "wall_seconds": 34.391217916010646
+    },
+    "gpu_seconds_estimate": 0.3443311539900606,
+    "n_turns": 595,
+    "wall_seconds": 34.433115399006056
+  },
+  "encode_warm": {
+    "n_calls": 39,
+    "oracle": [
+      {
+        "gpu_seconds_estimate": 1.7297732325569086,
+        "max_tokens": 1,
+        "n_attempts": 1,
+        "request_id": "precomp-w2-oracle-TS3010d-slice0000",
+        "text_discarded_unread": true,
+        "usage": {
+          "completion_tokens": 1,
+          "prompt_tokens": 1432,
+          "total_tokens": 1433
+        },
+        "wall_seconds": 1.8208139290072722
+      },
+      {
+        "gpu_seconds_estimate": 1.4243685289198766,
+        "max_tokens": 1,
+        "n_attempts": 1,
+        "request_id": "precomp-w2-oracle-TS3010d-slice0001",
+        "text_discarded_unread": true,
+        "usage": {
+          "completion_tokens": 1,
+          "prompt_tokens": 1484,
+          "total_tokens": 1485
+        },
+        "wall_seconds": 1.8741691169998376
+      },
+      {
+        "gpu_seconds_estimate": 1.7292863433575256,
+        "max_tokens": 1,
+        "n_attempts": 1,
+        "request_id": "precomp-w2-oracle-TS3010d-slice0002",
+        "text_discarded_unread": true,
+        "usage": {
+          "completion_tokens": 1,
+          "prompt_tokens": 1354,
+          "total_tokens": 1355
+        },
+        "wall_seconds": 1.8013399409974227
+      },
+      {
+        "gpu_seconds_estimate": 1.8278701603558147,
+        "max_tokens": 1,
+        "n_attempts": 1,
+        "request_id": "precomp-w2-oracle-TS3010d-slice0003",
+        "text_discarded_unread": true,
+        "usage": {
+          "completion_tokens": 1,
+          "prompt_tokens": 1393,
+          "total_tokens": 1394
+        },
+        "wall_seconds": 1.9240738530061208
+      },
+      {
+        "gpu_seconds_estimate": 1.2550945941428653,
+        "max_tokens": 1,
+        "n_attempts": 1,
+        "request_id": "precomp-w2-oracle-TS3010d-slice0004",
+        "text_discarded_unread": true,
+        "usage": {
+          "completion_tokens": 1,
+          "prompt_tokens": 1328,
+          "total_tokens": 1329
+        },
+        "wall_seconds": 1.7677388649899513
+      },
+      {
+        "gpu_seconds_estimate": 1.319504209208535,
+        "max_tokens": 1,
+        "n_attempts": 1,
+        "request_id": "precomp-w2-oracle-TS3010d-slice0005",
+        "text_discarded_unread": true,
+        "usage": {
+          "completion_tokens": 1,
+          "prompt_tokens": 1367,
+          "total_tokens": 1368
+        },
+        "wall_seconds": 1.8326447350118542
+      },
+      {
+        "gpu_seconds_estimate": 1.7899747183073487,
+        "max_tokens": 1,
+        "n_attempts": 1,
+        "request_id": "precomp-w2-oracle-TS3010d-slice0006",
+        "text_discarded_unread": true,
+        "usage": {
+          "completion_tokens": 1,
+          "prompt_tokens": 1380,
+          "total_tokens": 1381
+        },
+        "wall_seconds": 1.8841839140077354
+      },
+      {
+        "gpu_seconds_estimate": 0.17837142130010764,
+        "max_tokens": 1,
+        "n_attempts": 1,
+        "request_id": "precomp-w2-oracle-TS3010d-slice0007",
+        "text_discarded_unread": true,
+        "usage": {
+          "completion_tokens": 1,
+          "prompt_tokens": 1302,
+          "total_tokens": 1303
+        },
+        "wall_seconds": 1.7837142130010761
+      },
+      {
+        "gpu_seconds_estimate": 1.4744799576094374,
+        "max_tokens": 1,
+        "n_attempts": 1,
+        "request_id": "precomp-w2-oracle-TS3010d-slice0008",
+        "text_discarded_unread": true,
+        "usage": {
+          "completion_tokens": 1,
+          "prompt_tokens": 1432,
+          "total_tokens": 1433
+        },
+        "wall_seconds": 2.0478888300131075
+      },
+      {
+        "gpu_seconds_estimate": 1.5365485287024059,
+        "max_tokens": 1,
+        "n_attempts": 1,
+        "request_id": "precomp-w2-oracle-TS3010d-slice0009",
+        "text_discarded_unread": true,
+        "usage": {
+          "completion_tokens": 1,
+          "prompt_tokens": 1302,
+          "total_tokens": 1303
+        },
+        "wall_seconds": 1.707276143002673
+      },
+      {
+        "gpu_seconds_estimate": 1.6383482373981677,
+        "max_tokens": 1,
+        "n_attempts": 1,
+        "request_id": "precomp-w2-oracle-TS3010d-slice0010",
+        "text_discarded_unread": true,
+        "usage": {
+          "completion_tokens": 1,
+          "prompt_tokens": 1276,
+          "total_tokens": 1277
+        },
+        "wall_seconds": 1.7245770919980714
+      },
+      {
+        "gpu_seconds_estimate": 1.268756077609869,
+        "max_tokens": 1,
+        "n_attempts": 1,
+        "request_id": "precomp-w2-oracle-TS3010d-slice0011",
+        "text_discarded_unread": true,
+        "usage": {
+          "completion_tokens": 1,
+          "prompt_tokens": 1328,
+          "total_tokens": 1329
+        },
+        "wall_seconds": 1.7869803909998154
+      },
+      {
+        "gpu_seconds_estimate": 1.6826536091411253,
+        "max_tokens": 1,
+        "n_attempts": 1,
+        "request_id": "precomp-w2-oracle-TS3010d-slice0012",
+        "text_discarded_unread": true,
+        "usage": {
+          "completion_tokens": 1,
+          "prompt_tokens": 1315,
+          "total_tokens": 1316
+        },
+        "wall_seconds": 1.7900570310011972
+      },
+      {
+        "gpu_seconds_estimate": 1.380283816161682,
+        "max_tokens": 1,
+        "n_attempts": 1,
+        "request_id": "precomp-w2-oracle-TS3010d-slice0013",
+        "text_discarded_unread": true,
+        "usage": {
+          "completion_tokens": 1,
+          "prompt_tokens": 1302,
+          "total_tokens": 1303
+        },
+        "wall_seconds": 1.816162916002213
+      },
+      {
+        "gpu_seconds_estimate": 1.2852494468848454,
+        "max_tokens": 1,
+        "n_attempts": 1,
+        "request_id": "precomp-w2-oracle-TS3010d-slice0014",
+        "text_discarded_unread": true,
+        "usage": {
+          "completion_tokens": 1,
+          "prompt_tokens": 1367,
+          "total_tokens": 1368
+        },
+        "wall_seconds": 1.8900727160071256
+      },
+      {
+        "gpu_seconds_estimate": 1.6564177203897272,
+        "max_tokens": 1,
+        "n_attempts": 1,
+        "request_id": "precomp-w2-oracle-TS3010d-slice0015",
+        "text_discarded_unread": true,
+        "usage": {
+          "completion_tokens": 1,
+          "prompt_tokens": 1354,
+          "total_tokens": 1355
+        },
+        "wall_seconds": 1.7810943229997065
+      },
+      {
+        "gpu_seconds_estimate": 1.2428690194425873,
+        "max_tokens": 1,
+        "n_attempts": 1,
+        "request_id": "precomp-w2-oracle-TS3010d-slice0016",
+        "text_discarded_unread": true,
+        "usage": {
+          "completion_tokens": 1,
+          "prompt_tokens": 1367,
+          "total_tokens": 1368
+        },
+        "wall_seconds": 1.8277485580038046
+      },
+      {
+        "gpu_seconds_estimate": 1.7966916468620184,
+        "max_tokens": 1,
+        "n_attempts": 1,
+        "request_id": "precomp-w2-oracle-TS3010d-slice0017",
+        "text_discarded_unread": true,
+        "usage": {
+          "completion_tokens": 1,
+          "prompt_tokens": 1393,
+          "total_tokens": 1394
+        },
+        "wall_seconds": 1.9319265020021703
+      },
+      {
+        "gpu_seconds_estimate": 1.0142543875146657,
+        "max_tokens": 1,
+        "n_attempts": 1,
+        "request_id": "precomp-w2-oracle-TS3010d-slice0018",
+        "text_discarded_unread": true,
+        "usage": {
+          "completion_tokens": 1,
+          "prompt_tokens": 795,
+          "total_tokens": 796
+        },
+        "wall_seconds": 1.0565149869944435
+      }
+    ],
+    "tool": [
+      {
+        "gpu_seconds_estimate": 1.3003279990582086,
+        "max_tokens": 1,
+        "n_attempts": 1,
+        "request_id": "precomp-w2-tool-TS3010d-slice0000",
+        "text_discarded_unread": true,
+        "usage": {
+          "completion_tokens": 1,
+          "prompt_tokens": 1289,
+          "total_tokens": 1290
+        },
+        "wall_seconds": 1.831447885997477
+      },
+      {
+        "gpu_seconds_estimate": 1.6079374759225176,
+        "max_tokens": 1,
+        "n_attempts": 1,
+        "request_id": "precomp-w2-tool-TS3010d-slice0001",
+        "text_discarded_unread": true,
+        "usage": {
+          "completion_tokens": 1,
+          "prompt_tokens": 1289,
+          "total_tokens": 1290
+        },
+        "wall_seconds": 1.7477581260027364
+      },
+      {
+        "gpu_seconds_estimate": 1.782880459589942,
+        "max_tokens": 1,
+        "n_attempts": 1,
+        "request_id": "precomp-w2-tool-TS3010d-slice0002",
+        "text_discarded_unread": true,
+        "usage": {
+          "completion_tokens": 1,
+          "prompt_tokens": 1406,
+          "total_tokens": 1407
+        },
+        "wall_seconds": 1.8966813399892999
+      },
+      {
+        "gpu_seconds_estimate": 1.4264027010912834,
+        "max_tokens": 1,
+        "n_attempts": 1,
+        "request_id": "precomp-w2-tool-TS3010d-slice0003",
+        "text_discarded_unread": true,
+        "usage": {
+          "completion_tokens": 1,
+          "prompt_tokens": 1328,
+          "total_tokens": 1329
+        },
+        "wall_seconds": 1.7609909890015842
+      },
+      {
+        "gpu_seconds_estimate": 0.8719424147246173,
+        "max_tokens": 1,
+        "n_attempts": 1,
+        "request_id": "precomp-w2-tool-TS3010d-slice0004",
+        "text_discarded_unread": true,
+        "usage": {
+          "completion_tokens": 1,
+          "prompt_tokens": 1302,
+          "total_tokens": 1303
+        },
+        "wall_seconds": 1.6768123360088794
+      },
+      {
+        "gpu_seconds_estimate": 0.964646607327304,
+        "max_tokens": 1,
+        "n_attempts": 1,
+        "request_id": "precomp-w2-tool-TS3010d-slice0005",
+        "text_discarded_unread": true,
+        "usage": {
+          "completion_tokens": 1,
+          "prompt_tokens": 1289,
+          "total_tokens": 1290
+        },
+        "wall_seconds": 1.6923624689952703
+      },
+      {
+        "gpu_seconds_estimate": 1.5875464202479632,
+        "max_tokens": 1,
+        "n_attempts": 1,
+        "request_id": "precomp-w2-tool-TS3010d-slice0006",
+        "text_discarded_unread": true,
+        "usage": {
+          "completion_tokens": 1,
+          "prompt_tokens": 1276,
+          "total_tokens": 1277
+        },
+        "wall_seconds": 1.6711014949978562
+      },
+      {
+        "gpu_seconds_estimate": 1.9602787782445377,
+        "max_tokens": 1,
+        "n_attempts": 1,
+        "request_id": "precomp-w2-tool-TS3010d-slice0007",
+        "text_discarded_unread": true,
+        "usage": {
+          "completion_tokens": 1,
+          "prompt_tokens": 1328,
+          "total_tokens": 1329
+        },
+        "wall_seconds": 2.2025604249938624
+      },
+      {
+        "gpu_seconds_estimate": 1.3402256761176978,
+        "max_tokens": 1,
+        "n_attempts": 1,
+        "request_id": "precomp-w2-tool-TS3010d-slice0008",
+        "text_discarded_unread": true,
+        "usage": {
+          "completion_tokens": 1,
+          "prompt_tokens": 1289,
+          "total_tokens": 1290
+        },
+        "wall_seconds": 1.7634548369969707
+      },
+      {
+        "gpu_seconds_estimate": 1.3161520771170034,
+        "max_tokens": 1,
+        "n_attempts": 1,
+        "request_id": "precomp-w2-tool-TS3010d-slice0009",
+        "text_discarded_unread": true,
+        "usage": {
+          "completion_tokens": 1,
+          "prompt_tokens": 1354,
+          "total_tokens": 1355
+        },
+        "wall_seconds": 1.8279889959958382
+      },
+      {
+        "gpu_seconds_estimate": 1.3072096108658298,
+        "max_tokens": 1,
+        "n_attempts": 1,
+        "request_id": "precomp-w2-tool-TS3010d-slice0010",
+        "text_discarded_unread": true,
+        "usage": {
+          "completion_tokens": 1,
+          "prompt_tokens": 1354,
+          "total_tokens": 1355
+        },
+        "wall_seconds": 1.8411402969941264
+      },
+      {
+        "gpu_seconds_estimate": 1.4734946086446872,
+        "max_tokens": 1,
+        "n_attempts": 1,
+        "request_id": "precomp-w2-tool-TS3010d-slice0011",
+        "text_discarded_unread": true,
+        "usage": {
+          "completion_tokens": 1,
+          "prompt_tokens": 1289,
+          "total_tokens": 1290
+        },
+        "wall_seconds": 1.7133658240054501
+      },
+      {
+        "gpu_seconds_estimate": 1.551591513934545,
+        "max_tokens": 1,
+        "n_attempts": 1,
+        "request_id": "precomp-w2-tool-TS3010d-slice0012",
+        "text_discarded_unread": true,
+        "usage": {
+          "completion_tokens": 1,
+          "prompt_tokens": 1289,
+          "total_tokens": 1290
+        },
+        "wall_seconds": 1.8041761789936572
+      },
+      {
+        "gpu_seconds_estimate": 1.6589591917558573,
+        "max_tokens": 1,
+        "n_attempts": 1,
+        "request_id": "precomp-w2-tool-TS3010d-slice0013",
+        "text_discarded_unread": true,
+        "usage": {
+          "completion_tokens": 1,
+          "prompt_tokens": 1302,
+          "total_tokens": 1303
+        },
+        "wall_seconds": 1.764850203995593
+      },
+      {
+        "gpu_seconds_estimate": 1.4365415586702874,
+        "max_tokens": 1,
+        "n_attempts": 1,
+        "request_id": "precomp-w2-tool-TS3010d-slice0014",
+        "text_discarded_unread": true,
+        "usage": {
+          "completion_tokens": 1,
+          "prompt_tokens": 1354,
+          "total_tokens": 1355
+        },
+        "wall_seconds": 1.841719947013189
+      },
+      {
+        "gpu_seconds_estimate": 1.9205764988428564,
+        "max_tokens": 1,
+        "n_attempts": 1,
+        "request_id": "precomp-w2-tool-TS3010d-slice0015",
+        "text_discarded_unread": true,
+        "usage": {
+          "completion_tokens": 1,
+          "prompt_tokens": 1484,
+          "total_tokens": 1485
+        },
+        "wall_seconds": 1.9799757720029447
+      },
+      {
+        "gpu_seconds_estimate": 1.6237320409818494,
+        "max_tokens": 1,
+        "n_attempts": 1,
+        "request_id": "precomp-w2-tool-TS3010d-slice0016",
+        "text_discarded_unread": true,
+        "usage": {
+          "completion_tokens": 1,
+          "prompt_tokens": 1536,
+          "total_tokens": 1537
+        },
+        "wall_seconds": 2.0046074580022832
+      },
+      {
+        "gpu_seconds_estimate": 1.838980914799322,
+        "max_tokens": 1,
+        "n_attempts": 1,
+        "request_id": "precomp-w2-tool-TS3010d-slice0017",
+        "text_discarded_unread": true,
+        "usage": {
+          "completion_tokens": 1,
+          "prompt_tokens": 1354,
+          "total_tokens": 1355
+        },
+        "wall_seconds": 1.9357693839992862
+      },
+      {
+        "gpu_seconds_estimate": 1.7468462505564093,
+        "max_tokens": 1,
+        "n_attempts": 1,
+        "request_id": "precomp-w2-tool-TS3010d-slice0018",
+        "text_discarded_unread": true,
+        "usage": {
+          "completion_tokens": 1,
+          "prompt_tokens": 1302,
+          "total_tokens": 1303
+        },
+        "wall_seconds": 1.8196315109962597
+      },
+      {
+        "gpu_seconds_estimate": 1.1489038583022193,
+        "max_tokens": 1,
+        "n_attempts": 1,
+        "request_id": "precomp-w2-tool-TS3010d-slice0019",
+        "text_discarded_unread": true,
+        "usage": {
+          "completion_tokens": 1,
+          "prompt_tokens": 1562,
+          "total_tokens": 1563
+        },
+        "wall_seconds": 2.088916106004035
+      }
+    ],
+    "vad": [],
+    "wall_seconds": 75.0796601799957
+  },
+  "error": null,
+  "meeting_id": "TS3010d",
+  "metrics": {
+    "boundary_displacement": {
+      "displacements_s": [
+        16.766999999999996,
+        18.166999999999916,
+        20.838999999999942,
+        32.22399999999999,
+        33.774999999999864,
+        35.753000000000014,
+        37.16399999999999,
+        37.39600000000007,
+        38.664499999999975,
+        39.830999999999904,
+        41.74050000000011,
+        42.13700000000006,
+        42.483999999999924,
+        43.41450000000009,
+        43.76999999999998,
+        43.79100000000017,
+        45.054999999999836,
+        48.37699999999995,
+        71.68100000000004
+      ],
+      "max_s": 71.68100000000004,
+      "mean_s": 38.58055263157894,
+      "median_s": 39.830999999999904,
+      "min_s": 16.766999999999996,
+      "n": 19
+    },
+    "cache": {
+      "after": {
+        "n_entries": 49702,
+        "total_bytes": 40592384608
+      },
+      "before": {
+        "n_entries": 49215,
+        "total_bytes": 40194081776
+      },
+      "delta": {
+        "bytes_added": 398302832,
+        "entries_added": 487
+      }
+    },
+    "slice_counts": {
+      "delta": 1,
+      "oracle_slices": 19,
+      "tool_slices": 20
+    },
+    "turn_counts": {
+      "oracle_turns": 474,
+      "tool_turns": 595
+    },
+    "walls": {
+      "cutting_wall_s": 3.673923634996754,
+      "diar_wall_s": 34.433115399006056,
+      "encode_wall_s": 75.0796601799957,
+      "total_wall_s": 113.18669921399851
+    }
+  },
+  "ok": true,
+  "recorded_utc": "2026-08-20T05:10:26.112646+00:00",
+  "schema_version": "1.1.0",
+  "slice_plans": {
+    "oracle": {
+      "content_hash": "9c1b2c16b48466a2c710caa0559efd9cdecc668386a5f1a79def050c97eff1ab",
+      "n_slices": 19,
+      "turn_provenance": "oracle-turn"
+    },
+    "tool": {
+      "content_hash": "624edf36cfdfb89081ad2ed454fb15eb4fa61ad986bb029b79745323ca90b320",
+      "n_slices": 20,
+      "turn_provenance": "tool-diar"
+    },
+    "vad": null
+  },
+  "wave": 2
+}

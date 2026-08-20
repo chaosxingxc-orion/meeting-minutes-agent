@@ -1,0 +1,74 @@
+{
+  "budget_after": {
+    "ceilings": {
+      "max_cutting_wall_hours": null,
+      "max_diar_gpu_hours": 2.0,
+      "max_encode_calls": 4500,
+      "max_encode_gpu_hours": 8.0,
+      "wave": 2
+    },
+    "cutting_wall_seconds_used": 272.42734182000277,
+    "diar_gpu_seconds_used": 18.757622696602482,
+    "encode_calls_used": 267,
+    "encode_gpu_seconds_used": 356.18606838450273
+  },
+  "cutting": {
+    "oracle": null,
+    "tool": null,
+    "vad": null,
+    "wall_seconds": null,
+    "workers": null
+  },
+  "diar": {
+    "contact": {
+      "args": [
+        "/home/chao/nemo-speech.cpp/build/cuda-diar/bin/nemo-speech",
+        "diarize",
+        "/mnt/e/chao_workspace/exploring-l4-intelligence/speechrl-data/datasets/ami/amicorpus/ES2005d/audio/ES2005d.Mix-Headset.wav",
+        "--model",
+        "/mnt/e/chao_workspace/exploring-l4-intelligence/speechrl-data/models/diar-sortformer-4spk-v2/diar_streaming_sortformer_4spk-v2.q8_0.gguf",
+        "--format",
+        "rttm",
+        "--recording-id",
+        "ES2005d",
+        "--output",
+        "/mnt/e/chao_workspace/exploring-l4-intelligence/speechrl-data/derived/meeting-minutes/precomp/rttm/ES2005d.rttm",
+        "--force"
+      ],
+      "checkpoint_sha256": "0679cfeb1ce356d0dea9470b31274f4bfc7eb927497d82005483770666da998a",
+      "error": null,
+      "meeting_id": "ES2005d",
+      "recorded_utc": "2026-08-20T02:22:08.481416+00:00",
+      "return_code": 0,
+      "tool_name": "nemo-speech.cpp-cuda-q8_0",
+      "tool_version": "nemo-speech 1.0.0; commit 4c749a700500e077d4732a539eb082bf2208dac7; binary sha256 1a3e3f4fe7db4c48e5d6e44a76d5adf2bbfef80024c023b0eab2766eb61aca78; CMake preset cuda-diar; HF revision 5240a64075176943f677d30fa2171c780229f341; attempt-2 default streaming (DiarStream) mode: the registered --offline full-attention mode is hard-capped by the tool at 5000 encoder frames (~6 min audio) and refuses all six meetings",
+      "wall_seconds": 39.77455525600817
+    },
+    "gpu_seconds_estimate": 0.0,
+    "n_turns": 560,
+    "wall_seconds": 39.95930952299386
+  },
+  "encode_warm": {
+    "n_calls": 0,
+    "oracle": [],
+    "tool": [],
+    "vad": [],
+    "wall_seconds": null
+  },
+  "error": "TransportBoundViolation: slice 10 (start=904.148, end=1024.1480000000001) has duration 120.00000000000011s, which exceeds the transport layer's hard cap TRANSPORT_SLICE_MAX_S=120.0s -- a slice plan must never carry a slice client/transport.py would refuse to send",
+  "meeting_id": "ES2005d",
+  "metrics": {},
+  "ok": false,
+  "recorded_utc": "2026-08-20T02:22:21.127078+00:00",
+  "schema_version": "1.1.0",
+  "slice_plans": {
+    "oracle": null,
+    "tool": {
+      "content_hash": "e8de98e00479b65a56d6dfced89a8f352c033e62ed29a83c32f865c18e051f04",
+      "n_slices": 18,
+      "turn_provenance": "tool-diar"
+    },
+    "vad": null
+  },
+  "wave": 2
+}

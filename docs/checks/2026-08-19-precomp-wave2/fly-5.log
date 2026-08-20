@@ -1,0 +1,42 @@
+=== PRECOMP wave-2 invocation 5 start 2026-08-20T04:57:58Z ===
+repo HEAD:  3d5e2e12d32fef151627b588e9da11bad7bc7d49
+budget_s:   2600 (hard runner SIGTERM at 3380s)
+stop-file:  /mnt/c/Users/35686/AppData/Local/Temp/claude/D--chao-workspace-exploring-l4-intelligence-studies-speech-aware-evidence-acquisition/6d9f1834-68e9-41a7-bbcc-724898cf15a9/scratchpad/precomp2/INVOCATION_STOP
+yield-file: /mnt/c/Users/35686/AppData/Local/Temp/claude/D--chao-workspace-exploring-l4-intelligence-studies-speech-aware-evidence-acquisition/6d9f1834-68e9-41a7-bbcc-724898cf15a9/scratchpad/PRECOMP_YIELD
+{
+  "roster_n": 76,
+  "already_ok": 66,
+  "structurally_refused_skipped": [
+    "ES2005d"
+  ],
+  "todo_n": 9
+}
+meetings for this invocation: TS3009b TS3009c TS3009d TS3010a TS3010d TS3011a TS3011c TS3012b TS3012d
+receipts before: 67; featcache before: entries=47081 bytes=38440590992
+llama-server child pid=24766
+--- waiting for llama-server at http://127.0.0.1:8080 ---
+starting llama-server at 04:58:11Z, cache=/home/chao/feat-cache/ami-q4km
+server healthy after 47 s at 04:58:58Z
+--- run_precomp.py --wave 2 --resume --stop-file --meetings <computed> ---
+05:38:15Z runner rc=0 wall=2357s
+--- teardown ---
+llama-server stopped
+receipts: 67 -> 76 (+9)
+featcache: entries +4990 bytes +4098045920
+--- wave-cumulative ledger vs registered wave-2 ceilings ---
+{"breaches": [], "ceilings": {"max_cutting_wall_hours": null, "max_diar_gpu_hours": 2.0, "max_encode_calls": 4500, "max_encode_gpu_hours": 8.0, "wave": 2}, "used": {"cutting_wall_seconds_used": 1523.0076887159667, "diar_gpu_seconds_used": 692.1581248029286, "diar_wall_seconds": 2976.0384237599646, "encode_calls_used": 3063, "encode_gpu_seconds_used": 4728.512528317403, "encode_wall_seconds": 6905.092898603034, "n_ok": 75, "n_receipts": 76}}
+--- meetings attempted by THIS invocation ---
+  TS3009b    ok=True calls=54 enc_wall=105.3s diar_wall=46.3s
+  TS3009c    ok=True calls=56 enc_wall=106.4s diar_wall=48.1s
+  TS3009d    ok=True calls=46 enc_wall=88.2s diar_wall=38.1s
+  TS3010a    ok=True calls=20 enc_wall=37.6s diar_wall=20.8s
+  TS3010d    ok=True calls=39 enc_wall=75.1s diar_wall=34.4s
+  TS3011a    ok=True calls=33 enc_wall=69.3s diar_wall=28.0s
+  TS3011c    ok=True calls=52 enc_wall=114.5s diar_wall=46.4s
+  TS3012b    ok=True calls=55 enc_wall=394.1s diar_wall=59.6s
+  TS3012d    ok=True calls=52 enc_wall=583.6s diar_wall=52.7s
+wave-2 runnable meetings still to run: 0 refused=1
+invocation wall: 2421s (server start 47s, runner 2357s)
+0 %, 114 MiB, 1200 MHz, P5, 55
+=== PRECOMP wave-2 invocation 5 end 2026-08-20T05:38:19Z state=WAVE-COMPLETE ===
+FLY-DONE state=WAVE-COMPLETE remaining=0 refused=1 wall=2421s

@@ -1,0 +1,54 @@
+=== PRECOMP wave-2 invocation 2 start 2026-08-20T02:36:47Z ===
+repo HEAD:  3d5e2e12d32fef151627b588e9da11bad7bc7d49
+budget_s:   2600 (hard runner SIGTERM at 3380s)
+stop-file:  /mnt/c/Users/35686/AppData/Local/Temp/claude/D--chao-workspace-exploring-l4-intelligence-studies-speech-aware-evidence-acquisition/6d9f1834-68e9-41a7-bbcc-724898cf15a9/scratchpad/precomp2/INVOCATION_STOP
+yield-file: /mnt/c/Users/35686/AppData/Local/Temp/claude/D--chao-workspace-exploring-l4-intelligence-studies-speech-aware-evidence-acquisition/6d9f1834-68e9-41a7-bbcc-724898cf15a9/scratchpad/PRECOMP_YIELD
+{
+  "roster_n": 76,
+  "already_ok": 11,
+  "structurally_refused_skipped": [
+    "ES2005d"
+  ],
+  "todo_n": 64
+}
+meetings for this invocation: ES2008a ES2008b ES2008c ES2009a ES2009b ES2009d ES2010a ES2010b ES2010c ES2012b ES2012c ES2012d ES2013a ES2013c ES2013d ES2014a ES2014b ES2014c ES2014d ES2015a ES2015d ES2016a ES2016c ES2016d IS1000a IS1000b IS1000d IS1001a IS1001b IS1001d IS1002b IS1002c IS1002d IS1003b IS1003c IS1004a IS1004d IS1005c IS1006c IS1007a IS1007b IS1007c IS1007d TS3005a TS3005d TS3006b TS3006c TS3006d TS3007a TS3007b TS3007c TS3007d TS3008b TS3008c TS3008d TS3009b TS3009c TS3009d TS3010a TS3010d TS3011a TS3011c TS3012b TS3012d
+receipts before: 12; featcache before: entries=19563 bytes=15798994608
+llama-server child pid=678
+--- waiting for llama-server at http://127.0.0.1:8080 ---
+starting llama-server at 02:36:48Z, cache=/home/chao/feat-cache/ami-q4km
+server healthy after 16 s at 02:37:04Z
+--- run_precomp.py --wave 2 --resume --stop-file --meetings <computed> ---
+03:23:02Z runner rc=0 wall=2758s
+--- teardown ---
+llama-server stopped
+receipts: 12 -> 33 (+21)
+featcache: entries +9827 bytes +8093107760
+--- wave-cumulative ledger vs registered wave-2 ceilings ---
+{"breaches": [], "ceilings": {"max_cutting_wall_hours": null, "max_diar_gpu_hours": 2.0, "max_encode_calls": 4500, "max_encode_gpu_hours": 8.0, "wave": 2}, "used": {"cutting_wall_seconds_used": 695.2761277199606, "diar_gpu_seconds_used": 304.01623965363456, "diar_wall_seconds": 1174.1800405859394, "encode_calls_used": 1213, "encode_gpu_seconds_used": 1801.64859057819, "encode_wall_seconds": 2411.049469280988, "n_ok": 32, "n_receipts": 33}}
+--- meetings attempted by THIS invocation ---
+  ES2008a    ok=True calls=23 enc_wall=42.5s diar_wall=16.9s
+  ES2008b    ok=True calls=47 enc_wall=87.3s diar_wall=37.9s
+  ES2008c    ok=True calls=44 enc_wall=86.3s diar_wall=35.9s
+  ES2009a    ok=True calls=31 enc_wall=58.8s diar_wall=24.1s
+  ES2009b    ok=True calls=31 enc_wall=60.4s diar_wall=24.2s
+  ES2009d    ok=True calls=48 enc_wall=87.9s diar_wall=36.7s
+  ES2010a    ok=True calls=14 enc_wall=25.7s diar_wall=10.8s
+  ES2010b    ok=True calls=38 enc_wall=69.2s diar_wall=29.7s
+  ES2010c    ok=True calls=39 enc_wall=73.6s diar_wall=31.1s
+  ES2012b    ok=True calls=47 enc_wall=87.7s diar_wall=38.9s
+  ES2012c    ok=True calls=47 enc_wall=88.6s diar_wall=38.1s
+  ES2012d    ok=True calls=20 enc_wall=38.6s diar_wall=15.6s
+  ES2013a    ok=True calls=18 enc_wall=32.5s diar_wall=13.5s
+  ES2013c    ok=True calls=50 enc_wall=93.3s diar_wall=40.9s
+  ES2013d    ok=True calls=41 enc_wall=75.6s diar_wall=31.9s
+  ES2014a    ok=True calls=24 enc_wall=44.1s diar_wall=19.1s
+  ES2014b    ok=True calls=49 enc_wall=91.1s diar_wall=39.9s
+  ES2014c    ok=True calls=49 enc_wall=111.7s diar_wall=39.7s
+  ES2014d    ok=True calls=63 enc_wall=139.8s diar_wall=71.8s
+  ES2015a    ok=True calls=24 enc_wall=55.5s diar_wall=32.9s
+  ES2015d    ok=True calls=42 enc_wall=79.7s diar_wall=49.1s
+wave-2 runnable meetings still to run: 43 refused=1
+invocation wall: 2778s (server start 16s, runner 2758s)
+0 %, 143 MiB, 1200 MHz, P4, 52
+=== PRECOMP wave-2 invocation 2 end 2026-08-20T03:23:05Z state=SLICE-DONE ===
+FLY-DONE state=SLICE-DONE remaining=43 refused=1 wall=2778s

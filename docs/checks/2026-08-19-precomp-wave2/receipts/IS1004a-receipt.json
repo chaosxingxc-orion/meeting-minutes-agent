@@ -1,0 +1,340 @@
+{
+  "budget_after": {
+    "ceilings": {
+      "max_cutting_wall_hours": null,
+      "max_diar_gpu_hours": 2.0,
+      "max_encode_calls": 4500,
+      "max_encode_gpu_hours": 8.0,
+      "wave": 2
+    },
+    "cutting_wall_seconds_used": 993.5696603139659,
+    "diar_gpu_seconds_used": 416.43751353293476,
+    "encode_calls_used": 1763,
+    "encode_gpu_seconds_used": 2576.7579578293607
+  },
+  "cutting": {
+    "oracle": {
+      "content_hash": "7d42793c97ff84ce298815f6c77c5f51497d6415325118d85a663a37c8b5058c",
+      "n_entries": 8
+    },
+    "tool": {
+      "content_hash": "983e68c8b13275adc4c9fb7aa2afac1c99281af6bc606740e2030129bef4a3aa",
+      "n_entries": 8
+    },
+    "vad": null,
+    "wall_seconds": 0.9109156629856443,
+    "workers": 8
+  },
+  "diar": {
+    "contact": {
+      "args": [
+        "/home/chao/nemo-speech.cpp/build/cuda-diar/bin/nemo-speech",
+        "diarize",
+        "/mnt/e/chao_workspace/exploring-l4-intelligence/speechrl-data/datasets/ami/amicorpus/IS1004a/audio/IS1004a.Mix-Headset.wav",
+        "--model",
+        "/mnt/e/chao_workspace/exploring-l4-intelligence/speechrl-data/models/diar-sortformer-4spk-v2/diar_streaming_sortformer_4spk-v2.q8_0.gguf",
+        "--format",
+        "rttm",
+        "--recording-id",
+        "IS1004a",
+        "--output",
+        "/mnt/e/chao_workspace/exploring-l4-intelligence/speechrl-data/derived/meeting-minutes/precomp/rttm/IS1004a.rttm",
+        "--force"
+      ],
+      "checkpoint_sha256": "0679cfeb1ce356d0dea9470b31274f4bfc7eb927497d82005483770666da998a",
+      "error": null,
+      "meeting_id": "IS1004a",
+      "recorded_utc": "2026-08-20T03:59:18.129770+00:00",
+      "return_code": 0,
+      "tool_name": "nemo-speech.cpp-cuda-q8_0",
+      "tool_version": "nemo-speech 1.0.0; commit 4c749a700500e077d4732a539eb082bf2208dac7; binary sha256 1a3e3f4fe7db4c48e5d6e44a76d5adf2bbfef80024c023b0eab2766eb61aca78; CMake preset cuda-diar; HF revision 5240a64075176943f677d30fa2171c780229f341; attempt-2 default streaming (DiarStream) mode: the registered --offline full-attention mode is hard-capped by the tool at 5000 encoder frames (~6 min audio) and refuses all six meetings",
+      "wall_seconds": 13.275172251000185
+    },
+    "gpu_seconds_estimate": 1.726813173150731,
+    "n_turns": 181,
+    "wall_seconds": 13.283178255005623
+  },
+  "encode_warm": {
+    "n_calls": 16,
+    "oracle": [
+      {
+        "gpu_seconds_estimate": 2.0536302113620333,
+        "max_tokens": 1,
+        "n_attempts": 1,
+        "request_id": "precomp-w2-oracle-IS1004a-slice0000",
+        "text_discarded_unread": true,
+        "usage": {
+          "completion_tokens": 1,
+          "prompt_tokens": 1497,
+          "total_tokens": 1498
+        },
+        "wall_seconds": 2.0955410320020746
+      },
+      {
+        "gpu_seconds_estimate": 1.6400792058062506,
+        "max_tokens": 1,
+        "n_attempts": 1,
+        "request_id": "precomp-w2-oracle-IS1004a-slice0001",
+        "text_discarded_unread": true,
+        "usage": {
+          "completion_tokens": 1,
+          "prompt_tokens": 1315,
+          "total_tokens": 1316
+        },
+        "wall_seconds": 1.7263991640065797
+      },
+      {
+        "gpu_seconds_estimate": 1.6407037510184455,
+        "max_tokens": 1,
+        "n_attempts": 1,
+        "request_id": "precomp-w2-oracle-IS1004a-slice0002",
+        "text_discarded_unread": true,
+        "usage": {
+          "completion_tokens": 1,
+          "prompt_tokens": 1276,
+          "total_tokens": 1277
+        },
+        "wall_seconds": 1.6914471659983974
+      },
+      {
+        "gpu_seconds_estimate": 1.710431990188372,
+        "max_tokens": 1,
+        "n_attempts": 1,
+        "request_id": "precomp-w2-oracle-IS1004a-slice0003",
+        "text_discarded_unread": true,
+        "usage": {
+          "completion_tokens": 1,
+          "prompt_tokens": 1354,
+          "total_tokens": 1355
+        },
+        "wall_seconds": 1.8391741829982493
+      },
+      {
+        "gpu_seconds_estimate": 2.1832963622450188,
+        "max_tokens": 1,
+        "n_attempts": 1,
+        "request_id": "precomp-w2-oracle-IS1004a-slice0004",
+        "text_discarded_unread": true,
+        "usage": {
+          "completion_tokens": 1,
+          "prompt_tokens": 1614,
+          "total_tokens": 1615
+        },
+        "wall_seconds": 2.250820992005174
+      },
+      {
+        "gpu_seconds_estimate": 1.636575129358971,
+        "max_tokens": 1,
+        "n_attempts": 1,
+        "request_id": "precomp-w2-oracle-IS1004a-slice0005",
+        "text_discarded_unread": true,
+        "usage": {
+          "completion_tokens": 1,
+          "prompt_tokens": 1289,
+          "total_tokens": 1290
+        },
+        "wall_seconds": 1.6871908550092485
+      },
+      {
+        "gpu_seconds_estimate": 1.1952398168371292,
+        "max_tokens": 1,
+        "n_attempts": 1,
+        "request_id": "precomp-w2-oracle-IS1004a-slice0006",
+        "text_discarded_unread": true,
+        "usage": {
+          "completion_tokens": 1,
+          "prompt_tokens": 1302,
+          "total_tokens": 1303
+        },
+        "wall_seconds": 1.7577056129957782
+      },
+      {
+        "gpu_seconds_estimate": 0.9353327846933097,
+        "max_tokens": 1,
+        "n_attempts": 1,
+        "request_id": "precomp-w2-oracle-IS1004a-slice0007",
+        "text_discarded_unread": true,
+        "usage": {
+          "completion_tokens": 1,
+          "prompt_tokens": 743,
+          "total_tokens": 744
+        },
+        "wall_seconds": 0.9845608259929577
+      }
+    ],
+    "tool": [
+      {
+        "gpu_seconds_estimate": 1.472269378429628,
+        "max_tokens": 1,
+        "n_attempts": 1,
+        "request_id": "precomp-w2-tool-IS1004a-slice0000",
+        "text_discarded_unread": true,
+        "usage": {
+          "completion_tokens": 1,
+          "prompt_tokens": 1341,
+          "total_tokens": 1342
+        },
+        "wall_seconds": 1.7527016409876524
+      },
+      {
+        "gpu_seconds_estimate": 1.539454114412656,
+        "max_tokens": 1,
+        "n_attempts": 1,
+        "request_id": "precomp-w2-tool-IS1004a-slice0001",
+        "text_discarded_unread": true,
+        "usage": {
+          "completion_tokens": 1,
+          "prompt_tokens": 1289,
+          "total_tokens": 1290
+        },
+        "wall_seconds": 1.6377171429921873
+      },
+      {
+        "gpu_seconds_estimate": 1.689921112312004,
+        "max_tokens": 1,
+        "n_attempts": 1,
+        "request_id": "precomp-w2-tool-IS1004a-slice0002",
+        "text_discarded_unread": true,
+        "usage": {
+          "completion_tokens": 1,
+          "prompt_tokens": 1289,
+          "total_tokens": 1290
+        },
+        "wall_seconds": 1.7603344919916708
+      },
+      {
+        "gpu_seconds_estimate": 1.743805520505557,
+        "max_tokens": 1,
+        "n_attempts": 1,
+        "request_id": "precomp-w2-tool-IS1004a-slice0003",
+        "text_discarded_unread": true,
+        "usage": {
+          "completion_tokens": 1,
+          "prompt_tokens": 1328,
+          "total_tokens": 1329
+        },
+        "wall_seconds": 1.797737650005729
+      },
+      {
+        "gpu_seconds_estimate": 1.1541897135268664,
+        "max_tokens": 1,
+        "n_attempts": 1,
+        "request_id": "precomp-w2-tool-IS1004a-slice0004",
+        "text_discarded_unread": true,
+        "usage": {
+          "completion_tokens": 1,
+          "prompt_tokens": 1302,
+          "total_tokens": 1303
+        },
+        "wall_seconds": 1.6973378140100976
+      },
+      {
+        "gpu_seconds_estimate": 1.5880081174043879,
+        "max_tokens": 1,
+        "n_attempts": 1,
+        "request_id": "precomp-w2-tool-IS1004a-slice0005",
+        "text_discarded_unread": true,
+        "usage": {
+          "completion_tokens": 1,
+          "prompt_tokens": 1302,
+          "total_tokens": 1303
+        },
+        "wall_seconds": 1.671587492004619
+      },
+      {
+        "gpu_seconds_estimate": 1.7723859675852873,
+        "max_tokens": 1,
+        "n_attempts": 1,
+        "request_id": "precomp-w2-tool-IS1004a-slice0006",
+        "text_discarded_unread": true,
+        "usage": {
+          "completion_tokens": 1,
+          "prompt_tokens": 1354,
+          "total_tokens": 1355
+        },
+        "wall_seconds": 1.9057913629949326
+      },
+      {
+        "gpu_seconds_estimate": 2.314379293520178,
+        "max_tokens": 1,
+        "n_attempts": 1,
+        "request_id": "precomp-w2-tool-IS1004a-slice0007",
+        "text_discarded_unread": true,
+        "usage": {
+          "completion_tokens": 1,
+          "prompt_tokens": 1614,
+          "total_tokens": 1615
+        },
+        "wall_seconds": 2.361611524000182
+      }
+    ],
+    "vad": [],
+    "wall_seconds": 29.715305542005808
+  },
+  "error": null,
+  "meeting_id": "IS1004a",
+  "metrics": {
+    "boundary_displacement": {
+      "displacements_s": [
+        19.37999999999988,
+        24.355000000000018,
+        42.87349999999998,
+        44.32499999999999,
+        45.387,
+        45.772999999999996,
+        47.89250000000004
+      ],
+      "max_s": 47.89250000000004,
+      "mean_s": 38.56942857142855,
+      "median_s": 44.32499999999999,
+      "min_s": 19.37999999999988,
+      "n": 7
+    },
+    "cache": {
+      "after": {
+        "n_entries": 36135,
+        "total_bytes": 29445763696
+      },
+      "before": {
+        "n_entries": 35938,
+        "total_bytes": 29284206112
+      },
+      "delta": {
+        "bytes_added": 161557584,
+        "entries_added": 197
+      }
+    },
+    "slice_counts": {
+      "delta": 0,
+      "oracle_slices": 8,
+      "tool_slices": 8
+    },
+    "turn_counts": {
+      "oracle_turns": 112,
+      "tool_turns": 181
+    },
+    "walls": {
+      "cutting_wall_s": 0.9109156629856443,
+      "diar_wall_s": 13.283178255005623,
+      "encode_wall_s": 29.715305542005808,
+      "total_wall_s": 43.909399459997076
+    }
+  },
+  "ok": true,
+  "recorded_utc": "2026-08-20T03:59:50.781104+00:00",
+  "schema_version": "1.1.0",
+  "slice_plans": {
+    "oracle": {
+      "content_hash": "ee20f6a5d391127465421d213ef83d60590a20cf79ec06f3dc3094eb44d708e9",
+      "n_slices": 8,
+      "turn_provenance": "oracle-turn"
+    },
+    "tool": {
+      "content_hash": "1fcfa973115b1b1a53ad68df300c2ceb8bdb6a9d0c191a3138f23471d3df6446",
+      "n_slices": 8,
+      "turn_provenance": "tool-diar"
+    },
+    "vad": null
+  },
+  "wave": 2
+}

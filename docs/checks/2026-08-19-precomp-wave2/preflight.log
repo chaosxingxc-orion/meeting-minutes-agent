@@ -1,0 +1,297 @@
+=== wave-2 preflight start 2026-08-20T01:57:25Z ===
+--- repo state ---
+3d5e2e12d32fef151627b588e9da11bad7bc7d49
+porcelain lines: 0
+3d5e2e1 fix(saer-m): content-based bullet-to-gold alignment - id-join failure repaired (definition v1.1 in-module)
+6a9485e score(g1-floors): one-shot descriptive read - floors + deployment gap
+5fd9a18 flight(g1-floors): four-arm floors campaign FLOWN - 5 chunks, 1932/2900, no result read
+
+--- hash pins ---
+OK   llama-server  097c96ec5a3f576f378d4d5e103928bf070647fdcc1f015eacb839503e121c68  /home/chao/llama.cpp-featcache/build/bin/llama-server
+OK   qwen3-omni-q4km  0751c279498785c0b07130ae7748038d1e2cfd04617928e4557063807f98066d  /home/chao/models/qwen3-omni-30b-a3b-instruct-gguf-q4km/Qwen3-Omni-30B-A3B-Instruct-Q4_K_M.gguf
+OK   qwen3-omni-mmproj  f0dfe825fb692d426362b1ac79678fc08daa4758f7151526cad110515f122883  /home/chao/models/qwen3-omni-30b-a3b-instruct-gguf-q4km/mmproj-Qwen3-Omni-30B-A3B-Instruct-bf16.gguf
+OK   nemo-speech-binary  1a3e3f4fe7db4c48e5d6e44a76d5adf2bbfef80024c023b0eab2766eb61aca78  /home/chao/nemo-speech.cpp/build/cuda-diar/bin/nemo-speech
+OK   diar-sortformer-q8  0679cfeb1ce356d0dea9470b31274f4bfc7eb927497d82005483770666da998a  /mnt/e/chao_workspace/exploring-l4-intelligence/speechrl-data/models/diar-sortformer-4spk-v2/diar_streaming_sortformer_4spk-v2.q8_0.gguf
+hash-pin fail flag: 0
+
+--- llama.cpp build commit ---
+5d9dfcb58ea860295da8fc93c7b5bed9e2c71151
+dirty: 0
+version: 5 (5d9dfcb58)
+built with GNU 13.3.0 for Linux x86_64
+
+--- arm-config (pinned Arm B source) ---
+-rwxrwxrwx 1 chao chao 1985 Aug 18 23:06 /mnt/e/chao_workspace/exploring-l4-intelligence/speechrl-data/derived/meeting-minutes/diar-smoke/tooling/arm-config.json
+608230d62d077671e66e7912bea097ee59d7fadaa72aa9025842ee385eb80158  /mnt/e/chao_workspace/exploring-l4-intelligence/speechrl-data/derived/meeting-minutes/diar-smoke/tooling/arm-config.json
+arms: ['A', 'B']
+tool_name: nemo-speech.cpp-cuda-q8_0
+checkpoint_sha256: 0679cfeb1ce356d0dea9470b31274f4bfc7eb927497d82005483770666da998a
+argv0: /home/chao/nemo-speech.cpp/build/cuda-diar/bin/nemo-speech
+
+--- feature cache (ami-q4km) BEFORE wave-2 ---
+entries: 14324
+bytes:   11486248768
+free on /home: /dev/sdd       1007G  193G  764G  21% /
+free on E:   : E:\             3.8T  1.2T  2.6T  32% /mnt/e
+
+--- wave-2 receipts already on disk ---
+count: 0
+
+--- stop files ---
+coordinator YIELD_FILE=/mnt/c/Users/35686/AppData/Local/Temp/claude/D--chao-workspace-exploring-l4-intelligence-studies-speech-aware-evidence-acquisition/6d9f1834-68e9-41a7-bbcc-724898cf15a9/scratchpad/PRECOMP_YIELD exists=no
+operator MY_STOP=/mnt/c/Users/35686/AppData/Local/Temp/claude/D--chao-workspace-exploring-l4-intelligence-studies-speech-aware-evidence-acquisition/6d9f1834-68e9-41a7-bbcc-724898cf15a9/scratchpad/precomp2/INVOCATION_STOP exists=no
+
+--- pytest (full meeting-repo suite) ---
+=============================== warnings summary ===============================
+tests/unit/chunking/test_slicer.py::TestRealAudioVad::test_detect_energy_pause_transitions_finds_a_real_silence_gap
+  /home/chao/.venvs/speechrl/lib/python3.12/site-packages/audioread/rawread.py:16: DeprecationWarning: 'aifc' is deprecated and slated for removal in Python 3.13
+    import aifc
+
+tests/unit/chunking/test_slicer.py::TestRealAudioVad::test_detect_energy_pause_transitions_finds_a_real_silence_gap
+  /home/chao/.venvs/speechrl/lib/python3.12/site-packages/audioread/rawread.py:17: DeprecationWarning: 'audioop' is deprecated and slated for removal in Python 3.13
+    import audioop
+
+tests/unit/chunking/test_slicer.py::TestRealAudioVad::test_detect_energy_pause_transitions_finds_a_real_silence_gap
+  /home/chao/.venvs/speechrl/lib/python3.12/site-packages/audioread/rawread.py:19: DeprecationWarning: 'sunau' is deprecated and slated for removal in Python 3.13
+    import sunau
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+1537 passed, 6 skipped, 3 warnings in 45.28s
+
+--- runner --summary-only wave 2 (roster + ceilings, exclusion gate) ---
+{
+  "ceilings": {
+    "max_cutting_wall_hours": null,
+    "max_diar_gpu_hours": 2.0,
+    "max_encode_calls": 4500,
+    "max_encode_gpu_hours": 8.0,
+    "wave": 2
+  },
+  "ceilings_profile": "wave-2",
+  "meetings": [
+    "ES2002a",
+    "ES2002c",
+    "ES2002d",
+    "ES2003a",
+    "ES2003d",
+    "ES2005a",
+    "ES2005c",
+    "ES2005d",
+    "ES2006a",
+    "ES2006b",
+    "ES2007c",
+    "ES2007d",
+    "ES2008a",
+    "ES2008b",
+    "ES2008c",
+    "ES2009a",
+    "ES2009b",
+    "ES2009d",
+    "ES2010a",
+    "ES2010b",
+    "ES2010c",
+    "ES2012b",
+    "ES2012c",
+    "ES2012d",
+    "ES2013a",
+    "ES2013c",
+    "ES2013d",
+    "ES2014a",
+    "ES2014b",
+    "ES2014c",
+    "ES2014d",
+    "ES2015a",
+    "ES2015d",
+    "ES2016a",
+    "ES2016c",
+    "ES2016d",
+    "IS1000a",
+    "IS1000b",
+    "IS1000d",
+    "IS1001a",
+    "IS1001b",
+    "IS1001d",
+    "IS1002b",
+    "IS1002c",
+    "IS1002d",
+    "IS1003b",
+    "IS1003c",
+    "IS1004a",
+    "IS1004d",
+    "IS1005c",
+    "IS1006c",
+    "IS1007a",
+    "IS1007b",
+    "IS1007c",
+    "IS1007d",
+    "TS3005a",
+    "TS3005d",
+    "TS3006b",
+    "TS3006c",
+    "TS3006d",
+    "TS3007a",
+    "TS3007b",
+    "TS3007c",
+    "TS3007d",
+    "TS3008b",
+    "TS3008c",
+    "TS3008d",
+    "TS3009b",
+    "TS3009c",
+    "TS3009d",
+    "TS3010a",
+    "TS3010d",
+    "TS3011a",
+    "TS3011c",
+    "TS3012b",
+    "TS3012d"
+  ],
+  "n_meetings": 76,
+  "turn_sources": [
+    "tool",
+    "oracle"
+  ],
+  "wave": 2
+}
+
+--- roster cross-checks: wave-2 disjoint from dev-18, gate clean, no reserved role ---
+{
+  "gate": "assert_wave_roster_admissible PASSED for all 76",
+  "overlap_with_dev18": [],
+  "usable_discovery_exposable_n": 87,
+  "wave1_n": 18,
+  "wave2_n": 76,
+  "wave2_roles": {
+    "glossary-discovery": 76
+  }
+}
+wave2 roster:
+ES2002a ES2002c ES2002d ES2003a ES2003d ES2005a ES2005c ES2005d ES2006a ES2006b ES2007c ES2007d ES2008a ES2008b ES2008c ES2009a ES2009b ES2009d ES2010a ES2010b ES2010c ES2012b ES2012c ES2012d ES2013a ES2013c ES2013d ES2014a ES2014b ES2014c ES2014d ES2015a ES2015d ES2016a ES2016c ES2016d IS1000a IS1000b IS1000d IS1001a IS1001b IS1001d IS1002b IS1002c IS1002d IS1003b IS1003c IS1004a IS1004d IS1005c IS1006c IS1007a IS1007b IS1007c IS1007d TS3005a TS3005d TS3006b TS3006c TS3006d TS3007a TS3007b TS3007c TS3007d TS3008b TS3008c TS3008d TS3009b TS3009c TS3009d TS3010a TS3010d TS3011a TS3011c TS3012b TS3012d
+
+--- wave-2 budget pre-charge dry read (from receipts on disk) ---
+{
+  "roster_n": 76,
+  "resume_skips_n": 0,
+  "resume_runs_n": 76,
+  "resume_skips": []
+}
+precharge from 0 receipts -> ADMISSIBLE
+{
+  "ceilings": {
+    "max_cutting_wall_hours": null,
+    "max_diar_gpu_hours": 2.0,
+    "max_encode_calls": 4500,
+    "max_encode_gpu_hours": 8.0,
+    "wave": 2
+  },
+  "cutting_wall_seconds_used": 0.0,
+  "diar_gpu_seconds_used": 0.0,
+  "encode_calls_used": 0,
+  "encode_gpu_seconds_used": 0.0
+}
+
+--- wave-2 audio presence + crude encode-call / wall estimate ---
+ES2002a:   1272.6s  est_slices/source~ 14  est_calls(2 src)~ 28
+ES2002c:   2423.7s  est_slices/source~ 27  est_calls(2 src)~ 54
+ES2002d:   2624.2s  est_slices/source~ 29  est_calls(2 src)~ 58
+ES2003a:   1139.8s  est_slices/source~ 13  est_calls(2 src)~ 26
+ES2003d:   2351.0s  est_slices/source~ 26  est_calls(2 src)~ 52
+ES2005a:    477.9s  est_slices/source~  5  est_calls(2 src)~ 10
+ES2005c:   2295.9s  est_slices/source~ 26  est_calls(2 src)~ 52
+ES2005d:   1731.2s  est_slices/source~ 19  est_calls(2 src)~ 38
+ES2006a:   1284.3s  est_slices/source~ 14  est_calls(2 src)~ 28
+ES2006b:   2183.1s  est_slices/source~ 24  est_calls(2 src)~ 48
+ES2007c:   2377.4s  est_slices/source~ 26  est_calls(2 src)~ 52
+ES2007d:   1249.5s  est_slices/source~ 14  est_calls(2 src)~ 28
+ES2008a:   1043.4s  est_slices/source~ 12  est_calls(2 src)~ 24
+ES2008b:   2231.7s  est_slices/source~ 25  est_calls(2 src)~ 50
+ES2008c:   2102.6s  est_slices/source~ 23  est_calls(2 src)~ 46
+ES2009a:   1402.2s  est_slices/source~ 16  est_calls(2 src)~ 32
+ES2009b:   1435.3s  est_slices/source~ 16  est_calls(2 src)~ 32
+ES2009d:   2114.9s  est_slices/source~ 23  est_calls(2 src)~ 46
+ES2010a:    644.3s  est_slices/source~  7  est_calls(2 src)~ 14
+ES2010b:   1752.0s  est_slices/source~ 19  est_calls(2 src)~ 38
+ES2010c:   1837.8s  est_slices/source~ 20  est_calls(2 src)~ 40
+ES2012b:   2239.7s  est_slices/source~ 25  est_calls(2 src)~ 50
+ES2012c:   2208.7s  est_slices/source~ 25  est_calls(2 src)~ 50
+ES2012d:    949.7s  est_slices/source~ 11  est_calls(2 src)~ 22
+ES2013a:    825.2s  est_slices/source~  9  est_calls(2 src)~ 18
+ES2013c:   2358.1s  est_slices/source~ 26  est_calls(2 src)~ 52
+ES2013d:   1898.6s  est_slices/source~ 21  est_calls(2 src)~ 42
+ES2014a:   1149.0s  est_slices/source~ 13  est_calls(2 src)~ 26
+ES2014b:   2319.9s  est_slices/source~ 26  est_calls(2 src)~ 52
+ES2014c:   2273.5s  est_slices/source~ 25  est_calls(2 src)~ 50
+ES2014d:   2911.4s  est_slices/source~ 32  est_calls(2 src)~ 64
+ES2015a:   1146.6s  est_slices/source~ 13  est_calls(2 src)~ 26
+ES2015d:   1931.6s  est_slices/source~ 21  est_calls(2 src)~ 42
+ES2016a:   1384.2s  est_slices/source~ 15  est_calls(2 src)~ 30
+ES2016c:   2308.4s  est_slices/source~ 26  est_calls(2 src)~ 52
+ES2016d:   1523.3s  est_slices/source~ 17  est_calls(2 src)~ 34
+IS1000a:   1582.7s  est_slices/source~ 18  est_calls(2 src)~ 36
+IS1000b:   2343.7s  est_slices/source~ 26  est_calls(2 src)~ 52
+IS1000d:   2618.3s  est_slices/source~ 29  est_calls(2 src)~ 58
+IS1001a:    909.1s  est_slices/source~ 10  est_calls(2 src)~ 20
+IS1001b:   2116.7s  est_slices/source~ 24  est_calls(2 src)~ 48
+IS1001d:    781.0s  est_slices/source~  9  est_calls(2 src)~ 18
+IS1002b:   2367.7s  est_slices/source~ 26  est_calls(2 src)~ 52
+IS1002c:   2080.8s  est_slices/source~ 23  est_calls(2 src)~ 46
+IS1002d:   1263.0s  est_slices/source~ 14  est_calls(2 src)~ 28
+IS1003b:   1646.0s  est_slices/source~ 18  est_calls(2 src)~ 36
+IS1003c:   1876.3s  est_slices/source~ 21  est_calls(2 src)~ 42
+IS1004a:    796.8s  est_slices/source~  9  est_calls(2 src)~ 18
+IS1004d:   1965.3s  est_slices/source~ 22  est_calls(2 src)~ 44
+IS1005c:   2060.2s  est_slices/source~ 23  est_calls(2 src)~ 46
+IS1006c:   1950.2s  est_slices/source~ 22  est_calls(2 src)~ 44
+IS1007a:    966.0s  est_slices/source~ 11  est_calls(2 src)~ 22
+IS1007b:   1302.7s  est_slices/source~ 14  est_calls(2 src)~ 28
+IS1007c:   2113.2s  est_slices/source~ 23  est_calls(2 src)~ 46
+IS1007d:   2029.1s  est_slices/source~ 23  est_calls(2 src)~ 46
+TS3005a:   1318.8s  est_slices/source~ 15  est_calls(2 src)~ 30
+TS3005d:   2672.2s  est_slices/source~ 30  est_calls(2 src)~ 60
+TS3006b:   2353.9s  est_slices/source~ 26  est_calls(2 src)~ 52
+TS3006c:   2584.2s  est_slices/source~ 29  est_calls(2 src)~ 58
+TS3006d:   2971.5s  est_slices/source~ 33  est_calls(2 src)~ 66
+TS3007a:   1609.3s  est_slices/source~ 18  est_calls(2 src)~ 36
+TS3007b:   3354.9s  est_slices/source~ 37  est_calls(2 src)~ 74
+TS3007c:   2420.0s  est_slices/source~ 27  est_calls(2 src)~ 54
+TS3007d:   2824.3s  est_slices/source~ 31  est_calls(2 src)~ 62
+TS3008b:   2321.0s  est_slices/source~ 26  est_calls(2 src)~ 52
+TS3008c:   2508.0s  est_slices/source~ 28  est_calls(2 src)~ 56
+TS3008d:   2795.0s  est_slices/source~ 31  est_calls(2 src)~ 62
+TS3009b:   2460.1s  est_slices/source~ 27  est_calls(2 src)~ 54
+TS3009c:   2580.0s  est_slices/source~ 29  est_calls(2 src)~ 58
+TS3009d:   2056.2s  est_slices/source~ 23  est_calls(2 src)~ 46
+TS3010a:   1041.0s  est_slices/source~ 12  est_calls(2 src)~ 24
+TS3010d:   1920.7s  est_slices/source~ 21  est_calls(2 src)~ 42
+TS3011a:   1509.8s  est_slices/source~ 17  est_calls(2 src)~ 34
+TS3011c:   2395.0s  est_slices/source~ 27  est_calls(2 src)~ 54
+TS3012b:   2457.4s  est_slices/source~ 27  est_calls(2 src)~ 54
+TS3012d:   2341.6s  est_slices/source~ 26  est_calls(2 src)~ 52
+REMAINING meetings: 76; audio 144665.9s = 40.18 h; crude est encode calls = 3214
+projected encode wall  ~ 5.99 h
+projected encode GPU-h ~ 4.40 h  (ceiling 8.0)
+projected diar  GPU-h  ~ 0.32 h  (ceiling 2.0)
+projected total wall   ~ 7.82 h
+MISSING AUDIO: []
+
+--- NXT annotations root ---
+/mnt/e/chao_workspace/exploring-l4-intelligence/speechrl-data/datasets/ami/annotations/manual_1.6.2
+00README_MANUAL.txt
+AMI-metadata.xml
+LICENCE.txt
+MANIFEST_MANUAL.txt
+abstractive
+argumentation
+configuration
+corpusResources
+corpusdoc
+decision
+dialogueActs
+disfluency
+
+--- GPU health ---
+name, utilization.gpu [%], memory.used [MiB], memory.total [MiB], clocks.current.sm [MHz], clocks.max.sm [MHz], pstate, temperature.gpu, power.draw [W], clocks_event_reasons.active
+NVIDIA GeForce RTX 5090 Laptop GPU, 0 %, 143 MiB, 24463 MiB, 1200 MHz, 3090 MHz, P5, 44, 12.91 W, 0x0000000000000000
+(no llama-server running)
+=== wave-2 preflight end 2026-08-20T01:58:44Z ===
+PREFLIGHT-DONE

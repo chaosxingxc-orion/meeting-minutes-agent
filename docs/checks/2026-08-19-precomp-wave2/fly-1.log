@@ -1,0 +1,39 @@
+=== PRECOMP wave-2 invocation 1 start 2026-08-20T01:59:49Z ===
+repo HEAD:  3d5e2e12d32fef151627b588e9da11bad7bc7d49
+out-dir:    /mnt/d/chao_workspace/exploring-l4-intelligence/papers/meeting-minutes-agent/docs/checks/2026-08-19-precomp-wave2
+cache:      /home/chao/feat-cache/ami-q4km
+budget_s:   1900 (hard runner SIGTERM at 2680s)
+stop-file:  /mnt/c/Users/35686/AppData/Local/Temp/claude/D--chao-workspace-exploring-l4-intelligence-studies-speech-aware-evidence-acquisition/6d9f1834-68e9-41a7-bbcc-724898cf15a9/scratchpad/precomp2/INVOCATION_STOP
+yield-file: /mnt/c/Users/35686/AppData/Local/Temp/claude/D--chao-workspace-exploring-l4-intelligence-studies-speech-aware-evidence-acquisition/6d9f1834-68e9-41a7-bbcc-724898cf15a9/scratchpad/PRECOMP_YIELD
+receipts before: 0; featcache before: entries=14324 bytes=11486248768
+llama-server child pid=612
+--- waiting for llama-server at http://127.0.0.1:8080 ---
+starting llama-server at 01:59:49Z, cache=/home/chao/feat-cache/ami-q4km
+server healthy after 10 s at 01:59:59Z
+--- run_precomp.py --wave 2 --resume --stop-file ---
+02:33:32Z runner rc=0 wall=2013s
+--- teardown ---
+llama-server stopped
+receipts: 0 -> 12 (+12)
+featcache: entries +5239 bytes +4312745840
+--- wave-cumulative ledger vs registered wave-2 ceilings ---
+{"breaches": [], "ceilings": {"max_cutting_wall_hours": null, "max_diar_gpu_hours": 2.0, "max_encode_calls": 4500, "max_encode_gpu_hours": 8.0, "wave": 2}, "used": {"cutting_wall_seconds_used": 386.43165258399677, "diar_gpu_seconds_used": 19.042947640932397, "diar_wall_seconds": 495.4227547639748, "encode_calls_used": 424, "encode_gpu_seconds_used": 558.4627610798952, "encode_wall_seconds": 881.1021285580064, "n_ok": 11, "n_receipts": 12}}
+--- meetings completed by THIS invocation ---
+  ES2002a    ok=True calls=26 enc_wall=44.9s diar_wall=20.2s
+  ES2002c    ok=True calls=54 enc_wall=104.7s diar_wall=40.4s
+  ES2002d    ok=True calls=54 enc_wall=121.5s diar_wall=68.9s
+  ES2003a    ok=True calls=22 enc_wall=50.7s diar_wall=32.8s
+  ES2003d    ok=True calls=50 enc_wall=111.0s diar_wall=57.0s
+  ES2005a    ok=True calls=9 enc_wall=18.5s diar_wall=21.9s
+  ES2005c    ok=True calls=52 enc_wall=104.9s diar_wall=54.6s
+  ES2005d    ok=False calls=0 enc_wall=0.0s diar_wall=40.0s
+     ERROR: TransportBoundViolation: slice 10 (start=904.148, end=1024.1480000000001) has duration 120.00000000000011s, which exceeds the transport layer's hard cap TRANSPORT_SLICE_MAX_S=120.0s -- a slice plan must never carry a slice client/transport.py would refuse to send
+  ES2006a    ok=True calls=28 enc_wall=57.2s diar_wall=30.8s
+  ES2006b    ok=True calls=49 enc_wall=104.6s diar_wall=47.8s
+  ES2007c    ok=True calls=52 enc_wall=108.3s diar_wall=52.6s
+  ES2007d    ok=True calls=28 enc_wall=55.0s diar_wall=28.5s
+wave-2 meetings still to run: 65
+invocation wall: 2044s (server start 10s, runner 2013s)
+0 %, 143 MiB, 1200 MHz, P5, 48
+=== PRECOMP wave-2 invocation 1 end 2026-08-20T02:33:53Z state=SLICE-DONE ===
+FLY-DONE state=SLICE-DONE remaining=65 wall=2044s

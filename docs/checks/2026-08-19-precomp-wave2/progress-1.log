@@ -1,0 +1,60 @@
+receipts before: 0; featcache before: entries=14324 bytes=11486248768
+llama-server child pid=612
+01:59:49Z WATCH receipts=0 latest= cache_entries=14324 gpu=[1, 1200, 12.43 ]
+server healthy after 10 s at 01:59:59Z
+--- run_precomp.py --wave 2 --resume --stop-file ---
+02:00:51Z WATCH receipts=0 latest= cache_entries=14505 gpu=[0, 1200, 58.70 ]
+02:01:56Z WATCH receipts=1 latest=ES2002a-receipt.json cache_entries=14641 gpu=[0, 1200, 41.59 ]
+02:02:56Z WATCH receipts=1 latest=ES2002a-receipt.json cache_entries=15005 gpu=[99, 1087, 71.26 ]
+02:03:58Z WATCH receipts=2 latest=ES2002c-receipt.json cache_entries=15316 gpu=[2, 1200, 14.39 ]
+02:05:01Z WATCH receipts=2 latest=ES2002c-receipt.json cache_entries=15316 gpu=[0, 1200, 13.99 ]
+02:06:02Z WATCH receipts=2 latest=ES2002c-receipt.json cache_entries=15316 gpu=[1, 1200, 12.77 ]
+02:07:05Z WATCH receipts=2 latest=ES2002c-receipt.json cache_entries=15316 gpu=[0, 1200, 12.49 ]
+02:08:07Z WATCH receipts=2 latest=ES2002c-receipt.json cache_entries=15497 gpu=[97, 1200, 69.82 ]
+02:09:09Z WATCH receipts=2 latest=ES2002c-receipt.json cache_entries=15826 gpu=[99, 675, 66.52 ]
+02:10:10Z WATCH receipts=3 latest=ES2002d-receipt.json cache_entries=15985 gpu=[96, 1200, 69.78 ]
+02:11:13Z WATCH receipts=3 latest=ES2002d-receipt.json cache_entries=16018 gpu=[97, 667, 66.08 ]
+02:12:15Z WATCH receipts=4 latest=ES2003a-receipt.json cache_entries=16273 gpu=[0, 1200, 13.11 ]
+02:13:18Z WATCH receipts=4 latest=ES2003a-receipt.json cache_entries=16273 gpu=[0, 1200, 13.16 ]
+02:14:20Z WATCH receipts=4 latest=ES2003a-receipt.json cache_entries=16273 gpu=[1, 1200, 12.46 ]
+02:15:22Z WATCH receipts=4 latest=ES2003a-receipt.json cache_entries=16452 gpu=[99, 1200, 70.40 ]
+02:16:25Z WATCH receipts=4 latest=ES2003a-receipt.json cache_entries=16790 gpu=[0, 1200, 37.47 ]
+02:17:28Z WATCH receipts=5 latest=ES2003d-receipt.json cache_entries=16894 gpu=[0, 1200, 12.55 ]
+02:18:30Z WATCH receipts=6 latest=ES2005a-receipt.json cache_entries=16996 gpu=[70, 1200, 67.75 ]
+02:19:32Z WATCH receipts=6 latest=ES2005a-receipt.json cache_entries=16996 gpu=[0, 1200, 12.52 ]
+02:20:34Z WATCH receipts=6 latest=ES2005a-receipt.json cache_entries=17326 gpu=[95, 1200, 70.25 ]
+02:21:37Z WATCH receipts=7 latest=ES2005c-receipt.json cache_entries=17625 gpu=[0, 1200, 14.70 ]
+02:22:40Z WATCH receipts=8 latest=ES2005d-receipt.json cache_entries=17625 gpu=[76, 1200, 68.63 ]
+02:23:43Z WATCH receipts=8 latest=ES2005d-receipt.json cache_entries=17749 gpu=[98, 1200, 55.89 ]
+02:24:44Z WATCH receipts=9 latest=ES2006a-receipt.json cache_entries=17971 gpu=[61, 1200, 64.86 ]
+02:25:46Z WATCH receipts=9 latest=ES2006a-receipt.json cache_entries=17971 gpu=[1, 1200, 12.62 ]
+02:26:49Z WATCH receipts=9 latest=ES2006a-receipt.json cache_entries=18233 gpu=[0, 1200, 54.39 ]
+02:27:51Z WATCH receipts=10 latest=ES2006b-receipt.json cache_entries=18589 gpu=[0, 1200, 54.13 ]
+02:28:52Z WATCH receipts=10 latest=ES2006b-receipt.json cache_entries=18589 gpu=[0, 1200, 13.46 ]
+02:29:54Z WATCH receipts=10 latest=ES2006b-receipt.json cache_entries=18714 gpu=[97, 1200, 58.23 ]
+02:30:56Z WATCH receipts=10 latest=ES2006b-receipt.json cache_entries=19071 gpu=[98, 1200, 55.41 ]
+02:31:59Z WATCH receipts=11 latest=ES2007c-receipt.json cache_entries=19231 gpu=[2, 1200, 14.27 ]
+02:32:40Z INVOCATION TIMER fired (1900s) -> MY_STOP
+02:33:00Z WATCH receipts=11 latest=ES2007c-receipt.json cache_entries=19424 gpu=[98, 1200, 58.58 ]
+02:33:32Z runner rc=0 wall=2013s
+receipts: 0 -> 12 (+12)
+featcache: entries +5239 bytes +4312745840
+--- wave-cumulative ledger vs registered wave-2 ceilings ---
+{"breaches": [], "ceilings": {"max_cutting_wall_hours": null, "max_diar_gpu_hours": 2.0, "max_encode_calls": 4500, "max_encode_gpu_hours": 8.0, "wave": 2}, "used": {"cutting_wall_seconds_used": 386.43165258399677, "diar_gpu_seconds_used": 19.042947640932397, "diar_wall_seconds": 495.4227547639748, "encode_calls_used": 424, "encode_gpu_seconds_used": 558.4627610798952, "encode_wall_seconds": 881.1021285580064, "n_ok": 11, "n_receipts": 12}}
+--- meetings completed by THIS invocation ---
+  ES2002a    ok=True calls=26 enc_wall=44.9s diar_wall=20.2s
+  ES2002c    ok=True calls=54 enc_wall=104.7s diar_wall=40.4s
+  ES2002d    ok=True calls=54 enc_wall=121.5s diar_wall=68.9s
+  ES2003a    ok=True calls=22 enc_wall=50.7s diar_wall=32.8s
+  ES2003d    ok=True calls=50 enc_wall=111.0s diar_wall=57.0s
+  ES2005a    ok=True calls=9 enc_wall=18.5s diar_wall=21.9s
+  ES2005c    ok=True calls=52 enc_wall=104.9s diar_wall=54.6s
+  ES2005d    ok=False calls=0 enc_wall=0.0s diar_wall=40.0s
+     ERROR: TransportBoundViolation: slice 10 (start=904.148, end=1024.1480000000001) has duration 120.00000000000011s, which exceeds the transport layer's hard cap TRANSPORT_SLICE_MAX_S=120.0s -- a slice plan must never carry a slice client/transport.py would refuse to send
+  ES2006a    ok=True calls=28 enc_wall=57.2s diar_wall=30.8s
+  ES2006b    ok=True calls=49 enc_wall=104.6s diar_wall=47.8s
+  ES2007c    ok=True calls=52 enc_wall=108.3s diar_wall=52.6s
+  ES2007d    ok=True calls=28 enc_wall=55.0s diar_wall=28.5s
+wave-2 meetings still to run: 65
+invocation wall: 2044s (server start 10s, runner 2013s)
+FLY-DONE state=SLICE-DONE remaining=65 wall=2044s

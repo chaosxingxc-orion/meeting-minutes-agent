@@ -1,0 +1,394 @@
+{
+  "budget_after": {
+    "ceilings": {
+      "max_cutting_wall_hours": null,
+      "max_diar_gpu_hours": 2.0,
+      "max_encode_calls": 4500,
+      "max_encode_gpu_hours": 8.0,
+      "wave": 2
+    },
+    "cutting_wall_seconds_used": 1344.7738797959755,
+    "diar_gpu_seconds_used": 691.8137936489384,
+    "encode_calls_used": 2832,
+    "encode_gpu_seconds_used": 4094.3418679192023
+  },
+  "cutting": {
+    "oracle": {
+      "content_hash": "3969894bb557aca4e46e78641ad0270269e6f6e7d2d3091739a541894cf41ac3",
+      "n_entries": 10
+    },
+    "tool": {
+      "content_hash": "fe413959a9c1c9805883fdf8d4ea17a960ec6ea0b7943ac7bde88190123a116d",
+      "n_entries": 10
+    },
+    "vad": null,
+    "wall_seconds": 2.8299574720003875,
+    "workers": 8
+  },
+  "diar": {
+    "contact": {
+      "args": [
+        "/home/chao/nemo-speech.cpp/build/cuda-diar/bin/nemo-speech",
+        "diarize",
+        "/mnt/e/chao_workspace/exploring-l4-intelligence/speechrl-data/datasets/ami/amicorpus/TS3010a/audio/TS3010a.Mix-Headset.wav",
+        "--model",
+        "/mnt/e/chao_workspace/exploring-l4-intelligence/speechrl-data/models/diar-sortformer-4spk-v2/diar_streaming_sortformer_4spk-v2.q8_0.gguf",
+        "--format",
+        "rttm",
+        "--recording-id",
+        "TS3010a",
+        "--output",
+        "/mnt/e/chao_workspace/exploring-l4-intelligence/speechrl-data/derived/meeting-minutes/precomp/rttm/TS3010a.rttm",
+        "--force"
+      ],
+      "checkpoint_sha256": "0679cfeb1ce356d0dea9470b31274f4bfc7eb927497d82005483770666da998a",
+      "error": null,
+      "meeting_id": "TS3010a",
+      "recorded_utc": "2026-08-20T05:07:11.012009+00:00",
+      "return_code": 0,
+      "tool_name": "nemo-speech.cpp-cuda-q8_0",
+      "tool_version": "nemo-speech 1.0.0; commit 4c749a700500e077d4732a539eb082bf2208dac7; binary sha256 1a3e3f4fe7db4c48e5d6e44a76d5adf2bbfef80024c023b0eab2766eb61aca78; CMake preset cuda-diar; HF revision 5240a64075176943f677d30fa2171c780229f341; attempt-2 default streaming (DiarStream) mode: the registered --offline full-attention mode is hard-capped by the tool at 5000 encoder frames (~6 min audio) and refuses all six meetings",
+      "wall_seconds": 20.21249714300211
+    },
+    "gpu_seconds_estimate": 0.0,
+    "n_turns": 207,
+    "wall_seconds": 20.7896837790031
+  },
+  "encode_warm": {
+    "n_calls": 20,
+    "oracle": [
+      {
+        "gpu_seconds_estimate": 1.639476430606155,
+        "max_tokens": 1,
+        "n_attempts": 1,
+        "request_id": "precomp-w2-oracle-TS3010a-slice0000",
+        "text_discarded_unread": true,
+        "usage": {
+          "completion_tokens": 1,
+          "prompt_tokens": 1354,
+          "total_tokens": 1355
+        },
+        "wall_seconds": 1.84210834899568
+      },
+      {
+        "gpu_seconds_estimate": 1.5616442924991134,
+        "max_tokens": 1,
+        "n_attempts": 1,
+        "request_id": "precomp-w2-oracle-TS3010a-slice0001",
+        "text_discarded_unread": true,
+        "usage": {
+          "completion_tokens": 1,
+          "prompt_tokens": 1289,
+          "total_tokens": 1290
+        },
+        "wall_seconds": 1.7351603249990148
+      },
+      {
+        "gpu_seconds_estimate": 1.6283324795542284,
+        "max_tokens": 1,
+        "n_attempts": 1,
+        "request_id": "precomp-w2-oracle-TS3010a-slice0002",
+        "text_discarded_unread": true,
+        "usage": {
+          "completion_tokens": 1,
+          "prompt_tokens": 1341,
+          "total_tokens": 1342
+        },
+        "wall_seconds": 1.714034189004451
+      },
+      {
+        "gpu_seconds_estimate": 1.064940371947887,
+        "max_tokens": 1,
+        "n_attempts": 1,
+        "request_id": "precomp-w2-oracle-TS3010a-slice0003",
+        "text_discarded_unread": true,
+        "usage": {
+          "completion_tokens": 1,
+          "prompt_tokens": 1276,
+          "total_tokens": 1277
+        },
+        "wall_seconds": 1.638369802996749
+      },
+      {
+        "gpu_seconds_estimate": 1.5695697996456874,
+        "max_tokens": 1,
+        "n_attempts": 1,
+        "request_id": "precomp-w2-oracle-TS3010a-slice0004",
+        "text_discarded_unread": true,
+        "usage": {
+          "completion_tokens": 1,
+          "prompt_tokens": 1380,
+          "total_tokens": 1381
+        },
+        "wall_seconds": 1.6697551060060505
+      },
+      {
+        "gpu_seconds_estimate": 2.2495800017645524,
+        "max_tokens": 1,
+        "n_attempts": 1,
+        "request_id": "precomp-w2-oracle-TS3010a-slice0005",
+        "text_discarded_unread": true,
+        "usage": {
+          "completion_tokens": 1,
+          "prompt_tokens": 1666,
+          "total_tokens": 1667
+        },
+        "wall_seconds": 2.319154640994384
+      },
+      {
+        "gpu_seconds_estimate": 1.7434402495443646,
+        "max_tokens": 1,
+        "n_attempts": 1,
+        "request_id": "precomp-w2-oracle-TS3010a-slice0006",
+        "text_discarded_unread": true,
+        "usage": {
+          "completion_tokens": 1,
+          "prompt_tokens": 1276,
+          "total_tokens": 1277
+        },
+        "wall_seconds": 1.7973610820044996
+      },
+      {
+        "gpu_seconds_estimate": 1.6122375961302897,
+        "max_tokens": 1,
+        "n_attempts": 1,
+        "request_id": "precomp-w2-oracle-TS3010a-slice0007",
+        "text_discarded_unread": true,
+        "usage": {
+          "completion_tokens": 1,
+          "prompt_tokens": 1328,
+          "total_tokens": 1329
+        },
+        "wall_seconds": 1.8115029170003254
+      },
+      {
+        "gpu_seconds_estimate": 1.657396171039727,
+        "max_tokens": 1,
+        "n_attempts": 1,
+        "request_id": "precomp-w2-oracle-TS3010a-slice0008",
+        "text_discarded_unread": true,
+        "usage": {
+          "completion_tokens": 1,
+          "prompt_tokens": 1289,
+          "total_tokens": 1290
+        },
+        "wall_seconds": 1.7631874159997096
+      },
+      {
+        "gpu_seconds_estimate": 0.8883189737993233,
+        "max_tokens": 1,
+        "n_attempts": 1,
+        "request_id": "precomp-w2-oracle-TS3010a-slice0009",
+        "text_discarded_unread": true,
+        "usage": {
+          "completion_tokens": 1,
+          "prompt_tokens": 756,
+          "total_tokens": 757
+        },
+        "wall_seconds": 0.9350726039992878
+      }
+    ],
+    "tool": [
+      {
+        "gpu_seconds_estimate": 1.8194871273636817,
+        "max_tokens": 1,
+        "n_attempts": 1,
+        "request_id": "precomp-w2-tool-TS3010a-slice0000",
+        "text_discarded_unread": true,
+        "usage": {
+          "completion_tokens": 1,
+          "prompt_tokens": 1328,
+          "total_tokens": 1329
+        },
+        "wall_seconds": 1.8952990910038352
+      },
+      {
+        "gpu_seconds_estimate": 1.6061631140044483,
+        "max_tokens": 1,
+        "n_attempts": 1,
+        "request_id": "precomp-w2-tool-TS3010a-slice0001",
+        "text_discarded_unread": true,
+        "usage": {
+          "completion_tokens": 1,
+          "prompt_tokens": 1302,
+          "total_tokens": 1303
+        },
+        "wall_seconds": 1.7650144109938992
+      },
+      {
+        "gpu_seconds_estimate": 1.814582504647842,
+        "max_tokens": 1,
+        "n_attempts": 1,
+        "request_id": "precomp-w2-tool-TS3010a-slice0002",
+        "text_discarded_unread": true,
+        "usage": {
+          "completion_tokens": 1,
+          "prompt_tokens": 1471,
+          "total_tokens": 1472
+        },
+        "wall_seconds": 1.9100868469977286
+      },
+      {
+        "gpu_seconds_estimate": 1.1577400293559186,
+        "max_tokens": 1,
+        "n_attempts": 1,
+        "request_id": "precomp-w2-tool-TS3010a-slice0003",
+        "text_discarded_unread": true,
+        "usage": {
+          "completion_tokens": 1,
+          "prompt_tokens": 1484,
+          "total_tokens": 1485
+        },
+        "wall_seconds": 1.867322627993417
+      },
+      {
+        "gpu_seconds_estimate": 0.8306528053154761,
+        "max_tokens": 1,
+        "n_attempts": 1,
+        "request_id": "precomp-w2-tool-TS3010a-slice0004",
+        "text_discarded_unread": true,
+        "usage": {
+          "completion_tokens": 1,
+          "prompt_tokens": 1653,
+          "total_tokens": 1654
+        },
+        "wall_seconds": 2.025982451988966
+      },
+      {
+        "gpu_seconds_estimate": 2.271367131283914,
+        "max_tokens": 1,
+        "n_attempts": 1,
+        "request_id": "precomp-w2-tool-TS3010a-slice0005",
+        "text_discarded_unread": true,
+        "usage": {
+          "completion_tokens": 1,
+          "prompt_tokens": 1666,
+          "total_tokens": 1667
+        },
+        "wall_seconds": 2.416348012004164
+      },
+      {
+        "gpu_seconds_estimate": 1.3396094223833641,
+        "max_tokens": 1,
+        "n_attempts": 1,
+        "request_id": "precomp-w2-tool-TS3010a-slice0006",
+        "text_discarded_unread": true,
+        "usage": {
+          "completion_tokens": 1,
+          "prompt_tokens": 1315,
+          "total_tokens": 1316
+        },
+        "wall_seconds": 1.941462930990383
+      },
+      {
+        "gpu_seconds_estimate": 1.4193832891003693,
+        "max_tokens": 1,
+        "n_attempts": 1,
+        "request_id": "precomp-w2-tool-TS3010a-slice0007",
+        "text_discarded_unread": true,
+        "usage": {
+          "completion_tokens": 1,
+          "prompt_tokens": 1432,
+          "total_tokens": 1433
+        },
+        "wall_seconds": 2.0276904130005278
+      },
+      {
+        "gpu_seconds_estimate": 1.6462766823350103,
+        "max_tokens": 1,
+        "n_attempts": 1,
+        "request_id": "precomp-w2-tool-TS3010a-slice0008",
+        "text_discarded_unread": true,
+        "usage": {
+          "completion_tokens": 1,
+          "prompt_tokens": 1315,
+          "total_tokens": 1316
+        },
+        "wall_seconds": 1.7701899810053874
+      },
+      {
+        "gpu_seconds_estimate": 0.6704266184037261,
+        "max_tokens": 1,
+        "n_attempts": 1,
+        "request_id": "precomp-w2-tool-TS3010a-slice0009",
+        "text_discarded_unread": true,
+        "usage": {
+          "completion_tokens": 1,
+          "prompt_tokens": 587,
+          "total_tokens": 588
+        },
+        "wall_seconds": 0.7208888369932538
+      }
+    ],
+    "vad": [],
+    "wall_seconds": 37.582297334010946
+  },
+  "error": null,
+  "meeting_id": "TS3010a",
+  "metrics": {
+    "boundary_displacement": {
+      "displacements_s": [
+        4.954999999999984,
+        16.67100000000005,
+        16.67100000000005,
+        19.65599999999995,
+        21.152999999999963,
+        29.229000000000042,
+        30.612499999999955,
+        35.29649999999998,
+        36.42700000000001
+      ],
+      "max_s": 36.42700000000001,
+      "mean_s": 23.407888888888888,
+      "median_s": 21.152999999999963,
+      "min_s": 4.954999999999984,
+      "n": 9
+    },
+    "cache": {
+      "after": {
+        "n_entries": 49215,
+        "total_bytes": 40194081776
+      },
+      "before": {
+        "n_entries": 48969,
+        "total_bytes": 39992161424
+      },
+      "delta": {
+        "bytes_added": 201920352,
+        "entries_added": 246
+      }
+    },
+    "slice_counts": {
+      "delta": 0,
+      "oracle_slices": 10,
+      "tool_slices": 10
+    },
+    "turn_counts": {
+      "oracle_turns": 187,
+      "tool_turns": 207
+    },
+    "walls": {
+      "cutting_wall_s": 2.8299574720003875,
+      "diar_wall_s": 20.7896837790031,
+      "encode_wall_s": 37.582297334010946,
+      "total_wall_s": 61.20193858501443
+    }
+  },
+  "ok": true,
+  "recorded_utc": "2026-08-20T05:08:28.275750+00:00",
+  "schema_version": "1.1.0",
+  "slice_plans": {
+    "oracle": {
+      "content_hash": "586232785be91b7e8f1a457262d39ce5fba969073b309f298c42114926c7e220",
+      "n_slices": 10,
+      "turn_provenance": "oracle-turn"
+    },
+    "tool": {
+      "content_hash": "fb8000da3b1fd04d89777bff57251b70dc9d2afa7611248ad20bac0d6cb11312",
+      "n_slices": 10,
+      "turn_provenance": "tool-diar"
+    },
+    "vad": null
+  },
+  "wave": 2
+}

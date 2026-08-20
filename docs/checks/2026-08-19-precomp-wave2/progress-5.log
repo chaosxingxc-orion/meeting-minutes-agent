@@ -1,0 +1,63 @@
+meetings for this invocation: TS3009b TS3009c TS3009d TS3010a TS3010d TS3011a TS3011c TS3012b TS3012d
+receipts before: 67; featcache before: entries=47081 bytes=38440590992
+llama-server child pid=24766
+04:58:12Z WATCH receipts=67 latest=TS3008d-receipt.json cache_entries=47081 gpu=[0, 1200, 13.26 ]
+server healthy after 47 s at 04:58:58Z
+--- run_precomp.py --wave 2 --resume --stop-file --meetings <computed> ---
+04:59:13Z WATCH receipts=67 latest=TS3008d-receipt.json cache_entries=47081 gpu=[52, 1200, 60.99 ]
+05:00:15Z WATCH receipts=67 latest=TS3008d-receipt.json cache_entries=47185 gpu=[98, 712, 68.23 ]
+05:01:18Z WATCH receipts=67 latest=TS3008d-receipt.json cache_entries=47562 gpu=[96, 1005, 68.63 ]
+05:02:20Z WATCH receipts=68 latest=TS3009b-receipt.json cache_entries=47739 gpu=[68, 1200, 68.03 ]
+05:03:22Z WATCH receipts=68 latest=TS3009b-receipt.json cache_entries=47970 gpu=[99, 1042, 70.81 ]
+05:04:25Z WATCH receipts=68 latest=TS3009b-receipt.json cache_entries=48351 gpu=[97, 1200, 53.04 ]
+05:05:25Z WATCH receipts=69 latest=TS3009c-receipt.json cache_entries=48443 gpu=[1, 1200, 31.03 ]
+05:06:26Z WATCH receipts=69 latest=TS3009c-receipt.json cache_entries=48821 gpu=[97, 765, 80.30 ]
+05:07:29Z WATCH receipts=70 latest=TS3009d-receipt.json cache_entries=48969 gpu=[2, 1200, 15.07 ]
+05:08:29Z WATCH receipts=71 latest=TS3010a-receipt.json cache_entries=49215 gpu=[5, 1515, 20.42 ]
+05:09:31Z WATCH receipts=71 latest=TS3010a-receipt.json cache_entries=49356 gpu=[98, 675, 66.77 ]
+05:10:33Z WATCH receipts=72 latest=TS3010d-receipt.json cache_entries=49702 gpu=[63, 1515, 69.29 ]
+05:11:35Z WATCH receipts=72 latest=TS3010d-receipt.json cache_entries=49911 gpu=[98, 1200, 70.89 ]
+05:12:37Z WATCH receipts=73 latest=TS3011a-receipt.json cache_entries=50117 gpu=[60, 1200, 64.42 ]
+05:13:39Z WATCH receipts=73 latest=TS3011a-receipt.json cache_entries=50117 gpu=[0, 1200, 14.09 ]
+05:14:42Z WATCH receipts=73 latest=TS3011a-receipt.json cache_entries=50379 gpu=[98, 1200, 70.82 ]
+05:15:44Z WATCH receipts=73 latest=TS3011a-receipt.json cache_entries=50718 gpu=[98, 682, 53.31 ]
+05:16:47Z WATCH receipts=74 latest=TS3011c-receipt.json cache_entries=50757 gpu=[84, 1200, 69.15 ]
+05:17:49Z WATCH receipts=74 latest=TS3011c-receipt.json cache_entries=50757 gpu=[0, 1200, 13.74 ]
+05:18:53Z WATCH receipts=74 latest=TS3011c-receipt.json cache_entries=50757 gpu=[0, 1200, 13.60 ]
+05:19:56Z WATCH receipts=74 latest=TS3011c-receipt.json cache_entries=50938 gpu=[99, 1200, 70.73 ]
+05:20:59Z WATCH receipts=74 latest=TS3011c-receipt.json cache_entries=51015 gpu=[100, 1200, 48.73 ]
+05:22:02Z WATCH receipts=74 latest=TS3011c-receipt.json cache_entries=51094 gpu=[100, 1200, 48.68 ]
+05:23:04Z WATCH receipts=74 latest=TS3011c-receipt.json cache_entries=51185 gpu=[100, 1200, 48.94 ]
+05:24:08Z WATCH receipts=74 latest=TS3011c-receipt.json cache_entries=51285 gpu=[100, 1200, 48.15 ]
+05:25:14Z WATCH receipts=74 latest=TS3011c-receipt.json cache_entries=51383 gpu=[100, 1200, 47.27 ]
+05:26:16Z WATCH receipts=75 latest=TS3012b-receipt.json cache_entries=51427 gpu=[59, 1200, 63.85 ]
+05:26:57Z COORDINATOR YIELD observed -> mirroring into MY_STOP
+05:27:19Z WATCH receipts=75 latest=TS3012b-receipt.json cache_entries=51427 gpu=[2, 1200, 14.33 ]
+05:28:21Z WATCH receipts=75 latest=TS3012b-receipt.json cache_entries=51439 gpu=[100, 1200, 46.88 ]
+05:29:24Z WATCH receipts=75 latest=TS3012b-receipt.json cache_entries=51499 gpu=[100, 1200, 47.55 ]
+05:30:28Z WATCH receipts=75 latest=TS3012b-receipt.json cache_entries=51572 gpu=[100, 1200, 47.63 ]
+05:31:31Z WATCH receipts=75 latest=TS3012b-receipt.json cache_entries=51645 gpu=[100, 1200, 47.79 ]
+05:32:35Z WATCH receipts=75 latest=TS3012b-receipt.json cache_entries=51706 gpu=[100, 1200, 47.78 ]
+05:33:39Z WATCH receipts=75 latest=TS3012b-receipt.json cache_entries=51786 gpu=[100, 1200, 47.69 ]
+05:34:41Z WATCH receipts=75 latest=TS3012b-receipt.json cache_entries=51850 gpu=[5, 1200, 34.43 ]
+05:35:45Z WATCH receipts=75 latest=TS3012b-receipt.json cache_entries=51923 gpu=[100, 1200, 47.73 ]
+05:36:48Z WATCH receipts=75 latest=TS3012b-receipt.json cache_entries=51989 gpu=[99, 1200, 70.63 ]
+05:37:51Z WATCH receipts=75 latest=TS3012b-receipt.json cache_entries=52047 gpu=[29, 1200, 47.60 ]
+05:38:15Z runner rc=0 wall=2357s
+receipts: 67 -> 76 (+9)
+featcache: entries +4990 bytes +4098045920
+--- wave-cumulative ledger vs registered wave-2 ceilings ---
+{"breaches": [], "ceilings": {"max_cutting_wall_hours": null, "max_diar_gpu_hours": 2.0, "max_encode_calls": 4500, "max_encode_gpu_hours": 8.0, "wave": 2}, "used": {"cutting_wall_seconds_used": 1523.0076887159667, "diar_gpu_seconds_used": 692.1581248029286, "diar_wall_seconds": 2976.0384237599646, "encode_calls_used": 3063, "encode_gpu_seconds_used": 4728.512528317403, "encode_wall_seconds": 6905.092898603034, "n_ok": 75, "n_receipts": 76}}
+--- meetings attempted by THIS invocation ---
+  TS3009b    ok=True calls=54 enc_wall=105.3s diar_wall=46.3s
+  TS3009c    ok=True calls=56 enc_wall=106.4s diar_wall=48.1s
+  TS3009d    ok=True calls=46 enc_wall=88.2s diar_wall=38.1s
+  TS3010a    ok=True calls=20 enc_wall=37.6s diar_wall=20.8s
+  TS3010d    ok=True calls=39 enc_wall=75.1s diar_wall=34.4s
+  TS3011a    ok=True calls=33 enc_wall=69.3s diar_wall=28.0s
+  TS3011c    ok=True calls=52 enc_wall=114.5s diar_wall=46.4s
+  TS3012b    ok=True calls=55 enc_wall=394.1s diar_wall=59.6s
+  TS3012d    ok=True calls=52 enc_wall=583.6s diar_wall=52.7s
+wave-2 runnable meetings still to run: 0 refused=1
+invocation wall: 2421s (server start 47s, runner 2357s)
+FLY-DONE state=WAVE-COMPLETE remaining=0 refused=1 wall=2421s
