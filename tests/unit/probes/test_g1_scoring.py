@@ -167,17 +167,69 @@ class TestScoreTranscribeSlice:
         assert score.orc_refusal is None
         assert score.secondary_confusion_cost is not None
 
+    def test_timestamp_validation_failure_refuses_the_confusion_terms_only(self, monkeypatch):
+        """A stream the time-constrained pair refuses to validate is a
+        per-slice refusal, never an aborted campaign-wide read."""
+
+        from meeting_minutes_agent.metrics.timestamps import TimestampValidationError
+        from meeting_minutes_agent.probes import g1_scoring as module
+
+        def _boom(*args, **kwargs):
+            raise TimestampValidationError("synthetic: hypothesis stream is non-monotonic")
+
+        monkeypatch.setattr(module, "score_arm", _boom)
+        reference = (PerSpeakerSegment(speaker="A", start=0.0, end=1.0, words="hello world"),)
+        score = score_transcribe_slice(
+            g1.ARM_Z_TURN, "MTG1", 0, reference, "A|hello world", (), slice_start=0.0, slice_end=90.0
+        )
+        assert score.orc_refusal is not None and "timestamp validation" in score.orc_refusal
+        assert score.secondary_confusion_cost is None
+        assert score.primary_confusion_cost is None
+        assert score.cp_wer == pytest.approx(0.0)  # cpWER survives, recomputed for real
+
+    def test_zero_word_reference_yields_an_undefined_rate_not_a_crash(self):
+        """Every WER-family rate divides by the reference word count, so a
+        slice whose gold range carries no transcribed speech has no rate at
+        all -- meeteval returns ``error_rate=None``, which used to make the
+        confusion-cost subtraction ``None - None`` and abort the whole read."""
+
+        score = score_transcribe_slice(
+            g1.ARM_Z_TURN, "MTG1", 0, (), "A|hello world", (), slice_start=0.0, slice_end=90.0
+        )
+        assert score.reference_empty is True
+        assert score.cp_wer is None
+        assert score.secondary_confusion_cost is None
+        assert score.primary_confusion_cost is None
+        assert score.grammar_compliance == 1.0  # the reply's own grammar is still real
+
+    def test_reference_segments_with_no_words_are_also_undefined(self):
+        reference = (PerSpeakerSegment(speaker="A", start=0.0, end=1.0, words="  "),)
+        score = score_transcribe_slice(
+            g1.ARM_Z_FREE, "MTG1", 0, reference, "hello world", (), slice_start=0.0, slice_end=90.0
+        )
+        assert score.reference_empty is True
+        assert score.cp_wer is None
+
+    def test_empty_reference_and_empty_hypothesis_is_undefined_not_worst_case(self):
+        score = score_transcribe_slice(g1.ARM_Z_TURN, "MTG1", 0, (), "", (), slice_start=0.0, slice_end=90.0)
+        assert score.reference_empty is True
+        assert score.hypothesis_empty is True
+        assert score.cp_wer is None  # never the 1.0 a real-denominator empty reply earns
+
 
 # ---------------------------------------------------------------------------
 # per-(arm, meeting) and pooled aggregation (pure arithmetic, hand-built)
 # ---------------------------------------------------------------------------
 
 
-def _slice_score(cp_wer, *, meeting_id="M1", secondary=0.0, primary=None, compliance=1.0, capped=False, refused=None) -> SliceTranscribeScore:
+def _slice_score(
+    cp_wer, *, meeting_id="M1", secondary=0.0, primary=None, compliance=1.0, capped=False, refused=None,
+    reference_empty=False,
+) -> SliceTranscribeScore:
     return SliceTranscribeScore(
         arm=g1.ARM_Z_TURN, meeting_id=meeting_id, slice_index=0, cp_wer=cp_wer, secondary_confusion_cost=secondary,
         primary_confusion_cost=primary, grammar_compliance=compliance, n_reference_segments=1, n_hypothesis_segments=1,
-        hypothesis_empty=False, capped_reply=capped, orc_refusal=refused,
+        hypothesis_empty=False, capped_reply=capped, orc_refusal=refused, reference_empty=reference_empty,
     )
 
 
@@ -230,6 +282,38 @@ class TestAggregation:
         assert pooled.mean_cp_wer == pytest.approx((0.2 + 0.6) / 2)
         assert pooled.n_meetings == 2
         assert pooled.total_slices == 4
+
+    def test_undefined_slices_are_excluded_from_the_cp_wer_mean_but_counted(self):
+        scores = [
+            _slice_score(0.2),
+            _slice_score(None, secondary=None, reference_empty=True),
+        ]
+        agg = aggregate_arm_meeting(g1.ARM_Z_TURN, "M1", scores)
+        assert agg.n_slices == 2
+        assert agg.n_cp_wer_scoreable == 1
+        assert agg.n_reference_empty == 1
+        assert agg.mean_cp_wer == pytest.approx(0.2)
+        # an undefined denominator is NOT an ORC refusal -- separate causes,
+        # separate disclosures.
+        assert agg.n_confusion_refused == 0
+
+    def test_mean_cp_wer_is_none_when_every_slice_is_undefined(self):
+        agg = aggregate_arm_meeting(
+            g1.ARM_Z_TURN, "M1", [_slice_score(None, secondary=None, reference_empty=True)]
+        )
+        assert agg.mean_cp_wer is None
+        pooled = aggregate_pooled(g1.ARM_Z_TURN, [agg])
+        assert pooled.mean_cp_wer is None
+        assert pooled.total_reference_empty == 1
+
+    def test_pooled_skips_meetings_whose_mean_is_undefined(self):
+        m1 = aggregate_arm_meeting(g1.ARM_Z_TURN, "M1", [_slice_score(0.2, meeting_id="M1")])
+        m2 = aggregate_arm_meeting(
+            g1.ARM_Z_TURN, "M2", [_slice_score(None, meeting_id="M2", secondary=None, reference_empty=True)]
+        )
+        pooled = aggregate_pooled(g1.ARM_Z_TURN, [m1, m2])
+        assert pooled.mean_cp_wer == pytest.approx(0.2)
+        assert pooled.n_meetings == 2  # the meeting is still counted, only its undefined mean is skipped
 
     def test_pooled_rejects_a_mismatched_arm(self):
         m1 = aggregate_arm_meeting(g1.ARM_Z_TURN, "M1", [_slice_score(0.2)])

@@ -1,0 +1,11 @@
+G1 floors read -- ARM CONTRASTS (per-meeting clustered paired bootstrap)
+==============================================================================
+
+  Z-free - Z-turn :: cp_wer                    point=+0.2627 CI[+0.2286,+0.2978] excludes_zero=True n=18
+  Z-free - Z-turn :: secondary_confusion_cost  point=+0.1947 CI[+0.1690,+0.2194] excludes_zero=True n=18
+  Z-nodiar - Z-turn :: cp_wer                  point=+0.2718 CI[+0.2364,+0.3081] excludes_zero=True n=18
+  Z-nodiar - Z-turn :: secondary_confusion_cost point=+0.1787 CI[+0.1496,+0.2080] excludes_zero=True n=18
+  Z-nodiar - Z-free :: cp_wer                  point=+0.0091 CI[-0.0024,+0.0212] excludes_zero=False n=18
+  Z-nodiar - Z-free :: secondary_confusion_cost point=-0.0160 CI[-0.0349,+0.0031] excludes_zero=False n=18
+  Z-free - Z-oracle :: cp_wer                  point=+0.2664 CI[+0.2316,+0.3031] excludes_zero=True n=18
+  Z-free - Z-oracle :: secondary_confusion_cost point=+0.1807 CI[+0.1531,+0.2089] excludes_zero=True n=18

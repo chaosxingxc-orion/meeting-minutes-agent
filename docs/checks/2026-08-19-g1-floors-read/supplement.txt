@@ -1,0 +1,17 @@
+G1 floors read -- SUPPLEMENT (QA, SAER-M, per-metric gaps)
+==============================================================================
+
+QA (registered cap N=200 seed=20260818; 200 of 489 usable-discovery questions)
+  Z-turn     n=200 macroF1=0.0725 EM=0.0400 parse={'strict': 199, 'lenient': 1, 'failed': 0} abstain=72
+  Z-oracle   n=200 macroF1=0.0970 EM=0.0600 parse={'strict': 199, 'lenient': 1, 'failed': 0} abstain=66
+
+SAER-M (scoreable n=12 of 18)
+  Z-turn     scoreable=12 mean_accuracy=0.0000 total_sentence_id_join=0 parse={'strict': 1, 'lenient': 15, 'failed': 2}
+  Z-oracle   scoreable=12 mean_accuracy=0.0000 total_sentence_id_join=0 parse={'strict': 3, 'lenient': 15, 'failed': 0}
+
+DEPLOYMENT GAPS (Z-turn - Z-oracle, per-meeting clustered paired bootstrap)
+  cp_wer_from_read           point=+0.0037 CI[-0.0124,+0.0193] excludes_zero=False n_meetings=read
+  secondary_confusion_cost   point=-0.0140 CI[-0.0312,+0.0025] excludes_zero=False n_meetings=18
+  primary_confusion_cost     point=-0.0090 CI[-0.0160,-0.0025] excludes_zero=True n_meetings=18
+  grammar_compliance         point=-0.0012 CI[-0.0057,+0.0031] excludes_zero=False n_meetings=18
+  qa_macro_f1                point=-0.0212 CI[-0.0609,+0.0176] excludes_zero=False n_meetings=11

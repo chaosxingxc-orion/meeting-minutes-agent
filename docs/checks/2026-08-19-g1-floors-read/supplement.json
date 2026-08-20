@@ -1,0 +1,870 @@
+{
+  "deployment_gaps": {
+    "cp_wer_from_read": {
+      "gap": {
+        "ci_high": 0.019333707703212494,
+        "ci_level": 0.9,
+        "ci_low": -0.012364512824718179,
+        "excludes_zero": false,
+        "n_replicates": 10000,
+        "point_estimate": 0.0037244032593253262,
+        "seed": 20260818,
+        "sigma_hat": 0.009651309908715374
+      },
+      "metric": "cp_wer",
+      "noise_reference_cp_wer": 0.085
+    },
+    "grammar_compliance": {
+      "gap": {
+        "ci_high": 0.0031439659197012304,
+        "ci_level": 0.9,
+        "ci_low": -0.005668935687701086,
+        "excludes_zero": false,
+        "n_replicates": 10000,
+        "point_estimate": -0.0011986758437941836,
+        "seed": 20260818,
+        "sigma_hat": 0.0027122925948645715
+      },
+      "meetings_dropped": [],
+      "metric": "grammar_compliance",
+      "n_meetings": 18,
+      "noise_reference_cp_wer": 0.085
+    },
+    "primary_confusion_cost": {
+      "gap": {
+        "ci_high": -0.002530659111838986,
+        "ci_level": 0.9,
+        "ci_low": -0.015963125476176867,
+        "excludes_zero": true,
+        "n_replicates": 10000,
+        "point_estimate": -0.008979016108100188,
+        "seed": 20260818,
+        "sigma_hat": 0.00412350630647626
+      },
+      "meetings_dropped": [],
+      "metric": "primary_confusion_cost",
+      "n_meetings": 18,
+      "noise_reference_cp_wer": 0.085
+    },
+    "qa_macro_f1": {
+      "gap": {
+        "ci_high": 0.017579137344546577,
+        "ci_level": 0.9,
+        "ci_low": -0.06086167652918823,
+        "excludes_zero": false,
+        "n_replicates": 10000,
+        "point_estimate": -0.02122629932570967,
+        "seed": 20260818,
+        "sigma_hat": 0.02374034364902992
+      },
+      "metric": "qa_macro_f1",
+      "n_meetings": 11,
+      "noise_reference_cp_wer": 0.085
+    },
+    "secondary_confusion_cost": {
+      "gap": {
+        "ci_high": 0.002516017510571971,
+        "ci_level": 0.9,
+        "ci_low": -0.03120484645253464,
+        "excludes_zero": false,
+        "n_replicates": 10000,
+        "point_estimate": -0.014043802749299283,
+        "seed": 20260818,
+        "sigma_hat": 0.010290461128776256
+      },
+      "meetings_dropped": [],
+      "metric": "secondary_confusion_cost",
+      "n_meetings": 18,
+      "noise_reference_cp_wer": 0.085
+    }
+  },
+  "meetings": [
+    "ES2011a",
+    "ES2011b",
+    "ES2011c",
+    "ES2011d",
+    "IB4001",
+    "IB4002",
+    "IB4003",
+    "IB4004",
+    "IB4010",
+    "IB4011",
+    "IS1008a",
+    "IS1008b",
+    "IS1008c",
+    "IS1008d",
+    "TS3004a",
+    "TS3004b",
+    "TS3004c",
+    "TS3004d"
+  ],
+  "n_ok_responses": 1932,
+  "qa": {
+    "by_arm": {
+      "Z-oracle": {
+        "macro_exact_match": 0.06,
+        "macro_f1": 0.09701730154746566,
+        "n_abstentions": 66,
+        "n_examples": 200,
+        "n_missing_replies": 0,
+        "parse_modes": {
+          "failed": 0,
+          "lenient": 1,
+          "strict": 199
+        },
+        "per_meeting": {
+          "ES2011a": {
+            "macro_em": 0.0,
+            "macro_f1": 0.0,
+            "n": 7
+          },
+          "ES2011b": {
+            "macro_em": 0.13333333333333333,
+            "macro_f1": 0.20691479656996897,
+            "n": 15
+          },
+          "ES2011c": {
+            "macro_em": 0.2222222222222222,
+            "macro_f1": 0.24059917538178408,
+            "n": 18
+          },
+          "ES2011d": {
+            "macro_em": 0.0,
+            "macro_f1": 0.04846348965035768,
+            "n": 23
+          },
+          "IB4001": {
+            "macro_em": 0.0,
+            "macro_f1": 0.04200946112710818,
+            "n": 17
+          },
+          "IB4002": {
+            "macro_em": 0.0,
+            "macro_f1": 0.03185929960123508,
+            "n": 20
+          },
+          "IB4003": {
+            "macro_em": 0.0,
+            "macro_f1": 0.03734923659072266,
+            "n": 19
+          },
+          "IB4010": {
+            "macro_em": 0.044444444444444446,
+            "macro_f1": 0.09609153693325333,
+            "n": 45
+          },
+          "IS1008b": {
+            "macro_em": 0.0,
+            "macro_f1": 0.016057347670250896,
+            "n": 9
+          },
+          "IS1008d": {
+            "macro_em": 0.125,
+            "macro_f1": 0.125,
+            "n": 8
+          },
+          "TS3004b": {
+            "macro_em": 0.15789473684210525,
+            "macro_f1": 0.1749829118250171,
+            "n": 19
+          }
+        }
+      },
+      "Z-turn": {
+        "macro_exact_match": 0.04,
+        "macro_f1": 0.07246959259160766,
+        "n_abstentions": 72,
+        "n_examples": 200,
+        "n_missing_replies": 0,
+        "parse_modes": {
+          "failed": 0,
+          "lenient": 1,
+          "strict": 199
+        },
+        "per_meeting": {
+          "ES2011a": {
+            "macro_em": 0.0,
+            "macro_f1": 0.0,
+            "n": 7
+          },
+          "ES2011b": {
+            "macro_em": 0.06666666666666667,
+            "macro_f1": 0.13796296296296298,
+            "n": 15
+          },
+          "ES2011c": {
+            "macro_em": 0.05555555555555555,
+            "macro_f1": 0.06475376475376476,
+            "n": 18
+          },
+          "ES2011d": {
+            "macro_em": 0.043478260869565216,
+            "macro_f1": 0.06435059981970738,
+            "n": 23
+          },
+          "IB4001": {
+            "macro_em": 0.0,
+            "macro_f1": 0.06942749614853456,
+            "n": 17
+          },
+          "IB4002": {
+            "macro_em": 0.05,
+            "macro_f1": 0.06539325039325039,
+            "n": 20
+          },
+          "IB4003": {
+            "macro_em": 0.05263157894736842,
+            "macro_f1": 0.08914073256178519,
+            "n": 19
+          },
+          "IB4010": {
+            "macro_em": 0.022222222222222223,
+            "macro_f1": 0.06582663450632403,
+            "n": 45
+          },
+          "IS1008b": {
+            "macro_em": 0.1111111111111111,
+            "macro_f1": 0.1275388291517324,
+            "n": 9
+          },
+          "IS1008d": {
+            "macro_em": 0.0,
+            "macro_f1": 0.040040183696900114,
+            "n": 8
+          },
+          "TS3004b": {
+            "macro_em": 0.05263157894736842,
+            "macro_f1": 0.06140350877192983,
+            "n": 19
+          }
+        }
+      }
+    },
+    "cap": 200,
+    "n_capped": 200,
+    "n_unanswerable_in_cap": 56,
+    "n_usable_discovery_questions": 489,
+    "seed": 20260818
+  },
+  "saer_m": {
+    "by_arm": {
+      "Z-oracle": {
+        "parse_modes": {
+          "failed": 0,
+          "lenient": 15,
+          "strict": 3
+        },
+        "per_meeting": {
+          "ES2011a": {
+            "accuracy": 0.0,
+            "example_gold_sentence_id": "ES2011a.JacquelinePalmer.s.1",
+            "example_predicted_sentence_id": "abstract-0",
+            "n_bullets": 17,
+            "n_bullets_with_speaker_claim": 0,
+            "n_correct": 0,
+            "n_gold_sentence_ids": 12,
+            "n_hallucinated_speaker": 0,
+            "n_missing_sections": 0,
+            "n_predicted_sentence_ids": 17,
+            "n_scored": 12,
+            "n_sentence_id_join": 0,
+            "n_unattributed": 12,
+            "n_wrong_speaker": 0,
+            "parse_mode": "strict",
+            "scoreable": true
+          },
+          "ES2011b": {
+            "accuracy": 0.0,
+            "example_gold_sentence_id": "ES2011b.JacquelinePalmer.s.1",
+            "example_predicted_sentence_id": "actions-0",
+            "n_bullets": 14,
+            "n_bullets_with_speaker_claim": 14,
+            "n_correct": 0,
+            "n_gold_sentence_ids": 21,
+            "n_hallucinated_speaker": 14,
+            "n_missing_sections": 1,
+            "n_predicted_sentence_ids": 14,
+            "n_scored": 21,
+            "n_sentence_id_join": 0,
+            "n_unattributed": 21,
+            "n_wrong_speaker": 0,
+            "parse_mode": "lenient",
+            "scoreable": true
+          },
+          "ES2011c": {
+            "accuracy": 0.0,
+            "example_gold_sentence_id": "ES2011c.JacquelinePalmer.s.1",
+            "example_predicted_sentence_id": "actions-0",
+            "n_bullets": 15,
+            "n_bullets_with_speaker_claim": 0,
+            "n_correct": 0,
+            "n_gold_sentence_ids": 21,
+            "n_hallucinated_speaker": 0,
+            "n_missing_sections": 1,
+            "n_predicted_sentence_ids": 15,
+            "n_scored": 21,
+            "n_sentence_id_join": 0,
+            "n_unattributed": 21,
+            "n_wrong_speaker": 0,
+            "parse_mode": "lenient",
+            "scoreable": true
+          },
+          "ES2011d": {
+            "accuracy": 0.0,
+            "example_gold_sentence_id": "ES2011d.JacquelinePalmer.s.1",
+            "example_predicted_sentence_id": "actions-0",
+            "n_bullets": 13,
+            "n_bullets_with_speaker_claim": 13,
+            "n_correct": 0,
+            "n_gold_sentence_ids": 20,
+            "n_hallucinated_speaker": 13,
+            "n_missing_sections": 1,
+            "n_predicted_sentence_ids": 13,
+            "n_scored": 20,
+            "n_sentence_id_join": 0,
+            "n_unattributed": 20,
+            "n_wrong_speaker": 0,
+            "parse_mode": "lenient",
+            "scoreable": true
+          },
+          "IB4001": {
+            "example_gold_sentence_id": null,
+            "example_predicted_sentence_id": "actions-0",
+            "n_bullets": 13,
+            "n_bullets_with_speaker_claim": 13,
+            "n_gold_sentence_ids": 0,
+            "n_missing_sections": 1,
+            "n_predicted_sentence_ids": 13,
+            "n_sentence_id_join": 0,
+            "parse_mode": "lenient",
+            "scoreable": false
+          },
+          "IB4002": {
+            "example_gold_sentence_id": null,
+            "example_predicted_sentence_id": "actions-0",
+            "n_bullets": 23,
+            "n_bullets_with_speaker_claim": 0,
+            "n_gold_sentence_ids": 0,
+            "n_missing_sections": 1,
+            "n_predicted_sentence_ids": 23,
+            "n_sentence_id_join": 0,
+            "parse_mode": "lenient",
+            "scoreable": false
+          },
+          "IB4003": {
+            "example_gold_sentence_id": null,
+            "example_predicted_sentence_id": "actions-0",
+            "n_bullets": 19,
+            "n_bullets_with_speaker_claim": 0,
+            "n_gold_sentence_ids": 0,
+            "n_missing_sections": 1,
+            "n_predicted_sentence_ids": 19,
+            "n_sentence_id_join": 0,
+            "parse_mode": "lenient",
+            "scoreable": false
+          },
+          "IB4004": {
+            "example_gold_sentence_id": null,
+            "example_predicted_sentence_id": "actions-0",
+            "n_bullets": 10,
+            "n_bullets_with_speaker_claim": 10,
+            "n_gold_sentence_ids": 0,
+            "n_missing_sections": 1,
+            "n_predicted_sentence_ids": 10,
+            "n_sentence_id_join": 0,
+            "parse_mode": "lenient",
+            "scoreable": false
+          },
+          "IB4010": {
+            "example_gold_sentence_id": null,
+            "example_predicted_sentence_id": "actions-0",
+            "n_bullets": 7,
+            "n_bullets_with_speaker_claim": 0,
+            "n_gold_sentence_ids": 0,
+            "n_missing_sections": 1,
+            "n_predicted_sentence_ids": 7,
+            "n_sentence_id_join": 0,
+            "parse_mode": "lenient",
+            "scoreable": false
+          },
+          "IB4011": {
+            "example_gold_sentence_id": null,
+            "example_predicted_sentence_id": "actions-0",
+            "n_bullets": 7,
+            "n_bullets_with_speaker_claim": 1,
+            "n_gold_sentence_ids": 0,
+            "n_missing_sections": 1,
+            "n_predicted_sentence_ids": 7,
+            "n_sentence_id_join": 0,
+            "parse_mode": "lenient",
+            "scoreable": false
+          },
+          "IS1008a": {
+            "accuracy": 0.0,
+            "example_gold_sentence_id": "IS1008a.JacquelinePalmer.s.1",
+            "example_predicted_sentence_id": "abstract-0",
+            "n_bullets": 22,
+            "n_bullets_with_speaker_claim": 22,
+            "n_correct": 0,
+            "n_gold_sentence_ids": 14,
+            "n_hallucinated_speaker": 22,
+            "n_missing_sections": 0,
+            "n_predicted_sentence_ids": 22,
+            "n_scored": 14,
+            "n_sentence_id_join": 0,
+            "n_unattributed": 14,
+            "n_wrong_speaker": 0,
+            "parse_mode": "strict",
+            "scoreable": true
+          },
+          "IS1008b": {
+            "accuracy": 0.0,
+            "example_gold_sentence_id": "IS1008b.JacquelinePalmer.s.1",
+            "example_predicted_sentence_id": "actions-0",
+            "n_bullets": 12,
+            "n_bullets_with_speaker_claim": 12,
+            "n_correct": 0,
+            "n_gold_sentence_ids": 17,
+            "n_hallucinated_speaker": 12,
+            "n_missing_sections": 1,
+            "n_predicted_sentence_ids": 12,
+            "n_scored": 17,
+            "n_sentence_id_join": 0,
+            "n_unattributed": 17,
+            "n_wrong_speaker": 0,
+            "parse_mode": "lenient",
+            "scoreable": true
+          },
+          "IS1008c": {
+            "accuracy": 0.0,
+            "example_gold_sentence_id": "IS1008c.JacquelinePalmer.s.1",
+            "example_predicted_sentence_id": "actions-0",
+            "n_bullets": 11,
+            "n_bullets_with_speaker_claim": 7,
+            "n_correct": 0,
+            "n_gold_sentence_ids": 15,
+            "n_hallucinated_speaker": 7,
+            "n_missing_sections": 1,
+            "n_predicted_sentence_ids": 11,
+            "n_scored": 15,
+            "n_sentence_id_join": 0,
+            "n_unattributed": 15,
+            "n_wrong_speaker": 0,
+            "parse_mode": "lenient",
+            "scoreable": true
+          },
+          "IS1008d": {
+            "accuracy": 0.0,
+            "example_gold_sentence_id": "IS1008d.JacquelinePalmer.s.1",
+            "example_predicted_sentence_id": "actions-0",
+            "n_bullets": 15,
+            "n_bullets_with_speaker_claim": 0,
+            "n_correct": 0,
+            "n_gold_sentence_ids": 19,
+            "n_hallucinated_speaker": 0,
+            "n_missing_sections": 1,
+            "n_predicted_sentence_ids": 15,
+            "n_scored": 19,
+            "n_sentence_id_join": 0,
+            "n_unattributed": 19,
+            "n_wrong_speaker": 0,
+            "parse_mode": "lenient",
+            "scoreable": true
+          },
+          "TS3004a": {
+            "accuracy": 0.0,
+            "example_gold_sentence_id": "TS3004a.JacquelinePalmer.s.1",
+            "example_predicted_sentence_id": "actions-0",
+            "n_bullets": 8,
+            "n_bullets_with_speaker_claim": 8,
+            "n_correct": 0,
+            "n_gold_sentence_ids": 15,
+            "n_hallucinated_speaker": 8,
+            "n_missing_sections": 1,
+            "n_predicted_sentence_ids": 8,
+            "n_scored": 15,
+            "n_sentence_id_join": 0,
+            "n_unattributed": 15,
+            "n_wrong_speaker": 0,
+            "parse_mode": "lenient",
+            "scoreable": true
+          },
+          "TS3004b": {
+            "accuracy": 0.0,
+            "example_gold_sentence_id": "TS3004b.JacquelinePalmer.s.1",
+            "example_predicted_sentence_id": "actions-0",
+            "n_bullets": 17,
+            "n_bullets_with_speaker_claim": 0,
+            "n_correct": 0,
+            "n_gold_sentence_ids": 19,
+            "n_hallucinated_speaker": 0,
+            "n_missing_sections": 1,
+            "n_predicted_sentence_ids": 17,
+            "n_scored": 19,
+            "n_sentence_id_join": 0,
+            "n_unattributed": 19,
+            "n_wrong_speaker": 0,
+            "parse_mode": "lenient",
+            "scoreable": true
+          },
+          "TS3004c": {
+            "accuracy": 0.0,
+            "example_gold_sentence_id": "TS3004c.JacquelinePalmer.s.1",
+            "example_predicted_sentence_id": "actions-0",
+            "n_bullets": 98,
+            "n_bullets_with_speaker_claim": 0,
+            "n_correct": 0,
+            "n_gold_sentence_ids": 23,
+            "n_hallucinated_speaker": 0,
+            "n_missing_sections": 1,
+            "n_predicted_sentence_ids": 98,
+            "n_scored": 23,
+            "n_sentence_id_join": 0,
+            "n_unattributed": 23,
+            "n_wrong_speaker": 0,
+            "parse_mode": "lenient",
+            "scoreable": true
+          },
+          "TS3004d": {
+            "accuracy": 0.0,
+            "example_gold_sentence_id": "TS3004d.dharshi.s.1",
+            "example_predicted_sentence_id": "abstract-0",
+            "n_bullets": 15,
+            "n_bullets_with_speaker_claim": 12,
+            "n_correct": 0,
+            "n_gold_sentence_ids": 18,
+            "n_hallucinated_speaker": 12,
+            "n_missing_sections": 0,
+            "n_predicted_sentence_ids": 15,
+            "n_scored": 18,
+            "n_sentence_id_join": 0,
+            "n_unattributed": 18,
+            "n_wrong_speaker": 0,
+            "parse_mode": "strict",
+            "scoreable": true
+          }
+        }
+      },
+      "Z-turn": {
+        "parse_modes": {
+          "failed": 2,
+          "lenient": 15,
+          "strict": 1
+        },
+        "per_meeting": {
+          "ES2011a": {
+            "accuracy": 0.0,
+            "example_gold_sentence_id": "ES2011a.JacquelinePalmer.s.1",
+            "example_predicted_sentence_id": "actions-0",
+            "n_bullets": 7,
+            "n_bullets_with_speaker_claim": 1,
+            "n_correct": 0,
+            "n_gold_sentence_ids": 12,
+            "n_hallucinated_speaker": 1,
+            "n_missing_sections": 1,
+            "n_predicted_sentence_ids": 7,
+            "n_scored": 12,
+            "n_sentence_id_join": 0,
+            "n_unattributed": 12,
+            "n_wrong_speaker": 0,
+            "parse_mode": "lenient",
+            "scoreable": true
+          },
+          "ES2011b": {
+            "accuracy": 0.0,
+            "example_gold_sentence_id": "ES2011b.JacquelinePalmer.s.1",
+            "example_predicted_sentence_id": "actions-0",
+            "n_bullets": 16,
+            "n_bullets_with_speaker_claim": 16,
+            "n_correct": 0,
+            "n_gold_sentence_ids": 21,
+            "n_hallucinated_speaker": 16,
+            "n_missing_sections": 1,
+            "n_predicted_sentence_ids": 16,
+            "n_scored": 21,
+            "n_sentence_id_join": 0,
+            "n_unattributed": 21,
+            "n_wrong_speaker": 0,
+            "parse_mode": "lenient",
+            "scoreable": true
+          },
+          "ES2011c": {
+            "accuracy": 0.0,
+            "example_gold_sentence_id": "ES2011c.JacquelinePalmer.s.1",
+            "example_predicted_sentence_id": "actions-0",
+            "n_bullets": 9,
+            "n_bullets_with_speaker_claim": 0,
+            "n_correct": 0,
+            "n_gold_sentence_ids": 21,
+            "n_hallucinated_speaker": 0,
+            "n_missing_sections": 1,
+            "n_predicted_sentence_ids": 9,
+            "n_scored": 21,
+            "n_sentence_id_join": 0,
+            "n_unattributed": 21,
+            "n_wrong_speaker": 0,
+            "parse_mode": "lenient",
+            "scoreable": true
+          },
+          "ES2011d": {
+            "accuracy": 0.0,
+            "example_gold_sentence_id": "ES2011d.JacquelinePalmer.s.1",
+            "example_predicted_sentence_id": "actions-0",
+            "n_bullets": 17,
+            "n_bullets_with_speaker_claim": 0,
+            "n_correct": 0,
+            "n_gold_sentence_ids": 20,
+            "n_hallucinated_speaker": 0,
+            "n_missing_sections": 1,
+            "n_predicted_sentence_ids": 17,
+            "n_scored": 20,
+            "n_sentence_id_join": 0,
+            "n_unattributed": 20,
+            "n_wrong_speaker": 0,
+            "parse_mode": "lenient",
+            "scoreable": true
+          },
+          "IB4001": {
+            "example_gold_sentence_id": null,
+            "example_predicted_sentence_id": null,
+            "n_bullets": 0,
+            "n_bullets_with_speaker_claim": 0,
+            "n_gold_sentence_ids": 0,
+            "n_missing_sections": 4,
+            "n_predicted_sentence_ids": 0,
+            "n_sentence_id_join": 0,
+            "parse_mode": "failed",
+            "scoreable": false
+          },
+          "IB4002": {
+            "example_gold_sentence_id": null,
+            "example_predicted_sentence_id": "actions-0",
+            "n_bullets": 13,
+            "n_bullets_with_speaker_claim": 0,
+            "n_gold_sentence_ids": 0,
+            "n_missing_sections": 1,
+            "n_predicted_sentence_ids": 13,
+            "n_sentence_id_join": 0,
+            "parse_mode": "lenient",
+            "scoreable": false
+          },
+          "IB4003": {
+            "example_gold_sentence_id": null,
+            "example_predicted_sentence_id": "actions-0",
+            "n_bullets": 15,
+            "n_bullets_with_speaker_claim": 0,
+            "n_gold_sentence_ids": 0,
+            "n_missing_sections": 1,
+            "n_predicted_sentence_ids": 15,
+            "n_sentence_id_join": 0,
+            "parse_mode": "lenient",
+            "scoreable": false
+          },
+          "IB4004": {
+            "example_gold_sentence_id": null,
+            "example_predicted_sentence_id": "actions-0",
+            "n_bullets": 11,
+            "n_bullets_with_speaker_claim": 0,
+            "n_gold_sentence_ids": 0,
+            "n_missing_sections": 1,
+            "n_predicted_sentence_ids": 11,
+            "n_sentence_id_join": 0,
+            "parse_mode": "lenient",
+            "scoreable": false
+          },
+          "IB4010": {
+            "example_gold_sentence_id": null,
+            "example_predicted_sentence_id": null,
+            "n_bullets": 0,
+            "n_bullets_with_speaker_claim": 0,
+            "n_gold_sentence_ids": 0,
+            "n_missing_sections": 4,
+            "n_predicted_sentence_ids": 0,
+            "n_sentence_id_join": 0,
+            "parse_mode": "failed",
+            "scoreable": false
+          },
+          "IB4011": {
+            "example_gold_sentence_id": null,
+            "example_predicted_sentence_id": "actions-0",
+            "n_bullets": 8,
+            "n_bullets_with_speaker_claim": 0,
+            "n_gold_sentence_ids": 0,
+            "n_missing_sections": 1,
+            "n_predicted_sentence_ids": 8,
+            "n_sentence_id_join": 0,
+            "parse_mode": "lenient",
+            "scoreable": false
+          },
+          "IS1008a": {
+            "accuracy": 0.0,
+            "example_gold_sentence_id": "IS1008a.JacquelinePalmer.s.1",
+            "example_predicted_sentence_id": "actions-0",
+            "n_bullets": 14,
+            "n_bullets_with_speaker_claim": 0,
+            "n_correct": 0,
+            "n_gold_sentence_ids": 14,
+            "n_hallucinated_speaker": 0,
+            "n_missing_sections": 1,
+            "n_predicted_sentence_ids": 14,
+            "n_scored": 14,
+            "n_sentence_id_join": 0,
+            "n_unattributed": 14,
+            "n_wrong_speaker": 0,
+            "parse_mode": "lenient",
+            "scoreable": true
+          },
+          "IS1008b": {
+            "accuracy": 0.0,
+            "example_gold_sentence_id": "IS1008b.JacquelinePalmer.s.1",
+            "example_predicted_sentence_id": "actions-0",
+            "n_bullets": 12,
+            "n_bullets_with_speaker_claim": 0,
+            "n_correct": 0,
+            "n_gold_sentence_ids": 17,
+            "n_hallucinated_speaker": 0,
+            "n_missing_sections": 1,
+            "n_predicted_sentence_ids": 12,
+            "n_scored": 17,
+            "n_sentence_id_join": 0,
+            "n_unattributed": 17,
+            "n_wrong_speaker": 0,
+            "parse_mode": "lenient",
+            "scoreable": true
+          },
+          "IS1008c": {
+            "accuracy": 0.0,
+            "example_gold_sentence_id": "IS1008c.JacquelinePalmer.s.1",
+            "example_predicted_sentence_id": "actions-0",
+            "n_bullets": 9,
+            "n_bullets_with_speaker_claim": 9,
+            "n_correct": 0,
+            "n_gold_sentence_ids": 15,
+            "n_hallucinated_speaker": 9,
+            "n_missing_sections": 1,
+            "n_predicted_sentence_ids": 9,
+            "n_scored": 15,
+            "n_sentence_id_join": 0,
+            "n_unattributed": 15,
+            "n_wrong_speaker": 0,
+            "parse_mode": "lenient",
+            "scoreable": true
+          },
+          "IS1008d": {
+            "accuracy": 0.0,
+            "example_gold_sentence_id": "IS1008d.JacquelinePalmer.s.1",
+            "example_predicted_sentence_id": "actions-0",
+            "n_bullets": 10,
+            "n_bullets_with_speaker_claim": 0,
+            "n_correct": 0,
+            "n_gold_sentence_ids": 19,
+            "n_hallucinated_speaker": 0,
+            "n_missing_sections": 1,
+            "n_predicted_sentence_ids": 10,
+            "n_scored": 19,
+            "n_sentence_id_join": 0,
+            "n_unattributed": 19,
+            "n_wrong_speaker": 0,
+            "parse_mode": "lenient",
+            "scoreable": true
+          },
+          "TS3004a": {
+            "accuracy": 0.0,
+            "example_gold_sentence_id": "TS3004a.JacquelinePalmer.s.1",
+            "example_predicted_sentence_id": "actions-0",
+            "n_bullets": 9,
+            "n_bullets_with_speaker_claim": 0,
+            "n_correct": 0,
+            "n_gold_sentence_ids": 15,
+            "n_hallucinated_speaker": 0,
+            "n_missing_sections": 1,
+            "n_predicted_sentence_ids": 9,
+            "n_scored": 15,
+            "n_sentence_id_join": 0,
+            "n_unattributed": 15,
+            "n_wrong_speaker": 0,
+            "parse_mode": "lenient",
+            "scoreable": true
+          },
+          "TS3004b": {
+            "accuracy": 0.0,
+            "example_gold_sentence_id": "TS3004b.JacquelinePalmer.s.1",
+            "example_predicted_sentence_id": "actions-0",
+            "n_bullets": 18,
+            "n_bullets_with_speaker_claim": 0,
+            "n_correct": 0,
+            "n_gold_sentence_ids": 19,
+            "n_hallucinated_speaker": 0,
+            "n_missing_sections": 1,
+            "n_predicted_sentence_ids": 18,
+            "n_scored": 19,
+            "n_sentence_id_join": 0,
+            "n_unattributed": 19,
+            "n_wrong_speaker": 0,
+            "parse_mode": "lenient",
+            "scoreable": true
+          },
+          "TS3004c": {
+            "accuracy": 0.0,
+            "example_gold_sentence_id": "TS3004c.JacquelinePalmer.s.1",
+            "example_predicted_sentence_id": "abstract-0",
+            "n_bullets": 16,
+            "n_bullets_with_speaker_claim": 0,
+            "n_correct": 0,
+            "n_gold_sentence_ids": 23,
+            "n_hallucinated_speaker": 0,
+            "n_missing_sections": 0,
+            "n_predicted_sentence_ids": 16,
+            "n_scored": 23,
+            "n_sentence_id_join": 0,
+            "n_unattributed": 23,
+            "n_wrong_speaker": 0,
+            "parse_mode": "strict",
+            "scoreable": true
+          },
+          "TS3004d": {
+            "accuracy": 0.0,
+            "example_gold_sentence_id": "TS3004d.dharshi.s.1",
+            "example_predicted_sentence_id": "actions-0",
+            "n_bullets": 12,
+            "n_bullets_with_speaker_claim": 0,
+            "n_correct": 0,
+            "n_gold_sentence_ids": 18,
+            "n_hallucinated_speaker": 0,
+            "n_missing_sections": 1,
+            "n_predicted_sentence_ids": 12,
+            "n_scored": 18,
+            "n_sentence_id_join": 0,
+            "n_unattributed": 18,
+            "n_wrong_speaker": 0,
+            "parse_mode": "lenient",
+            "scoreable": true
+          }
+        }
+      }
+    },
+    "n_scoreable": 12,
+    "scoreable_meetings": [
+      "ES2011a",
+      "ES2011b",
+      "ES2011c",
+      "ES2011d",
+      "IS1008a",
+      "IS1008b",
+      "IS1008c",
+      "IS1008d",
+      "TS3004a",
+      "TS3004b",
+      "TS3004c",
+      "TS3004d"
+    ],
+    "unscoreable_meetings": [
+      "IB4001",
+      "IB4002",
+      "IB4003",
+      "IB4004",
+      "IB4010",
+      "IB4011"
+    ]
+  }
+}

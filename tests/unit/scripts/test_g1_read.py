@@ -132,6 +132,50 @@ class TestRunRead:
             )
 
 
+class TestVadManifestDirWiring:
+    """Z-nodiar's slice plan lives ONLY in the PRECOMP VAD supplement's
+    manifest, so the read must be able to name that directory; a read that
+    cannot is structurally incapable of scoring the fourth registered arm."""
+
+    def test_cli_accepts_vad_manifest_dir_and_threads_it_through(self, tmp_path, monkeypatch):
+        captured: dict[str, object] = {}
+
+        def _fake_run_read(**kwargs):
+            captured.update(kwargs)
+            return {"pooled_by_arm": {}, "deployment_gap": {}}
+
+        monkeypatch.setattr(reader, "run_read", _fake_run_read)
+        rc = reader.main(
+            [
+                "--data-dir", str(tmp_path / "data"),
+                "--responses-dir", str(tmp_path / "responses"),
+                "--vad-manifest-dir", str(tmp_path / "vad-manifest"),
+                "--meetings", "MTG1",
+                "--out-dir", str(tmp_path / "out"),
+            ]
+        )
+        assert rc == 0
+        assert captured["vad_manifest_dir"] == tmp_path / "vad-manifest"
+
+    def test_cli_defaults_vad_manifest_dir_to_none(self, tmp_path, monkeypatch):
+        captured: dict[str, object] = {}
+
+        def _fake_run_read(**kwargs):
+            captured.update(kwargs)
+            return {"pooled_by_arm": {}, "deployment_gap": {}}
+
+        monkeypatch.setattr(reader, "run_read", _fake_run_read)
+        reader.main(
+            [
+                "--data-dir", str(tmp_path / "data"),
+                "--responses-dir", str(tmp_path / "responses"),
+                "--meetings", "MTG1",
+                "--out-dir", str(tmp_path / "out"),
+            ]
+        )
+        assert captured["vad_manifest_dir"] is None
+
+
 class TestLoadAllResponses:
     def test_merges_multiple_chunk_files(self, tmp_path):
         responses_dir = tmp_path / "responses"

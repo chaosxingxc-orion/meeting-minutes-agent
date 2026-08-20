@@ -1,0 +1,130 @@
+{
+  "Z-free - Z-oracle :: cp_wer": {
+    "gap": {
+      "ci_high": 0.3030611043160705,
+      "ci_level": 0.9,
+      "ci_low": 0.23159641282616197,
+      "excludes_zero": true,
+      "n_replicates": 10000,
+      "point_estimate": 0.2664398128374512,
+      "seed": 20260818,
+      "sigma_hat": 0.021762034228802313
+    },
+    "meetings_dropped": [],
+    "metric": "cp_wer",
+    "n_meetings": 18,
+    "noise_reference_cp_wer": 0.085
+  },
+  "Z-free - Z-oracle :: secondary_confusion_cost": {
+    "gap": {
+      "ci_high": 0.20889740417658476,
+      "ci_level": 0.9,
+      "ci_low": 0.15312205004444182,
+      "excludes_zero": true,
+      "n_replicates": 10000,
+      "point_estimate": 0.18065347527066172,
+      "seed": 20260818,
+      "sigma_hat": 0.016957955997674606
+    },
+    "meetings_dropped": [],
+    "metric": "secondary_confusion_cost",
+    "n_meetings": 18,
+    "noise_reference_cp_wer": 0.085
+  },
+  "Z-free - Z-turn :: cp_wer": {
+    "gap": {
+      "ci_high": 0.2977691422144462,
+      "ci_level": 0.9,
+      "ci_low": 0.22855199165849202,
+      "excludes_zero": true,
+      "n_replicates": 10000,
+      "point_estimate": 0.2627154095781259,
+      "seed": 20260818,
+      "sigma_hat": 0.021117646192889628
+    },
+    "meetings_dropped": [],
+    "metric": "cp_wer",
+    "n_meetings": 18,
+    "noise_reference_cp_wer": 0.085
+  },
+  "Z-free - Z-turn :: secondary_confusion_cost": {
+    "gap": {
+      "ci_high": 0.21938706841535413,
+      "ci_level": 0.9,
+      "ci_low": 0.16901337066535377,
+      "excludes_zero": true,
+      "n_replicates": 10000,
+      "point_estimate": 0.194697278019961,
+      "seed": 20260818,
+      "sigma_hat": 0.015354457392253973
+    },
+    "meetings_dropped": [],
+    "metric": "secondary_confusion_cost",
+    "n_meetings": 18,
+    "noise_reference_cp_wer": 0.085
+  },
+  "Z-nodiar - Z-free :: cp_wer": {
+    "gap": {
+      "ci_high": 0.021169702094261986,
+      "ci_level": 0.9,
+      "ci_low": -0.0024227347039081693,
+      "excludes_zero": false,
+      "n_replicates": 10000,
+      "point_estimate": 0.009057773332063368,
+      "seed": 20260818,
+      "sigma_hat": 0.0071451121550834395
+    },
+    "meetings_dropped": [],
+    "metric": "cp_wer",
+    "n_meetings": 18,
+    "noise_reference_cp_wer": 0.085
+  },
+  "Z-nodiar - Z-free :: secondary_confusion_cost": {
+    "gap": {
+      "ci_high": 0.003055219454951857,
+      "ci_level": 0.9,
+      "ci_low": -0.034863538608333806,
+      "excludes_zero": false,
+      "n_replicates": 10000,
+      "point_estimate": -0.01604170545698569,
+      "seed": 20260818,
+      "sigma_hat": 0.011593850316490332
+    },
+    "meetings_dropped": [],
+    "metric": "secondary_confusion_cost",
+    "n_meetings": 18,
+    "noise_reference_cp_wer": 0.085
+  },
+  "Z-nodiar - Z-turn :: cp_wer": {
+    "gap": {
+      "ci_high": 0.30809179251706575,
+      "ci_level": 0.9,
+      "ci_low": 0.23644987233705309,
+      "excludes_zero": true,
+      "n_replicates": 10000,
+      "point_estimate": 0.27177318291018926,
+      "seed": 20260818,
+      "sigma_hat": 0.02184968748739617
+    },
+    "meetings_dropped": [],
+    "metric": "cp_wer",
+    "n_meetings": 18,
+    "noise_reference_cp_wer": 0.085
+  },
+  "Z-nodiar - Z-turn :: secondary_confusion_cost": {
+    "gap": {
+      "ci_high": 0.20801326038372933,
+      "ci_level": 0.9,
+      "ci_low": 0.149602568472499,
+      "excludes_zero": true,
+      "n_replicates": 10000,
+      "point_estimate": 0.17865557256297532,
+      "seed": 20260818,
+      "sigma_hat": 0.017716605610301826
+    },
+    "meetings_dropped": [],
+    "metric": "secondary_confusion_cost",
+    "n_meetings": 18,
+    "noise_reference_cp_wer": 0.085
+  }
+}

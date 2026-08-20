@@ -22,8 +22,18 @@ Usage::
     python scripts/g1_read.py \\
         --data-dir "$SPEECHRL_DATA_DIR" \\
         --responses-dir "$SPEECHRL_DATA_DIR/derived/meeting-minutes/g1/runs/<run-id>" \\
+        --vad-manifest-dir "$SPEECHRL_DATA_DIR/derived/meeting-minutes/precomp/slices/vad-manifest" \\
         --meetings ES2011a IS1008a \\
         --out-dir docs/checks/<campaign>/<release-id>
+
+``--vad-manifest-dir`` names where the PRECOMP VAD supplement wrote its
+per-meeting ``SlicePlan`` JSON -- the SAME directory ``scripts/run_g1.py``
+was flown against. Z-nodiar's slice plan exists ONLY in that manifest (it is
+never rebuilt from an RTTM or from NXT turns), so a read that omits the flag
+fails closed on Z-nodiar with
+:class:`~meeting_minutes_agent.probes.g1.G1VadSupplementMissingError` rather
+than scoring three of the four registered arms and calling that a floors
+table.
 """
 
 from __future__ import annotations
@@ -119,9 +129,11 @@ def build_report_text(*, created_utc: str, study_commit: str, pins_hash: str, me
         "-" * 78,
     ]
     for arm, pooled in pooled_by_arm.items():
+        mean_cp_wer = "n/a" if pooled.mean_cp_wer is None else f"{pooled.mean_cp_wer:.4f}"
         lines.append(
-            f"  {arm:10s} mean_cpWER={pooled.mean_cp_wer:.4f} n_meetings={pooled.n_meetings} "
-            f"capped_replies={pooled.total_capped_replies}/{pooled.total_slices}"
+            f"  {arm:10s} mean_cpWER={mean_cp_wer} n_meetings={pooled.n_meetings} "
+            f"capped_replies={pooled.total_capped_replies}/{pooled.total_slices} "
+            f"reference_empty={pooled.total_reference_empty} orc_refused={pooled.total_confusion_refused}"
         )
     lines += [
         "",
@@ -146,6 +158,7 @@ def run_read(
     meetings: list[str],
     out_dir: Path,
     force: bool,
+    vad_manifest_dir: Path | None = None,
     ami_annotations_root_relative: str = "datasets/ami/annotations/manual_1.6.2",
     resolved_meetings: Mapping[str, Any] | None = None,
     slice_plans_by_meeting_arm: Mapping[tuple[str, str], Any] | None = None,
@@ -171,7 +184,7 @@ def run_read(
         slice_plans_by_meeting_arm = runner.resolve_all_slice_plans(
             meetings, g1.ARMS, data_dir=Path(data_dir),
             derived_root=Path(data_dir) / runner.DEFAULT_DERIVED_ROOT_RELATIVE, nxt_corpus=nxt_corpus,
-            vad_manifest_dir=None,
+            vad_manifest_dir=Path(vad_manifest_dir) if vad_manifest_dir is not None else None,
         )
 
     responses_by_id = load_all_responses(responses_dir)
@@ -188,9 +201,21 @@ def run_read(
 
     pooled_by_arm = {arm: g1_scoring.aggregate_pooled(arm, scores) for arm, scores in per_meeting_by_arm.items()}
 
-    z_turn_by_meeting = {s.meeting_id: s.mean_cp_wer for s in per_meeting_by_arm[g1.ARM_Z_TURN]}
-    z_oracle_by_meeting = {s.meeting_id: s.mean_cp_wer for s in per_meeting_by_arm[g1.ARM_Z_ORACLE]}
-    gap = g1_scoring.compute_deployment_gap(z_turn_by_meeting, z_oracle_by_meeting)
+    # A meeting whose mean is undefined on EITHER arm (every slice's gold
+    # reference empty) cannot enter a PAIRED gap; dropped explicitly and
+    # disclosed, never silently one-sided.
+    z_turn_by_meeting = {
+        s.meeting_id: s.mean_cp_wer for s in per_meeting_by_arm[g1.ARM_Z_TURN] if s.mean_cp_wer is not None
+    }
+    z_oracle_by_meeting = {
+        s.meeting_id: s.mean_cp_wer for s in per_meeting_by_arm[g1.ARM_Z_ORACLE] if s.mean_cp_wer is not None
+    }
+    paired_meetings = sorted(set(z_turn_by_meeting) & set(z_oracle_by_meeting))
+    dropped_meetings = sorted(set(meetings) - set(paired_meetings))
+    gap = g1_scoring.compute_deployment_gap(
+        {m: z_turn_by_meeting[m] for m in paired_meetings},
+        {m: z_oracle_by_meeting[m] for m in paired_meetings},
+    )
 
     from datetime import datetime, timezone
 
@@ -204,6 +229,8 @@ def run_read(
         "meetings": list(meetings),
         "pooled_by_arm": {arm: pooled.to_dict() for arm, pooled in pooled_by_arm.items()},
         "deployment_gap": gap.to_dict(),
+        "deployment_gap_meetings": paired_meetings,
+        "deployment_gap_meetings_dropped": dropped_meetings,
     }
 
     out_dir = Path(out_dir)
@@ -221,6 +248,12 @@ def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("--data-dir", required=True, help="SPEECHRL_DATA_DIR root")
     parser.add_argument("--responses-dir", required=True, help="directory holding chunk*-responses.jsonl")
+    parser.add_argument(
+        "--vad-manifest-dir",
+        default=None,
+        help="directory of Z-nodiar's per-meeting SlicePlan JSON (the PRECOMP VAD supplement's own "
+        "output, the same path scripts/run_g1.py was flown with); omitting it fails closed on Z-nodiar",
+    )
     parser.add_argument("--meetings", nargs="+", required=True)
     parser.add_argument("--out-dir", required=True)
     parser.add_argument("--force", action="store_true")
@@ -229,6 +262,7 @@ def main(argv: list[str] | None = None) -> int:
     verdict = run_read(
         data_dir=Path(args.data_dir), responses_dir=Path(args.responses_dir), meetings=list(args.meetings),
         out_dir=Path(args.out_dir), force=args.force,
+        vad_manifest_dir=Path(args.vad_manifest_dir) if args.vad_manifest_dir is not None else None,
     )
     print(json.dumps({"pooled_by_arm": verdict["pooled_by_arm"], "deployment_gap": verdict["deployment_gap"]}, indent=2, sort_keys=True))
     return 0

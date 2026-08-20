@@ -62,7 +62,7 @@ from ..metrics.pins import MetricPins
 from ..metrics.qa import QAExample
 from ..metrics.qa_upstream import UpstreamMeetingQAScoreReport, upstream_meetingqa_score_examples
 from ..metrics.saer_m import SaerMReport, SpeakerAttributionPrediction, compute_saer_m
-from ..metrics.timestamps import PerSpeakerSegment
+from ..metrics.timestamps import PerSpeakerSegment, TimestampValidationError
 from .g1 import ARMS_WITH_ATTRIBUTION
 from .pattr_scoring import HypothesisSegment, PattrArmScore, score_arm
 from .pprompt_scoring import ORC_DP_BOUND_CAP, orc_dp_bound
@@ -142,10 +142,17 @@ def hypothesis_stream_from_slice_reply(
 
 @dataclass(frozen=True)
 class SliceTranscribeScore:
+    """``cp_wer is None`` iff the slice's GOLD REFERENCE carries zero words
+    (:attr:`reference_empty`): every WER-family rate divides by the
+    reference word count, so meeteval returns ``error_rate=None`` for such a
+    pair and there is no error rate to report -- not a rate of 0.0, and not
+    the 1.0 an empty HYPOTHESIS earns. Recorded as data and excluded from
+    every mean, the same way an ORC refusal is."""
+
     arm: str
     meeting_id: str
     slice_index: int
-    cp_wer: float
+    cp_wer: float | None
     secondary_confusion_cost: float | None
     primary_confusion_cost: float | None
     grammar_compliance: float
@@ -154,6 +161,7 @@ class SliceTranscribeScore:
     hypothesis_empty: bool
     capped_reply: bool
     orc_refusal: str | None = None
+    reference_empty: bool = False
 
     def to_dict(self) -> dict[str, Any]:
         return {
@@ -169,7 +177,16 @@ class SliceTranscribeScore:
             "hypothesis_empty": self.hypothesis_empty,
             "capped_reply": self.capped_reply,
             "orc_refusal": self.orc_refusal,
+            "reference_empty": self.reference_empty,
         }
+
+
+def reference_word_count(reference: Sequence[PerSpeakerSegment]) -> int:
+    """Total whitespace-token count over a gold reference stream -- the
+    denominator every WER-family rate divides by. Zero means the slice's
+    time range carries no transcribed speech at all in the gold layer."""
+
+    return sum(len(segment.words.split()) for segment in reference)
 
 
 def _grammar_compliance(arm: str, raw_reply_text: str) -> float:
@@ -227,6 +244,19 @@ def score_transcribe_slice(
     )
     capped = is_capped_reply(usage or {}, max_tokens=request_max_tokens) if request_max_tokens else False
 
+    # Undefined denominator dominates: a slice whose gold reference carries
+    # zero words has no WER-family rate at all (meeteval's own
+    # ``error_rate`` is ``None`` for such a pair, which is what makes the
+    # confusion-cost subtraction ``None - None``). Checked BEFORE the empty-
+    # hypothesis branch, whose 1.0 convention presumes a real denominator.
+    if reference_word_count(reference) == 0:
+        return SliceTranscribeScore(
+            arm=arm, meeting_id=meeting_id, slice_index=slice_index, cp_wer=None,
+            secondary_confusion_cost=None, primary_confusion_cost=None, grammar_compliance=compliance,
+            n_reference_segments=len(reference), n_hypothesis_segments=len(hypothesis),
+            hypothesis_empty=not hypothesis, capped_reply=capped, reference_empty=True,
+        )
+
     if not hypothesis:
         return SliceTranscribeScore(
             arm=arm, meeting_id=meeting_id, slice_index=slice_index, cp_wer=1.0,
@@ -264,6 +294,12 @@ def score_transcribe_slice(
         arm_score: PattrArmScore = score_arm(arm, meeting_id, reference, hypothesis, pins=pins)
     except MemoryError:
         return _refused(f"ORC-WER MemoryError at orc_dp_bound {bound:.3e} (host memory pressure at read time)")
+    except TimestampValidationError as exc:
+        # The time-constrained (primary) pair validates both streams before
+        # it computes; a stream that fails is a refusal for the confusion
+        # terms, never a reason to abort the campaign-wide read. cpWER is
+        # still recomputed for real by ``_refused``.
+        return _refused(f"confusion terms not attempted: timestamp validation refused ({exc})")
 
     return SliceTranscribeScore(
         arm=arm,
@@ -305,12 +341,28 @@ class ArmMeetingScore:
         return len(self.slices)
 
     @property
-    def mean_cp_wer(self) -> float:
-        return statistics.fmean(s.cp_wer for s in self.slices)
+    def n_reference_empty(self) -> int:
+        """Slices excluded from every WER-family mean because their gold
+        reference carries no words (:class:`SliceTranscribeScore`)."""
+
+        return sum(1 for s in self.slices if s.reference_empty)
+
+    @property
+    def n_cp_wer_scoreable(self) -> int:
+        return sum(1 for s in self.slices if s.cp_wer is not None)
+
+    @property
+    def mean_cp_wer(self) -> float | None:
+        values = [s.cp_wer for s in self.slices if s.cp_wer is not None]
+        return statistics.fmean(values) if values else None
 
     @property
     def n_confusion_refused(self) -> int:
-        return sum(1 for s in self.slices if s.secondary_confusion_cost is None)
+        """ORC refusals only -- a slice with an undefined denominator is
+        counted by :attr:`n_reference_empty`, never folded in here (the two
+        have different causes and different disclosures)."""
+
+        return sum(1 for s in self.slices if s.secondary_confusion_cost is None and not s.reference_empty)
 
     @property
     def mean_secondary_confusion_cost(self) -> float | None:
@@ -339,6 +391,8 @@ class ArmMeetingScore:
             "arm": self.arm,
             "meeting_id": self.meeting_id,
             "n_slices": self.n_slices,
+            "n_cp_wer_scoreable": self.n_cp_wer_scoreable,
+            "n_reference_empty": self.n_reference_empty,
             "mean_cp_wer": self.mean_cp_wer,
             "mean_secondary_confusion_cost": self.mean_secondary_confusion_cost,
             "n_confusion_refused": self.n_confusion_refused,
@@ -368,12 +422,23 @@ class PooledArmScore:
         return len(self.per_meeting)
 
     @property
-    def mean_cp_wer(self) -> float:
-        return statistics.fmean(m.mean_cp_wer for m in self.per_meeting)
+    def mean_cp_wer(self) -> float | None:
+        values = [m.mean_cp_wer for m in self.per_meeting if m.mean_cp_wer is not None]
+        return statistics.fmean(values) if values else None
 
     @property
     def mean_secondary_confusion_cost(self) -> float | None:
         values = [m.mean_secondary_confusion_cost for m in self.per_meeting if m.mean_secondary_confusion_cost is not None]
+        return statistics.fmean(values) if values else None
+
+    @property
+    def mean_primary_confusion_cost(self) -> float | None:
+        values = [m.mean_primary_confusion_cost for m in self.per_meeting if m.mean_primary_confusion_cost is not None]
+        return statistics.fmean(values) if values else None
+
+    @property
+    def mean_grammar_compliance(self) -> float | None:
+        values = [m.mean_grammar_compliance for m in self.per_meeting]
         return statistics.fmean(values) if values else None
 
     @property
@@ -384,14 +449,26 @@ class PooledArmScore:
     def total_slices(self) -> int:
         return sum(m.n_slices for m in self.per_meeting)
 
+    @property
+    def total_reference_empty(self) -> int:
+        return sum(m.n_reference_empty for m in self.per_meeting)
+
+    @property
+    def total_confusion_refused(self) -> int:
+        return sum(m.n_confusion_refused for m in self.per_meeting)
+
     def to_dict(self) -> dict[str, Any]:
         return {
             "arm": self.arm,
             "n_meetings": self.n_meetings,
             "mean_cp_wer": self.mean_cp_wer,
             "mean_secondary_confusion_cost": self.mean_secondary_confusion_cost,
+            "mean_primary_confusion_cost": self.mean_primary_confusion_cost,
+            "mean_grammar_compliance": self.mean_grammar_compliance,
             "total_capped_replies": self.total_capped_replies,
             "total_slices": self.total_slices,
+            "total_reference_empty": self.total_reference_empty,
+            "total_confusion_refused": self.total_confusion_refused,
             "per_meeting": {m.meeting_id: m.to_dict() for m in self.per_meeting},
         }
 

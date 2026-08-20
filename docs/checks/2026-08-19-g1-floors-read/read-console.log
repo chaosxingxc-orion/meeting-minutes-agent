@@ -1,0 +1,13 @@
+# archived console of the one-shot read (scripts/g1_read.py), non-JSON, non-WARNING lines only
+# the read's own JSON stdout is verdict.json; meeteval preprocess WARNINGs are elided (count below)
+=== READ DONE rc=0 2026-08-20T00:14:18Z ===
+run dir untouched check:
+total 2968
+drwxrwxrwx 1 chao chao   4096 Aug 19 17:58 .
+drwxrwxrwx 1 chao chao   4096 Aug 19 15:23 ..
+-rwxrwxrwx 1 chao chao 678316 Aug 19 15:23 chunk0000-responses.jsonl
+-rwxrwxrwx 1 chao chao 746978 Aug 19 16:10 chunk0001-responses.jsonl
+-rwxrwxrwx 1 chao chao 816243 Aug 19 16:59 chunk0002-responses.jsonl
+-rwxrwxrwx 1 chao chao 742289 Aug 19 17:46 chunk0003-responses.jsonl
+-rwxrwxrwx 1 chao chao  41126 Aug 19 18:00 chunk0004-responses.jsonl
+meeteval WARNING lines emitted during the read: 5

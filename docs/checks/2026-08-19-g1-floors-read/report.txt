@@ -1,0 +1,22 @@
+G1 floors campaign -- descriptive read (NO branch verdicts)
+==============================================================================
+created_utc  : 2026-08-20T00:14:15+00:00
+study_commit : 5fd9a185a391ad6672af57c7c557fc100447f505
+pins_hash    : d9a9d1222a86df09d674a0ef77e1bc54267ea016559a95feca449ced07cc247f
+meetings     : ES2011a, ES2011b, ES2011c, ES2011d, IB4001, IB4002, IB4003, IB4004, IB4010, IB4011, IS1008a, IS1008b, IS1008c, IS1008d, TS3004a, TS3004b, TS3004c, TS3004d
+
+POOLED PER-ARM MEAN cpWER
+------------------------------------------------------------------------------
+  Z-turn     mean_cpWER=0.6099 n_meetings=18 capped_replies=0/367 reference_empty=2 orc_refused=8
+  Z-oracle   mean_cpWER=0.6061 n_meetings=18 capped_replies=0/371 reference_empty=0 orc_refused=4
+  Z-free     mean_cpWER=0.8726 n_meetings=18 capped_replies=0/367 reference_empty=2 orc_refused=0
+  Z-nodiar   mean_cpWER=0.8816 n_meetings=18 capped_replies=0/391 reference_empty=5 orc_refused=0
+
+DEPLOYMENT GAP (Z-turn - Z-oracle, per-meeting-clustered bootstrap CI)
+------------------------------------------------------------------------------
+  point_estimate = +0.0037
+  90% CI = [-0.0124, +0.0193] (sigma_hat=0.0097, n_replicates=10000, seed=20260818)
+  CI excludes zero: False
+  P-PROMPT single-run noise reference (cpWER): 0.085
+
+This read is DESCRIPTIVE ONLY -- no branch verdict is computed or implied.
