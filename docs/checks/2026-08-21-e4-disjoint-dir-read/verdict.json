@@ -1,0 +1,96 @@
+{
+  "schema_version": "e4-disjoint-dir-verdict-v1",
+  "experiment_id": "E4-DISJOINT-DIR-v1",
+  "runtime_binding_hash": "2cf931f7dec339d8b46f0491fe97469603ba3c76c54190057fe14e9cc683bb65",
+  "score_binding_hash": "1373362fed2aa2916aec1677706fba63d91da49026e6c0777084cb061094d5ec",
+  "dialogue_clusters": 52,
+  "targets": 86,
+  "calls": 172,
+  "aggregate": {
+    "D0-global": {
+      "wer_errors": 85,
+      "wer_tokens": 2450,
+      "carry_errors": 16,
+      "carry_tokens": 143,
+      "carry_hits": 78,
+      "carry_total": 93,
+      "false_hint_targets": 7,
+      "targets": 86,
+      "truncated": 0,
+      "wer": 0.03469387755102041,
+      "carry_ne_wer": 0.11188811188811189,
+      "carry_hit_rate": 0.8387096774193549,
+      "false_hint_target_rate": 0.08139534883720931
+    },
+    "D1-speaker": {
+      "wer_errors": 85,
+      "wer_tokens": 2450,
+      "carry_errors": 15,
+      "carry_tokens": 143,
+      "carry_hits": 79,
+      "carry_total": 93,
+      "false_hint_targets": 10,
+      "targets": 86,
+      "truncated": 0,
+      "wer": 0.03469387755102041,
+      "carry_ne_wer": 0.1048951048951049,
+      "carry_hit_rate": 0.8494623655913979,
+      "false_hint_target_rate": 0.11627906976744186
+    }
+  },
+  "contrasts": {
+    "speaker_minus_global_carry_hit_rate": 0.010752688172043001,
+    "speaker_minus_global_carry_ne_wer": -0.006993006993006992,
+    "speaker_minus_global_wer": 0.0,
+    "speaker_minus_global_false_hint_target_rate": 0.03488372093023255
+  },
+  "cluster_bootstrap": {
+    "speaker_minus_global_carry_hit_rate": {
+      "ci80": {
+        "low": -0.03157894736842104,
+        "high": 0.052631578947368474
+      },
+      "ci95": {
+        "low": -0.05263157894736836,
+        "high": 0.07446808510638303
+      }
+    },
+    "speaker_minus_global_carry_ne_wer": {
+      "ci80": {
+        "low": -0.03973509933774835,
+        "high": 0.025974025974025983
+      },
+      "ci95": {
+        "low": -0.055999999999999994,
+        "high": 0.043478260869565216
+      }
+    },
+    "speaker_minus_global_wer": {
+      "ci80": {
+        "low": -0.0038977912516240804,
+        "high": 0.0037864445285876597
+      },
+      "ci95": {
+        "low": -0.005912162162162161,
+        "high": 0.005852516582130318
+      }
+    },
+    "speaker_minus_global_false_hint_target_rate": {
+      "ci80": {
+        "low": -0.011235955056179775,
+        "high": 0.08139534883720931
+      },
+      "ci95": {
+        "low": -0.033707865168539325,
+        "high": 0.10588235294117648
+      }
+    }
+  },
+  "decision": "EXPLORATORY-HARMFUL",
+  "confirmatory": false,
+  "inputs": {
+    "runtime_binding_sha256": "72d62ad06cccd43f699285a6c50f87697ba02c47c248215e58cead39ea71e28d",
+    "score_binding_sha256": "1f2e59153e20dd243121f0f1d3e9534292313d8f7fa1cb121e0db6c2744b4330",
+    "responses_sha256": "a15f4af4f8f2c379557c1b5176c23a2755b553a9f513cde6d72111adfcd06bf5"
+  }
+}

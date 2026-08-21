@@ -24,8 +24,8 @@
 
 ## 当前总判断
 
-合法 speaker state 已经证明可构造，但 E4-CF 的 +2.16 pp 仍低于 +5 pp 正式门。资源受限 Pass-0 又在60个未见 dialogue 上测得52.76%的 `speaker_wrong_disjoint` prevalence，支持约50%的规划假设；它没有测策略效果。该策略尚未独立确认，agent loop 继续不放行。
+合法 speaker state 已经证明可构造，但 E4-CF 的 +2.16 pp 仍低于 +5 pp 正式门。资源受限 Pass-0 在60个未见 dialogue 上测得52.76%的 `speaker_wrong_disjoint` prevalence；后续172-cell方向 pilot 显示 carry 指标小幅改善，但 false-hint 增加3.49个百分点并越过安全门，判为 `EXPLORATORY-HARMFUL`。agent loop 继续不放行。
 
-当前优先级：`E4-DISJOINT-DIR` 已注册并获172次第二遍调用范围授权，等待按冻结设计运行和一次性判读。完整确认仍需约31,749 calls，不应直接启动。
+当前优先级：不部署当前等长 speaker inventory，也不启动约31,749-call完整确认。若继续，只能先设计依赖运行时可见证据的 false-hint 拒绝门，并在独立样本上重新预注册。
 
-最后同步：2026-08-21（E4-DISJOINT-PREV 完成后）。
+最后同步：2026-08-21（E4-DISJOINT-DIR 正式判读后）。
