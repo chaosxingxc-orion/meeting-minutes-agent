@@ -60,6 +60,34 @@ All design rulings are recorded chronologically in `docs/decisions.md`; the load
 
 ## What has been measured so far
 
+- **E4 unseen-dialogue confirmatory experiment** (287 dialogues; 3,822/3,822 Pass-0
+  and 3,096/3,096 second-pass requests): correct-speaker state beat wrong-speaker state
+  on carry exact hit rate by 2.16 percentage points (dialogue-cluster bootstrap 95% CI
+  [0.11, 4.30] pp). The direction is positive, but the point estimate missed the registered
+  5 pp practical-effect gate. Carry NE-WER improved by 3.66 pp versus bare, and overall WER
+  improved by 1.86 pp without a harm trigger. Verdict: **DIRECTIONAL-NOT-CONFIRMED**;
+  see `docs/readiness/2026-08-20-e4-confirmatory-verdict.md`.
+- **E4 confirmatory power audit** (zero model contact): detecting a pre-specified 5 pp
+  paired carry improvement requires a deterministic unseen roster of 287 dialogues,
+  833 carry mentions, and an estimated 6,922 calls / 22.01 repeated audio-hours after
+  clustering and attrition reserves. Verdict: **CONFIRMATORY-FEASIBLE-BUT-LARGE**;
+  the audit itself did not authorize contact; the owner later authorized and completed E4-CF.
+  See `docs/readiness/2026-08-20-e4-power-verdict.md`.
+- **E4 fixed second-pass conditioning smoke** (36 turns, six arms, 216/216): correct
+  speaker state improved carry NE-WER from 9.38% to 7.81%, but corrected only two
+  baseline misses and beat wrong-speaker state by only two hits; both registered gates
+  required three. Verdict: **CONTEXT-SENSITIVE-NOT-SPEAKER-SPECIFIC**. Corrupt state
+  degraded carry NE-WER to 15.62%. See `docs/readiness/2026-08-20-e4-conditioning-verdict.md`.
+- **E3 legal speaker-state audit** (12 ContextASR dialogues, 151/151 bare Pass-0
+  turns): hypothesis-only first-mention state reached 90.04% support precision, 9.96%
+  hallucination, and 57.50% same-speaker carry recall. Speaker routing reduced off-speaker
+  supply from 49.77% to zero. Verdict: **LEGAL-STATE-READY**; this licenses a fixed second
+  pass, not a transcription-gain claim. See `docs/readiness/2026-08-20-e3-state-audit-verdict.md`.
+- **C-CTX text-conditioning probe** (32 ContextASR English samples, 5 arms, 160/160
+  requests): correct entity context reduced NE-WER by 4.93 percentage points relative to no
+  context, but missed the pre-registered 5.00-point reachability gate by 0.07 points. Corrupt
+  entity context strongly degraded results. Verdict: **CONTEXT-SENSITIVE-BUT-UNCONTROLLED**;
+  see `docs/readiness/2026-08-20-cctx-verdict.md`.
 - **P-ATTR capability smoke** (first model contact of this repository; 498/498 requests,
   pre-registered, one-shot read): the declared-grid design failed by *reply-grammar
   capture* — the model keyed on grid indices and dropped speaker labels in 22/24 slices
@@ -91,6 +119,7 @@ All design rulings are recorded chronologically in `docs/decisions.md`; the load
 | `scripts/` | registry/manifest builders, probe launchers |
 | `scripts/data/` | **dataset download + construction for local reproduction** (see its README) |
 | `docs/plans/` | founding workplan, agent backbone, design tickets |
+| `docs/wiki/` | Chinese research navigation, experiment registry, status and reporting pages |
 | `docs/readiness/` | pre-registrations, measured readiness notes, probe verdicts |
 | `docs/checks/` | immutable flight/read receipts (hash-manifested) |
 | `docs/decisions.md` | chronological record of design discussions and owner rulings |
@@ -118,6 +147,9 @@ bash scripts/data/setup.sh --help
 
 ## Research discipline
 
+- **Research Wiki.** Start at `docs/wiki/README.md`; every experiment is registered in the
+  Wiki before model contact and linked to immutable pre-registration, receipt, and verdict
+  evidence after completion.
 - **Pre-registration.** Every model contact is pre-registered (design, sample identity,
   mechanical branch rules, cost ceilings) before it flies; results are read once, through a
   pinned read suite built and reviewed *before* the read; verdicts are decided by the

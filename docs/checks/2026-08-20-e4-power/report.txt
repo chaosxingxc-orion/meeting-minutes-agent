@@ -1,0 +1,21 @@
+decision: CONFIRMATORY-FEASIBLE-BUT-LARGE
+unseen_dialogues: 5261
+eligible_ge2: 1921
+required_usable_mentions: 707
+selection_target_before_attrition: 832
+
+recommended_primary_budget:
+  dialogues: 287
+  carry_mentions: 833
+  target_turns: 775
+  pass0_calls: 3822
+  second_pass_calls: 3100
+  total_calls: 6922
+  pass0_audio_seconds: 43528.4981875
+  second_pass_audio_seconds: 35703.988
+  total_audio_seconds: 79232.4861875
+
+mde	dialogues	carry_mentions	total_calls	total_audio_hours
+0.050	287	833	6922	22.01
+0.075	127	372	3072	9.75
+0.100	73	210	1761	5.54

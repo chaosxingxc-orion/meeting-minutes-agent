@@ -1,0 +1,11 @@
+decision: DIRECTIONAL-NOT-CONFIRMED
+dialogue_clusters: 287
+
+arm	WER	carry_NE-WER	carry_hit_rate	hits/total	false_hint	truncated
+CF0-bare	0.0540	0.1390	0.7993	665/832	0	1
+CF1-global	0.0373	0.1178	0.8317	692/832	93	0
+CF2-speaker	0.0354	0.1024	0.8534	710/832	109	0
+CF3-wrong	0.0357	0.1185	0.8317	692/832	70	0
+speaker_vs_wrong_hit_rate: 0.0216 CI95 [0.0011, 0.0430]
+speaker_vs_bare_carry_ne_wer: -0.0366 CI95 [-0.0527, -0.0213]
+speaker_vs_bare_wer: -0.0186 CI95 [-0.0544, 0.0000]

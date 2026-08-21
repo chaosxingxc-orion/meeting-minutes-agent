@@ -1,0 +1,18 @@
+decision: INSUFFICIENT-CARRY-SUPPLY
+predicate_prevalence_status: scenario-only; not measured on unseen Pass-0 state
+excluded_dialogues: 299
+remaining_dialogues: 4974
+eligible_dialogues: 1634
+remaining_carry_mentions: 6423
+remaining_target_turns: 6064
+
+mde	prevalence	required_raw_carry	dialogues	dedup_calls	dedup_audio_hours	naive_calls
+0.030	0.400000	INFEASIBLE	-	-	-	-
+0.030	0.500000	4619	1577	31749	101.55	38155
+0.030	0.540052	4277	1457	29536	94.51	35318
+0.040	0.400000	3248	1102	22013	70.37	26822
+0.040	0.500000	2598	877	17807	57.03	21428
+0.040	0.540052	2405	808	16526	52.84	19783
+0.050	0.400000	2080	696	13999	44.84	17095
+0.050	0.500000	1664	564	11446	36.66	13768
+0.050	0.540052	1541	523	10684	34.22	12776

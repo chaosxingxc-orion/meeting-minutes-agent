@@ -1,0 +1,14 @@
+decision: LEGAL-STATE-READY
+manifest_hash: d9fa2b277929d9ee7a0f51a8ac37099de2e0154de1028238bad9a8299700af9e
+target_turns: 62
+
+arm	terms	support_precision	hallucination	off_speaker	target_relevance	same_recall	global_recall
+gated-speaker	23	0.9130	0.0870	0.0000	0.4348	0.1500	0.0811
+first-mention-speaker	241	0.9004	0.0996	0.0000	0.2158	0.5750	0.3108
+gated-global	213	0.9390	0.0610	0.4977	0.1690	0.3500	0.2568
+naive-speaker	251	0.9004	0.0996	0.0000	0.2072	0.5750	0.3108
+no-carry-speaker	5	1.0000	0.0000	0.0000	0.4000	0.0250	0.0135
+wrong-speaker	145	0.9379	0.0621	0.7310	0.1241	0.1250	0.1351
+
+routing_off_speaker_gain: 0.4977
+routing_recall_loss: -0.2250

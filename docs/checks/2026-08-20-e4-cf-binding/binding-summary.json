@@ -1,0 +1,13 @@
+{
+  "schema_version": "e4-cf-binding-summary-v1",
+  "total_targets": 775,
+  "usable_targets": 774,
+  "dropped_targets": 1,
+  "total_carry_mentions": 833,
+  "usable_carry_mentions": 832,
+  "min_carry": 707,
+  "usable_fraction": 0.9987995198079231,
+  "decision": "ATTRITION-GATE-PASS",
+  "second_pass_calls": 3096,
+  "second_pass_audio_seconds": 35639.728
+}

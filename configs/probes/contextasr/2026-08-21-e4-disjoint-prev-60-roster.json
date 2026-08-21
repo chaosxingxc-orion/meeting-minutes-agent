@@ -1,0 +1,526 @@
+{
+  "schema_version": "e4-disjoint-prevalence-roster-v1",
+  "experiment_id": "E4-DISJOINT-PREV-v1",
+  "status": "candidate roster; no model contact authorized",
+  "source_jsonl_sha256": "4bbf64387d1c581df2c7ab5db9af4461e1112ee489377b67084c9b40cb6d45e8",
+  "seed": "e4-disjoint-prev-2026-08-21-v1",
+  "excluded_dialogues": 299,
+  "selection_rule": "sha256(seed:uniq_id), carry_mentions >= 2, first 60; cumulative stages 20/40/60",
+  "stages": [
+    {
+      "dialogues": 20,
+      "carry_mentions": 60,
+      "target_turns": 54,
+      "pass0_calls": 265,
+      "second_pass_calls": 0,
+      "total_calls": 265,
+      "pass0_audio_seconds": 3087.8376875,
+      "second_pass_audio_seconds": 0.0,
+      "total_audio_seconds": 3087.8376875
+    },
+    {
+      "dialogues": 40,
+      "carry_mentions": 111,
+      "target_turns": 104,
+      "pass0_calls": 530,
+      "second_pass_calls": 0,
+      "total_calls": 530,
+      "pass0_audio_seconds": 6163.7545625,
+      "second_pass_audio_seconds": 0.0,
+      "total_audio_seconds": 6163.7545625
+    },
+    {
+      "dialogues": 60,
+      "carry_mentions": 175,
+      "target_turns": 164,
+      "pass0_calls": 795,
+      "second_pass_calls": 0,
+      "total_calls": 795,
+      "pass0_audio_seconds": 9231.89275,
+      "second_pass_audio_seconds": 0.0,
+      "total_audio_seconds": 9231.89275
+    }
+  ],
+  "entries": [
+    {
+      "uniq_id": "07567-5",
+      "turns": 16,
+      "duration": 169.230375,
+      "carry_mentions": 3,
+      "target_turns": 3,
+      "target_seconds": 24.947999999999993
+    },
+    {
+      "uniq_id": "03954-4",
+      "turns": 13,
+      "duration": 159.0425625,
+      "carry_mentions": 3,
+      "target_turns": 3,
+      "target_seconds": 35.83100000000002
+    },
+    {
+      "uniq_id": "01454-3",
+      "turns": 12,
+      "duration": 126.08475,
+      "carry_mentions": 2,
+      "target_turns": 2,
+      "target_seconds": 19.94100000000001
+    },
+    {
+      "uniq_id": "07354-4",
+      "turns": 13,
+      "duration": 180.3053125,
+      "carry_mentions": 5,
+      "target_turns": 5,
+      "target_seconds": 73.867
+    },
+    {
+      "uniq_id": "12223-5",
+      "turns": 15,
+      "duration": 169.4045625,
+      "carry_mentions": 2,
+      "target_turns": 2,
+      "target_seconds": 21.85600000000001
+    },
+    {
+      "uniq_id": "12478-4",
+      "turns": 13,
+      "duration": 176.2833125,
+      "carry_mentions": 6,
+      "target_turns": 4,
+      "target_seconds": 54.858000000000004
+    },
+    {
+      "uniq_id": "11285-4",
+      "turns": 13,
+      "duration": 163.8751875,
+      "carry_mentions": 2,
+      "target_turns": 1,
+      "target_seconds": 11.233000000000004
+    },
+    {
+      "uniq_id": "01769-4",
+      "turns": 16,
+      "duration": 148.593625,
+      "carry_mentions": 4,
+      "target_turns": 3,
+      "target_seconds": 29.822999999999993
+    },
+    {
+      "uniq_id": "05039-4",
+      "turns": 13,
+      "duration": 153.034375,
+      "carry_mentions": 3,
+      "target_turns": 3,
+      "target_seconds": 29.04
+    },
+    {
+      "uniq_id": "12099-3",
+      "turns": 12,
+      "duration": 140.9745,
+      "carry_mentions": 2,
+      "target_turns": 2,
+      "target_seconds": 21.638000000000005
+    },
+    {
+      "uniq_id": "08026-4",
+      "turns": 12,
+      "duration": 144.893,
+      "carry_mentions": 3,
+      "target_turns": 3,
+      "target_seconds": 30.95599999999999
+    },
+    {
+      "uniq_id": "05272-5",
+      "turns": 13,
+      "duration": 148.2889375,
+      "carry_mentions": 3,
+      "target_turns": 2,
+      "target_seconds": 27.12299999999999
+    },
+    {
+      "uniq_id": "10732-5",
+      "turns": 13,
+      "duration": 150.2185,
+      "carry_mentions": 2,
+      "target_turns": 1,
+      "target_seconds": 13.975999999999999
+    },
+    {
+      "uniq_id": "05031-4",
+      "turns": 12,
+      "duration": 134.4738125,
+      "carry_mentions": 3,
+      "target_turns": 3,
+      "target_seconds": 37.616
+    },
+    {
+      "uniq_id": "04496-4",
+      "turns": 11,
+      "duration": 140.277875,
+      "carry_mentions": 2,
+      "target_turns": 2,
+      "target_seconds": 30.51899999999999
+    },
+    {
+      "uniq_id": "00226-3",
+      "turns": 12,
+      "duration": 143.1203125,
+      "carry_mentions": 3,
+      "target_turns": 3,
+      "target_seconds": 38.705000000000005
+    },
+    {
+      "uniq_id": "08913-5",
+      "turns": 14,
+      "duration": 158.5636875,
+      "carry_mentions": 2,
+      "target_turns": 2,
+      "target_seconds": 26.994
+    },
+    {
+      "uniq_id": "05807-3",
+      "turns": 15,
+      "duration": 145.9341875,
+      "carry_mentions": 3,
+      "target_turns": 3,
+      "target_seconds": 33.349
+    },
+    {
+      "uniq_id": "01449-5",
+      "turns": 12,
+      "duration": 154.64525,
+      "carry_mentions": 3,
+      "target_turns": 3,
+      "target_seconds": 38.443
+    },
+    {
+      "uniq_id": "05415-5",
+      "turns": 15,
+      "duration": 180.5935625,
+      "carry_mentions": 4,
+      "target_turns": 4,
+      "target_seconds": 48.065999999999974
+    },
+    {
+      "uniq_id": "00957-3",
+      "turns": 12,
+      "duration": 156.9090625,
+      "carry_mentions": 2,
+      "target_turns": 2,
+      "target_seconds": 27.255000000000003
+    },
+    {
+      "uniq_id": "00594-5",
+      "turns": 15,
+      "duration": 186.7325625,
+      "carry_mentions": 2,
+      "target_turns": 2,
+      "target_seconds": 14.49799999999999
+    },
+    {
+      "uniq_id": "02953-3",
+      "turns": 10,
+      "duration": 132.3059375,
+      "carry_mentions": 4,
+      "target_turns": 4,
+      "target_seconds": 51.156000000000006
+    },
+    {
+      "uniq_id": "05282-4",
+      "turns": 12,
+      "duration": 133.5295,
+      "carry_mentions": 2,
+      "target_turns": 2,
+      "target_seconds": 23.031000000000006
+    },
+    {
+      "uniq_id": "02153-4",
+      "turns": 12,
+      "duration": 149.029,
+      "carry_mentions": 3,
+      "target_turns": 3,
+      "target_seconds": 38.96600000000002
+    },
+    {
+      "uniq_id": "09758-5",
+      "turns": 16,
+      "duration": 170.29175,
+      "carry_mentions": 2,
+      "target_turns": 2,
+      "target_seconds": 20.679999999999993
+    },
+    {
+      "uniq_id": "06870-4",
+      "turns": 16,
+      "duration": 176.2400625,
+      "carry_mentions": 5,
+      "target_turns": 5,
+      "target_seconds": 51.286
+    },
+    {
+      "uniq_id": "02031-4",
+      "turns": 14,
+      "duration": 154.0359375,
+      "carry_mentions": 2,
+      "target_turns": 2,
+      "target_seconds": 23.205000000000005
+    },
+    {
+      "uniq_id": "06484-5",
+      "turns": 14,
+      "duration": 172.452125,
+      "carry_mentions": 2,
+      "target_turns": 2,
+      "target_seconds": 24.816999999999993
+    },
+    {
+      "uniq_id": "12836-4",
+      "turns": 13,
+      "duration": 155.6466875,
+      "carry_mentions": 2,
+      "target_turns": 2,
+      "target_seconds": 20.505999999999958
+    },
+    {
+      "uniq_id": "05960-5",
+      "turns": 15,
+      "duration": 158.3895,
+      "carry_mentions": 2,
+      "target_turns": 2,
+      "target_seconds": 19.679000000000002
+    },
+    {
+      "uniq_id": "01214-4",
+      "turns": 13,
+      "duration": 163.8315625,
+      "carry_mentions": 2,
+      "target_turns": 2,
+      "target_seconds": 26.906000000000006
+    },
+    {
+      "uniq_id": "08881-3",
+      "turns": 11,
+      "duration": 159.3036875,
+      "carry_mentions": 3,
+      "target_turns": 2,
+      "target_seconds": 31.086000000000013
+    },
+    {
+      "uniq_id": "00266-5",
+      "turns": 16,
+      "duration": 149.2466875,
+      "carry_mentions": 3,
+      "target_turns": 3,
+      "target_seconds": 30.215000000000018
+    },
+    {
+      "uniq_id": "01263-4",
+      "turns": 13,
+      "duration": 152.5341875,
+      "carry_mentions": 3,
+      "target_turns": 3,
+      "target_seconds": 34.83
+    },
+    {
+      "uniq_id": "06064-3",
+      "turns": 12,
+      "duration": 123.2548125,
+      "carry_mentions": 3,
+      "target_turns": 3,
+      "target_seconds": 32.087
+    },
+    {
+      "uniq_id": "05411-5",
+      "turns": 12,
+      "duration": 133.965,
+      "carry_mentions": 2,
+      "target_turns": 2,
+      "target_seconds": 24.031999999999996
+    },
+    {
+      "uniq_id": "11405-3",
+      "turns": 11,
+      "duration": 123.9078125,
+      "carry_mentions": 3,
+      "target_turns": 3,
+      "target_seconds": 33.917
+    },
+    {
+      "uniq_id": "07334-5",
+      "turns": 13,
+      "duration": 155.9949375,
+      "carry_mentions": 2,
+      "target_turns": 2,
+      "target_seconds": 22.814000000000014
+    },
+    {
+      "uniq_id": "01130-4",
+      "turns": 15,
+      "duration": 168.3160625,
+      "carry_mentions": 2,
+      "target_turns": 2,
+      "target_seconds": 19.505000000000024
+    },
+    {
+      "uniq_id": "06444-3",
+      "turns": 11,
+      "duration": 140.6698125,
+      "carry_mentions": 2,
+      "target_turns": 2,
+      "target_seconds": 21.900000000000006
+    },
+    {
+      "uniq_id": "04496-3",
+      "turns": 10,
+      "duration": 132.7893125,
+      "carry_mentions": 2,
+      "target_turns": 2,
+      "target_seconds": 25.46900000000001
+    },
+    {
+      "uniq_id": "07661-5",
+      "turns": 16,
+      "duration": 168.4031875,
+      "carry_mentions": 5,
+      "target_turns": 5,
+      "target_seconds": 50.938000000000024
+    },
+    {
+      "uniq_id": "08244-5",
+      "turns": 14,
+      "duration": 150.1174375,
+      "carry_mentions": 2,
+      "target_turns": 2,
+      "target_seconds": 17.937999999999995
+    },
+    {
+      "uniq_id": "03678-4",
+      "turns": 12,
+      "duration": 145.3283125,
+      "carry_mentions": 4,
+      "target_turns": 3,
+      "target_seconds": 34.00300000000001
+    },
+    {
+      "uniq_id": "12316-3",
+      "turns": 12,
+      "duration": 160.609875,
+      "carry_mentions": 3,
+      "target_turns": 3,
+      "target_seconds": 44.538000000000004
+    },
+    {
+      "uniq_id": "06934-3",
+      "turns": 10,
+      "duration": 130.351375,
+      "carry_mentions": 4,
+      "target_turns": 3,
+      "target_seconds": 44.059999999999995
+    },
+    {
+      "uniq_id": "12540-4",
+      "turns": 16,
+      "duration": 177.0236875,
+      "carry_mentions": 3,
+      "target_turns": 3,
+      "target_seconds": 33.91599999999998
+    },
+    {
+      "uniq_id": "03879-5",
+      "turns": 14,
+      "duration": 150.074,
+      "carry_mentions": 3,
+      "target_turns": 3,
+      "target_seconds": 39.663
+    },
+    {
+      "uniq_id": "10357-3",
+      "turns": 11,
+      "duration": 153.600375,
+      "carry_mentions": 3,
+      "target_turns": 3,
+      "target_seconds": 49.98100000000001
+    },
+    {
+      "uniq_id": "09637-4",
+      "turns": 14,
+      "duration": 160.9580625,
+      "carry_mentions": 3,
+      "target_turns": 3,
+      "target_seconds": 31.129999999999995
+    },
+    {
+      "uniq_id": "11721-3",
+      "turns": 14,
+      "duration": 172.4086875,
+      "carry_mentions": 2,
+      "target_turns": 2,
+      "target_seconds": 27.211
+    },
+    {
+      "uniq_id": "05621-5",
+      "turns": 15,
+      "duration": 143.1514375,
+      "carry_mentions": 2,
+      "target_turns": 2,
+      "target_seconds": 18.373000000000005
+    },
+    {
+      "uniq_id": "11175-3",
+      "turns": 12,
+      "duration": 143.3255,
+      "carry_mentions": 2,
+      "target_turns": 2,
+      "target_seconds": 23.292
+    },
+    {
+      "uniq_id": "07860-4",
+      "turns": 13,
+      "duration": 147.250125,
+      "carry_mentions": 3,
+      "target_turns": 3,
+      "target_seconds": 41.52199999999999
+    },
+    {
+      "uniq_id": "08463-3",
+      "turns": 12,
+      "duration": 145.6765625,
+      "carry_mentions": 7,
+      "target_turns": 7,
+      "target_seconds": 85.02799999999999
+    },
+    {
+      "uniq_id": "09558-5",
+      "turns": 15,
+      "duration": 153.295625,
+      "carry_mentions": 3,
+      "target_turns": 3,
+      "target_seconds": 28.385999999999996
+    },
+    {
+      "uniq_id": "07928-5",
+      "turns": 15,
+      "duration": 159.69425,
+      "carry_mentions": 3,
+      "target_turns": 3,
+      "target_seconds": 33.65499999999997
+    },
+    {
+      "uniq_id": "06089-4",
+      "turns": 16,
+      "duration": 193.306625,
+      "carry_mentions": 2,
+      "target_turns": 2,
+      "target_seconds": 22.11699999999999
+    },
+    {
+      "uniq_id": "10465-5",
+      "turns": 13,
+      "duration": 140.1039375,
+      "carry_mentions": 6,
+      "target_turns": 4,
+      "target_seconds": 44.800000000000026
+    }
+  ]
+}

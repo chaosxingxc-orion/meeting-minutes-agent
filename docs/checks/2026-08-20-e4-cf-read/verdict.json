@@ -1,0 +1,88 @@
+{
+  "schema_version": "e4-cf-verdict-v1",
+  "runtime_binding_hash": "5b52b1cc77b0a3726edf5ca59069df1347e45b3d9f135b15bbfe57f87c496642",
+  "score_binding_hash": "dd2db71d127d2e54196d6ff347202284a7bf2c3eb2b7eb6f20a376f80abc4f3d",
+  "dialogue_clusters": 287,
+  "aggregate": {
+    "CF0-bare": {
+      "wer_errors": 1110,
+      "wer_tokens": 20563,
+      "carry_errors": 190,
+      "carry_tokens": 1367,
+      "carry_hits": 665,
+      "carry_total": 832,
+      "false_hint_activations": 0,
+      "truncated": 1,
+      "wer": 0.05398045032339639,
+      "carry_ne_wer": 0.1389904901243599,
+      "carry_hit_rate": 0.7992788461538461,
+      "carry_fnr": 0.20072115384615385
+    },
+    "CF1-global": {
+      "wer_errors": 767,
+      "wer_tokens": 20563,
+      "carry_errors": 161,
+      "carry_tokens": 1367,
+      "carry_hits": 692,
+      "carry_total": 832,
+      "false_hint_activations": 93,
+      "truncated": 0,
+      "wer": 0.037300004863103635,
+      "carry_ne_wer": 0.11777615215801024,
+      "carry_hit_rate": 0.8317307692307693,
+      "carry_fnr": 0.16826923076923073
+    },
+    "CF2-speaker": {
+      "wer_errors": 727,
+      "wer_tokens": 20563,
+      "carry_errors": 140,
+      "carry_tokens": 1367,
+      "carry_hits": 710,
+      "carry_total": 832,
+      "false_hint_activations": 109,
+      "truncated": 0,
+      "wer": 0.03535476341000827,
+      "carry_ne_wer": 0.10241404535479151,
+      "carry_hit_rate": 0.8533653846153846,
+      "carry_fnr": 0.14663461538461542
+    },
+    "CF3-wrong": {
+      "wer_errors": 734,
+      "wer_tokens": 20563,
+      "carry_errors": 162,
+      "carry_tokens": 1367,
+      "carry_hits": 692,
+      "carry_total": 832,
+      "false_hint_activations": 70,
+      "truncated": 0,
+      "wer": 0.035695180664299955,
+      "carry_ne_wer": 0.1185076810534016,
+      "carry_hit_rate": 0.8317307692307693,
+      "carry_fnr": 0.16826923076923073
+    }
+  },
+  "contrasts": {
+    "speaker_vs_wrong_hit_rate": {
+      "value": 0.021634615384615308,
+      "ci95": {
+        "low": 0.0011337868480726376,
+        "high": 0.0429975429975431
+      }
+    },
+    "speaker_vs_bare_carry_ne_wer": {
+      "value": -0.036576444769568395,
+      "ci95": {
+        "low": -0.052670080468178476,
+        "high": -0.021292217327459617
+      }
+    },
+    "speaker_vs_bare_wer": {
+      "value": -0.018625686913388124,
+      "ci95": {
+        "low": -0.05439393183292579,
+        "high": 0.0
+      }
+    }
+  },
+  "decision": "DIRECTIONAL-NOT-CONFIRMED"
+}

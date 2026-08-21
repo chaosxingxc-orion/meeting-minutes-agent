@@ -1,0 +1,1287 @@
+{
+  "schema_version": "contextasr-smoke-manifest-v1",
+  "experiment_id": "C-CTX-32-en-speech-v1",
+  "purpose": "Tier-M1 frozen-core use of correct/domain/deranged/corrupt context hints",
+  "selection": {
+    "n_samples": 32,
+    "seed": "cctx-2026-08-20-v1",
+    "source_scope": "ContextASR-Speech_English_1.tar",
+    "algorithm": "domain round-robin; sha256(seed:id) within domain"
+  },
+  "source": {
+    "dataset": "ContextASR-Bench",
+    "jsonl": "/mnt/e/datasets/contextasr-bench/ContextASR-Speech_English.jsonl",
+    "jsonl_sha256": "b6bcb3de39aebe36328ab03d7d4d865899712c2dc375b6cd2b9ce156b6a952e4",
+    "tar": "/mnt/e/datasets/contextasr-bench/audio/ContextASR-Speech/English/ContextASR-Speech_English_1.tar",
+    "tar_bytes": 2970286080
+  },
+  "arms": [
+    "C0-bare",
+    "C1-domain",
+    "C2-entity",
+    "C3-deranged",
+    "C4-corrupt"
+  ],
+  "entries": [
+    {
+      "uniq_id": "BANK-001494_EN",
+      "language": "English",
+      "duration": 46.0746875,
+      "domain_label": "Financial Services",
+      "reference_text": "Hey Jessica, can you believe it? I drove nearly ten miles yesterday trying to find a Bank of America branch to deposit this check. The mobile check deposit kept giving me error codes! The customer service rep mentioned something about upgrading their core banking system this quarter. Oh, and get this they're pushing everyone to use Zelle transfers instead of cashier's checks now. My neighbor swears by Chase's new A I powered A T M's that do instant currency conversion. Did you see Wells Fargo's ads about their F D I C insured overdraft protection? Honestly, with all these digital wallets popping up, I am starting to think physical branches are going extinct.",
+      "entity_list": [
+        "mobile check deposit",
+        "Zelle transfers",
+        "Chase",
+        "A I powered A T M's",
+        "Wells Fargo",
+        "overdraft protection",
+        "physical branches"
+      ],
+      "deranged_from_id": "BANK-002328_EN",
+      "deranged_entity_list": [
+        "Capital One's Quick Silver loan",
+        "Discover card",
+        "Sallie Mae",
+        "Chase's Freedom Flex",
+        "twenty nine point nine A P R",
+        "Experian",
+        "Amazon Prime subscription"
+      ],
+      "corrupt_entity_list": [
+        "mboile cehck dpeosit",
+        "Zlele tarnsfers",
+        "Cahse",
+        "Ax Ix pwoered Ax Tx M'sx",
+        "Wlels Frago",
+        "oevrdraft portection",
+        "pyhsical barnches"
+      ],
+      "source_tar": "/mnt/e/datasets/contextasr-bench/audio/ContextASR-Speech/English/ContextASR-Speech_English_1.tar",
+      "tar_member": "./BANK-001494_EN.wav",
+      "audio_sha256": "b7d5053daed5d9a50e5f0d623e3733575d24bf157a113fd7ee9708c2fbdc8cee",
+      "audio_bytes": 1474434
+    },
+    {
+      "uniq_id": "CCFBDCI-004485_EN",
+      "language": "English",
+      "duration": 53.359375,
+      "domain_label": "Pharmaceutical Business",
+      "reference_text": "Hey Sarah, did you see the breaking news from the pharma world? Glaxo Smith Kline just dropped a bombshell they're acquiring Bracktonics for a whopping one point two four billion dollars! I mean, with the economy in shambles, you'd think M and A deals would slow down, but apparently the oral care sector's booming. My buddy at Pfizer says these fluoride free desensitizing toothpastes like Bracktonics' Hydro Dent line are dominating the O T C market. Get this, their latest clinical data shows a thirty seven percent reduction in dentinal hypersensitivity. Oh, and the F T C is already sniffing around about potential monopolies in bioactive glass technology. Honestly, between the patent expirations and supply chain disruptions, this vertical integration makes sense.",
+      "entity_list": [
+        "Glaxo Smith Kline",
+        "Bracktonics",
+        "fluoride free desensitizing toothpastes",
+        "Hydro Dent",
+        "thirty seven percent reduction",
+        "dentinal hypersensitivity",
+        "F T C",
+        "patent expirations"
+      ],
+      "deranged_from_id": "BANK-001385_EN",
+      "deranged_entity_list": [
+        "F I C O Score",
+        "Chase Sapphire Preferred",
+        "A P R",
+        "Afterpay",
+        "Experian reports",
+        "balance transfers",
+        "Amex Platinum cards",
+        "crypto investments"
+      ],
+      "corrupt_entity_list": [
+        "Galxo Simth Kilne",
+        "Barcktonics",
+        "fuloride fere dseensitizing toothpastes",
+        "Hdyro Dnet",
+        "tihrty sveen precent rdeuction",
+        "dnetinal hpyersensitivity",
+        "Fx Tx Cx",
+        "ptaent epxirations"
+      ],
+      "source_tar": "/mnt/e/datasets/contextasr-bench/audio/ContextASR-Speech/English/ContextASR-Speech_English_1.tar",
+      "tar_member": "./CCFBDCI-004485_EN.wav",
+      "audio_sha256": "5c4221ff307743e077374d870f191c8fc9b45782458fefc66cffd3ce481c41fb",
+      "audio_bytes": 1707544
+    },
+    {
+      "uniq_id": "BOSON-000605_EN",
+      "language": "English",
+      "duration": 44.147,
+      "domain_label": "Agricultural Economics",
+      "reference_text": "Can you believe these veggie prices at Springfield Farmers Market? Just bought cucumbers for three dollars fifty cents per pound yesterday! The vendor from Eastern Valley said their zucchini harvest got hit hard by the sudden frost last week. Remember when Mister Thompson from the agricultural bureau warned about supply chain issues in the weekly report? Turns out the snowstorm in Northern farming regions dropped greenhouse temperatures below fifty degrees Fahrenheit. My neighbor Misses Wilson works at the produce distribution center she mentioned the bean sprouts and eggplants have doubled in price since Lunar New Year. Oh, and did you see the U S D A report? The price index jumped twelve percent between February eleventh and seventeenth. Even leafy greens are getting stuck on interstate transports now.",
+      "entity_list": [
+        "Springfield Farmers Market",
+        "Mister Thompson",
+        "bean sprouts",
+        "eggplants",
+        "produce distribution center",
+        "U S D A report",
+        "February eleventh",
+        "leafy greens",
+        "price index"
+      ],
+      "deranged_from_id": "BANK-000250_EN",
+      "deranged_entity_list": [
+        "F I C O score",
+        "Experian Boost",
+        "velocity banking",
+        "Chase",
+        "risk algorithms",
+        "Amex",
+        "debt to income ratio",
+        "A P R",
+        "Nerd Wallet"
+      ],
+      "corrupt_entity_list": [
+        "Srpingfield Framers Mraket",
+        "Msiter Tohmpson",
+        "baen srpouts",
+        "eggplants",
+        "porduce dsitribution cneter",
+        "Ux Sx Dx Ax rpeort",
+        "Fberuary eelventh",
+        "laefy gerens",
+        "pirce idnex"
+      ],
+      "source_tar": "/mnt/e/datasets/contextasr-bench/audio/ContextASR-Speech/English/ContextASR-Speech_English_1.tar",
+      "tar_member": "./BOSON-000605_EN.wav",
+      "audio_sha256": "b474d07666cad6ecb1894083aaaf2f3b2560287cab95eff6b558f9dd896beae3",
+      "audio_bytes": 1412748
+    },
+    {
+      "uniq_id": "CLUENER2020-002632_EN",
+      "language": "English",
+      "duration": 47.427375,
+      "domain_label": "Geolocation Services",
+      "reference_text": "Hey Tom, you won't believe what happened to Miss Chen yesterday at six thirteen P M near Bluepond Township! She was following Tencent Maps' lane level guidance along Provincial Highway one hundred and twenty South, but it routed her straight into a restricted municipal construction zone. The Purplegold County Transportation Bureau really needs to sync their G I S layers with reality those new weigh in motion sensors they installed last month aren't even transmitting data properly. She finally switched to Galileo high precision positioning and stumbled upon an E P C O maintenance crew inspecting the Guangfa substation. Honestly, how do these digital maps still confuse paved surfaces with gravel service roads?",
+      "entity_list": [
+        "Bluepond Township",
+        "Provincial Highway one hundred and twenty South",
+        "Tencent Maps",
+        "Purplegold County Transportation Bureau",
+        "weigh in motion sensors",
+        "E P C O",
+        "gravel service roads"
+      ],
+      "deranged_from_id": "BANK-000925_EN",
+      "deranged_entity_list": [
+        "F I C O scoring model",
+        "Delta co branded card",
+        "debt to income ratio",
+        "Amex payments",
+        "Trans Union",
+        "Klarna installment plans",
+        "Vantage Score four point oh"
+      ],
+      "corrupt_entity_list": [
+        "Bulepond Twonship",
+        "Porvincial Hgihway onex hnudred andx tewnty Suoth",
+        "Tnecent Mpas",
+        "Pruplegold Cuonty Tarnsportation Brueau",
+        "wiegh inx mtoion snesors",
+        "Ex Px Cx Ox",
+        "garvel srevice raods"
+      ],
+      "source_tar": "/mnt/e/datasets/contextasr-bench/audio/ContextASR-Speech/English/ContextASR-Speech_English_1.tar",
+      "tar_member": "./CLUENER2020-002632_EN.wav",
+      "audio_sha256": "da8f2fd3d4b8105bd05c9bc1ca1238657426f33dfba5c4f8ef4a7129b12b9f28",
+      "audio_bytes": 1517720
+    },
+    {
+      "uniq_id": "CLUENER2020-005155_EN",
+      "language": "English",
+      "duration": 39.9506875,
+      "domain_label": "Maritime Engineering",
+      "reference_text": "Yo Chris, you know Jason Lin from the San Francisco Bay Area? That madman built a catamaran with fiber reinforced polymer sheets! Last Thursday at Half Moon Bay Marina, his buoyancy chambers started leaking when wave heights hit three feet. The coastal current modeling software from N O A A totally miscalculated the riptide patterns. Get this he's now adding aluminum alloy keels and borrowed a submersible thrust system from doctor Wilson at Stanford's Maritime Lab. But get this, the E P A just announced new regulations on coastal debris, so his trial run next Tuesday might get canceled.",
+      "entity_list": [
+        "Jason Lin",
+        "fiber reinforced polymer sheets",
+        "catamaran",
+        "buoyancy chambers",
+        "coastal current modeling software",
+        "N O A A",
+        "aluminum alloy keels"
+      ],
+      "deranged_from_id": "BANK-001522_EN",
+      "deranged_entity_list": [
+        "underwriting algorithm",
+        "Venmo transactions",
+        "Global Wallet Card",
+        "cashback incentives",
+        "dynamic A P R adjustments",
+        "balance transfer options",
+        "tiered interest structures"
+      ],
+      "corrupt_entity_list": [
+        "Jsaon Linx",
+        "fbier rienforced ploymer sehets",
+        "ctaamaran",
+        "bouyancy cahmbers",
+        "caostal crurent mdoeling sfotware",
+        "Nx Ox Ax Ax",
+        "aulminum alloy keels"
+      ],
+      "source_tar": "/mnt/e/datasets/contextasr-bench/audio/ContextASR-Speech/English/ContextASR-Speech_English_1.tar",
+      "tar_member": "./CLUENER2020-005155_EN.wav",
+      "audio_sha256": "52f791c788099e7765f126de8bbac1e70f6e7ac0632374efae04f03db47e7b52",
+      "audio_bytes": 1278466
+    },
+    {
+      "uniq_id": "CLUENER2020-000935_EN",
+      "language": "English",
+      "duration": 41.955375,
+      "domain_label": "Ecology/Conservation",
+      "reference_text": "Hey Tom, remember that field trip to the Gobi Desert back in october twenty eighteen? When doctor Chen from the Ecological Institute discovered those ancient Populus euphratica groves near the saline alkali flats? We were deploying Li D A R scanners to map the aeolian landforms, but the wind speed kept messing with our hyperspectral imaging drones. Now the U N E S C O World Heritage team is using C R I S P R edited saplings for desertification control. Oh, and get this they've installed real time soil moisture sensors connected to the Lo Ra W A N network!",
+      "entity_list": [
+        "Populus euphratica",
+        "Li D A R scanners",
+        "aeolian landforms",
+        "hyperspectral imaging drones",
+        "U N E S C O World Heritage",
+        "C R I S P R edited saplings",
+        "Lo Ra W A N network"
+      ],
+      "deranged_from_id": "BOSON-000502_EN",
+      "deranged_entity_list": [
+        "B M W three hundred and twenty five i",
+        "two point oh L turbocharged engine",
+        "M Sport package",
+        "Lexus I S three hundred",
+        "Audi A four",
+        "E P A ratings",
+        "Mercedes C three hundred"
+      ],
+      "corrupt_entity_list": [
+        "Ppoulus epuhratica",
+        "Lix Dx Ax Rx sacnners",
+        "aoelian lnadforms",
+        "hpyerspectral iamging dornes",
+        "Ux Nx Ex Sx Cx Ox Wrold Hreitage",
+        "Cx Rx Ix Sx Px Rx eidted spalings",
+        "Lox Rax Wx Ax Nx ntework"
+      ],
+      "source_tar": "/mnt/e/datasets/contextasr-bench/audio/ContextASR-Speech/English/ContextASR-Speech_English_1.tar",
+      "tar_member": "./CLUENER2020-000935_EN.wav",
+      "audio_sha256": "c67022205107b9607d979fe0d62c45c88e359c9a4d62fbf8b0679b6580369304",
+      "audio_bytes": 1342616
+    },
+    {
+      "uniq_id": "BOSON-000907_EN",
+      "language": "English",
+      "duration": 60.9524375,
+      "domain_label": "Insurance/Finance",
+      "reference_text": "Hey Amanda, did you see the latest from the State Insurance Regulatory Bureau? Mister Thompson from the actuarial department dropped some wild stats at yesterday's press conference. Back in 'oh two, our region's premium income was barely crossing eight billion, but by twenty eleven it skyrocketed to forty three point two three billion! And get this just in the first three quarters this year, we've already hit thirty two point six seven five billion. No kidding! The report says insurance branches quadrupled since two thousand two. Now we've got everything from marine cargo insurers to pet healthcare providers. Oh, by the way, did your brother finalize that cyber liability coverage for his fintech startup? I heard the new regulatory sandbox allows parametric insurance products. Still waiting on Lloyd's syndicate approval. But speaking of innovations, the commissioner mentioned piloting usage based auto telematics policies. Can you imagine? Our Tesla's driving data might lower premiums by twenty percent!",
+      "entity_list": [
+        "State Insurance Regulatory Bureau",
+        "two thousand two",
+        "pet healthcare providers",
+        "cyber liability coverage",
+        "fintech startup",
+        "regulatory sandbox"
+      ],
+      "deranged_from_id": "BANK-001383_EN",
+      "deranged_entity_list": [
+        "balance transfers",
+        "F I C O score",
+        "credit utilization thresholds",
+        "Experian report",
+        "hard inquiry records",
+        "credit mix"
+      ],
+      "corrupt_entity_list": [
+        "Satte Isnurance Rgeulatory Brueau",
+        "twox tohusand twox",
+        "petx haelthcare porviders",
+        "cbyer laibility cvoerage",
+        "fnitech satrtup",
+        "rgeulatory snadbox"
+      ],
+      "source_tar": "/mnt/e/datasets/contextasr-bench/audio/ContextASR-Speech/English/ContextASR-Speech_English_1.tar",
+      "tar_member": "./BOSON-000907_EN.wav",
+      "audio_sha256": "0a93b22e179f7b5a1e7fd8133dfd7c09d64a84e0ceea4df1b76bb6e02cf876b1",
+      "audio_bytes": 1950522
+    },
+    {
+      "uniq_id": "BOSON-001167_EN",
+      "language": "English",
+      "duration": 48.674875,
+      "domain_label": "Energy Sector",
+      "reference_text": "Yo Chris, did you catch Platts' latest Global Energy two hundred and fifty report? Man, this is their eleventh consecutive year dropping those rankings. Crazy thing Chinese firms took twenty three spots this July, overtaking both Canada and Japan! Heard Sinopec and C N O O C are leading the pack with their shale gas production. Oh, and get this, Shenhua Energy just launched this insane digital coal mine platform. But honestly, shouldn't they weigh renewable transition metrics more? Like what Yankuang Group's doing with carbon capture technologies? By the way, did you notice Exxon Mobil slipped to fifth in liquefied natural gas projects?",
+      "entity_list": [
+        "Platts",
+        "Sinopec",
+        "Shenhua Energy",
+        "digital coal mine platform",
+        "Yankuang Group",
+        "carbon capture technologies",
+        "Exxon Mobil",
+        "liquefied natural gas projects",
+        "renewable transition metrics"
+      ],
+      "deranged_from_id": "BANK-000250_EN",
+      "deranged_entity_list": [
+        "F I C O score",
+        "Experian Boost",
+        "velocity banking",
+        "Chase",
+        "risk algorithms",
+        "Amex",
+        "debt to income ratio",
+        "A P R",
+        "Nerd Wallet"
+      ],
+      "corrupt_entity_list": [
+        "Paltts",
+        "Sniopec",
+        "Sehnhua Eenrgy",
+        "dgiital caol mnie paltform",
+        "Ynakuang Gorup",
+        "crabon cpature tcehnologies",
+        "Exxon Mboil",
+        "lqiuefied ntaural gasx porjects",
+        "rneewable tarnsition mterics"
+      ],
+      "source_tar": "/mnt/e/datasets/contextasr-bench/audio/ContextASR-Speech/English/ContextASR-Speech_English_1.tar",
+      "tar_member": "./BOSON-001167_EN.wav",
+      "audio_sha256": "4cff4443e06245c238ae9c28f3e91d80cfb8e49048f979458492e3cc05fc901e",
+      "audio_bytes": 1557640
+    },
+    {
+      "uniq_id": "CCFBDCI-004293_EN",
+      "language": "English",
+      "duration": 36.826,
+      "domain_label": "Entertainment Media",
+      "reference_text": "Did you check the latest celebrity ranking on Twitter? It's wild how former president Chen Shui bian still tops the political category, but scroll down and it's all about Hollywood. Taylor Swift's Midnight Sonata just hit one hundred million streams on Spotify this week. Oh, and that Tik Tok influencer Emma Clarke? Her makeup tutorial with Fenty Beauty products crashed the app twice yesterday! Even more shocking some You Tuber called Tech Geek Tom analyzing Qualcomm Snapdragon processors made it into the top twenty. Seriously, these days a senator gets less attention than a Fortnite streamer.",
+      "entity_list": [
+        "Chen Shui bian",
+        "Taylor Swift",
+        "Tik Tok",
+        "Emma Clarke",
+        "Fenty Beauty",
+        "You Tube",
+        "Tech Geek Tom",
+        "Qualcomm Snapdragon",
+        "Fortnite"
+      ],
+      "deranged_from_id": "BOSON-000592_EN",
+      "deranged_entity_list": [
+        "two thousand nine",
+        "Farm Ville",
+        "Joy Pal",
+        "Micro Blog",
+        "Insta Sphere",
+        "geotagging",
+        "Linked In",
+        "social listening tools",
+        "blockchain verification"
+      ],
+      "corrupt_entity_list": [
+        "Cehn Suhi bain",
+        "Tyalor Siwft",
+        "Tikx Tokx",
+        "Emma Calrke",
+        "Fnety Baeuty",
+        "Youx Tbue",
+        "Tceh Geek Tomx",
+        "Qaulcomm Sanpdragon",
+        "Frotnite"
+      ],
+      "source_tar": "/mnt/e/datasets/contextasr-bench/audio/ContextASR-Speech/English/ContextASR-Speech_English_1.tar",
+      "tar_member": "./CCFBDCI-004293_EN.wav",
+      "audio_sha256": "c627c61b9660c30ef424a40588df1797025e2ee9f44d7138d693ced3d8dd4e4a",
+      "audio_bytes": 1178476
+    },
+    {
+      "uniq_id": "CLUENER2020-002718_EN",
+      "language": "English",
+      "duration": 44.666,
+      "domain_label": "Fashion & Entertainment",
+      "reference_text": "O M G have you seen Vogue's latest collab? They teamed up with the ' Steel Brotherhood' production crew for this insane editorial spread. I was flipping through the issue at Starbucks this morning t here is Chris Hemsworth in a Brioni tuxedo doing deadlifts! The stylist told me they used Cooke S eight i anamorphic lenses to capture every vein popping. And get this, the article keeps mentioning 'neo noir chiaroscuro composition' like it's some Scorsese meets Fincher situation. Oh, and that behind the scenes video with the Steadicam operator explaining Dolby Vision H D R grading? Chef's kiss!",
+      "entity_list": [
+        "Vogue",
+        "Chris Hemsworth",
+        "Brioni tuxedo",
+        "Cooke S eight i anamorphic lenses",
+        "neo noir chiaroscuro composition",
+        "Steadicam operator",
+        "Dolby Vision H D R grading"
+      ],
+      "deranged_from_id": "BANK-000679_EN",
+      "deranged_entity_list": [
+        "cash back rewards program",
+        "chargeback ratios",
+        "interchange fee thresholds",
+        "Amex Platinum",
+        "dynamic A P R adjustment algorithm",
+        "foreign transaction fees",
+        "merchant service credits"
+      ],
+      "corrupt_entity_list": [
+        "Vgoue",
+        "Crhis Hmesworth",
+        "Bironi txuedo",
+        "Cooke Sx egiht ix aanmorphic lneses",
+        "neox nior ciharoscuro cmoposition",
+        "Setadicam oeprator",
+        "Dloby Vsiion Hx Dx Rx garding"
+      ],
+      "source_tar": "/mnt/e/datasets/contextasr-bench/audio/ContextASR-Speech/English/ContextASR-Speech_English_1.tar",
+      "tar_member": "./CLUENER2020-002718_EN.wav",
+      "audio_sha256": "6a18641844c508d88721eb3d88d1b4f00e612bad93cb9f6b240740763500749e",
+      "audio_bytes": 1429356
+    },
+    {
+      "uniq_id": "BANK-004125_EN",
+      "language": "English",
+      "duration": 43.31975,
+      "domain_label": "Banking",
+      "reference_text": "Man, this is ridiculous! I've applied for Chase Freedom Unlimited five times this year and got rejected every single time. Their automated underwriting system keeps flagging my debt to income ratio as problematic. Last week I went to a Bank of America branch, the financial advisor suggested building credit history with their secured Cash Rewards card first. But when I tried their mobile banking app, it showed a hard inquiry alert from Experian. Oh, and get this the Citibank representative said my F I C O score's revolving credit utilization is too high. Do you think getting a co signer for American Express Platinum would help? My cousin at Trans Union said something about thin file profiles.",
+      "entity_list": [
+        "Experian",
+        "F I C O score",
+        "revolving credit utilization",
+        "co signer",
+        "American Express Platinum",
+        "Trans Union"
+      ],
+      "deranged_from_id": "BANK-002916_EN",
+      "deranged_entity_list": [
+        "Pay Pal",
+        "two factor authentication",
+        "A C H transfer restrictions",
+        "fintech platforms",
+        "interbank transfers",
+        "Citi cards"
+      ],
+      "corrupt_entity_list": [
+        "Epxerian",
+        "Fx Ix Cx Ox socre",
+        "rveolving cerdit uitlization",
+        "cox sginer",
+        "Aemrican Epxress Paltinum",
+        "Tarns Uinon"
+      ],
+      "source_tar": "/mnt/e/datasets/contextasr-bench/audio/ContextASR-Speech/English/ContextASR-Speech_English_1.tar",
+      "tar_member": "./BANK-004125_EN.wav",
+      "audio_sha256": "16d54d47c3247078f2af9ee262bf0d1cab04f988325e26e37fe0f052d0f2fe6e",
+      "audio_bytes": 1386276
+    },
+    {
+      "uniq_id": "BOSON-000720_EN",
+      "language": "English",
+      "duration": 49.67625,
+      "domain_label": "Campus Life/Traffic Safety",
+      "reference_text": "Yo check this out! Jason from University of Illinois College of Engineering pulled a total mad lad yesterday morning. Dude stripped down to his boxers in the snowstorm for photos because his buddies kept yelling ' Off! Off! Off! '. Claims he took an ice bath beforehand like some polar bear! Meanwhile, over on Springfield's Maple Boulevard, Emma and Liam got into this crazy double fender bender. Their Prius slid on black ice into a Ford F negative one hundred and fifty at the red light. Get this while leading the Ford driver to the State Farm claims center, the same truck rear ended them A G A I N! The Geico app showed all three collision repair shops nearby were slammed. Honestly, between the winter tires shortage and the D O T salt trucks being late, this city's infrastructure can't handle a snowpocalypse!",
+      "entity_list": [
+        "Ford F negative one hundred and fifty",
+        "State Farm claims center",
+        "Geico app",
+        "winter tires",
+        "D O T salt trucks",
+        "black ice",
+        "snowpocalypse"
+      ],
+      "deranged_from_id": "BANK-000679_EN",
+      "deranged_entity_list": [
+        "cash back rewards program",
+        "chargeback ratios",
+        "interchange fee thresholds",
+        "Amex Platinum",
+        "dynamic A P R adjustment algorithm",
+        "foreign transaction fees",
+        "merchant service credits"
+      ],
+      "corrupt_entity_list": [
+        "Frod Fx ngeative onex hnudred andx ffity",
+        "Satte Fram calims cneter",
+        "Gieco appx",
+        "wniter tries",
+        "Dx Ox Tx slat turcks",
+        "balck icex",
+        "sonwpocalypse"
+      ],
+      "source_tar": "/mnt/e/datasets/contextasr-bench/audio/ContextASR-Speech/English/ContextASR-Speech_English_1.tar",
+      "tar_member": "./BOSON-000720_EN.wav",
+      "audio_sha256": "6bf5def16def49cb3dc2f892942f6756f9754f6dbaee06020d6858504b5d6311",
+      "audio_bytes": 1589684
+    },
+    {
+      "uniq_id": "CCFBDCI-000053_EN",
+      "language": "English",
+      "duration": 34.438125,
+      "domain_label": "Political History",
+      "reference_text": "Did you catch Professor Wilson's lecture yesterday? He was dissecting the Southland Republic uprising of 'ninety eight. Turns out on October fifth, over a million protesters flooded Brentville's Parliament Square with those iconic photon torches. The Liberty Vanguard hacked the presidential security grid using quantum decryption modules. Remember how the Peacekeeper Battalion switched sides during the constitutional crisis? Their armored vehicles even breached the Supreme Court's electromagnetic barrier. Oh, and the declassified files mention Shadow Parliament operatives manipulating the Electoral College Act.",
+      "entity_list": [
+        "Southland Republic",
+        "Peacekeeper Battalion",
+        "Supreme Court",
+        "electromagnetic barrier",
+        "Shadow Parliament",
+        "Electoral College Act"
+      ],
+      "deranged_from_id": "CCFBDCI-005670_EN",
+      "deranged_entity_list": [
+        "North Sea oil revenue",
+        "Geoffrey Howe",
+        "coal industry restructuring",
+        "Heseltine",
+        "Falklands logistics",
+        "Type forty two destroyers",
+        "Admiralty"
+      ],
+      "corrupt_entity_list": [
+        "Suothland Rpeublic",
+        "Paecekeeper Btatalion",
+        "Spureme Cuort",
+        "eelctromagnetic brarier",
+        "Sahdow Praliament",
+        "Eelctoral Clolege Actx"
+      ],
+      "source_tar": "/mnt/e/datasets/contextasr-bench/audio/ContextASR-Speech/English/ContextASR-Speech_English_1.tar",
+      "tar_member": "./CCFBDCI-000053_EN.wav",
+      "audio_sha256": "da9fdbca66b07e7166485763fc0c69f1338946e6716fc965032b792920454c78",
+      "audio_bytes": 1102064
+    },
+    {
+      "uniq_id": "BOSON-000607_EN",
+      "language": "English",
+      "duration": 48.016,
+      "domain_label": "Public Health Policy",
+      "reference_text": "Hey Sarah, did you catch the new healthcare updates from She County? Starting July first, they've totally revamped the medical insurance system. My cousin works at the County Medical Insurance Bureau and says the neonatal coverage is revolutionary now. Get this infants under twelve months can enroll anytime with immediate benefits. Remember that journalist Chen Zheng from Hebei Daily News? His latest piece explains how the catastrophic medical expense ceiling interacts with outpatient deductible coverage. Oh and get this, they're implementing blockchain based insurance verification at community clinics. But I am still confused about the accident rehabilitation reimbursement parameters.",
+      "entity_list": [
+        "She County",
+        "July first",
+        "Hebei Daily News",
+        "catastrophic medical expense ceiling",
+        "outpatient deductible coverage",
+        "accident rehabilitation reimbursement parameters"
+      ],
+      "deranged_from_id": "BANK-001347_EN",
+      "deranged_entity_list": [
+        "F I C O Score",
+        "autopay",
+        "Discover Cashback",
+        "A P R financing",
+        "merchant category codes",
+        "variable interest rates"
+      ],
+      "corrupt_entity_list": [
+        "Shex Cuonty",
+        "Jluy frist",
+        "Hbeei Dialy Nwes",
+        "ctaastrophic mdeical epxense cieling",
+        "otupatient ddeuctible cvoerage",
+        "accident rheabilitation riembursement praameters"
+      ],
+      "source_tar": "/mnt/e/datasets/contextasr-bench/audio/ContextASR-Speech/English/ContextASR-Speech_English_1.tar",
+      "tar_member": "./BOSON-000607_EN.wav",
+      "audio_sha256": "b7a13a628ac76acf7e6202d78645b613b4bfeb876cec213356f6da2266278e5c",
+      "audio_bytes": 1536556
+    },
+    {
+      "uniq_id": "CCFBDCI-003505_EN",
+      "language": "English",
+      "duration": 53.593375,
+      "domain_label": "Legal Proceedings",
+      "reference_text": "Can you believe what happened outside Manhattan Family Court last Thursday? That Miss Lee who got assaulted by Jacob Ye's crew you know, the son of that tycoon Ye Qianzhao? She came with Greenberg and Sons' attorney, sunglasses practically glued to her face. The medical examiner's report showed spiral fractures from aluminum bats and this insane detail about 'epithelial tissue loss' from human bites! N Y P D just released the bodycam footage showing them forcing her to sign a property deed transfer. Now the A C L U is pushing for enhanced assault charges under New York Penal Code one hundred and twenty point oh five.",
+      "entity_list": [
+        "Jacob Ye",
+        "Ye Qianzhao",
+        "epithelial tissue loss",
+        "N Y P D",
+        "bodycam footage",
+        "property deed transfer",
+        "A C L U",
+        "New York Penal Code one hundred and twenty point oh five"
+      ],
+      "deranged_from_id": "CCFBDCI-000207_EN",
+      "deranged_entity_list": [
+        "Global Chinese Authors Guild",
+        "San Francisco Marriott",
+        "Maxine Hong Kingston",
+        "Trans Pacific Literary Dialogues",
+        "Stanford's East Asian Languages department",
+        "Speculative Fiction Masterclass",
+        "P E N America Emerging Writers Fellowship",
+        "Graywolf Press"
+      ],
+      "corrupt_entity_list": [
+        "Jcaob Yex",
+        "Yex Qainzhao",
+        "eipthelial tsisue lsos",
+        "Nx Yx Px Dx",
+        "bdoycam footage",
+        "porperty deed tarnsfer",
+        "Ax Cx Lx Ux",
+        "Newx Yrok Pneal Cdoe onex hnudred andx tewnty piont ohx fvie"
+      ],
+      "source_tar": "/mnt/e/datasets/contextasr-bench/audio/ContextASR-Speech/English/ContextASR-Speech_English_1.tar",
+      "tar_member": "./CCFBDCI-003505_EN.wav",
+      "audio_sha256": "84f8b5a10d6950ce741239a7ea4c7607f87cfca6683ddb612821eb49cbe02b37",
+      "audio_bytes": 1715032
+    },
+    {
+      "uniq_id": "BOSON-000990_EN",
+      "language": "English",
+      "duration": 49.925375,
+      "domain_label": "Charity Initiative",
+      "reference_text": "Hey Jessica, remember that charity project we saw on Hangzhou Daily News? The one about the water crisis in Yunnan's Dengzishan Village? Little Zhang Dacun said he wished he could bring the Eiffel Tower's fountains home breaks my heart! The N G O team found their only water source was a seasonal karst spring. Last July they initiated this ' Sweet Spring for Schools' campaign. On August sixteenth they finally installed solar powered desalination equipment. Oh and get this over eighty percent donations came through Alipay's charity interface! By the way, geological survey reports mentioned something about Quaternary aquifer systems needing specialized drilling rigs.",
+      "entity_list": [
+        "Hangzhou Daily News",
+        "Dengzishan Village",
+        "August sixteenth",
+        "Alipay",
+        "karst spring",
+        "Quaternary aquifer systems"
+      ],
+      "deranged_from_id": "BANK-001726_EN",
+      "deranged_entity_list": [
+        "cashback",
+        "underwriting algorithm",
+        "Capital One",
+        "Quick Silver card",
+        "instant decision feature",
+        "Experian report"
+      ],
+      "corrupt_entity_list": [
+        "Hnagzhou Dialy Nwes",
+        "Dnegzishan Vlilage",
+        "Aguust sxiteenth",
+        "Ailpay",
+        "krast srping",
+        "Qauternary auqifer ssytems"
+      ],
+      "source_tar": "/mnt/e/datasets/contextasr-bench/audio/ContextASR-Speech/English/ContextASR-Speech_English_1.tar",
+      "tar_member": "./BOSON-000990_EN.wav",
+      "audio_sha256": "f406ffaa4df362daeb97cc46a4cebe8ceab8293a59a2fb0807a770c310c6559c",
+      "audio_bytes": 1597656
+    },
+    {
+      "uniq_id": "CCFBDCI-004934_EN",
+      "language": "English",
+      "duration": 31.521125,
+      "domain_label": "Film History",
+      "reference_text": "Did you know Edward Ye's mother, Anna Li, was actually a script supervisor at Golden Dawn Studios back in the nineteen forties? That studio used to be called Changchun Motion Picture Studio before the restructuring. Oh right, she worked on preserving the original negatives of Gone with the Wind's Chinese adaptation. My film professor always mentions how those Mitchell B N C cameras they used required mercury vapor lighting. Speaking of which, David O. Selznick once wrote about their Technicolor processing techniques in the studio archives.",
+      "entity_list": [
+        "Edward Ye",
+        "Anna Li",
+        "Golden Dawn Studios",
+        "Changchun Motion Picture Studio",
+        "mercury vapor lighting",
+        "David O. Selznick"
+      ],
+      "deranged_from_id": "BANK-001383_EN",
+      "deranged_entity_list": [
+        "balance transfers",
+        "F I C O score",
+        "credit utilization thresholds",
+        "Experian report",
+        "hard inquiry records",
+        "credit mix"
+      ],
+      "corrupt_entity_list": [
+        "Ewdard Yex",
+        "Anna Lix",
+        "Gloden Dwan Sutdios",
+        "Cahngchun Mtoion Pciture Sutdio",
+        "mrecury vpaor lgihting",
+        "Dvaid O.x Sleznick"
+      ],
+      "source_tar": "/mnt/e/datasets/contextasr-bench/audio/ContextASR-Speech/English/ContextASR-Speech_English_1.tar",
+      "tar_member": "./CCFBDCI-004934_EN.wav",
+      "audio_sha256": "7c1c754fc81a1c51f8ecf82d26f4aa13e1adb575bd5aacc211d99e4c84639e9f",
+      "audio_bytes": 1008720
+    },
+    {
+      "uniq_id": "BANK-004022_EN",
+      "language": "English",
+      "duration": 42.4055,
+      "domain_label": "Financial Law",
+      "reference_text": "Hey Jake, this whole credit card mess is killing me! So I called Chase yesterday about my seventy two thousand dollar balance. Their collections specialist kept pushing this debt consolidation plan requiring minimum twenty grand upfront. What if I negotiate down to like forty eight thousand? Maybe get the C F P B involved for a modified payment arrangement? Oh and get this the Bank of America rep mentioned something about validating original contracts under the Fair Debt Collection Practices Act. Should I file for Chapter seven bankruptcy protection before they start wage garnishment? My coworker swears by debt validation letters and credit counseling agencies.",
+      "entity_list": [
+        "seventy two thousand dollar balance",
+        "Fair Debt Collection Practices Act",
+        "Chapter seven bankruptcy",
+        "wage garnishment",
+        "debt validation letters",
+        "credit counseling agencies"
+      ],
+      "deranged_from_id": "BANK-001813_EN",
+      "deranged_entity_list": [
+        "S I M card cloning",
+        "A T and T store",
+        "deepfake voice synthesis",
+        "cryptocurrency wallet phishing link",
+        "Zelle payments",
+        "multifactor authentication"
+      ],
+      "corrupt_entity_list": [
+        "sveenty twox tohusand dlolar blaance",
+        "Fiar Dbet Clolection Parctices Actx",
+        "Cahpter sveen bnakruptcy",
+        "wgae granishment",
+        "dbet vlaidation lteters",
+        "cerdit cuonseling aegncies"
+      ],
+      "source_tar": "/mnt/e/datasets/contextasr-bench/audio/ContextASR-Speech/English/ContextASR-Speech_English_1.tar",
+      "tar_member": "./BANK-004022_EN.wav",
+      "audio_sha256": "1c5e8daa44b74b36ced132386b3281f98bf4e62650d4d49e36b38f69a1baa850",
+      "audio_bytes": 1357020
+    },
+    {
+      "uniq_id": "BANK-003596_EN",
+      "language": "English",
+      "duration": 49.5286875,
+      "domain_label": "Semiconductor Technology",
+      "reference_text": "Yo Chris, remember that chipset discussion we had? I just read how Intel's ten nanometers Super Fin transistors are revolutionizing server C P U's. Take Apple Pay transactions they rely entirely on Secure Enclave coprocessors fabricated by T S M C. Did you see Samsung's new three nanometers G A A F E T wafers with stacked nanosheets? Qualcomm's Snapdragon X seventy modem even integrates A I accelerators for five G beamforming. Oh, and A M D's Zen four architecture uses chiplets with T S V interconnects!",
+      "entity_list": [
+        "Intel's ten nanometers Super Fin transistors",
+        "server C P U's",
+        "Secure Enclave coprocessors",
+        "nanosheets",
+        "Qualcomm's Snapdragon X seventy modem",
+        "A I accelerators",
+        "five G beamforming",
+        "A M D's Zen four architecture",
+        "chiplets"
+      ],
+      "deranged_from_id": "BANK-003080_EN",
+      "deranged_entity_list": [
+        "Chase Sapphire Reserve",
+        "E M V tokenization",
+        "Citi Double Cash",
+        "Amex Platinum",
+        "biometric authentication",
+        "fraud detection algorithms",
+        "Wells Fargo",
+        "N F C enabled security tokens",
+        "F D I C insured digital wallet"
+      ],
+      "corrupt_entity_list": [
+        "Itnel's tenx nnaometers Spuer Finx tarnsistors",
+        "srever Cx Px U'sx",
+        "Sceure Ecnlave cporocessors",
+        "nnaosheets",
+        "Qaulcomm's Sanpdragon Xx sveenty mdoem",
+        "Ax Ix accelerators",
+        "fvie Gx baemforming",
+        "Ax Mx D'sx Zenx fuor acrhitecture",
+        "cihplets"
+      ],
+      "source_tar": "/mnt/e/datasets/contextasr-bench/audio/ContextASR-Speech/English/ContextASR-Speech_English_1.tar",
+      "tar_member": "./BANK-003596_EN.wav",
+      "audio_sha256": "4eff98daf1b902d3f04d987d855c1aa8977a888261e63a9313ed1075c8235a1b",
+      "audio_bytes": 1584962
+    },
+    {
+      "uniq_id": "BOSON-001099_EN",
+      "language": "English",
+      "duration": 51.2435625,
+      "domain_label": "Automotive Fashion",
+      "reference_text": "Hey did you catch Toyota's launch event last week? On the eighth of march at the seven hundred and ninety eight Art Zone's D P A R K venue, they unveiled these gorgeous new Mica Bronze editions for the R E I Z, Corolla, and R A V four. The whole shindig was co hosted with Vogue Media Group you should've seen Chris Feng from that new drama posing with designer Chi Zhang next to the customized Corolla. The Beijing Fashion Designers Association sent their secretary general Yatong Liu, and get this, celebrity stylist P老师 did live makeovers using color palettes inspired by the cars' metallic finishes. Even the V P of F A W Toyota Sales Company, Mister Gao Fang, cracked jokes about mixing up the R A V four's suspension specs during his speech.",
+      "entity_list": [
+        "Toyota",
+        "seven hundred and ninety eight Art Zone's D P A R K",
+        "R A V four",
+        "Mica Bronze editions",
+        "Chris Feng",
+        "Chi Zhang",
+        "Yatong Liu",
+        "F A W Toyota Sales Company"
+      ],
+      "deranged_from_id": "BANK-001866_EN",
+      "deranged_entity_list": [
+        "Federal Reserve's E Gov portal",
+        "judicial lien",
+        "garnishment codes",
+        "O C C",
+        "F D I C's financial enforcement manual codes",
+        "Consumer Financial Protection Bureau",
+        "provisional seizure periods",
+        "Fair Debt Collection Practices Act"
+      ],
+      "corrupt_entity_list": [
+        "Tyoota",
+        "sveen hnudred andx nniety egiht Artx Znoe's Dx Px Ax Rx Kx",
+        "Rx Ax Vx fuor",
+        "Mcia Bornze eidtions",
+        "Crhis Fneg",
+        "Chix Zahng",
+        "Ytaong Liux",
+        "Fx Ax Wx Tyoota Slaes Cmopany"
+      ],
+      "source_tar": "/mnt/e/datasets/contextasr-bench/audio/ContextASR-Speech/English/ContextASR-Speech_English_1.tar",
+      "tar_member": "./BOSON-001099_EN.wav",
+      "audio_sha256": "0975fe2b4760a516f81e755d878c784041f79027003209d7f08fe748ff675615",
+      "audio_bytes": 1639838
+    },
+    {
+      "uniq_id": "CCFBDCI-004010_EN",
+      "language": "English",
+      "duration": 42.75375,
+      "domain_label": "Music Entertainment",
+      "reference_text": "Dude you should've seen Lunar Tide's anniversary gig last night! That band's been around for a dozen years but man, when they kicked off with Orbital Resonance using those Neumann U eighty seven mics through the Meyer Sound P A system. Insane! The bassist pulled out this limited edition Fender Precision with active E M G pickups during the chorus. Oh and remember their B side Event Horizon from the S X S W twenty eighteen session? They dropped a synthwave remix with Moog analog oscillators! Even the Roadburn Festival crew in the V I P section were losing it when the drummer did that double kick pedal solo on the D W Collector's Series kit.",
+      "entity_list": [
+        "Lunar Tide",
+        "Meyer Sound P A system",
+        "S X S W twenty eighteen",
+        "Moog analog oscillators",
+        "Roadburn Festival",
+        "D W Collector's Series"
+      ],
+      "deranged_from_id": "CLUENER2020-002868_EN",
+      "deranged_entity_list": [
+        "Rae Zuri",
+        "vocoder effects",
+        "Gemma T",
+        "chromatic glissandos",
+        "Nebula Records",
+        "Dolby Atmos"
+      ],
+      "corrupt_entity_list": [
+        "Lnuar Tdie",
+        "Myeer Suond Px Ax ssytem",
+        "Sx Xx Sx Wx tewnty egihteen",
+        "Moog aanlog ocsillators",
+        "Raodburn Fsetival",
+        "Dx Wx Clolector's Sreies"
+      ],
+      "source_tar": "/mnt/e/datasets/contextasr-bench/audio/ContextASR-Speech/English/ContextASR-Speech_English_1.tar",
+      "tar_member": "./CCFBDCI-004010_EN.wav",
+      "audio_sha256": "17fdf4732bf4e27d124759366c73919f60e2f9c4e0552b4341e8dad9696e3ca0",
+      "audio_bytes": 1368164
+    },
+    {
+      "uniq_id": "CLUENER2020-003697_EN",
+      "language": "English",
+      "duration": 41.7524375,
+      "domain_label": "Tourism & Recreation",
+      "reference_text": "Man, you won't believe what I found in Wailea last month! Everyone thinks Maui's resorts are overpriced, but the Shops at Wailea had designer brands cheaper than Black Friday deals. We stayed at the Four Seasons with this insane reef access snorkeling trail saw monk seals near Molokini Crater! The staff mentioned the Pacific Whale Foundation does daily cetacean surveys there. Oh, and get this: the road to Hana's bamboo forest has new suspension bridges, way crazier than Yosemite's trails. Rumor says they're extending the Lahaina bypass tunnel by twenty twenty six. Insane, right?",
+      "entity_list": [
+        "Wailea",
+        "Shops at Wailea",
+        "reef access snorkeling trail",
+        "Molokini Crater",
+        "Hana's bamboo forest",
+        "Lahaina bypass tunnel"
+      ],
+      "deranged_from_id": "BANK-002586_EN",
+      "deranged_entity_list": [
+        "Venmo",
+        "F I C O score",
+        "Experian",
+        "Pay Pal Working Capital",
+        "underwriting algorithm",
+        "Quick Books integration"
+      ],
+      "corrupt_entity_list": [
+        "Wialea",
+        "Sohps atx Wialea",
+        "reef access sonrkeling taril",
+        "Mlookini Carter",
+        "Hnaa's bmaboo froest",
+        "Lhaaina bpyass tnunel"
+      ],
+      "source_tar": "/mnt/e/datasets/contextasr-bench/audio/ContextASR-Speech/English/ContextASR-Speech_English_1.tar",
+      "tar_member": "./CLUENER2020-003697_EN.wav",
+      "audio_sha256": "955e79475f0e26bf9262b85fb0c07bc2cb53b6c88cd74844c947fd174f02c2bc",
+      "audio_bytes": 1336122
+    },
+    {
+      "uniq_id": "CCFBDCI-000884_EN",
+      "language": "English",
+      "duration": 41.0558125,
+      "domain_label": "Semiconductor Manufacturing",
+      "reference_text": "Check this out from the Straits Times! T S M C Europe just inked a deal with Siemens A G and Singapore's E D B to build this mega six point three billion Singapore dollar fab in Tuas Next Generation Park. My neighbor works at the cleanroom construction site they're installing extreme ultraviolet lithography systems this week. The specs are insane: twelve nanometer process nodes with silicon carbide substrates. Oh, and get this they're partnering with Applied Materials for atomic layer deposition equipment. Though some engineers are concerned about the germanium on insulator wafer yields. Anyway, job postings require M E M S packaging expertise and plasma etching certifications now.",
+      "entity_list": [
+        "Straits Times",
+        "Singapore's E D B",
+        "Tuas Next Generation Park",
+        "extreme ultraviolet lithography",
+        "twelve nanometer process nodes",
+        "silicon carbide substrates",
+        "atomic layer deposition",
+        "germanium on insulator wafer",
+        "M E M S packaging",
+        "plasma etching certifications"
+      ],
+      "deranged_from_id": "BANK-001565_EN",
+      "deranged_entity_list": [
+        "zero percent A P R",
+        "G M Financial",
+        "E V tax credit",
+        "Bolt E U V",
+        "Toyota Motor Credit",
+        "Camry Hybrid",
+        "Ford Pro Charging Solutions",
+        "seventy two month payment plan",
+        "charging station installation",
+        "extended warranty"
+      ],
+      "corrupt_entity_list": [
+        "Srtaits Tmies",
+        "Snigapore's Ex Dx Bx",
+        "Taus Nxet Gneeration Prak",
+        "etxreme utlraviolet ltihography",
+        "tewlve nnaometer porcess ndoes",
+        "sliicon crabide sbustrates",
+        "aotmic lyaer dpeosition",
+        "gremanium onx isnulator wfaer",
+        "Mx Ex Mx Sx pcakaging",
+        "palsma ecthing cretifications"
+      ],
+      "source_tar": "/mnt/e/datasets/contextasr-bench/audio/ContextASR-Speech/English/ContextASR-Speech_English_1.tar",
+      "tar_member": "./CCFBDCI-000884_EN.wav",
+      "audio_sha256": "6e4f0fa68b124daae529b9132df34be775285831cd9e2ae1be1f43bb9d3d1ae2",
+      "audio_bytes": 1313830
+    },
+    {
+      "uniq_id": "CLUENER2020-003085_EN",
+      "language": "English",
+      "duration": 41.913375,
+      "domain_label": "PC Gaming",
+      "reference_text": "Dude, have you tried launching Raven's Shadow after the latest patch? My rig's D D R four memory got maxed out at fourteen gigabytes within five minutes of gameplay! The Denuvo anti tamper system is literally eating up resources I saw a Reddit thread where someone decompiled the. dll files and found recursive memory allocation bugs. My buddy Jake tried tweaking the pagefile settings, but then Easy Anti Cheat started throwing kernel level exceptions. The Ubisoft support account mentioned rolling out a cumulative update next Tuesday, though honestly with this Direct Storage A P I implementation issues, I'd say we need a complete engine overhaul.",
+      "entity_list": [
+        "Raven's Shadow",
+        "Denuvo anti tamper system",
+        "pagefile settings",
+        "Easy Anti Cheat",
+        "kernel level exceptions",
+        "Direct Storage A P I"
+      ],
+      "deranged_from_id": "BANK-001418_EN",
+      "deranged_entity_list": [
+        "chip and P I N terminal",
+        "autopay setup",
+        "Costco gas station",
+        "Citi Double Cash",
+        "preapproved line",
+        "credit utilization ratio"
+      ],
+      "corrupt_entity_list": [
+        "Rvaen's Sahdow",
+        "Dneuvo atni tmaper ssytem",
+        "pgaefile stetings",
+        "Esay Atni Cehat",
+        "krenel lveel ecxeptions",
+        "Driect Sotrage Ax Px Ix"
+      ],
+      "source_tar": "/mnt/e/datasets/contextasr-bench/audio/ContextASR-Speech/English/ContextASR-Speech_English_1.tar",
+      "tar_member": "./CLUENER2020-003085_EN.wav",
+      "audio_sha256": "ba51cd3d4716f1dd73a59f10603a4b3bb75ba767e4f38f1f4a09b31cdd64d229",
+      "audio_bytes": 1341272
+    },
+    {
+      "uniq_id": "CCFBDCI-005162_EN",
+      "language": "English",
+      "duration": 43.258,
+      "domain_label": "Media and Politics",
+      "reference_text": "Did you catch the T A O press conference this morning? Spokesman Victor Li kept emphasizing cross strait historical narratives. He mentioned C C T V is launching a three episode documentary called ' Echoes Across the Strait' starting next Monday. Remember that Taiwan Panorama program Phoenix Television did last year? This time they're collaborating with Xinhua News Agency to digitize archival footage from nineteen forty five to nineteen forty nine. By the way, my neighbor works at China Media Group and said they're developing interactive timelines about retrocession era events. Though honestly, most millennials are watching those viral Tik Tok explainers with historical reenactments.",
+      "entity_list": [
+        "T A O press conference",
+        "Victor Li",
+        "C C T V",
+        "Xinhua News Agency",
+        "China Media Group",
+        "retrocession era",
+        "Tik Tok explainers"
+      ],
+      "deranged_from_id": "BANK-000082_EN",
+      "deranged_entity_list": [
+        "Zelle",
+        "daily A C H transfer limit",
+        "cashier's checks",
+        "transaction memos",
+        "F D I C regulations",
+        "cryptocurrency wallet",
+        "K Y C requirements"
+      ],
+      "corrupt_entity_list": [
+        "Tx Ax Ox perss cnoference",
+        "Vcitor Lix",
+        "Cx Cx Tx Vx",
+        "Xnihua Nwes Aegncy",
+        "Cihna Mdeia Gorup",
+        "rterocession erax",
+        "Tikx Tokx epxlainers"
+      ],
+      "source_tar": "/mnt/e/datasets/contextasr-bench/audio/ContextASR-Speech/English/ContextASR-Speech_English_1.tar",
+      "tar_member": "./CCFBDCI-005162_EN.wav",
+      "audio_sha256": "7a285ceb59f52d29954213c3b92f733c11b763317f5ad2cd33efaaf1e022fcd8",
+      "audio_bytes": 1384300
+    },
+    {
+      "uniq_id": "BOSON-001387_EN",
+      "language": "English",
+      "duration": 52.0046875,
+      "domain_label": "Smartphone Technology",
+      "reference_text": "So I was checking out the Nokia leak forums yesterday and noticed something wild about the Lumia fifteen twenty prototype. The A T and T variant popping up now lacks those three copper contact points we saw in the early engineering samples. Makes you wonder how they improved the thermal management for the Snapdragon eight hundred chipset, right? The six inch Gorilla Glass display actually feels more compact than Samsung's Galaxy Mega five point eight when holding it. Oh and get this the Zeiss optics with forty one megapixel oversampling? Pure View tech lets you simultaneously save R A W files while sharing compressed versions. Though honestly, trying to access the micro S D slot behind the polycarbonate unibody is like solving a puzzle!",
+      "entity_list": [
+        "A T and T variant",
+        "Snapdragon eight hundred chipset",
+        "six inch Gorilla Glass",
+        "Zeiss optics",
+        "forty one megapixel oversampling",
+        "R A W files"
+      ],
+      "deranged_from_id": "BANK-002977_EN",
+      "deranged_entity_list": [
+        "fifteen thousand dollar credit limit",
+        "Venmo transaction history",
+        "Steam game purchases",
+        "three point nine percent A P R",
+        "cashback rewards",
+        "Play Station five"
+      ],
+      "corrupt_entity_list": [
+        "Ax Tx andx Tx vraiant",
+        "Sanpdragon egiht hnudred cihpset",
+        "sixx icnh Groilla Galss",
+        "Ziess otpics",
+        "froty onex mgeapixel oevrsampling",
+        "Rx Ax Wx flies"
+      ],
+      "source_tar": "/mnt/e/datasets/contextasr-bench/audio/ContextASR-Speech/English/ContextASR-Speech_English_1.tar",
+      "tar_member": "./BOSON-001387_EN.wav",
+      "audio_sha256": "089f450eb1b7b37f5c50ecda6c53bd2b36f6449278756c16362936ca4cffe588",
+      "audio_bytes": 1664194
+    },
+    {
+      "uniq_id": "CLUENER2020-003948_EN",
+      "language": "English",
+      "duration": 44.6226875,
+      "domain_label": "Technology",
+      "reference_text": "Yo Mike, remember that january twenty eleven issue of P C World? They did a killer review on the A M D Radeon H D six thousand nine hundred and seventy graphics card. The editors kept arguing about driver optimization for Windows Vista S P two. Oh man, their thermal testing rig with liquid helium cooling fried an A S U S motherboard's V R M module! And get this they benchmarked Crysis two using Open G L four point one while dissecting Samsung's first T L C N A N D flash drives. Totally wild how far we've come since S A T A I I I standards launched.",
+      "entity_list": [
+        "A M D Radeon H D six thousand nine hundred and seventy",
+        "Windows Vista S P two",
+        "A S U S motherboard",
+        "V R M module",
+        "Crysis two",
+        "S A T A I I I"
+      ],
+      "deranged_from_id": "BOSON-001239_EN",
+      "deranged_entity_list": [
+        "Sogou Q three",
+        "contextual ad targeting algorithm",
+        "Sogou Smart Input three point oh",
+        "scenario aware predictive text",
+        "C N Z Z market report",
+        "browser to search conversion funnel",
+        "Byte Search",
+        "ad relevance scores"
+      ],
+      "corrupt_entity_list": [
+        "Ax Mx Dx Rdaeon Hx Dx sixx tohusand nnie hnudred andx sveenty",
+        "Wnidows Vsita Sx Px twox",
+        "Ax Sx Ux Sx mtoherboard",
+        "Vx Rx Mx mdoule",
+        "Cyrsis twox",
+        "Sx Ax Tx Ax Ix Ix Ix"
+      ],
+      "source_tar": "/mnt/e/datasets/contextasr-bench/audio/ContextASR-Speech/English/ContextASR-Speech_English_1.tar",
+      "tar_member": "./CLUENER2020-003948_EN.wav",
+      "audio_sha256": "88d6c4a80c7523289baede59f77d521b1dcdeec7208f47fa547ec57488f76561",
+      "audio_bytes": 1427970
+    },
+    {
+      "uniq_id": "BOSON-000653_EN",
+      "language": "English",
+      "duration": 47.748,
+      "domain_label": "Automotive Market",
+      "reference_text": "So check this out the latest auto sales report just dropped. Volkswagen Group overtook Nissan Dongfeng for the top spot this month with their Lavida's A D A S campaign. Get this, Great Wall Motors cracked the top ten with their new Haval H six hybrid powertrain, pushing Buick out of the rankings. B Y D's Dolphin E V lineup made a surprise entry at fifth place though, thanks to their D C fast charging infrastructure. Meanwhile Honda's C R V sales dipped for the third consecutive quarter, and Kia's Sportage totally vanished from the list. Oh and get this B M W's offering zero percent A P R financing just to stay in the luxury segment.",
+      "entity_list": [
+        "Volkswagen Group",
+        "Nissan Dongfeng",
+        "Lavida",
+        "A D A S",
+        "Haval H six",
+        "hybrid powertrain",
+        "B Y D",
+        "B M W",
+        "zero percent A P R"
+      ],
+      "deranged_from_id": "BOSON-000480_EN",
+      "deranged_entity_list": [
+        "Ryoko Hirosue",
+        "Starman: Love Across the Stars",
+        "Yukihiko Tsutsumi",
+        "Kazuyoshi Okada",
+        "Kansai Television",
+        "Mainichi Shimbun",
+        "ten point five percent ratings",
+        "Issey Miyake",
+        "eight hundred dollars"
+      ],
+      "corrupt_entity_list": [
+        "Vlokswagen Gorup",
+        "Nsisan Dnogfeng",
+        "Lvaida",
+        "Ax Dx Ax Sx",
+        "Hvaal Hx sixx",
+        "hbyrid pwoertrain",
+        "Bx Yx Dx",
+        "Bx Mx Wx",
+        "zreo precent Ax Px Rx"
+      ],
+      "source_tar": "/mnt/e/datasets/contextasr-bench/audio/ContextASR-Speech/English/ContextASR-Speech_English_1.tar",
+      "tar_member": "./BOSON-000653_EN.wav",
+      "audio_sha256": "422cad56c7613c048506320884915deedeaa63d8677461b7f84e10551f7ca95e",
+      "audio_bytes": 1527980
+    },
+    {
+      "uniq_id": "CCFBDCI-004517_EN",
+      "language": "English",
+      "duration": 42.3506875,
+      "domain_label": "Smart Tourism",
+      "reference_text": "Hey Jessica, you won't believe what's happening in Taitung now! The mayor just announced this new biometric access system at the Chenggong Fish Market. All the B and B's along Sanxiantai coastline are getting thermal imaging cameras installed. Oh, and get this they're rolling out smart wristbands for visitors at Luye Gaotai hot air balloon festival. Did you hear they partnered with Chunghwa Telecom to upgrade the Liyu Lake ecotourism app with real time air quality monitoring? Even the train station's adding multilingual ticket kiosks with facial recognition!",
+      "entity_list": [
+        "Taitung",
+        "Chenggong Fish Market",
+        "Sanxiantai coastline",
+        "Luye Gaotai hot air balloon festival",
+        "Chunghwa Telecom",
+        "multilingual ticket kiosks"
+      ],
+      "deranged_from_id": "BANK-001383_EN",
+      "deranged_entity_list": [
+        "balance transfers",
+        "F I C O score",
+        "credit utilization thresholds",
+        "Experian report",
+        "hard inquiry records",
+        "credit mix"
+      ],
+      "corrupt_entity_list": [
+        "Tiatung",
+        "Cehnggong Fsih Mraket",
+        "Snaxiantai caostline",
+        "Lyue Goatai hotx airx blaloon fsetival",
+        "Cuhnghwa Tleecom",
+        "mlutilingual tciket koisks"
+      ],
+      "source_tar": "/mnt/e/datasets/contextasr-bench/audio/ContextASR-Speech/English/ContextASR-Speech_English_1.tar",
+      "tar_member": "./CCFBDCI-004517_EN.wav",
+      "audio_sha256": "9038ce40573c734a973d6c4670ed27f1da5a29fadce010cb31ddc58b619846f1",
+      "audio_bytes": 1355266
+    },
+    {
+      "uniq_id": "CLUENER2020-003142_EN",
+      "language": "English",
+      "duration": 43.193375,
+      "domain_label": "Literature",
+      "reference_text": "Did you catch The Paris Review's year end roundup back in twenty eighteen? Their editorial team categorized contemporary works into four streams full length novels, novella collections, standalone short stories, and creative nonfiction. I heard Jennifer Egan's ' Manhattan Beach' dominated the fiction list for weeks. Oh, and that controversial deep dive into magical realism trends sparked heated debates in the literary criticism circles. The New Yorker even ran a piece comparing their selection methodology with Granta's ' Best Young American Novelists' list. Honestly, these postmodern deconstruction techniques are getting more attention than traditional bildungsroman narratives these days.",
+      "entity_list": [
+        "The Paris Review",
+        "standalone short stories",
+        "creative nonfiction",
+        "Jennifer Egan",
+        "The New Yorker",
+        "Granta",
+        "postmodern deconstruction",
+        "bildungsroman"
+      ],
+      "deranged_from_id": "CLUENER2020-002453_EN",
+      "deranged_entity_list": [
+        "Hernandez",
+        "Oaxaca",
+        "Aztec cosmology",
+        "Mixtec codices",
+        "amate bark paper",
+        "A I generated audio adaptation",
+        "conch shell orchestras"
+      ],
+      "corrupt_entity_list": [
+        "Thex Prais Rveiew",
+        "satndalone sohrt sotries",
+        "cerative nnofiction",
+        "Jnenifer Eagn",
+        "Thex Newx Yroker",
+        "Garnta",
+        "psotmodern dceonstruction",
+        "blidungsroman"
+      ],
+      "source_tar": "/mnt/e/datasets/contextasr-bench/audio/ContextASR-Speech/English/ContextASR-Speech_English_1.tar",
+      "tar_member": "./CLUENER2020-003142_EN.wav",
+      "audio_sha256": "ae93962214d2e335b3f6cc5e943efa1c73fed5ac903463a589615d940d1184e9",
+      "audio_bytes": 1382232
+    },
+    {
+      "uniq_id": "CLUENER2020-000697_EN",
+      "language": "English",
+      "duration": 39.401375,
+      "domain_label": "Collectibles Market",
+      "reference_text": "Yo Alex, check this out! I met this hardcore collector at Christie's Asian Art Week specializing in Edo period lacquerware. Remember how that Joseon celadon vase smashed records at Sotheby's last spring? Honestly the collectibles craze is just catching fire here. Bonhams is hosting a rare coin grading event next week even nineteen fourteen Silver Dollars are hitting six figures! Oh and get this, Heritage Auctions listed a Song Dynasty Ru kiln brush washer that's already got twenty phone bids. Kids these days are all over N F T collectibles on Open Sea though. Crazy times, right?",
+      "entity_list": [
+        "Edo period lacquerware",
+        "Joseon celadon vase",
+        "Sotheby's",
+        "Bonhams",
+        "Heritage Auctions",
+        "Song Dynasty Ru kiln brush washer",
+        "N F T collectibles"
+      ],
+      "deranged_from_id": "BANK-001522_EN",
+      "deranged_entity_list": [
+        "underwriting algorithm",
+        "Venmo transactions",
+        "Global Wallet Card",
+        "cashback incentives",
+        "dynamic A P R adjustments",
+        "balance transfer options",
+        "tiered interest structures"
+      ],
+      "corrupt_entity_list": [
+        "Edox preiod lcaquerware",
+        "Jsoeon cleadon vsae",
+        "Stoheby's",
+        "Bnohams",
+        "Hreitage Acutions",
+        "Snog Dnyasty Rux klin bursh wsaher",
+        "Nx Fx Tx clolectibles"
+      ],
+      "source_tar": "/mnt/e/datasets/contextasr-bench/audio/ContextASR-Speech/English/ContextASR-Speech_English_1.tar",
+      "tar_member": "./CLUENER2020-000697_EN.wav",
+      "audio_sha256": "afed5e9cd649fb47319c2ea6e4a06c2d55b5f143387e2205d470da942d1ac1d9",
+      "audio_bytes": 1260888
+    },
+    {
+      "uniq_id": "CLUENER2020-001819_EN",
+      "language": "English",
+      "duration": 37.48575,
+      "domain_label": "Medical Ethics",
+      "reference_text": "Man, you won't believe what happened at St. Luke's E R yesterday. doctor Harrison was about to initiate advanced cardiac life support when the motorcycle crash victim grabbed his stethoscope and pleaded ' Let me go'. The pulse oximeter was reading eighty two percent saturation and dropping fast. They had to use the crash cart with biphasic defibrillator pads. Turns out the guy had stage I V pancreatic carcinoma records in his jacket pocket, along with empty fentanyl transdermal patches. The charge nurse had to page the ethics committee while the new resident fumbled with the intraosseous infusion kit.",
+      "entity_list": [
+        "St. Luke's E R",
+        "pulse oximeter",
+        "biphasic defibrillator pads",
+        "stage I V pancreatic carcinoma",
+        "fentanyl transdermal patches",
+        "intraosseous infusion kit"
+      ],
+      "deranged_from_id": "BANK-000081_EN",
+      "deranged_entity_list": [
+        "cross border transaction fee",
+        "omnichannel payment gateway",
+        "Pay Pal",
+        "Fin Tech hub",
+        "facial recognition A P Is",
+        "I R S"
+      ],
+      "corrupt_entity_list": [
+        "St.x Lkue's Ex Rx",
+        "pluse oixmeter",
+        "bpihasic dfeibrillator pdas",
+        "satge Ix Vx pnacreatic cracinoma",
+        "fnetanyl tarnsdermal ptaches",
+        "itnraosseous ifnusion kitx"
+      ],
+      "source_tar": "/mnt/e/datasets/contextasr-bench/audio/ContextASR-Speech/English/ContextASR-Speech_English_1.tar",
+      "tar_member": "./CLUENER2020-001819_EN.wav",
+      "audio_sha256": "fd857d094512c8dc81291fc880008d609f5e08ebb14c9d7f40fa56e815a98154",
+      "audio_bytes": 1199588
+    }
+  ],
+  "content_hash": "ecc8bfd2a4700a19324e89584480cfeb4177f0d904278e9474db80d88d98281c"
+}

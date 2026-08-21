@@ -1,0 +1,96 @@
+{
+  "schema_version": "e4-confirmatory-power-v1",
+  "experiment_id": "E4-POWER-UNSEEN-v1",
+  "source": {
+    "jsonl": "/mnt/e/datasets/contextasr-bench/ContextASR-Dialogue_English.jsonl",
+    "jsonl_sha256": "4bbf64387d1c581df2c7ab5db9af4461e1112ee489377b67084c9b40cb6d45e8"
+  },
+  "exclusion": {
+    "manifest": "configs/probes/contextasr/2026-08-20-e3-state-audit-12-manifest.json",
+    "dialogues": [
+      "00539-3",
+      "00952-4",
+      "03695-5",
+      "06596-4",
+      "06692-4",
+      "07295-4",
+      "07899-4",
+      "08943-5",
+      "09495-3",
+      "10969-4",
+      "12013-5",
+      "12769-3"
+    ]
+  },
+  "seed": "e4-confirmatory-2026-08-20-v1",
+  "corpus": {
+    "unseen_dialogues": 5261,
+    "eligible_ge2": 1921,
+    "carry_mentions": 7256,
+    "target_turns": 6839
+  },
+  "assumptions": {
+    "alpha_two_sided": 0.05,
+    "power": 0.8,
+    "primary_mde": 0.05,
+    "paired_discordance_rate": 0.15,
+    "dialogue_design_effect": 1.5,
+    "usable_state_fraction": 0.85,
+    "second_pass_arms": 4
+  },
+  "required_usable_mentions": 707,
+  "selection_target_mentions_before_attrition": 832,
+  "recommended_budget": {
+    "dialogues": 287,
+    "carry_mentions": 833,
+    "target_turns": 775,
+    "pass0_calls": 3822,
+    "second_pass_calls": 3100,
+    "total_calls": 6922,
+    "pass0_audio_seconds": 43528.4981875,
+    "second_pass_audio_seconds": 35703.988,
+    "total_audio_seconds": 79232.4861875
+  },
+  "scenarios": [
+    {
+      "mde": 0.05,
+      "required_usable_mentions": 707,
+      "dialogues": 287,
+      "carry_mentions": 833,
+      "target_turns": 775,
+      "pass0_calls": 3822,
+      "second_pass_calls": 3100,
+      "total_calls": 6922,
+      "pass0_audio_seconds": 43528.4981875,
+      "second_pass_audio_seconds": 35703.988,
+      "total_audio_seconds": 79232.4861875
+    },
+    {
+      "mde": 0.075,
+      "required_usable_mentions": 314,
+      "dialogues": 127,
+      "carry_mentions": 372,
+      "target_turns": 345,
+      "pass0_calls": 1692,
+      "second_pass_calls": 1380,
+      "total_calls": 3072,
+      "pass0_audio_seconds": 19264.24025,
+      "second_pass_audio_seconds": 15822.292,
+      "total_audio_seconds": 35086.53225
+    },
+    {
+      "mde": 0.1,
+      "required_usable_mentions": 177,
+      "dialogues": 73,
+      "carry_mentions": 210,
+      "target_turns": 198,
+      "pass0_calls": 969,
+      "second_pass_calls": 792,
+      "total_calls": 1761,
+      "pass0_audio_seconds": 10974.349,
+      "second_pass_audio_seconds": 8964.248,
+      "total_audio_seconds": 19938.597
+    }
+  ],
+  "decision": "CONFIRMATORY-FEASIBLE-BUT-LARGE"
+}

@@ -1,0 +1,18 @@
+decision: PREREGISTER-ONE-FIXED-POLICY
+selected_predicate: speaker_wrong_disjoint
+official_e4_cf_decision_unchanged: true
+targets: 774
+dialogues: 287
+
+arm	repairs	breaks	retained	missed	false_hint_activations	false_hint_targets
+CF1-global	50	23	642	117	93	86
+CF2-speaker	66	21	644	101	109	100
+CF3-wrong	47	20	645	120	70	64
+
+candidate	targets	dialogues	spk-global-hit	spk-wrong-hit	spk-global-WER	spk-global-false-target	qualifies
+all_terms_repeated	0	0	NA	NA	NA	NA	false
+recent_support_le_3	68	52	0.0385	0.0641	-0.0009	0.0147	false
+inventory_le_4	376	221	0.0504	0.0529	-0.0036	0.0239	false
+speaker_wrong_disjoint	418	228	0.0379	0.0424	-0.0049	0.0096	true
+
+This is a post-hoc exploratory, zero-model audit. It does not replace the official E4-CF verdict.

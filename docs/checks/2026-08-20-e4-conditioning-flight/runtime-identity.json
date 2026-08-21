@@ -1,0 +1,12 @@
+{
+  "experiment_id": "E4-CONDITIONING-36-v1",
+  "captured_date": "2026-08-20",
+  "wsl_distribution": "Ubuntu-24.04",
+  "python": "/home/yansuqing/.venvs/meeting/bin/python 3.12.3",
+  "gpu": "NVIDIA GeForce RTX 5090 Laptop GPU, 24463 MiB",
+  "llama_server_sha256": "ad69437593e9f458b22eb9ffae2aaf574d36e8ccdecf6b8d44b6fa7b58d74fa9",
+  "model_sha256": "d9e2876556e7873e02c0359f832432ee2d67ab7dd0cee3efe0f77fd7a1f4dd85",
+  "mmproj_sha256": "1104376db833f1e89c84834144ac3863340c2cd1ddaeddb39cb0247fb5c20c8d",
+  "server_args": "-c 16384 -np 1 -fa on -ngl 999 -ctk q8_0 -ctv q8_0",
+  "feature_cache": "/home/yansuqing/.cache/meeting-minutes/e4-conditioning-q4km"
+}
