@@ -1,0 +1,13 @@
+decision: NO-SAFE-GATE
+selected_candidate: none
+cross_domain_scalability: not_identified
+targets: 86
+dialogues: 52
+
+candidate	coverage	dialogues	hit_delta	NE-WER_delta	WER_delta	false_hint_delta	overall	folds	widths	qualifies
+all_terms_repeated	0.0000	0	0.0000	0.0000	0.0000	0.0000	false	false	false	false
+all_terms_recent_le3	0.1279	10	0.0000	0.0000	0.0000	0.0116	false	false	false	false
+inventory_le2	0.3140	24	0.0000	0.0000	0.0008	0.0000	false	false	false	false
+recent_le3_and_inventory_le4	0.1163	10	0.0000	0.0000	0.0000	0.0116	false	false	false	false
+
+This is a post-hoc zero-model audit. Cross-domain scalability is not identified.
