@@ -1,0 +1,5384 @@
+{
+  "schema_version": "e4-cf-pass0-runtime-v1",
+  "experiment_id": "E4-DISJOINT-PREV-v1",
+  "roster": "configs/probes/contextasr/2026-08-21-e4-disjoint-prev-60-roster.json",
+  "roster_sha256": "148de656073e4350667d1f3be04f6bb39e2e5ce4c6942fe45060d3d2b699da21",
+  "stage_boundaries": [
+    20,
+    40,
+    60
+  ],
+  "entries": [
+    {
+      "uniq_id": "07567-5",
+      "stage": 20,
+      "duration": 169.230375,
+      "turns": [
+        {
+          "index": 0,
+          "speaker_id": "speaker_1",
+          "start": 0.0,
+          "end": 10.71
+        },
+        {
+          "index": 1,
+          "speaker_id": "speaker_2",
+          "start": 10.71,
+          "end": 25.818
+        },
+        {
+          "index": 2,
+          "speaker_id": "speaker_3",
+          "start": 25.818,
+          "end": 36.311
+        },
+        {
+          "index": 3,
+          "speaker_id": "speaker_4",
+          "start": 36.311,
+          "end": 51.984
+        },
+        {
+          "index": 4,
+          "speaker_id": "speaker_5",
+          "start": 51.984,
+          "end": 60.779
+        },
+        {
+          "index": 5,
+          "speaker_id": "speaker_1",
+          "start": 60.779,
+          "end": 73.187
+        },
+        {
+          "index": 6,
+          "speaker_id": "speaker_2",
+          "start": 73.187,
+          "end": 84.855
+        },
+        {
+          "index": 7,
+          "speaker_id": "speaker_3",
+          "start": 84.855,
+          "end": 96.523
+        },
+        {
+          "index": 8,
+          "speaker_id": "speaker_4",
+          "start": 96.523,
+          "end": 108.888
+        },
+        {
+          "index": 9,
+          "speaker_id": "speaker_5",
+          "start": 108.888,
+          "end": 117.77
+        },
+        {
+          "index": 10,
+          "speaker_id": "speaker_1",
+          "start": 117.77,
+          "end": 128.437
+        },
+        {
+          "index": 11,
+          "speaker_id": "speaker_2",
+          "start": 128.437,
+          "end": 136.187
+        },
+        {
+          "index": 12,
+          "speaker_id": "speaker_3",
+          "start": 136.187,
+          "end": 144.329
+        },
+        {
+          "index": 13,
+          "speaker_id": "speaker_4",
+          "start": 144.329,
+          "end": 154.691
+        },
+        {
+          "index": 14,
+          "speaker_id": "speaker_5",
+          "start": 154.691,
+          "end": 161.309
+        },
+        {
+          "index": 15,
+          "speaker_id": "speaker_1",
+          "start": 161.309,
+          "end": 169.233
+        }
+      ],
+      "source_tar": "/mnt/e/datasets/contextasr-bench/audio/ContextASR-Dialogue/English/ContextASR-Dialogue_English_4.tar",
+      "tar_member": "./07567-5.wav",
+      "audio_sha256": "d9ea7244bae0c5da1a9e8dc1c982f40fe6266ab1a65031f7aeac7cecc892faa2"
+    },
+    {
+      "uniq_id": "03954-4",
+      "stage": 20,
+      "duration": 159.0425625,
+      "turns": [
+        {
+          "index": 0,
+          "speaker_id": "speaker_1",
+          "start": 0.0,
+          "end": 10.667
+        },
+        {
+          "index": 1,
+          "speaker_id": "speaker_2",
+          "start": 10.667,
+          "end": 24.86
+        },
+        {
+          "index": 2,
+          "speaker_id": "speaker_3",
+          "start": 24.86,
+          "end": 40.316
+        },
+        {
+          "index": 3,
+          "speaker_id": "speaker_4",
+          "start": 40.316,
+          "end": 54.204
+        },
+        {
+          "index": 4,
+          "speaker_id": "speaker_1",
+          "start": 54.204,
+          "end": 66.873
+        },
+        {
+          "index": 5,
+          "speaker_id": "speaker_2",
+          "start": 66.873,
+          "end": 80.326
+        },
+        {
+          "index": 6,
+          "speaker_id": "speaker_3",
+          "start": 80.326,
+          "end": 93.344
+        },
+        {
+          "index": 7,
+          "speaker_id": "speaker_4",
+          "start": 93.344,
+          "end": 104.838
+        },
+        {
+          "index": 8,
+          "speaker_id": "speaker_1",
+          "start": 104.838,
+          "end": 117.028
+        },
+        {
+          "index": 9,
+          "speaker_id": "speaker_2",
+          "start": 117.028,
+          "end": 127.216
+        },
+        {
+          "index": 10,
+          "speaker_id": "speaker_3",
+          "start": 127.216,
+          "end": 140.669
+        },
+        {
+          "index": 11,
+          "speaker_id": "speaker_4",
+          "start": 140.669,
+          "end": 155.167
+        },
+        {
+          "index": 12,
+          "speaker_id": "speaker_1",
+          "start": 155.167,
+          "end": 159.042
+        }
+      ],
+      "source_tar": "/mnt/e/datasets/contextasr-bench/audio/ContextASR-Dialogue/English/ContextASR-Dialogue_English_2.tar",
+      "tar_member": "./03954-4.wav",
+      "audio_sha256": "937c5a05cbbe48bf1776a3a860d0416808c6a69ce2450bbaa0db30c970d21161"
+    },
+    {
+      "uniq_id": "01454-3",
+      "stage": 20,
+      "duration": 126.08475,
+      "turns": [
+        {
+          "index": 0,
+          "speaker_id": "speaker_1",
+          "start": 0.0,
+          "end": 10.841
+        },
+        {
+          "index": 1,
+          "speaker_id": "speaker_2",
+          "start": 10.841,
+          "end": 22.727
+        },
+        {
+          "index": 2,
+          "speaker_id": "speaker_3",
+          "start": 22.727,
+          "end": 35.571
+        },
+        {
+          "index": 3,
+          "speaker_id": "speaker_1",
+          "start": 35.571,
+          "end": 48.415
+        },
+        {
+          "index": 4,
+          "speaker_id": "speaker_2",
+          "start": 48.415,
+          "end": 58.951
+        },
+        {
+          "index": 5,
+          "speaker_id": "speaker_3",
+          "start": 58.951,
+          "end": 70.488
+        },
+        {
+          "index": 6,
+          "speaker_id": "speaker_1",
+          "start": 70.488,
+          "end": 82.722
+        },
+        {
+          "index": 7,
+          "speaker_id": "speaker_2",
+          "start": 82.722,
+          "end": 89.819
+        },
+        {
+          "index": 8,
+          "speaker_id": "speaker_3",
+          "start": 89.819,
+          "end": 100.573
+        },
+        {
+          "index": 9,
+          "speaker_id": "speaker_1",
+          "start": 100.573,
+          "end": 112.241
+        },
+        {
+          "index": 10,
+          "speaker_id": "speaker_2",
+          "start": 112.241,
+          "end": 119.163
+        },
+        {
+          "index": 11,
+          "speaker_id": "speaker_3",
+          "start": 119.163,
+          "end": 126.085
+        }
+      ],
+      "source_tar": "/mnt/e/datasets/contextasr-bench/audio/ContextASR-Dialogue/English/ContextASR-Dialogue_English_1.tar",
+      "tar_member": "./01454-3.wav",
+      "audio_sha256": "9cee096366b96f708716ac139f8a3b0985a7203ebdb0b0c9b9351861617bb99a"
+    },
+    {
+      "uniq_id": "07354-4",
+      "stage": 20,
+      "duration": 180.3053125,
+      "turns": [
+        {
+          "index": 0,
+          "speaker_id": "speaker_1",
+          "start": 0.0,
+          "end": 9.143
+        },
+        {
+          "index": 1,
+          "speaker_id": "speaker_2",
+          "start": 9.143,
+          "end": 23.554
+        },
+        {
+          "index": 2,
+          "speaker_id": "speaker_3",
+          "start": 23.554,
+          "end": 39.532
+        },
+        {
+          "index": 3,
+          "speaker_id": "speaker_4",
+          "start": 39.532,
+          "end": 54.543
+        },
+        {
+          "index": 4,
+          "speaker_id": "speaker_1",
+          "start": 54.543,
+          "end": 65.297
+        },
+        {
+          "index": 5,
+          "speaker_id": "speaker_2",
+          "start": 65.297,
+          "end": 81.449
+        },
+        {
+          "index": 6,
+          "speaker_id": "speaker_3",
+          "start": 81.449,
+          "end": 98.646
+        },
+        {
+          "index": 7,
+          "speaker_id": "speaker_4",
+          "start": 98.646,
+          "end": 111.705
+        },
+        {
+          "index": 8,
+          "speaker_id": "speaker_1",
+          "start": 111.705,
+          "end": 125.593
+        },
+        {
+          "index": 9,
+          "speaker_id": "speaker_2",
+          "start": 125.593,
+          "end": 139.177
+        },
+        {
+          "index": 10,
+          "speaker_id": "speaker_3",
+          "start": 139.177,
+          "end": 154.154
+        },
+        {
+          "index": 11,
+          "speaker_id": "speaker_4",
+          "start": 154.154,
+          "end": 168.375
+        },
+        {
+          "index": 12,
+          "speaker_id": "speaker_1",
+          "start": 168.375,
+          "end": 180.304
+        }
+      ],
+      "source_tar": "/mnt/e/datasets/contextasr-bench/audio/ContextASR-Dialogue/English/ContextASR-Dialogue_English_3.tar",
+      "tar_member": "./07354-4.wav",
+      "audio_sha256": "002f71f6e38901daf2781efe03fedf31f05afc3fe27434c6e3d2856981058f2c"
+    },
+    {
+      "uniq_id": "12223-5",
+      "stage": 20,
+      "duration": 169.4045625,
+      "turns": [
+        {
+          "index": 0,
+          "speaker_id": "speaker_1",
+          "start": 0.0,
+          "end": 8.707
+        },
+        {
+          "index": 1,
+          "speaker_id": "speaker_2",
+          "start": 8.707,
+          "end": 20.549
+        },
+        {
+          "index": 2,
+          "speaker_id": "speaker_3",
+          "start": 20.549,
+          "end": 32.435
+        },
+        {
+          "index": 3,
+          "speaker_id": "speaker_4",
+          "start": 32.435,
+          "end": 45.496
+        },
+        {
+          "index": 4,
+          "speaker_id": "speaker_5",
+          "start": 45.496,
+          "end": 59.297
+        },
+        {
+          "index": 5,
+          "speaker_id": "speaker_1",
+          "start": 59.297,
+          "end": 71.096
+        },
+        {
+          "index": 6,
+          "speaker_id": "speaker_2",
+          "start": 71.096,
+          "end": 81.197
+        },
+        {
+          "index": 7,
+          "speaker_id": "speaker_3",
+          "start": 81.197,
+          "end": 92.909
+        },
+        {
+          "index": 8,
+          "speaker_id": "speaker_4",
+          "start": 92.909,
+          "end": 103.619
+        },
+        {
+          "index": 9,
+          "speaker_id": "speaker_5",
+          "start": 103.619,
+          "end": 121.339
+        },
+        {
+          "index": 10,
+          "speaker_id": "speaker_1",
+          "start": 121.339,
+          "end": 129.176
+        },
+        {
+          "index": 11,
+          "speaker_id": "speaker_2",
+          "start": 129.176,
+          "end": 138.798
+        },
+        {
+          "index": 12,
+          "speaker_id": "speaker_4",
+          "start": 138.798,
+          "end": 147.331
+        },
+        {
+          "index": 13,
+          "speaker_id": "speaker_3",
+          "start": 147.331,
+          "end": 158.477
+        },
+        {
+          "index": 14,
+          "speaker_id": "speaker_5",
+          "start": 158.477,
+          "end": 169.405
+        }
+      ],
+      "source_tar": "/mnt/e/datasets/contextasr-bench/audio/ContextASR-Dialogue/English/ContextASR-Dialogue_English_5.tar",
+      "tar_member": "./12223-5.wav",
+      "audio_sha256": "56f7bb25cf779412a44e21957b797dbd18bf4016a445f9adf4db07cc7e66fe2c"
+    },
+    {
+      "uniq_id": "12478-4",
+      "stage": 20,
+      "duration": 176.2833125,
+      "turns": [
+        {
+          "index": 0,
+          "speaker_id": "speaker_1",
+          "start": 0.0,
+          "end": 13.758
+        },
+        {
+          "index": 1,
+          "speaker_id": "speaker_2",
+          "start": 13.758,
+          "end": 28.43
+        },
+        {
+          "index": 2,
+          "speaker_id": "speaker_3",
+          "start": 28.43,
+          "end": 41.796
+        },
+        {
+          "index": 3,
+          "speaker_id": "speaker_4",
+          "start": 41.796,
+          "end": 56.599
+        },
+        {
+          "index": 4,
+          "speaker_id": "speaker_1",
+          "start": 56.599,
+          "end": 73.1
+        },
+        {
+          "index": 5,
+          "speaker_id": "speaker_2",
+          "start": 73.1,
+          "end": 86.118
+        },
+        {
+          "index": 6,
+          "speaker_id": "speaker_3",
+          "start": 86.118,
+          "end": 99.005
+        },
+        {
+          "index": 7,
+          "speaker_id": "speaker_4",
+          "start": 99.005,
+          "end": 113.808
+        },
+        {
+          "index": 8,
+          "speaker_id": "speaker_1",
+          "start": 113.808,
+          "end": 126.739
+        },
+        {
+          "index": 9,
+          "speaker_id": "speaker_2",
+          "start": 126.739,
+          "end": 140.845
+        },
+        {
+          "index": 10,
+          "speaker_id": "speaker_3",
+          "start": 140.845,
+          "end": 153.297
+        },
+        {
+          "index": 11,
+          "speaker_id": "speaker_4",
+          "start": 153.297,
+          "end": 167.577
+        },
+        {
+          "index": 12,
+          "speaker_id": "speaker_1",
+          "start": 167.577,
+          "end": 176.285
+        }
+      ],
+      "source_tar": "/mnt/e/datasets/contextasr-bench/audio/ContextASR-Dialogue/English/ContextASR-Dialogue_English_5.tar",
+      "tar_member": "./12478-4.wav",
+      "audio_sha256": "10cd6560134706abea3b2e6f81d685aa0de689984aceeda9e053fa2381345fa4"
+    },
+    {
+      "uniq_id": "11285-4",
+      "stage": 20,
+      "duration": 163.8751875,
+      "turns": [
+        {
+          "index": 0,
+          "speaker_id": "speaker_1",
+          "start": 0.0,
+          "end": 10.144
+        },
+        {
+          "index": 1,
+          "speaker_id": "speaker_2",
+          "start": 10.144,
+          "end": 23.771
+        },
+        {
+          "index": 2,
+          "speaker_id": "speaker_3",
+          "start": 23.771,
+          "end": 38.138
+        },
+        {
+          "index": 3,
+          "speaker_id": "speaker_4",
+          "start": 38.138,
+          "end": 51.373
+        },
+        {
+          "index": 4,
+          "speaker_id": "speaker_1",
+          "start": 51.373,
+          "end": 65.218
+        },
+        {
+          "index": 5,
+          "speaker_id": "speaker_2",
+          "start": 65.218,
+          "end": 75.319
+        },
+        {
+          "index": 6,
+          "speaker_id": "speaker_3",
+          "start": 75.319,
+          "end": 90.296
+        },
+        {
+          "index": 7,
+          "speaker_id": "speaker_4",
+          "start": 90.296,
+          "end": 101.442
+        },
+        {
+          "index": 8,
+          "speaker_id": "speaker_1",
+          "start": 101.442,
+          "end": 116.288
+        },
+        {
+          "index": 9,
+          "speaker_id": "speaker_2",
+          "start": 116.288,
+          "end": 127.521
+        },
+        {
+          "index": 10,
+          "speaker_id": "speaker_3",
+          "start": 127.521,
+          "end": 143.848
+        },
+        {
+          "index": 11,
+          "speaker_id": "speaker_4",
+          "start": 143.848,
+          "end": 154.602
+        },
+        {
+          "index": 12,
+          "speaker_id": "speaker_1",
+          "start": 154.602,
+          "end": 163.876
+        }
+      ],
+      "source_tar": "/mnt/e/datasets/contextasr-bench/audio/ContextASR-Dialogue/English/ContextASR-Dialogue_English_5.tar",
+      "tar_member": "./11285-4.wav",
+      "audio_sha256": "6f5c80817d34e36df8c659ee79258583496226861c81f2f541701eb8e356ca10"
+    },
+    {
+      "uniq_id": "01769-4",
+      "stage": 20,
+      "duration": 148.593625,
+      "turns": [
+        {
+          "index": 0,
+          "speaker_id": "speaker_1",
+          "start": 0.0,
+          "end": 9.448
+        },
+        {
+          "index": 1,
+          "speaker_id": "speaker_2",
+          "start": 9.448,
+          "end": 22.248
+        },
+        {
+          "index": 2,
+          "speaker_id": "speaker_3",
+          "start": 22.248,
+          "end": 38.357
+        },
+        {
+          "index": 3,
+          "speaker_id": "speaker_4",
+          "start": 38.357,
+          "end": 48.284
+        },
+        {
+          "index": 4,
+          "speaker_id": "speaker_1",
+          "start": 48.284,
+          "end": 62.695
+        },
+        {
+          "index": 5,
+          "speaker_id": "speaker_2",
+          "start": 62.695,
+          "end": 70.967
+        },
+        {
+          "index": 6,
+          "speaker_id": "speaker_3",
+          "start": 70.967,
+          "end": 80.894
+        },
+        {
+          "index": 7,
+          "speaker_id": "speaker_4",
+          "start": 80.894,
+          "end": 88.905
+        },
+        {
+          "index": 8,
+          "speaker_id": "speaker_1",
+          "start": 88.905,
+          "end": 98.483
+        },
+        {
+          "index": 9,
+          "speaker_id": "speaker_2",
+          "start": 98.483,
+          "end": 106.886
+        },
+        {
+          "index": 10,
+          "speaker_id": "speaker_3",
+          "start": 106.886,
+          "end": 116.9
+        },
+        {
+          "index": 11,
+          "speaker_id": "speaker_4",
+          "start": 116.9,
+          "end": 123.997
+        },
+        {
+          "index": 12,
+          "speaker_id": "speaker_1",
+          "start": 123.997,
+          "end": 132.922
+        },
+        {
+          "index": 13,
+          "speaker_id": "speaker_2",
+          "start": 132.922,
+          "end": 139.279
+        },
+        {
+          "index": 14,
+          "speaker_id": "speaker_3",
+          "start": 139.279,
+          "end": 145.766
+        },
+        {
+          "index": 15,
+          "speaker_id": "speaker_4",
+          "start": 145.766,
+          "end": 148.596
+        }
+      ],
+      "source_tar": "/mnt/e/datasets/contextasr-bench/audio/ContextASR-Dialogue/English/ContextASR-Dialogue_English_1.tar",
+      "tar_member": "./01769-4.wav",
+      "audio_sha256": "d0251e6e4389b8c5a024ccc048b7d2815bbacffb47dfcf66b93ee4f40a766f13"
+    },
+    {
+      "uniq_id": "05039-4",
+      "stage": 20,
+      "duration": 153.034375,
+      "turns": [
+        {
+          "index": 0,
+          "speaker_id": "speaker_1",
+          "start": 0.0,
+          "end": 9.448
+        },
+        {
+          "index": 1,
+          "speaker_id": "speaker_2",
+          "start": 9.448,
+          "end": 24.991
+        },
+        {
+          "index": 2,
+          "speaker_id": "speaker_3",
+          "start": 24.991,
+          "end": 41.013
+        },
+        {
+          "index": 3,
+          "speaker_id": "speaker_4",
+          "start": 41.013,
+          "end": 51.68
+        },
+        {
+          "index": 4,
+          "speaker_id": "speaker_1",
+          "start": 51.68,
+          "end": 61.607
+        },
+        {
+          "index": 5,
+          "speaker_id": "speaker_2",
+          "start": 61.607,
+          "end": 74.494
+        },
+        {
+          "index": 6,
+          "speaker_id": "speaker_3",
+          "start": 74.494,
+          "end": 87.817
+        },
+        {
+          "index": 7,
+          "speaker_id": "speaker_4",
+          "start": 87.817,
+          "end": 98.788
+        },
+        {
+          "index": 8,
+          "speaker_id": "speaker_1",
+          "start": 98.788,
+          "end": 110.195
+        },
+        {
+          "index": 9,
+          "speaker_id": "speaker_2",
+          "start": 110.195,
+          "end": 120.949
+        },
+        {
+          "index": 10,
+          "speaker_id": "speaker_3",
+          "start": 120.949,
+          "end": 133.923
+        },
+        {
+          "index": 11,
+          "speaker_id": "speaker_4",
+          "start": 133.923,
+          "end": 145.286
+        },
+        {
+          "index": 12,
+          "speaker_id": "speaker_1",
+          "start": 145.286,
+          "end": 153.036
+        }
+      ],
+      "source_tar": "/mnt/e/datasets/contextasr-bench/audio/ContextASR-Dialogue/English/ContextASR-Dialogue_English_3.tar",
+      "tar_member": "./05039-4.wav",
+      "audio_sha256": "2ab4862eb8d7da55dd1ff82a0e5a3de4150295cb017a792dd3e7a2e946395d9b"
+    },
+    {
+      "uniq_id": "12099-3",
+      "stage": 20,
+      "duration": 140.9745,
+      "turns": [
+        {
+          "index": 0,
+          "speaker_id": "speaker_1",
+          "start": 0.0,
+          "end": 12.757
+        },
+        {
+          "index": 1,
+          "speaker_id": "speaker_2",
+          "start": 12.757,
+          "end": 25.818
+        },
+        {
+          "index": 2,
+          "speaker_id": "speaker_3",
+          "start": 25.818,
+          "end": 41.404
+        },
+        {
+          "index": 3,
+          "speaker_id": "speaker_1",
+          "start": 41.404,
+          "end": 55.423
+        },
+        {
+          "index": 4,
+          "speaker_id": "speaker_2",
+          "start": 55.423,
+          "end": 68.702
+        },
+        {
+          "index": 5,
+          "speaker_id": "speaker_3",
+          "start": 68.702,
+          "end": 84.419
+        },
+        {
+          "index": 6,
+          "speaker_id": "speaker_1",
+          "start": 84.419,
+          "end": 97.045
+        },
+        {
+          "index": 7,
+          "speaker_id": "speaker_2",
+          "start": 97.045,
+          "end": 107.886
+        },
+        {
+          "index": 8,
+          "speaker_id": "speaker_3",
+          "start": 107.886,
+          "end": 117.769
+        },
+        {
+          "index": 9,
+          "speaker_id": "speaker_1",
+          "start": 117.769,
+          "end": 126.781
+        },
+        {
+          "index": 10,
+          "speaker_id": "speaker_2",
+          "start": 126.781,
+          "end": 134.226
+        },
+        {
+          "index": 11,
+          "speaker_id": "speaker_3",
+          "start": 134.226,
+          "end": 140.974
+        }
+      ],
+      "source_tar": "/mnt/e/datasets/contextasr-bench/audio/ContextASR-Dialogue/English/ContextASR-Dialogue_English_5.tar",
+      "tar_member": "./12099-3.wav",
+      "audio_sha256": "10cbdf3eaf90cef764a6087b0b1ac2854d1c05cf9b529017e2f30b8048274c14"
+    },
+    {
+      "uniq_id": "08026-4",
+      "stage": 20,
+      "duration": 144.893,
+      "turns": [
+        {
+          "index": 0,
+          "speaker_id": "speaker_1",
+          "start": 0.0,
+          "end": 11.755
+        },
+        {
+          "index": 1,
+          "speaker_id": "speaker_2",
+          "start": 11.755,
+          "end": 23.771
+        },
+        {
+          "index": 2,
+          "speaker_id": "speaker_3",
+          "start": 23.771,
+          "end": 38.4
+        },
+        {
+          "index": 3,
+          "speaker_id": "speaker_4",
+          "start": 38.4,
+          "end": 52.68
+        },
+        {
+          "index": 4,
+          "speaker_id": "speaker_1",
+          "start": 52.68,
+          "end": 63.39
+        },
+        {
+          "index": 5,
+          "speaker_id": "speaker_2",
+          "start": 63.39,
+          "end": 76.538
+        },
+        {
+          "index": 6,
+          "speaker_id": "speaker_3",
+          "start": 76.538,
+          "end": 87.814
+        },
+        {
+          "index": 7,
+          "speaker_id": "speaker_4",
+          "start": 87.814,
+          "end": 102.399
+        },
+        {
+          "index": 8,
+          "speaker_id": "speaker_1",
+          "start": 102.399,
+          "end": 112.239
+        },
+        {
+          "index": 9,
+          "speaker_id": "speaker_2",
+          "start": 112.239,
+          "end": 125.126
+        },
+        {
+          "index": 10,
+          "speaker_id": "speaker_3",
+          "start": 125.126,
+          "end": 136.663
+        },
+        {
+          "index": 11,
+          "speaker_id": "speaker_4",
+          "start": 136.663,
+          "end": 144.892
+        }
+      ],
+      "source_tar": "/mnt/e/datasets/contextasr-bench/audio/ContextASR-Dialogue/English/ContextASR-Dialogue_English_4.tar",
+      "tar_member": "./08026-4.wav",
+      "audio_sha256": "ba29ace5431419022cf662b22f2d6a6a2d2ade3350d29a1aed840d6d6d0bd300"
+    },
+    {
+      "uniq_id": "05272-5",
+      "stage": 20,
+      "duration": 148.2889375,
+      "turns": [
+        {
+          "index": 0,
+          "speaker_id": "speaker_1",
+          "start": 0.0,
+          "end": 9.491
+        },
+        {
+          "index": 1,
+          "speaker_id": "speaker_2",
+          "start": 9.491,
+          "end": 22.596
+        },
+        {
+          "index": 2,
+          "speaker_id": "speaker_3",
+          "start": 22.596,
+          "end": 35.352
+        },
+        {
+          "index": 3,
+          "speaker_id": "speaker_4",
+          "start": 35.352,
+          "end": 45.714
+        },
+        {
+          "index": 4,
+          "speaker_id": "speaker_5",
+          "start": 45.714,
+          "end": 58.253
+        },
+        {
+          "index": 5,
+          "speaker_id": "speaker_1",
+          "start": 58.253,
+          "end": 70.269
+        },
+        {
+          "index": 6,
+          "speaker_id": "speaker_2",
+          "start": 70.269,
+          "end": 84.723
+        },
+        {
+          "index": 7,
+          "speaker_id": "speaker_3",
+          "start": 84.723,
+          "end": 97.523
+        },
+        {
+          "index": 8,
+          "speaker_id": "speaker_4",
+          "start": 97.523,
+          "end": 105.099
+        },
+        {
+          "index": 9,
+          "speaker_id": "speaker_5",
+          "start": 105.099,
+          "end": 115.592
+        },
+        {
+          "index": 10,
+          "speaker_id": "speaker_1",
+          "start": 115.592,
+          "end": 128.261
+        },
+        {
+          "index": 11,
+          "speaker_id": "speaker_2",
+          "start": 128.261,
+          "end": 137.796
+        },
+        {
+          "index": 12,
+          "speaker_id": "speaker_3",
+          "start": 137.796,
+          "end": 148.289
+        }
+      ],
+      "source_tar": "/mnt/e/datasets/contextasr-bench/audio/ContextASR-Dialogue/English/ContextASR-Dialogue_English_3.tar",
+      "tar_member": "./05272-5.wav",
+      "audio_sha256": "a77478b72c3a28d5d953ba7d5d430a6420cb80d25cc5a8e9f16e3d1d7ed76135"
+    },
+    {
+      "uniq_id": "10732-5",
+      "stage": 20,
+      "duration": 150.2185,
+      "turns": [
+        {
+          "index": 0,
+          "speaker_id": "speaker_1",
+          "start": 0.0,
+          "end": 8.49
+        },
+        {
+          "index": 1,
+          "speaker_id": "speaker_2",
+          "start": 8.49,
+          "end": 23.467
+        },
+        {
+          "index": 2,
+          "speaker_id": "speaker_3",
+          "start": 23.467,
+          "end": 33.742
+        },
+        {
+          "index": 3,
+          "speaker_id": "speaker_4",
+          "start": 33.742,
+          "end": 43.799
+        },
+        {
+          "index": 4,
+          "speaker_id": "speaker_5",
+          "start": 43.799,
+          "end": 53.348
+        },
+        {
+          "index": 5,
+          "speaker_id": "speaker_1",
+          "start": 53.348,
+          "end": 65.103
+        },
+        {
+          "index": 6,
+          "speaker_id": "speaker_2",
+          "start": 65.103,
+          "end": 81.386
+        },
+        {
+          "index": 7,
+          "speaker_id": "speaker_3",
+          "start": 81.386,
+          "end": 92.183
+        },
+        {
+          "index": 8,
+          "speaker_id": "speaker_4",
+          "start": 92.183,
+          "end": 101.065
+        },
+        {
+          "index": 9,
+          "speaker_id": "speaker_5",
+          "start": 101.065,
+          "end": 115.041
+        },
+        {
+          "index": 10,
+          "speaker_id": "speaker_1",
+          "start": 115.041,
+          "end": 127.493
+        },
+        {
+          "index": 11,
+          "speaker_id": "speaker_2",
+          "start": 127.493,
+          "end": 141.033
+        },
+        {
+          "index": 12,
+          "speaker_id": "speaker_3",
+          "start": 141.033,
+          "end": 150.219
+        }
+      ],
+      "source_tar": "/mnt/e/datasets/contextasr-bench/audio/ContextASR-Dialogue/English/ContextASR-Dialogue_English_5.tar",
+      "tar_member": "./10732-5.wav",
+      "audio_sha256": "07bf704b4be32a6db21a92b4737455f6da75c17f5c58bb709dbbeaef49e0aa9d"
+    },
+    {
+      "uniq_id": "05031-4",
+      "stage": 20,
+      "duration": 134.4738125,
+      "turns": [
+        {
+          "index": 0,
+          "speaker_id": "speaker_1",
+          "start": 0.0,
+          "end": 11.886
+        },
+        {
+          "index": 1,
+          "speaker_id": "speaker_2",
+          "start": 11.886,
+          "end": 21.9
+        },
+        {
+          "index": 2,
+          "speaker_id": "speaker_3",
+          "start": 21.9,
+          "end": 36.036
+        },
+        {
+          "index": 3,
+          "speaker_id": "speaker_4",
+          "start": 36.036,
+          "end": 48.967
+        },
+        {
+          "index": 4,
+          "speaker_id": "speaker_1",
+          "start": 48.967,
+          "end": 61.636
+        },
+        {
+          "index": 5,
+          "speaker_id": "speaker_2",
+          "start": 61.636,
+          "end": 73.609
+        },
+        {
+          "index": 6,
+          "speaker_id": "speaker_3",
+          "start": 73.609,
+          "end": 83.884
+        },
+        {
+          "index": 7,
+          "speaker_id": "speaker_4",
+          "start": 83.884,
+          "end": 91.503
+        },
+        {
+          "index": 8,
+          "speaker_id": "speaker_1",
+          "start": 91.503,
+          "end": 104.477
+        },
+        {
+          "index": 9,
+          "speaker_id": "speaker_2",
+          "start": 104.477,
+          "end": 113.794
+        },
+        {
+          "index": 10,
+          "speaker_id": "speaker_3",
+          "start": 113.794,
+          "end": 125.593
+        },
+        {
+          "index": 11,
+          "speaker_id": "speaker_4",
+          "start": 125.593,
+          "end": 134.475
+        }
+      ],
+      "source_tar": "/mnt/e/datasets/contextasr-bench/audio/ContextASR-Dialogue/English/ContextASR-Dialogue_English_3.tar",
+      "tar_member": "./05031-4.wav",
+      "audio_sha256": "47603638ba2f2abfc7da271e6f85fc5c8efe7a61ea5c9270fabff8bc129c26a8"
+    },
+    {
+      "uniq_id": "04496-4",
+      "stage": 20,
+      "duration": 140.277875,
+      "turns": [
+        {
+          "index": 0,
+          "speaker_id": "speaker_1",
+          "start": 0.0,
+          "end": 12.191
+        },
+        {
+          "index": 1,
+          "speaker_id": "speaker_2",
+          "start": 12.191,
+          "end": 23.511
+        },
+        {
+          "index": 2,
+          "speaker_id": "speaker_3",
+          "start": 23.511,
+          "end": 39.359
+        },
+        {
+          "index": 3,
+          "speaker_id": "speaker_4",
+          "start": 39.359,
+          "end": 54.815
+        },
+        {
+          "index": 4,
+          "speaker_id": "speaker_1",
+          "start": 54.815,
+          "end": 70.663
+        },
+        {
+          "index": 5,
+          "speaker_id": "speaker_2",
+          "start": 70.663,
+          "end": 82.853
+        },
+        {
+          "index": 6,
+          "speaker_id": "speaker_3",
+          "start": 82.853,
+          "end": 91.735
+        },
+        {
+          "index": 7,
+          "speaker_id": "speaker_4",
+          "start": 91.735,
+          "end": 110.064
+        },
+        {
+          "index": 8,
+          "speaker_id": "speaker_1",
+          "start": 110.064,
+          "end": 118.51
+        },
+        {
+          "index": 9,
+          "speaker_id": "speaker_2",
+          "start": 118.51,
+          "end": 128.654
+        },
+        {
+          "index": 10,
+          "speaker_id": "speaker_3",
+          "start": 128.654,
+          "end": 140.279
+        }
+      ],
+      "source_tar": "/mnt/e/datasets/contextasr-bench/audio/ContextASR-Dialogue/English/ContextASR-Dialogue_English_2.tar",
+      "tar_member": "./04496-4.wav",
+      "audio_sha256": "266d4e7533f12f226b9e9b289c95833890c7c04a86cabf5acd20445eea080f31"
+    },
+    {
+      "uniq_id": "00226-3",
+      "stage": 20,
+      "duration": 143.1203125,
+      "turns": [
+        {
+          "index": 0,
+          "speaker_id": "speaker_1",
+          "start": 0.0,
+          "end": 9.491
+        },
+        {
+          "index": 1,
+          "speaker_id": "speaker_2",
+          "start": 9.491,
+          "end": 19.461
+        },
+        {
+          "index": 2,
+          "speaker_id": "speaker_3",
+          "start": 19.461,
+          "end": 33.437
+        },
+        {
+          "index": 3,
+          "speaker_id": "speaker_1",
+          "start": 33.437,
+          "end": 47.425
+        },
+        {
+          "index": 4,
+          "speaker_id": "speaker_2",
+          "start": 47.425,
+          "end": 58.614
+        },
+        {
+          "index": 5,
+          "speaker_id": "speaker_3",
+          "start": 58.614,
+          "end": 75.115
+        },
+        {
+          "index": 6,
+          "speaker_id": "speaker_1",
+          "start": 75.115,
+          "end": 84.214
+        },
+        {
+          "index": 7,
+          "speaker_id": "speaker_2",
+          "start": 84.214,
+          "end": 100.628
+        },
+        {
+          "index": 8,
+          "speaker_id": "speaker_3",
+          "start": 100.628,
+          "end": 113.254
+        },
+        {
+          "index": 9,
+          "speaker_id": "speaker_1",
+          "start": 113.254,
+          "end": 122.005
+        },
+        {
+          "index": 10,
+          "speaker_id": "speaker_2",
+          "start": 122.005,
+          "end": 133.107
+        },
+        {
+          "index": 11,
+          "speaker_id": "speaker_3",
+          "start": 133.107,
+          "end": 143.121
+        }
+      ],
+      "source_tar": "/mnt/e/datasets/contextasr-bench/audio/ContextASR-Dialogue/English/ContextASR-Dialogue_English_1.tar",
+      "tar_member": "./00226-3.wav",
+      "audio_sha256": "11435ea1508deb137c028d9d63a6ff7b4885859a8d1e59afce972258642c0d5f"
+    },
+    {
+      "uniq_id": "08913-5",
+      "stage": 20,
+      "duration": 158.5636875,
+      "turns": [
+        {
+          "index": 0,
+          "speaker_id": "speaker_1",
+          "start": 0.0,
+          "end": 10.623
+        },
+        {
+          "index": 1,
+          "speaker_id": "speaker_2",
+          "start": 10.623,
+          "end": 24.555
+        },
+        {
+          "index": 2,
+          "speaker_id": "speaker_3",
+          "start": 24.555,
+          "end": 38.879
+        },
+        {
+          "index": 3,
+          "speaker_id": "speaker_4",
+          "start": 38.879,
+          "end": 53.595
+        },
+        {
+          "index": 4,
+          "speaker_id": "speaker_5",
+          "start": 53.595,
+          "end": 67.919
+        },
+        {
+          "index": 5,
+          "speaker_id": "speaker_2",
+          "start": 67.919,
+          "end": 79.152
+        },
+        {
+          "index": 6,
+          "speaker_id": "speaker_1",
+          "start": 79.152,
+          "end": 88.73
+        },
+        {
+          "index": 7,
+          "speaker_id": "speaker_4",
+          "start": 88.73,
+          "end": 97.438
+        },
+        {
+          "index": 8,
+          "speaker_id": "speaker_3",
+          "start": 97.438,
+          "end": 113.199
+        },
+        {
+          "index": 9,
+          "speaker_id": "speaker_5",
+          "start": 113.199,
+          "end": 123.256
+        },
+        {
+          "index": 10,
+          "speaker_id": "speaker_2",
+          "start": 123.256,
+          "end": 133.008
+        },
+        {
+          "index": 11,
+          "speaker_id": "speaker_1",
+          "start": 133.008,
+          "end": 140.758
+        },
+        {
+          "index": 12,
+          "speaker_id": "speaker_4",
+          "start": 140.758,
+          "end": 147.985
+        },
+        {
+          "index": 13,
+          "speaker_id": "speaker_3",
+          "start": 147.985,
+          "end": 158.565
+        }
+      ],
+      "source_tar": "/mnt/e/datasets/contextasr-bench/audio/ContextASR-Dialogue/English/ContextASR-Dialogue_English_4.tar",
+      "tar_member": "./08913-5.wav",
+      "audio_sha256": "072ca4b2a51a09a9dff4a0776d926658a55e6f3cf6c64a2d27e1e0b36d589d9b"
+    },
+    {
+      "uniq_id": "05807-3",
+      "stage": 20,
+      "duration": 145.9341875,
+      "turns": [
+        {
+          "index": 0,
+          "speaker_id": "speaker_1",
+          "start": 0.0,
+          "end": 10.449
+        },
+        {
+          "index": 1,
+          "speaker_id": "speaker_2",
+          "start": 10.449,
+          "end": 21.682
+        },
+        {
+          "index": 2,
+          "speaker_id": "speaker_3",
+          "start": 21.682,
+          "end": 31.826
+        },
+        {
+          "index": 3,
+          "speaker_id": "speaker_1",
+          "start": 31.826,
+          "end": 42.58
+        },
+        {
+          "index": 4,
+          "speaker_id": "speaker_2",
+          "start": 42.58,
+          "end": 54.683
+        },
+        {
+          "index": 5,
+          "speaker_id": "speaker_3",
+          "start": 54.683,
+          "end": 63.303
+        },
+        {
+          "index": 6,
+          "speaker_id": "speaker_1",
+          "start": 63.303,
+          "end": 76.538
+        },
+        {
+          "index": 7,
+          "speaker_id": "speaker_2",
+          "start": 76.538,
+          "end": 85.376
+        },
+        {
+          "index": 8,
+          "speaker_id": "speaker_3",
+          "start": 85.376,
+          "end": 94.737
+        },
+        {
+          "index": 9,
+          "speaker_id": "speaker_1",
+          "start": 94.737,
+          "end": 106.666
+        },
+        {
+          "index": 10,
+          "speaker_id": "speaker_2",
+          "start": 106.666,
+          "end": 113.846
+        },
+        {
+          "index": 11,
+          "speaker_id": "speaker_3",
+          "start": 113.846,
+          "end": 121.988
+        },
+        {
+          "index": 12,
+          "speaker_id": "speaker_1",
+          "start": 121.988,
+          "end": 132.393
+        },
+        {
+          "index": 13,
+          "speaker_id": "speaker_2",
+          "start": 132.393,
+          "end": 140.404
+        },
+        {
+          "index": 14,
+          "speaker_id": "speaker_3",
+          "start": 140.404,
+          "end": 145.933
+        }
+      ],
+      "source_tar": "/mnt/e/datasets/contextasr-bench/audio/ContextASR-Dialogue/English/ContextASR-Dialogue_English_3.tar",
+      "tar_member": "./05807-3.wav",
+      "audio_sha256": "cb7255319e1fa4d9dc8bffb8ab3a463e6795d8b36f18abbbbba127eaef78b8ad"
+    },
+    {
+      "uniq_id": "01449-5",
+      "stage": 20,
+      "duration": 154.64525,
+      "turns": [
+        {
+          "index": 0,
+          "speaker_id": "speaker_1",
+          "start": 0.0,
+          "end": 9.927
+        },
+        {
+          "index": 1,
+          "speaker_id": "speaker_2",
+          "start": 9.927,
+          "end": 24.556
+        },
+        {
+          "index": 2,
+          "speaker_id": "speaker_3",
+          "start": 24.556,
+          "end": 38.227
+        },
+        {
+          "index": 3,
+          "speaker_id": "speaker_4",
+          "start": 38.227,
+          "end": 52.464
+        },
+        {
+          "index": 4,
+          "speaker_id": "speaker_5",
+          "start": 52.464,
+          "end": 67.572
+        },
+        {
+          "index": 5,
+          "speaker_id": "speaker_1",
+          "start": 67.572,
+          "end": 80.024
+        },
+        {
+          "index": 6,
+          "speaker_id": "speaker_2",
+          "start": 80.024,
+          "end": 93.738
+        },
+        {
+          "index": 7,
+          "speaker_id": "speaker_3",
+          "start": 93.738,
+          "end": 103.795
+        },
+        {
+          "index": 8,
+          "speaker_id": "speaker_4",
+          "start": 103.795,
+          "end": 118.728
+        },
+        {
+          "index": 9,
+          "speaker_id": "speaker_5",
+          "start": 118.728,
+          "end": 131.702
+        },
+        {
+          "index": 10,
+          "speaker_id": "speaker_1",
+          "start": 131.702,
+          "end": 142.238
+        },
+        {
+          "index": 11,
+          "speaker_id": "speaker_2",
+          "start": 142.238,
+          "end": 154.646
+        }
+      ],
+      "source_tar": "/mnt/e/datasets/contextasr-bench/audio/ContextASR-Dialogue/English/ContextASR-Dialogue_English_1.tar",
+      "tar_member": "./01449-5.wav",
+      "audio_sha256": "72ef573973650c4a5133429d72e8145c9b42ea9b810e962f8e409ddb82c5f0d1"
+    },
+    {
+      "uniq_id": "05415-5",
+      "stage": 20,
+      "duration": 180.5935625,
+      "turns": [
+        {
+          "index": 0,
+          "speaker_id": "speaker_1",
+          "start": 0.0,
+          "end": 9.883
+        },
+        {
+          "index": 1,
+          "speaker_id": "speaker_2",
+          "start": 9.883,
+          "end": 20.332
+        },
+        {
+          "index": 2,
+          "speaker_id": "speaker_3",
+          "start": 20.332,
+          "end": 33.959
+        },
+        {
+          "index": 3,
+          "speaker_id": "speaker_4",
+          "start": 33.959,
+          "end": 46.89
+        },
+        {
+          "index": 4,
+          "speaker_id": "speaker_5",
+          "start": 46.89,
+          "end": 60.604
+        },
+        {
+          "index": 5,
+          "speaker_id": "speaker_1",
+          "start": 60.604,
+          "end": 73.709
+        },
+        {
+          "index": 6,
+          "speaker_id": "speaker_2",
+          "start": 73.709,
+          "end": 83.287
+        },
+        {
+          "index": 7,
+          "speaker_id": "speaker_3",
+          "start": 83.287,
+          "end": 98.264
+        },
+        {
+          "index": 8,
+          "speaker_id": "speaker_4",
+          "start": 98.264,
+          "end": 110.933
+        },
+        {
+          "index": 9,
+          "speaker_id": "speaker_5",
+          "start": 110.933,
+          "end": 126.694
+        },
+        {
+          "index": 10,
+          "speaker_id": "speaker_1",
+          "start": 126.694,
+          "end": 136.49
+        },
+        {
+          "index": 11,
+          "speaker_id": "speaker_2",
+          "start": 136.49,
+          "end": 148.985
+        },
+        {
+          "index": 12,
+          "speaker_id": "speaker_3",
+          "start": 148.985,
+          "end": 160.653
+        },
+        {
+          "index": 13,
+          "speaker_id": "speaker_5",
+          "start": 160.653,
+          "end": 172.278
+        },
+        {
+          "index": 14,
+          "speaker_id": "speaker_4",
+          "start": 172.278,
+          "end": 180.594
+        }
+      ],
+      "source_tar": "/mnt/e/datasets/contextasr-bench/audio/ContextASR-Dialogue/English/ContextASR-Dialogue_English_3.tar",
+      "tar_member": "./05415-5.wav",
+      "audio_sha256": "1bc64eb54b54b1185349a2a5baa7e5a42dd94af5169a492d38101e250a4645ae"
+    },
+    {
+      "uniq_id": "00957-3",
+      "stage": 40,
+      "duration": 156.9090625,
+      "turns": [
+        {
+          "index": 0,
+          "speaker_id": "speaker_1",
+          "start": 0.0,
+          "end": 12.713
+        },
+        {
+          "index": 1,
+          "speaker_id": "speaker_2",
+          "start": 12.713,
+          "end": 27.733
+        },
+        {
+          "index": 2,
+          "speaker_id": "speaker_3",
+          "start": 27.733,
+          "end": 44.364
+        },
+        {
+          "index": 3,
+          "speaker_id": "speaker_1",
+          "start": 44.364,
+          "end": 59.123
+        },
+        {
+          "index": 4,
+          "speaker_id": "speaker_2",
+          "start": 59.123,
+          "end": 72.794
+        },
+        {
+          "index": 5,
+          "speaker_id": "speaker_3",
+          "start": 72.794,
+          "end": 86.204
+        },
+        {
+          "index": 6,
+          "speaker_id": "speaker_1",
+          "start": 86.204,
+          "end": 98.09
+        },
+        {
+          "index": 7,
+          "speaker_id": "speaker_2",
+          "start": 98.09,
+          "end": 110.847
+        },
+        {
+          "index": 8,
+          "speaker_id": "speaker_3",
+          "start": 110.847,
+          "end": 124.431
+        },
+        {
+          "index": 9,
+          "speaker_id": "speaker_1",
+          "start": 124.431,
+          "end": 135.62
+        },
+        {
+          "index": 10,
+          "speaker_id": "speaker_2",
+          "start": 135.62,
+          "end": 144.85
+        },
+        {
+          "index": 11,
+          "speaker_id": "speaker_3",
+          "start": 144.85,
+          "end": 156.91
+        }
+      ],
+      "source_tar": "/mnt/e/datasets/contextasr-bench/audio/ContextASR-Dialogue/English/ContextASR-Dialogue_English_1.tar",
+      "tar_member": "./00957-3.wav",
+      "audio_sha256": "812673b5b1e57944b439ae222af7f41abb753bac069f5971a4e52d68b134e37a"
+    },
+    {
+      "uniq_id": "00594-5",
+      "stage": 40,
+      "duration": 186.7325625,
+      "turns": [
+        {
+          "index": 0,
+          "speaker_id": "speaker_1",
+          "start": 0.0,
+          "end": 11.842
+        },
+        {
+          "index": 1,
+          "speaker_id": "speaker_2",
+          "start": 11.842,
+          "end": 26.862
+        },
+        {
+          "index": 2,
+          "speaker_id": "speaker_3",
+          "start": 26.862,
+          "end": 43.189
+        },
+        {
+          "index": 3,
+          "speaker_id": "speaker_4",
+          "start": 43.189,
+          "end": 58.253
+        },
+        {
+          "index": 4,
+          "speaker_id": "speaker_5",
+          "start": 58.253,
+          "end": 70.008
+        },
+        {
+          "index": 5,
+          "speaker_id": "speaker_1",
+          "start": 70.008,
+          "end": 81.72
+        },
+        {
+          "index": 6,
+          "speaker_id": "speaker_2",
+          "start": 81.72,
+          "end": 96.131
+        },
+        {
+          "index": 7,
+          "speaker_id": "speaker_3",
+          "start": 96.131,
+          "end": 112.632
+        },
+        {
+          "index": 8,
+          "speaker_id": "speaker_4",
+          "start": 112.632,
+          "end": 123.691
+        },
+        {
+          "index": 9,
+          "speaker_id": "speaker_5",
+          "start": 123.691,
+          "end": 134.227
+        },
+        {
+          "index": 10,
+          "speaker_id": "speaker_1",
+          "start": 134.227,
+          "end": 139.843
+        },
+        {
+          "index": 11,
+          "speaker_id": "speaker_2",
+          "start": 139.843,
+          "end": 151.772
+        },
+        {
+          "index": 12,
+          "speaker_id": "speaker_4",
+          "start": 151.772,
+          "end": 160.654
+        },
+        {
+          "index": 13,
+          "speaker_id": "speaker_3",
+          "start": 160.654,
+          "end": 176.24
+        },
+        {
+          "index": 14,
+          "speaker_id": "speaker_5",
+          "start": 176.24,
+          "end": 186.733
+        }
+      ],
+      "source_tar": "/mnt/e/datasets/contextasr-bench/audio/ContextASR-Dialogue/English/ContextASR-Dialogue_English_1.tar",
+      "tar_member": "./00594-5.wav",
+      "audio_sha256": "19a7406e52c0da3162e4ec0c165ea393016f476a461ccce878d1c29395bc65a2"
+    },
+    {
+      "uniq_id": "02953-3",
+      "stage": 40,
+      "duration": 132.3059375,
+      "turns": [
+        {
+          "index": 0,
+          "speaker_id": "speaker_1",
+          "start": 0.0,
+          "end": 9.922
+        },
+        {
+          "index": 1,
+          "speaker_id": "speaker_2",
+          "start": 9.922,
+          "end": 29.035
+        },
+        {
+          "index": 2,
+          "speaker_id": "speaker_3",
+          "start": 29.035,
+          "end": 42.14
+        },
+        {
+          "index": 3,
+          "speaker_id": "speaker_1",
+          "start": 42.14,
+          "end": 54.505
+        },
+        {
+          "index": 4,
+          "speaker_id": "speaker_2",
+          "start": 54.505,
+          "end": 67.436
+        },
+        {
+          "index": 5,
+          "speaker_id": "speaker_3",
+          "start": 67.436,
+          "end": 79.278
+        },
+        {
+          "index": 6,
+          "speaker_id": "speaker_1",
+          "start": 79.278,
+          "end": 92.862
+        },
+        {
+          "index": 7,
+          "speaker_id": "speaker_2",
+          "start": 92.862,
+          "end": 106.576
+        },
+        {
+          "index": 8,
+          "speaker_id": "speaker_3",
+          "start": 106.576,
+          "end": 120.377
+        },
+        {
+          "index": 9,
+          "speaker_id": "speaker_1",
+          "start": 120.377,
+          "end": 132.306
+        }
+      ],
+      "source_tar": "/mnt/e/datasets/contextasr-bench/audio/ContextASR-Dialogue/English/ContextASR-Dialogue_English_2.tar",
+      "tar_member": "./02953-3.wav",
+      "audio_sha256": "57fc5b578256325e3fd2ed30463492860840f39a44812a28f5a1792f5068f591"
+    },
+    {
+      "uniq_id": "05282-4",
+      "stage": 40,
+      "duration": 133.5295,
+      "turns": [
+        {
+          "index": 0,
+          "speaker_id": "speaker_1",
+          "start": 0.0,
+          "end": 7.706
+        },
+        {
+          "index": 1,
+          "speaker_id": "speaker_2",
+          "start": 7.706,
+          "end": 19.243
+        },
+        {
+          "index": 2,
+          "speaker_id": "speaker_3",
+          "start": 19.243,
+          "end": 31.085
+        },
+        {
+          "index": 3,
+          "speaker_id": "speaker_4",
+          "start": 31.085,
+          "end": 42.927
+        },
+        {
+          "index": 4,
+          "speaker_id": "speaker_1",
+          "start": 42.927,
+          "end": 55.945
+        },
+        {
+          "index": 5,
+          "speaker_id": "speaker_2",
+          "start": 55.945,
+          "end": 68.527
+        },
+        {
+          "index": 6,
+          "speaker_id": "speaker_3",
+          "start": 68.527,
+          "end": 82.851
+        },
+        {
+          "index": 7,
+          "speaker_id": "speaker_4",
+          "start": 82.851,
+          "end": 92.821
+        },
+        {
+          "index": 8,
+          "speaker_id": "speaker_1",
+          "start": 92.821,
+          "end": 105.665
+        },
+        {
+          "index": 9,
+          "speaker_id": "speaker_2",
+          "start": 105.665,
+          "end": 114.939
+        },
+        {
+          "index": 10,
+          "speaker_id": "speaker_3",
+          "start": 114.939,
+          "end": 123.646
+        },
+        {
+          "index": 11,
+          "speaker_id": "speaker_4",
+          "start": 123.646,
+          "end": 133.529
+        }
+      ],
+      "source_tar": "/mnt/e/datasets/contextasr-bench/audio/ContextASR-Dialogue/English/ContextASR-Dialogue_English_3.tar",
+      "tar_member": "./05282-4.wav",
+      "audio_sha256": "a92b087da3ac756bf7917a12b4bd9b6bbb420491206cfaff6b10cce88b7ee731"
+    },
+    {
+      "uniq_id": "02153-4",
+      "stage": 40,
+      "duration": 149.029,
+      "turns": [
+        {
+          "index": 0,
+          "speaker_id": "speaker_1",
+          "start": 0.0,
+          "end": 13.235
+        },
+        {
+          "index": 1,
+          "speaker_id": "speaker_2",
+          "start": 13.235,
+          "end": 25.164
+        },
+        {
+          "index": 2,
+          "speaker_id": "speaker_3",
+          "start": 25.164,
+          "end": 37.833
+        },
+        {
+          "index": 3,
+          "speaker_id": "speaker_4",
+          "start": 37.833,
+          "end": 50.851
+        },
+        {
+          "index": 4,
+          "speaker_id": "speaker_1",
+          "start": 50.851,
+          "end": 62.954
+        },
+        {
+          "index": 5,
+          "speaker_id": "speaker_2",
+          "start": 62.954,
+          "end": 73.838
+        },
+        {
+          "index": 6,
+          "speaker_id": "speaker_3",
+          "start": 73.838,
+          "end": 87.814
+        },
+        {
+          "index": 7,
+          "speaker_id": "speaker_4",
+          "start": 87.814,
+          "end": 99.743
+        },
+        {
+          "index": 8,
+          "speaker_id": "speaker_1",
+          "start": 99.743,
+          "end": 111.716
+        },
+        {
+          "index": 9,
+          "speaker_id": "speaker_2",
+          "start": 111.716,
+          "end": 129.044
+        },
+        {
+          "index": 10,
+          "speaker_id": "speaker_3",
+          "start": 129.044,
+          "end": 139.319
+        },
+        {
+          "index": 11,
+          "speaker_id": "speaker_4",
+          "start": 139.319,
+          "end": 149.028
+        }
+      ],
+      "source_tar": "/mnt/e/datasets/contextasr-bench/audio/ContextASR-Dialogue/English/ContextASR-Dialogue_English_1.tar",
+      "tar_member": "./02153-4.wav",
+      "audio_sha256": "bf6fea74ec70e82e2c7055aab991054a6a722ecb1925ee89ecd8f7a0dafce35a"
+    },
+    {
+      "uniq_id": "09758-5",
+      "stage": 40,
+      "duration": 170.29175,
+      "turns": [
+        {
+          "index": 0,
+          "speaker_id": "speaker_1",
+          "start": 0.0,
+          "end": 9.839
+        },
+        {
+          "index": 1,
+          "speaker_id": "speaker_2",
+          "start": 9.839,
+          "end": 23.118
+        },
+        {
+          "index": 2,
+          "speaker_id": "speaker_3",
+          "start": 23.118,
+          "end": 31.782
+        },
+        {
+          "index": 3,
+          "speaker_id": "speaker_4",
+          "start": 31.782,
+          "end": 44.93
+        },
+        {
+          "index": 4,
+          "speaker_id": "speaker_5",
+          "start": 44.93,
+          "end": 57.556
+        },
+        {
+          "index": 5,
+          "speaker_id": "speaker_1",
+          "start": 57.556,
+          "end": 68.179
+        },
+        {
+          "index": 6,
+          "speaker_id": "speaker_2",
+          "start": 68.179,
+          "end": 81.632
+        },
+        {
+          "index": 7,
+          "speaker_id": "speaker_3",
+          "start": 81.632,
+          "end": 88.859
+        },
+        {
+          "index": 8,
+          "speaker_id": "speaker_4",
+          "start": 88.859,
+          "end": 100.048
+        },
+        {
+          "index": 9,
+          "speaker_id": "speaker_5",
+          "start": 100.048,
+          "end": 112.63
+        },
+        {
+          "index": 10,
+          "speaker_id": "speaker_1",
+          "start": 112.63,
+          "end": 125.386
+        },
+        {
+          "index": 11,
+          "speaker_id": "speaker_2",
+          "start": 125.386,
+          "end": 135.443
+        },
+        {
+          "index": 12,
+          "speaker_id": "speaker_3",
+          "start": 135.443,
+          "end": 146.474
+        },
+        {
+          "index": 13,
+          "speaker_id": "speaker_4",
+          "start": 146.474,
+          "end": 154.92
+        },
+        {
+          "index": 14,
+          "speaker_id": "speaker_5",
+          "start": 154.92,
+          "end": 165.717
+        },
+        {
+          "index": 15,
+          "speaker_id": "speaker_1",
+          "start": 165.717,
+          "end": 170.288
+        }
+      ],
+      "source_tar": "/mnt/e/datasets/contextasr-bench/audio/ContextASR-Dialogue/English/ContextASR-Dialogue_English_4.tar",
+      "tar_member": "./09758-5.wav",
+      "audio_sha256": "1f451b81ea07f7c57ae4017247d67577c0323ecb3124f5f25a2e018c8cadb91f"
+    },
+    {
+      "uniq_id": "06870-4",
+      "stage": 40,
+      "duration": 176.2400625,
+      "turns": [
+        {
+          "index": 0,
+          "speaker_id": "speaker_1",
+          "start": 0.0,
+          "end": 10.754
+        },
+        {
+          "index": 1,
+          "speaker_id": "speaker_2",
+          "start": 10.754,
+          "end": 24.076
+        },
+        {
+          "index": 2,
+          "speaker_id": "speaker_3",
+          "start": 24.076,
+          "end": 36.397
+        },
+        {
+          "index": 3,
+          "speaker_id": "speaker_4",
+          "start": 36.397,
+          "end": 47.543
+        },
+        {
+          "index": 4,
+          "speaker_id": "speaker_1",
+          "start": 47.543,
+          "end": 60.082
+        },
+        {
+          "index": 5,
+          "speaker_id": "speaker_2",
+          "start": 60.082,
+          "end": 70.4
+        },
+        {
+          "index": 6,
+          "speaker_id": "speaker_3",
+          "start": 70.4,
+          "end": 84.637
+        },
+        {
+          "index": 7,
+          "speaker_id": "speaker_4",
+          "start": 84.637,
+          "end": 97.306
+        },
+        {
+          "index": 8,
+          "speaker_id": "speaker_1",
+          "start": 97.306,
+          "end": 109.975
+        },
+        {
+          "index": 9,
+          "speaker_id": "speaker_2",
+          "start": 109.975,
+          "end": 119.074
+        },
+        {
+          "index": 10,
+          "speaker_id": "speaker_3",
+          "start": 119.074,
+          "end": 129.784
+        },
+        {
+          "index": 11,
+          "speaker_id": "speaker_4",
+          "start": 129.784,
+          "end": 140.93
+        },
+        {
+          "index": 12,
+          "speaker_id": "speaker_1",
+          "start": 140.93,
+          "end": 149.594
+        },
+        {
+          "index": 13,
+          "speaker_id": "speaker_2",
+          "start": 149.594,
+          "end": 159.651
+        },
+        {
+          "index": 14,
+          "speaker_id": "speaker_3",
+          "start": 159.651,
+          "end": 167.052
+        },
+        {
+          "index": 15,
+          "speaker_id": "speaker_4",
+          "start": 167.052,
+          "end": 176.238
+        }
+      ],
+      "source_tar": "/mnt/e/datasets/contextasr-bench/audio/ContextASR-Dialogue/English/ContextASR-Dialogue_English_3.tar",
+      "tar_member": "./06870-4.wav",
+      "audio_sha256": "45d3cad9575f5662bf8c4f383206c9afe7e8c1437fdd4d7e56f27061d6e3c83b"
+    },
+    {
+      "uniq_id": "02031-4",
+      "stage": 40,
+      "duration": 154.0359375,
+      "turns": [
+        {
+          "index": 0,
+          "speaker_id": "speaker_1",
+          "start": 0.0,
+          "end": 10.188
+        },
+        {
+          "index": 1,
+          "speaker_id": "speaker_2",
+          "start": 10.188,
+          "end": 21.682
+        },
+        {
+          "index": 2,
+          "speaker_id": "speaker_3",
+          "start": 21.682,
+          "end": 30.999
+        },
+        {
+          "index": 3,
+          "speaker_id": "speaker_4",
+          "start": 30.999,
+          "end": 42.58
+        },
+        {
+          "index": 4,
+          "speaker_id": "speaker_1",
+          "start": 42.58,
+          "end": 53.856
+        },
+        {
+          "index": 5,
+          "speaker_id": "speaker_2",
+          "start": 53.856,
+          "end": 67.483
+        },
+        {
+          "index": 6,
+          "speaker_id": "speaker_3",
+          "start": 67.483,
+          "end": 79.02
+        },
+        {
+          "index": 7,
+          "speaker_id": "speaker_4",
+          "start": 79.02,
+          "end": 88.729
+        },
+        {
+          "index": 8,
+          "speaker_id": "speaker_1",
+          "start": 88.729,
+          "end": 98.699
+        },
+        {
+          "index": 9,
+          "speaker_id": "speaker_2",
+          "start": 98.699,
+          "end": 110.628
+        },
+        {
+          "index": 10,
+          "speaker_id": "speaker_3",
+          "start": 110.628,
+          "end": 123.559
+        },
+        {
+          "index": 11,
+          "speaker_id": "speaker_4",
+          "start": 123.559,
+          "end": 133.224
+        },
+        {
+          "index": 12,
+          "speaker_id": "speaker_1",
+          "start": 133.224,
+          "end": 144.108
+        },
+        {
+          "index": 13,
+          "speaker_id": "speaker_2",
+          "start": 144.108,
+          "end": 154.035
+        }
+      ],
+      "source_tar": "/mnt/e/datasets/contextasr-bench/audio/ContextASR-Dialogue/English/ContextASR-Dialogue_English_1.tar",
+      "tar_member": "./02031-4.wav",
+      "audio_sha256": "211b2fa5b64af581de7c821f2cab4f3c30abe52981ec625e4f56bd56d98a3c63"
+    },
+    {
+      "uniq_id": "06484-5",
+      "stage": 40,
+      "duration": 172.452125,
+      "turns": [
+        {
+          "index": 0,
+          "speaker_id": "speaker_1",
+          "start": 0.0,
+          "end": 14.106
+        },
+        {
+          "index": 1,
+          "speaker_id": "speaker_2",
+          "start": 14.106,
+          "end": 27.08
+        },
+        {
+          "index": 2,
+          "speaker_id": "speaker_3",
+          "start": 27.08,
+          "end": 39.183
+        },
+        {
+          "index": 3,
+          "speaker_id": "speaker_4",
+          "start": 39.183,
+          "end": 55.074
+        },
+        {
+          "index": 4,
+          "speaker_id": "speaker_5",
+          "start": 55.074,
+          "end": 67.7
+        },
+        {
+          "index": 5,
+          "speaker_id": "speaker_1",
+          "start": 67.7,
+          "end": 78.802
+        },
+        {
+          "index": 6,
+          "speaker_id": "speaker_2",
+          "start": 78.802,
+          "end": 92.125
+        },
+        {
+          "index": 7,
+          "speaker_id": "speaker_3",
+          "start": 92.125,
+          "end": 104.62
+        },
+        {
+          "index": 8,
+          "speaker_id": "speaker_4",
+          "start": 104.62,
+          "end": 119.205
+        },
+        {
+          "index": 9,
+          "speaker_id": "speaker_5",
+          "start": 119.205,
+          "end": 128.566
+        },
+        {
+          "index": 10,
+          "speaker_id": "speaker_1",
+          "start": 128.566,
+          "end": 139.276
+        },
+        {
+          "index": 11,
+          "speaker_id": "speaker_2",
+          "start": 139.276,
+          "end": 150.901
+        },
+        {
+          "index": 12,
+          "speaker_id": "speaker_3",
+          "start": 150.901,
+          "end": 160.958
+        },
+        {
+          "index": 13,
+          "speaker_id": "speaker_4",
+          "start": 160.958,
+          "end": 172.452
+        }
+      ],
+      "source_tar": "/mnt/e/datasets/contextasr-bench/audio/ContextASR-Dialogue/English/ContextASR-Dialogue_English_3.tar",
+      "tar_member": "./06484-5.wav",
+      "audio_sha256": "a95c138a5103966af91e6bd878c2b83cb48639161c9e8f17c0b868b0e5db931f"
+    },
+    {
+      "uniq_id": "12836-4",
+      "stage": 40,
+      "duration": 155.6466875,
+      "turns": [
+        {
+          "index": 0,
+          "speaker_id": "speaker_1",
+          "start": 0.0,
+          "end": 12.147
+        },
+        {
+          "index": 1,
+          "speaker_id": "speaker_2",
+          "start": 12.147,
+          "end": 22.291
+        },
+        {
+          "index": 2,
+          "speaker_id": "speaker_3",
+          "start": 22.291,
+          "end": 36.092
+        },
+        {
+          "index": 3,
+          "speaker_id": "speaker_4",
+          "start": 36.092,
+          "end": 48.326
+        },
+        {
+          "index": 4,
+          "speaker_id": "speaker_1",
+          "start": 48.326,
+          "end": 59.254
+        },
+        {
+          "index": 5,
+          "speaker_id": "speaker_2",
+          "start": 59.254,
+          "end": 75.015
+        },
+        {
+          "index": 6,
+          "speaker_id": "speaker_3",
+          "start": 75.015,
+          "end": 87.859
+        },
+        {
+          "index": 7,
+          "speaker_id": "speaker_4",
+          "start": 87.859,
+          "end": 100.615
+        },
+        {
+          "index": 8,
+          "speaker_id": "speaker_1",
+          "start": 100.615,
+          "end": 110.977
+        },
+        {
+          "index": 9,
+          "speaker_id": "speaker_2",
+          "start": 110.977,
+          "end": 123.385
+        },
+        {
+          "index": 10,
+          "speaker_id": "speaker_3",
+          "start": 123.385,
+          "end": 134.182
+        },
+        {
+          "index": 11,
+          "speaker_id": "speaker_4",
+          "start": 134.182,
+          "end": 145.937
+        },
+        {
+          "index": 12,
+          "speaker_id": "speaker_1",
+          "start": 145.937,
+          "end": 155.646
+        }
+      ],
+      "source_tar": "/mnt/e/datasets/contextasr-bench/audio/ContextASR-Dialogue/English/ContextASR-Dialogue_English_6.tar",
+      "tar_member": "./12836-4.wav",
+      "audio_sha256": "22e288eb31f53d2cec2d4a4c4b2d4e76e85c21463c816610e16ec14f4e3671b4"
+    },
+    {
+      "uniq_id": "05960-5",
+      "stage": 40,
+      "duration": 158.3895,
+      "turns": [
+        {
+          "index": 0,
+          "speaker_id": "speaker_1",
+          "start": 0.0,
+          "end": 7.88
+        },
+        {
+          "index": 1,
+          "speaker_id": "speaker_2",
+          "start": 7.88,
+          "end": 19.983
+        },
+        {
+          "index": 2,
+          "speaker_id": "speaker_3",
+          "start": 19.983,
+          "end": 31.52
+        },
+        {
+          "index": 3,
+          "speaker_id": "speaker_4",
+          "start": 31.52,
+          "end": 44.799
+        },
+        {
+          "index": 4,
+          "speaker_id": "speaker_5",
+          "start": 44.799,
+          "end": 57.556
+        },
+        {
+          "index": 5,
+          "speaker_id": "speaker_1",
+          "start": 57.556,
+          "end": 70.791
+        },
+        {
+          "index": 6,
+          "speaker_id": "speaker_2",
+          "start": 70.791,
+          "end": 80.674
+        },
+        {
+          "index": 7,
+          "speaker_id": "speaker_3",
+          "start": 80.674,
+          "end": 92.821
+        },
+        {
+          "index": 8,
+          "speaker_id": "speaker_4",
+          "start": 92.821,
+          "end": 101.964
+        },
+        {
+          "index": 9,
+          "speaker_id": "speaker_5",
+          "start": 101.964,
+          "end": 111.542
+        },
+        {
+          "index": 10,
+          "speaker_id": "speaker_1",
+          "start": 111.542,
+          "end": 120.685
+        },
+        {
+          "index": 11,
+          "speaker_id": "speaker_2",
+          "start": 120.685,
+          "end": 131.221
+        },
+        {
+          "index": 12,
+          "speaker_id": "speaker_3",
+          "start": 131.221,
+          "end": 139.885
+        },
+        {
+          "index": 13,
+          "speaker_id": "speaker_4",
+          "start": 139.885,
+          "end": 150.203
+        },
+        {
+          "index": 14,
+          "speaker_id": "speaker_5",
+          "start": 150.203,
+          "end": 158.388
+        }
+      ],
+      "source_tar": "/mnt/e/datasets/contextasr-bench/audio/ContextASR-Dialogue/English/ContextASR-Dialogue_English_3.tar",
+      "tar_member": "./05960-5.wav",
+      "audio_sha256": "5b428b2232e0521efc6b9215322b51e45a1e7c4406bcdb379e9036bcfee62d45"
+    },
+    {
+      "uniq_id": "01214-4",
+      "stage": 40,
+      "duration": 163.8315625,
+      "turns": [
+        {
+          "index": 0,
+          "speaker_id": "speaker_1",
+          "start": 0.0,
+          "end": 11.537
+        },
+        {
+          "index": 1,
+          "speaker_id": "speaker_2",
+          "start": 11.537,
+          "end": 21.768
+        },
+        {
+          "index": 2,
+          "speaker_id": "speaker_3",
+          "start": 21.768,
+          "end": 37.659
+        },
+        {
+          "index": 3,
+          "speaker_id": "speaker_4",
+          "start": 37.659,
+          "end": 50.851
+        },
+        {
+          "index": 4,
+          "speaker_id": "speaker_1",
+          "start": 50.851,
+          "end": 65.828
+        },
+        {
+          "index": 5,
+          "speaker_id": "speaker_2",
+          "start": 65.828,
+          "end": 77.017
+        },
+        {
+          "index": 6,
+          "speaker_id": "speaker_3",
+          "start": 77.017,
+          "end": 90.862
+        },
+        {
+          "index": 7,
+          "speaker_id": "speaker_4",
+          "start": 90.862,
+          "end": 104.925
+        },
+        {
+          "index": 8,
+          "speaker_id": "speaker_1",
+          "start": 104.925,
+          "end": 118.378
+        },
+        {
+          "index": 9,
+          "speaker_id": "speaker_2",
+          "start": 118.378,
+          "end": 126.519
+        },
+        {
+          "index": 10,
+          "speaker_id": "speaker_3",
+          "start": 126.519,
+          "end": 139.58
+        },
+        {
+          "index": 11,
+          "speaker_id": "speaker_4",
+          "start": 139.58,
+          "end": 151.553
+        },
+        {
+          "index": 12,
+          "speaker_id": "speaker_1",
+          "start": 151.553,
+          "end": 163.831
+        }
+      ],
+      "source_tar": "/mnt/e/datasets/contextasr-bench/audio/ContextASR-Dialogue/English/ContextASR-Dialogue_English_1.tar",
+      "tar_member": "./01214-4.wav",
+      "audio_sha256": "e36373b43252855f37ad2c383068ce09f6926379ca44259bc2712b9e29222d2f"
+    },
+    {
+      "uniq_id": "08881-3",
+      "stage": 40,
+      "duration": 159.3036875,
+      "turns": [
+        {
+          "index": 0,
+          "speaker_id": "speaker_1",
+          "start": 0.0,
+          "end": 9.535
+        },
+        {
+          "index": 1,
+          "speaker_id": "speaker_2",
+          "start": 9.535,
+          "end": 25.426
+        },
+        {
+          "index": 2,
+          "speaker_id": "speaker_3",
+          "start": 25.426,
+          "end": 40.577
+        },
+        {
+          "index": 3,
+          "speaker_id": "speaker_1",
+          "start": 40.577,
+          "end": 55.989
+        },
+        {
+          "index": 4,
+          "speaker_id": "speaker_2",
+          "start": 55.989,
+          "end": 72.228
+        },
+        {
+          "index": 5,
+          "speaker_id": "speaker_3",
+          "start": 72.228,
+          "end": 86.073
+        },
+        {
+          "index": 6,
+          "speaker_id": "speaker_1",
+          "start": 86.073,
+          "end": 100.658
+        },
+        {
+          "index": 7,
+          "speaker_id": "speaker_2",
+          "start": 100.658,
+          "end": 118.595
+        },
+        {
+          "index": 8,
+          "speaker_id": "speaker_3",
+          "start": 118.595,
+          "end": 133.137
+        },
+        {
+          "index": 9,
+          "speaker_id": "speaker_1",
+          "start": 133.137,
+          "end": 149.638
+        },
+        {
+          "index": 10,
+          "speaker_id": "speaker_2",
+          "start": 149.638,
+          "end": 159.303
+        }
+      ],
+      "source_tar": "/mnt/e/datasets/contextasr-bench/audio/ContextASR-Dialogue/English/ContextASR-Dialogue_English_4.tar",
+      "tar_member": "./08881-3.wav",
+      "audio_sha256": "e06251ca16f550c94cfc430774fb2643f4a8eb6374cb83b96df675e235763200"
+    },
+    {
+      "uniq_id": "00266-5",
+      "stage": 40,
+      "duration": 149.2466875,
+      "turns": [
+        {
+          "index": 0,
+          "speaker_id": "speaker_1",
+          "start": 0.0,
+          "end": 10.231
+        },
+        {
+          "index": 1,
+          "speaker_id": "speaker_2",
+          "start": 10.231,
+          "end": 20.027
+        },
+        {
+          "index": 2,
+          "speaker_id": "speaker_3",
+          "start": 20.027,
+          "end": 29.867
+        },
+        {
+          "index": 3,
+          "speaker_id": "speaker_4",
+          "start": 29.867,
+          "end": 41.1
+        },
+        {
+          "index": 4,
+          "speaker_id": "speaker_5",
+          "start": 41.1,
+          "end": 49.242
+        },
+        {
+          "index": 5,
+          "speaker_id": "speaker_1",
+          "start": 49.242,
+          "end": 61.041
+        },
+        {
+          "index": 6,
+          "speaker_id": "speaker_2",
+          "start": 61.041,
+          "end": 71.316
+        },
+        {
+          "index": 7,
+          "speaker_id": "speaker_3",
+          "start": 71.316,
+          "end": 82.766
+        },
+        {
+          "index": 8,
+          "speaker_id": "speaker_4",
+          "start": 82.766,
+          "end": 90.037
+        },
+        {
+          "index": 9,
+          "speaker_id": "speaker_5",
+          "start": 90.037,
+          "end": 99.093
+        },
+        {
+          "index": 10,
+          "speaker_id": "speaker_1",
+          "start": 99.093,
+          "end": 110.152
+        },
+        {
+          "index": 11,
+          "speaker_id": "speaker_2",
+          "start": 110.152,
+          "end": 120.862
+        },
+        {
+          "index": 12,
+          "speaker_id": "speaker_3",
+          "start": 120.862,
+          "end": 129.352
+        },
+        {
+          "index": 13,
+          "speaker_id": "speaker_4",
+          "start": 129.352,
+          "end": 135.665
+        },
+        {
+          "index": 14,
+          "speaker_id": "speaker_5",
+          "start": 135.665,
+          "end": 143.806
+        },
+        {
+          "index": 15,
+          "speaker_id": "speaker_1",
+          "start": 143.806,
+          "end": 149.248
+        }
+      ],
+      "source_tar": "/mnt/e/datasets/contextasr-bench/audio/ContextASR-Dialogue/English/ContextASR-Dialogue_English_1.tar",
+      "tar_member": "./00266-5.wav",
+      "audio_sha256": "4d1f0b297383f87041333192d239ab1cc1f7fa39ab33b9b8fa673c9f67467551"
+    },
+    {
+      "uniq_id": "01263-4",
+      "stage": 40,
+      "duration": 152.5341875,
+      "turns": [
+        {
+          "index": 0,
+          "speaker_id": "speaker_1",
+          "start": 0.0,
+          "end": 9.796
+        },
+        {
+          "index": 1,
+          "speaker_id": "speaker_2",
+          "start": 9.796,
+          "end": 21.769
+        },
+        {
+          "index": 2,
+          "speaker_id": "speaker_3",
+          "start": 21.769,
+          "end": 38.313
+        },
+        {
+          "index": 3,
+          "speaker_id": "speaker_4",
+          "start": 38.313,
+          "end": 53.029
+        },
+        {
+          "index": 4,
+          "speaker_id": "speaker_1",
+          "start": 53.029,
+          "end": 67.701
+        },
+        {
+          "index": 5,
+          "speaker_id": "speaker_2",
+          "start": 67.701,
+          "end": 84.594
+        },
+        {
+          "index": 6,
+          "speaker_id": "speaker_3",
+          "start": 84.594,
+          "end": 97.307
+        },
+        {
+          "index": 7,
+          "speaker_id": "speaker_4",
+          "start": 97.307,
+          "end": 108.017
+        },
+        {
+          "index": 8,
+          "speaker_id": "speaker_1",
+          "start": 108.017,
+          "end": 117.639
+        },
+        {
+          "index": 9,
+          "speaker_id": "speaker_2",
+          "start": 117.639,
+          "end": 127.348
+        },
+        {
+          "index": 10,
+          "speaker_id": "speaker_3",
+          "start": 127.348,
+          "end": 135.664
+        },
+        {
+          "index": 11,
+          "speaker_id": "speaker_4",
+          "start": 135.664,
+          "end": 145.308
+        },
+        {
+          "index": 12,
+          "speaker_id": "speaker_1",
+          "start": 145.308,
+          "end": 152.535
+        }
+      ],
+      "source_tar": "/mnt/e/datasets/contextasr-bench/audio/ContextASR-Dialogue/English/ContextASR-Dialogue_English_1.tar",
+      "tar_member": "./01263-4.wav",
+      "audio_sha256": "d650478cb9d92af54f8f1d1e1656384cd53d24354870413804365b1f77969317"
+    },
+    {
+      "uniq_id": "06064-3",
+      "stage": 40,
+      "duration": 123.2548125,
+      "turns": [
+        {
+          "index": 0,
+          "speaker_id": "speaker_1",
+          "start": 0.0,
+          "end": 13.322
+        },
+        {
+          "index": 1,
+          "speaker_id": "speaker_2",
+          "start": 13.322,
+          "end": 23.902
+        },
+        {
+          "index": 2,
+          "speaker_id": "speaker_3",
+          "start": 23.902,
+          "end": 34.264
+        },
+        {
+          "index": 3,
+          "speaker_id": "speaker_1",
+          "start": 34.264,
+          "end": 48.109
+        },
+        {
+          "index": 4,
+          "speaker_id": "speaker_2",
+          "start": 48.109,
+          "end": 60.3
+        },
+        {
+          "index": 5,
+          "speaker_id": "speaker_3",
+          "start": 60.3,
+          "end": 71.271
+        },
+        {
+          "index": 6,
+          "speaker_id": "speaker_1",
+          "start": 71.271,
+          "end": 83.897
+        },
+        {
+          "index": 7,
+          "speaker_id": "speaker_2",
+          "start": 83.897,
+          "end": 92.996
+        },
+        {
+          "index": 8,
+          "speaker_id": "speaker_3",
+          "start": 92.996,
+          "end": 103.358
+        },
+        {
+          "index": 9,
+          "speaker_id": "speaker_1",
+          "start": 103.358,
+          "end": 108.8
+        },
+        {
+          "index": 10,
+          "speaker_id": "speaker_2",
+          "start": 108.8,
+          "end": 115.897
+        },
+        {
+          "index": 11,
+          "speaker_id": "speaker_3",
+          "start": 115.897,
+          "end": 123.255
+        }
+      ],
+      "source_tar": "/mnt/e/datasets/contextasr-bench/audio/ContextASR-Dialogue/English/ContextASR-Dialogue_English_3.tar",
+      "tar_member": "./06064-3.wav",
+      "audio_sha256": "557d6c72525d0f5cc5787dbf15992ebad6018cca7f346d7bee8c466a5808be03"
+    },
+    {
+      "uniq_id": "05411-5",
+      "stage": 40,
+      "duration": 133.965,
+      "turns": [
+        {
+          "index": 0,
+          "speaker_id": "speaker_1",
+          "start": 0.0,
+          "end": 8.838
+        },
+        {
+          "index": 1,
+          "speaker_id": "speaker_2",
+          "start": 8.838,
+          "end": 20.332
+        },
+        {
+          "index": 2,
+          "speaker_id": "speaker_3",
+          "start": 20.332,
+          "end": 36.093
+        },
+        {
+          "index": 3,
+          "speaker_id": "speaker_4",
+          "start": 36.093,
+          "end": 46.281
+        },
+        {
+          "index": 4,
+          "speaker_id": "speaker_5",
+          "start": 46.281,
+          "end": 57.47
+        },
+        {
+          "index": 5,
+          "speaker_id": "speaker_1",
+          "start": 57.47,
+          "end": 70.488
+        },
+        {
+          "index": 6,
+          "speaker_id": "speaker_2",
+          "start": 70.488,
+          "end": 82.112
+        },
+        {
+          "index": 7,
+          "speaker_id": "speaker_3",
+          "start": 82.112,
+          "end": 94.52
+        },
+        {
+          "index": 8,
+          "speaker_id": "speaker_4",
+          "start": 94.52,
+          "end": 104.49
+        },
+        {
+          "index": 9,
+          "speaker_id": "speaker_5",
+          "start": 104.49,
+          "end": 113.546
+        },
+        {
+          "index": 10,
+          "speaker_id": "speaker_1",
+          "start": 113.546,
+          "end": 125.954
+        },
+        {
+          "index": 11,
+          "speaker_id": "speaker_2",
+          "start": 125.954,
+          "end": 133.965
+        }
+      ],
+      "source_tar": "/mnt/e/datasets/contextasr-bench/audio/ContextASR-Dialogue/English/ContextASR-Dialogue_English_3.tar",
+      "tar_member": "./05411-5.wav",
+      "audio_sha256": "f29f8c3c968516e1548fb35263e4580e890697f96f64c00b20530326aed3d23c"
+    },
+    {
+      "uniq_id": "11405-3",
+      "stage": 40,
+      "duration": 123.9078125,
+      "turns": [
+        {
+          "index": 0,
+          "speaker_id": "speaker_1",
+          "start": 0.0,
+          "end": 8.011
+        },
+        {
+          "index": 1,
+          "speaker_id": "speaker_2",
+          "start": 8.011,
+          "end": 20.114
+        },
+        {
+          "index": 2,
+          "speaker_id": "speaker_3",
+          "start": 20.114,
+          "end": 33.045
+        },
+        {
+          "index": 3,
+          "speaker_id": "speaker_1",
+          "start": 33.045,
+          "end": 45.584
+        },
+        {
+          "index": 4,
+          "speaker_id": "speaker_2",
+          "start": 45.584,
+          "end": 58.994
+        },
+        {
+          "index": 5,
+          "speaker_id": "speaker_3",
+          "start": 58.994,
+          "end": 74.319
+        },
+        {
+          "index": 6,
+          "speaker_id": "speaker_1",
+          "start": 74.319,
+          "end": 83.767
+        },
+        {
+          "index": 7,
+          "speaker_id": "speaker_2",
+          "start": 83.767,
+          "end": 95.522
+        },
+        {
+          "index": 8,
+          "speaker_id": "speaker_3",
+          "start": 95.522,
+          "end": 107.713
+        },
+        {
+          "index": 9,
+          "speaker_id": "speaker_1",
+          "start": 107.713,
+          "end": 118.772
+        },
+        {
+          "index": 10,
+          "speaker_id": "speaker_2",
+          "start": 118.772,
+          "end": 123.909
+        }
+      ],
+      "source_tar": "/mnt/e/datasets/contextasr-bench/audio/ContextASR-Dialogue/English/ContextASR-Dialogue_English_5.tar",
+      "tar_member": "./11405-3.wav",
+      "audio_sha256": "3e5814289c454d9595c2ab1fab9a8e41b927c4a53ce26c39514c95a2a45e4578"
+    },
+    {
+      "uniq_id": "07334-5",
+      "stage": 40,
+      "duration": 155.9949375,
+      "turns": [
+        {
+          "index": 0,
+          "speaker_id": "speaker_1",
+          "start": 0.0,
+          "end": 7.793
+        },
+        {
+          "index": 1,
+          "speaker_id": "speaker_2",
+          "start": 7.793,
+          "end": 21.638
+        },
+        {
+          "index": 2,
+          "speaker_id": "speaker_3",
+          "start": 21.638,
+          "end": 32.958
+        },
+        {
+          "index": 3,
+          "speaker_id": "speaker_4",
+          "start": 32.958,
+          "end": 44.06
+        },
+        {
+          "index": 4,
+          "speaker_id": "speaker_5",
+          "start": 44.06,
+          "end": 59.472
+        },
+        {
+          "index": 5,
+          "speaker_id": "speaker_1",
+          "start": 59.472,
+          "end": 70.705
+        },
+        {
+          "index": 6,
+          "speaker_id": "speaker_2",
+          "start": 70.705,
+          "end": 84.681
+        },
+        {
+          "index": 7,
+          "speaker_id": "speaker_3",
+          "start": 84.681,
+          "end": 96.305
+        },
+        {
+          "index": 8,
+          "speaker_id": "speaker_4",
+          "start": 96.305,
+          "end": 109.366
+        },
+        {
+          "index": 9,
+          "speaker_id": "speaker_5",
+          "start": 109.366,
+          "end": 122.863
+        },
+        {
+          "index": 10,
+          "speaker_id": "speaker_1",
+          "start": 122.863,
+          "end": 133.747
+        },
+        {
+          "index": 11,
+          "speaker_id": "speaker_2",
+          "start": 133.747,
+          "end": 144.414
+        },
+        {
+          "index": 12,
+          "speaker_id": "speaker_3",
+          "start": 144.414,
+          "end": 155.995
+        }
+      ],
+      "source_tar": "/mnt/e/datasets/contextasr-bench/audio/ContextASR-Dialogue/English/ContextASR-Dialogue_English_3.tar",
+      "tar_member": "./07334-5.wav",
+      "audio_sha256": "38ecd5bc5e1e7b545a5d4f9ecd4d09388604d972f3ba022d6557ba7035fee1df"
+    },
+    {
+      "uniq_id": "01130-4",
+      "stage": 40,
+      "duration": 168.3160625,
+      "turns": [
+        {
+          "index": 0,
+          "speaker_id": "speaker_1",
+          "start": 0.0,
+          "end": 11.233
+        },
+        {
+          "index": 1,
+          "speaker_id": "speaker_2",
+          "start": 11.233,
+          "end": 22.117
+        },
+        {
+          "index": 2,
+          "speaker_id": "speaker_3",
+          "start": 22.117,
+          "end": 32.305
+        },
+        {
+          "index": 3,
+          "speaker_id": "speaker_4",
+          "start": 32.305,
+          "end": 45.366
+        },
+        {
+          "index": 4,
+          "speaker_id": "speaker_1",
+          "start": 45.366,
+          "end": 57.034
+        },
+        {
+          "index": 5,
+          "speaker_id": "speaker_2",
+          "start": 57.034,
+          "end": 69.834
+        },
+        {
+          "index": 6,
+          "speaker_id": "speaker_3",
+          "start": 69.834,
+          "end": 83.897
+        },
+        {
+          "index": 7,
+          "speaker_id": "speaker_4",
+          "start": 83.897,
+          "end": 95.957
+        },
+        {
+          "index": 8,
+          "speaker_id": "speaker_1",
+          "start": 95.957,
+          "end": 106.667
+        },
+        {
+          "index": 9,
+          "speaker_id": "speaker_2",
+          "start": 106.667,
+          "end": 118.596
+        },
+        {
+          "index": 10,
+          "speaker_id": "speaker_3",
+          "start": 118.596,
+          "end": 128.74
+        },
+        {
+          "index": 11,
+          "speaker_id": "speaker_4",
+          "start": 128.74,
+          "end": 140.713
+        },
+        {
+          "index": 12,
+          "speaker_id": "speaker_1",
+          "start": 140.713,
+          "end": 152.773
+        },
+        {
+          "index": 13,
+          "speaker_id": "speaker_2",
+          "start": 152.773,
+          "end": 161.568
+        },
+        {
+          "index": 14,
+          "speaker_id": "speaker_3",
+          "start": 161.568,
+          "end": 168.316
+        }
+      ],
+      "source_tar": "/mnt/e/datasets/contextasr-bench/audio/ContextASR-Dialogue/English/ContextASR-Dialogue_English_1.tar",
+      "tar_member": "./01130-4.wav",
+      "audio_sha256": "f5d5ea3e4b4f3c7e2ea71184dfc513dabfe031ba5f4e549ebced1633b6d66c2c"
+    },
+    {
+      "uniq_id": "06444-3",
+      "stage": 60,
+      "duration": 140.6698125,
+      "turns": [
+        {
+          "index": 0,
+          "speaker_id": "speaker_1",
+          "start": 0.0,
+          "end": 11.32
+        },
+        {
+          "index": 1,
+          "speaker_id": "speaker_2",
+          "start": 11.32,
+          "end": 28.779
+        },
+        {
+          "index": 2,
+          "speaker_id": "speaker_3",
+          "start": 28.779,
+          "end": 41.361
+        },
+        {
+          "index": 3,
+          "speaker_id": "speaker_1",
+          "start": 41.361,
+          "end": 54.335
+        },
+        {
+          "index": 4,
+          "speaker_id": "speaker_2",
+          "start": 54.335,
+          "end": 76.539
+        },
+        {
+          "index": 5,
+          "speaker_id": "speaker_3",
+          "start": 76.539,
+          "end": 86.945
+        },
+        {
+          "index": 6,
+          "speaker_id": "speaker_1",
+          "start": 86.945,
+          "end": 99.789
+        },
+        {
+          "index": 7,
+          "speaker_id": "speaker_2",
+          "start": 99.789,
+          "end": 112.023
+        },
+        {
+          "index": 8,
+          "speaker_id": "speaker_3",
+          "start": 112.023,
+          "end": 124.997
+        },
+        {
+          "index": 9,
+          "speaker_id": "speaker_1",
+          "start": 124.997,
+          "end": 134.053
+        },
+        {
+          "index": 10,
+          "speaker_id": "speaker_2",
+          "start": 134.053,
+          "end": 140.671
+        }
+      ],
+      "source_tar": "/mnt/e/datasets/contextasr-bench/audio/ContextASR-Dialogue/English/ContextASR-Dialogue_English_3.tar",
+      "tar_member": "./06444-3.wav",
+      "audio_sha256": "b5efd93ed837031cf49681e029d727018472ce61a39915834302247d12b618cd"
+    },
+    {
+      "uniq_id": "04496-3",
+      "stage": 60,
+      "duration": 132.7893125,
+      "turns": [
+        {
+          "index": 0,
+          "speaker_id": "speaker_1",
+          "start": 0.0,
+          "end": 10.101
+        },
+        {
+          "index": 1,
+          "speaker_id": "speaker_2",
+          "start": 10.101,
+          "end": 22.596
+        },
+        {
+          "index": 2,
+          "speaker_id": "speaker_3",
+          "start": 22.596,
+          "end": 34.787
+        },
+        {
+          "index": 3,
+          "speaker_id": "speaker_1",
+          "start": 34.787,
+          "end": 53.987
+        },
+        {
+          "index": 4,
+          "speaker_id": "speaker_2",
+          "start": 53.987,
+          "end": 67.875
+        },
+        {
+          "index": 5,
+          "speaker_id": "speaker_3",
+          "start": 67.875,
+          "end": 81.11
+        },
+        {
+          "index": 6,
+          "speaker_id": "speaker_1",
+          "start": 81.11,
+          "end": 93.431
+        },
+        {
+          "index": 7,
+          "speaker_id": "speaker_2",
+          "start": 93.431,
+          "end": 105.665
+        },
+        {
+          "index": 8,
+          "speaker_id": "speaker_3",
+          "start": 105.665,
+          "end": 121.556
+        },
+        {
+          "index": 9,
+          "speaker_id": "speaker_1",
+          "start": 121.556,
+          "end": 132.789
+        }
+      ],
+      "source_tar": "/mnt/e/datasets/contextasr-bench/audio/ContextASR-Dialogue/English/ContextASR-Dialogue_English_2.tar",
+      "tar_member": "./04496-3.wav",
+      "audio_sha256": "aee4ff117738fba43963887bda210a597c77106fe62db3486b76383241c16caa"
+    },
+    {
+      "uniq_id": "07661-5",
+      "stage": 60,
+      "duration": 168.4031875,
+      "turns": [
+        {
+          "index": 0,
+          "speaker_id": "speaker_1",
+          "start": 0.0,
+          "end": 6.313
+        },
+        {
+          "index": 1,
+          "speaker_id": "speaker_2",
+          "start": 6.313,
+          "end": 17.72
+        },
+        {
+          "index": 2,
+          "speaker_id": "speaker_3",
+          "start": 17.72,
+          "end": 28.822
+        },
+        {
+          "index": 3,
+          "speaker_id": "speaker_4",
+          "start": 28.822,
+          "end": 41.97
+        },
+        {
+          "index": 4,
+          "speaker_id": "speaker_5",
+          "start": 41.97,
+          "end": 53.29
+        },
+        {
+          "index": 5,
+          "speaker_id": "speaker_1",
+          "start": 53.29,
+          "end": 65.045
+        },
+        {
+          "index": 6,
+          "speaker_id": "speaker_2",
+          "start": 65.045,
+          "end": 78.237
+        },
+        {
+          "index": 7,
+          "speaker_id": "speaker_3",
+          "start": 78.237,
+          "end": 89.121
+        },
+        {
+          "index": 8,
+          "speaker_id": "speaker_4",
+          "start": 89.121,
+          "end": 99.091
+        },
+        {
+          "index": 9,
+          "speaker_id": "speaker_5",
+          "start": 99.091,
+          "end": 111.456
+        },
+        {
+          "index": 10,
+          "speaker_id": "speaker_1",
+          "start": 111.456,
+          "end": 119.597
+        },
+        {
+          "index": 11,
+          "speaker_id": "speaker_2",
+          "start": 119.597,
+          "end": 128.696
+        },
+        {
+          "index": 12,
+          "speaker_id": "speaker_3",
+          "start": 128.696,
+          "end": 135.967
+        },
+        {
+          "index": 13,
+          "speaker_id": "speaker_4",
+          "start": 135.967,
+          "end": 145.806
+        },
+        {
+          "index": 14,
+          "speaker_id": "speaker_5",
+          "start": 145.806,
+          "end": 157.735
+        },
+        {
+          "index": 15,
+          "speaker_id": "speaker_1",
+          "start": 157.735,
+          "end": 168.402
+        }
+      ],
+      "source_tar": "/mnt/e/datasets/contextasr-bench/audio/ContextASR-Dialogue/English/ContextASR-Dialogue_English_4.tar",
+      "tar_member": "./07661-5.wav",
+      "audio_sha256": "20523addc674fa2576b555217ed41946bf2d320d674037c21695f3320cde73d5"
+    },
+    {
+      "uniq_id": "08244-5",
+      "stage": 60,
+      "duration": 150.1174375,
+      "turns": [
+        {
+          "index": 0,
+          "speaker_id": "speaker_1",
+          "start": 0.0,
+          "end": 10.797
+        },
+        {
+          "index": 1,
+          "speaker_id": "speaker_2",
+          "start": 10.797,
+          "end": 20.462
+        },
+        {
+          "index": 2,
+          "speaker_id": "speaker_3",
+          "start": 20.462,
+          "end": 32.304
+        },
+        {
+          "index": 3,
+          "speaker_id": "speaker_4",
+          "start": 32.304,
+          "end": 45.191
+        },
+        {
+          "index": 4,
+          "speaker_id": "speaker_5",
+          "start": 45.191,
+          "end": 58.165
+        },
+        {
+          "index": 5,
+          "speaker_id": "speaker_1",
+          "start": 58.165,
+          "end": 68.44
+        },
+        {
+          "index": 6,
+          "speaker_id": "speaker_2",
+          "start": 68.44,
+          "end": 77.801
+        },
+        {
+          "index": 7,
+          "speaker_id": "speaker_3",
+          "start": 77.801,
+          "end": 85.464
+        },
+        {
+          "index": 8,
+          "speaker_id": "speaker_4",
+          "start": 85.464,
+          "end": 94.737
+        },
+        {
+          "index": 9,
+          "speaker_id": "speaker_5",
+          "start": 94.737,
+          "end": 108.495
+        },
+        {
+          "index": 10,
+          "speaker_id": "speaker_2",
+          "start": 108.495,
+          "end": 120.555
+        },
+        {
+          "index": 11,
+          "speaker_id": "speaker_1",
+          "start": 120.555,
+          "end": 132.223
+        },
+        {
+          "index": 12,
+          "speaker_id": "speaker_3",
+          "start": 132.223,
+          "end": 140.582
+        },
+        {
+          "index": 13,
+          "speaker_id": "speaker_4",
+          "start": 140.582,
+          "end": 150.117
+        }
+      ],
+      "source_tar": "/mnt/e/datasets/contextasr-bench/audio/ContextASR-Dialogue/English/ContextASR-Dialogue_English_4.tar",
+      "tar_member": "./08244-5.wav",
+      "audio_sha256": "49e1694c2e2367eaf65fe6e42ce8f419b3be32ad1928b5815f8a2447e87b05d1"
+    },
+    {
+      "uniq_id": "03678-4",
+      "stage": 60,
+      "duration": 145.3283125,
+      "turns": [
+        {
+          "index": 0,
+          "speaker_id": "speaker_1",
+          "start": 0.0,
+          "end": 8.882
+        },
+        {
+          "index": 1,
+          "speaker_id": "speaker_2",
+          "start": 8.882,
+          "end": 19.2
+        },
+        {
+          "index": 2,
+          "speaker_id": "speaker_3",
+          "start": 19.2,
+          "end": 33.567
+        },
+        {
+          "index": 3,
+          "speaker_id": "speaker_4",
+          "start": 33.567,
+          "end": 48.762
+        },
+        {
+          "index": 4,
+          "speaker_id": "speaker_1",
+          "start": 48.762,
+          "end": 62.302
+        },
+        {
+          "index": 5,
+          "speaker_id": "speaker_2",
+          "start": 62.302,
+          "end": 74.58
+        },
+        {
+          "index": 6,
+          "speaker_id": "speaker_3",
+          "start": 74.58,
+          "end": 89.862
+        },
+        {
+          "index": 7,
+          "speaker_id": "speaker_4",
+          "start": 89.862,
+          "end": 102.618
+        },
+        {
+          "index": 8,
+          "speaker_id": "speaker_1",
+          "start": 102.618,
+          "end": 111.891
+        },
+        {
+          "index": 9,
+          "speaker_id": "speaker_2",
+          "start": 111.891,
+          "end": 120.729
+        },
+        {
+          "index": 10,
+          "speaker_id": "speaker_3",
+          "start": 120.729,
+          "end": 133.616
+        },
+        {
+          "index": 11,
+          "speaker_id": "speaker_4",
+          "start": 133.616,
+          "end": 145.328
+        }
+      ],
+      "source_tar": "/mnt/e/datasets/contextasr-bench/audio/ContextASR-Dialogue/English/ContextASR-Dialogue_English_2.tar",
+      "tar_member": "./03678-4.wav",
+      "audio_sha256": "6b5394b8b78fd8da74ecbcc74c88c489c74970826d16eab5da81008d49b83c84"
+    },
+    {
+      "uniq_id": "12316-3",
+      "stage": 60,
+      "duration": 160.609875,
+      "turns": [
+        {
+          "index": 0,
+          "speaker_id": "speaker_1",
+          "start": 0.0,
+          "end": 11.886
+        },
+        {
+          "index": 1,
+          "speaker_id": "speaker_2",
+          "start": 11.886,
+          "end": 22.117
+        },
+        {
+          "index": 2,
+          "speaker_id": "speaker_3",
+          "start": 22.117,
+          "end": 39.967
+        },
+        {
+          "index": 3,
+          "speaker_id": "speaker_1",
+          "start": 39.967,
+          "end": 56.772
+        },
+        {
+          "index": 4,
+          "speaker_id": "speaker_2",
+          "start": 56.772,
+          "end": 68.963
+        },
+        {
+          "index": 5,
+          "speaker_id": "speaker_3",
+          "start": 68.963,
+          "end": 82.677
+        },
+        {
+          "index": 6,
+          "speaker_id": "speaker_1",
+          "start": 82.677,
+          "end": 98.002
+        },
+        {
+          "index": 7,
+          "speaker_id": "speaker_2",
+          "start": 98.002,
+          "end": 110.018
+        },
+        {
+          "index": 8,
+          "speaker_id": "speaker_3",
+          "start": 110.018,
+          "end": 124.124
+        },
+        {
+          "index": 9,
+          "speaker_id": "speaker_1",
+          "start": 124.124,
+          "end": 137.011
+        },
+        {
+          "index": 10,
+          "speaker_id": "speaker_2",
+          "start": 137.011,
+          "end": 149.419
+        },
+        {
+          "index": 11,
+          "speaker_id": "speaker_3",
+          "start": 149.419,
+          "end": 160.608
+        }
+      ],
+      "source_tar": "/mnt/e/datasets/contextasr-bench/audio/ContextASR-Dialogue/English/ContextASR-Dialogue_English_5.tar",
+      "tar_member": "./12316-3.wav",
+      "audio_sha256": "c001f76d0da28ba48f523ffc8a4a9b115d9d07effa4d0c7442928073e3d56d08"
+    },
+    {
+      "uniq_id": "06934-3",
+      "stage": 60,
+      "duration": 130.351375,
+      "turns": [
+        {
+          "index": 0,
+          "speaker_id": "speaker_1",
+          "start": 0.0,
+          "end": 6.095
+        },
+        {
+          "index": 1,
+          "speaker_id": "speaker_2",
+          "start": 6.095,
+          "end": 20.158
+        },
+        {
+          "index": 2,
+          "speaker_id": "speaker_3",
+          "start": 20.158,
+          "end": 31.826
+        },
+        {
+          "index": 3,
+          "speaker_id": "speaker_1",
+          "start": 31.826,
+          "end": 46.542
+        },
+        {
+          "index": 4,
+          "speaker_id": "speaker_2",
+          "start": 46.542,
+          "end": 59.124
+        },
+        {
+          "index": 5,
+          "speaker_id": "speaker_3",
+          "start": 59.124,
+          "end": 77.845
+        },
+        {
+          "index": 6,
+          "speaker_id": "speaker_1",
+          "start": 77.845,
+          "end": 90.253
+        },
+        {
+          "index": 7,
+          "speaker_id": "speaker_2",
+          "start": 90.253,
+          "end": 105.535
+        },
+        {
+          "index": 8,
+          "speaker_id": "speaker_3",
+          "start": 105.535,
+          "end": 121.731
+        },
+        {
+          "index": 9,
+          "speaker_id": "speaker_1",
+          "start": 121.731,
+          "end": 130.351
+        }
+      ],
+      "source_tar": "/mnt/e/datasets/contextasr-bench/audio/ContextASR-Dialogue/English/ContextASR-Dialogue_English_3.tar",
+      "tar_member": "./06934-3.wav",
+      "audio_sha256": "fb096028c5a9867c1fed7767cb082b6294cc101cfd3234184b887edcd2f0aa87"
+    },
+    {
+      "uniq_id": "12540-4",
+      "stage": 60,
+      "duration": 177.0236875,
+      "turns": [
+        {
+          "index": 0,
+          "speaker_id": "speaker_1",
+          "start": 0.0,
+          "end": 9.535
+        },
+        {
+          "index": 1,
+          "speaker_id": "speaker_2",
+          "start": 9.535,
+          "end": 23.989
+        },
+        {
+          "index": 2,
+          "speaker_id": "speaker_3",
+          "start": 23.989,
+          "end": 34.264
+        },
+        {
+          "index": 3,
+          "speaker_id": "speaker_4",
+          "start": 34.264,
+          "end": 44.669
+        },
+        {
+          "index": 4,
+          "speaker_id": "speaker_1",
+          "start": 44.669,
+          "end": 57.208
+        },
+        {
+          "index": 5,
+          "speaker_id": "speaker_2",
+          "start": 57.208,
+          "end": 70.182
+        },
+        {
+          "index": 6,
+          "speaker_id": "speaker_3",
+          "start": 70.182,
+          "end": 85.551
+        },
+        {
+          "index": 7,
+          "speaker_id": "speaker_4",
+          "start": 85.551,
+          "end": 95.434
+        },
+        {
+          "index": 8,
+          "speaker_id": "speaker_1",
+          "start": 95.434,
+          "end": 106.144
+        },
+        {
+          "index": 9,
+          "speaker_id": "speaker_2",
+          "start": 106.144,
+          "end": 118.988
+        },
+        {
+          "index": 10,
+          "speaker_id": "speaker_3",
+          "start": 118.988,
+          "end": 128.915
+        },
+        {
+          "index": 11,
+          "speaker_id": "speaker_4",
+          "start": 128.915,
+          "end": 138.145
+        },
+        {
+          "index": 12,
+          "speaker_id": "speaker_2",
+          "start": 138.145,
+          "end": 148.289
+        },
+        {
+          "index": 13,
+          "speaker_id": "speaker_1",
+          "start": 148.289,
+          "end": 160.784
+        },
+        {
+          "index": 14,
+          "speaker_id": "speaker_3",
+          "start": 160.784,
+          "end": 168.36
+        },
+        {
+          "index": 15,
+          "speaker_id": "speaker_4",
+          "start": 168.36,
+          "end": 177.024
+        }
+      ],
+      "source_tar": "/mnt/e/datasets/contextasr-bench/audio/ContextASR-Dialogue/English/ContextASR-Dialogue_English_6.tar",
+      "tar_member": "./12540-4.wav",
+      "audio_sha256": "eedca15310c6984654c83811dd829cd098550ea310e9ea35c8f00a4bee48118e"
+    },
+    {
+      "uniq_id": "03879-5",
+      "stage": 60,
+      "duration": 150.074,
+      "turns": [
+        {
+          "index": 0,
+          "speaker_id": "speaker_1",
+          "start": 0.0,
+          "end": 7.227
+        },
+        {
+          "index": 1,
+          "speaker_id": "speaker_2",
+          "start": 7.227,
+          "end": 17.894
+        },
+        {
+          "index": 2,
+          "speaker_id": "speaker_3",
+          "start": 17.894,
+          "end": 30.215
+        },
+        {
+          "index": 3,
+          "speaker_id": "speaker_4",
+          "start": 30.215,
+          "end": 45.932
+        },
+        {
+          "index": 4,
+          "speaker_id": "speaker_5",
+          "start": 45.932,
+          "end": 59.298
+        },
+        {
+          "index": 5,
+          "speaker_id": "speaker_1",
+          "start": 59.298,
+          "end": 70.444
+        },
+        {
+          "index": 6,
+          "speaker_id": "speaker_2",
+          "start": 70.444,
+          "end": 81.764
+        },
+        {
+          "index": 7,
+          "speaker_id": "speaker_3",
+          "start": 81.764,
+          "end": 92.3
+        },
+        {
+          "index": 8,
+          "speaker_id": "speaker_4",
+          "start": 92.3,
+          "end": 104.882
+        },
+        {
+          "index": 9,
+          "speaker_id": "speaker_5",
+          "start": 104.882,
+          "end": 120.643
+        },
+        {
+          "index": 10,
+          "speaker_id": "speaker_1",
+          "start": 120.643,
+          "end": 130.178
+        },
+        {
+          "index": 11,
+          "speaker_id": "speaker_2",
+          "start": 130.178,
+          "end": 137.754
+        },
+        {
+          "index": 12,
+          "speaker_id": "speaker_3",
+          "start": 137.754,
+          "end": 144.459
+        },
+        {
+          "index": 13,
+          "speaker_id": "speaker_4",
+          "start": 144.459,
+          "end": 150.075
+        }
+      ],
+      "source_tar": "/mnt/e/datasets/contextasr-bench/audio/ContextASR-Dialogue/English/ContextASR-Dialogue_English_2.tar",
+      "tar_member": "./03879-5.wav",
+      "audio_sha256": "b58257616019a7386d4a19ad0926c6a94254de3bcc90624cf55dcb3adbec0df1"
+    },
+    {
+      "uniq_id": "10357-3",
+      "stage": 60,
+      "duration": 153.600375,
+      "turns": [
+        {
+          "index": 0,
+          "speaker_id": "speaker_1",
+          "start": 0.0,
+          "end": 12.582
+        },
+        {
+          "index": 1,
+          "speaker_id": "speaker_2",
+          "start": 12.582,
+          "end": 25.251
+        },
+        {
+          "index": 2,
+          "speaker_id": "speaker_3",
+          "start": 25.251,
+          "end": 40.794
+        },
+        {
+          "index": 3,
+          "speaker_id": "speaker_1",
+          "start": 40.794,
+          "end": 59.907
+        },
+        {
+          "index": 4,
+          "speaker_id": "speaker_2",
+          "start": 59.907,
+          "end": 71.619
+        },
+        {
+          "index": 5,
+          "speaker_id": "speaker_3",
+          "start": 71.619,
+          "end": 88.773
+        },
+        {
+          "index": 6,
+          "speaker_id": "speaker_1",
+          "start": 88.773,
+          "end": 107.494
+        },
+        {
+          "index": 7,
+          "speaker_id": "speaker_2",
+          "start": 107.494,
+          "end": 119.641
+        },
+        {
+          "index": 8,
+          "speaker_id": "speaker_3",
+          "start": 119.641,
+          "end": 139.015
+        },
+        {
+          "index": 9,
+          "speaker_id": "speaker_1",
+          "start": 139.015,
+          "end": 148.898
+        },
+        {
+          "index": 10,
+          "speaker_id": "speaker_2",
+          "start": 148.898,
+          "end": 153.6
+        }
+      ],
+      "source_tar": "/mnt/e/datasets/contextasr-bench/audio/ContextASR-Dialogue/English/ContextASR-Dialogue_English_5.tar",
+      "tar_member": "./10357-3.wav",
+      "audio_sha256": "f715ae8b077f3c720fe66861bae1383e9ac78fee43a9d39446ccb3a0284818f1"
+    },
+    {
+      "uniq_id": "09637-4",
+      "stage": 60,
+      "duration": 160.9580625,
+      "turns": [
+        {
+          "index": 0,
+          "speaker_id": "speaker_1",
+          "start": 0.0,
+          "end": 8.359
+        },
+        {
+          "index": 1,
+          "speaker_id": "speaker_2",
+          "start": 8.359,
+          "end": 20.201
+        },
+        {
+          "index": 2,
+          "speaker_id": "speaker_3",
+          "start": 20.201,
+          "end": 32.87
+        },
+        {
+          "index": 3,
+          "speaker_id": "speaker_4",
+          "start": 32.87,
+          "end": 52.941
+        },
+        {
+          "index": 4,
+          "speaker_id": "speaker_1",
+          "start": 52.941,
+          "end": 63.956
+        },
+        {
+          "index": 5,
+          "speaker_id": "speaker_2",
+          "start": 63.956,
+          "end": 78.933
+        },
+        {
+          "index": 6,
+          "speaker_id": "speaker_3",
+          "start": 78.933,
+          "end": 88.947
+        },
+        {
+          "index": 7,
+          "speaker_id": "speaker_4",
+          "start": 88.947,
+          "end": 99.309
+        },
+        {
+          "index": 8,
+          "speaker_id": "speaker_1",
+          "start": 99.309,
+          "end": 108.016
+        },
+        {
+          "index": 9,
+          "speaker_id": "speaker_2",
+          "start": 108.016,
+          "end": 119.989
+        },
+        {
+          "index": 10,
+          "speaker_id": "speaker_3",
+          "start": 119.989,
+          "end": 128.131
+        },
+        {
+          "index": 11,
+          "speaker_id": "speaker_4",
+          "start": 128.131,
+          "end": 140.626
+        },
+        {
+          "index": 12,
+          "speaker_id": "speaker_1",
+          "start": 140.626,
+          "end": 150.204
+        },
+        {
+          "index": 13,
+          "speaker_id": "speaker_2",
+          "start": 150.204,
+          "end": 160.958
+        }
+      ],
+      "source_tar": "/mnt/e/datasets/contextasr-bench/audio/ContextASR-Dialogue/English/ContextASR-Dialogue_English_4.tar",
+      "tar_member": "./09637-4.wav",
+      "audio_sha256": "14b52746cfdc05826e0dbae8e5f885b99a9785d0c92498fc0ce28200db978186"
+    },
+    {
+      "uniq_id": "11721-3",
+      "stage": 60,
+      "duration": 172.4086875,
+      "turns": [
+        {
+          "index": 0,
+          "speaker_id": "speaker_1",
+          "start": 0.0,
+          "end": 13.192
+        },
+        {
+          "index": 1,
+          "speaker_id": "speaker_2",
+          "start": 13.192,
+          "end": 24.425
+        },
+        {
+          "index": 2,
+          "speaker_id": "speaker_3",
+          "start": 24.425,
+          "end": 39.358
+        },
+        {
+          "index": 3,
+          "speaker_id": "speaker_1",
+          "start": 39.358,
+          "end": 51.679
+        },
+        {
+          "index": 4,
+          "speaker_id": "speaker_2",
+          "start": 51.679,
+          "end": 64.0
+        },
+        {
+          "index": 5,
+          "speaker_id": "speaker_3",
+          "start": 64.0,
+          "end": 78.411
+        },
+        {
+          "index": 6,
+          "speaker_id": "speaker_1",
+          "start": 78.411,
+          "end": 91.211
+        },
+        {
+          "index": 7,
+          "speaker_id": "speaker_2",
+          "start": 91.211,
+          "end": 101.617
+        },
+        {
+          "index": 8,
+          "speaker_id": "speaker_3",
+          "start": 101.617,
+          "end": 115.027
+        },
+        {
+          "index": 9,
+          "speaker_id": "speaker_1",
+          "start": 115.027,
+          "end": 131.049
+        },
+        {
+          "index": 10,
+          "speaker_id": "speaker_2",
+          "start": 131.049,
+          "end": 143.022
+        },
+        {
+          "index": 11,
+          "speaker_id": "speaker_3",
+          "start": 143.022,
+          "end": 155.343
+        },
+        {
+          "index": 12,
+          "speaker_id": "speaker_1",
+          "start": 155.343,
+          "end": 167.49
+        },
+        {
+          "index": 13,
+          "speaker_id": "speaker_2",
+          "start": 167.49,
+          "end": 172.41
+        }
+      ],
+      "source_tar": "/mnt/e/datasets/contextasr-bench/audio/ContextASR-Dialogue/English/ContextASR-Dialogue_English_5.tar",
+      "tar_member": "./11721-3.wav",
+      "audio_sha256": "9c7d2ac42111b7b891f69864a7bddc01498cc06c8d2ef69c62894a1a9d2fe9c9"
+    },
+    {
+      "uniq_id": "05621-5",
+      "stage": 60,
+      "duration": 143.1514375,
+      "turns": [
+        {
+          "index": 0,
+          "speaker_id": "speaker_1",
+          "start": 0.0,
+          "end": 10.231
+        },
+        {
+          "index": 1,
+          "speaker_id": "speaker_2",
+          "start": 10.231,
+          "end": 18.851
+        },
+        {
+          "index": 2,
+          "speaker_id": "speaker_3",
+          "start": 18.851,
+          "end": 30.084
+        },
+        {
+          "index": 3,
+          "speaker_id": "speaker_4",
+          "start": 30.084,
+          "end": 37.964
+        },
+        {
+          "index": 4,
+          "speaker_id": "speaker_5",
+          "start": 37.964,
+          "end": 48.718
+        },
+        {
+          "index": 5,
+          "speaker_id": "speaker_1",
+          "start": 48.718,
+          "end": 59.777
+        },
+        {
+          "index": 6,
+          "speaker_id": "speaker_2",
+          "start": 59.777,
+          "end": 68.267
+        },
+        {
+          "index": 7,
+          "speaker_id": "speaker_3",
+          "start": 68.267,
+          "end": 79.456
+        },
+        {
+          "index": 8,
+          "speaker_id": "speaker_4",
+          "start": 79.456,
+          "end": 87.989
+        },
+        {
+          "index": 9,
+          "speaker_id": "speaker_5",
+          "start": 87.989,
+          "end": 99.135
+        },
+        {
+          "index": 10,
+          "speaker_id": "speaker_1",
+          "start": 99.135,
+          "end": 108.539
+        },
+        {
+          "index": 11,
+          "speaker_id": "speaker_2",
+          "start": 108.539,
+          "end": 117.551
+        },
+        {
+          "index": 12,
+          "speaker_id": "speaker_3",
+          "start": 117.551,
+          "end": 126.912
+        },
+        {
+          "index": 13,
+          "speaker_id": "speaker_4",
+          "start": 126.912,
+          "end": 134.313
+        },
+        {
+          "index": 14,
+          "speaker_id": "speaker_5",
+          "start": 134.313,
+          "end": 143.151
+        }
+      ],
+      "source_tar": "/mnt/e/datasets/contextasr-bench/audio/ContextASR-Dialogue/English/ContextASR-Dialogue_English_3.tar",
+      "tar_member": "./05621-5.wav",
+      "audio_sha256": "d9f8cf2d92ffd0c1096b8e0143a2caf1d801680c58987edd54bb098ceb7c1464"
+    },
+    {
+      "uniq_id": "11175-3",
+      "stage": 60,
+      "duration": 143.3255,
+      "turns": [
+        {
+          "index": 0,
+          "speaker_id": "speaker_1",
+          "start": 0.0,
+          "end": 12.06
+        },
+        {
+          "index": 1,
+          "speaker_id": "speaker_2",
+          "start": 12.06,
+          "end": 24.86
+        },
+        {
+          "index": 2,
+          "speaker_id": "speaker_3",
+          "start": 24.86,
+          "end": 37.66
+        },
+        {
+          "index": 3,
+          "speaker_id": "speaker_1",
+          "start": 37.66,
+          "end": 53.029
+        },
+        {
+          "index": 4,
+          "speaker_id": "speaker_2",
+          "start": 53.029,
+          "end": 64.131
+        },
+        {
+          "index": 5,
+          "speaker_id": "speaker_3",
+          "start": 64.131,
+          "end": 74.537
+        },
+        {
+          "index": 6,
+          "speaker_id": "speaker_1",
+          "start": 74.537,
+          "end": 91.343
+        },
+        {
+          "index": 7,
+          "speaker_id": "speaker_2",
+          "start": 91.343,
+          "end": 101.966
+        },
+        {
+          "index": 8,
+          "speaker_id": "speaker_3",
+          "start": 101.966,
+          "end": 112.11
+        },
+        {
+          "index": 9,
+          "speaker_id": "speaker_1",
+          "start": 112.11,
+          "end": 125.258
+        },
+        {
+          "index": 10,
+          "speaker_id": "speaker_2",
+          "start": 125.258,
+          "end": 132.659
+        },
+        {
+          "index": 11,
+          "speaker_id": "speaker_3",
+          "start": 132.659,
+          "end": 143.326
+        }
+      ],
+      "source_tar": "/mnt/e/datasets/contextasr-bench/audio/ContextASR-Dialogue/English/ContextASR-Dialogue_English_5.tar",
+      "tar_member": "./11175-3.wav",
+      "audio_sha256": "7408a9cbad11e15c4f85fcdacb1d384b377698f323a2f58edb9b0e377dd1ae86"
+    },
+    {
+      "uniq_id": "07860-4",
+      "stage": 60,
+      "duration": 147.250125,
+      "turns": [
+        {
+          "index": 0,
+          "speaker_id": "speaker_1",
+          "start": 0.0,
+          "end": 10.903
+        },
+        {
+          "index": 1,
+          "speaker_id": "speaker_2",
+          "start": 10.903,
+          "end": 25.009
+        },
+        {
+          "index": 2,
+          "speaker_id": "speaker_3",
+          "start": 25.009,
+          "end": 35.371
+        },
+        {
+          "index": 3,
+          "speaker_id": "speaker_4",
+          "start": 35.371,
+          "end": 46.125
+        },
+        {
+          "index": 4,
+          "speaker_id": "speaker_1",
+          "start": 46.125,
+          "end": 57.53
+        },
+        {
+          "index": 5,
+          "speaker_id": "speaker_2",
+          "start": 57.53,
+          "end": 74.64
+        },
+        {
+          "index": 6,
+          "speaker_id": "speaker_3",
+          "start": 74.64,
+          "end": 91.445
+        },
+        {
+          "index": 7,
+          "speaker_id": "speaker_4",
+          "start": 91.445,
+          "end": 103.853
+        },
+        {
+          "index": 8,
+          "speaker_id": "speaker_1",
+          "start": 103.853,
+          "end": 114.0
+        },
+        {
+          "index": 9,
+          "speaker_id": "speaker_2",
+          "start": 114.0,
+          "end": 121.706
+        },
+        {
+          "index": 10,
+          "speaker_id": "speaker_3",
+          "start": 121.706,
+          "end": 130.544
+        },
+        {
+          "index": 11,
+          "speaker_id": "speaker_4",
+          "start": 130.544,
+          "end": 139.643
+        },
+        {
+          "index": 12,
+          "speaker_id": "speaker_1",
+          "start": 139.643,
+          "end": 147.25
+        }
+      ],
+      "source_tar": "/mnt/e/datasets/contextasr-bench/audio/ContextASR-Dialogue/English/ContextASR-Dialogue_English_4.tar",
+      "tar_member": "./07860-4.wav",
+      "audio_sha256": "77bd8021929b039da82872fb7440b86db1ba075b6e0a246fea385db88f9c18ee"
+    },
+    {
+      "uniq_id": "08463-3",
+      "stage": 60,
+      "duration": 145.6765625,
+      "turns": [
+        {
+          "index": 0,
+          "speaker_id": "speaker_1",
+          "start": 0.0,
+          "end": 10.623
+        },
+        {
+          "index": 1,
+          "speaker_id": "speaker_2",
+          "start": 10.623,
+          "end": 21.812
+        },
+        {
+          "index": 2,
+          "speaker_id": "speaker_3",
+          "start": 21.812,
+          "end": 34.656
+        },
+        {
+          "index": 3,
+          "speaker_id": "speaker_1",
+          "start": 34.656,
+          "end": 49.023
+        },
+        {
+          "index": 4,
+          "speaker_id": "speaker_2",
+          "start": 49.023,
+          "end": 61.344
+        },
+        {
+          "index": 5,
+          "speaker_id": "speaker_3",
+          "start": 61.344,
+          "end": 73.273
+        },
+        {
+          "index": 6,
+          "speaker_id": "speaker_1",
+          "start": 73.273,
+          "end": 83.635
+        },
+        {
+          "index": 7,
+          "speaker_id": "speaker_2",
+          "start": 83.635,
+          "end": 95.085
+        },
+        {
+          "index": 8,
+          "speaker_id": "speaker_3",
+          "start": 95.085,
+          "end": 109.148
+        },
+        {
+          "index": 9,
+          "speaker_id": "speaker_1",
+          "start": 109.148,
+          "end": 120.555
+        },
+        {
+          "index": 10,
+          "speaker_id": "speaker_2",
+          "start": 120.555,
+          "end": 133.79
+        },
+        {
+          "index": 11,
+          "speaker_id": "speaker_3",
+          "start": 133.79,
+          "end": 145.676
+        }
+      ],
+      "source_tar": "/mnt/e/datasets/contextasr-bench/audio/ContextASR-Dialogue/English/ContextASR-Dialogue_English_4.tar",
+      "tar_member": "./08463-3.wav",
+      "audio_sha256": "2cb9547c75e5f78c4b588a5886dbd0563d34d2de40511255bac6e5f01b2ae5ab"
+    },
+    {
+      "uniq_id": "09558-5",
+      "stage": 60,
+      "duration": 153.295625,
+      "turns": [
+        {
+          "index": 0,
+          "speaker_id": "speaker_1",
+          "start": 0.0,
+          "end": 9.23
+        },
+        {
+          "index": 1,
+          "speaker_id": "speaker_2",
+          "start": 9.23,
+          "end": 19.2
+        },
+        {
+          "index": 2,
+          "speaker_id": "speaker_3",
+          "start": 19.2,
+          "end": 29.083
+        },
+        {
+          "index": 3,
+          "speaker_id": "speaker_4",
+          "start": 29.083,
+          "end": 42.71
+        },
+        {
+          "index": 4,
+          "speaker_id": "speaker_5",
+          "start": 42.71,
+          "end": 55.423
+        },
+        {
+          "index": 5,
+          "speaker_id": "speaker_1",
+          "start": 55.423,
+          "end": 68.18
+        },
+        {
+          "index": 6,
+          "speaker_id": "speaker_2",
+          "start": 68.18,
+          "end": 78.02
+        },
+        {
+          "index": 7,
+          "speaker_id": "speaker_3",
+          "start": 78.02,
+          "end": 89.209
+        },
+        {
+          "index": 8,
+          "speaker_id": "speaker_4",
+          "start": 89.209,
+          "end": 99.745
+        },
+        {
+          "index": 9,
+          "speaker_id": "speaker_5",
+          "start": 99.745,
+          "end": 108.801
+        },
+        {
+          "index": 10,
+          "speaker_id": "speaker_1",
+          "start": 108.801,
+          "end": 121.645
+        },
+        {
+          "index": 11,
+          "speaker_id": "speaker_2",
+          "start": 121.645,
+          "end": 133.487
+        },
+        {
+          "index": 12,
+          "speaker_id": "speaker_3",
+          "start": 133.487,
+          "end": 138.015
+        },
+        {
+          "index": 13,
+          "speaker_id": "speaker_5",
+          "start": 138.015,
+          "end": 147.942
+        },
+        {
+          "index": 14,
+          "speaker_id": "speaker_4",
+          "start": 147.942,
+          "end": 153.297
+        }
+      ],
+      "source_tar": "/mnt/e/datasets/contextasr-bench/audio/ContextASR-Dialogue/English/ContextASR-Dialogue_English_4.tar",
+      "tar_member": "./09558-5.wav",
+      "audio_sha256": "8b301825f0a2d4f71121588c806da4fc6ad836e0366abca08e665dbf3e836141"
+    },
+    {
+      "uniq_id": "07928-5",
+      "stage": 60,
+      "duration": 159.69425,
+      "turns": [
+        {
+          "index": 0,
+          "speaker_id": "speaker_1",
+          "start": 0.0,
+          "end": 9.796
+        },
+        {
+          "index": 1,
+          "speaker_id": "speaker_2",
+          "start": 9.796,
+          "end": 17.807
+        },
+        {
+          "index": 2,
+          "speaker_id": "speaker_3",
+          "start": 17.807,
+          "end": 28.648
+        },
+        {
+          "index": 3,
+          "speaker_id": "speaker_4",
+          "start": 28.648,
+          "end": 38.531
+        },
+        {
+          "index": 4,
+          "speaker_id": "speaker_5",
+          "start": 38.531,
+          "end": 49.502
+        },
+        {
+          "index": 5,
+          "speaker_id": "speaker_1",
+          "start": 49.502,
+          "end": 63.041
+        },
+        {
+          "index": 6,
+          "speaker_id": "speaker_2",
+          "start": 63.041,
+          "end": 72.489
+        },
+        {
+          "index": 7,
+          "speaker_id": "speaker_3",
+          "start": 72.489,
+          "end": 84.07
+        },
+        {
+          "index": 8,
+          "speaker_id": "speaker_4",
+          "start": 84.07,
+          "end": 94.867
+        },
+        {
+          "index": 9,
+          "speaker_id": "speaker_5",
+          "start": 94.867,
+          "end": 106.23
+        },
+        {
+          "index": 10,
+          "speaker_id": "speaker_1",
+          "start": 106.23,
+          "end": 117.942
+        },
+        {
+          "index": 11,
+          "speaker_id": "speaker_2",
+          "start": 117.942,
+          "end": 127.303
+        },
+        {
+          "index": 12,
+          "speaker_id": "speaker_4",
+          "start": 127.303,
+          "end": 136.577
+        },
+        {
+          "index": 13,
+          "speaker_id": "speaker_3",
+          "start": 136.577,
+          "end": 146.939
+        },
+        {
+          "index": 14,
+          "speaker_id": "speaker_5",
+          "start": 146.939,
+          "end": 159.695
+        }
+      ],
+      "source_tar": "/mnt/e/datasets/contextasr-bench/audio/ContextASR-Dialogue/English/ContextASR-Dialogue_English_4.tar",
+      "tar_member": "./07928-5.wav",
+      "audio_sha256": "b645c98c974cdd150a37ee65346e980aa5ea5cb6d65a5ce7f08b8bb2bd18f8e3"
+    },
+    {
+      "uniq_id": "06089-4",
+      "stage": 60,
+      "duration": 193.306625,
+      "turns": [
+        {
+          "index": 0,
+          "speaker_id": "speaker_1",
+          "start": 0.0,
+          "end": 10.71
+        },
+        {
+          "index": 1,
+          "speaker_id": "speaker_2",
+          "start": 10.71,
+          "end": 22.988
+        },
+        {
+          "index": 2,
+          "speaker_id": "speaker_3",
+          "start": 22.988,
+          "end": 37.921
+        },
+        {
+          "index": 3,
+          "speaker_id": "speaker_4",
+          "start": 37.921,
+          "end": 51.548
+        },
+        {
+          "index": 4,
+          "speaker_id": "speaker_1",
+          "start": 51.548,
+          "end": 62.868
+        },
+        {
+          "index": 5,
+          "speaker_id": "speaker_2",
+          "start": 62.868,
+          "end": 78.846
+        },
+        {
+          "index": 6,
+          "speaker_id": "speaker_3",
+          "start": 78.846,
+          "end": 90.34
+        },
+        {
+          "index": 7,
+          "speaker_id": "speaker_4",
+          "start": 90.34,
+          "end": 99.788
+        },
+        {
+          "index": 8,
+          "speaker_id": "speaker_1",
+          "start": 99.788,
+          "end": 111.63
+        },
+        {
+          "index": 9,
+          "speaker_id": "speaker_2",
+          "start": 111.63,
+          "end": 125.301
+        },
+        {
+          "index": 10,
+          "speaker_id": "speaker_3",
+          "start": 125.301,
+          "end": 136.577
+        },
+        {
+          "index": 11,
+          "speaker_id": "speaker_4",
+          "start": 136.577,
+          "end": 148.376
+        },
+        {
+          "index": 12,
+          "speaker_id": "speaker_1",
+          "start": 148.376,
+          "end": 158.999
+        },
+        {
+          "index": 13,
+          "speaker_id": "speaker_2",
+          "start": 158.999,
+          "end": 172.931
+        },
+        {
+          "index": 14,
+          "speaker_id": "speaker_3",
+          "start": 172.931,
+          "end": 184.033
+        },
+        {
+          "index": 15,
+          "speaker_id": "speaker_4",
+          "start": 184.033,
+          "end": 193.306
+        }
+      ],
+      "source_tar": "/mnt/e/datasets/contextasr-bench/audio/ContextASR-Dialogue/English/ContextASR-Dialogue_English_3.tar",
+      "tar_member": "./06089-4.wav",
+      "audio_sha256": "80624a8eaf5157c868f2c440bffc92b9fe17437571cb4792da3b78b453b9666d"
+    },
+    {
+      "uniq_id": "10465-5",
+      "stage": 60,
+      "duration": 140.1039375,
+      "turns": [
+        {
+          "index": 0,
+          "speaker_id": "speaker_1",
+          "start": 0.0,
+          "end": 10.841
+        },
+        {
+          "index": 1,
+          "speaker_id": "speaker_2",
+          "start": 10.841,
+          "end": 22.422
+        },
+        {
+          "index": 2,
+          "speaker_id": "speaker_3",
+          "start": 22.422,
+          "end": 31.739
+        },
+        {
+          "index": 3,
+          "speaker_id": "speaker_4",
+          "start": 31.739,
+          "end": 44.67
+        },
+        {
+          "index": 4,
+          "speaker_id": "speaker_5",
+          "start": 44.67,
+          "end": 56.643
+        },
+        {
+          "index": 5,
+          "speaker_id": "speaker_1",
+          "start": 56.643,
+          "end": 68.659
+        },
+        {
+          "index": 6,
+          "speaker_id": "speaker_2",
+          "start": 68.659,
+          "end": 80.153
+        },
+        {
+          "index": 7,
+          "speaker_id": "speaker_3",
+          "start": 80.153,
+          "end": 89.514
+        },
+        {
+          "index": 8,
+          "speaker_id": "speaker_4",
+          "start": 89.514,
+          "end": 101.4
+        },
+        {
+          "index": 9,
+          "speaker_id": "speaker_5",
+          "start": 101.4,
+          "end": 112.676
+        },
+        {
+          "index": 10,
+          "speaker_id": "speaker_1",
+          "start": 112.676,
+          "end": 121.383
+        },
+        {
+          "index": 11,
+          "speaker_id": "speaker_2",
+          "start": 121.383,
+          "end": 130.482
+        },
+        {
+          "index": 12,
+          "speaker_id": "speaker_3",
+          "start": 130.482,
+          "end": 140.104
+        }
+      ],
+      "source_tar": "/mnt/e/datasets/contextasr-bench/audio/ContextASR-Dialogue/English/ContextASR-Dialogue_English_5.tar",
+      "tar_member": "./10465-5.wav",
+      "audio_sha256": "74caff89e95ce1d169332ef03ad003b3922e7b8921524da275a57f2fbb9cc5b4"
+    }
+  ],
+  "content_hash": "4ab699d03f55fca4687131e64787a9caa2d24116d362bdfa5952f95c0e3ac311"
+}

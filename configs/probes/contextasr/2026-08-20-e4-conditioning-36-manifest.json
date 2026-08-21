@@ -1,0 +1,1541 @@
+{
+  "schema_version": "e4-conditioning-manifest-v1",
+  "experiment_id": "E4-CONDITIONING-36-v1",
+  "purpose": "fixed complete second-pass speaker conditioning with equal-length semantic controls",
+  "parent": {
+    "manifest": "configs/probes/contextasr/2026-08-20-e3-state-audit-12-manifest.json",
+    "manifest_hash": "d9fa2b277929d9ee7a0f51a8ac37099de2e0154de1028238bad9a8299700af9e",
+    "responses": "docs/checks/2026-08-20-e3-state-audit-flight/responses.jsonl",
+    "responses_sha256": "8962b04435055f3c62e651221d69861313217d7b3baf7298f1b08852b9c10c56"
+  },
+  "selection": {
+    "rule": "all frozen E3 targets with >=1 same-speaker gold-side carry entity; no error-based selection"
+  },
+  "arms": [
+    "E4-0-bare",
+    "E4-1-label",
+    "E4-2-global",
+    "E4-3-speaker",
+    "E4-4-wrong",
+    "E4-5-corrupt"
+  ],
+  "targets": [
+    {
+      "uniq_id": "03695-5",
+      "turn_index": 5,
+      "speaker_id": "speaker_1",
+      "start": 63.958,
+      "end": 76.061,
+      "reference_text": "Right? That existential satire hit different. But back to Jerry Woody Allen's meta joke about discovering talent in absurd places felt like a dig at his own career.",
+      "carry_entities": [
+        "Woody Allen"
+      ],
+      "pass0_text": "Write that existential satire hit different. But back to Jerry Woody Allen's meta joke about discovering talent in absurd places felt like a dig at his own career. What do you think?",
+      "state_width": 3,
+      "speaker_terms": [
+        "To Rome",
+        "Love",
+        "Woody Allen"
+      ],
+      "global_terms": [
+        "Genius",
+        "Love",
+        "Woody Allen"
+      ],
+      "wrong_terms": [
+        "Genius",
+        "Alan",
+        "Anna"
+      ],
+      "corrupt_terms": [
+        "Tox Rmoe",
+        "Lvoe",
+        "Woody Allen"
+      ],
+      "source_tar": "/mnt/e/datasets/contextasr-bench/audio/ContextASR-Dialogue/English/ContextASR-Dialogue_English_2.tar",
+      "tar_member": "./03695-5.wav",
+      "audio_sha256": "eb2a43879b226c4b30d5e132daa437d08abc378c981ecebab19628ddd62be085"
+    },
+    {
+      "uniq_id": "03695-5",
+      "turn_index": 6,
+      "speaker_id": "speaker_2",
+      "start": 76.061,
+      "end": 88.905,
+      "reference_text": "Totally. Giancarlo's opera career literally dies the second he leaves the shower. It's like Allen saying, Art's only magic in the right context.",
+      "carry_entities": [
+        "Giancarlo"
+      ],
+      "pass0_text": "Yeah, totally. Giancarlo's opera career literally dies the second he leaves the shower. It's like Alan saying, art's only magic in the right context.",
+      "state_width": 4,
+      "speaker_terms": [
+        "Woody Allen",
+        "Jerry",
+        "Giancarlo's",
+        "opera"
+      ],
+      "global_terms": [
+        "Genius",
+        "Jerry",
+        "Love",
+        "Woody Allen"
+      ],
+      "wrong_terms": [
+        "Love",
+        "Alan",
+        "Anna",
+        "Antonio's"
+      ],
+      "corrupt_terms": [
+        "Woody Allen",
+        "Jrery",
+        "Gaincarlo's",
+        "oepra"
+      ],
+      "source_tar": "/mnt/e/datasets/contextasr-bench/audio/ContextASR-Dialogue/English/ContextASR-Dialogue_English_2.tar",
+      "tar_member": "./03695-5.wav",
+      "audio_sha256": "eb2a43879b226c4b30d5e132daa437d08abc378c981ecebab19628ddd62be085"
+    },
+    {
+      "uniq_id": "03695-5",
+      "turn_index": 8,
+      "speaker_id": "speaker_4",
+      "start": 98.048,
+      "end": 108.541,
+      "reference_text": "Still, the Jack Monica tension stole it for me. Jesse Eisenberg's stammering vs. Monica's cool detachment? Allen loves dissecting intellectual insecurities.",
+      "carry_entities": [
+        "Jesse Eisenberg"
+      ],
+      "pass0_text": "Still the Jack Monica tension stole it for me. Jesse Eisenberg's stammering versus Monica's cool detachment. Allen loves dissecting intellectual insecurities.",
+      "state_width": 3,
+      "speaker_terms": [
+        "Jesse Eisenberg",
+        "Elliot Page",
+        "Alan"
+      ],
+      "global_terms": [
+        "Alan",
+        "Cruz",
+        "Anna"
+      ],
+      "wrong_terms": [
+        "Cruz",
+        "Anna",
+        "Genius"
+      ],
+      "corrupt_terms": [
+        "Jsese Esienberg",
+        "Elliot Pgae",
+        "Aaln"
+      ],
+      "source_tar": "/mnt/e/datasets/contextasr-bench/audio/ContextASR-Dialogue/English/ContextASR-Dialogue_English_2.tar",
+      "tar_member": "./03695-5.wav",
+      "audio_sha256": "eb2a43879b226c4b30d5e132daa437d08abc378c981ecebab19628ddd62be085"
+    },
+    {
+      "uniq_id": "03695-5",
+      "turn_index": 9,
+      "speaker_id": "speaker_5",
+      "start": 108.541,
+      "end": 120.383,
+      "reference_text": "But Leopoldo's arc tho! One day he's nobody, next day Television crews care about his socks. Then poof forgotten. Roberto Benigni's confused face? Masterclass in physical comedy.",
+      "carry_entities": [
+        "Roberto Benigni"
+      ],
+      "pass0_text": "But Leopold's is art, though one day he's nobody, next day Televangel Cruz care about his socks, then poof, forgotten. Roberto Benigni's confused face, masterclass in physical comedy.",
+      "state_width": 2,
+      "speaker_terms": [
+        "Leopoldo's",
+        "Benigni"
+      ],
+      "global_terms": [
+        "Alan",
+        "Cruz"
+      ],
+      "wrong_terms": [
+        "Alan",
+        "Cruz"
+      ],
+      "corrupt_terms": [
+        "Loepoldo's",
+        "Bneigni"
+      ],
+      "source_tar": "/mnt/e/datasets/contextasr-bench/audio/ContextASR-Dialogue/English/ContextASR-Dialogue_English_2.tar",
+      "tar_member": "./03695-5.wav",
+      "audio_sha256": "eb2a43879b226c4b30d5e132daa437d08abc378c981ecebab19628ddd62be085"
+    },
+    {
+      "uniq_id": "07899-4",
+      "turn_index": 5,
+      "speaker_id": "speaker_2",
+      "start": 64.698,
+      "end": 79.283,
+      "reference_text": "Susan Sarandon and Pierce Brosnan's chemistry as estranged parents though? The icy dinners, the way they avoid Bennett's room It's so real. When they finally hug after the ultrasound scene? I lost it.",
+      "carry_entities": [
+        "Pierce Brosnan",
+        "Bennett"
+      ],
+      "pass0_text": "Susan Sarandon and Pierce Brosnan's chemistry as estranged parents though, the icy dinners, the way they avoid Bennett's room, it's so real. When they finally hug after the ultrasound scene, I lost it.",
+      "state_width": 3,
+      "speaker_terms": [
+        "Pierce Brosnan",
+        "Alan",
+        "Bennett's"
+      ],
+      "global_terms": [
+        "Rose",
+        "Grace",
+        "Bennett"
+      ],
+      "wrong_terms": [
+        "Rose",
+        "Grace",
+        "Mulligan"
+      ],
+      "corrupt_terms": [
+        "Peirce Borsnan",
+        "Aaln",
+        "Bnenett's"
+      ],
+      "source_tar": "/mnt/e/datasets/contextasr-bench/audio/ContextASR-Dialogue/English/ContextASR-Dialogue_English_4.tar",
+      "tar_member": "./07899-4.wav",
+      "audio_sha256": "9d2720c6217eb97d3b24b46bc5c19edd5db5b61dc8bfaa8f70ac229fd020cbeb"
+    },
+    {
+      "uniq_id": "07899-4",
+      "turn_index": 9,
+      "speaker_id": "speaker_2",
+      "start": 118.249,
+      "end": 129.438,
+      "reference_text": "Still mad this got zero Oscar love. Susan Sarandon's you don't get to grieve more than me speech? Oscar worthy. Fight me.",
+      "carry_entities": [
+        "Susan Sarandon"
+      ],
+      "pass0_text": "Still mad this got zero Oscar love. Susan Sarandon's You don't get to grieve more than me speech, Oscar worthy. Fight me.",
+      "state_width": 8,
+      "speaker_terms": [
+        "Bennett's",
+        "Alan",
+        "Pierce Brosnan",
+        "Pierce Brosnan's",
+        "Sarandon",
+        "bennett",
+        "brosnan",
+        "pierce"
+      ],
+      "global_terms": [
+        "Grace",
+        "Rose",
+        "Alan",
+        "Bennett",
+        "Bennett's",
+        "Mulligan",
+        "Rose's",
+        "Sarandon"
+      ],
+      "wrong_terms": [
+        "Grace",
+        "Rose",
+        "Bennett",
+        "Mulligan",
+        "Rose's",
+        "Alan",
+        "Festa",
+        "Ffesti's"
+      ],
+      "corrupt_terms": [
+        "Bnenett's",
+        "Aaln",
+        "Peirce Borsnan",
+        "Peirce Borsnan's",
+        "Sraandon",
+        "bnenett",
+        "borsnan",
+        "peirce"
+      ],
+      "source_tar": "/mnt/e/datasets/contextasr-bench/audio/ContextASR-Dialogue/English/ContextASR-Dialogue_English_4.tar",
+      "tar_member": "./07899-4.wav",
+      "audio_sha256": "9d2720c6217eb97d3b24b46bc5c19edd5db5b61dc8bfaa8f70ac229fd020cbeb"
+    },
+    {
+      "uniq_id": "06596-4",
+      "turn_index": 5,
+      "speaker_id": "speaker_2",
+      "start": 59.211,
+      "end": 70.574,
+      "reference_text": "The real life angle gets me Benjamin Mee actually did this! The zoology permit drama, hiring misfits Cameron Crowe added fiction, but the heart's true.",
+      "carry_entities": [
+        "Cameron Crowe",
+        "Benjamin Mee"
+      ],
+      "pass0_text": "The real life angle gets me. Benjamin Mee actually did this. The zoology permit drama, hiring misfits. Cameron Crowe added fiction, but the heart's true.",
+      "state_width": 3,
+      "speaker_terms": [
+        "Cameron Crowe",
+        "Mays",
+        "Matt Damon's"
+      ],
+      "global_terms": [
+        "Cameron Crowe",
+        "Duncan",
+        "Dylan's"
+      ],
+      "wrong_terms": [
+        "Duncan",
+        "Dylan's",
+        "Johansson"
+      ],
+      "corrupt_terms": [
+        "Cmaeron Corwe",
+        "Myas",
+        "Mtat Dmaon's"
+      ],
+      "source_tar": "/mnt/e/datasets/contextasr-bench/audio/ContextASR-Dialogue/English/ContextASR-Dialogue_English_3.tar",
+      "tar_member": "./06596-4.wav",
+      "audio_sha256": "9c27d508995e9c0d15943da09157c83f96f2276808492edf15006e8e51fa30dc"
+    },
+    {
+      "uniq_id": "00952-4",
+      "turn_index": 6,
+      "speaker_id": "speaker_3",
+      "start": 80.414,
+      "end": 94.128,
+      "reference_text": "And the C G I! For two thousand four, the effects hold up. Those robot tentacles smashing through Manhattan? Still creepy. Kerry Conran basically predicted the whole steampunk trend.",
+      "carry_entities": [
+        "Kerry Conran"
+      ],
+      "pass0_text": "And the C G I, for two thousand four, the effects hold up. Those robot tentacles smashing through Manhattan, still creepy. Kerry Conran basically predicted the whole steampunk trend.",
+      "state_width": 1,
+      "speaker_terms": [
+        "Conran"
+      ],
+      "global_terms": [
+        "World"
+      ],
+      "wrong_terms": [
+        "World"
+      ],
+      "corrupt_terms": [
+        "Cnoran"
+      ],
+      "source_tar": "/mnt/e/datasets/contextasr-bench/audio/ContextASR-Dialogue/English/ContextASR-Dialogue_English_1.tar",
+      "tar_member": "./00952-4.wav",
+      "audio_sha256": "db342ad3effb05c7918673e840ab4b5f4d5b3ada61f40a9aa54049fd884f3e39"
+    },
+    {
+      "uniq_id": "00952-4",
+      "turn_index": 10,
+      "speaker_id": "speaker_3",
+      "start": 130.177,
+      "end": 143.195,
+      "reference_text": "Still can't believe this was Kerry Conran's F I R S T movie. Dude went all in on style. Imagine if he'd had a bigger budget for the sequel they never made.",
+      "carry_entities": [
+        "Kerry Conran"
+      ],
+      "pass0_text": "Still can't believe this was Kerry Conran's F I R S T movie. Dude went all in on style. Imagine if he'd had a bigger budget for the sequel they never made.",
+      "state_width": 6,
+      "speaker_terms": [
+        "Conran",
+        "C G",
+        "Manhattan",
+        "CGI",
+        "basically",
+        "kerry"
+      ],
+      "global_terms": [
+        "Conran",
+        "Gwyneth",
+        "World",
+        "Bai Ling's",
+        "Bi Ling",
+        "C G"
+      ],
+      "wrong_terms": [
+        "Gwyneth",
+        "World",
+        "Bai Ling's",
+        "Bi Ling",
+        "Commander Frankie Cook",
+        "Gwyneth Paltrow"
+      ],
+      "corrupt_terms": [
+        "Cnoran",
+        "Cx Gx",
+        "Mnahattan",
+        "CGIx",
+        "bsaically",
+        "krery"
+      ],
+      "source_tar": "/mnt/e/datasets/contextasr-bench/audio/ContextASR-Dialogue/English/ContextASR-Dialogue_English_1.tar",
+      "tar_member": "./00952-4.wav",
+      "audio_sha256": "db342ad3effb05c7918673e840ab4b5f4d5b3ada61f40a9aa54049fd884f3e39"
+    },
+    {
+      "uniq_id": "00952-4",
+      "turn_index": 11,
+      "speaker_id": "speaker_4",
+      "start": 143.195,
+      "end": 155.211,
+      "reference_text": "Sequel? Nah, it's perfect as a standalone cult flick. But seriously how did Bai Ling's character even tie into the robot army? They glossed over her whole motive!",
+      "carry_entities": [
+        "Bai Ling"
+      ],
+      "pass0_text": "Sequel? Nah, it's perfect as a standalone cult flick. But seriously, how did Bai Ling's character even tie into the robot army? They glossed over her whole motive.",
+      "state_width": 4,
+      "speaker_terms": [
+        "Jolie",
+        "Commander Frankie Cook",
+        "Bai Ling's",
+        "Gwyneth"
+      ],
+      "global_terms": [
+        "Conran",
+        "Gwyneth",
+        "World",
+        "Bai Ling's"
+      ],
+      "wrong_terms": [
+        "Conran",
+        "World",
+        "Bi Ling",
+        "C G"
+      ],
+      "corrupt_terms": [
+        "Jloie",
+        "Cmomander Farnkie Cook",
+        "Baix Lnig's",
+        "Gywneth"
+      ],
+      "source_tar": "/mnt/e/datasets/contextasr-bench/audio/ContextASR-Dialogue/English/ContextASR-Dialogue_English_1.tar",
+      "tar_member": "./00952-4.wav",
+      "audio_sha256": "db342ad3effb05c7918673e840ab4b5f4d5b3ada61f40a9aa54049fd884f3e39"
+    },
+    {
+      "uniq_id": "08943-5",
+      "turn_index": 8,
+      "speaker_id": "speaker_4",
+      "start": 95.304,
+      "end": 104.055,
+      "reference_text": "The whole fake assassin plot could've been cheesy, but the script's tight. That twist with the real target being Lori's boss? Didn't see that coming.",
+      "carry_entities": [
+        "Lori"
+      ],
+      "pass0_text": "The whole fake assassination plot could've been cheesy but the script's tight. That twist with the real target being Lori's boss, didn't see that coming.",
+      "state_width": 3,
+      "speaker_terms": [
+        "Cuoco",
+        "Lori",
+        "Teddy"
+      ],
+      "global_terms": [
+        "Hart",
+        "Teddy",
+        "Toronto"
+      ],
+      "wrong_terms": [
+        "Hart",
+        "Teddy",
+        "Toronto"
+      ],
+      "corrupt_terms": [
+        "Couco",
+        "Lroi",
+        "Tdedy"
+      ],
+      "source_tar": "/mnt/e/datasets/contextasr-bench/audio/ContextASR-Dialogue/English/ContextASR-Dialogue_English_4.tar",
+      "tar_member": "./08943-5.wav",
+      "audio_sha256": "96b971025b23b4bcd00da387f24498f1aa9ff7ac2f0b220ad4c90041bc618d57"
+    },
+    {
+      "uniq_id": "08943-5",
+      "turn_index": 12,
+      "speaker_id": "speaker_3",
+      "start": 130.787,
+      "end": 141.445,
+      "reference_text": "Nah, prequel! Young Woody Harrelson becoming the deadliest assassin in Canada. Give me that origin story.",
+      "carry_entities": [
+        "Woody Harrelson"
+      ],
+      "pass0_text": "Nah, prequel. Young Woody Harrelson becoming the deadliest assassin in Canada. What are you, give me that origin story.",
+      "state_width": 6,
+      "speaker_terms": [
+        "Woody Harrelson",
+        "Toronto",
+        "Teddy's",
+        "Jasmine Mathews",
+        "Detective Collins",
+        "idiots"
+      ],
+      "global_terms": [
+        "Hart",
+        "Teddy",
+        "Toronto",
+        "Harrelson",
+        "Hughes",
+        "Lori"
+      ],
+      "wrong_terms": [
+        "Hart",
+        "Teddy",
+        "Toronto",
+        "Harrelson",
+        "Hughes",
+        "Lori"
+      ],
+      "corrupt_terms": [
+        "Woody Hrarelson",
+        "Troonto",
+        "Tdedy's",
+        "Jsamine Mtahews",
+        "Dteective Clolins",
+        "iidots"
+      ],
+      "source_tar": "/mnt/e/datasets/contextasr-bench/audio/ContextASR-Dialogue/English/ContextASR-Dialogue_English_4.tar",
+      "tar_member": "./08943-5.wav",
+      "audio_sha256": "96b971025b23b4bcd00da387f24498f1aa9ff7ac2f0b220ad4c90041bc618d57"
+    },
+    {
+      "uniq_id": "08943-5",
+      "turn_index": 13,
+      "speaker_id": "speaker_4",
+      "start": 141.445,
+      "end": 148.498,
+      "reference_text": "Either way, that mid credits scene with Lori pregnant? Hilarious. We're naming him Toronto.",
+      "carry_entities": [
+        "Lori"
+      ],
+      "pass0_text": "Either way, that mid-credits scene with Laurie pregnant, hilarious. We're naming him Toronto.",
+      "state_width": 4,
+      "speaker_terms": [
+        "Cuoco",
+        "Lori",
+        "Teddy",
+        "Lori's"
+      ],
+      "global_terms": [
+        "Hart",
+        "Teddy",
+        "Toronto",
+        "Woody Harrelson"
+      ],
+      "wrong_terms": [
+        "Hart",
+        "Teddy",
+        "Toronto",
+        "Woody Harrelson"
+      ],
+      "corrupt_terms": [
+        "Couco",
+        "Lroi",
+        "Tdedy",
+        "Lroi's"
+      ],
+      "source_tar": "/mnt/e/datasets/contextasr-bench/audio/ContextASR-Dialogue/English/ContextASR-Dialogue_English_4.tar",
+      "tar_member": "./08943-5.wav",
+      "audio_sha256": "96b971025b23b4bcd00da387f24498f1aa9ff7ac2f0b220ad4c90041bc618d57"
+    },
+    {
+      "uniq_id": "10969-4",
+      "turn_index": 5,
+      "speaker_id": "speaker_2",
+      "start": 64.958,
+      "end": 77.845,
+      "reference_text": "The villains are low key the best part. Dwayne and Travis arguing about the plan while Nick's strapped to a bomb? Peak comedy. But Jesse Eisenberg's panic acting? Oscar worthy stress.",
+      "carry_entities": [
+        "Dwayne"
+      ],
+      "pass0_text": "The villains are low key, the best part Wayne and Travis arguing about the plan while Nick's strapped to a bomb, peak comedy. But Jesse Eisenberg's panic acting, Oscar worthy stress.",
+      "state_width": 3,
+      "speaker_terms": [
+        "Danny McBride",
+        "Duane",
+        "Taco Bell"
+      ],
+      "global_terms": [
+        "Chet",
+        "Nick",
+        "Aziz Ansari"
+      ],
+      "wrong_terms": [
+        "Chet",
+        "Nick",
+        "Aziz Ansari"
+      ],
+      "corrupt_terms": [
+        "Dnany MBcride",
+        "Daune",
+        "Tcao Blel"
+      ],
+      "source_tar": "/mnt/e/datasets/contextasr-bench/audio/ContextASR-Dialogue/English/ContextASR-Dialogue_English_5.tar",
+      "tar_member": "./10969-4.wav",
+      "audio_sha256": "292bb33fd137aac4ae0447ea918f360b172acb881f534268e74155d8976766b5"
+    },
+    {
+      "uniq_id": "10969-4",
+      "turn_index": 7,
+      "speaker_id": "speaker_4",
+      "start": 91.385,
+      "end": 103.401,
+      "reference_text": "And the dark humor! When they accidentally blow up the motel room? Pure chaos. Ruben Fleischer knows how to mix action and laughs. But y'all real talk could you survive thirty minutes like that?",
+      "carry_entities": [
+        "Ruben Fleischer"
+      ],
+      "pass0_text": "And the dark humor when they accidentally blow up the motel room, pure chaos. Ruben Fleischer knows how to mix action and laughs. But y'all real talk, could you survive thirty minutes like that?",
+      "state_width": 2,
+      "speaker_terms": [
+        "Ruben Fleischer's",
+        "Zombieland"
+      ],
+      "global_terms": [
+        "Chet",
+        "Travis"
+      ],
+      "wrong_terms": [
+        "Chet",
+        "Travis"
+      ],
+      "corrupt_terms": [
+        "Rbuen Felischer's",
+        "Zmobieland"
+      ],
+      "source_tar": "/mnt/e/datasets/contextasr-bench/audio/ContextASR-Dialogue/English/ContextASR-Dialogue_English_5.tar",
+      "tar_member": "./10969-4.wav",
+      "audio_sha256": "292bb33fd137aac4ae0447ea918f360b172acb881f534268e74155d8976766b5"
+    },
+    {
+      "uniq_id": "10969-4",
+      "turn_index": 11,
+      "speaker_id": "speaker_4",
+      "start": 138.318,
+      "end": 148.811,
+      "reference_text": "Totally. Also, fun fact: Ruben Fleischer said they improvised half the lines. You can tell Danny Mc Bride's rants feel so raw.",
+      "carry_entities": [
+        "Ruben Fleischer"
+      ],
+      "pass0_text": "Totally. Also, fun fact, Reuben Fleischer said they improvised half the lines. You can tell Danny McBride's rants feel so raw.",
+      "state_width": 8,
+      "speaker_terms": [
+        "Ruben Fleischer's",
+        "Zombieland",
+        "Fleischer",
+        "like",
+        "minutes",
+        "ruben",
+        "talk",
+        "thirty"
+      ],
+      "global_terms": [
+        "Chet",
+        "Travis",
+        "Chet's",
+        "Eisenberg",
+        "Fleischer",
+        "Nick",
+        "Nick's",
+        "Ansari's"
+      ],
+      "wrong_terms": [
+        "Chet",
+        "Travis",
+        "Chet's",
+        "Eisenberg",
+        "Nick",
+        "Nick's",
+        "Ansari's",
+        "Aziz Ansari"
+      ],
+      "corrupt_terms": [
+        "Rbuen Felischer's",
+        "Zmobieland",
+        "Felischer",
+        "lkie",
+        "mniutes",
+        "rbuen",
+        "tlak",
+        "tihrty"
+      ],
+      "source_tar": "/mnt/e/datasets/contextasr-bench/audio/ContextASR-Dialogue/English/ContextASR-Dialogue_English_5.tar",
+      "tar_member": "./10969-4.wav",
+      "audio_sha256": "292bb33fd137aac4ae0447ea918f360b172acb881f534268e74155d8976766b5"
+    },
+    {
+      "uniq_id": "00539-3",
+      "turn_index": 3,
+      "speaker_id": "speaker_1",
+      "start": 31.477,
+      "end": 42.361,
+      "reference_text": "But that's what makes the ending so satisfying. When Marty stands up to his mom and Joe Mantell's character, Angie, like, What do you want from me? You finally see him own his worth.",
+      "carry_entities": [
+        "Marty"
+      ],
+      "pass0_text": "But that's what makes the ending so satisfying. When Marty stands up to his mom and Joe Mantell's character, Angie, like, what do you want from me? You finally see him own his worth.",
+      "state_width": 3,
+      "speaker_terms": [
+        "Marty",
+        "Borgnine",
+        "Marty Piletti"
+      ],
+      "global_terms": [
+        "Marty",
+        "Borgnine",
+        "Marty Piletti"
+      ],
+      "wrong_terms": [
+        "Claire",
+        "Blair",
+        "Delbert Mann's"
+      ],
+      "corrupt_terms": [
+        "Mraty",
+        "Brognine",
+        "Mraty Plietti"
+      ],
+      "source_tar": "/mnt/e/datasets/contextasr-bench/audio/ContextASR-Dialogue/English/ContextASR-Dialogue_English_1.tar",
+      "tar_member": "./00539-3.wav",
+      "audio_sha256": "1d021b4299064f720e20fd53875ba3ed3c59a9af9bdd99981ca9fe1dd9a0b4e5"
+    },
+    {
+      "uniq_id": "00539-3",
+      "turn_index": 5,
+      "speaker_id": "speaker_3",
+      "start": 53.985,
+      "end": 67.046,
+      "reference_text": "The social pressure in the fifties is wild. Marty's friends keep dragging him to dance halls to find a doll, but he wants real connection. Borgnine's monologue about being tired of being alone man.",
+      "carry_entities": [
+        "Marty"
+      ],
+      "pass0_text": "The social pressure in the fifties is wild. Marty's friends keep dragging him to dance halls to find a doll, but he wants real connection. Borgnine's monologue about being tired of being a lone man.",
+      "state_width": 1,
+      "speaker_terms": [
+        "Delbert Mann's"
+      ],
+      "global_terms": [
+        "Marty"
+      ],
+      "wrong_terms": [
+        "Marty"
+      ],
+      "corrupt_terms": [
+        "Dlebert Mnan's"
+      ],
+      "source_tar": "/mnt/e/datasets/contextasr-bench/audio/ContextASR-Dialogue/English/ContextASR-Dialogue_English_1.tar",
+      "tar_member": "./00539-3.wav",
+      "audio_sha256": "1d021b4299064f720e20fd53875ba3ed3c59a9af9bdd99981ca9fe1dd9a0b4e5"
+    },
+    {
+      "uniq_id": "00539-3",
+      "turn_index": 6,
+      "speaker_id": "speaker_1",
+      "start": 67.046,
+      "end": 80.369,
+      "reference_text": "Did you know this was based on a Television play? Delbert Mann kept the raw vibe no fancy sets, just New York's grimy streets. That shot of Marty walking alone past the butcher shop? Poetry.",
+      "carry_entities": [
+        "Marty"
+      ],
+      "pass0_text": "Did you know this was based on a television play? Delbert Mann kept the raw vibe, no fancy sets, just New York's grimy streets. That shot of Marty walking alone past the butcher shop, poetry.",
+      "state_width": 6,
+      "speaker_terms": [
+        "Marty",
+        "Borgnine",
+        "Marty Piletti",
+        "Joe Mantell's",
+        "Angie",
+        "what"
+      ],
+      "global_terms": [
+        "Marty",
+        "Borgnine",
+        "Angie",
+        "Blair",
+        "Claire",
+        "Delbert Mann's"
+      ],
+      "wrong_terms": [
+        "Claire",
+        "Blair",
+        "Delbert Mann's",
+        "Marty",
+        "being",
+        "dance"
+      ],
+      "corrupt_terms": [
+        "Mraty",
+        "Brognine",
+        "Mraty Plietti",
+        "Joex Mnatell's",
+        "Agnie",
+        "waht"
+      ],
+      "source_tar": "/mnt/e/datasets/contextasr-bench/audio/ContextASR-Dialogue/English/ContextASR-Dialogue_English_1.tar",
+      "tar_member": "./00539-3.wav",
+      "audio_sha256": "1d021b4299064f720e20fd53875ba3ed3c59a9af9bdd99981ca9fe1dd9a0b4e5"
+    },
+    {
+      "uniq_id": "00539-3",
+      "turn_index": 7,
+      "speaker_id": "speaker_2",
+      "start": 80.369,
+      "end": 89.642,
+      "reference_text": "And Jerry Paris as the shallow cousin, Tommy! His whole nice girl rant to Marty? Ugh. Shows how even family can push toxic norms.",
+      "carry_entities": [
+        "Marty"
+      ],
+      "pass0_text": "And Jerry Paris as the shallow cousin Tommy, his whole nice girl rant to Marty, uh, shows how even family can push toxic norms.",
+      "state_width": 3,
+      "speaker_terms": [
+        "Claire",
+        "Blair",
+        "Marty"
+      ],
+      "global_terms": [
+        "Marty",
+        "Borgnine",
+        "Mann"
+      ],
+      "wrong_terms": [
+        "Marty",
+        "Borgnine",
+        "Mann"
+      ],
+      "corrupt_terms": [
+        "Calire",
+        "Balir",
+        "Mraty"
+      ],
+      "source_tar": "/mnt/e/datasets/contextasr-bench/audio/ContextASR-Dialogue/English/ContextASR-Dialogue_English_1.tar",
+      "tar_member": "./00539-3.wav",
+      "audio_sha256": "1d021b4299064f720e20fd53875ba3ed3c59a9af9bdd99981ca9fe1dd9a0b4e5"
+    },
+    {
+      "uniq_id": "00539-3",
+      "turn_index": 9,
+      "speaker_id": "speaker_1",
+      "start": 102.921,
+      "end": 115.765,
+      "reference_text": "Total classic. Marty's Oscar win for Borgnine? Well deserved. It's not some flashy romance it's two bruised people choosing kindness. You are beautiful to me, Clara. Waterworks every time.",
+      "carry_entities": [
+        "Marty"
+      ],
+      "pass0_text": "Total classic. Marty's Oscar win for 'Barton Fink' well deserved. It's not some flashy romance, it's two bruised people choosing kindness. You are beautiful to me, Clara. Waterworks every time.",
+      "state_width": 8,
+      "speaker_terms": [
+        "Marty",
+        "Borgnine",
+        "Marty Piletti",
+        "Joe Mantell's",
+        "Angie",
+        "Mann",
+        "New York's",
+        "what"
+      ],
+      "global_terms": [
+        "Marty",
+        "Blair",
+        "Borgnine",
+        "Mann",
+        "Angie",
+        "Claire",
+        "Clara's",
+        "Delbert Mann's"
+      ],
+      "wrong_terms": [
+        "Blair",
+        "Marty",
+        "Claire",
+        "Clara's",
+        "Delbert Mann's",
+        "Jerry Paris",
+        "M V P",
+        "MVP"
+      ],
+      "corrupt_terms": [
+        "Mraty",
+        "Brognine",
+        "Mraty Plietti",
+        "Joex Mnatell's",
+        "Agnie",
+        "Mnan",
+        "Newx Yrok's",
+        "waht"
+      ],
+      "source_tar": "/mnt/e/datasets/contextasr-bench/audio/ContextASR-Dialogue/English/ContextASR-Dialogue_English_1.tar",
+      "tar_member": "./00539-3.wav",
+      "audio_sha256": "1d021b4299064f720e20fd53875ba3ed3c59a9af9bdd99981ca9fe1dd9a0b4e5"
+    },
+    {
+      "uniq_id": "06692-4",
+      "turn_index": 6,
+      "speaker_id": "speaker_3",
+      "start": 74.144,
+      "end": 84.68,
+      "reference_text": "Honestly, the real tragedy is Devlin. Cary Grant's so stoic, but when he finally cracks and rescues her? Put down that coffee, it's poisoned! chills every time.",
+      "carry_entities": [
+        "Cary Grant",
+        "Devlin"
+      ],
+      "pass0_text": "Honestly, the real tragedy is Devlin. Cary Grant's so stoic, but when he finally cracks and rescues her, put down that coffee, it's poisoned. Chills every time.",
+      "state_width": 2,
+      "speaker_terms": [
+        "Devlin's",
+        "Cary Grant's"
+      ],
+      "global_terms": [
+        "Hitchcock",
+        "Alicia"
+      ],
+      "wrong_terms": [
+        "Hitchcock",
+        "Alicia"
+      ],
+      "corrupt_terms": [
+        "Dvelin's",
+        "Cray Garnt's"
+      ],
+      "source_tar": "/mnt/e/datasets/contextasr-bench/audio/ContextASR-Dialogue/English/ContextASR-Dialogue_English_3.tar",
+      "tar_member": "./06692-4.wav",
+      "audio_sha256": "82648033b1f62bddaf596bfa07a6d6a9e935155e1a0a89073e1861c93c7b8a2a"
+    },
+    {
+      "uniq_id": "06692-4",
+      "turn_index": 7,
+      "speaker_id": "speaker_4",
+      "start": 84.68,
+      "end": 96.871,
+      "reference_text": "Claude Rains' exit though! His own Nazi pals just let him walk to his death. Coldest karma ever. You gotta wonder did Hitchcock make us sympathize with a villain just to crush him?",
+      "carry_entities": [
+        "Claude Rains"
+      ],
+      "pass0_text": "Claude Rains exit though, his own Nazi pals just let him walk to his death. Cold as karma ever. You gotta wonder, did Hitchcock make us sympathize with a villain just to crush him?",
+      "state_width": 4,
+      "speaker_terms": [
+        "Claude Rains",
+        "Alexander Sebastian",
+        "Nazi",
+        "Alicia"
+      ],
+      "global_terms": [
+        "Hitchcock",
+        "Alicia",
+        "Bergman",
+        "Devlin"
+      ],
+      "wrong_terms": [
+        "Hitchcock",
+        "Bergman",
+        "Devlin",
+        "Alicia Huberman"
+      ],
+      "corrupt_terms": [
+        "Calude Rians",
+        "Aelxander Sbeastian",
+        "Nzai",
+        "Ailcia"
+      ],
+      "source_tar": "/mnt/e/datasets/contextasr-bench/audio/ContextASR-Dialogue/English/ContextASR-Dialogue_English_3.tar",
+      "tar_member": "./06692-4.wav",
+      "audio_sha256": "82648033b1f62bddaf596bfa07a6d6a9e935155e1a0a89073e1861c93c7b8a2a"
+    },
+    {
+      "uniq_id": "12769-3",
+      "turn_index": 6,
+      "speaker_id": "speaker_1",
+      "start": 77.366,
+      "end": 89.905,
+      "reference_text": "Henry Lawfull's face when he realizes his dad might not be a hero oof. Kid's got Oscar potential. And the mouse! Best non speaking sidekick since Despicable Me 's minions.",
+      "carry_entities": [
+        "Henry Lawfull"
+      ],
+      "pass0_text": "Henry Lawful's face when he realizes his dad might not be a hero. Oof, kid's got Oscar potential. And the mouse, best non-speaking sidekick since Despicable Me's Minions.",
+      "state_width": 7,
+      "speaker_terms": [
+        "A Boy Called Christmas",
+        "Lawful",
+        "Nikolas",
+        "Monster House",
+        "Kenan",
+        "C G",
+        "CGI"
+      ],
+      "global_terms": [
+        "Kenan",
+        "Maggie",
+        "Monster House",
+        "Nicholas",
+        "A Boy Called Christmas",
+        "C G",
+        "CGI"
+      ],
+      "wrong_terms": [
+        "Maggie",
+        "Nicholas",
+        "Elfhome",
+        "Gil Kenan",
+        "Kristen Wig",
+        "Maggie Smith",
+        "Monster House"
+      ],
+      "corrupt_terms": [
+        "Ax Boyx Claled Crhistmas",
+        "Lwaful",
+        "Nkiolas",
+        "Mnoster Huose",
+        "Knean",
+        "Cx Gx",
+        "CGIx"
+      ],
+      "source_tar": "/mnt/e/datasets/contextasr-bench/audio/ContextASR-Dialogue/English/ContextASR-Dialogue_English_6.tar",
+      "tar_member": "./12769-3.wav",
+      "audio_sha256": "e7ab155fba9e4734479053a714e04e59ecb5a7e32da2e2ff005c5e121095f717"
+    },
+    {
+      "uniq_id": "12769-3",
+      "turn_index": 8,
+      "speaker_id": "speaker_3",
+      "start": 102.139,
+      "end": 114.155,
+      "reference_text": "Totally. It's like Paddington meets The Polar Express. Gil Kenan said in an interview they used practical effects for most stunts. Like, Henry actually rode that animatronic reindeer!",
+      "carry_entities": [
+        "Gil Kenan"
+      ],
+      "pass0_text": "Totally, it's like Paddington meets the Polar Express, Gil Kenan said in an interview. They used practical effects for most stunts, like, Henry actually rode that animatronic reindeer for real.",
+      "state_width": 7,
+      "speaker_terms": [
+        "Maggie Smith",
+        "Maggie",
+        "Gil Kenan",
+        "Monster House",
+        "Nicholas",
+        "like",
+        "still"
+      ],
+      "global_terms": [
+        "Christmas",
+        "Kenan",
+        "Lawful",
+        "Maggie",
+        "Monster House",
+        "Nicholas",
+        "A Boy Called Christmas"
+      ],
+      "wrong_terms": [
+        "Christmas",
+        "Lawful",
+        "A Boy Called Christmas",
+        "C G",
+        "CGI",
+        "Despicable Me's Minions",
+        "Elfhome"
+      ],
+      "corrupt_terms": [
+        "Mgagie Simth",
+        "Mgagie",
+        "Gilx Knean",
+        "Mnoster Huose",
+        "Nciholas",
+        "lkie",
+        "sitll"
+      ],
+      "source_tar": "/mnt/e/datasets/contextasr-bench/audio/ContextASR-Dialogue/English/ContextASR-Dialogue_English_6.tar",
+      "tar_member": "./12769-3.wav",
+      "audio_sha256": "e7ab155fba9e4734479053a714e04e59ecb5a7e32da2e2ff005c5e121095f717"
+    },
+    {
+      "uniq_id": "12769-3",
+      "turn_index": 11,
+      "speaker_id": "speaker_3",
+      "start": 137.317,
+      "end": 147.156,
+      "reference_text": "Hundred percent. Makes you wanna believe in magic again. And Maggie Smith's final line All true stories have a little lie in them perfection.",
+      "carry_entities": [
+        "Maggie Smith"
+      ],
+      "pass0_text": "Hundred percent makes you wanna believe in magic again. And Maggie Smith's final line, all true stories have a little lie in them, perfection.",
+      "state_width": 8,
+      "speaker_terms": [
+        "Maggie",
+        "Gil Kenan",
+        "Henry",
+        "Maggie Smith",
+        "Monster House",
+        "Nicholas",
+        "Paddington",
+        "Polar Express Gil Kenan"
+      ],
+      "global_terms": [
+        "Nicholas",
+        "Christmas",
+        "Henry",
+        "Kenan",
+        "Lawful",
+        "Maggie",
+        "Monster House",
+        "A Boy Called Christmas"
+      ],
+      "wrong_terms": [
+        "Christmas",
+        "Lawful",
+        "Nicholas",
+        "A Boy Called Christmas",
+        "C G",
+        "CGI",
+        "Despicable Me's Minions",
+        "Elfhome"
+      ],
+      "corrupt_terms": [
+        "Mgagie",
+        "Gilx Knean",
+        "Hnery",
+        "Mgagie Simth",
+        "Mnoster Huose",
+        "Nciholas",
+        "Pdadington",
+        "Ploar Epxress Gilx Knean"
+      ],
+      "source_tar": "/mnt/e/datasets/contextasr-bench/audio/ContextASR-Dialogue/English/ContextASR-Dialogue_English_6.tar",
+      "tar_member": "./12769-3.wav",
+      "audio_sha256": "e7ab155fba9e4734479053a714e04e59ecb5a7e32da2e2ff005c5e121095f717"
+    },
+    {
+      "uniq_id": "07295-4",
+      "turn_index": 8,
+      "speaker_id": "speaker_1",
+      "start": 96.826,
+      "end": 106.448,
+      "reference_text": "Donald Faison's breakdown when he realizes what he's done? I didn't sign up for this! The man can do comedy and drama. Underappreciated.",
+      "carry_entities": [
+        "Donald Faison"
+      ],
+      "pass0_text": "Donald Faison's breakdown when he realizes what he's done. I didn't sign up for this. The man can do comedy and drama. Underappreciated.",
+      "state_width": 7,
+      "speaker_terms": [
+        "Donald Faison",
+        "Leo",
+        "Brody",
+        "Shavo's",
+        "Omari Hardwick's",
+        "minute",
+        "next"
+      ],
+      "global_terms": [
+        "Brody",
+        "Gucci",
+        "Chivo",
+        "Benny Boom's",
+        "Brodiga",
+        "Cisco Reyes",
+        "Donald Faison"
+      ],
+      "wrong_terms": [
+        "Gucci",
+        "Brody",
+        "Chivo",
+        "Benny Boom's",
+        "Brodiga",
+        "Cisco Reyes",
+        "Emilio Rivera"
+      ],
+      "corrupt_terms": [
+        "Dnoald Fiason",
+        "Leox",
+        "Bordy",
+        "Sahvo's",
+        "Oamri Hradwick's",
+        "mniute",
+        "nxet"
+      ],
+      "source_tar": "/mnt/e/datasets/contextasr-bench/audio/ContextASR-Dialogue/English/ContextASR-Dialogue_English_3.tar",
+      "tar_member": "./07295-4.wav",
+      "audio_sha256": "929da50dc930cd9cab99483b5f9268ea2eaec5455b62b20cf2a5fbef6e3ed914"
+    },
+    {
+      "uniq_id": "07295-4",
+      "turn_index": 9,
+      "speaker_id": "speaker_2",
+      "start": 106.448,
+      "end": 117.507,
+      "reference_text": "Shoutout to Benny Boom for making a drug comedy that's actually smart? Like, the timing when Brodiga's crew crashes the deal? Perfection.",
+      "carry_entities": [
+        "Brodiga"
+      ],
+      "pass0_text": "Shoutout to Benny Boom for making a drug comedy that's actually smart. Like, the timing when Brodiga's crew crashes the deal, perfection.",
+      "state_width": 6,
+      "speaker_terms": [
+        "Brody",
+        "Gucci",
+        "Epps",
+        "Chivo",
+        "Emilio Rivera",
+        "Brodiga"
+      ],
+      "global_terms": [
+        "Brody",
+        "Gucci",
+        "Chivo",
+        "Benny Boom's",
+        "Brodiga",
+        "Cisco Reyes"
+      ],
+      "wrong_terms": [
+        "Gucci",
+        "Brody",
+        "Benny Boom's",
+        "Chivo",
+        "Cisco Reyes",
+        "Donald Faison"
+      ],
+      "corrupt_terms": [
+        "Bordy",
+        "Gcuci",
+        "Epps",
+        "Cihvo",
+        "Eimlio Rviera",
+        "Bordiga"
+      ],
+      "source_tar": "/mnt/e/datasets/contextasr-bench/audio/ContextASR-Dialogue/English/ContextASR-Dialogue_English_3.tar",
+      "tar_member": "./07295-4.wav",
+      "audio_sha256": "929da50dc930cd9cab99483b5f9268ea2eaec5455b62b20cf2a5fbef6e3ed914"
+    },
+    {
+      "uniq_id": "09495-3",
+      "turn_index": 3,
+      "speaker_id": "speaker_1",
+      "start": 30.563,
+      "end": 40.359,
+      "reference_text": "Don't even get me started on Dwayne Johnson playing himself. That pep talk he gives Paige in Florida? You are not weird; you are rare? Chills, man.",
+      "carry_entities": [
+        "Paige"
+      ],
+      "pass0_text": "Don't even get me started on Dwayne Johnson playing himself. That pep talk he gives Paige in Florida, you are not weird, you are rare. Chills, man.",
+      "state_width": 3,
+      "speaker_terms": [
+        "Fighting",
+        "My Family",
+        "Paige"
+      ],
+      "global_terms": [
+        "Fighting",
+        "My Family",
+        "Paige"
+      ],
+      "wrong_terms": [
+        "Florence Pugh",
+        "Raya",
+        "Paige"
+      ],
+      "corrupt_terms": [
+        "Fgihting",
+        "Myx Fmaily",
+        "Piage"
+      ],
+      "source_tar": "/mnt/e/datasets/contextasr-bench/audio/ContextASR-Dialogue/English/ContextASR-Dialogue_English_4.tar",
+      "tar_member": "./09495-3.wav",
+      "audio_sha256": "48a9233361409f6c6bce8a9403b3fad1d0f924da997733531a91994ccd2c1e5b"
+    },
+    {
+      "uniq_id": "09495-3",
+      "turn_index": 6,
+      "speaker_id": "speaker_1",
+      "start": 67.526,
+      "end": 77.54,
+      "reference_text": "But the real kicker? It's based on a true story! Paige actually went through all that? Changing her name, dealing with mean girls at camp.",
+      "carry_entities": [
+        "Paige"
+      ],
+      "pass0_text": "But the real kicker, it's based on a true story. Paige actually went through all that, changing her name, dealing with mean girls at camp.",
+      "state_width": 5,
+      "speaker_terms": [
+        "Fighting",
+        "My Family",
+        "Paige",
+        "Dwayne Johnson",
+        "Florida"
+      ],
+      "global_terms": [
+        "Paige",
+        "WWE",
+        "Coach Hutch",
+        "Dwayne Johnson",
+        "Fighting"
+      ],
+      "wrong_terms": [
+        "WWE",
+        "Coach Hutch",
+        "Florence Pugh",
+        "Jack Loudon",
+        "Lena Headey"
+      ],
+      "corrupt_terms": [
+        "Fgihting",
+        "Myx Fmaily",
+        "Piage",
+        "Dawyne Jhonson",
+        "Folrida"
+      ],
+      "source_tar": "/mnt/e/datasets/contextasr-bench/audio/ContextASR-Dialogue/English/ContextASR-Dialogue_English_4.tar",
+      "tar_member": "./09495-3.wav",
+      "audio_sha256": "48a9233361409f6c6bce8a9403b3fad1d0f924da997733531a91994ccd2c1e5b"
+    },
+    {
+      "uniq_id": "09495-3",
+      "turn_index": 9,
+      "speaker_id": "speaker_1",
+      "start": 102.444,
+      "end": 113.067,
+      "reference_text": "Speaking of, the cameos! Real W W E stars in the crowd during Paige's debut? Genius. Made it feel like you were watching Raw live in two thousand twelve.",
+      "carry_entities": [
+        "Paige"
+      ],
+      "pass0_text": "Speaking of the cameos, real WWE stars in the crowd during Paige's debut. Genius made it feel like you were watching Raw live in two thousand twelve.",
+      "state_width": 5,
+      "speaker_terms": [
+        "Fighting",
+        "My Family",
+        "Paige",
+        "Dwayne Johnson",
+        "Florida"
+      ],
+      "global_terms": [
+        "Paige",
+        "WWE",
+        "Zack",
+        "Coach Hutch",
+        "Dwayne Johnson"
+      ],
+      "wrong_terms": [
+        "WWE",
+        "Zack",
+        "Coach Hutch",
+        "Florence Pugh",
+        "Jack Loudon"
+      ],
+      "corrupt_terms": [
+        "Fgihting",
+        "Myx Fmaily",
+        "Piage",
+        "Dawyne Jhonson",
+        "Folrida"
+      ],
+      "source_tar": "/mnt/e/datasets/contextasr-bench/audio/ContextASR-Dialogue/English/ContextASR-Dialogue_English_4.tar",
+      "tar_member": "./09495-3.wav",
+      "audio_sha256": "48a9233361409f6c6bce8a9403b3fad1d0f924da997733531a91994ccd2c1e5b"
+    },
+    {
+      "uniq_id": "09495-3",
+      "turn_index": 10,
+      "speaker_id": "speaker_2",
+      "start": 113.067,
+      "end": 123.168,
+      "reference_text": "And the ending credits showing the real Paige family photos? Waterworks. Stephen Merchant better get a sequel rolling.",
+      "carry_entities": [
+        "Stephen Merchant",
+        "Paige"
+      ],
+      "pass0_text": "And the ending credits showing the real Peach family photos. Waterworks. Stephen Merchant, better get a sequel rolling.",
+      "state_width": 7,
+      "speaker_terms": [
+        "Florence Pugh",
+        "Raya",
+        "Paige",
+        "Merchant",
+        "Lena Headey",
+        "florence",
+        "like"
+      ],
+      "global_terms": [
+        "Paige",
+        "WWE",
+        "Zack",
+        "Coach Hutch",
+        "Dwayne Johnson",
+        "Fighting",
+        "Florence Pugh"
+      ],
+      "wrong_terms": [
+        "Paige",
+        "WWE",
+        "Coach Hutch",
+        "Dwayne Johnson",
+        "Fighting",
+        "Florida",
+        "Jack Loudon"
+      ],
+      "corrupt_terms": [
+        "Folrence Pguh",
+        "Ryaa",
+        "Piage",
+        "Mrechant",
+        "Lnea Haedey",
+        "folrence",
+        "lkie"
+      ],
+      "source_tar": "/mnt/e/datasets/contextasr-bench/audio/ContextASR-Dialogue/English/ContextASR-Dialogue_English_4.tar",
+      "tar_member": "./09495-3.wav",
+      "audio_sha256": "48a9233361409f6c6bce8a9403b3fad1d0f924da997733531a91994ccd2c1e5b"
+    },
+    {
+      "uniq_id": "12013-5",
+      "turn_index": 6,
+      "speaker_id": "speaker_2",
+      "start": 70.953,
+      "end": 84.798,
+      "reference_text": "Oh c'mon, it's about longing! The way he touches the hairbrush like it's sacred? You feel his desperation. But Diane Kruger's performance in the final reveal so quietly heartbroken.",
+      "carry_entities": [
+        "Diane Kruger"
+      ],
+      "pass0_text": "Oh come on, it's about longing, the way he touches the hairbrush like it's sacred. You feel his desperation, but Diane Kruger's performance in the final reveal is so quietly heartbroken.",
+      "state_width": 2,
+      "speaker_terms": [
+        "Diane Kruger",
+        "Lisa"
+      ],
+      "global_terms": [
+        "Lisa",
+        "Diane Kruger"
+      ],
+      "wrong_terms": [
+        "Lisa",
+        "Hartnett"
+      ],
+      "corrupt_terms": [
+        "Daine Kurger",
+        "Lsia"
+      ],
+      "source_tar": "/mnt/e/datasets/contextasr-bench/audio/ContextASR-Dialogue/English/ContextASR-Dialogue_English_5.tar",
+      "tar_member": "./12013-5.wav",
+      "audio_sha256": "b55f6325b119cd64399d31bb91f31c9a5408003eb406dd9273ca49fb922674da"
+    },
+    {
+      "uniq_id": "12013-5",
+      "turn_index": 7,
+      "speaker_id": "speaker_3",
+      "start": 84.798,
+      "end": 96.074,
+      "reference_text": "Yeah, but Rose Byrne steals it for me. Her I wanted to be her confession? Gut punch. Makes you rethink every interaction she had with Josh Hartnett.",
+      "carry_entities": [
+        "Rose Byrne"
+      ],
+      "pass0_text": "Yeah, but Rose Byrne steals it for me. Her, I want it to be her confession. Gut punch makes you rethink every interaction she had with Josh Hartnett.",
+      "state_width": 2,
+      "speaker_terms": [
+        "Rose Byrne",
+        "Lisa"
+      ],
+      "global_terms": [
+        "Lisa",
+        "Diane Kruger"
+      ],
+      "wrong_terms": [
+        "Lisa",
+        "Diane Kruger"
+      ],
+      "corrupt_terms": [
+        "Rsoe Bryne",
+        "Lsia"
+      ],
+      "source_tar": "/mnt/e/datasets/contextasr-bench/audio/ContextASR-Dialogue/English/ContextASR-Dialogue_English_5.tar",
+      "tar_member": "./12013-5.wav",
+      "audio_sha256": "b55f6325b119cd64399d31bb91f31c9a5408003eb406dd9273ca49fb922674da"
+    },
+    {
+      "uniq_id": "12013-5",
+      "turn_index": 11,
+      "speaker_id": "speaker_2",
+      "start": 126.549,
+      "end": 137.912,
+      "reference_text": "Exactly! It's not just a stalker thriller it's about how memory warps us. Diane Kruger's Lisa isn't even the same person he remembers. Nostalgia's a liar, man.",
+      "carry_entities": [
+        "Diane Kruger"
+      ],
+      "pass0_text": "Exactly, it's not just a stalker thriller. It's about how memory warps us. Diane Kruger's Lisa isn't even the same person he remembers. Nostalgia is a liar, man.",
+      "state_width": 5,
+      "speaker_terms": [
+        "Diane Kruger",
+        "Lisa",
+        "Diane Kruger's",
+        "diane",
+        "kruger"
+      ],
+      "global_terms": [
+        "Lisa",
+        "Luke",
+        "Hartnett",
+        "Lisa's",
+        "Rose Byrne"
+      ],
+      "wrong_terms": [
+        "Lisa",
+        "Luke",
+        "Hartnett",
+        "Lisa's",
+        "Rose Byrne"
+      ],
+      "corrupt_terms": [
+        "Daine Kurger",
+        "Lsia",
+        "Daine Kurger's",
+        "daine",
+        "kurger"
+      ],
+      "source_tar": "/mnt/e/datasets/contextasr-bench/audio/ContextASR-Dialogue/English/ContextASR-Dialogue_English_5.tar",
+      "tar_member": "./12013-5.wav",
+      "audio_sha256": "b55f6325b119cd64399d31bb91f31c9a5408003eb406dd9273ca49fb922674da"
+    },
+    {
+      "uniq_id": "12013-5",
+      "turn_index": 15,
+      "speaker_id": "speaker_1",
+      "start": 161.205,
+      "end": 166.865,
+      "reference_text": "Hell no! But that's why it's a movie. Josh Hartnett's sad eyes get a free pass.",
+      "carry_entities": [
+        "Josh Hartnett"
+      ],
+      "pass0_text": "Hell no, but that's why it's a movie. Joss Hartnett's sad eyes get a free pass.",
+      "state_width": 8,
+      "speaker_terms": [
+        "Lisa",
+        "Hartnett",
+        "Lisa Matthew",
+        "Lisa's",
+        "Luke",
+        "Matthew Mann",
+        "Wicker Park",
+        "fake"
+      ],
+      "global_terms": [
+        "Lisa",
+        "Luke",
+        "Matthew",
+        "Hartnett",
+        "Lisa's",
+        "Rose Byrne",
+        "Diane Kruger",
+        "Diane Kruger's"
+      ],
+      "wrong_terms": [
+        "Lisa",
+        "Matthew",
+        "Rose Byrne",
+        "Diane Kruger",
+        "Diane Kruger's",
+        "Hitchcock",
+        "Josh Hartnett",
+        "Kruger's Lisa"
+      ],
+      "corrupt_terms": [
+        "Lsia",
+        "Hratnett",
+        "Lsia Mtathew",
+        "Lsia's",
+        "Lkue",
+        "Mtathew Mnan",
+        "Wciker Prak",
+        "fkae"
+      ],
+      "source_tar": "/mnt/e/datasets/contextasr-bench/audio/ContextASR-Dialogue/English/ContextASR-Dialogue_English_5.tar",
+      "tar_member": "./12013-5.wav",
+      "audio_sha256": "b55f6325b119cd64399d31bb91f31c9a5408003eb406dd9273ca49fb922674da"
+    }
+  ],
+  "content_hash": "543b7109f35dbeccf14263e1441522122bab9c4ab8ba8751c7929d28a94f7a5d"
+}
