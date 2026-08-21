@@ -14,6 +14,7 @@ from meeting_minutes_agent.probes.e4_xdomain_supply_v2 import (
 
 
 HEADER = "token|speaker|ts|endTs|punctuation|prepunctuation|case|tags|oldTs|oldEndTs|ali_comment\n"
+HEADER_WITH_WER_TAGS = "token|speaker|ts|endTs|punctuation|prepunctuation|case|tags|wer_tags|oldTs|oldEndTs|ali_comment\n"
 
 
 def test_deterministic_split_has_frozen_sizes_and_is_order_independent():
@@ -55,6 +56,15 @@ def test_parser_refuses_reused_noncontiguous_entity_id(tmp_path: Path):
     )
     with pytest.raises(Earnings22AuditError, match="non-contiguous entity id"):
         load_entity_mentions(path)
+
+
+def test_parser_accepts_documented_wer_tags_header_variant(tmp_path: Path):
+    path = tmp_path / "m.aligned.nlp"
+    path.write_text(
+        HEADER_WITH_WER_TAGS + "Acme|1|1.0|||||['7:ORG']|['7']|||\n",
+        encoding="utf-8",
+    )
+    assert load_entity_mentions(path) == (EntityMention("1", 1.0, "acme", "ORG"),)
 
 
 def test_carry_uses_prior_slices_and_separates_other_speakers():

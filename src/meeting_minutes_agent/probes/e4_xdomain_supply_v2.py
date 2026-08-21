@@ -28,6 +28,10 @@ EXPECTED_HEADER = (
     "token", "speaker", "ts", "endTs", "punctuation", "prepunctuation",
     "case", "tags", "oldTs", "oldEndTs", "ali_comment",
 )
+EXPECTED_HEADER_WITH_WER_TAGS = (
+    "token", "speaker", "ts", "endTs", "punctuation", "prepunctuation",
+    "case", "tags", "wer_tags", "oldTs", "oldEndTs", "ali_comment",
+)
 EXCLUDED_CLASSES = frozenset(
     {"DATE", "TIME", "YEAR", "MONEY", "PERCENT", "CARDINAL", "ORDINAL", "QUANTITY", "DURATION", "MEASURE"}
 )
@@ -200,12 +204,16 @@ def load_entity_mentions(path: Path) -> tuple[EntityMention, ...]:
             header = tuple(next(reader))
         except StopIteration as exc:
             raise Earnings22AuditError(f"{path.name}: empty file") from exc
-        if header != EXPECTED_HEADER:
+        if header not in {EXPECTED_HEADER, EXPECTED_HEADER_WITH_WER_TAGS}:
             raise Earnings22AuditError(f"{path.name}: header drift")
+        columns = {name: index for index, name in enumerate(header)}
         for line, row in enumerate(reader, start=2):
-            if len(row) != len(EXPECTED_HEADER):
+            if len(row) != len(header):
                 raise Earnings22AuditError(f"{path.name}:{line}: column count drift")
-            token, speaker, raw_ts, _, _, _, _, raw_tags, _, _, _ = row
+            token = row[columns["token"]]
+            speaker = row[columns["speaker"]]
+            raw_ts = row[columns["ts"]]
+            raw_tags = row[columns["tags"]]
             if not token or not speaker:
                 raise Earnings22AuditError(f"{path.name}:{line}: empty token or speaker")
             timestamp: float | None = None

@@ -15,3 +15,5 @@
 - [正式预注册](../../readiness/2026-08-21-e4-xdomain-supply-audit-v2-preregistration.md)
 - [预读 schema amendment](../../readiness/2026-08-21-e4-xdomain-supply-audit-v2-schema-amendment.md)
 - [实现与输入冻结](../../readiness/2026-08-21-e4-xdomain-supply-audit-v2-implementation-amendment.md)
+- [失败尝试记录](../../checks/2026-08-21-e4-xdomain-supply-audit-v2-attempt-1-invalid/README.md)
+- [预读恢复 amendment](../../readiness/2026-08-21-e4-xdomain-supply-audit-v2-recovery-amendment.md)
