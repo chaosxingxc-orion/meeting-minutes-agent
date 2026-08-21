@@ -1,7 +1,7 @@
 # E4-XDOMAIN-SUPPLY-AUDIT：跨领域 speaker carry 供给审计
 
 日期：2026-08-21  
-状态：**设计已冻结；尚未读取全量 carry 统计**  
+状态：**已完成唯一一次正式读取；`DOMAIN-LIMITED-SUPPLY`**
 类型：零模型、只读语料、探索性供给审计
 
 ## 研究问题与边界
@@ -43,3 +43,7 @@ QMSum 提供统一的有序 `speaker + content` 转写，但 Product 与 Academi
 4. 均未通过：`INSUFFICIENT-XDOMAIN-SUPPLY`。
 
 任何结果都不授权模型调用。通过仅允许另行预注册一个独立、平衡、带安全门的低资源 pilot；失败时不得在同一读取上放宽候选或阈值。
+
+## 正式结果
+
+Product/AMI 有 61 场会议，其中 35 场 eligible，共 187 个 speaker-exclusive carry；但严格技术型 carry 只有 3 个，未达到 10 个门槛。Academic/ICSI 的 41 场全部 eligible，共 753 个 exclusive carry、254 个严格技术型 carry，全部门槛通过。机械判决为 `DOMAIN-LIMITED-SUPPLY`：Academic 供给充分，Product 的 name-like 上界不能替代缺失的严格技术供给，因此不放行平衡跨域模型 pilot。

@@ -69,3 +69,9 @@ prevalence 从20级的62.96%、40级的54.81%收敛到60级的52.76%；最终163
 已按读取前冻结的四个候选执行唯一一次审计，判为 `NO-SAFE-GATE`。重复证据门覆盖为0；近期门只覆盖10–11个 target、无 carry 增益并各新增1个 false hint。`inventory_le2` 是唯一通过覆盖与安全门的规则（27/86 targets、24 dialogues、false-hint增量0），但 carry hit和carry NE-WER增益也都归零。
 
 因此简单 evidence/recency/width 门不是可扩展候选：它在当前 surface 内已无法兼顾收益与安全，跨领域能力更不可识别。停止在同一结果上继续调阈值；完整 flight、E5 和 agent loop 均不放行。
+
+### E4-XDOMAIN-SUPPLY-AUDIT 跨领域供给审计
+
+在不调用模型、不解码音频的条件下，冻结并读取了102场 QMSum train 会议：61场 Product/AMI `glossary-discovery` 和41场 Academic/ICSI；两个领域的 val/test 均未读取。机械判决为 `DOMAIN-LIMITED-SUPPLY`。
+
+Academic 的41场全部 eligible，共753个 speaker-exclusive carry、254个严格技术型 carry，全部门槛通过。Product 有35场 eligible、187个 exclusive carry，总量与集中度通过，但严格技术型 carry 只有3个，低于冻结门槛10。Product 的重复主要落在容易被大写启发式高估的 `name_like` 代理上，不能事后删除严格门。因此不启动平衡跨域模型 pilot；若要继续，应先寻找新的 Product/business meeting surface，或另行决策并预注册 Academic 域内 pilot。
