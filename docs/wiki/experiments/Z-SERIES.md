@@ -1,12 +1,13 @@
 # Z-SERIES：前置多臂实验
 
-- 状态：`已暂缓`
-- 当前决定：不运行、不补算，等待可复核证据或重新授权。
+- 状态：`已判读`
+- 当前决定：G1 floors 已完成，不重跑；结论仅作为描述性基线，不选择后续分支。
 
-领导截图提到 `Z-turn=0.6099`、`Z-free=0.873`、`Z-nodiar=0.882`、`Z-oracle=0.6061`，但当前主仓库、分支、GitHub Wiki 和 issue/PR 中均未找到对应配置、逐会议结果、置信区间、receipt 或正式 verdict。因此这些数值只能标为“外部汇报值，待归档”，不能用于论文结论或后续优化证明。
+远端主仓库已归档 dev-18 四臂 G1 floors：1,932/1,932 calls 可评分，Z-turn、Z-oracle、Z-free、Z-nodiar 的平均 cpWER 分别为 `0.6099`、`0.6061`、`0.8726`、`0.8816`。这与领导截图一致，并有预注册、逐会议结果、cluster bootstrap、flight receipt 和一次性 read 支撑。
 
-仓库内只可复核 P-ATTR 对应的 A-free/A-turn 证据，以及 G1 草案中的部分 Z 命名。若恢复本系列，必须先执行 Z-AUDIT，统一定义音频单元、speaker 信息进入位置、标签来源、scorer 和唯一变化因素。
+主要解释是：Z-free 相对 Z-turn 的 cpWER 高 `+0.2627`（90% CI `[+0.2286,+0.2978]`），其中约 `+0.1947` 来自 speaker assignment；Z-nodiar 相对 Z-free 仅 `+0.0091`，区间跨零。也就是说，主要价值来自把文本形式的转向表交给模型并按说话人装配输出，而不是切片边界本身。Z-turn 与 Z-oracle 的 cpWER 差 `+0.0037`，区间跨零，不能声称工具 diarizer 优于或等同 oracle；结果还受 AMI 域内 diarizer 影响。
 
-- [完整研究计划中的 Z-AUDIT](../../plans/2026-08-20-speaker-conditioned-transcription-optimization.md#12-必须补做的-z-audit)
-- [旧 G1 预注册草案](../../readiness/2026-08-18-g1-preregistration-draft.md)
-- [P-ATTR 判读](../../readiness/2026-08-18-pattr-verdict.md)
+- [正式预注册](../../readiness/2026-08-19-g1-floors-preregistration.md)
+- [一次性描述性判读](../../readiness/2026-08-19-g1-floors-verdict.md)
+- [Flight 回执](../../checks/2026-08-19-g1-floors-flight/README.md)
+- [Read 证据](../../checks/2026-08-19-g1-floors-read/README.md)

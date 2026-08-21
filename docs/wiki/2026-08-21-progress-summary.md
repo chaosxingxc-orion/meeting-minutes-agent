@@ -53,3 +53,7 @@ prevalence 从20级的62.96%、40级的54.81%收敛到60级的52.76%；最终163
 如果继续，建议只另起约172次调用的 D0-global vs D1-speaker 方向性 pilot，明确标为 underpowered exploratory；在新注册和授权前不调用第二遍。
 
 证据入口：[机制审计判读](../readiness/2026-08-21-e4-cf-mechanism-verdict.md)、[机制机器结果](../checks/2026-08-21-e4-cf-mechanism-read/verdict.json)、[功效审计判读](../readiness/2026-08-21-e4-disjoint-power-verdict.md)、[功效机器结果](../checks/2026-08-21-e4-disjoint-power/verdict.json)。
+
+### 远端同步更正
+
+同步 `origin/master` 后确认，PRECOMP 已完成 Wave-1 dev-18 与 Wave-2 supplement 76/76；G1/Z 四臂也已完成 1,932-call floors campaign 和一次性描述性读取。领导截图中的 Z-turn/Z-oracle/Z-free/Z-nodiar 数值已有仓库证据，不再标记为“待归档”。该结果不改变 E4 的研究问题：G1 主要测量转向表、归属输出与切片几何，E4 测量同一固定音频片段上 speaker-specific 文本状态的增益。
