@@ -1,0 +1,67 @@
+{
+  "analysis_class": "exploratory-zero-model-upstream-entity-supply",
+  "audio_ready": false,
+  "decision": "EARNINGS22-SUPPLY-FEASIBLE",
+  "discovery": {
+    "candidate_units": 12970,
+    "candidate_units_by_class": {
+      "ABBREVIATION": 2127,
+      "ALPHANUMERIC": 1021,
+      "CONTRACTION": 7097,
+      "FALLBACK": 2691,
+      "PHONE": 1,
+      "RANGE": 21,
+      "WEBSITE": 36
+    },
+    "eligible_meetings": 67,
+    "excluded_unaligned_mentions": 6873,
+    "exclusive_per_meeting": {
+      "max": 147,
+      "median": 16,
+      "min": 0,
+      "p25": 5,
+      "p75": 28
+    },
+    "exclusive_units_by_class": {
+      "ABBREVIATION": 345,
+      "ALPHANUMERIC": 193,
+      "CONTRACTION": 1003,
+      "FALLBACK": 263,
+      "RANGE": 2
+    },
+    "gates": {
+      "eligible_meetings": true,
+      "exclusive_carry": true,
+      "meetings": true,
+      "surface_concentration": true
+    },
+    "global_only_carry": 3136,
+    "max_single_surface_share": 0.08874098724348309,
+    "meetings": 80,
+    "passes": true,
+    "same_speaker_carry": 4757,
+    "shared_carry": 2954,
+    "speaker_exclusive_carry": 1803
+  },
+  "effect_identified": false,
+  "input_manifest_hash": "67f0fc955ff9057ee5819ee3f05957ad1a04d2603564ba75366d4d319e2bd313",
+  "limitations": [
+    "Upstream entity annotations are professional-entity proxies, not transcription errors.",
+    "Fixed timestamp bins approximate, but do not reproduce, the production diarizer-aware slicer.",
+    "Supply feasibility does not estimate transcription benefit or false-hint safety.",
+    "Audio licensing and acquisition remain unresolved."
+  ],
+  "model_calls": 0,
+  "pseudo_slice_seconds": 90.0,
+  "schema_version": "e4-xdomain-supply-v2-verdict-v1",
+  "split": {
+    "discovery": 80,
+    "reserve_unread": 45
+  },
+  "thresholds": {
+    "max_single_surface_share": 0.2,
+    "min_eligible_meetings": 20,
+    "min_exclusive_carry": 100,
+    "min_meetings": 20
+  }
+}

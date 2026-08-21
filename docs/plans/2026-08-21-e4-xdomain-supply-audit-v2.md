@@ -1,7 +1,7 @@
 # E4-XDOMAIN-SUPPLY-AUDIT-v2：Earnings-22 专业实体供给审计
 
 日期：2026-08-21  
-状态：**已预注册，尚未正式读取**  
+状态：**replacement read 已完成；机械通过，专业代理未确认**
 类型：零模型、只读文本、探索性供给审计
 
 ## 研究问题与边界
@@ -29,3 +29,9 @@ v1 已证明 Academic/ICSI 的 speaker-exclusive 词项供给充足，但 Produc
 主要门槛沿用 v1 的规模与集中度口径：discovery meetings ≥ 20；至少 20 场各有 ≥ 2 个 exclusive carry；exclusive carry ≥ 100；最大单 surface 占比 ≤ 20%。另报告候选 mention、same-speaker/shared/global-only carry、实体类别数和每场分布，但不据此改门。
 
 判决仅为：全部通过得 `EARNINGS22-SUPPLY-FEASIBLE`，任一失败得 `INSUFFICIENT-EARNINGS22-SUPPLY`，完整性失败得 `INVALID-AUDIT`。只能进行一次正式 discovery 聚合读取；读取后不得放宽类表、split 或阈值。
+
+## 正式结果与解释
+
+首次读取因 1 个文件带官方文档所述 `wer_tags` 列而 fail closed，未产出聚合结果；恢复 amendment 冻结后完成 replacement read。80 场 discovery 中 67 场 eligible，speaker-exclusive carry 为 1,803，最大单 surface 占比 8.87%，机械判决为 `EARNINGS22-SUPPLY-FEASIBLE`。45 场 reserve 未读，模型与音频调用均为 0。
+
+但 `CONTRACTION` 与 `FALLBACK` 占 exclusive carry 的 1,266/1,803（70.2%），证明冻结的宽类表衡量的是广义上游 WER 标签复现，而不是纯专业实体。`ABBREVIATION + ALPHANUMERIC` 有 538 个 exclusive 单元，但没有独立预注册 meeting-level 门，不能事后改写为确认结论。下一步只能在未读 reserve 上另行预注册窄类确认审计。

@@ -75,3 +75,9 @@ prevalence 从20级的62.96%、40级的54.81%收敛到60级的52.76%；最终163
 在不调用模型、不解码音频的条件下，冻结并读取了102场 QMSum train 会议：61场 Product/AMI `glossary-discovery` 和41场 Academic/ICSI；两个领域的 val/test 均未读取。机械判决为 `DOMAIN-LIMITED-SUPPLY`。
 
 Academic 的41场全部 eligible，共753个 speaker-exclusive carry、254个严格技术型 carry，全部门槛通过。Product 有35场 eligible、187个 exclusive carry，总量与集中度通过，但严格技术型 carry 只有3个，低于冻结门槛10。Product 的重复主要落在容易被大写启发式高估的 `name_like` 代理上，不能事后删除严格门。因此不启动平衡跨域模型 pilot；若要继续，应先寻找新的 Product/business meeting surface，或另行决策并预注册 Academic 域内 pilot。
+
+### Earnings-22 新 surface 审计
+
+已将 Earnings-22 文本层固定到官方提交，按 salted SHA-256 划分为80场 discovery 与45场 reserve。首次正式读取因一个文件含官方文档所述 `wer_tags` 列而 fail closed，未输出统计；失败记录与恢复 amendment 均已提交。replacement read 模型调用为0，45场 reserve 保持未读。
+
+机器判决为 `EARNINGS22-SUPPLY-FEASIBLE`：67/80场 eligible，1,803个 speaker-exclusive carry，最大单 surface 占8.87%。但 `CONTRACTION/FALLBACK` 占1,266个（70.2%），说明宽类表主要测到广义 WER 标签复现，不能确认专业实体供给。`ABBREVIATION/ALPHANUMERIC` 有538个 exclusive 单元，但尚无独立 meeting-level 门。若继续，应只在未读 reserve 上新注册窄类确认审计；音频、模型 pilot 与 agent loop 仍未放行。
