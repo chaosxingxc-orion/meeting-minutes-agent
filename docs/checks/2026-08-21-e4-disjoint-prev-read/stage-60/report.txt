@@ -1,0 +1,11 @@
+decision: PREVALENCE-SCREEN-PASS
+stage_dialogues: 60
+pass0_calls: 795
+natural_carry_targets: 164
+usable_targets: 163
+usable_carry_fraction: 0.994286
+predicate_positive_targets: 86
+predicate_prevalence: 0.527607
+break_even_prevalence: 0.482938
+cluster_bootstrap_80: (0.46706586826347307, 0.5900621118012422)
+cluster_bootstrap_90: (0.4491017964071856, 0.6078431372549019)

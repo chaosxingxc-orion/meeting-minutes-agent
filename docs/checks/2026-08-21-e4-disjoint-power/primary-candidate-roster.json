@@ -1,0 +1,13 @@
+{
+  "schema_version": "e4-disjoint-primary-candidate-roster-v1",
+  "experiment_id": "E4-DISJOINT-POWER-v1",
+  "status": "candidate-only; model contact not authorized",
+  "seed": "e4-disjoint-power-2026-08-21-v1",
+  "source_jsonl_sha256": "4bbf64387d1c581df2c7ab5db9af4461e1112ee489377b67084c9b40cb6d45e8",
+  "selection_assumptions": {
+    "mde": 0.03,
+    "predicate_prevalence": 0.4,
+    "usable_state_fraction": 0.85
+  },
+  "entries": []
+}

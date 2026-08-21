@@ -1,0 +1,8 @@
+{
+  "git_head": "83cf4b6dd1f1589229e929f57230e970351c42d0",
+  "model_sha256": "d9e2876556e7873e02c0359f832432ee2d67ab7dd0cee3efe0f77fd7a1f4dd85",
+  "mmproj_sha256": "1104376db833f1e89c84834144ac3863340c2cd1ddaeddb39cb0247fb5c20c8d",
+  "server_sha256": "ad694375c10915986a1c5cd7e35edb2962718320d8a9752ae77e41bd0f674fa9",
+  "server_args": "-c 16384 -np 1 -fa on -ngl 999 -ctk q8_0 -ctv q8_0",
+  "feature_cache": "e4-confirmatory-q4km"
+}

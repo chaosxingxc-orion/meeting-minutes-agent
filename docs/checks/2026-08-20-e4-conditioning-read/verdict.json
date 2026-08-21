@@ -1,0 +1,3289 @@
+{
+  "schema_version": "e4-conditioning-verdict-v1",
+  "manifest_hash": "543b7109f35dbeccf14263e1441522122bab9c4ab8ba8751c7929d28a94f7a5d",
+  "aggregate": {
+    "E4-0-bare": {
+      "wer": 0.04187437686939183,
+      "carry_ne_wer": 0.09375,
+      "carry_fnr": 0.15000000000000002,
+      "wer_errors": 42,
+      "wer_tokens": 1003,
+      "carry_errors": 6,
+      "carry_tokens": 64,
+      "carry_hits": 34,
+      "carry_total": 40,
+      "false_hint_activations": 0,
+      "truncated": 0
+    },
+    "E4-1-label": {
+      "wer": 0.049850448654037885,
+      "carry_ne_wer": 0.09375,
+      "carry_fnr": 0.15000000000000002,
+      "wer_errors": 50,
+      "wer_tokens": 1003,
+      "carry_errors": 6,
+      "carry_tokens": 64,
+      "carry_hits": 34,
+      "carry_total": 40,
+      "false_hint_activations": 0,
+      "truncated": 0
+    },
+    "E4-2-global": {
+      "wer": 0.0448654037886341,
+      "carry_ne_wer": 0.09375,
+      "carry_fnr": 0.15000000000000002,
+      "wer_errors": 45,
+      "wer_tokens": 1003,
+      "carry_errors": 6,
+      "carry_tokens": 64,
+      "carry_hits": 34,
+      "carry_total": 40,
+      "false_hint_activations": 3,
+      "truncated": 0
+    },
+    "E4-3-speaker": {
+      "wer": 0.038883349950149554,
+      "carry_ne_wer": 0.078125,
+      "carry_fnr": 0.125,
+      "wer_errors": 39,
+      "wer_tokens": 1003,
+      "carry_errors": 5,
+      "carry_tokens": 64,
+      "carry_hits": 35,
+      "carry_total": 40,
+      "false_hint_activations": 4,
+      "truncated": 0
+    },
+    "E4-4-wrong": {
+      "wer": 0.05084745762711865,
+      "carry_ne_wer": 0.109375,
+      "carry_fnr": 0.17500000000000004,
+      "wer_errors": 51,
+      "wer_tokens": 1003,
+      "carry_errors": 7,
+      "carry_tokens": 64,
+      "carry_hits": 33,
+      "carry_total": 40,
+      "false_hint_activations": 4,
+      "truncated": 0
+    },
+    "E4-5-corrupt": {
+      "wer": 0.04287138584247258,
+      "carry_ne_wer": 0.15625,
+      "carry_fnr": 0.25,
+      "wer_errors": 43,
+      "wer_tokens": 1003,
+      "carry_errors": 10,
+      "carry_tokens": 64,
+      "carry_hits": 30,
+      "carry_total": 40,
+      "false_hint_activations": 4,
+      "truncated": 0
+    }
+  },
+  "contrasts": {
+    "speaker_vs_bare": {
+      "corrected": 2,
+      "broken": 1,
+      "wer_delta": -0.0029910269192422734,
+      "carry_ne_wer_delta": -0.015625
+    },
+    "speaker_vs_wrong": {
+      "carry_hit_advantage": 2
+    }
+  },
+  "decision": "CONTEXT-SENSITIVE-NOT-SPEAKER-SPECIFIC",
+  "scores": [
+    {
+      "target_id": "00539-3-turn003",
+      "uniq_id": "00539-3",
+      "arm": "E4-0-bare",
+      "wer_errors": 0,
+      "wer_tokens": 36,
+      "carry_errors": 0,
+      "carry_tokens": 1,
+      "carry_hits": [
+        "Marty"
+      ],
+      "carry_total": 1,
+      "false_hint_activations": 0,
+      "completion_tokens": 44
+    },
+    {
+      "target_id": "00539-3-turn003",
+      "uniq_id": "00539-3",
+      "arm": "E4-1-label",
+      "wer_errors": 0,
+      "wer_tokens": 36,
+      "carry_errors": 0,
+      "carry_tokens": 1,
+      "carry_hits": [
+        "Marty"
+      ],
+      "carry_total": 1,
+      "false_hint_activations": 0,
+      "completion_tokens": 44
+    },
+    {
+      "target_id": "00539-3-turn003",
+      "uniq_id": "00539-3",
+      "arm": "E4-2-global",
+      "wer_errors": 0,
+      "wer_tokens": 36,
+      "carry_errors": 0,
+      "carry_tokens": 1,
+      "carry_hits": [
+        "Marty"
+      ],
+      "carry_total": 1,
+      "false_hint_activations": 0,
+      "completion_tokens": 41
+    },
+    {
+      "target_id": "00539-3-turn003",
+      "uniq_id": "00539-3",
+      "arm": "E4-3-speaker",
+      "wer_errors": 0,
+      "wer_tokens": 36,
+      "carry_errors": 0,
+      "carry_tokens": 1,
+      "carry_hits": [
+        "Marty"
+      ],
+      "carry_total": 1,
+      "false_hint_activations": 0,
+      "completion_tokens": 41
+    },
+    {
+      "target_id": "00539-3-turn003",
+      "uniq_id": "00539-3",
+      "arm": "E4-4-wrong",
+      "wer_errors": 1,
+      "wer_tokens": 36,
+      "carry_errors": 0,
+      "carry_tokens": 1,
+      "carry_hits": [
+        "Marty"
+      ],
+      "carry_total": 1,
+      "false_hint_activations": 0,
+      "completion_tokens": 41
+    },
+    {
+      "target_id": "00539-3-turn003",
+      "uniq_id": "00539-3",
+      "arm": "E4-5-corrupt",
+      "wer_errors": 0,
+      "wer_tokens": 36,
+      "carry_errors": 0,
+      "carry_tokens": 1,
+      "carry_hits": [
+        "Marty"
+      ],
+      "carry_total": 1,
+      "false_hint_activations": 0,
+      "completion_tokens": 44
+    },
+    {
+      "target_id": "00539-3-turn005",
+      "uniq_id": "00539-3",
+      "arm": "E4-0-bare",
+      "wer_errors": 2,
+      "wer_tokens": 36,
+      "carry_errors": 0,
+      "carry_tokens": 1,
+      "carry_hits": [
+        "Marty"
+      ],
+      "carry_total": 1,
+      "false_hint_activations": 0,
+      "completion_tokens": 46
+    },
+    {
+      "target_id": "00539-3-turn005",
+      "uniq_id": "00539-3",
+      "arm": "E4-1-label",
+      "wer_errors": 2,
+      "wer_tokens": 36,
+      "carry_errors": 0,
+      "carry_tokens": 1,
+      "carry_hits": [
+        "Marty"
+      ],
+      "carry_total": 1,
+      "false_hint_activations": 0,
+      "completion_tokens": 46
+    },
+    {
+      "target_id": "00539-3-turn005",
+      "uniq_id": "00539-3",
+      "arm": "E4-2-global",
+      "wer_errors": 3,
+      "wer_tokens": 36,
+      "carry_errors": 0,
+      "carry_tokens": 1,
+      "carry_hits": [
+        "Marty"
+      ],
+      "carry_total": 1,
+      "false_hint_activations": 0,
+      "completion_tokens": 47
+    },
+    {
+      "target_id": "00539-3-turn005",
+      "uniq_id": "00539-3",
+      "arm": "E4-3-speaker",
+      "wer_errors": 2,
+      "wer_tokens": 36,
+      "carry_errors": 0,
+      "carry_tokens": 1,
+      "carry_hits": [
+        "Marty"
+      ],
+      "carry_total": 1,
+      "false_hint_activations": 0,
+      "completion_tokens": 46
+    },
+    {
+      "target_id": "00539-3-turn005",
+      "uniq_id": "00539-3",
+      "arm": "E4-4-wrong",
+      "wer_errors": 3,
+      "wer_tokens": 36,
+      "carry_errors": 0,
+      "carry_tokens": 1,
+      "carry_hits": [
+        "Marty"
+      ],
+      "carry_total": 1,
+      "false_hint_activations": 0,
+      "completion_tokens": 47
+    },
+    {
+      "target_id": "00539-3-turn005",
+      "uniq_id": "00539-3",
+      "arm": "E4-5-corrupt",
+      "wer_errors": 3,
+      "wer_tokens": 36,
+      "carry_errors": 0,
+      "carry_tokens": 1,
+      "carry_hits": [
+        "Marty"
+      ],
+      "carry_total": 1,
+      "false_hint_activations": 0,
+      "completion_tokens": 47
+    },
+    {
+      "target_id": "00539-3-turn006",
+      "uniq_id": "00539-3",
+      "arm": "E4-0-bare",
+      "wer_errors": 2,
+      "wer_tokens": 36,
+      "carry_errors": 0,
+      "carry_tokens": 1,
+      "carry_hits": [
+        "Marty"
+      ],
+      "carry_total": 1,
+      "false_hint_activations": 0,
+      "completion_tokens": 47
+    },
+    {
+      "target_id": "00539-3-turn006",
+      "uniq_id": "00539-3",
+      "arm": "E4-1-label",
+      "wer_errors": 2,
+      "wer_tokens": 36,
+      "carry_errors": 0,
+      "carry_tokens": 1,
+      "carry_hits": [
+        "Marty"
+      ],
+      "carry_total": 1,
+      "false_hint_activations": 0,
+      "completion_tokens": 47
+    },
+    {
+      "target_id": "00539-3-turn006",
+      "uniq_id": "00539-3",
+      "arm": "E4-2-global",
+      "wer_errors": 0,
+      "wer_tokens": 36,
+      "carry_errors": 0,
+      "carry_tokens": 1,
+      "carry_hits": [
+        "Marty"
+      ],
+      "carry_total": 1,
+      "false_hint_activations": 0,
+      "completion_tokens": 45
+    },
+    {
+      "target_id": "00539-3-turn006",
+      "uniq_id": "00539-3",
+      "arm": "E4-3-speaker",
+      "wer_errors": 0,
+      "wer_tokens": 36,
+      "carry_errors": 0,
+      "carry_tokens": 1,
+      "carry_hits": [
+        "Marty"
+      ],
+      "carry_total": 1,
+      "false_hint_activations": 0,
+      "completion_tokens": 45
+    },
+    {
+      "target_id": "00539-3-turn006",
+      "uniq_id": "00539-3",
+      "arm": "E4-4-wrong",
+      "wer_errors": 0,
+      "wer_tokens": 36,
+      "carry_errors": 0,
+      "carry_tokens": 1,
+      "carry_hits": [
+        "Marty"
+      ],
+      "carry_total": 1,
+      "false_hint_activations": 0,
+      "completion_tokens": 45
+    },
+    {
+      "target_id": "00539-3-turn006",
+      "uniq_id": "00539-3",
+      "arm": "E4-5-corrupt",
+      "wer_errors": 0,
+      "wer_tokens": 36,
+      "carry_errors": 0,
+      "carry_tokens": 1,
+      "carry_hits": [
+        "Marty"
+      ],
+      "carry_total": 1,
+      "false_hint_activations": 0,
+      "completion_tokens": 45
+    },
+    {
+      "target_id": "00539-3-turn007",
+      "uniq_id": "00539-3",
+      "arm": "E4-0-bare",
+      "wer_errors": 1,
+      "wer_tokens": 24,
+      "carry_errors": 0,
+      "carry_tokens": 1,
+      "carry_hits": [
+        "Marty"
+      ],
+      "carry_total": 1,
+      "false_hint_activations": 0,
+      "completion_tokens": 29
+    },
+    {
+      "target_id": "00539-3-turn007",
+      "uniq_id": "00539-3",
+      "arm": "E4-1-label",
+      "wer_errors": 0,
+      "wer_tokens": 24,
+      "carry_errors": 0,
+      "carry_tokens": 1,
+      "carry_hits": [
+        "Marty"
+      ],
+      "carry_total": 1,
+      "false_hint_activations": 0,
+      "completion_tokens": 30
+    },
+    {
+      "target_id": "00539-3-turn007",
+      "uniq_id": "00539-3",
+      "arm": "E4-2-global",
+      "wer_errors": 1,
+      "wer_tokens": 24,
+      "carry_errors": 0,
+      "carry_tokens": 1,
+      "carry_hits": [
+        "Marty"
+      ],
+      "carry_total": 1,
+      "false_hint_activations": 0,
+      "completion_tokens": 29
+    },
+    {
+      "target_id": "00539-3-turn007",
+      "uniq_id": "00539-3",
+      "arm": "E4-3-speaker",
+      "wer_errors": 1,
+      "wer_tokens": 24,
+      "carry_errors": 0,
+      "carry_tokens": 1,
+      "carry_hits": [
+        "Marty"
+      ],
+      "carry_total": 1,
+      "false_hint_activations": 0,
+      "completion_tokens": 29
+    },
+    {
+      "target_id": "00539-3-turn007",
+      "uniq_id": "00539-3",
+      "arm": "E4-4-wrong",
+      "wer_errors": 1,
+      "wer_tokens": 24,
+      "carry_errors": 0,
+      "carry_tokens": 1,
+      "carry_hits": [
+        "Marty"
+      ],
+      "carry_total": 1,
+      "false_hint_activations": 0,
+      "completion_tokens": 29
+    },
+    {
+      "target_id": "00539-3-turn007",
+      "uniq_id": "00539-3",
+      "arm": "E4-5-corrupt",
+      "wer_errors": 1,
+      "wer_tokens": 24,
+      "carry_errors": 0,
+      "carry_tokens": 1,
+      "carry_hits": [
+        "Marty"
+      ],
+      "carry_total": 1,
+      "false_hint_activations": 0,
+      "completion_tokens": 29
+    },
+    {
+      "target_id": "00539-3-turn009",
+      "uniq_id": "00539-3",
+      "arm": "E4-0-bare",
+      "wer_errors": 2,
+      "wer_tokens": 32,
+      "carry_errors": 0,
+      "carry_tokens": 1,
+      "carry_hits": [
+        "Marty"
+      ],
+      "carry_total": 1,
+      "false_hint_activations": 0,
+      "completion_tokens": 47
+    },
+    {
+      "target_id": "00539-3-turn009",
+      "uniq_id": "00539-3",
+      "arm": "E4-1-label",
+      "wer_errors": 5,
+      "wer_tokens": 32,
+      "carry_errors": 0,
+      "carry_tokens": 1,
+      "carry_hits": [
+        "Marty"
+      ],
+      "carry_total": 1,
+      "false_hint_activations": 0,
+      "completion_tokens": 48
+    },
+    {
+      "target_id": "00539-3-turn009",
+      "uniq_id": "00539-3",
+      "arm": "E4-2-global",
+      "wer_errors": 0,
+      "wer_tokens": 32,
+      "carry_errors": 0,
+      "carry_tokens": 1,
+      "carry_hits": [
+        "Marty"
+      ],
+      "carry_total": 1,
+      "false_hint_activations": 0,
+      "completion_tokens": 44
+    },
+    {
+      "target_id": "00539-3-turn009",
+      "uniq_id": "00539-3",
+      "arm": "E4-3-speaker",
+      "wer_errors": 0,
+      "wer_tokens": 32,
+      "carry_errors": 0,
+      "carry_tokens": 1,
+      "carry_hits": [
+        "Marty"
+      ],
+      "carry_total": 1,
+      "false_hint_activations": 0,
+      "completion_tokens": 43
+    },
+    {
+      "target_id": "00539-3-turn009",
+      "uniq_id": "00539-3",
+      "arm": "E4-4-wrong",
+      "wer_errors": 2,
+      "wer_tokens": 32,
+      "carry_errors": 0,
+      "carry_tokens": 1,
+      "carry_hits": [
+        "Marty"
+      ],
+      "carry_total": 1,
+      "false_hint_activations": 0,
+      "completion_tokens": 44
+    },
+    {
+      "target_id": "00539-3-turn009",
+      "uniq_id": "00539-3",
+      "arm": "E4-5-corrupt",
+      "wer_errors": 1,
+      "wer_tokens": 32,
+      "carry_errors": 0,
+      "carry_tokens": 1,
+      "carry_hits": [
+        "Marty"
+      ],
+      "carry_total": 1,
+      "false_hint_activations": 0,
+      "completion_tokens": 44
+    },
+    {
+      "target_id": "00952-4-turn006",
+      "uniq_id": "00952-4",
+      "arm": "E4-0-bare",
+      "wer_errors": 0,
+      "wer_tokens": 27,
+      "carry_errors": 0,
+      "carry_tokens": 2,
+      "carry_hits": [
+        "Kerry Conran"
+      ],
+      "carry_total": 1,
+      "false_hint_activations": 0,
+      "completion_tokens": 40
+    },
+    {
+      "target_id": "00952-4-turn006",
+      "uniq_id": "00952-4",
+      "arm": "E4-1-label",
+      "wer_errors": 0,
+      "wer_tokens": 27,
+      "carry_errors": 0,
+      "carry_tokens": 2,
+      "carry_hits": [
+        "Kerry Conran"
+      ],
+      "carry_total": 1,
+      "false_hint_activations": 0,
+      "completion_tokens": 40
+    },
+    {
+      "target_id": "00952-4-turn006",
+      "uniq_id": "00952-4",
+      "arm": "E4-2-global",
+      "wer_errors": 1,
+      "wer_tokens": 27,
+      "carry_errors": 0,
+      "carry_tokens": 2,
+      "carry_hits": [
+        "Kerry Conran"
+      ],
+      "carry_total": 1,
+      "false_hint_activations": 0,
+      "completion_tokens": 34
+    },
+    {
+      "target_id": "00952-4-turn006",
+      "uniq_id": "00952-4",
+      "arm": "E4-3-speaker",
+      "wer_errors": 2,
+      "wer_tokens": 27,
+      "carry_errors": 1,
+      "carry_tokens": 2,
+      "carry_hits": [],
+      "carry_total": 1,
+      "false_hint_activations": 0,
+      "completion_tokens": 41
+    },
+    {
+      "target_id": "00952-4-turn006",
+      "uniq_id": "00952-4",
+      "arm": "E4-4-wrong",
+      "wer_errors": 1,
+      "wer_tokens": 27,
+      "carry_errors": 0,
+      "carry_tokens": 2,
+      "carry_hits": [
+        "Kerry Conran"
+      ],
+      "carry_total": 1,
+      "false_hint_activations": 0,
+      "completion_tokens": 34
+    },
+    {
+      "target_id": "00952-4-turn006",
+      "uniq_id": "00952-4",
+      "arm": "E4-5-corrupt",
+      "wer_errors": 1,
+      "wer_tokens": 27,
+      "carry_errors": 1,
+      "carry_tokens": 2,
+      "carry_hits": [],
+      "carry_total": 1,
+      "false_hint_activations": 0,
+      "completion_tokens": 40
+    },
+    {
+      "target_id": "00952-4-turn010",
+      "uniq_id": "00952-4",
+      "arm": "E4-0-bare",
+      "wer_errors": 0,
+      "wer_tokens": 29,
+      "carry_errors": 0,
+      "carry_tokens": 2,
+      "carry_hits": [
+        "Kerry Conran"
+      ],
+      "carry_total": 1,
+      "false_hint_activations": 0,
+      "completion_tokens": 40
+    },
+    {
+      "target_id": "00952-4-turn010",
+      "uniq_id": "00952-4",
+      "arm": "E4-1-label",
+      "wer_errors": 0,
+      "wer_tokens": 29,
+      "carry_errors": 0,
+      "carry_tokens": 2,
+      "carry_hits": [
+        "Kerry Conran"
+      ],
+      "carry_total": 1,
+      "false_hint_activations": 0,
+      "completion_tokens": 40
+    },
+    {
+      "target_id": "00952-4-turn010",
+      "uniq_id": "00952-4",
+      "arm": "E4-2-global",
+      "wer_errors": 0,
+      "wer_tokens": 29,
+      "carry_errors": 0,
+      "carry_tokens": 2,
+      "carry_hits": [
+        "Kerry Conran"
+      ],
+      "carry_total": 1,
+      "false_hint_activations": 0,
+      "completion_tokens": 40
+    },
+    {
+      "target_id": "00952-4-turn010",
+      "uniq_id": "00952-4",
+      "arm": "E4-3-speaker",
+      "wer_errors": 0,
+      "wer_tokens": 29,
+      "carry_errors": 0,
+      "carry_tokens": 2,
+      "carry_hits": [
+        "Kerry Conran"
+      ],
+      "carry_total": 1,
+      "false_hint_activations": 0,
+      "completion_tokens": 40
+    },
+    {
+      "target_id": "00952-4-turn010",
+      "uniq_id": "00952-4",
+      "arm": "E4-4-wrong",
+      "wer_errors": 0,
+      "wer_tokens": 29,
+      "carry_errors": 0,
+      "carry_tokens": 2,
+      "carry_hits": [
+        "Kerry Conran"
+      ],
+      "carry_total": 1,
+      "false_hint_activations": 0,
+      "completion_tokens": 40
+    },
+    {
+      "target_id": "00952-4-turn010",
+      "uniq_id": "00952-4",
+      "arm": "E4-5-corrupt",
+      "wer_errors": 0,
+      "wer_tokens": 29,
+      "carry_errors": 0,
+      "carry_tokens": 2,
+      "carry_hits": [
+        "Kerry Conran"
+      ],
+      "carry_total": 1,
+      "false_hint_activations": 0,
+      "completion_tokens": 40
+    },
+    {
+      "target_id": "00952-4-turn011",
+      "uniq_id": "00952-4",
+      "arm": "E4-0-bare",
+      "wer_errors": 0,
+      "wer_tokens": 29,
+      "carry_errors": 0,
+      "carry_tokens": 2,
+      "carry_hits": [
+        "Bai Ling"
+      ],
+      "carry_total": 1,
+      "false_hint_activations": 0,
+      "completion_tokens": 39
+    },
+    {
+      "target_id": "00952-4-turn011",
+      "uniq_id": "00952-4",
+      "arm": "E4-1-label",
+      "wer_errors": 0,
+      "wer_tokens": 29,
+      "carry_errors": 0,
+      "carry_tokens": 2,
+      "carry_hits": [
+        "Bai Ling"
+      ],
+      "carry_total": 1,
+      "false_hint_activations": 0,
+      "completion_tokens": 39
+    },
+    {
+      "target_id": "00952-4-turn011",
+      "uniq_id": "00952-4",
+      "arm": "E4-2-global",
+      "wer_errors": 1,
+      "wer_tokens": 29,
+      "carry_errors": 0,
+      "carry_tokens": 2,
+      "carry_hits": [
+        "Bai Ling"
+      ],
+      "carry_total": 1,
+      "false_hint_activations": 0,
+      "completion_tokens": 37
+    },
+    {
+      "target_id": "00952-4-turn011",
+      "uniq_id": "00952-4",
+      "arm": "E4-3-speaker",
+      "wer_errors": 0,
+      "wer_tokens": 29,
+      "carry_errors": 0,
+      "carry_tokens": 2,
+      "carry_hits": [
+        "Bai Ling"
+      ],
+      "carry_total": 1,
+      "false_hint_activations": 0,
+      "completion_tokens": 39
+    },
+    {
+      "target_id": "00952-4-turn011",
+      "uniq_id": "00952-4",
+      "arm": "E4-4-wrong",
+      "wer_errors": 2,
+      "wer_tokens": 29,
+      "carry_errors": 1,
+      "carry_tokens": 2,
+      "carry_hits": [],
+      "carry_total": 1,
+      "false_hint_activations": 1,
+      "completion_tokens": 37
+    },
+    {
+      "target_id": "00952-4-turn011",
+      "uniq_id": "00952-4",
+      "arm": "E4-5-corrupt",
+      "wer_errors": 0,
+      "wer_tokens": 29,
+      "carry_errors": 0,
+      "carry_tokens": 2,
+      "carry_hits": [
+        "Bai Ling"
+      ],
+      "carry_total": 1,
+      "false_hint_activations": 0,
+      "completion_tokens": 39
+    },
+    {
+      "target_id": "03695-5-turn005",
+      "uniq_id": "03695-5",
+      "arm": "E4-0-bare",
+      "wer_errors": 5,
+      "wer_tokens": 29,
+      "carry_errors": 0,
+      "carry_tokens": 2,
+      "carry_hits": [
+        "Woody Allen"
+      ],
+      "carry_total": 1,
+      "false_hint_activations": 0,
+      "completion_tokens": 37
+    },
+    {
+      "target_id": "03695-5-turn005",
+      "uniq_id": "03695-5",
+      "arm": "E4-1-label",
+      "wer_errors": 5,
+      "wer_tokens": 29,
+      "carry_errors": 0,
+      "carry_tokens": 2,
+      "carry_hits": [
+        "Woody Allen"
+      ],
+      "carry_total": 1,
+      "false_hint_activations": 0,
+      "completion_tokens": 37
+    },
+    {
+      "target_id": "03695-5-turn005",
+      "uniq_id": "03695-5",
+      "arm": "E4-2-global",
+      "wer_errors": 2,
+      "wer_tokens": 29,
+      "carry_errors": 0,
+      "carry_tokens": 2,
+      "carry_hits": [
+        "Woody Allen"
+      ],
+      "carry_total": 1,
+      "false_hint_activations": 1,
+      "completion_tokens": 34
+    },
+    {
+      "target_id": "03695-5-turn005",
+      "uniq_id": "03695-5",
+      "arm": "E4-3-speaker",
+      "wer_errors": 3,
+      "wer_tokens": 29,
+      "carry_errors": 0,
+      "carry_tokens": 2,
+      "carry_hits": [
+        "Woody Allen"
+      ],
+      "carry_total": 1,
+      "false_hint_activations": 1,
+      "completion_tokens": 35
+    },
+    {
+      "target_id": "03695-5-turn005",
+      "uniq_id": "03695-5",
+      "arm": "E4-4-wrong",
+      "wer_errors": 5,
+      "wer_tokens": 29,
+      "carry_errors": 0,
+      "carry_tokens": 2,
+      "carry_hits": [
+        "Woody Allen"
+      ],
+      "carry_total": 1,
+      "false_hint_activations": 0,
+      "completion_tokens": 37
+    },
+    {
+      "target_id": "03695-5-turn005",
+      "uniq_id": "03695-5",
+      "arm": "E4-5-corrupt",
+      "wer_errors": 1,
+      "wer_tokens": 29,
+      "carry_errors": 0,
+      "carry_tokens": 2,
+      "carry_hits": [
+        "Woody Allen"
+      ],
+      "carry_total": 1,
+      "false_hint_activations": 0,
+      "completion_tokens": 32
+    },
+    {
+      "target_id": "03695-5-turn006",
+      "uniq_id": "03695-5",
+      "arm": "E4-0-bare",
+      "wer_errors": 2,
+      "wer_tokens": 26,
+      "carry_errors": 0,
+      "carry_tokens": 1,
+      "carry_hits": [
+        "Giancarlo"
+      ],
+      "carry_total": 1,
+      "false_hint_activations": 0,
+      "completion_tokens": 35
+    },
+    {
+      "target_id": "03695-5-turn006",
+      "uniq_id": "03695-5",
+      "arm": "E4-1-label",
+      "wer_errors": 2,
+      "wer_tokens": 26,
+      "carry_errors": 0,
+      "carry_tokens": 1,
+      "carry_hits": [
+        "Giancarlo"
+      ],
+      "carry_total": 1,
+      "false_hint_activations": 0,
+      "completion_tokens": 35
+    },
+    {
+      "target_id": "03695-5-turn006",
+      "uniq_id": "03695-5",
+      "arm": "E4-2-global",
+      "wer_errors": 1,
+      "wer_tokens": 26,
+      "carry_errors": 0,
+      "carry_tokens": 1,
+      "carry_hits": [
+        "Giancarlo"
+      ],
+      "carry_total": 1,
+      "false_hint_activations": 0,
+      "completion_tokens": 35
+    },
+    {
+      "target_id": "03695-5-turn006",
+      "uniq_id": "03695-5",
+      "arm": "E4-3-speaker",
+      "wer_errors": 2,
+      "wer_tokens": 26,
+      "carry_errors": 0,
+      "carry_tokens": 1,
+      "carry_hits": [
+        "Giancarlo"
+      ],
+      "carry_total": 1,
+      "false_hint_activations": 0,
+      "completion_tokens": 36
+    },
+    {
+      "target_id": "03695-5-turn006",
+      "uniq_id": "03695-5",
+      "arm": "E4-4-wrong",
+      "wer_errors": 2,
+      "wer_tokens": 26,
+      "carry_errors": 0,
+      "carry_tokens": 1,
+      "carry_hits": [
+        "Giancarlo"
+      ],
+      "carry_total": 1,
+      "false_hint_activations": 1,
+      "completion_tokens": 35
+    },
+    {
+      "target_id": "03695-5-turn006",
+      "uniq_id": "03695-5",
+      "arm": "E4-5-corrupt",
+      "wer_errors": 2,
+      "wer_tokens": 26,
+      "carry_errors": 0,
+      "carry_tokens": 1,
+      "carry_hits": [
+        "Giancarlo"
+      ],
+      "carry_total": 1,
+      "false_hint_activations": 0,
+      "completion_tokens": 36
+    },
+    {
+      "target_id": "03695-5-turn008",
+      "uniq_id": "03695-5",
+      "arm": "E4-0-bare",
+      "wer_errors": 1,
+      "wer_tokens": 23,
+      "carry_errors": 0,
+      "carry_tokens": 2,
+      "carry_hits": [
+        "Jesse Eisenberg"
+      ],
+      "carry_total": 1,
+      "false_hint_activations": 0,
+      "completion_tokens": 33
+    },
+    {
+      "target_id": "03695-5-turn008",
+      "uniq_id": "03695-5",
+      "arm": "E4-1-label",
+      "wer_errors": 1,
+      "wer_tokens": 23,
+      "carry_errors": 0,
+      "carry_tokens": 2,
+      "carry_hits": [
+        "Jesse Eisenberg"
+      ],
+      "carry_total": 1,
+      "false_hint_activations": 0,
+      "completion_tokens": 32
+    },
+    {
+      "target_id": "03695-5-turn008",
+      "uniq_id": "03695-5",
+      "arm": "E4-2-global",
+      "wer_errors": 3,
+      "wer_tokens": 23,
+      "carry_errors": 0,
+      "carry_tokens": 2,
+      "carry_hits": [
+        "Jesse Eisenberg"
+      ],
+      "carry_total": 1,
+      "false_hint_activations": 1,
+      "completion_tokens": 31
+    },
+    {
+      "target_id": "03695-5-turn008",
+      "uniq_id": "03695-5",
+      "arm": "E4-3-speaker",
+      "wer_errors": 2,
+      "wer_tokens": 23,
+      "carry_errors": 0,
+      "carry_tokens": 2,
+      "carry_hits": [
+        "Jesse Eisenberg"
+      ],
+      "carry_total": 1,
+      "false_hint_activations": 1,
+      "completion_tokens": 32
+    },
+    {
+      "target_id": "03695-5-turn008",
+      "uniq_id": "03695-5",
+      "arm": "E4-4-wrong",
+      "wer_errors": 1,
+      "wer_tokens": 23,
+      "carry_errors": 0,
+      "carry_tokens": 2,
+      "carry_hits": [
+        "Jesse Eisenberg"
+      ],
+      "carry_total": 1,
+      "false_hint_activations": 0,
+      "completion_tokens": 32
+    },
+    {
+      "target_id": "03695-5-turn008",
+      "uniq_id": "03695-5",
+      "arm": "E4-5-corrupt",
+      "wer_errors": 3,
+      "wer_tokens": 23,
+      "carry_errors": 0,
+      "carry_tokens": 2,
+      "carry_hits": [
+        "Jesse Eisenberg"
+      ],
+      "carry_total": 1,
+      "false_hint_activations": 0,
+      "completion_tokens": 31
+    },
+    {
+      "target_id": "03695-5-turn009",
+      "uniq_id": "03695-5",
+      "arm": "E4-0-bare",
+      "wer_errors": 6,
+      "wer_tokens": 30,
+      "carry_errors": 0,
+      "carry_tokens": 2,
+      "carry_hits": [
+        "Roberto Benigni"
+      ],
+      "carry_total": 1,
+      "false_hint_activations": 0,
+      "completion_tokens": 47
+    },
+    {
+      "target_id": "03695-5-turn009",
+      "uniq_id": "03695-5",
+      "arm": "E4-1-label",
+      "wer_errors": 6,
+      "wer_tokens": 30,
+      "carry_errors": 0,
+      "carry_tokens": 2,
+      "carry_hits": [
+        "Roberto Benigni"
+      ],
+      "carry_total": 1,
+      "false_hint_activations": 0,
+      "completion_tokens": 47
+    },
+    {
+      "target_id": "03695-5-turn009",
+      "uniq_id": "03695-5",
+      "arm": "E4-2-global",
+      "wer_errors": 6,
+      "wer_tokens": 30,
+      "carry_errors": 0,
+      "carry_tokens": 2,
+      "carry_hits": [
+        "Roberto Benigni"
+      ],
+      "carry_total": 1,
+      "false_hint_activations": 1,
+      "completion_tokens": 47
+    },
+    {
+      "target_id": "03695-5-turn009",
+      "uniq_id": "03695-5",
+      "arm": "E4-3-speaker",
+      "wer_errors": 4,
+      "wer_tokens": 30,
+      "carry_errors": 0,
+      "carry_tokens": 2,
+      "carry_hits": [
+        "Roberto Benigni"
+      ],
+      "carry_total": 1,
+      "false_hint_activations": 0,
+      "completion_tokens": 47
+    },
+    {
+      "target_id": "03695-5-turn009",
+      "uniq_id": "03695-5",
+      "arm": "E4-4-wrong",
+      "wer_errors": 6,
+      "wer_tokens": 30,
+      "carry_errors": 0,
+      "carry_tokens": 2,
+      "carry_hits": [
+        "Roberto Benigni"
+      ],
+      "carry_total": 1,
+      "false_hint_activations": 1,
+      "completion_tokens": 47
+    },
+    {
+      "target_id": "03695-5-turn009",
+      "uniq_id": "03695-5",
+      "arm": "E4-5-corrupt",
+      "wer_errors": 4,
+      "wer_tokens": 30,
+      "carry_errors": 0,
+      "carry_tokens": 2,
+      "carry_hits": [
+        "Roberto Benigni"
+      ],
+      "carry_total": 1,
+      "false_hint_activations": 0,
+      "completion_tokens": 47
+    },
+    {
+      "target_id": "06596-4-turn005",
+      "uniq_id": "06596-4",
+      "arm": "E4-0-bare",
+      "wer_errors": 0,
+      "wer_tokens": 26,
+      "carry_errors": 0,
+      "carry_tokens": 4,
+      "carry_hits": [
+        "Cameron Crowe",
+        "Benjamin Mee"
+      ],
+      "carry_total": 2,
+      "false_hint_activations": 0,
+      "completion_tokens": 37
+    },
+    {
+      "target_id": "06596-4-turn005",
+      "uniq_id": "06596-4",
+      "arm": "E4-1-label",
+      "wer_errors": 1,
+      "wer_tokens": 26,
+      "carry_errors": 0,
+      "carry_tokens": 4,
+      "carry_hits": [
+        "Cameron Crowe",
+        "Benjamin Mee"
+      ],
+      "carry_total": 2,
+      "false_hint_activations": 0,
+      "completion_tokens": 36
+    },
+    {
+      "target_id": "06596-4-turn005",
+      "uniq_id": "06596-4",
+      "arm": "E4-2-global",
+      "wer_errors": 2,
+      "wer_tokens": 26,
+      "carry_errors": 1,
+      "carry_tokens": 4,
+      "carry_hits": [
+        "Cameron Crowe"
+      ],
+      "carry_total": 2,
+      "false_hint_activations": 0,
+      "completion_tokens": 35
+    },
+    {
+      "target_id": "06596-4-turn005",
+      "uniq_id": "06596-4",
+      "arm": "E4-3-speaker",
+      "wer_errors": 0,
+      "wer_tokens": 26,
+      "carry_errors": 0,
+      "carry_tokens": 4,
+      "carry_hits": [
+        "Cameron Crowe",
+        "Benjamin Mee"
+      ],
+      "carry_total": 2,
+      "false_hint_activations": 0,
+      "completion_tokens": 37
+    },
+    {
+      "target_id": "06596-4-turn005",
+      "uniq_id": "06596-4",
+      "arm": "E4-4-wrong",
+      "wer_errors": 0,
+      "wer_tokens": 26,
+      "carry_errors": 0,
+      "carry_tokens": 4,
+      "carry_hits": [
+        "Cameron Crowe",
+        "Benjamin Mee"
+      ],
+      "carry_total": 2,
+      "false_hint_activations": 0,
+      "completion_tokens": 37
+    },
+    {
+      "target_id": "06596-4-turn005",
+      "uniq_id": "06596-4",
+      "arm": "E4-5-corrupt",
+      "wer_errors": 0,
+      "wer_tokens": 26,
+      "carry_errors": 0,
+      "carry_tokens": 4,
+      "carry_hits": [
+        "Cameron Crowe",
+        "Benjamin Mee"
+      ],
+      "carry_total": 2,
+      "false_hint_activations": 0,
+      "completion_tokens": 37
+    },
+    {
+      "target_id": "06692-4-turn006",
+      "uniq_id": "06692-4",
+      "arm": "E4-0-bare",
+      "wer_errors": 0,
+      "wer_tokens": 29,
+      "carry_errors": 0,
+      "carry_tokens": 3,
+      "carry_hits": [
+        "Cary Grant",
+        "Devlin"
+      ],
+      "carry_total": 2,
+      "false_hint_activations": 0,
+      "completion_tokens": 41
+    },
+    {
+      "target_id": "06692-4-turn006",
+      "uniq_id": "06692-4",
+      "arm": "E4-1-label",
+      "wer_errors": 0,
+      "wer_tokens": 29,
+      "carry_errors": 0,
+      "carry_tokens": 3,
+      "carry_hits": [
+        "Cary Grant",
+        "Devlin"
+      ],
+      "carry_total": 2,
+      "false_hint_activations": 0,
+      "completion_tokens": 40
+    },
+    {
+      "target_id": "06692-4-turn006",
+      "uniq_id": "06692-4",
+      "arm": "E4-2-global",
+      "wer_errors": 0,
+      "wer_tokens": 29,
+      "carry_errors": 0,
+      "carry_tokens": 3,
+      "carry_hits": [
+        "Cary Grant",
+        "Devlin"
+      ],
+      "carry_total": 2,
+      "false_hint_activations": 0,
+      "completion_tokens": 40
+    },
+    {
+      "target_id": "06692-4-turn006",
+      "uniq_id": "06692-4",
+      "arm": "E4-3-speaker",
+      "wer_errors": 0,
+      "wer_tokens": 29,
+      "carry_errors": 0,
+      "carry_tokens": 3,
+      "carry_hits": [
+        "Cary Grant",
+        "Devlin"
+      ],
+      "carry_total": 2,
+      "false_hint_activations": 0,
+      "completion_tokens": 41
+    },
+    {
+      "target_id": "06692-4-turn006",
+      "uniq_id": "06692-4",
+      "arm": "E4-4-wrong",
+      "wer_errors": 0,
+      "wer_tokens": 29,
+      "carry_errors": 0,
+      "carry_tokens": 3,
+      "carry_hits": [
+        "Cary Grant",
+        "Devlin"
+      ],
+      "carry_total": 2,
+      "false_hint_activations": 0,
+      "completion_tokens": 40
+    },
+    {
+      "target_id": "06692-4-turn006",
+      "uniq_id": "06692-4",
+      "arm": "E4-5-corrupt",
+      "wer_errors": 0,
+      "wer_tokens": 29,
+      "carry_errors": 0,
+      "carry_tokens": 3,
+      "carry_hits": [
+        "Cary Grant",
+        "Devlin"
+      ],
+      "carry_total": 2,
+      "false_hint_activations": 0,
+      "completion_tokens": 40
+    },
+    {
+      "target_id": "06692-4-turn007",
+      "uniq_id": "06692-4",
+      "arm": "E4-0-bare",
+      "wer_errors": 2,
+      "wer_tokens": 34,
+      "carry_errors": 0,
+      "carry_tokens": 2,
+      "carry_hits": [
+        "Claude Rains"
+      ],
+      "carry_total": 1,
+      "false_hint_activations": 0,
+      "completion_tokens": 44
+    },
+    {
+      "target_id": "06692-4-turn007",
+      "uniq_id": "06692-4",
+      "arm": "E4-1-label",
+      "wer_errors": 2,
+      "wer_tokens": 34,
+      "carry_errors": 0,
+      "carry_tokens": 2,
+      "carry_hits": [
+        "Claude Rains"
+      ],
+      "carry_total": 1,
+      "false_hint_activations": 0,
+      "completion_tokens": 45
+    },
+    {
+      "target_id": "06692-4-turn007",
+      "uniq_id": "06692-4",
+      "arm": "E4-2-global",
+      "wer_errors": 3,
+      "wer_tokens": 34,
+      "carry_errors": 0,
+      "carry_tokens": 2,
+      "carry_hits": [
+        "Claude Rains"
+      ],
+      "carry_total": 1,
+      "false_hint_activations": 0,
+      "completion_tokens": 45
+    },
+    {
+      "target_id": "06692-4-turn007",
+      "uniq_id": "06692-4",
+      "arm": "E4-3-speaker",
+      "wer_errors": 3,
+      "wer_tokens": 34,
+      "carry_errors": 0,
+      "carry_tokens": 2,
+      "carry_hits": [
+        "Claude Rains"
+      ],
+      "carry_total": 1,
+      "false_hint_activations": 0,
+      "completion_tokens": 45
+    },
+    {
+      "target_id": "06692-4-turn007",
+      "uniq_id": "06692-4",
+      "arm": "E4-4-wrong",
+      "wer_errors": 2,
+      "wer_tokens": 34,
+      "carry_errors": 0,
+      "carry_tokens": 2,
+      "carry_hits": [
+        "Claude Rains"
+      ],
+      "carry_total": 1,
+      "false_hint_activations": 0,
+      "completion_tokens": 44
+    },
+    {
+      "target_id": "06692-4-turn007",
+      "uniq_id": "06692-4",
+      "arm": "E4-5-corrupt",
+      "wer_errors": 3,
+      "wer_tokens": 34,
+      "carry_errors": 1,
+      "carry_tokens": 2,
+      "carry_hits": [],
+      "carry_total": 1,
+      "false_hint_activations": 0,
+      "completion_tokens": 44
+    },
+    {
+      "target_id": "07295-4-turn008",
+      "uniq_id": "07295-4",
+      "arm": "E4-0-bare",
+      "wer_errors": 0,
+      "wer_tokens": 26,
+      "carry_errors": 0,
+      "carry_tokens": 2,
+      "carry_hits": [
+        "Donald Faison"
+      ],
+      "carry_total": 1,
+      "false_hint_activations": 0,
+      "completion_tokens": 35
+    },
+    {
+      "target_id": "07295-4-turn008",
+      "uniq_id": "07295-4",
+      "arm": "E4-1-label",
+      "wer_errors": 0,
+      "wer_tokens": 26,
+      "carry_errors": 0,
+      "carry_tokens": 2,
+      "carry_hits": [
+        "Donald Faison"
+      ],
+      "carry_total": 1,
+      "false_hint_activations": 0,
+      "completion_tokens": 35
+    },
+    {
+      "target_id": "07295-4-turn008",
+      "uniq_id": "07295-4",
+      "arm": "E4-2-global",
+      "wer_errors": 0,
+      "wer_tokens": 26,
+      "carry_errors": 0,
+      "carry_tokens": 2,
+      "carry_hits": [
+        "Donald Faison"
+      ],
+      "carry_total": 1,
+      "false_hint_activations": 0,
+      "completion_tokens": 35
+    },
+    {
+      "target_id": "07295-4-turn008",
+      "uniq_id": "07295-4",
+      "arm": "E4-3-speaker",
+      "wer_errors": 0,
+      "wer_tokens": 26,
+      "carry_errors": 0,
+      "carry_tokens": 2,
+      "carry_hits": [
+        "Donald Faison"
+      ],
+      "carry_total": 1,
+      "false_hint_activations": 0,
+      "completion_tokens": 35
+    },
+    {
+      "target_id": "07295-4-turn008",
+      "uniq_id": "07295-4",
+      "arm": "E4-4-wrong",
+      "wer_errors": 0,
+      "wer_tokens": 26,
+      "carry_errors": 0,
+      "carry_tokens": 2,
+      "carry_hits": [
+        "Donald Faison"
+      ],
+      "carry_total": 1,
+      "false_hint_activations": 0,
+      "completion_tokens": 35
+    },
+    {
+      "target_id": "07295-4-turn008",
+      "uniq_id": "07295-4",
+      "arm": "E4-5-corrupt",
+      "wer_errors": 0,
+      "wer_tokens": 26,
+      "carry_errors": 0,
+      "carry_tokens": 2,
+      "carry_hits": [
+        "Donald Faison"
+      ],
+      "carry_total": 1,
+      "false_hint_activations": 0,
+      "completion_tokens": 35
+    },
+    {
+      "target_id": "07295-4-turn009",
+      "uniq_id": "07295-4",
+      "arm": "E4-0-bare",
+      "wer_errors": 0,
+      "wer_tokens": 24,
+      "carry_errors": 0,
+      "carry_tokens": 1,
+      "carry_hits": [
+        "Brodiga"
+      ],
+      "carry_total": 1,
+      "false_hint_activations": 0,
+      "completion_tokens": 33
+    },
+    {
+      "target_id": "07295-4-turn009",
+      "uniq_id": "07295-4",
+      "arm": "E4-1-label",
+      "wer_errors": 0,
+      "wer_tokens": 24,
+      "carry_errors": 0,
+      "carry_tokens": 1,
+      "carry_hits": [
+        "Brodiga"
+      ],
+      "carry_total": 1,
+      "false_hint_activations": 0,
+      "completion_tokens": 33
+    },
+    {
+      "target_id": "07295-4-turn009",
+      "uniq_id": "07295-4",
+      "arm": "E4-2-global",
+      "wer_errors": 0,
+      "wer_tokens": 24,
+      "carry_errors": 0,
+      "carry_tokens": 1,
+      "carry_hits": [
+        "Brodiga"
+      ],
+      "carry_total": 1,
+      "false_hint_activations": 0,
+      "completion_tokens": 34
+    },
+    {
+      "target_id": "07295-4-turn009",
+      "uniq_id": "07295-4",
+      "arm": "E4-3-speaker",
+      "wer_errors": 0,
+      "wer_tokens": 24,
+      "carry_errors": 0,
+      "carry_tokens": 1,
+      "carry_hits": [
+        "Brodiga"
+      ],
+      "carry_total": 1,
+      "false_hint_activations": 0,
+      "completion_tokens": 34
+    },
+    {
+      "target_id": "07295-4-turn009",
+      "uniq_id": "07295-4",
+      "arm": "E4-4-wrong",
+      "wer_errors": 3,
+      "wer_tokens": 24,
+      "carry_errors": 1,
+      "carry_tokens": 1,
+      "carry_hits": [],
+      "carry_total": 1,
+      "false_hint_activations": 1,
+      "completion_tokens": 34
+    },
+    {
+      "target_id": "07295-4-turn009",
+      "uniq_id": "07295-4",
+      "arm": "E4-5-corrupt",
+      "wer_errors": 1,
+      "wer_tokens": 24,
+      "carry_errors": 1,
+      "carry_tokens": 1,
+      "carry_hits": [],
+      "carry_total": 1,
+      "false_hint_activations": 1,
+      "completion_tokens": 33
+    },
+    {
+      "target_id": "07899-4-turn005",
+      "uniq_id": "07899-4",
+      "arm": "E4-0-bare",
+      "wer_errors": 0,
+      "wer_tokens": 36,
+      "carry_errors": 0,
+      "carry_tokens": 3,
+      "carry_hits": [
+        "Pierce Brosnan",
+        "Bennett"
+      ],
+      "carry_total": 2,
+      "false_hint_activations": 0,
+      "completion_tokens": 46
+    },
+    {
+      "target_id": "07899-4-turn005",
+      "uniq_id": "07899-4",
+      "arm": "E4-1-label",
+      "wer_errors": 0,
+      "wer_tokens": 36,
+      "carry_errors": 0,
+      "carry_tokens": 3,
+      "carry_hits": [
+        "Pierce Brosnan",
+        "Bennett"
+      ],
+      "carry_total": 2,
+      "false_hint_activations": 0,
+      "completion_tokens": 46
+    },
+    {
+      "target_id": "07899-4-turn005",
+      "uniq_id": "07899-4",
+      "arm": "E4-2-global",
+      "wer_errors": 0,
+      "wer_tokens": 36,
+      "carry_errors": 0,
+      "carry_tokens": 3,
+      "carry_hits": [
+        "Pierce Brosnan",
+        "Bennett"
+      ],
+      "carry_total": 2,
+      "false_hint_activations": 0,
+      "completion_tokens": 45
+    },
+    {
+      "target_id": "07899-4-turn005",
+      "uniq_id": "07899-4",
+      "arm": "E4-3-speaker",
+      "wer_errors": 0,
+      "wer_tokens": 36,
+      "carry_errors": 0,
+      "carry_tokens": 3,
+      "carry_hits": [
+        "Pierce Brosnan",
+        "Bennett"
+      ],
+      "carry_total": 2,
+      "false_hint_activations": 0,
+      "completion_tokens": 45
+    },
+    {
+      "target_id": "07899-4-turn005",
+      "uniq_id": "07899-4",
+      "arm": "E4-4-wrong",
+      "wer_errors": 0,
+      "wer_tokens": 36,
+      "carry_errors": 0,
+      "carry_tokens": 3,
+      "carry_hits": [
+        "Pierce Brosnan",
+        "Bennett"
+      ],
+      "carry_total": 2,
+      "false_hint_activations": 0,
+      "completion_tokens": 45
+    },
+    {
+      "target_id": "07899-4-turn005",
+      "uniq_id": "07899-4",
+      "arm": "E4-5-corrupt",
+      "wer_errors": 0,
+      "wer_tokens": 36,
+      "carry_errors": 0,
+      "carry_tokens": 3,
+      "carry_hits": [
+        "Pierce Brosnan",
+        "Bennett"
+      ],
+      "carry_total": 2,
+      "false_hint_activations": 0,
+      "completion_tokens": 45
+    },
+    {
+      "target_id": "07899-4-turn009",
+      "uniq_id": "07899-4",
+      "arm": "E4-0-bare",
+      "wer_errors": 0,
+      "wer_tokens": 24,
+      "carry_errors": 0,
+      "carry_tokens": 2,
+      "carry_hits": [
+        "Susan Sarandon"
+      ],
+      "carry_total": 1,
+      "false_hint_activations": 0,
+      "completion_tokens": 31
+    },
+    {
+      "target_id": "07899-4-turn009",
+      "uniq_id": "07899-4",
+      "arm": "E4-1-label",
+      "wer_errors": 0,
+      "wer_tokens": 24,
+      "carry_errors": 0,
+      "carry_tokens": 2,
+      "carry_hits": [
+        "Susan Sarandon"
+      ],
+      "carry_total": 1,
+      "false_hint_activations": 0,
+      "completion_tokens": 30
+    },
+    {
+      "target_id": "07899-4-turn009",
+      "uniq_id": "07899-4",
+      "arm": "E4-2-global",
+      "wer_errors": 0,
+      "wer_tokens": 24,
+      "carry_errors": 0,
+      "carry_tokens": 2,
+      "carry_hits": [
+        "Susan Sarandon"
+      ],
+      "carry_total": 1,
+      "false_hint_activations": 0,
+      "completion_tokens": 30
+    },
+    {
+      "target_id": "07899-4-turn009",
+      "uniq_id": "07899-4",
+      "arm": "E4-3-speaker",
+      "wer_errors": 0,
+      "wer_tokens": 24,
+      "carry_errors": 0,
+      "carry_tokens": 2,
+      "carry_hits": [
+        "Susan Sarandon"
+      ],
+      "carry_total": 1,
+      "false_hint_activations": 0,
+      "completion_tokens": 30
+    },
+    {
+      "target_id": "07899-4-turn009",
+      "uniq_id": "07899-4",
+      "arm": "E4-4-wrong",
+      "wer_errors": 0,
+      "wer_tokens": 24,
+      "carry_errors": 0,
+      "carry_tokens": 2,
+      "carry_hits": [
+        "Susan Sarandon"
+      ],
+      "carry_total": 1,
+      "false_hint_activations": 0,
+      "completion_tokens": 30
+    },
+    {
+      "target_id": "07899-4-turn009",
+      "uniq_id": "07899-4",
+      "arm": "E4-5-corrupt",
+      "wer_errors": 0,
+      "wer_tokens": 24,
+      "carry_errors": 0,
+      "carry_tokens": 2,
+      "carry_hits": [
+        "Susan Sarandon"
+      ],
+      "carry_total": 1,
+      "false_hint_activations": 0,
+      "completion_tokens": 30
+    },
+    {
+      "target_id": "08943-5-turn008",
+      "uniq_id": "08943-5",
+      "arm": "E4-0-bare",
+      "wer_errors": 1,
+      "wer_tokens": 29,
+      "carry_errors": 0,
+      "carry_tokens": 1,
+      "carry_hits": [
+        "Lori"
+      ],
+      "carry_total": 1,
+      "false_hint_activations": 0,
+      "completion_tokens": 33
+    },
+    {
+      "target_id": "08943-5-turn008",
+      "uniq_id": "08943-5",
+      "arm": "E4-1-label",
+      "wer_errors": 0,
+      "wer_tokens": 29,
+      "carry_errors": 0,
+      "carry_tokens": 1,
+      "carry_hits": [
+        "Lori"
+      ],
+      "carry_total": 1,
+      "false_hint_activations": 0,
+      "completion_tokens": 33
+    },
+    {
+      "target_id": "08943-5-turn008",
+      "uniq_id": "08943-5",
+      "arm": "E4-2-global",
+      "wer_errors": 0,
+      "wer_tokens": 29,
+      "carry_errors": 0,
+      "carry_tokens": 1,
+      "carry_hits": [
+        "Lori"
+      ],
+      "carry_total": 1,
+      "false_hint_activations": 0,
+      "completion_tokens": 33
+    },
+    {
+      "target_id": "08943-5-turn008",
+      "uniq_id": "08943-5",
+      "arm": "E4-3-speaker",
+      "wer_errors": 1,
+      "wer_tokens": 29,
+      "carry_errors": 0,
+      "carry_tokens": 1,
+      "carry_hits": [
+        "Lori"
+      ],
+      "carry_total": 1,
+      "false_hint_activations": 0,
+      "completion_tokens": 33
+    },
+    {
+      "target_id": "08943-5-turn008",
+      "uniq_id": "08943-5",
+      "arm": "E4-4-wrong",
+      "wer_errors": 0,
+      "wer_tokens": 29,
+      "carry_errors": 0,
+      "carry_tokens": 1,
+      "carry_hits": [
+        "Lori"
+      ],
+      "carry_total": 1,
+      "false_hint_activations": 0,
+      "completion_tokens": 33
+    },
+    {
+      "target_id": "08943-5-turn008",
+      "uniq_id": "08943-5",
+      "arm": "E4-5-corrupt",
+      "wer_errors": 1,
+      "wer_tokens": 29,
+      "carry_errors": 1,
+      "carry_tokens": 1,
+      "carry_hits": [],
+      "carry_total": 1,
+      "false_hint_activations": 1,
+      "completion_tokens": 34
+    },
+    {
+      "target_id": "08943-5-turn012",
+      "uniq_id": "08943-5",
+      "arm": "E4-0-bare",
+      "wer_errors": 3,
+      "wer_tokens": 16,
+      "carry_errors": 0,
+      "carry_tokens": 2,
+      "carry_hits": [
+        "Woody Harrelson"
+      ],
+      "carry_total": 1,
+      "false_hint_activations": 0,
+      "completion_tokens": 29
+    },
+    {
+      "target_id": "08943-5-turn012",
+      "uniq_id": "08943-5",
+      "arm": "E4-1-label",
+      "wer_errors": 3,
+      "wer_tokens": 16,
+      "carry_errors": 0,
+      "carry_tokens": 2,
+      "carry_hits": [
+        "Woody Harrelson"
+      ],
+      "carry_total": 1,
+      "false_hint_activations": 0,
+      "completion_tokens": 29
+    },
+    {
+      "target_id": "08943-5-turn012",
+      "uniq_id": "08943-5",
+      "arm": "E4-2-global",
+      "wer_errors": 3,
+      "wer_tokens": 16,
+      "carry_errors": 0,
+      "carry_tokens": 2,
+      "carry_hits": [
+        "Woody Harrelson"
+      ],
+      "carry_total": 1,
+      "false_hint_activations": 0,
+      "completion_tokens": 29
+    },
+    {
+      "target_id": "08943-5-turn012",
+      "uniq_id": "08943-5",
+      "arm": "E4-3-speaker",
+      "wer_errors": 4,
+      "wer_tokens": 16,
+      "carry_errors": 0,
+      "carry_tokens": 2,
+      "carry_hits": [
+        "Woody Harrelson"
+      ],
+      "carry_total": 1,
+      "false_hint_activations": 0,
+      "completion_tokens": 30
+    },
+    {
+      "target_id": "08943-5-turn012",
+      "uniq_id": "08943-5",
+      "arm": "E4-4-wrong",
+      "wer_errors": 3,
+      "wer_tokens": 16,
+      "carry_errors": 0,
+      "carry_tokens": 2,
+      "carry_hits": [
+        "Woody Harrelson"
+      ],
+      "carry_total": 1,
+      "false_hint_activations": 0,
+      "completion_tokens": 29
+    },
+    {
+      "target_id": "08943-5-turn012",
+      "uniq_id": "08943-5",
+      "arm": "E4-5-corrupt",
+      "wer_errors": 4,
+      "wer_tokens": 16,
+      "carry_errors": 0,
+      "carry_tokens": 2,
+      "carry_hits": [
+        "Woody Harrelson"
+      ],
+      "carry_total": 1,
+      "false_hint_activations": 0,
+      "completion_tokens": 30
+    },
+    {
+      "target_id": "08943-5-turn013",
+      "uniq_id": "08943-5",
+      "arm": "E4-0-bare",
+      "wer_errors": 1,
+      "wer_tokens": 15,
+      "carry_errors": 1,
+      "carry_tokens": 1,
+      "carry_hits": [],
+      "carry_total": 1,
+      "false_hint_activations": 0,
+      "completion_tokens": 21
+    },
+    {
+      "target_id": "08943-5-turn013",
+      "uniq_id": "08943-5",
+      "arm": "E4-1-label",
+      "wer_errors": 5,
+      "wer_tokens": 15,
+      "carry_errors": 1,
+      "carry_tokens": 1,
+      "carry_hits": [],
+      "carry_total": 1,
+      "false_hint_activations": 0,
+      "completion_tokens": 26
+    },
+    {
+      "target_id": "08943-5-turn013",
+      "uniq_id": "08943-5",
+      "arm": "E4-2-global",
+      "wer_errors": 5,
+      "wer_tokens": 15,
+      "carry_errors": 1,
+      "carry_tokens": 1,
+      "carry_hits": [],
+      "carry_total": 1,
+      "false_hint_activations": 0,
+      "completion_tokens": 26
+    },
+    {
+      "target_id": "08943-5-turn013",
+      "uniq_id": "08943-5",
+      "arm": "E4-3-speaker",
+      "wer_errors": 0,
+      "wer_tokens": 15,
+      "carry_errors": 0,
+      "carry_tokens": 1,
+      "carry_hits": [
+        "Lori"
+      ],
+      "carry_total": 1,
+      "false_hint_activations": 0,
+      "completion_tokens": 21
+    },
+    {
+      "target_id": "08943-5-turn013",
+      "uniq_id": "08943-5",
+      "arm": "E4-4-wrong",
+      "wer_errors": 5,
+      "wer_tokens": 15,
+      "carry_errors": 1,
+      "carry_tokens": 1,
+      "carry_hits": [],
+      "carry_total": 1,
+      "false_hint_activations": 0,
+      "completion_tokens": 26
+    },
+    {
+      "target_id": "08943-5-turn013",
+      "uniq_id": "08943-5",
+      "arm": "E4-5-corrupt",
+      "wer_errors": 1,
+      "wer_tokens": 15,
+      "carry_errors": 1,
+      "carry_tokens": 1,
+      "carry_hits": [],
+      "carry_total": 1,
+      "false_hint_activations": 1,
+      "completion_tokens": 22
+    },
+    {
+      "target_id": "09495-3-turn003",
+      "uniq_id": "09495-3",
+      "arm": "E4-0-bare",
+      "wer_errors": 0,
+      "wer_tokens": 28,
+      "carry_errors": 0,
+      "carry_tokens": 1,
+      "carry_hits": [
+        "Paige"
+      ],
+      "carry_total": 1,
+      "false_hint_activations": 0,
+      "completion_tokens": 37
+    },
+    {
+      "target_id": "09495-3-turn003",
+      "uniq_id": "09495-3",
+      "arm": "E4-1-label",
+      "wer_errors": 0,
+      "wer_tokens": 28,
+      "carry_errors": 0,
+      "carry_tokens": 1,
+      "carry_hits": [
+        "Paige"
+      ],
+      "carry_total": 1,
+      "false_hint_activations": 0,
+      "completion_tokens": 37
+    },
+    {
+      "target_id": "09495-3-turn003",
+      "uniq_id": "09495-3",
+      "arm": "E4-2-global",
+      "wer_errors": 0,
+      "wer_tokens": 28,
+      "carry_errors": 0,
+      "carry_tokens": 1,
+      "carry_hits": [
+        "Paige"
+      ],
+      "carry_total": 1,
+      "false_hint_activations": 0,
+      "completion_tokens": 37
+    },
+    {
+      "target_id": "09495-3-turn003",
+      "uniq_id": "09495-3",
+      "arm": "E4-3-speaker",
+      "wer_errors": 0,
+      "wer_tokens": 28,
+      "carry_errors": 0,
+      "carry_tokens": 1,
+      "carry_hits": [
+        "Paige"
+      ],
+      "carry_total": 1,
+      "false_hint_activations": 0,
+      "completion_tokens": 37
+    },
+    {
+      "target_id": "09495-3-turn003",
+      "uniq_id": "09495-3",
+      "arm": "E4-4-wrong",
+      "wer_errors": 0,
+      "wer_tokens": 28,
+      "carry_errors": 0,
+      "carry_tokens": 1,
+      "carry_hits": [
+        "Paige"
+      ],
+      "carry_total": 1,
+      "false_hint_activations": 0,
+      "completion_tokens": 37
+    },
+    {
+      "target_id": "09495-3-turn003",
+      "uniq_id": "09495-3",
+      "arm": "E4-5-corrupt",
+      "wer_errors": 0,
+      "wer_tokens": 28,
+      "carry_errors": 0,
+      "carry_tokens": 1,
+      "carry_hits": [
+        "Paige"
+      ],
+      "carry_total": 1,
+      "false_hint_activations": 0,
+      "completion_tokens": 37
+    },
+    {
+      "target_id": "09495-3-turn006",
+      "uniq_id": "09495-3",
+      "arm": "E4-0-bare",
+      "wer_errors": 0,
+      "wer_tokens": 26,
+      "carry_errors": 0,
+      "carry_tokens": 1,
+      "carry_hits": [
+        "Paige"
+      ],
+      "carry_total": 1,
+      "false_hint_activations": 0,
+      "completion_tokens": 32
+    },
+    {
+      "target_id": "09495-3-turn006",
+      "uniq_id": "09495-3",
+      "arm": "E4-1-label",
+      "wer_errors": 0,
+      "wer_tokens": 26,
+      "carry_errors": 0,
+      "carry_tokens": 1,
+      "carry_hits": [
+        "Paige"
+      ],
+      "carry_total": 1,
+      "false_hint_activations": 0,
+      "completion_tokens": 32
+    },
+    {
+      "target_id": "09495-3-turn006",
+      "uniq_id": "09495-3",
+      "arm": "E4-2-global",
+      "wer_errors": 0,
+      "wer_tokens": 26,
+      "carry_errors": 0,
+      "carry_tokens": 1,
+      "carry_hits": [
+        "Paige"
+      ],
+      "carry_total": 1,
+      "false_hint_activations": 0,
+      "completion_tokens": 32
+    },
+    {
+      "target_id": "09495-3-turn006",
+      "uniq_id": "09495-3",
+      "arm": "E4-3-speaker",
+      "wer_errors": 0,
+      "wer_tokens": 26,
+      "carry_errors": 0,
+      "carry_tokens": 1,
+      "carry_hits": [
+        "Paige"
+      ],
+      "carry_total": 1,
+      "false_hint_activations": 0,
+      "completion_tokens": 32
+    },
+    {
+      "target_id": "09495-3-turn006",
+      "uniq_id": "09495-3",
+      "arm": "E4-4-wrong",
+      "wer_errors": 0,
+      "wer_tokens": 26,
+      "carry_errors": 0,
+      "carry_tokens": 1,
+      "carry_hits": [
+        "Paige"
+      ],
+      "carry_total": 1,
+      "false_hint_activations": 0,
+      "completion_tokens": 32
+    },
+    {
+      "target_id": "09495-3-turn006",
+      "uniq_id": "09495-3",
+      "arm": "E4-5-corrupt",
+      "wer_errors": 0,
+      "wer_tokens": 26,
+      "carry_errors": 0,
+      "carry_tokens": 1,
+      "carry_hits": [
+        "Paige"
+      ],
+      "carry_total": 1,
+      "false_hint_activations": 0,
+      "completion_tokens": 32
+    },
+    {
+      "target_id": "09495-3-turn009",
+      "uniq_id": "09495-3",
+      "arm": "E4-0-bare",
+      "wer_errors": 0,
+      "wer_tokens": 28,
+      "carry_errors": 0,
+      "carry_tokens": 1,
+      "carry_hits": [
+        "Paige"
+      ],
+      "carry_total": 1,
+      "false_hint_activations": 0,
+      "completion_tokens": 35
+    },
+    {
+      "target_id": "09495-3-turn009",
+      "uniq_id": "09495-3",
+      "arm": "E4-1-label",
+      "wer_errors": 0,
+      "wer_tokens": 28,
+      "carry_errors": 0,
+      "carry_tokens": 1,
+      "carry_hits": [
+        "Paige"
+      ],
+      "carry_total": 1,
+      "false_hint_activations": 0,
+      "completion_tokens": 35
+    },
+    {
+      "target_id": "09495-3-turn009",
+      "uniq_id": "09495-3",
+      "arm": "E4-2-global",
+      "wer_errors": 0,
+      "wer_tokens": 28,
+      "carry_errors": 0,
+      "carry_tokens": 1,
+      "carry_hits": [
+        "Paige"
+      ],
+      "carry_total": 1,
+      "false_hint_activations": 0,
+      "completion_tokens": 33
+    },
+    {
+      "target_id": "09495-3-turn009",
+      "uniq_id": "09495-3",
+      "arm": "E4-3-speaker",
+      "wer_errors": 0,
+      "wer_tokens": 28,
+      "carry_errors": 0,
+      "carry_tokens": 1,
+      "carry_hits": [
+        "Paige"
+      ],
+      "carry_total": 1,
+      "false_hint_activations": 0,
+      "completion_tokens": 33
+    },
+    {
+      "target_id": "09495-3-turn009",
+      "uniq_id": "09495-3",
+      "arm": "E4-4-wrong",
+      "wer_errors": 0,
+      "wer_tokens": 28,
+      "carry_errors": 0,
+      "carry_tokens": 1,
+      "carry_hits": [
+        "Paige"
+      ],
+      "carry_total": 1,
+      "false_hint_activations": 0,
+      "completion_tokens": 33
+    },
+    {
+      "target_id": "09495-3-turn009",
+      "uniq_id": "09495-3",
+      "arm": "E4-5-corrupt",
+      "wer_errors": 0,
+      "wer_tokens": 28,
+      "carry_errors": 0,
+      "carry_tokens": 1,
+      "carry_hits": [
+        "Paige"
+      ],
+      "carry_total": 1,
+      "false_hint_activations": 0,
+      "completion_tokens": 33
+    },
+    {
+      "target_id": "09495-3-turn010",
+      "uniq_id": "09495-3",
+      "arm": "E4-0-bare",
+      "wer_errors": 1,
+      "wer_tokens": 18,
+      "carry_errors": 1,
+      "carry_tokens": 3,
+      "carry_hits": [
+        "Stephen Merchant"
+      ],
+      "carry_total": 2,
+      "false_hint_activations": 0,
+      "completion_tokens": 24
+    },
+    {
+      "target_id": "09495-3-turn010",
+      "uniq_id": "09495-3",
+      "arm": "E4-1-label",
+      "wer_errors": 1,
+      "wer_tokens": 18,
+      "carry_errors": 1,
+      "carry_tokens": 3,
+      "carry_hits": [
+        "Stephen Merchant"
+      ],
+      "carry_total": 2,
+      "false_hint_activations": 0,
+      "completion_tokens": 24
+    },
+    {
+      "target_id": "09495-3-turn010",
+      "uniq_id": "09495-3",
+      "arm": "E4-2-global",
+      "wer_errors": 1,
+      "wer_tokens": 18,
+      "carry_errors": 1,
+      "carry_tokens": 3,
+      "carry_hits": [
+        "Stephen Merchant"
+      ],
+      "carry_total": 2,
+      "false_hint_activations": 0,
+      "completion_tokens": 24
+    },
+    {
+      "target_id": "09495-3-turn010",
+      "uniq_id": "09495-3",
+      "arm": "E4-3-speaker",
+      "wer_errors": 1,
+      "wer_tokens": 18,
+      "carry_errors": 1,
+      "carry_tokens": 3,
+      "carry_hits": [
+        "Stephen Merchant"
+      ],
+      "carry_total": 2,
+      "false_hint_activations": 0,
+      "completion_tokens": 24
+    },
+    {
+      "target_id": "09495-3-turn010",
+      "uniq_id": "09495-3",
+      "arm": "E4-4-wrong",
+      "wer_errors": 1,
+      "wer_tokens": 18,
+      "carry_errors": 1,
+      "carry_tokens": 3,
+      "carry_hits": [
+        "Stephen Merchant"
+      ],
+      "carry_total": 2,
+      "false_hint_activations": 0,
+      "completion_tokens": 24
+    },
+    {
+      "target_id": "09495-3-turn010",
+      "uniq_id": "09495-3",
+      "arm": "E4-5-corrupt",
+      "wer_errors": 1,
+      "wer_tokens": 18,
+      "carry_errors": 1,
+      "carry_tokens": 3,
+      "carry_hits": [
+        "Stephen Merchant"
+      ],
+      "carry_total": 2,
+      "false_hint_activations": 0,
+      "completion_tokens": 24
+    },
+    {
+      "target_id": "10969-4-turn005",
+      "uniq_id": "10969-4",
+      "arm": "E4-0-bare",
+      "wer_errors": 1,
+      "wer_tokens": 33,
+      "carry_errors": 1,
+      "carry_tokens": 1,
+      "carry_hits": [],
+      "carry_total": 1,
+      "false_hint_activations": 0,
+      "completion_tokens": 40
+    },
+    {
+      "target_id": "10969-4-turn005",
+      "uniq_id": "10969-4",
+      "arm": "E4-1-label",
+      "wer_errors": 1,
+      "wer_tokens": 33,
+      "carry_errors": 1,
+      "carry_tokens": 1,
+      "carry_hits": [],
+      "carry_total": 1,
+      "false_hint_activations": 0,
+      "completion_tokens": 41
+    },
+    {
+      "target_id": "10969-4-turn005",
+      "uniq_id": "10969-4",
+      "arm": "E4-2-global",
+      "wer_errors": 1,
+      "wer_tokens": 33,
+      "carry_errors": 1,
+      "carry_tokens": 1,
+      "carry_hits": [],
+      "carry_total": 1,
+      "false_hint_activations": 0,
+      "completion_tokens": 41
+    },
+    {
+      "target_id": "10969-4-turn005",
+      "uniq_id": "10969-4",
+      "arm": "E4-3-speaker",
+      "wer_errors": 1,
+      "wer_tokens": 33,
+      "carry_errors": 1,
+      "carry_tokens": 1,
+      "carry_hits": [],
+      "carry_total": 1,
+      "false_hint_activations": 0,
+      "completion_tokens": 41
+    },
+    {
+      "target_id": "10969-4-turn005",
+      "uniq_id": "10969-4",
+      "arm": "E4-4-wrong",
+      "wer_errors": 1,
+      "wer_tokens": 33,
+      "carry_errors": 1,
+      "carry_tokens": 1,
+      "carry_hits": [],
+      "carry_total": 1,
+      "false_hint_activations": 0,
+      "completion_tokens": 41
+    },
+    {
+      "target_id": "10969-4-turn005",
+      "uniq_id": "10969-4",
+      "arm": "E4-5-corrupt",
+      "wer_errors": 1,
+      "wer_tokens": 33,
+      "carry_errors": 1,
+      "carry_tokens": 1,
+      "carry_hits": [],
+      "carry_total": 1,
+      "false_hint_activations": 0,
+      "completion_tokens": 42
+    },
+    {
+      "target_id": "10969-4-turn007",
+      "uniq_id": "10969-4",
+      "arm": "E4-0-bare",
+      "wer_errors": 0,
+      "wer_tokens": 35,
+      "carry_errors": 0,
+      "carry_tokens": 2,
+      "carry_hits": [
+        "Ruben Fleischer"
+      ],
+      "carry_total": 1,
+      "false_hint_activations": 0,
+      "completion_tokens": 43
+    },
+    {
+      "target_id": "10969-4-turn007",
+      "uniq_id": "10969-4",
+      "arm": "E4-1-label",
+      "wer_errors": 0,
+      "wer_tokens": 35,
+      "carry_errors": 0,
+      "carry_tokens": 2,
+      "carry_hits": [
+        "Ruben Fleischer"
+      ],
+      "carry_total": 1,
+      "false_hint_activations": 0,
+      "completion_tokens": 43
+    },
+    {
+      "target_id": "10969-4-turn007",
+      "uniq_id": "10969-4",
+      "arm": "E4-2-global",
+      "wer_errors": 0,
+      "wer_tokens": 35,
+      "carry_errors": 0,
+      "carry_tokens": 2,
+      "carry_hits": [
+        "Ruben Fleischer"
+      ],
+      "carry_total": 1,
+      "false_hint_activations": 0,
+      "completion_tokens": 43
+    },
+    {
+      "target_id": "10969-4-turn007",
+      "uniq_id": "10969-4",
+      "arm": "E4-3-speaker",
+      "wer_errors": 1,
+      "wer_tokens": 35,
+      "carry_errors": 0,
+      "carry_tokens": 2,
+      "carry_hits": [
+        "Ruben Fleischer"
+      ],
+      "carry_total": 1,
+      "false_hint_activations": 1,
+      "completion_tokens": 47
+    },
+    {
+      "target_id": "10969-4-turn007",
+      "uniq_id": "10969-4",
+      "arm": "E4-4-wrong",
+      "wer_errors": 0,
+      "wer_tokens": 35,
+      "carry_errors": 0,
+      "carry_tokens": 2,
+      "carry_hits": [
+        "Ruben Fleischer"
+      ],
+      "carry_total": 1,
+      "false_hint_activations": 0,
+      "completion_tokens": 43
+    },
+    {
+      "target_id": "10969-4-turn007",
+      "uniq_id": "10969-4",
+      "arm": "E4-5-corrupt",
+      "wer_errors": 0,
+      "wer_tokens": 35,
+      "carry_errors": 0,
+      "carry_tokens": 2,
+      "carry_hits": [
+        "Ruben Fleischer"
+      ],
+      "carry_total": 1,
+      "false_hint_activations": 0,
+      "completion_tokens": 43
+    },
+    {
+      "target_id": "10969-4-turn011",
+      "uniq_id": "10969-4",
+      "arm": "E4-0-bare",
+      "wer_errors": 3,
+      "wer_tokens": 23,
+      "carry_errors": 1,
+      "carry_tokens": 2,
+      "carry_hits": [],
+      "carry_total": 1,
+      "false_hint_activations": 0,
+      "completion_tokens": 33
+    },
+    {
+      "target_id": "10969-4-turn011",
+      "uniq_id": "10969-4",
+      "arm": "E4-1-label",
+      "wer_errors": 3,
+      "wer_tokens": 23,
+      "carry_errors": 1,
+      "carry_tokens": 2,
+      "carry_hits": [],
+      "carry_total": 1,
+      "false_hint_activations": 0,
+      "completion_tokens": 33
+    },
+    {
+      "target_id": "10969-4-turn011",
+      "uniq_id": "10969-4",
+      "arm": "E4-2-global",
+      "wer_errors": 3,
+      "wer_tokens": 23,
+      "carry_errors": 1,
+      "carry_tokens": 2,
+      "carry_hits": [],
+      "carry_total": 1,
+      "false_hint_activations": 0,
+      "completion_tokens": 33
+    },
+    {
+      "target_id": "10969-4-turn011",
+      "uniq_id": "10969-4",
+      "arm": "E4-3-speaker",
+      "wer_errors": 2,
+      "wer_tokens": 23,
+      "carry_errors": 0,
+      "carry_tokens": 2,
+      "carry_hits": [
+        "Ruben Fleischer"
+      ],
+      "carry_total": 1,
+      "false_hint_activations": 0,
+      "completion_tokens": 33
+    },
+    {
+      "target_id": "10969-4-turn011",
+      "uniq_id": "10969-4",
+      "arm": "E4-4-wrong",
+      "wer_errors": 3,
+      "wer_tokens": 23,
+      "carry_errors": 1,
+      "carry_tokens": 2,
+      "carry_hits": [],
+      "carry_total": 1,
+      "false_hint_activations": 0,
+      "completion_tokens": 33
+    },
+    {
+      "target_id": "10969-4-turn011",
+      "uniq_id": "10969-4",
+      "arm": "E4-5-corrupt",
+      "wer_errors": 3,
+      "wer_tokens": 23,
+      "carry_errors": 1,
+      "carry_tokens": 2,
+      "carry_hits": [],
+      "carry_total": 1,
+      "false_hint_activations": 1,
+      "completion_tokens": 32
+    },
+    {
+      "target_id": "12013-5-turn006",
+      "uniq_id": "12013-5",
+      "arm": "E4-0-bare",
+      "wer_errors": 2,
+      "wer_tokens": 33,
+      "carry_errors": 0,
+      "carry_tokens": 2,
+      "carry_hits": [
+        "Diane Kruger"
+      ],
+      "carry_total": 1,
+      "false_hint_activations": 0,
+      "completion_tokens": 43
+    },
+    {
+      "target_id": "12013-5-turn006",
+      "uniq_id": "12013-5",
+      "arm": "E4-1-label",
+      "wer_errors": 3,
+      "wer_tokens": 33,
+      "carry_errors": 0,
+      "carry_tokens": 2,
+      "carry_hits": [
+        "Diane Kruger"
+      ],
+      "carry_total": 1,
+      "false_hint_activations": 0,
+      "completion_tokens": 43
+    },
+    {
+      "target_id": "12013-5-turn006",
+      "uniq_id": "12013-5",
+      "arm": "E4-2-global",
+      "wer_errors": 3,
+      "wer_tokens": 33,
+      "carry_errors": 0,
+      "carry_tokens": 2,
+      "carry_hits": [
+        "Diane Kruger"
+      ],
+      "carry_total": 1,
+      "false_hint_activations": 0,
+      "completion_tokens": 43
+    },
+    {
+      "target_id": "12013-5-turn006",
+      "uniq_id": "12013-5",
+      "arm": "E4-3-speaker",
+      "wer_errors": 3,
+      "wer_tokens": 33,
+      "carry_errors": 0,
+      "carry_tokens": 2,
+      "carry_hits": [
+        "Diane Kruger"
+      ],
+      "carry_total": 1,
+      "false_hint_activations": 0,
+      "completion_tokens": 43
+    },
+    {
+      "target_id": "12013-5-turn006",
+      "uniq_id": "12013-5",
+      "arm": "E4-4-wrong",
+      "wer_errors": 3,
+      "wer_tokens": 33,
+      "carry_errors": 0,
+      "carry_tokens": 2,
+      "carry_hits": [
+        "Diane Kruger"
+      ],
+      "carry_total": 1,
+      "false_hint_activations": 0,
+      "completion_tokens": 43
+    },
+    {
+      "target_id": "12013-5-turn006",
+      "uniq_id": "12013-5",
+      "arm": "E4-5-corrupt",
+      "wer_errors": 3,
+      "wer_tokens": 33,
+      "carry_errors": 0,
+      "carry_tokens": 2,
+      "carry_hits": [
+        "Diane Kruger"
+      ],
+      "carry_total": 1,
+      "false_hint_activations": 0,
+      "completion_tokens": 43
+    },
+    {
+      "target_id": "12013-5-turn007",
+      "uniq_id": "12013-5",
+      "arm": "E4-0-bare",
+      "wer_errors": 2,
+      "wer_tokens": 27,
+      "carry_errors": 0,
+      "carry_tokens": 2,
+      "carry_hits": [
+        "Rose Byrne"
+      ],
+      "carry_total": 1,
+      "false_hint_activations": 0,
+      "completion_tokens": 35
+    },
+    {
+      "target_id": "12013-5-turn007",
+      "uniq_id": "12013-5",
+      "arm": "E4-1-label",
+      "wer_errors": 3,
+      "wer_tokens": 27,
+      "carry_errors": 0,
+      "carry_tokens": 2,
+      "carry_hits": [
+        "Rose Byrne"
+      ],
+      "carry_total": 1,
+      "false_hint_activations": 0,
+      "completion_tokens": 37
+    },
+    {
+      "target_id": "12013-5-turn007",
+      "uniq_id": "12013-5",
+      "arm": "E4-2-global",
+      "wer_errors": 2,
+      "wer_tokens": 27,
+      "carry_errors": 0,
+      "carry_tokens": 2,
+      "carry_hits": [
+        "Rose Byrne"
+      ],
+      "carry_total": 1,
+      "false_hint_activations": 0,
+      "completion_tokens": 35
+    },
+    {
+      "target_id": "12013-5-turn007",
+      "uniq_id": "12013-5",
+      "arm": "E4-3-speaker",
+      "wer_errors": 2,
+      "wer_tokens": 27,
+      "carry_errors": 0,
+      "carry_tokens": 2,
+      "carry_hits": [
+        "Rose Byrne"
+      ],
+      "carry_total": 1,
+      "false_hint_activations": 0,
+      "completion_tokens": 35
+    },
+    {
+      "target_id": "12013-5-turn007",
+      "uniq_id": "12013-5",
+      "arm": "E4-4-wrong",
+      "wer_errors": 2,
+      "wer_tokens": 27,
+      "carry_errors": 0,
+      "carry_tokens": 2,
+      "carry_hits": [
+        "Rose Byrne"
+      ],
+      "carry_total": 1,
+      "false_hint_activations": 0,
+      "completion_tokens": 35
+    },
+    {
+      "target_id": "12013-5-turn007",
+      "uniq_id": "12013-5",
+      "arm": "E4-5-corrupt",
+      "wer_errors": 2,
+      "wer_tokens": 27,
+      "carry_errors": 0,
+      "carry_tokens": 2,
+      "carry_hits": [
+        "Rose Byrne"
+      ],
+      "carry_total": 1,
+      "false_hint_activations": 0,
+      "completion_tokens": 35
+    },
+    {
+      "target_id": "12013-5-turn011",
+      "uniq_id": "12013-5",
+      "arm": "E4-0-bare",
+      "wer_errors": 1,
+      "wer_tokens": 31,
+      "carry_errors": 0,
+      "carry_tokens": 2,
+      "carry_hits": [
+        "Diane Kruger"
+      ],
+      "carry_total": 1,
+      "false_hint_activations": 0,
+      "completion_tokens": 45
+    },
+    {
+      "target_id": "12013-5-turn011",
+      "uniq_id": "12013-5",
+      "arm": "E4-1-label",
+      "wer_errors": 1,
+      "wer_tokens": 31,
+      "carry_errors": 0,
+      "carry_tokens": 2,
+      "carry_hits": [
+        "Diane Kruger"
+      ],
+      "carry_total": 1,
+      "false_hint_activations": 0,
+      "completion_tokens": 45
+    },
+    {
+      "target_id": "12013-5-turn011",
+      "uniq_id": "12013-5",
+      "arm": "E4-2-global",
+      "wer_errors": 1,
+      "wer_tokens": 31,
+      "carry_errors": 0,
+      "carry_tokens": 2,
+      "carry_hits": [
+        "Diane Kruger"
+      ],
+      "carry_total": 1,
+      "false_hint_activations": 0,
+      "completion_tokens": 45
+    },
+    {
+      "target_id": "12013-5-turn011",
+      "uniq_id": "12013-5",
+      "arm": "E4-3-speaker",
+      "wer_errors": 1,
+      "wer_tokens": 31,
+      "carry_errors": 0,
+      "carry_tokens": 2,
+      "carry_hits": [
+        "Diane Kruger"
+      ],
+      "carry_total": 1,
+      "false_hint_activations": 0,
+      "completion_tokens": 45
+    },
+    {
+      "target_id": "12013-5-turn011",
+      "uniq_id": "12013-5",
+      "arm": "E4-4-wrong",
+      "wer_errors": 1,
+      "wer_tokens": 31,
+      "carry_errors": 0,
+      "carry_tokens": 2,
+      "carry_hits": [
+        "Diane Kruger"
+      ],
+      "carry_total": 1,
+      "false_hint_activations": 0,
+      "completion_tokens": 45
+    },
+    {
+      "target_id": "12013-5-turn011",
+      "uniq_id": "12013-5",
+      "arm": "E4-5-corrupt",
+      "wer_errors": 1,
+      "wer_tokens": 31,
+      "carry_errors": 0,
+      "carry_tokens": 2,
+      "carry_hits": [
+        "Diane Kruger"
+      ],
+      "carry_total": 1,
+      "false_hint_activations": 0,
+      "completion_tokens": 45
+    },
+    {
+      "target_id": "12013-5-turn015",
+      "uniq_id": "12013-5",
+      "arm": "E4-0-bare",
+      "wer_errors": 1,
+      "wer_tokens": 18,
+      "carry_errors": 1,
+      "carry_tokens": 2,
+      "carry_hits": [],
+      "carry_total": 1,
+      "false_hint_activations": 0,
+      "completion_tokens": 25
+    },
+    {
+      "target_id": "12013-5-turn015",
+      "uniq_id": "12013-5",
+      "arm": "E4-1-label",
+      "wer_errors": 1,
+      "wer_tokens": 18,
+      "carry_errors": 1,
+      "carry_tokens": 2,
+      "carry_hits": [],
+      "carry_total": 1,
+      "false_hint_activations": 0,
+      "completion_tokens": 25
+    },
+    {
+      "target_id": "12013-5-turn015",
+      "uniq_id": "12013-5",
+      "arm": "E4-2-global",
+      "wer_errors": 1,
+      "wer_tokens": 18,
+      "carry_errors": 1,
+      "carry_tokens": 2,
+      "carry_hits": [],
+      "carry_total": 1,
+      "false_hint_activations": 0,
+      "completion_tokens": 25
+    },
+    {
+      "target_id": "12013-5-turn015",
+      "uniq_id": "12013-5",
+      "arm": "E4-3-speaker",
+      "wer_errors": 1,
+      "wer_tokens": 18,
+      "carry_errors": 1,
+      "carry_tokens": 2,
+      "carry_hits": [],
+      "carry_total": 1,
+      "false_hint_activations": 0,
+      "completion_tokens": 25
+    },
+    {
+      "target_id": "12013-5-turn015",
+      "uniq_id": "12013-5",
+      "arm": "E4-4-wrong",
+      "wer_errors": 0,
+      "wer_tokens": 18,
+      "carry_errors": 0,
+      "carry_tokens": 2,
+      "carry_hits": [
+        "Josh Hartnett"
+      ],
+      "carry_total": 1,
+      "false_hint_activations": 0,
+      "completion_tokens": 24
+    },
+    {
+      "target_id": "12013-5-turn015",
+      "uniq_id": "12013-5",
+      "arm": "E4-5-corrupt",
+      "wer_errors": 1,
+      "wer_tokens": 18,
+      "carry_errors": 1,
+      "carry_tokens": 2,
+      "carry_hits": [],
+      "carry_total": 1,
+      "false_hint_activations": 0,
+      "completion_tokens": 25
+    },
+    {
+      "target_id": "12769-3-turn006",
+      "uniq_id": "12769-3",
+      "arm": "E4-0-bare",
+      "wer_errors": 1,
+      "wer_tokens": 32,
+      "carry_errors": 1,
+      "carry_tokens": 2,
+      "carry_hits": [],
+      "carry_total": 1,
+      "false_hint_activations": 0,
+      "completion_tokens": 43
+    },
+    {
+      "target_id": "12769-3-turn006",
+      "uniq_id": "12769-3",
+      "arm": "E4-1-label",
+      "wer_errors": 1,
+      "wer_tokens": 32,
+      "carry_errors": 1,
+      "carry_tokens": 2,
+      "carry_hits": [],
+      "carry_total": 1,
+      "false_hint_activations": 0,
+      "completion_tokens": 43
+    },
+    {
+      "target_id": "12769-3-turn006",
+      "uniq_id": "12769-3",
+      "arm": "E4-2-global",
+      "wer_errors": 0,
+      "wer_tokens": 32,
+      "carry_errors": 0,
+      "carry_tokens": 2,
+      "carry_hits": [
+        "Henry Lawfull"
+      ],
+      "carry_total": 1,
+      "false_hint_activations": 0,
+      "completion_tokens": 43
+    },
+    {
+      "target_id": "12769-3-turn006",
+      "uniq_id": "12769-3",
+      "arm": "E4-3-speaker",
+      "wer_errors": 1,
+      "wer_tokens": 32,
+      "carry_errors": 1,
+      "carry_tokens": 2,
+      "carry_hits": [],
+      "carry_total": 1,
+      "false_hint_activations": 1,
+      "completion_tokens": 43
+    },
+    {
+      "target_id": "12769-3-turn006",
+      "uniq_id": "12769-3",
+      "arm": "E4-4-wrong",
+      "wer_errors": 1,
+      "wer_tokens": 32,
+      "carry_errors": 1,
+      "carry_tokens": 2,
+      "carry_hits": [],
+      "carry_total": 1,
+      "false_hint_activations": 0,
+      "completion_tokens": 43
+    },
+    {
+      "target_id": "12769-3-turn006",
+      "uniq_id": "12769-3",
+      "arm": "E4-5-corrupt",
+      "wer_errors": 1,
+      "wer_tokens": 32,
+      "carry_errors": 1,
+      "carry_tokens": 2,
+      "carry_hits": [],
+      "carry_total": 1,
+      "false_hint_activations": 0,
+      "completion_tokens": 43
+    },
+    {
+      "target_id": "12769-3-turn008",
+      "uniq_id": "12769-3",
+      "arm": "E4-0-bare",
+      "wer_errors": 2,
+      "wer_tokens": 29,
+      "carry_errors": 0,
+      "carry_tokens": 2,
+      "carry_hits": [
+        "Gil Kenan"
+      ],
+      "carry_total": 1,
+      "false_hint_activations": 0,
+      "completion_tokens": 45
+    },
+    {
+      "target_id": "12769-3-turn008",
+      "uniq_id": "12769-3",
+      "arm": "E4-1-label",
+      "wer_errors": 2,
+      "wer_tokens": 29,
+      "carry_errors": 0,
+      "carry_tokens": 2,
+      "carry_hits": [
+        "Gil Kenan"
+      ],
+      "carry_total": 1,
+      "false_hint_activations": 0,
+      "completion_tokens": 45
+    },
+    {
+      "target_id": "12769-3-turn008",
+      "uniq_id": "12769-3",
+      "arm": "E4-2-global",
+      "wer_errors": 2,
+      "wer_tokens": 29,
+      "carry_errors": 0,
+      "carry_tokens": 2,
+      "carry_hits": [
+        "Gil Kenan"
+      ],
+      "carry_total": 1,
+      "false_hint_activations": 0,
+      "completion_tokens": 45
+    },
+    {
+      "target_id": "12769-3-turn008",
+      "uniq_id": "12769-3",
+      "arm": "E4-3-speaker",
+      "wer_errors": 2,
+      "wer_tokens": 29,
+      "carry_errors": 0,
+      "carry_tokens": 2,
+      "carry_hits": [
+        "Gil Kenan"
+      ],
+      "carry_total": 1,
+      "false_hint_activations": 0,
+      "completion_tokens": 44
+    },
+    {
+      "target_id": "12769-3-turn008",
+      "uniq_id": "12769-3",
+      "arm": "E4-4-wrong",
+      "wer_errors": 2,
+      "wer_tokens": 29,
+      "carry_errors": 0,
+      "carry_tokens": 2,
+      "carry_hits": [
+        "Gil Kenan"
+      ],
+      "carry_total": 1,
+      "false_hint_activations": 0,
+      "completion_tokens": 45
+    },
+    {
+      "target_id": "12769-3-turn008",
+      "uniq_id": "12769-3",
+      "arm": "E4-5-corrupt",
+      "wer_errors": 4,
+      "wer_tokens": 29,
+      "carry_errors": 0,
+      "carry_tokens": 2,
+      "carry_hits": [
+        "Gil Kenan"
+      ],
+      "carry_total": 1,
+      "false_hint_activations": 0,
+      "completion_tokens": 47
+    },
+    {
+      "target_id": "12769-3-turn011",
+      "uniq_id": "12769-3",
+      "arm": "E4-0-bare",
+      "wer_errors": 0,
+      "wer_tokens": 26,
+      "carry_errors": 0,
+      "carry_tokens": 2,
+      "carry_hits": [
+        "Maggie Smith"
+      ],
+      "carry_total": 1,
+      "false_hint_activations": 0,
+      "completion_tokens": 31
+    },
+    {
+      "target_id": "12769-3-turn011",
+      "uniq_id": "12769-3",
+      "arm": "E4-1-label",
+      "wer_errors": 0,
+      "wer_tokens": 26,
+      "carry_errors": 0,
+      "carry_tokens": 2,
+      "carry_hits": [
+        "Maggie Smith"
+      ],
+      "carry_total": 1,
+      "false_hint_activations": 0,
+      "completion_tokens": 32
+    },
+    {
+      "target_id": "12769-3-turn011",
+      "uniq_id": "12769-3",
+      "arm": "E4-2-global",
+      "wer_errors": 0,
+      "wer_tokens": 26,
+      "carry_errors": 0,
+      "carry_tokens": 2,
+      "carry_hits": [
+        "Maggie Smith"
+      ],
+      "carry_total": 1,
+      "false_hint_activations": 0,
+      "completion_tokens": 32
+    },
+    {
+      "target_id": "12769-3-turn011",
+      "uniq_id": "12769-3",
+      "arm": "E4-3-speaker",
+      "wer_errors": 0,
+      "wer_tokens": 26,
+      "carry_errors": 0,
+      "carry_tokens": 2,
+      "carry_hits": [
+        "Maggie Smith"
+      ],
+      "carry_total": 1,
+      "false_hint_activations": 0,
+      "completion_tokens": 32
+    },
+    {
+      "target_id": "12769-3-turn011",
+      "uniq_id": "12769-3",
+      "arm": "E4-4-wrong",
+      "wer_errors": 0,
+      "wer_tokens": 26,
+      "carry_errors": 0,
+      "carry_tokens": 2,
+      "carry_hits": [
+        "Maggie Smith"
+      ],
+      "carry_total": 1,
+      "false_hint_activations": 0,
+      "completion_tokens": 32
+    },
+    {
+      "target_id": "12769-3-turn011",
+      "uniq_id": "12769-3",
+      "arm": "E4-5-corrupt",
+      "wer_errors": 0,
+      "wer_tokens": 26,
+      "carry_errors": 0,
+      "carry_tokens": 2,
+      "carry_hits": [
+        "Maggie Smith"
+      ],
+      "carry_total": 1,
+      "false_hint_activations": 0,
+      "completion_tokens": 27
+    }
+  ]
+}

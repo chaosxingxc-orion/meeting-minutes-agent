@@ -1,0 +1,16 @@
+decision: CONTEXT-SENSITIVE-NOT-SPEAKER-SPECIFIC
+manifest_hash: 543b7109f35dbeccf14263e1441522122bab9c4ab8ba8751c7929d28a94f7a5d
+
+arm	WER	carry_NE-WER	carry_FNR	hits/total	false_hint	truncated
+E4-0-bare	0.0419	0.0938	0.1500	34/40	0	0
+E4-1-label	0.0499	0.0938	0.1500	34/40	0	0
+E4-2-global	0.0449	0.0938	0.1500	34/40	3	0
+E4-3-speaker	0.0389	0.0781	0.1250	35/40	4	0
+E4-4-wrong	0.0508	0.1094	0.1750	33/40	4	0
+E4-5-corrupt	0.0429	0.1562	0.2500	30/40	4	0
+
+speaker_vs_bare corrected: 2
+speaker_vs_bare broken: 1
+speaker_vs_bare WER delta: -0.0030
+speaker_vs_bare carry_NE-WER delta: -0.0156
+speaker_vs_wrong carry-hit advantage: 2

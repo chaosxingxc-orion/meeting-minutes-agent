@@ -1,0 +1,26 @@
+# 实验总表
+
+本表是当前实验进展的唯一导航页；数值结论必须跟随证据链接引用。
+
+| ID | 研究问题 | 状态 | 当前结论 | 下一步 |
+|---|---|---|---|---|
+| [ENTITY-DENSITY](ENTITY-DENSITY.md) | 哪个语料适合专业词/实体优化？ | 已判读 | ContextASR 适合高密度供给能力探针；Earnings21 更适合会议内复现词表 | 按任务选择语料，不混用结论 |
+| [P-ATTR](P-ATTR.md) | 说话人归属应由模型完成还是控制器装配？ | 已判读 | 采用 attribution-by-construction；模型只转写，控制器附加 speaker | 作为后续固定前端 |
+| [P-PROMPT](P-PROMPT.md) | 基础转写提示词采用哪种形式？ | 已判读 | 锁定 T1-A1；腐败上下文结果不确定 | 后续新增上下文需独立验证 |
+| [DIAR-SMOKE](DIAR-SMOKE.md) | 固定前端采用哪个 diarizer？ | 已判读 | 经 owner adjudication 锁定工具 B | 不再作为当前优化变量 |
+| [PRECOMP](PRECOMP.md) | G1 运行所需切片与特征缓存是否备好？ | 数据准备 | 9/18 meetings 完成，主动 yield；不是模型效果结果 | 需要时从 IB4011 续跑 |
+| [C-CTX](C-CTX.md) | Omni 能否利用文本实体条件改善短片段专业词转写？ | 已判读 | 对正确实体强响应，但未跨过预注册可达阈值，判为 `CONTEXT-SENSITIVE-BUT-UNCONTROLLED` | 后续 E3/E4/E4-CF 已完成；保留为 oracle 能力证据 |
+| [E3-STATE](E3-STATE.md) | 不用 gold 能否构造低污染、按 speaker 路由的状态？ | 已判读 | `LEGAL-STATE-READY`；precision 90.04%，hallucination 9.96%，carry recall 57.50% | 状态已用于 E4 与 E4-CF；后续审计收益/污染机制 |
+| [E4-CONDITIONING](E4-CONDITIONING.md) | 合法 speaker state 能否改善固定完整第二遍？ | 已判读 | `CONTEXT-SENSITIVE-NOT-SPEAKER-SPECIFIC`；修复/路由门均以 2 对 3 近失 | 未见数据的 E4-POWER/E4-CF 已完成 |
+| [E4-POWER](E4-POWER.md) | 独立 confirmatory E4 需要多大样本和预算？ | 已判读 | 5 pp 需要 287 dialogues、6,922 calls、22.01 h | 已授权并完成 E4-CF |
+| [E4-CONFIRMATORY](E4-CONFIRMATORY.md) | 5 pp speaker-routing 改善能否在未见对话确认？ | 已判读 | `DIRECTIONAL-NOT-CONFIRMED`；+2.16 pp、CI 为正但低于 5 pp 门 | 做冻结结果机制分析；不放行 agent loop |
+| [E4-CF-MECH](E4-CF-MECH.md) | 小路由收益与 false-hint 的机制是什么？ | 已判读 | `PREREGISTER-ONE-FIXED-POLICY`；唯一入选 `speaker_wrong_disjoint` | 先做未见 surface 的零模型功效/roster 审计 |
+| [E4-DISJOINT-POWER](E4-DISJOINT-POWER.md) | 固定 disjoint policy 是否有足够独立样本与可接受预算？ | 已判读 | `INSUFFICIENT-CARRY-SUPPLY`；eligible carry 4,782 < 主情景所需 5,774 | 不启动模型 flight；新数据源或新设计需重新注册 |
+| [E4-DISJOINT-PREV](E4-DISJOINT-PREV.md) | 小型 Pass-0 能否支持约50%的 disjoint prevalence 假设？ | 已判读 | `PREVALENCE-SCREEN-PASS`；52.76%，80%区间46.71%–59.01%，795 calls | 只支持资源规划；效果 pilot 需另行授权和注册 |
+| [Z-SERIES](Z-SERIES.md) | 说话人标签、归属与切分的多臂效应是什么？ | 已暂缓 | 截图数值尚无仓库内可复核证据；现阶段不重跑 | 等外部证据归档或重新授权 |
+
+## 当前优先级
+
+1. 以[今日进展总结](../2026-08-21-progress-summary.md)作为机制审计汇报入口；不得将其改写为独立确认结果。
+2. `E4-DISJOINT-PREV` 支持约50%的 prevalence 规划假设，但没有提供转写效果证据。
+3. 如继续，先评审约172 calls 的 D0-global vs D1-speaker 探索性方向 pilot；不得据此直接启动完整31,749-call flight。

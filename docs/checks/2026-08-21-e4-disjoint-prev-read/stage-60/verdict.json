@@ -1,0 +1,41 @@
+{
+  "schema_version": "e4-disjoint-prevalence-read-v1",
+  "experiment_id": "E4-DISJOINT-PREV-v1",
+  "stage_dialogues": 60,
+  "decision": "PREVALENCE-SCREEN-PASS",
+  "inputs": {
+    "runtime_manifest_hash": "4ab699d03f55fca4687131e64787a9caa2d24116d362bdfa5952f95c0e3ac311",
+    "score_manifest_hash": "10d95813eb9e95d15eca29dddc355d69fd2875f99f110656ace625a4785d7568",
+    "response_sha256": {
+      "docs/checks/2026-08-21-e4-disjoint-prev-flight/stage-20-responses.jsonl": "2786a0c5edde176f7fc85f5dd846457b2d69333fa47aa149f3ff88f3871e4197",
+      "docs/checks/2026-08-21-e4-disjoint-prev-flight/stage-40-responses.jsonl": "52f927700dd913f6da31fba3c24bff712cb90046b3d68bf7414ae25022cb4950",
+      "docs/checks/2026-08-21-e4-disjoint-prev-flight/stage-60-responses.jsonl": "90e6beab340cef2d46adeb9c7d1476ad6f518aea49c7b2648d5f41d0cda9dc84"
+    }
+  },
+  "pass0": {
+    "calls": 795,
+    "dialogues": 60
+  },
+  "supply": {
+    "natural_carry_targets": 164,
+    "natural_carry_mentions": 175,
+    "usable_targets": 163,
+    "usable_carry_mentions": 174,
+    "usable_carry_fraction": 0.9942857142857143,
+    "dialogues_with_usable_targets": 60
+  },
+  "prevalence": {
+    "positive_targets": 86,
+    "point": 0.5276073619631901,
+    "break_even": 0.48293847024380643,
+    "cluster_bootstrap_80": [
+      0.46706586826347307,
+      0.5900621118012422
+    ],
+    "cluster_bootstrap_90": [
+      0.4491017964071856,
+      0.6078431372549019
+    ],
+    "bootstrap_replicates": 20000
+  }
+}

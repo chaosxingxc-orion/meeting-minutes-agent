@@ -1,0 +1,39 @@
+{
+  "schema_version": "e4-disjoint-prevalence-read-v1",
+  "experiment_id": "E4-DISJOINT-PREV-v1",
+  "stage_dialogues": 20,
+  "decision": "CONTINUE",
+  "inputs": {
+    "runtime_manifest_hash": "4ab699d03f55fca4687131e64787a9caa2d24116d362bdfa5952f95c0e3ac311",
+    "score_manifest_hash": "10d95813eb9e95d15eca29dddc355d69fd2875f99f110656ace625a4785d7568",
+    "response_sha256": {
+      "docs/checks/2026-08-21-e4-disjoint-prev-flight/stage-20-responses.jsonl": "2786a0c5edde176f7fc85f5dd846457b2d69333fa47aa149f3ff88f3871e4197"
+    }
+  },
+  "pass0": {
+    "calls": 265,
+    "dialogues": 20
+  },
+  "supply": {
+    "natural_carry_targets": 54,
+    "natural_carry_mentions": 60,
+    "usable_targets": 54,
+    "usable_carry_mentions": 60,
+    "usable_carry_fraction": 1.0,
+    "dialogues_with_usable_targets": 20
+  },
+  "prevalence": {
+    "positive_targets": 34,
+    "point": 0.6296296296296297,
+    "break_even": 0.48293847024380643,
+    "cluster_bootstrap_80": [
+      0.5344827586206896,
+      0.7288135593220338
+    ],
+    "cluster_bootstrap_90": [
+      0.5087719298245614,
+      0.7586526181353762
+    ],
+    "bootstrap_replicates": 20000
+  }
+}

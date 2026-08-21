@@ -1,0 +1,410 @@
+{
+  "analysis_class": "post-hoc-exploratory-zero-model",
+  "candidate_predicates": {
+    "all_terms_repeated": {
+      "metrics": null,
+      "qualifies": false
+    },
+    "inventory_le_4": {
+      "metrics": {
+        "arms": {
+          "CF0-bare": {
+            "carry_hit_rate": 0.7581863979848866,
+            "carry_hits": 301,
+            "carry_total": 397,
+            "false_hint_activations": 0,
+            "false_hint_target_rate": 0.0,
+            "false_hint_targets": 0,
+            "wer": 0.07351680792305494,
+            "wer_errors": 772,
+            "wer_tokens": 10501
+          },
+          "CF1-global": {
+            "carry_hit_rate": 0.7934508816120907,
+            "carry_hits": 315,
+            "carry_total": 397,
+            "false_hint_activations": 42,
+            "false_hint_target_rate": 0.10638297872340426,
+            "false_hint_targets": 40,
+            "wer": 0.0419960003809161,
+            "wer_errors": 441,
+            "wer_tokens": 10501
+          },
+          "CF2-speaker": {
+            "carry_hit_rate": 0.8438287153652393,
+            "carry_hits": 335,
+            "carry_total": 397,
+            "false_hint_activations": 50,
+            "false_hint_target_rate": 0.13031914893617022,
+            "false_hint_targets": 49,
+            "wer": 0.0383772974002476,
+            "wer_errors": 403,
+            "wer_tokens": 10501
+          },
+          "CF3-wrong": {
+            "carry_hit_rate": 0.7909319899244333,
+            "carry_hits": 314,
+            "carry_total": 397,
+            "false_hint_activations": 31,
+            "false_hint_target_rate": 0.07446808510638298,
+            "false_hint_targets": 28,
+            "wer": 0.04009141986477478,
+            "wer_errors": 421,
+            "wer_tokens": 10501
+          }
+        },
+        "contrasts": {
+          "speaker_bare_wer": -0.035139510522807345,
+          "speaker_global_carry_hit_rate": 0.05037783375314864,
+          "speaker_global_false_hint_target_rate": 0.023936170212765964,
+          "speaker_global_wer": -0.003618702980668506,
+          "speaker_wrong_carry_hit_rate": 0.052896725440806036
+        },
+        "dialogues": 221,
+        "targets": 376
+      },
+      "qualifies": false
+    },
+    "recent_support_le_3": {
+      "metrics": {
+        "arms": {
+          "CF0-bare": {
+            "carry_hit_rate": 0.8846153846153846,
+            "carry_hits": 69,
+            "carry_total": 78,
+            "false_hint_activations": 0,
+            "false_hint_target_rate": 0.0,
+            "false_hint_targets": 0,
+            "wer": 0.18494342906875544,
+            "wer_errors": 425,
+            "wer_tokens": 2298
+          },
+          "CF1-global": {
+            "carry_hit_rate": 0.9102564102564102,
+            "carry_hits": 71,
+            "carry_total": 78,
+            "false_hint_activations": 3,
+            "false_hint_target_rate": 0.04411764705882353,
+            "false_hint_targets": 3,
+            "wer": 0.034377719756309835,
+            "wer_errors": 79,
+            "wer_tokens": 2298
+          },
+          "CF2-speaker": {
+            "carry_hit_rate": 0.9487179487179487,
+            "carry_hits": 74,
+            "carry_total": 78,
+            "false_hint_activations": 4,
+            "false_hint_target_rate": 0.058823529411764705,
+            "false_hint_targets": 4,
+            "wer": 0.03350739773716275,
+            "wer_errors": 77,
+            "wer_tokens": 2298
+          },
+          "CF3-wrong": {
+            "carry_hit_rate": 0.8846153846153846,
+            "carry_hits": 69,
+            "carry_total": 78,
+            "false_hint_activations": 1,
+            "false_hint_target_rate": 0.014705882352941176,
+            "false_hint_targets": 1,
+            "wer": 0.034377719756309835,
+            "wer_errors": 79,
+            "wer_tokens": 2298
+          }
+        },
+        "contrasts": {
+          "speaker_bare_wer": -0.1514360313315927,
+          "speaker_global_carry_hit_rate": 0.038461538461538436,
+          "speaker_global_false_hint_target_rate": 0.014705882352941173,
+          "speaker_global_wer": -0.0008703220191470865,
+          "speaker_wrong_carry_hit_rate": 0.0641025641025641
+        },
+        "dialogues": 52,
+        "targets": 68
+      },
+      "qualifies": false
+    },
+    "speaker_wrong_disjoint": {
+      "metrics": {
+        "arms": {
+          "CF0-bare": {
+            "carry_hit_rate": 0.796875,
+            "carry_hits": 357,
+            "carry_total": 448,
+            "false_hint_activations": 0,
+            "false_hint_target_rate": 0.0,
+            "false_hint_targets": 0,
+            "wer": 0.07249448123620308,
+            "wer_errors": 821,
+            "wer_tokens": 11325
+          },
+          "CF1-global": {
+            "carry_hit_rate": 0.8325892857142857,
+            "carry_hits": 373,
+            "carry_total": 448,
+            "false_hint_activations": 36,
+            "false_hint_target_rate": 0.07894736842105263,
+            "false_hint_targets": 33,
+            "wer": 0.042207505518763795,
+            "wer_errors": 478,
+            "wer_tokens": 11325
+          },
+          "CF2-speaker": {
+            "carry_hit_rate": 0.8705357142857143,
+            "carry_hits": 390,
+            "carry_total": 448,
+            "false_hint_activations": 39,
+            "false_hint_target_rate": 0.08851674641148326,
+            "false_hint_targets": 37,
+            "wer": 0.03726269315673289,
+            "wer_errors": 422,
+            "wer_tokens": 11325
+          },
+          "CF3-wrong": {
+            "carry_hit_rate": 0.828125,
+            "carry_hits": 371,
+            "carry_total": 448,
+            "false_hint_activations": 24,
+            "false_hint_target_rate": 0.050239234449760764,
+            "false_hint_targets": 21,
+            "wer": 0.041236203090507725,
+            "wer_errors": 467,
+            "wer_tokens": 11325
+          }
+        },
+        "contrasts": {
+          "speaker_bare_wer": -0.035231788079470194,
+          "speaker_global_carry_hit_rate": 0.0379464285714286,
+          "speaker_global_false_hint_target_rate": 0.00956937799043063,
+          "speaker_global_wer": -0.004944812362030905,
+          "speaker_wrong_carry_hit_rate": 0.0424107142857143
+        },
+        "dialogues": 228,
+        "targets": 418
+      },
+      "qualifies": true
+    }
+  },
+  "carry_transitions_vs_bare": {
+    "CF1-global": {
+      "break": 23,
+      "missed": 117,
+      "repair": 50,
+      "retained": 642
+    },
+    "CF2-speaker": {
+      "break": 21,
+      "missed": 101,
+      "repair": 66,
+      "retained": 644
+    },
+    "CF3-wrong": {
+      "break": 20,
+      "missed": 120,
+      "repair": 47,
+      "retained": 645
+    }
+  },
+  "decision": "PREREGISTER-ONE-FIXED-POLICY",
+  "false_hint": {
+    "CF1-global": {
+      "activations": 93,
+      "association_with_bare_outcome": {
+        "net-carry-gain/no-wer-harm": 1,
+        "net-carry-gain/wer-harm": 2,
+        "no-net-carry-gain/no-wer-harm": 59,
+        "no-net-carry-gain/wer-harm": 31
+      },
+      "evidence_bucket": {
+        "1": 18,
+        "2": 25,
+        "3+": 50
+      },
+      "last_mention_gap_bucket": {
+        "1-2": 47,
+        "3-5": 35,
+        "6+": 10,
+        "unknown": 1
+      },
+      "rank": {
+        "1": 31,
+        "2": 21,
+        "3": 18,
+        "4": 10,
+        "5": 5,
+        "6": 4,
+        "7": 2,
+        "8": 2
+      },
+      "target_rate": 0.1111111111111111,
+      "targets": 86
+    },
+    "CF2-speaker": {
+      "activations": 109,
+      "association_with_bare_outcome": {
+        "net-carry-gain/no-wer-harm": 1,
+        "net-carry-gain/wer-harm": 0,
+        "no-net-carry-gain/no-wer-harm": 67,
+        "no-net-carry-gain/wer-harm": 41
+      },
+      "evidence_bucket": {
+        "1": 90,
+        "2": 12,
+        "3+": 7
+      },
+      "last_mention_gap_bucket": {
+        "3-5": 68,
+        "6+": 40,
+        "unknown": 1
+      },
+      "rank": {
+        "1": 18,
+        "2": 31,
+        "3": 32,
+        "4": 15,
+        "5": 5,
+        "6": 5,
+        "7": 3
+      },
+      "target_rate": 0.12919896640826872,
+      "targets": 100
+    },
+    "CF3-wrong": {
+      "activations": 70,
+      "association_with_bare_outcome": {
+        "net-carry-gain/no-wer-harm": 2,
+        "net-carry-gain/wer-harm": 0,
+        "no-net-carry-gain/no-wer-harm": 45,
+        "no-net-carry-gain/wer-harm": 23
+      },
+      "evidence_bucket": {
+        "1": 22,
+        "2": 17,
+        "3+": 31
+      },
+      "last_mention_gap_bucket": {
+        "1-2": 40,
+        "3-5": 20,
+        "6+": 10
+      },
+      "rank": {
+        "1": 22,
+        "2": 16,
+        "3": 15,
+        "4": 6,
+        "5": 8,
+        "6": 3
+      },
+      "target_rate": 0.082687338501292,
+      "targets": 64
+    }
+  },
+  "input_sha256": {
+    "official_verdict": "20c654267aa05f0db579d2cc02d62cdaa812335af71f5cf49c68dce3e52269d9",
+    "pass0_responses": "26cd1977f1181fa3da7e4d9c67fd3ec66684428e8de3e9b57a6a0d7efee45e2f",
+    "runtime_binding": "2daf5ec4b10df60b66d9e5751ddbd32eaa49a9fd61ff5a1b41c6b8686a0dfa7d",
+    "runtime_manifest": "8a70c0c1e8e9f029e5b5a2bcf3f695b71edb1f1607c2e3f336bb495b9fa5d8a1",
+    "score_binding": "13da03acf69848b15b4ed79434a9f9de8ac7e05669e7f04a703b5e5601e15df7",
+    "secondpass_responses": "711d8844c53199374ec6738d280e1d8e3594155b63d1a80af111d2f85def5989"
+  },
+  "limitations": [
+    "Post-hoc exploratory analysis; no confirmatory p-values or confidence claims.",
+    "False-hint strata are descriptive associations, not causal effects.",
+    "A selected predicate would require an independent preregistered replay and new authorization."
+  ],
+  "official_decision_unchanged": true,
+  "official_e4_cf_decision": "DIRECTIONAL-NOT-CONFIRMED",
+  "overall": {
+    "arms": {
+      "CF0-bare": {
+        "carry_hit_rate": 0.7992788461538461,
+        "carry_hits": 665,
+        "carry_total": 832,
+        "false_hint_activations": 0,
+        "false_hint_target_rate": 0.0,
+        "false_hint_targets": 0,
+        "wer": 0.05398045032339639,
+        "wer_errors": 1110,
+        "wer_tokens": 20563
+      },
+      "CF1-global": {
+        "carry_hit_rate": 0.8317307692307693,
+        "carry_hits": 692,
+        "carry_total": 832,
+        "false_hint_activations": 93,
+        "false_hint_target_rate": 0.1111111111111111,
+        "false_hint_targets": 86,
+        "wer": 0.037300004863103635,
+        "wer_errors": 767,
+        "wer_tokens": 20563
+      },
+      "CF2-speaker": {
+        "carry_hit_rate": 0.8533653846153846,
+        "carry_hits": 710,
+        "carry_total": 832,
+        "false_hint_activations": 109,
+        "false_hint_target_rate": 0.12919896640826872,
+        "false_hint_targets": 100,
+        "wer": 0.03535476341000827,
+        "wer_errors": 727,
+        "wer_tokens": 20563
+      },
+      "CF3-wrong": {
+        "carry_hit_rate": 0.8317307692307693,
+        "carry_hits": 692,
+        "carry_total": 832,
+        "false_hint_activations": 70,
+        "false_hint_target_rate": 0.082687338501292,
+        "false_hint_targets": 64,
+        "wer": 0.035695180664299955,
+        "wer_errors": 734,
+        "wer_tokens": 20563
+      }
+    },
+    "contrasts": {
+      "speaker_bare_wer": -0.018625686913388124,
+      "speaker_global_carry_hit_rate": 0.021634615384615308,
+      "speaker_global_false_hint_target_rate": 0.018087855297157618,
+      "speaker_global_wer": -0.0019452414530953671,
+      "speaker_wrong_carry_hit_rate": 0.021634615384615308
+    },
+    "dialogues": 287,
+    "targets": 774
+  },
+  "pairwise_carry_hits": {
+    "speaker_vs_global": {
+      "both": 671,
+      "neither": 101,
+      "other_only": 21,
+      "speaker_only": 39
+    },
+    "speaker_vs_wrong": {
+      "both": 662,
+      "neither": 92,
+      "other_only": 30,
+      "speaker_only": 48
+    }
+  },
+  "runtime_binding_hash": "5b52b1cc77b0a3726edf5ca59069df1347e45b3d9f135b15bbfe57f87c496642",
+  "runtime_feature_distribution": {
+    "all_terms_repeated": 0,
+    "inventory_le_4": 376,
+    "inventory_size": {
+      "1": 26,
+      "2": 116,
+      "3": 134,
+      "4": 100,
+      "5": 105,
+      "6": 84,
+      "7": 68,
+      "8": 141
+    },
+    "recent_support_le_3": 68,
+    "speaker_wrong_disjoint": 418
+  },
+  "runtime_manifest_hash": "a079a997c2685c045e3823b82cfbafc353a8fdc77c17874125883aede9428546",
+  "schema_version": "e4-cf-mechanism-v1",
+  "score_binding_hash": "dd2db71d127d2e54196d6ff347202284a7bf2c3eb2b7eb6f20a376f80abc4f3d",
+  "selected_predicate": "speaker_wrong_disjoint"
+}

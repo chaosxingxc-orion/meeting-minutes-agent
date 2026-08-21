@@ -1,0 +1,11 @@
+decision: CONTINUE
+stage_dialogues: 40
+pass0_calls: 530
+natural_carry_targets: 104
+usable_targets: 104
+usable_carry_fraction: 1.000000
+predicate_positive_targets: 57
+predicate_prevalence: 0.548077
+break_even_prevalence: 0.482938
+cluster_bootstrap_80: (0.4722222222222222, 0.6262626262626263)
+cluster_bootstrap_90: (0.4536989308896526, 0.65)
