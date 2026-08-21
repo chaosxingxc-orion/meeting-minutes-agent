@@ -15,7 +15,7 @@
 
 四个冻结 predicate 中仅 `speaker_wrong_disjoint` 通过：覆盖 418 targets / 228 dialogues，speaker 相对 global +3.79 pp、相对 wrong +4.24 pp，WER 相对 global -0.49 pp，false-hint target rate 相对 global +0.96 pp。它只是后验生成的单一假设；下一策略固定为“不重叠时用 speaker，否则回退 global”，必须在新的未见 surface 上重新确认。
 
-- [明日工作计划](../2026-08-21-work-plan.md)
+- [2026-08-21 研究进展总结](../2026-08-21-progress-summary.md)
 - [冻结审计设计](../../plans/2026-08-21-e4-cf-mechanism-audit.md)
 - [正式注册](../../readiness/2026-08-21-e4-cf-mechanism-registration.md)
 - [正式判读](../../readiness/2026-08-21-e4-cf-mechanism-verdict.md)
