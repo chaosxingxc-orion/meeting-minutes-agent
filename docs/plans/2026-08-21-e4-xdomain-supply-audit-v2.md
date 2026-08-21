@@ -13,7 +13,7 @@ v1 已证明 Academic/ICSI 的 speaker-exclusive 词项供给充足，但 Produc
 ## 冻结输入与隔离
 
 - 上游仓库提交：`c05ab6fd8b4b627d123c922a22a39e993dd37635`。
-- 只使用 `transcripts/nlp_references/*.nlp`；预计 125 个文件。
+- 只使用 `transcripts/force_aligned_nlp_references/*.aligned.nlp`；预计 125 个文件。普通 reference 的时间戳实际为空，预读 schema 检查后按 amendment 改用同源强制对齐层；无有效 `ts` 的实体 mention 保守排除并只报告聚合排除数。
 - split salt：`e4-xdomain-supply-v2-2026-08-21`。按 `SHA256(salt + "\0" + file_id)`、再按 `file_id` 排序，前 80 个为 discovery，后 45 个为 reserve。
 - manifest 可散列全部文件以锁定身份，但正式审计只允许解析 discovery；reserve 内容和聚合统计禁止读取。
 - 文件数、表头、说话人、时间戳、标签或提交身份异常时 fail closed。

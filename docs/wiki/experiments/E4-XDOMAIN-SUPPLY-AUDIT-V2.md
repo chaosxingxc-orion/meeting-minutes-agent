@@ -9,6 +9,8 @@
 
 本次只允许一次 discovery 聚合读取，不下载音频，也不测量转写收益。通过只允许进入音频许可/获取决策和独立 pilot 预注册；不会覆盖 v1 的 `DOMAIN-LIMITED-SUPPLY`。
 
+预读 schema 检查发现普通 reference 没有可用时间戳，因此已在正式读取前登记 amendment，改用同一发布中的 force-aligned reference；其余设计不变。
+
 - [中文冻结设计](../../plans/2026-08-21-e4-xdomain-supply-audit-v2.md)
 - [正式预注册](../../readiness/2026-08-21-e4-xdomain-supply-audit-v2-preregistration.md)
-
+- [预读 schema amendment](../../readiness/2026-08-21-e4-xdomain-supply-audit-v2-schema-amendment.md)
