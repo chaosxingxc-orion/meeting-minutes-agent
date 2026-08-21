@@ -7,6 +7,8 @@
 - [2026-08-20 研究进展总结](2026-08-20-progress-summary.md)：今日完成事项、实验数字、证明边界与下一步。
 - [2026-08-21 工作计划](2026-08-21-work-plan.md)：明日零模型机制审计、验收物和禁止事项。
 - [2026-08-21 研究进展总结](2026-08-21-progress-summary.md)：机制审计结果、唯一候选策略与下一步。
+- [2026-08-22 工作计划](2026-08-22-work-plan.md)：Earnings-22 reserve 决策、窄类确认和禁止事项。
+- [阶段性结论](stage-conclusions.md)：当前已证明、未证明和 agent loop 放行边界。
 - [实验总表](experiments/README.md)：当前完成度、结论和下一步。
 - [研究路线图](research-roadmap.md)：说话人条件专业转写的 E0–E6 路线。
 - [实验登记模板](experiment-template.md)：新实验开始和结束时必须填写的字段。
@@ -28,4 +30,4 @@
 
 当前优先级：不部署当前等长 speaker inventory，也不启动约31,749-call完整确认。零模型审计没有找到兼具覆盖、安全和收益的简单拒绝门；跨域供给审计又显示 Academic/ICSI 供给充分，但 Product/AMI 严格技术供给不足。Earnings-22 discovery 的广义标签供给机械通过，但 70.2% 来自 `CONTRACTION/FALLBACK`，尚未确认专业实体供给；45 场 reserve、音频和模型仍未接触。
 
-最后同步：2026-08-21（E4-XDOMAIN-SUPPLY-AUDIT-v2 正式判读后）。
+最后同步：2026-08-21（今日总结、阶段性结论与 2026-08-22 计划刷新后）。

@@ -20,10 +20,10 @@
 | E5 | Training-free agent loop | 未放行 | E4-CF 未通过强效应门；先做冻结结果机制分析 |
 | E6 | 多会议确认与最差 speaker 检验 | 未放行 | E5 尚未放行；启动前需预注册样本量、MDE、CI 和多重检验 |
 
-当前证明只能写成条件命题：若存在一个控制策略在固定输入分布上降低预注册损失，且选择器不引入更大误选风险，则有限候选的迭代可单调改进到局部不动点。C-CTX、E3 和 E4-CF 已依次证明“模型会读取供给”“合法状态可构造”“speaker 路由存在小的额外收益”。E4-CF-MECH 进一步只保留“不重叠时 speaker，否则 global”的单一假设，但它仍需独立确认；不能据此启动多轮 loop。
+当前证明只能写成条件命题：若存在一个控制策略在固定输入分布上降低预注册损失，且选择器不引入更大误选风险，则有限候选的迭代可单调改进到局部不动点。C-CTX 与 E3 已证明“模型会读取供给”和“合法状态可构造”；E4-CF 只观察到低于实用门的小幅 speaker 路由收益。后续方向 pilot 被 false-hint 安全门否决，简单拒绝门也未能保留收益，因此当前还不存在可用于 agent loop 的安全单步改进算子。
 
 形式化定义、Lean 风格定理和逐步实现接口见[完整研究计划](../plans/2026-08-20-speaker-conditioned-transcription-optimization.md)。
 
 ## 2026-08-21 最近检查点
 
-`E4-DISJOINT-PREV` 用795次 Pass-0 调用得到52.76% prevalence；172-cell的 `E4-DISJOINT-DIR` 因 false-hint +3.49个百分点判为有害。后续零模型安全门审计没有找到兼具覆盖、安全和 carry 收益的规则。跨域供给审计进一步显示 Academic/ICSI 供给充足，但 Product/AMI 的严格技术 carry 只有 3 个，不能支持平衡跨域 pilot。因此当前固定策略不可部署，完整确认与 E5 继续不放行。详见[实验总表](experiments/README.md)。
+`E4-DISJOINT-PREV` 用795次 Pass-0 调用得到52.76% prevalence；172-cell的 `E4-DISJOINT-DIR` 因 false-hint +3.49个百分点判为有害。后续零模型安全门审计没有找到兼具覆盖、安全和 carry 收益的规则。跨域供给审计显示 Academic/ICSI 充足、Product/AMI 严格技术 carry 仅3个；Earnings-22 discovery 虽机械通过，但70.2%的 exclusive carry 来自 `CONTRACTION/FALLBACK`。下一检查点是决定是否在未读 reserve 上进行窄类确认；完整模型确认与 E5 继续不放行。详见[阶段性结论](stage-conclusions.md)和[实验总表](experiments/README.md)。

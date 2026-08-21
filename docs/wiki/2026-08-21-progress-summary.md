@@ -2,9 +2,24 @@
 
 ## 今日结论
 
-完成 `E4-CF-MECH` 零模型机制审计及其后续 `E4-DISJOINT-POWER` 功效审计。机制审计只保留 `speaker_wrong_disjoint` 假设，但独立功效审计正式判为 **`INSUFFICIENT-CARRY-SUPPLY`**。
+今天完成了从 E4-CF 机制解释、独立供给与资源审计、低资源方向性 pilot、安全门审计，到跨领域新语料筛查的一整条证据链。最终判断不是“speaker 路由已经可用”，而是：**当前等长 speaker inventory 的小幅 carry 收益不稳定，false-hint 风险超过安全门，简单拒绝规则又会同时消除收益，因此该策略停止扩展。**
 
-E4-CF 正式判定仍为 `DIRECTIONAL-NOT-CONFIRMED`；后验策略没有足够独立 carry 供给按主设计确认。今天没有新增模型调用，也没有放行 agent loop。
+数据侧，Academic/ICSI 的严格技术 carry 供给充足，Product/AMI 不足；Earnings-22 的广义标签复现充足，但标签体系被 `CONTRACTION/FALLBACK` 主导，尚未确认专业技术词供给。今天新增的 Earnings-22 工作全部为零模型、文本层读取；45 场 reserve、音频、完整模型 flight 与 agent loop 均未启用。
+
+## 今日完成总览
+
+| 工作 | 结果 | 对下一步的约束 |
+|---|---|---|
+| 同步远端与历史证据 | 确认 PRECOMP Wave-1/2 和 G1/Z 系列已有完整证据 | 不重复造轮子，不重跑 Z 系列 |
+| E4-CF 机制审计 | 只保留 `speaker_wrong_disjoint` 假设 | 只能做独立功效/方向验证 |
+| E4-DISJOINT-POWER | `INSUFFICIENT-CARRY-SUPPLY` | 不启动约31,749-call完整 flight |
+| E4-DISJOINT-PREV | 52.76%，`PREVALENCE-SCREEN-PASS` | 只支持低资源规划，不证明效果 |
+| E4-DISJOINT-DIR | `EXPLORATORY-HARMFUL` | false-hint +3.49 pp，固定策略不可部署 |
+| E4-SAFETY-GATE-AUDIT | `NO-SAFE-GATE` | 停止在同一结果上调简单阈值 |
+| E4-XDOMAIN-SUPPLY-AUDIT | `DOMAIN-LIMITED-SUPPLY` | Academic 通过，Product/AMI 严格供给不足 |
+| Earnings-22 获取与 v2 审计 | 文本层锁定在 D 盘；广义标签机械通过 | 先用未读 reserve 确认窄类，暂不获取音频 |
+
+完整离线回归为 **1,508 passed、25 skipped**。所有新增实验均已登记设计、实现、失败尝试、机器结果和正式判读。
 
 ## 完成事项
 
@@ -32,9 +47,19 @@ E4-CF 正式判定仍为 `DIRECTIONAL-NOT-CONFIRMED`；后验策略没有足够�
 | inventory ≤4 | 376 targets | +5.04 pp | +5.29 pp | +2.39 pp | 安全不通过 |
 | **speaker/wrong disjoint** | **418 targets** | **+3.79 pp** | **+4.24 pp** | **+0.96 pp** | **唯一入选** |
 
+## 当日阶段性结论
+
+1. **可达性已经部分成立。** Omni 会读取实体条件，合法的 speaker state 也可以从历史构造；因此“文本供给影响转写”不是空假设。
+2. **speaker-specific 增益尚未成立。** E4-CF 只有 +2.16 pp，低于 +5 pp 门；独立方向 pilot 又被 false-hint 安全风险否决。
+3. **当前 controller policy 已到停止点。** `speaker_wrong_disjoint` 和简单 evidence/recency/width gate 均没有形成安全、稳定、可扩展的策略。
+4. **主要瓶颈转移到数据供给定义。** ICSI 有供给，AMI 缺严格技术 carry；Earnings-22 有重复，但“上游标签”不等于“专业实体”。
+5. **agent loop 仍不可启动。** 尚不存在经独立数据验证、同时满足收益和安全门的单步改进算子，所以还不能证明多轮优化会单调改进。
+
 ## 下一步
 
 当前 ContextASR surface 不再启动 E4-DISJOINT 模型 flight。下一研究动作只能是寻找新增独立 carry-dense 数据源，或把 staged Pass-0 作为新设计重新预注册；不得事后放宽当前门槛。
+
+结合 Earnings-22 的最新结果，优先建议是：先决定是否消耗45场未读 reserve；若同意，则只预注册 `ABBREVIATION/ALPHANUMERIC` 窄类零模型确认审计。该结果通过前，不处理音频许可和下载，也不设计模型 pilot。
 
 ### E4-DISJOINT-POWER 续跑情况
 
