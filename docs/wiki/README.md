@@ -26,6 +26,6 @@
 
 合法 speaker state 已经证明可构造，但 E4-CF 的 +2.16 pp 仍低于 +5 pp 正式门。资源受限 Pass-0 在60个未见 dialogue 上测得52.76%的 `speaker_wrong_disjoint` prevalence；后续172-cell方向 pilot 显示 carry 指标小幅改善，但 false-hint 增加3.49个百分点并越过安全门，判为 `EXPLORATORY-HARMFUL`。agent loop 继续不放行。
 
-当前优先级：不部署当前等长 speaker inventory，也不启动约31,749-call完整确认。零模型审计没有找到兼具覆盖、安全和收益的简单拒绝门；跨域供给审计又显示 Academic/ICSI 供给充分，但 Product/AMI 严格技术供给不足。若继续平衡跨域路线，必须换新的 Product/business surface 并重新预注册；Academic 域内 pilot 也需单独决策和注册。
+当前优先级：不部署当前等长 speaker inventory，也不启动约31,749-call完整确认。零模型审计没有找到兼具覆盖、安全和收益的简单拒绝门；跨域供给审计又显示 Academic/ICSI 供给充分，但 Product/AMI 严格技术供给不足。Earnings-22 新 business surface 已按 80/45 discovery-reserve 重新预注册，下一步仅做一次零模型 discovery 供给读取；音频和模型接触仍未授权。
 
-最后同步：2026-08-21（E4-XDOMAIN-SUPPLY-AUDIT 正式判读后）。
+最后同步：2026-08-21（E4-XDOMAIN-SUPPLY-AUDIT-v2 预注册后）。
