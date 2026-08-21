@@ -1,0 +1,36 @@
+{
+  "schema_version": "e4-disjoint-dir-runtime-identity-v1",
+  "registered_commit": "93fdfcc",
+  "python": "/home/yansuqing/.venvs/meeting/bin/python 3.12.3",
+  "server": {
+    "path": "/home/yansuqing/llama.cpp-featcache/build/bin/llama-server",
+    "sha256": "ad69437593e9f458b22eb9ffae2aaf574d36e8ccdecf6b8d44b6fa7b58d74fa9",
+    "flags": ["--host", "127.0.0.1", "--port", "8080", "-c", "16384", "-np", "1", "-fa", "on", "-ngl", "999", "-ctk", "q8_0", "-ctv", "q8_0"]
+  },
+  "model": {
+    "path": "/home/yansuqing/models/qwen3-omni-30b-a3b-instruct/Qwen3-Omni-30B-A3B-Instruct-Q4_K_M.gguf",
+    "sha256": "d9e2876556e7873e02c0359f832432ee2d67ab7dd0cee3efe0f77fd7a1f4dd85"
+  },
+  "mmproj": {
+    "path": "/home/yansuqing/models/qwen3-omni-30b-a3b-instruct/mmproj-Qwen3-Omni-30B-A3B-Instruct-Q8_0.gguf",
+    "sha256": "1104376db833f1e89c84834144ac3863340c2cd1ddaeddb39cb0247fb5c20c8d"
+  },
+  "libraries": {
+    "libllama.so.0": "6fcb8ff0889733b5545cd57f7eac97e418e73b258ac5ceb0fbb316df3149ae25",
+    "libllama-common.so.0": "7018d0399e87c0d3afb70e406fe2488047e6e9f1e4477b74526c2266e919fca6",
+    "libggml.so.0": "38dbbe33db7c55fceb43e9cefa875eebf4aca66d7225ef781d99c827c013f674",
+    "libggml-base.so.0": "90c94db9ab80432715c66c954a73074bc98ab044967114e7d7b6bda1ad07a7fe",
+    "libggml-cpu.so.0": "75d6bdf090c9f2e74a1fe62d47f6771ec1e729f2817bad14b2e7f8eb3bd85a44",
+    "libggml-cuda.so.0": "f253eaf48988f0d68ed4a3dbf6e75bba148bcc156c318b87c6df2fb853d4c7db"
+  },
+  "runtime_binding_file_sha256": "72d62ad06cccd43f699285a6c50f87697ba02c47c248215e58cead39ea71e28d",
+  "runtime_binding_content_hash": "2cf931f7dec339d8b46f0491fe97469603ba3c76c54190057fe14e9cc683bb65",
+  "launcher_sha256": "323fee32831e8880e24ba8a34bf9005b35fbe66fdcc1f31d39dd038dd5f5333a",
+  "limits": {
+    "calls": 172,
+    "audio_seconds": 2114.418,
+    "slots": 1,
+    "max_retries": 0,
+    "timeout_seconds": 300
+  }
+}
