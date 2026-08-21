@@ -1,0 +1,80 @@
+{
+  "analysis_class": "exploratory-zero-model-lexical-proxy-supply",
+  "decision": "DOMAIN-LIMITED-SUPPLY",
+  "domains": {
+    "Academic": {
+      "candidate_units": 8710,
+      "domain": "Academic",
+      "eligible_meetings": 41,
+      "exclusive_per_meeting": {
+        "max": 34,
+        "median": 19,
+        "min": 3,
+        "p25": 13,
+        "p75": 24
+      },
+      "gates": {
+        "eligible_meetings": true,
+        "exclusive_carry": true,
+        "meetings": true,
+        "strict_exclusive_carry": true,
+        "surface_concentration": true
+      },
+      "global_only_carry": 1358,
+      "max_single_surface_share": 0.06374501992031872,
+      "meetings": 41,
+      "passes": true,
+      "same_speaker_carry": 4358,
+      "segments": 33605,
+      "shared_carry": 3605,
+      "speaker_exclusive_carry": 753,
+      "strict_candidate_units": 4162,
+      "strict_speaker_exclusive_carry": 254
+    },
+    "Product": {
+      "candidate_units": 1417,
+      "domain": "Product",
+      "eligible_meetings": 35,
+      "exclusive_per_meeting": {
+        "max": 14,
+        "median": 2,
+        "min": 0,
+        "p25": 1,
+        "p75": 5
+      },
+      "gates": {
+        "eligible_meetings": true,
+        "exclusive_carry": true,
+        "meetings": true,
+        "strict_exclusive_carry": false,
+        "surface_concentration": true
+      },
+      "global_only_carry": 187,
+      "max_single_surface_share": 0.10695187165775401,
+      "meetings": 61,
+      "passes": false,
+      "same_speaker_carry": 309,
+      "segments": 34099,
+      "shared_carry": 122,
+      "speaker_exclusive_carry": 187,
+      "strict_candidate_units": 26,
+      "strict_speaker_exclusive_carry": 3
+    }
+  },
+  "effect_identified": false,
+  "input_manifest_hash": "e9ea0ebd1dbed6f7a6f72d72450c158713327d52df36c522ae82d421f8c2dc09",
+  "limitations": [
+    "Lexical capitalization/acronym proxies are not professional-entity annotations.",
+    "QMSum transcript segments are speaker turns, not the frozen production audio chunks.",
+    "Supply feasibility does not estimate transcription benefit or false-hint safety."
+  ],
+  "model_calls": 0,
+  "schema_version": "e4-xdomain-supply-verdict-v1",
+  "thresholds": {
+    "max_single_surface_share": 0.2,
+    "min_eligible_meetings": 20,
+    "min_exclusive_carry": 100,
+    "min_meetings": 20,
+    "min_strict_exclusive_carry": 10
+  }
+}

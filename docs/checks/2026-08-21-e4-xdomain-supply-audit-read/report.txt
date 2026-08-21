@@ -1,0 +1,9 @@
+decision: DOMAIN-LIMITED-SUPPLY
+model_calls: 0
+effect_identified: false
+
+domain	meetings	eligible	exclusive	strict_exclusive	max_surface_share	passes
+Product	61	35	187	3	0.1070	false
+Academic	41	41	753	254	0.0637	true
+
+This audit measures lexical-proxy supply only; it does not identify model effect.

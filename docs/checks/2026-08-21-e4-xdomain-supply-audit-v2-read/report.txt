@@ -1,0 +1,12 @@
+decision: EARNINGS22-SUPPLY-FEASIBLE
+model_calls: 0
+effect_identified: false
+audio_ready: false
+discovery_meetings: 80
+reserve_unread: 45
+eligible_meetings: 67
+speaker_exclusive_carry: 1803
+max_single_surface_share: 0.0887
+excluded_unaligned_mentions: 6873
+
+This audit measures upstream-labelled entity supply only; it does not identify model effect.

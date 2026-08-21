@@ -2,9 +2,24 @@
 
 ## 今日结论
 
-完成 `E4-CF-MECH` 零模型机制审计及其后续 `E4-DISJOINT-POWER` 功效审计。机制审计只保留 `speaker_wrong_disjoint` 假设，但独立功效审计正式判为 **`INSUFFICIENT-CARRY-SUPPLY`**。
+今天完成了从 E4-CF 机制解释、独立供给与资源审计、低资源方向性 pilot、安全门审计，到跨领域新语料筛查的一整条证据链。最终判断不是“speaker 路由已经可用”，而是：**当前等长 speaker inventory 的小幅 carry 收益不稳定，false-hint 风险超过安全门，简单拒绝规则又会同时消除收益，因此该策略停止扩展。**
 
-E4-CF 正式判定仍为 `DIRECTIONAL-NOT-CONFIRMED`；后验策略没有足够独立 carry 供给按主设计确认。今天没有新增模型调用，也没有放行 agent loop。
+数据侧，Academic/ICSI 的严格技术 carry 供给充足，Product/AMI 不足；Earnings-22 的广义标签复现充足，但标签体系被 `CONTRACTION/FALLBACK` 主导，尚未确认专业技术词供给。今天新增的 Earnings-22 工作全部为零模型、文本层读取；45 场 reserve、音频、完整模型 flight 与 agent loop 均未启用。
+
+## 今日完成总览
+
+| 工作 | 结果 | 对下一步的约束 |
+|---|---|---|
+| 同步远端与历史证据 | 确认 PRECOMP Wave-1/2 和 G1/Z 系列已有完整证据 | 不重复造轮子，不重跑 Z 系列 |
+| E4-CF 机制审计 | 只保留 `speaker_wrong_disjoint` 假设 | 只能做独立功效/方向验证 |
+| E4-DISJOINT-POWER | `INSUFFICIENT-CARRY-SUPPLY` | 不启动约31,749-call完整 flight |
+| E4-DISJOINT-PREV | 52.76%，`PREVALENCE-SCREEN-PASS` | 只支持低资源规划，不证明效果 |
+| E4-DISJOINT-DIR | `EXPLORATORY-HARMFUL` | false-hint +3.49 pp，固定策略不可部署 |
+| E4-SAFETY-GATE-AUDIT | `NO-SAFE-GATE` | 停止在同一结果上调简单阈值 |
+| E4-XDOMAIN-SUPPLY-AUDIT | `DOMAIN-LIMITED-SUPPLY` | Academic 通过，Product/AMI 严格供给不足 |
+| Earnings-22 获取与 v2 审计 | 文本层锁定在 D 盘；广义标签机械通过 | 先用未读 reserve 确认窄类，暂不获取音频 |
+
+完整离线回归为 **1,508 passed、25 skipped**。所有新增实验均已登记设计、实现、失败尝试、机器结果和正式判读。
 
 ## 完成事项
 
@@ -32,9 +47,19 @@ E4-CF 正式判定仍为 `DIRECTIONAL-NOT-CONFIRMED`；后验策略没有足够�
 | inventory ≤4 | 376 targets | +5.04 pp | +5.29 pp | +2.39 pp | 安全不通过 |
 | **speaker/wrong disjoint** | **418 targets** | **+3.79 pp** | **+4.24 pp** | **+0.96 pp** | **唯一入选** |
 
+## 当日阶段性结论
+
+1. **可达性已经部分成立。** Omni 会读取实体条件，合法的 speaker state 也可以从历史构造；因此“文本供给影响转写”不是空假设。
+2. **speaker-specific 增益尚未成立。** E4-CF 只有 +2.16 pp，低于 +5 pp 门；独立方向 pilot 又被 false-hint 安全风险否决。
+3. **当前 controller policy 已到停止点。** `speaker_wrong_disjoint` 和简单 evidence/recency/width gate 均没有形成安全、稳定、可扩展的策略。
+4. **主要瓶颈转移到数据供给定义。** ICSI 有供给，AMI 缺严格技术 carry；Earnings-22 有重复，但“上游标签”不等于“专业实体”。
+5. **agent loop 仍不可启动。** 尚不存在经独立数据验证、同时满足收益和安全门的单步改进算子，所以还不能证明多轮优化会单调改进。
+
 ## 下一步
 
 当前 ContextASR surface 不再启动 E4-DISJOINT 模型 flight。下一研究动作只能是寻找新增独立 carry-dense 数据源，或把 staged Pass-0 作为新设计重新预注册；不得事后放宽当前门槛。
+
+结合 Earnings-22 的最新结果，优先建议是：先决定是否消耗45场未读 reserve；若同意，则只预注册 `ABBREVIATION/ALPHANUMERIC` 窄类零模型确认审计。该结果通过前，不处理音频许可和下载，也不设计模型 pilot。
 
 ### E4-DISJOINT-POWER 续跑情况
 
@@ -69,3 +94,15 @@ prevalence 从20级的62.96%、40级的54.81%收敛到60级的52.76%；最终163
 已按读取前冻结的四个候选执行唯一一次审计，判为 `NO-SAFE-GATE`。重复证据门覆盖为0；近期门只覆盖10–11个 target、无 carry 增益并各新增1个 false hint。`inventory_le2` 是唯一通过覆盖与安全门的规则（27/86 targets、24 dialogues、false-hint增量0），但 carry hit和carry NE-WER增益也都归零。
 
 因此简单 evidence/recency/width 门不是可扩展候选：它在当前 surface 内已无法兼顾收益与安全，跨领域能力更不可识别。停止在同一结果上继续调阈值；完整 flight、E5 和 agent loop 均不放行。
+
+### E4-XDOMAIN-SUPPLY-AUDIT 跨领域供给审计
+
+在不调用模型、不解码音频的条件下，冻结并读取了102场 QMSum train 会议：61场 Product/AMI `glossary-discovery` 和41场 Academic/ICSI；两个领域的 val/test 均未读取。机械判决为 `DOMAIN-LIMITED-SUPPLY`。
+
+Academic 的41场全部 eligible，共753个 speaker-exclusive carry、254个严格技术型 carry，全部门槛通过。Product 有35场 eligible、187个 exclusive carry，总量与集中度通过，但严格技术型 carry 只有3个，低于冻结门槛10。Product 的重复主要落在容易被大写启发式高估的 `name_like` 代理上，不能事后删除严格门。因此不启动平衡跨域模型 pilot；若要继续，应先寻找新的 Product/business meeting surface，或另行决策并预注册 Academic 域内 pilot。
+
+### Earnings-22 新 surface 审计
+
+已将 Earnings-22 文本层固定到官方提交，按 salted SHA-256 划分为80场 discovery 与45场 reserve。首次正式读取因一个文件含官方文档所述 `wer_tags` 列而 fail closed，未输出统计；失败记录与恢复 amendment 均已提交。replacement read 模型调用为0，45场 reserve 保持未读。
+
+机器判决为 `EARNINGS22-SUPPLY-FEASIBLE`：67/80场 eligible，1,803个 speaker-exclusive carry，最大单 surface 占8.87%。但 `CONTRACTION/FALLBACK` 占1,266个（70.2%），说明宽类表主要测到广义 WER 标签复现，不能确认专业实体供给。`ABBREVIATION/ALPHANUMERIC` 有538个 exclusive 单元，但尚无独立 meeting-level 门。若继续，应只在未读 reserve 上新注册窄类确认审计；音频、模型 pilot 与 agent loop 仍未放行。
