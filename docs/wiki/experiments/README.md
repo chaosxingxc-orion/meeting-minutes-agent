@@ -17,11 +17,12 @@
 | [E4-CF-MECH](E4-CF-MECH.md) | 小路由收益与 false-hint 的机制是什么？ | 已判读 | `PREREGISTER-ONE-FIXED-POLICY`；唯一入选 `speaker_wrong_disjoint` | 先做未见 surface 的零模型功效/roster 审计 |
 | [E4-DISJOINT-POWER](E4-DISJOINT-POWER.md) | 固定 disjoint policy 是否有足够独立样本与可接受预算？ | 已判读 | `INSUFFICIENT-CARRY-SUPPLY`；eligible carry 4,782 < 主情景所需 5,774 | 不启动模型 flight；新数据源或新设计需重新注册 |
 | [E4-DISJOINT-PREV](E4-DISJOINT-PREV.md) | 小型 Pass-0 能否支持约50%的 disjoint prevalence 假设？ | 已判读 | `PREVALENCE-SCREEN-PASS`；52.76%，80%区间46.71%–59.01%，795 calls | 只支持资源规划；效果 pilot 需另行授权和注册 |
+| [E4-DISJOINT-DIR](E4-DISJOINT-DIR.md) | predicate-positive target 上 speaker 是否优于等长 global？ | 已注册 | 86 targets、172 calls、0.5873重复音频小时；只估计方向 | 按冻结两臂设计运行并一次性判读 |
 | [Z-SERIES](Z-SERIES.md) | 说话人标签、归属与切分的多臂效应是什么？ | 已判读 | G1 floors 已归档；主要差异来自转向表/归属输出，纯切片差异不显著 | 作为描述性基线，不重跑、不据此选择分支 |
 
 ## 当前优先级
 
 1. 以[今日进展总结](../2026-08-21-progress-summary.md)作为机制审计汇报入口；不得将其改写为独立确认结果。
 2. `E4-DISJOINT-PREV` 支持约50%的 prevalence 规划假设，但没有提供转写效果证据。
-3. 如继续，先评审约172 calls 的 D0-global vs D1-speaker 探索性方向 pilot；不得据此直接启动完整31,749-call flight。
+3. `E4-DISJOINT-DIR` 已注册并获172-call范围授权；只按冻结设计运行，不得据此直接启动完整31,749-call flight。
 4. G1/Z 系列已有正式仓库证据；引用时必须保留“描述性 floors、非分支 verdict”和域内 diarizer 限制。

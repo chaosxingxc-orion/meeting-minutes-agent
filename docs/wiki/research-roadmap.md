@@ -13,6 +13,7 @@
 | E4-CF-MECH | 冻结结果机制审计 | 已判读 | 只保留 `speaker_wrong_disjoint` 固定策略假设；下一步先做零模型功效审计 |
 | E4-DISJOINT-POWER | 固定策略功效与 roster 审计 | 已判读 | `INSUFFICIENT-CARRY-SUPPLY`：eligible carry 4,782，主情景需 5,774；不放行 flight |
 | E4-DISJOINT-PREV | 资源受限 Pass-0 prevalence 筛查 | 已判读 | `PREVALENCE-SCREEN-PASS`：52.76%，但不含任何效果对照 |
+| E4-DISJOINT-DIR | speaker 对 global 的低资源方向 pilot | 已注册 | 86 targets、172 calls；只允许探索性方向标签，不确认实用效应 |
 | E5 | Training-free agent loop | 未放行 | E4-CF 未通过强效应门；先做冻结结果机制分析 |
 | E6 | 多会议确认与最差 speaker 检验 | 未放行 | E5 尚未放行；启动前需预注册样本量、MDE、CI 和多重检验 |
 
@@ -22,4 +23,4 @@
 
 ## 2026-08-21 最近检查点
 
-`E4-DISJOINT-PREV` 已用795次 Pass-0 调用得到52.76% prevalence，说明约50%的规划假设可用；但完整确认仍约需31,749 calls，E5 继续不放行。下一检查点可选择新增 carry-dense 数据，或另立约172-call的两臂方向性 pilot。详见[今日进展总结](2026-08-21-progress-summary.md)。
+`E4-DISJOINT-PREV` 已用795次 Pass-0 调用得到52.76% prevalence，说明约50%的规划假设可用；但完整确认仍约需31,749 calls，E5 继续不放行。当前已另立并注册172-call的 `E4-DISJOINT-DIR` 两臂方向性 pilot。详见[实验总表](experiments/README.md)。

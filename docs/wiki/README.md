@@ -26,6 +26,6 @@
 
 合法 speaker state 已经证明可构造，但 E4-CF 的 +2.16 pp 仍低于 +5 pp 正式门。资源受限 Pass-0 又在60个未见 dialogue 上测得52.76%的 `speaker_wrong_disjoint` prevalence，支持约50%的规划假设；它没有测策略效果。该策略尚未独立确认，agent loop 继续不放行。
 
-当前优先级：评审是否值得用约172次第二遍调用做 D0-global vs D1-speaker 的探索性方向 pilot。完整确认仍需约31,749 calls，不应直接启动。
+当前优先级：`E4-DISJOINT-DIR` 已注册并获172次第二遍调用范围授权，等待按冻结设计运行和一次性判读。完整确认仍需约31,749 calls，不应直接启动。
 
 最后同步：2026-08-21（E4-DISJOINT-PREV 完成后）。
