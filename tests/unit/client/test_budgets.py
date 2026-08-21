@@ -54,6 +54,21 @@ class TestCallBudgetSingleThread:
         budget.reserve(5.0)  # exactly at the cap, not over
         assert budget.totals["audio_seconds_used"] == 5.0
 
+    def test_float_residue_at_boundary_is_allowed_and_clamped(self):
+        budget = CallBudget(BudgetLimits(max_calls=2, max_audio_seconds=0.3))
+        budget.reserve(0.1)
+        budget.reserve(0.2)
+        assert budget.totals["audio_seconds_used"] == 0.3
+        assert budget.totals["calls_used"] == 2
+
+    def test_overrun_beyond_float_tolerance_is_refused(self):
+        budget = CallBudget(BudgetLimits(max_calls=2, max_audio_seconds=0.3))
+        budget.reserve(0.1)
+        with pytest.raises(BudgetExceeded, match="audio budget exhausted"):
+            budget.reserve(0.20000001)
+        assert budget.totals["audio_seconds_used"] == 0.1
+        assert budget.totals["calls_used"] == 1
+
     def test_rejects_negative_audio_seconds(self):
         budget = CallBudget(BudgetLimits(max_calls=1, max_audio_seconds=5.0))
         with pytest.raises(ValueError, match="non-negative"):
