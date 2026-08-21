@@ -57,3 +57,15 @@ prevalence 从20级的62.96%、40级的54.81%收敛到60级的52.76%；最终163
 ### 远端同步更正
 
 同步 `origin/master` 后确认，PRECOMP 已完成 Wave-1 dev-18 与 Wave-2 supplement 76/76；G1/Z 四臂也已完成 1,932-call floors campaign 和一次性描述性读取。同事截图中的 Z-turn/Z-oracle/Z-free/Z-nodiar 数值已有仓库证据，不再标记为“待归档”。该结果不改变 E4 的研究问题：G1 主要测量转向表、归属输出与切片几何，E4 测量同一固定音频片段上 speaker-specific 文本状态的增益。
+
+### E4-DISJOINT-DIR 方向性实验
+
+已完成冻结的86 targets、172 cells。首轮171/172后因浮点预算边界残差在网络请求前停止；登记 amendment 并获明确授权后，仅补跑机械确认的唯一缺失 cell，零重试，最终集合完整。
+
+正式判读为 `EXPLORATORY-HARMFUL`：speaker 相对 global 的 carry hit +1.08 pp、carry NE-WER -0.70 pp、总体 WER不变，但 false-hint target rate +3.49 pp，超过预注册的+2 pp安全门；carry对比的95% cluster区间均跨零。当前等长 speaker inventory 不可部署，完整确认和 agent loop 不放行。下一步若继续，应先研究只依赖运行时可见证据的拒绝门，而不是扩大现有 flight。
+
+### E4-SAFETY-GATE-AUDIT 零模型审计
+
+已按读取前冻结的四个候选执行唯一一次审计，判为 `NO-SAFE-GATE`。重复证据门覆盖为0；近期门只覆盖10–11个 target、无 carry 增益并各新增1个 false hint。`inventory_le2` 是唯一通过覆盖与安全门的规则（27/86 targets、24 dialogues、false-hint增量0），但 carry hit和carry NE-WER增益也都归零。
+
+因此简单 evidence/recency/width 门不是可扩展候选：它在当前 surface 内已无法兼顾收益与安全，跨领域能力更不可识别。停止在同一结果上继续调阈值；完整 flight、E5 和 agent loop 均不放行。

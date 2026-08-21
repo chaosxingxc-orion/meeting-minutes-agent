@@ -1,0 +1,29 @@
+0.00.502.106 I cmn  common_param: common_params_print_info: verbosity = 3 (adjust with the `-lv N` CLI arg)
+0.00.760.055 W srv  llama_server: -----------------
+0.00.760.065 W srv  llama_server: CORS is set to allow all origins ('*') and no API key is set
+0.00.760.065 W srv  llama_server: this can be a security risk (cross-origin attacks)
+0.00.760.066 W srv  llama_server: more info: https://github.com/ggml-org/llama.cpp/pull/25655
+0.00.760.066 W srv  llama_server: -----------------
+0.00.766.126 I srv    load_model: loading model '/home/yansuqing/models/qwen3-omni-30b-a3b-instruct/Qwen3-Omni-30B-A3B-Instruct-Q4_K_M.gguf'
+0.09.672.559 W load: control-looking token: 128247 '</s>' was not control-type; this is probably a bug in the model. its type will be overridden
+0.52.675.460 I cmn          init: llama threadpool init, n_threads = 24
+0.52.935.181 W load_hparams: Qwen-VL models require at minimum 1024 image tokens to function correctly on grounding tasks
+0.52.935.192 W load_hparams: if you encounter problems with accuracy, try adding --image-min-tokens 1024
+0.52.935.192 W load_hparams: more info: https://github.com/ggml-org/llama.cpp/issues/16842
+
+1.02.652.844 W init_audio: audio input is in experimental stage and may have reduced quality:
+    https://github.com/ggml-org/llama.cpp/discussions/13759
+1.02.653.646 I srv    load_model: loaded multimodal model, '/home/yansuqing/models/qwen3-omni-30b-a3b-instruct/mmproj-Qwen3-Omni-30B-A3B-Instruct-Q8_0.gguf'
+1.02.841.226 I srv    load_model: initializing, n_slots = 1, n_ctx_slot = 16384, kv_unified = 'false'
+1.02.868.787 I srv  llama_server: model loaded
+1.02.868.808 I srv  llama_server: listening on http://127.0.0.1:8080
+1.02.868.809 W srv  llama_server: NOTICE: server default port will be changed to :9931 in a future release
+1.02.868.809 W srv  llama_server:         ref: https://github.com/ggml-org/llama.cpp/pull/26508
+1.38.277.454 I slot get_availabl: id  0 | task -1 | selected slot by LRU, t_last = -1
+1.38.277.701 I slot launch_slot_: id  0 | task 0 | processing task, is_child = 0
+1.39.665.116 I slot print_timing: id  0 | task 0 | prompt eval time =    1114.88 ms /   246 tokens (    4.53 ms per token,   220.65 tokens per second)
+1.39.665.129 I slot print_timing: id  0 | task 0 |        eval time =     272.49 ms /    31 tokens (    9.08 ms per token,   110.10 tokens per second)
+1.39.665.131 I slot print_timing: id  0 | task 0 |       total time =    1387.36 ms /   277 tokens
+1.39.665.136 I slot print_timing: id  0 | task 0 |    graphs reused =         29
+1.39.665.295 I slot      release: id  0 | task 0 | stop processing: n_tokens = 276, truncated = 0
+2.14.842.556 I srv    operator(): operator(): cleaning up before exit...

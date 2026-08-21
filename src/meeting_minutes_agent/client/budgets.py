@@ -19,6 +19,8 @@ import math
 import threading
 from dataclasses import dataclass
 
+_AUDIO_SECONDS_ABS_TOLERANCE = 1e-9
+
 
 class BudgetExceeded(RuntimeError):
     """Fail-closed refusal: raised by :meth:`CallBudget.reserve` when either
@@ -86,13 +88,21 @@ class CallBudget:
                     f"call budget exhausted: {self._limits.max_calls} calls allowed, "
                     f"{self._calls_used} already used"
                 )
-            if self._audio_seconds_used + float(audio_seconds) > self._limits.max_audio_seconds:
+            proposed_audio_seconds = self._audio_seconds_used + float(audio_seconds)
+            if proposed_audio_seconds > self._limits.max_audio_seconds and not math.isclose(
+                proposed_audio_seconds,
+                self._limits.max_audio_seconds,
+                rel_tol=0.0,
+                abs_tol=_AUDIO_SECONDS_ABS_TOLERANCE,
+            ):
                 raise BudgetExceeded(
                     f"audio budget exhausted: {self._limits.max_audio_seconds} seconds allowed, "
                     f"{self._audio_seconds_used} already used, {audio_seconds} requested"
                 )
             self._calls_used += 1
-            self._audio_seconds_used += float(audio_seconds)
+            # Acceptance tolerance only: retain the hard registered cap in
+            # receipts instead of recording an IEEE-754 residue above it.
+            self._audio_seconds_used = min(proposed_audio_seconds, self._limits.max_audio_seconds)
 
     @property
     def totals(self) -> dict[str, object]:

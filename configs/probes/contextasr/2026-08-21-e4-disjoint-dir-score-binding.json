@@ -1,0 +1,717 @@
+{
+  "schema_version": "e4-disjoint-dir-score-binding-v1",
+  "experiment_id": "E4-DISJOINT-DIR-v1",
+  "provenance": {
+    "pass0_runtime_content_hash": "4ab699d03f55fca4687131e64787a9caa2d24116d362bdfa5952f95c0e3ac311",
+    "pass0_score_content_hash": "10d95813eb9e95d15eca29dddc355d69fd2875f99f110656ace625a4785d7568",
+    "pass0_response_sha256": {
+      "docs/checks/2026-08-21-e4-disjoint-prev-flight/stage-20-responses.jsonl": "2786a0c5edde176f7fc85f5dd846457b2d69333fa47aa149f3ff88f3871e4197",
+      "docs/checks/2026-08-21-e4-disjoint-prev-flight/stage-40-responses.jsonl": "52f927700dd913f6da31fba3c24bff712cb90046b3d68bf7414ae25022cb4950",
+      "docs/checks/2026-08-21-e4-disjoint-prev-flight/stage-60-responses.jsonl": "90e6beab340cef2d46adeb9c7d1476ad6f518aea49c7b2648d5f41d0cda9dc84"
+    },
+    "selection": "natural-carry-and-runtime-speaker-wrong-disjoint-v1",
+    "state_gate": {
+      "min_evidence": 1,
+      "inventory_cap": 8,
+      "equal_width": true
+    }
+  },
+  "targets": [
+    {
+      "target_id": "03954-4-t010",
+      "uniq_id": "03954-4",
+      "reference_text": "Still, the real horror was Charley Rakes. That final fight with Forrest no music, just fists and grunts. Pearce and Hardy went feral. Oscar snub, honestly.",
+      "carry_entities": [
+        "Charley Rakes"
+      ]
+    },
+    {
+      "target_id": "01454-3-t003",
+      "uniq_id": "01454-3",
+      "reference_text": "Totally. But what gets me is the quiet moments. Like Rhoda peeling wallpaper while John plays piano. It's so raw. Did you catch how their roles reverse? She becomes his caretaker, but he's still broken.",
+      "carry_entities": [
+        "Rhoda"
+      ]
+    },
+    {
+      "target_id": "07354-4-t006",
+      "uniq_id": "07354-4",
+      "reference_text": "True! But can we talk about Colette? The only female chef in that toxic kitchen, kicking butt? You never hesitate! Her tough love training with Linguini was everything.",
+      "carry_entities": [
+        "Linguini"
+      ]
+    },
+    {
+      "target_id": "07354-4-t010",
+      "uniq_id": "07354-4",
+      "reference_text": "Worth it. That movie made me believe a rat could cook better than me. And Linguini's flailing dance when he's cooking? Comedy gold. But low key, Skinner's tiny car chases were the unsung heroes.",
+      "carry_entities": [
+        "Linguini"
+      ]
+    },
+    {
+      "target_id": "12478-4-t007",
+      "uniq_id": "12478-4",
+      "reference_text": "Still, the whole opera ghost myth feels way more tragic here. Like, he's not just a monster; he's a genius betrayed. That final scene where Christine tearfully sings as he disappears? Gut punch.",
+      "carry_entities": [
+        "Christine"
+      ]
+    },
+    {
+      "target_id": "11285-4-t009",
+      "uniq_id": "11285-4",
+      "reference_text": "Both? The whole film's a Rorschach test. Like, when Roberto Benigni keeps nervously relighting his cigarette is it comedy or tragedy? Steven Wright's monotone doesn't help.",
+      "carry_entities": [
+        "Roberto Benigni",
+        "Steven Wright"
+      ]
+    },
+    {
+      "target_id": "01769-4-t004",
+      "uniq_id": "01769-4",
+      "reference_text": "True! The London adventure vibe was cool, but the kidnapping plot got dark fast. All those gnomes vanishing? Gnomeo's panic when his crew goes missing? James Mc Avoy nailed that mix of comedy and desperation.",
+      "carry_entities": [
+        "James Mc Avoy",
+        "Gnomeo"
+      ]
+    },
+    {
+      "target_id": "01769-4-t012",
+      "uniq_id": "01769-4",
+      "reference_text": "Still, the best part was Gnomeo and Juliet's dynamic. They're so chaotic together. We're not just garden decorations!",
+      "carry_entities": [
+        "Gnomeo"
+      ]
+    },
+    {
+      "target_id": "01769-4-t014",
+      "uniq_id": "01769-4",
+      "reference_text": "Think they'll make a third one? Gnomeo and Juliet vs. Alien Lawnmowers?",
+      "carry_entities": [
+        "Gnomeo"
+      ]
+    },
+    {
+      "target_id": "05039-4-t004",
+      "uniq_id": "05039-4",
+      "reference_text": "Right? The whole cop killing cops angle got me. When Tom finds his dad's old badge in Eddie's apartment? Chills. Bruce Willis nailed that rage grief combo.",
+      "carry_entities": [
+        "Bruce Willis"
+      ]
+    },
+    {
+      "target_id": "05039-4-t011",
+      "uniq_id": "05039-4",
+      "reference_text": "Exactly! That's what elevates it from generic thriller to a tragedy about legacy. Tom avenging Vincent while becoming him? Full circle poetry. Roddy Herrington doesn't get enough credit.",
+      "carry_entities": [
+        "Roddy Herrington"
+      ]
+    },
+    {
+      "target_id": "12099-3-t006",
+      "uniq_id": "12099-3",
+      "reference_text": "And the Globe's own role in ignoring the story earlier? Brutal self critique. Makes you wonder how many modern institutions are hiding their own spotlight' scandals.",
+      "carry_entities": [
+        "Spotlight"
+      ]
+    },
+    {
+      "target_id": "12099-3-t009",
+      "uniq_id": "12099-3",
+      "reference_text": "Harsh! But Spotlight 's legacy is bigger than Oscars. Real life impact survivors getting validation, the Church reforms.",
+      "carry_entities": [
+        "Spotlight"
+      ]
+    },
+    {
+      "target_id": "08026-4-t008",
+      "uniq_id": "08026-4",
+      "reference_text": "Still, why'd Hutch keep playing after his friend died? Pride? Stupidity? Jon Foster nailed that desperate gamer vibe, though.",
+      "carry_entities": [
+        "Jon Foster"
+      ]
+    },
+    {
+      "target_id": "08026-4-t009",
+      "uniq_id": "08026-4",
+      "reference_text": "Mix of both, probably. But the real horror is how the game warps reality. Like, Elizabeth Bathory's portrait changing? Nope. I'd have yeeted that Play Station out the window.",
+      "carry_entities": [
+        "Elizabeth Bathory"
+      ]
+    },
+    {
+      "target_id": "08026-4-t011",
+      "uniq_id": "08026-4",
+      "reference_text": "Cult classic with historical flavor. I am just saying if a friend hands me a game called Stay Alive? I am burning it.",
+      "carry_entities": [
+        "Stay Alive"
+      ]
+    },
+    {
+      "target_id": "05272-5-t006",
+      "uniq_id": "05272-5",
+      "reference_text": "Tom Roberts loves moral gray zones. Remember when General Pavlov John Malkovich's character orders Natalia to torture suspects? The camera lingers on her shaking hands. No music, just silence. Brutal.",
+      "carry_entities": [
+        "Tom Roberts"
+      ]
+    },
+    {
+      "target_id": "05272-5-t010",
+      "uniq_id": "05272-5",
+      "reference_text": "Still, the ending guts me. Natalia burning the list of suspects to protect Klaus and Irina sacrificing her own freedom. Was it redemption or another tragedy?",
+      "carry_entities": [
+        "Klaus",
+        "Irina"
+      ]
+    },
+    {
+      "target_id": "10732-5-t009",
+      "uniq_id": "10732-5",
+      "reference_text": "True, but Barry Jenkins isn't about neat endings. It's about love surviving anyway. That final shot of young Fonny and Tish dancing? Tears for days.",
+      "carry_entities": [
+        "Barry Jenkins",
+        "Tish"
+      ]
+    },
+    {
+      "target_id": "05031-4-t004",
+      "uniq_id": "05031-4",
+      "reference_text": "Helen Shaver's performance though the subtlety! Like when Vivian hesitates to touch Kay's hair after the car ride? You see her entire internal battle in one glance.",
+      "carry_entities": [
+        "Kay"
+      ]
+    },
+    {
+      "target_id": "05031-4-t005",
+      "uniq_id": "05031-4",
+      "reference_text": "And Kay's confidence masking her vulnerability? I am twenty five, I am not harmless. Charbonneau delivered that line like a velvet punch.",
+      "carry_entities": [
+        "Kay"
+      ]
+    },
+    {
+      "target_id": "04496-4-t005",
+      "uniq_id": "04496-4",
+      "reference_text": "Chloe Coleman deserves awards, period. How does a kid actor pull off sassy and vulnerable in the same breath? That moment she calls him out for lying about her dad oof.",
+      "carry_entities": [
+        "Chloe Coleman"
+      ]
+    },
+    {
+      "target_id": "04496-4-t007",
+      "uniq_id": "04496-4",
+      "reference_text": "And can we talk about the script? Sophie making him do Tik Tok dances as part of the blackmail? Peak comedy. But also real talk the movie low key addresses single parent struggles. Kate working doubles while Sophie feels lonely? Hits hard.",
+      "carry_entities": [
+        "Sophie"
+      ]
+    },
+    {
+      "target_id": "00226-3-t004",
+      "uniq_id": "00226-3",
+      "reference_text": "Ryan Reynolds nailed the panic when Edward realizes his memories aren't his. The diner scene with Natalie Martinez as the waitress? Her kid calling him Daddy? Chills.",
+      "carry_entities": [
+        "Ryan Reynolds"
+      ]
+    },
+    {
+      "target_id": "00226-3-t007",
+      "uniq_id": "00226-3",
+      "reference_text": "Still, the action scenes! Ryan Reynolds doing parkour in that car chase? Felt very Deadpool lite. Wish they leaned harder into the sci fi horror, though.",
+      "carry_entities": [
+        "Ryan Reynolds"
+      ]
+    },
+    {
+      "target_id": "00226-3-t010",
+      "uniq_id": "00226-3",
+      "reference_text": "True. Ryan Reynolds' range here playing a seventy year old in a thirty year old body? The way he'd fumble with phones but smirk like Kingsley? Genius.",
+      "carry_entities": [
+        "Ryan Reynolds"
+      ]
+    },
+    {
+      "target_id": "08913-5-t008",
+      "uniq_id": "08913-5",
+      "reference_text": "True, but the emotional payoff works. Kate realizing family isn't about D N A? Cheesy, but I am here for it. Also, the fact that Tina Fey actually struggled with infertility in real life? Adds layers.",
+      "carry_entities": [
+        "Tina Fey"
+      ]
+    },
+    {
+      "target_id": "05807-3-t004",
+      "uniq_id": "05807-3",
+      "reference_text": "Don't even get me started on Jason Flemyng as Inspector Slack. His constant head butting with Miss Marple? Classic. This isn't a knitting circle, madam!",
+      "carry_entities": [
+        "Miss Marple"
+      ]
+    },
+    {
+      "target_id": "05807-3-t006",
+      "uniq_id": "05807-3",
+      "reference_text": "Same! Charles Palmer dropped those red herrings like breadcrumbs. And the vicarage set design? So cozy yet sinister. Felt like nineteen thirties England.",
+      "carry_entities": [
+        "Charles Palmer"
+      ]
+    },
+    {
+      "target_id": "05807-3-t013",
+      "uniq_id": "05807-3",
+      "reference_text": "Think they'll adapt more Miss Marple mysteries with this cast? I need Rachel Stirling in more period dresses, stat.",
+      "carry_entities": [
+        "Miss Marple"
+      ]
+    },
+    {
+      "target_id": "01449-5-t008",
+      "uniq_id": "01449-5",
+      "reference_text": "Think it's scarier than modern C G I fests? That rubbery Djinn true form holds up. And the way it ties into that opening curse from the eleventh century? Full circle storytelling.",
+      "carry_entities": [
+        "Djinn"
+      ]
+    },
+    {
+      "target_id": "01449-5-t009",
+      "uniq_id": "01449-5",
+      "reference_text": "Still mad t here is no sequel where the Djinn invades Times Square or something. But nah, the ending with Alexandra smashing the ruby? Perfection. Sacrifice one hundred and one.",
+      "carry_entities": [
+        "Djinn"
+      ]
+    },
+    {
+      "target_id": "05415-5-t005",
+      "uniq_id": "05415-5",
+      "reference_text": "Hugh Grant's physical comedy though when he's air typing lyrics on the couch? I died. But Drew's emotional moments hit hard too. Like when she admits she's scared to trust him?",
+      "carry_entities": [
+        "Hugh Grant"
+      ]
+    },
+    {
+      "target_id": "05415-5-t007",
+      "uniq_id": "05415-5",
+      "reference_text": "Don't forget Scott Porter as Sophie's sleazy ex, Sloan! Ugh, that guy. You are my muse my ass. Brad Garrett as Alex's manager was low key hilarious too.",
+      "carry_entities": [
+        "Sophie"
+      ]
+    },
+    {
+      "target_id": "00957-3-t004",
+      "uniq_id": "00957-3",
+      "reference_text": "Totally. But Safin's plan poisoning millions with nanobots? Classic Bond villain madness. Still, Ana de Armas's cameo as Paloma stole every second. That Cuba fight? Flawless.",
+      "carry_entities": [
+        "Safin"
+      ]
+    },
+    {
+      "target_id": "05282-4-t006",
+      "uniq_id": "05282-4",
+      "reference_text": "Godfrey Tearle as Jordan was pure menace. That glass eye popping out when Hannay confronts him? Masterclass in silent villainy. But Pamela's heel turn from selling him out to jumping into the waterfall together? Growth!",
+      "carry_entities": [
+        "Pamela"
+      ]
+    },
+    {
+      "target_id": "05282-4-t010",
+      "uniq_id": "05282-4",
+      "reference_text": "Think Hannay and Pamela actually stayed together? Their banter post handcuffs was fire. You are insufferable! But you adore it.",
+      "carry_entities": [
+        "Pamela"
+      ]
+    },
+    {
+      "target_id": "02153-4-t007",
+      "uniq_id": "02153-4",
+      "reference_text": "Okay, but the ending? Marcus getting impaled on that giant gear? Iconic. Selene and Michael riding off covered in blood? Peak early two thousands goth romance.",
+      "carry_entities": [
+        "Selene"
+      ]
+    },
+    {
+      "target_id": "09758-5-t007",
+      "uniq_id": "09758-5",
+      "reference_text": "Mary Steenburgen and Christopher Lloyd's real life marriage after filming? That's wild. No wonder their scenes felt genuine.",
+      "carry_entities": [
+        "Mary Steenburgen"
+      ]
+    },
+    {
+      "target_id": "06870-4-t010",
+      "uniq_id": "06870-4",
+      "reference_text": "Classic noir move. Carl Van Loon's dead, Eddie's got his empire, but at what cost? The whole dark fields metaphor from the book hits harder.",
+      "carry_entities": [
+        "Carl Van Loon"
+      ]
+    },
+    {
+      "target_id": "02031-4-t004",
+      "uniq_id": "02031-4",
+      "reference_text": "Woody Allen loves his intellectual romances. But the French Riviera setting? Those golden sunset shots? Pure eye candy. Felt like a love letter to the nineteen twenties.",
+      "carry_entities": [
+        "Woody Allen"
+      ]
+    },
+    {
+      "target_id": "06484-5-t006",
+      "uniq_id": "06484-5",
+      "reference_text": "Yeah, the Hindu Muslim clashes wrecked me. Gandhi fasting to stop the violence? Kingsley's face alone conveyed, like, decades of pain. How'd he even lose that much weight for the role?",
+      "carry_entities": [
+        "Gandhi"
+      ]
+    },
+    {
+      "target_id": "12836-4-t010",
+      "uniq_id": "12836-4",
+      "reference_text": "Oh! And the soundtrack? That heavy metal cover of Sunglasses at Night during the car chase? Patrick Lussier knew exactly what tone he wanted.",
+      "carry_entities": [
+        "Patrick Lussier"
+      ]
+    },
+    {
+      "target_id": "05960-5-t008",
+      "uniq_id": "05960-5",
+      "reference_text": "But Olivia Wilde steals it. The way she purrs, We're just optimizing happiness? Chilling. You believe she'd burn the world down for fun.",
+      "carry_entities": [
+        "Olivia Wilde"
+      ]
+    },
+    {
+      "target_id": "01214-4-t006",
+      "uniq_id": "01214-4",
+      "reference_text": "Speaking of Sutter Cane's basically a darker version of Stephen King, right? But with way more cult vibes. The way fans lose their minds it's scarily plausible.",
+      "carry_entities": [
+        "Sutter Cane"
+      ]
+    },
+    {
+      "target_id": "01214-4-t010",
+      "uniq_id": "01214-4",
+      "reference_text": "Honestly, the scariest part is how the movie critiques its own audience. We're all Linda, craving the next Sutter Cane book, even as it destroys us. Meta as hell.",
+      "carry_entities": [
+        "Sutter Cane"
+      ]
+    },
+    {
+      "target_id": "08881-3-t006",
+      "uniq_id": "08881-3",
+      "reference_text": "And that final confrontation with her mom! You are my girl chills. Louisa Lanesborough nailed that toxic fragility. But the real kicker? Marnie never gets a tidy cure. She's just trapped in her own mind.",
+      "carry_entities": [
+        "Marnie",
+        "Louisa Lanesborough"
+      ]
+    },
+    {
+      "target_id": "08881-3-t009",
+      "uniq_id": "08881-3",
+      "reference_text": "Still, the wardrobe! Those tailored pastels vs. Mark's dark suits? Visual storytelling at its peak. Fun fact: Hitchcock fought to cast Tippi over bigger stars. Said her aloof beauty was key. Can't imagine anyone else as Marnie.",
+      "carry_entities": [
+        "Marnie"
+      ]
+    },
+    {
+      "target_id": "06064-3-t006",
+      "uniq_id": "06064-3",
+      "reference_text": "Shoutout to Jacqueline Bisset too. Cathy's like the only sane person asking, Why do you love this violent job? But Bullitt's too married to his code.",
+      "carry_entities": [
+        "Bullitt"
+      ]
+    },
+    {
+      "target_id": "06064-3-t007",
+      "uniq_id": "06064-3",
+      "reference_text": "Yeah, but that's the noir vibe. The ending where he just walks away from the badge? Chills. Peter Yates didn't spoon feed morals.",
+      "carry_entities": [
+        "Peter Yates"
+      ]
+    },
+    {
+      "target_id": "06064-3-t008",
+      "uniq_id": "06064-3",
+      "reference_text": "Still can't believe it won the Oscar for Best Editing. The autopsy scene alone silent, clinical, no music. You feel Bullitt's disgust with the system.",
+      "carry_entities": [
+        "Bullitt"
+      ]
+    },
+    {
+      "target_id": "05411-5-t007",
+      "uniq_id": "05411-5",
+      "reference_text": "Ken Loach's thing is making you root for flawed people. Like, yeah, they're scamming a million dollar bottle, but you are cheering because it's their only shot at a normal life.",
+      "carry_entities": [
+        "Ken Loach"
+      ]
+    },
+    {
+      "target_id": "11405-3-t004",
+      "uniq_id": "11405-3",
+      "reference_text": "Shoutout to James Dale too his oil worker character's desperation mirrored the whole town's vibe. But man, Ollie's moral struggle hit me differently. Like, when she burns the cash? You get why, but it's so tragic.",
+      "carry_entities": [
+        "Ollie"
+      ]
+    },
+    {
+      "target_id": "07334-5-t005",
+      "uniq_id": "07334-5",
+      "reference_text": "Roach did a solid job showing Trumbo's flaws too. Like, yeah, he's a genius, but also kind of a stubborn jerk. Cranston's monologue about writing is fighting felt so raw.",
+      "carry_entities": [
+        "Trumbo"
+      ]
+    },
+    {
+      "target_id": "07334-5-t012",
+      "uniq_id": "07334-5",
+      "reference_text": "Still, the real star's Trumbo's resilience. Dude got jailed, blacklisted, and still wrote classics. Makes you rethink what Hollywood hero means.",
+      "carry_entities": [
+        "Trumbo"
+      ]
+    },
+    {
+      "target_id": "01130-4-t008",
+      "uniq_id": "01130-4",
+      "reference_text": "But the dark humor! Like Ross trying to seduce the neighbor for meth money? Cringe funny until it gets too real. Classic Jason Schwartzman quirk turned toxic.",
+      "carry_entities": [
+        "Jason Schwartzman"
+      ]
+    },
+    {
+      "target_id": "01130-4-t013",
+      "uniq_id": "01130-4",
+      "reference_text": "Brittany Murphy too. Her final breakdown? Haunting. Makes you wonder how much she channeled real life struggles.",
+      "carry_entities": [
+        "Brittany Murphy"
+      ]
+    },
+    {
+      "target_id": "06444-3-t006",
+      "uniq_id": "06444-3",
+      "reference_text": "Right? And Oliver Parker's direction the opulent sets, the snappy dialogue. It's a blackmail comedy with heart. That final speech where Robert admits his flaws? I've learned that no one is flawless, least of all me.",
+      "carry_entities": [
+        "Oliver Parker"
+      ]
+    },
+    {
+      "target_id": "06444-3-t009",
+      "uniq_id": "06444-3",
+      "reference_text": "Total feast. Makes me wanna rewatch all Oliver Parker's Wilde adaptations. The Importance of Being Earnest next?",
+      "carry_entities": [
+        "Oliver Parker"
+      ]
+    },
+    {
+      "target_id": "04496-3-t005",
+      "uniq_id": "04496-3",
+      "reference_text": "Kristen Schaal deserves more credit. Her rant about the three hundred dollar drone Sophie destroyed? Pure chaos. But the mom subplot Sophie trying to set J J up with her mom? Cute, but kinda rushed.",
+      "carry_entities": [
+        "Kristen Schaal"
+      ]
+    },
+    {
+      "target_id": "07661-5-t014",
+      "uniq_id": "07661-5",
+      "reference_text": "Agreed. Also, Helen Slater's line, Sometimes the bravest thing is to let someone love you? Chills. Daniel Petrie knew how to write a family drama.",
+      "carry_entities": [
+        "Daniel Petrie"
+      ]
+    },
+    {
+      "target_id": "08244-5-t005",
+      "uniq_id": "08244-5",
+      "reference_text": "Fiennes said he'd been obsessed since playing Coriolanus at the Almeida Theatre, right? Translating that rage post nine eleven? Smart move. All the riots and war footage.",
+      "carry_entities": [
+        "Coriolanus"
+      ]
+    },
+    {
+      "target_id": "03678-4-t005",
+      "uniq_id": "03678-4",
+      "reference_text": "Taylor's silence was low key genius. But back to Maddy Barry Pepper's breakdown when he fails the initiation test? I can't even squash a spider! Ugh, heartbreaking.",
+      "carry_entities": [
+        "Barry Pepper",
+        "Maddy"
+      ]
+    },
+    {
+      "target_id": "03678-4-t009",
+      "uniq_id": "03678-4",
+      "reference_text": "Oh, a hundred percent. It's all about control. Benny knew Maddy would rebel, but he still wins by messing with his head. So messed up.",
+      "carry_entities": [
+        "Maddy"
+      ]
+    },
+    {
+      "target_id": "12316-3-t003",
+      "uniq_id": "12316-3",
+      "reference_text": "Snorts The way Ramona revs her sports car to drown out Gail's speech? Pure petty genius. But honestly, Marni's whole arc from bullied nerd to confident P R executive that's the real heart of it.",
+      "carry_entities": [
+        "Marni"
+      ]
+    },
+    {
+      "target_id": "06934-3-t004",
+      "uniq_id": "06934-3",
+      "reference_text": "You are just like her! Judy screaming that at Elle? Chills. Paul Weitz doesn't get enough credit for tight scripts. This felt more raw than his About a Boy stuff.",
+      "carry_entities": [
+        "Elle"
+      ]
+    },
+    {
+      "target_id": "12540-4-t006",
+      "uniq_id": "12540-4",
+      "reference_text": "Nah, fight me Zac Efron's Jack had layers! Ex swimmer turned driver, all that bottled up rage. His final confrontation with Ward? You are not saving anyone, just yourself. Mic drop.",
+      "carry_entities": [
+        "Zac Efron"
+      ]
+    },
+    {
+      "target_id": "12540-4-t007",
+      "uniq_id": "12540-4",
+      "reference_text": "Lee Daniels though man knows how to film sweat. Every close up looked like the camera lens was fogging up. That interrogation scene with the fan spinning overhead? Pure Southern Gothic.",
+      "carry_entities": [
+        "Lee Daniels"
+      ]
+    },
+    {
+      "target_id": "03879-5-t006",
+      "uniq_id": "03879-5",
+      "reference_text": "And Elliot's broken antler! That moment when Boog saves him? Solidifies their bromance. You are stuck with me, buddy! so cheesy, but I love it.",
+      "carry_entities": [
+        "Boog"
+      ]
+    },
+    {
+      "target_id": "03879-5-t008",
+      "uniq_id": "03879-5",
+      "reference_text": "The animation style's so mid two thousands, though. Like, the C G I isn't flawless, but it's charming. Roger Allers definitely leaned into the slapstick.",
+      "carry_entities": [
+        "Roger Allers"
+      ]
+    },
+    {
+      "target_id": "03879-5-t009",
+      "uniq_id": "03879-5",
+      "reference_text": "True, but the message about protecting wildlife? Hits harder now. That final battle where they outsmart the hunters? Chefs kiss. Boog embracing his wild side? Perfect arc.",
+      "carry_entities": [
+        "Boog"
+      ]
+    },
+    {
+      "target_id": "10357-3-t003",
+      "uniq_id": "10357-3",
+      "reference_text": "Totally! Takashi Miike's signature body horror mixed with psychological dread. Christopher's denial about Komomo's death mirrors Japan's post war trauma, right? Like, the island's rot symbolizes cultural decay.",
+      "carry_entities": [
+        "Takashi Miike"
+      ]
+    },
+    {
+      "target_id": "10357-3-t006",
+      "uniq_id": "10357-3",
+      "reference_text": "Exactly! Miike flips the white savior trope. That final reveal where Komomo's ghost drowns him? Poetic justice. But man, the tonal whiplash from eerie beauty to gross out torture. Classic Miike.",
+      "carry_entities": [
+        "Komomo"
+      ]
+    },
+    {
+      "target_id": "09637-4-t004",
+      "uniq_id": "09637-4",
+      "reference_text": "Totally! Joan Allen should've gotten an Oscar nod for this. The way she shifts from bitter to vulnerable like when Denny helps her clean up after the drunken porch meltdown? Raw as hell.",
+      "carry_entities": [
+        "Joan Allen"
+      ]
+    },
+    {
+      "target_id": "09637-4-t010",
+      "uniq_id": "09637-4",
+      "reference_text": "Still, Kevin Costner's comedic timing saved this from being a downer. I am not your therapist, I am your neighbor! iconic line.",
+      "carry_entities": [
+        "Kevin Costner"
+      ]
+    },
+    {
+      "target_id": "11721-3-t005",
+      "uniq_id": "11721-3",
+      "reference_text": "Both, maybe. Colin Farrell's small role as the sketchy informant? Underrated. He's all charm but you never trust him. Classic Schumacher tension remember his work in Phone Booth?",
+      "carry_entities": [
+        "Schumacher"
+      ]
+    },
+    {
+      "target_id": "11721-3-t006",
+      "uniq_id": "11721-3",
+      "reference_text": "True! But the real kicker? It's based on a true story. Veronica Guerin actually got the Irish government to crack down on drug lords in the nineties after they murdered her.",
+      "carry_entities": [
+        "Veronica Guerin"
+      ]
+    },
+    {
+      "target_id": "11175-3-t008",
+      "uniq_id": "11175-3",
+      "reference_text": "Still can't believe the dad's actor, Deka Walmsley, had zero musical experience before this. His singing in Deep Into the Ground was rough but perfect for the character.",
+      "carry_entities": [
+        "Deka Walmsley"
+      ]
+    },
+    {
+      "target_id": "07860-4-t005",
+      "uniq_id": "07860-4",
+      "reference_text": "Tracey deserved that Golden Globe nom, though. Frenchy's arc from skeptic to reluctantly scheming wife? She nails the mix of frustration and heart. That final scene where she fixes the bank manager's nails mid heist? Genius.",
+      "carry_entities": [
+        "Frenchy"
+      ]
+    },
+    {
+      "target_id": "07860-4-t012",
+      "uniq_id": "07860-4",
+      "reference_text": "Yeah, no Oscar bait here just pure, stupid fun. Woody Allen doing what he does best: making us laugh at life's absurdity.",
+      "carry_entities": [
+        "Woody Allen"
+      ]
+    },
+    {
+      "target_id": "09558-5-t007",
+      "uniq_id": "09558-5",
+      "reference_text": "Trauma's right. Mowgli's rage when he finally confronts Shere Khan using human tools as weapons? Symbolic as heck. You fear my humanity? Here it is! Goosebumps.",
+      "carry_entities": [
+        "Shere Khan"
+      ]
+    },
+    {
+      "target_id": "07928-5-t007",
+      "uniq_id": "07928-5",
+      "reference_text": "Villeneuve's pacing though some people called it slow, but every frame mattered. That orange dust storm fight? K vs Luv? Cinematic perfection.",
+      "carry_entities": [
+        "K"
+      ]
+    },
+    {
+      "target_id": "07928-5-t013",
+      "uniq_id": "07928-5",
+      "reference_text": "Nah, Deckard's daughter is real. The origami unicorn at the end mirrors the first film's twist. K chose humanity even if he wasn't born it.",
+      "carry_entities": [
+        "K"
+      ]
+    },
+    {
+      "target_id": "06089-4-t006",
+      "uniq_id": "06089-4",
+      "reference_text": "True! But let's talk Peter Lorre. Dude barely spoke English back then they fed him lines phonetically. Still delivered menace. You will say nothing, chills.",
+      "carry_entities": [
+        "Peter Lorre"
+      ]
+    },
+    {
+      "target_id": "10465-5-t008",
+      "uniq_id": "10465-5",
+      "reference_text": "Anyone catch the recurring bird motif? The eagle in the war scenes vs. the sparrows in the treehouse? Avnet's saying something about freedom vs. fragility.",
+      "carry_entities": [
+        "Treehouse"
+      ]
+    },
+    {
+      "target_id": "10465-5-t009",
+      "uniq_id": "10465-5",
+      "reference_text": "Still, the ending got me. The treehouse standing again, but with Stephen's medals hanging there like a memorial. No big speeches, just silence.",
+      "carry_entities": [
+        "Stephen",
+        "Treehouse"
+      ]
+    }
+  ],
+  "content_hash": "1373362fed2aa2916aec1677706fba63d91da49026e6c0777084cb061094d5ec"
+}

@@ -1,0 +1,14 @@
+decision: EXPLORATORY-HARMFUL
+confirmatory: false
+dialogue_clusters: 52
+targets: 86
+calls: 172
+
+arm	WER	carry_NE-WER	carry_hit_rate	false_hint_target_rate	truncated
+D0-global	0.034694	0.111888	0.838710	0.081395	0
+D1-speaker	0.034694	0.104895	0.849462	0.116279	0
+
+speaker_minus_global_carry_hit_rate: 0.010753
+speaker_minus_global_carry_ne_wer: -0.006993
+speaker_minus_global_wer: 0.000000
+speaker_minus_global_false_hint_target_rate: 0.034884

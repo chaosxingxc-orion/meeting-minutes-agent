@@ -1,0 +1,46 @@
+{
+  "config": {
+    "budget_totals": {
+      "audio_seconds_used": 11.275999999999996,
+      "calls_used": 1,
+      "max_audio_seconds": 11.275999999999996,
+      "max_calls": 1
+    },
+    "request_ledger": [
+      {
+        "attempt_number": 1,
+        "audio_seconds": 11.275999999999996,
+        "error": null,
+        "latency_seconds": 1.4770009310000205,
+        "outcome": "ok",
+        "request_id": "e4dir-10465-5-t009-d0-global",
+        "response_of": "e4dir-10465-5-t009-d0-global",
+        "retry_of": null,
+        "started_at": "2026-08-21T07:28:11.291616+00:00"
+      }
+    ],
+    "server_identity": {
+      "base_url": "http://127.0.0.1:8080",
+      "model_files": [
+        {
+          "path": "/home/yansuqing/models/qwen3-omni-30b-a3b-instruct/Qwen3-Omni-30B-A3B-Instruct-Q4_K_M.gguf",
+          "sha256": "d9e2876556e7873e02c0359f832432ee2d67ab7dd0cee3efe0f77fd7a1f4dd85"
+        },
+        {
+          "path": "/home/yansuqing/models/qwen3-omni-30b-a3b-instruct/mmproj-Qwen3-Omni-30B-A3B-Instruct-Q8_0.gguf",
+          "sha256": "1104376db833f1e89c84834144ac3863340c2cd1ddaeddb39cb0247fb5c20c8d"
+        }
+      ],
+      "slots": 1
+    }
+  },
+  "config_hash": "937929273e27a4669f1bbae273db6862f5abf32129bfc403eaead720320019c5",
+  "created_utc": "2026-08-21T07:28:19+00:00",
+  "extra": {},
+  "git": {
+    "commit": "2259b1c619c4d1d8cb32c9c032b399506406923b",
+    "dirty": true,
+    "error": null
+  },
+  "run_id": "e4-disjoint-dir-v1-supplement"
+}
