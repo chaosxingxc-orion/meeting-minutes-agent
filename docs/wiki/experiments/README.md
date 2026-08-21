@@ -18,6 +18,7 @@
 | [E4-DISJOINT-POWER](E4-DISJOINT-POWER.md) | 固定 disjoint policy 是否有足够独立样本与可接受预算？ | 已判读 | `INSUFFICIENT-CARRY-SUPPLY`；eligible carry 4,782 < 主情景所需 5,774 | 不启动模型 flight；新数据源或新设计需重新注册 |
 | [E4-DISJOINT-PREV](E4-DISJOINT-PREV.md) | 小型 Pass-0 能否支持约50%的 disjoint prevalence 假设？ | 已判读 | `PREVALENCE-SCREEN-PASS`；52.76%，80%区间46.71%–59.01%，795 calls | 只支持资源规划；效果 pilot 需另行授权和注册 |
 | [E4-DISJOINT-DIR](E4-DISJOINT-DIR.md) | predicate-positive target 上 speaker 是否优于等长 global？ | 已判读 | `EXPLORATORY-HARMFUL`；carry方向小幅改善，但 false-hint +3.49 pp 超过安全门 | 不部署当前等长 speaker inventory；如继续须先注册运行时拒绝门 |
+| [E4-SAFETY-GATE-AUDIT](E4-SAFETY-GATE-AUDIT.md) | 运行时拒绝门能否保留小收益并跨场景切片稳定？ | 已注册 | 零模型、post-hoc；跨领域扩展性不可识别 | 按冻结四候选、四折和 width 分层执行一次性审计 |
 | [Z-SERIES](Z-SERIES.md) | 说话人标签、归属与切分的多臂效应是什么？ | 已判读 | G1 floors 已归档；主要差异来自转向表/归属输出，纯切片差异不显著 | 作为描述性基线，不重跑、不据此选择分支 |
 
 ## 当前优先级
