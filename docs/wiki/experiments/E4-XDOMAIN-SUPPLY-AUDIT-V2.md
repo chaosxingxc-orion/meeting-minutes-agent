@@ -1,7 +1,7 @@
 # E4-XDOMAIN-SUPPLY-AUDIT-v2：Earnings-22 供给审计
 
 - 负责人：EuphoriaYan
-- 状态：`已注册`
+- 状态：`已注册，等待唯一读取`
 - 类型：零模型、只读文本、探索性供给审计
 - 模型调用：0
 
@@ -14,3 +14,4 @@
 - [中文冻结设计](../../plans/2026-08-21-e4-xdomain-supply-audit-v2.md)
 - [正式预注册](../../readiness/2026-08-21-e4-xdomain-supply-audit-v2-preregistration.md)
 - [预读 schema amendment](../../readiness/2026-08-21-e4-xdomain-supply-audit-v2-schema-amendment.md)
+- [实现与输入冻结](../../readiness/2026-08-21-e4-xdomain-supply-audit-v2-implementation-amendment.md)
