@@ -56,4 +56,4 @@ prevalence 从20级的62.96%、40级的54.81%收敛到60级的52.76%；最终163
 
 ### 远端同步更正
 
-同步 `origin/master` 后确认，PRECOMP 已完成 Wave-1 dev-18 与 Wave-2 supplement 76/76；G1/Z 四臂也已完成 1,932-call floors campaign 和一次性描述性读取。领导截图中的 Z-turn/Z-oracle/Z-free/Z-nodiar 数值已有仓库证据，不再标记为“待归档”。该结果不改变 E4 的研究问题：G1 主要测量转向表、归属输出与切片几何，E4 测量同一固定音频片段上 speaker-specific 文本状态的增益。
+同步 `origin/master` 后确认，PRECOMP 已完成 Wave-1 dev-18 与 Wave-2 supplement 76/76；G1/Z 四臂也已完成 1,932-call floors campaign 和一次性描述性读取。同事截图中的 Z-turn/Z-oracle/Z-free/Z-nodiar 数值已有仓库证据，不再标记为“待归档”。该结果不改变 E4 的研究问题：G1 主要测量转向表、归属输出与切片几何，E4 测量同一固定音频片段上 speaker-specific 文本状态的增益。
