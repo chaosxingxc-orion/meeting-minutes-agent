@@ -21,6 +21,7 @@
 | [E4-SAFETY-GATE-AUDIT](E4-SAFETY-GATE-AUDIT.md) | 运行时拒绝门能否保留小收益并跨场景切片稳定？ | 已判读 | `NO-SAFE-GATE`；唯一有覆盖的 width≤2 门同时消除了全部 carry 增益 | 不在同一结果上继续调阈值；只考虑独立新 surface 或不同信号 |
 | [E4-XDOMAIN-SUPPLY-AUDIT](E4-XDOMAIN-SUPPLY-AUDIT.md) | Product/AMI 与 Academic/ICSI 是否都有足量 speaker-exclusive 术语代理供给？ | 已判读 | `DOMAIN-LIMITED-SUPPLY`；Academic 全部门槛通过，Product 严格技术 carry 仅 3 < 10 | 不启动平衡跨域 pilot；寻找新的 Product/business surface，或另行决策 Academic 域内设计 |
 | [E4-XDOMAIN-SUPPLY-AUDIT-v2](E4-XDOMAIN-SUPPLY-AUDIT-V2.md) | Earnings-22 是否有足量的 speaker-exclusive 专业实体供给？ | 已判读 | 机械通过，但 70.2% 来自 `CONTRACTION/FALLBACK`，专业代理未确认 | 如继续，在未读 45 场 reserve 上预注册窄类确认审计 |
+| [E4-XDOMAIN-SUPPLY-AUDIT-v3](E4-XDOMAIN-SUPPLY-AUDIT-V3.md) | 未读 Earnings-22 reserve 是否有足量缩写/字母数字 carry？ | 已注册 | 类别、45场 reserve 和绝对供给门已冻结；尚未读取 | 实现 reserve-only reader，冻结后唯一读取 |
 | [Z-SERIES](Z-SERIES.md) | 说话人标签、归属与切分的多臂效应是什么？ | 已判读 | G1 floors 已归档；主要差异来自转向表/归属输出，纯切片差异不显著 | 作为描述性基线，不重跑、不据此选择分支 |
 
 ## 当前优先级
@@ -31,4 +32,5 @@
 4. `E4-SAFETY-GATE-AUDIT` 未找到兼具覆盖、安全和收益的简单运行时门；停止在当前结果上继续阈值搜索。
 5. `E4-XDOMAIN-SUPPLY-AUDIT` 只放行 Academic 的供给可行性判断；Product 严格技术供给不足，不能启动平衡跨域模型 pilot。
 6. `E4-XDOMAIN-SUPPLY-AUDIT-v2` 证明广义标签复现充足，但未确认专业实体供给；45 场 reserve 仍未读，音频与模型接触未授权。
-7. G1/Z 系列已有正式仓库证据；引用时必须保留“描述性 floors、非分支 verdict”和域内 diarizer 限制。
+7. `E4-XDOMAIN-SUPPLY-AUDIT-v3` 已冻结窄类 reserve 设计；读取前不得更换类别、门槛或重新统计 discovery。
+8. G1/Z 系列已有正式仓库证据；引用时必须保留“描述性 floors、非分支 verdict”和域内 diarizer 限制。
