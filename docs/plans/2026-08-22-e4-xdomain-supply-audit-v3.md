@@ -1,7 +1,7 @@
 # E4-XDOMAIN-SUPPLY-AUDIT-v3：Earnings-22 窄类 reserve 审计
 
 日期：2026-08-22
-状态：**已预注册，尚未读取 reserve**
+状态：**唯一 reserve 读取已完成；`EARNINGS22-NARROW-SUPPLY-FEASIBLE`**
 类型：零模型、只读文本、独立保留集供给审计
 
 ## 研究问题
@@ -34,3 +34,9 @@ v2 在80场 discovery 上得到1,803个 speaker-exclusive carry，但其中70.2%
 - 最大单 surface 占 exclusive supply 的比例 ≤ 20%。
 
 完整性、schema、哈希、split 或 discovery 隔离失败时判 `INVALID-AUDIT`；全部供给门通过时判 `EARNINGS22-NARROW-SUPPLY-FEASIBLE`；否则判 `INSUFFICIENT-EARNINGS22-NARROW-SUPPLY`。只能进行一次正式 reserve 聚合读取，读取后不得更换类别、阈值或 eligibility 定义。
+
+## 正式结果
+
+45场 reserve 全部完成唯一读取，discovery 读取数为0，模型调用和音频使用均为0。30场会议 eligible，共264个 speaker-exclusive carry，其中 `ABBREVIATION` 185个、`ALPHANUMERIC` 79个；最大单 surface 占比11.36%。三个供给门全部通过。870个无有效时间戳的窄类 mention 被保守排除，但剩余供给仍显著超过冻结门槛。
+
+因此 Earnings-22 的窄类技术词供给在独立 reserve 上得到确认。该结果只放行音频许可与最小 acquisition 决策，不放行模型 pilot 或 agent loop。

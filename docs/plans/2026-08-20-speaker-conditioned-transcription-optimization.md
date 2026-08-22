@@ -375,4 +375,4 @@ E6, 每轮有界优化:
 
 每次进展必须更新实验总表，并链接 preregistration、config、flight receipt、read artifact 和 verdict。历史失败或淘汰结论只追加，不得被后续方案重写。
 
-2026-08-21 的执行拆解已登记在 [`docs/wiki/2026-08-21-work-plan.md`](../wiki/2026-08-21-work-plan.md)：先完成零模型 `E4-CF-MECH` 机制审计，再做停止、单一固定策略预注册或安全优先的三选一决策。
+2026-08-21 的执行结果已归档在 [`docs/wiki/2026-08-21-progress-summary.md`](../wiki/2026-08-21-progress-summary.md)：包含 `E4-CF-MECH`、后续固定策略实验及跨领域供给审计的完整判读。
