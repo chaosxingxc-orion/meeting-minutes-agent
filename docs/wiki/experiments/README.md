@@ -22,6 +22,7 @@
 | [E4-XDOMAIN-SUPPLY-AUDIT](E4-XDOMAIN-SUPPLY-AUDIT.md) | Product/AMI 与 Academic/ICSI 是否都有足量 speaker-exclusive 术语代理供给？ | 已判读 | `DOMAIN-LIMITED-SUPPLY`；Academic 全部门槛通过，Product 严格技术 carry 仅 3 < 10 | 不启动平衡跨域 pilot；寻找新的 Product/business surface，或另行决策 Academic 域内设计 |
 | [E4-XDOMAIN-SUPPLY-AUDIT-v2](E4-XDOMAIN-SUPPLY-AUDIT-V2.md) | Earnings-22 是否有足量的 speaker-exclusive 专业实体供给？ | 已判读 | 机械通过，但 70.2% 来自 `CONTRACTION/FALLBACK`，专业代理未确认 | 如继续，在未读 45 场 reserve 上预注册窄类确认审计 |
 | [E4-XDOMAIN-SUPPLY-AUDIT-v3](E4-XDOMAIN-SUPPLY-AUDIT-V3.md) | 未读 Earnings-22 reserve 是否有足量缩写/字母数字 carry？ | 已判读 | `EARNINGS22-NARROW-SUPPLY-FEASIBLE`；30/45场 eligible，264个 narrow exclusive carry | 决策音频许可与最小 acquisition；模型 pilot 仍需独立注册 |
+| [E4-XDOMAIN-AUDIO-ADMISSION](E4-XDOMAIN-AUDIO-ADMISSION.md) | Earnings-22 音频是否完整且兼容固定前端？ | 已判读 | 音频125/125哈希与解码通过；CSV 时长门失败，且116/125场超过固定前端4-speaker上限 | 暂不跑模型；决策停止路线或另注册不限人数前端 smoke |
 | [Z-SERIES](Z-SERIES.md) | 说话人标签、归属与切分的多臂效应是什么？ | 已判读 | G1 floors 已归档；主要差异来自转向表/归属输出，纯切片差异不显著 | 作为描述性基线，不重跑、不据此选择分支 |
 
 ## 当前优先级
@@ -32,5 +33,6 @@
 4. `E4-SAFETY-GATE-AUDIT` 未找到兼具覆盖、安全和收益的简单运行时门；停止在当前结果上继续阈值搜索。
 5. `E4-XDOMAIN-SUPPLY-AUDIT` 只放行 Academic 的供给可行性判断；Product 严格技术供给不足，不能启动平衡跨域模型 pilot。
 6. `E4-XDOMAIN-SUPPLY-AUDIT-v2` 证明广义标签复现充足，但未确认专业实体供给；45 场 reserve 仍未读，音频与模型接触未授权。
-7. `E4-XDOMAIN-SUPPLY-AUDIT-v3` 已在未读 reserve 确认窄类供给；下一步只进入音频治理决策，不自动放行模型实验。
-8. G1/Z 系列已有正式仓库证据；引用时必须保留“描述性 floors、非分支 verdict”和域内 diarizer 限制。
+7. `E4-XDOMAIN-SUPPLY-AUDIT-v3` 已在未读 reserve 确认窄类供给，但没有放行模型实验。
+8. Earnings-22 音频已完整获取；固定4-speaker前端覆盖不足，Omni pilot 暂不放行。
+9. G1/Z 系列已有正式仓库证据；引用时必须保留“描述性 floors、非分支 verdict”和域内 diarizer 限制。

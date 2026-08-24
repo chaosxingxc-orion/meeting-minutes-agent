@@ -1,6 +1,6 @@
 # 阶段性结论
 
-最后更新：2026-08-21。
+最后更新：2026-08-22。
 
 ## 已得到支持的结论
 
@@ -8,6 +8,7 @@
 - Academic/ICSI 有足量 speaker-exclusive 严格技术词代理供给。
 - Earnings-22 discovery 有大量同说话人重复的上游标签，但这只是语料筛查结果，不是模型效果。
 - Earnings-22 未读 reserve 在只保留缩写和字母数字类后仍有264个 speaker-exclusive carry，30/45场 eligible，窄类技术词供给已得到独立确认。
+- Earnings-22 官方音频125/125已获取并通过 LFS SHA-256 与解码检查；音频、元数据、对齐参考 ID 完全闭合。
 
 ## 尚未得到支持的结论
 
@@ -15,9 +16,10 @@
 - 当前 `speaker_wrong_disjoint` 策略在低资源独立 pilot 中增加 false hint，不能部署。
 - 简单 evidence、recency 或 inventory-width gate 不能同时保留收益与安全。
 - Earnings-22 的窄类供给已确认，但这些类别仍是技术词代理，不是语义命名实体，也没有证明模型收益或 false-hint 安全。
+- Earnings-22 有116/125场超过锁定 Sortformer 的4-speaker上限；兼容子集仅9场，当前固定前端下不支持有功效的跨域模型 pilot。
 
 ## 当前研究状态
 
 现阶段已证明“条件信息可影响模型”和“合法供给可构造”，但还没有找到经独立数据确认的安全单步优化算子。因此 training-free agent loop 的单调改进前提尚未满足，E5/E6 继续不放行。
 
-最近的供给问题已经回答：Earnings-22 窄类 reserve 通过。下一决策是音频许可和最小 acquisition 是否可行；在音频治理解决前不启动 Earnings-22 模型 pilot。若治理失败，则优先使用已有本地音频的 Academic/ICSI 设计。
+最近的供给与 acquisition 问题已经回答：Earnings-22 窄类 reserve 通过，125个音频对象完整获取；但预注册时长门因上游 CSV 异常失败，更重要的是固定4-speaker前端与116场会议不兼容。下一决策是在固定前端假设下停止 Earnings-22，或另行注册不限人数前端 smoke；决策前不启动模型 pilot。

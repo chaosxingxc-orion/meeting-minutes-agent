@@ -1,0 +1,14 @@
+{
+  "schema": "earnings22-audio-acquisition-receipt-v1",
+  "date": "2026-08-22",
+  "source_repository": "revdotcom/speech-datasets",
+  "source_commit": "c05ab6fd8b4b627d123c922a22a39e993dd37635",
+  "source_directory": "earnings22/media",
+  "local_root": "${SPEECHRL_DATA_DIR}/datasets/earnings22/media",
+  "mp3_count": 125,
+  "total_bytes": 1908056329,
+  "partial_file_count": 0,
+  "all_lfs_sha256_verified": true,
+  "external_manifest_sha256": "d35a72a8fac57548b5ac77125ed20df886434d88e6c28925680e8a56b18a8364",
+  "license_handling": "Internal research only; do not redistribute audio. Upstream text license does not unambiguously establish the audio license."
+}

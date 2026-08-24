@@ -18,6 +18,7 @@
 | E4-XDOMAIN-SUPPLY-AUDIT | Product/AMI 与 Academic/ICSI 的跨域供给 | 已判读 | `DOMAIN-LIMITED-SUPPLY`：Academic 通过；Product 严格技术 carry 3 < 10 |
 | E4-XDOMAIN-SUPPLY-AUDIT-v2 | Earnings-22 新 business surface 的显式实体供给 | 已判读 | 广义标签机械通过；专业代理被 `CONTRACTION/FALLBACK` 污染，需在未读 reserve 上窄类确认 |
 | E4-XDOMAIN-SUPPLY-AUDIT-v3 | Earnings-22 未读 reserve 的缩写/字母数字供给 | 已判读 | `EARNINGS22-NARROW-SUPPLY-FEASIBLE`：30/45场 eligible、264个 narrow exclusive carry |
+| E4-XDOMAIN-AUDIO-ADMISSION | Earnings-22 音频完整性与固定前端兼容性 | 已判读 | 音频125/125完整；CSV 时长门失败，且116/125场超过4-speaker前端上限；不放行模型 pilot |
 | E5 | Training-free agent loop | 未放行 | E4-CF 未通过强效应门；先做冻结结果机制分析 |
 | E6 | 多会议确认与最差 speaker 检验 | 未放行 | E5 尚未放行；启动前需预注册样本量、MDE、CI 和多重检验 |
 
@@ -25,6 +26,6 @@
 
 形式化定义、Lean 风格定理和逐步实现接口见[完整研究计划](../plans/2026-08-20-speaker-conditioned-transcription-optimization.md)。
 
-## 2026-08-21 最近检查点
+## 2026-08-22 最近检查点
 
-`E4-DISJOINT-PREV` 用795次 Pass-0 调用得到52.76% prevalence；172-cell的 `E4-DISJOINT-DIR` 因 false-hint +3.49个百分点判为有害。后续零模型安全门审计没有找到兼具覆盖、安全和 carry 收益的规则。跨域供给审计显示 Academic/ICSI 充足、Product/AMI 严格技术 carry 仅3个；Earnings-22 discovery 虽机械通过，但70.2%的 exclusive carry 来自 `CONTRACTION/FALLBACK`。下一检查点是决定是否在未读 reserve 上进行窄类确认；完整模型确认与 E5 继续不放行。详见[阶段性结论](stage-conclusions.md)和[实验总表](experiments/README.md)。
+Earnings-22 窄类 reserve 已确认30/45场 eligible、264个 carry；随后125个官方 MP3 已完整获取并逐文件校验。音频本身、ID 联结和解码均通过，但上游 CSV 时长门失败；参考诊断还显示116/125场超过锁定 Sortformer 的4-speaker上限，兼容子集只有9场。下一检查点是决定停止这条固定前端跨域路线，还是另行注册不限人数前端 smoke；完整模型确认与 E5 继续不放行。详见[阶段性结论](stage-conclusions.md)和[实验总表](experiments/README.md)。

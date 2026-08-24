@@ -1,0 +1,124 @@
+{
+  "schema": "earnings22-audio-admission-v1",
+  "verdict": "EARNINGS22-AUDIO-NOT-ADMITTED",
+  "source_commit": "c05ab6fd8b4b627d123c922a22a39e993dd37635",
+  "checks": {
+    "identity_ok": true,
+    "exact_id_join_ok": true,
+    "all_sizes_and_sha256_ok": true,
+    "all_ffprobe_ok": true,
+    "all_file_duration_deltas_le_2s": false,
+    "aggregate_duration_relative_delta_le_0_001": false
+  },
+  "summary": {
+    "audio_objects": 125,
+    "metadata_rows": 125,
+    "reference_files": 125,
+    "expected_bytes": 1908056329,
+    "metadata_duration_seconds": 428021,
+    "probed_duration_seconds": 431379.631593,
+    "aggregate_duration_relative_delta": 0.007846885066386993,
+    "max_file_duration_delta_seconds": 2691.5119999999997,
+    "duration_mismatches_over_2s": [
+      {
+        "file_id": "4483733",
+        "metadata_seconds": 3589,
+        "probed_seconds": 6280.512,
+        "absolute_delta_seconds": 2691.5119999999997
+      },
+      {
+        "file_id": "4482110",
+        "metadata_seconds": 1398,
+        "probed_seconds": 2107.010612,
+        "absolute_delta_seconds": 709.010612
+      },
+      {
+        "file_id": "4484088",
+        "metadata_seconds": 6576,
+        "probed_seconds": 6396.32,
+        "absolute_delta_seconds": 179.6800000000003
+      },
+      {
+        "file_id": "4471606",
+        "metadata_seconds": 3632,
+        "probed_seconds": 3769.008,
+        "absolute_delta_seconds": 137.0079999999998
+      },
+      {
+        "file_id": "4482613",
+        "metadata_seconds": 4022,
+        "probed_seconds": 4003.160286,
+        "absolute_delta_seconds": 18.839714000000185
+      },
+      {
+        "file_id": "4483670",
+        "metadata_seconds": 2243,
+        "probed_seconds": 2232.144286,
+        "absolute_delta_seconds": 10.855713999999807
+      },
+      {
+        "file_id": "4482264",
+        "metadata_seconds": 4891,
+        "probed_seconds": 4895.528,
+        "absolute_delta_seconds": 4.528000000000247
+      },
+      {
+        "file_id": "4482641",
+        "metadata_seconds": 3168,
+        "probed_seconds": 3172.362667,
+        "absolute_delta_seconds": 4.362666999999874
+      },
+      {
+        "file_id": "4461799",
+        "metadata_seconds": 4589,
+        "probed_seconds": 4586.12,
+        "absolute_delta_seconds": 2.880000000000109
+      }
+    ],
+    "reference_speaker_count_distribution": {
+      "2": 2,
+      "3": 1,
+      "4": 6,
+      "5": 4,
+      "6": 6,
+      "7": 7,
+      "8": 4,
+      "9": 6,
+      "10": 6,
+      "11": 3,
+      "12": 4,
+      "13": 4,
+      "14": 5,
+      "15": 7,
+      "16": 4,
+      "17": 6,
+      "18": 4,
+      "19": 3,
+      "20": 6,
+      "21": 3,
+      "22": 5,
+      "23": 8,
+      "24": 5,
+      "25": 5,
+      "26": 3,
+      "27": 2,
+      "28": 2,
+      "29": 1,
+      "32": 1,
+      "33": 1,
+      "35": 1
+    },
+    "meetings_above_four_reference_speakers": 116,
+    "meeting_ids_at_or_below_four_reference_speakers": [
+      "4453076",
+      "4453225",
+      "4469528",
+      "4474229",
+      "4475604",
+      "4479524",
+      "4482311",
+      "4483046",
+      "4483937"
+    ]
+  }
+}
