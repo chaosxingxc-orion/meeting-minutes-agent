@@ -1,0 +1,16 @@
+{
+  "schema": "earnings22-sortformer-flight-receipt-v1",
+  "date": "2026-08-24",
+  "contacts": 125,
+  "successful_contacts": 125,
+  "failed_contacts": 0,
+  "campaign_wall_hours": 3.06081,
+  "rttm_count": 125,
+  "rttm_bytes": 2289134,
+  "roster_sha256": "f36673b96a43cc393ffe7eb2b1185321389541b2d77c44588f4ff435b7e2a151",
+  "conversion_manifest_sha256": "6e794734fb31aa5f8f4f8529409b8e28998cbe9e1acec813d67f0143c9b58528",
+  "flight_summary_sha256": "aaca61b069f4d0c1e4787fd834ab5ed383bfb50307b44c8378b8dc4a59216d78",
+  "rttm_manifest_sha256": "e9c56e7f5ff3f59b4d70749190c86b997c93799fbb8aebecb0eff378048c9e7a",
+  "binary_sha256": "1a3e3f4fe7db4c48e5d6e44a76d5adf2bbfef80024c023b0eab2766eb61aca78",
+  "model_sha256": "0679cfeb1ce356d0dea9470b31274f4bfc7eb927497d82005483770666da998a"
+}

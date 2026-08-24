@@ -18,6 +18,10 @@ Git LFS SHA-256 全部匹配；音频、元数据、对齐参考三方 ID 125/12
 因此暂不启动 Omni pilot；下一步需在“停止 Earnings-22 路线”和“另行注册不限人数的
 固定前端 smoke”之间决策。参考说话人数不得用于逐会议运行时路由。
 
+后续状态：2026-08-24 的[全库 Sortformer 验证](EARNINGS22-SORTFORMER.md)已直接检验
+“超过4人但主讲占主导”的情形，证明总人数并非充分否决条件；30场主讲目标组条件可用，
+但长尾仍不可用。本页保留的是 acquisition 当时的门与决策，不再代表最新前端结论。
+
 - [预注册](../../readiness/2026-08-22-earnings22-audio-admission-preregistration.md)
 - [入库收据与诊断](../../checks/2026-08-22-earnings22-audio-admission/README.md)
 - [机器 verdict](../../checks/2026-08-22-earnings22-audio-admission/verdict.json)

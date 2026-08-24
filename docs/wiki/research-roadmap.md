@@ -19,6 +19,7 @@
 | E4-XDOMAIN-SUPPLY-AUDIT-v2 | Earnings-22 新 business surface 的显式实体供给 | 已判读 | 广义标签机械通过；专业代理被 `CONTRACTION/FALLBACK` 污染，需在未读 reserve 上窄类确认 |
 | E4-XDOMAIN-SUPPLY-AUDIT-v3 | Earnings-22 未读 reserve 的缩写/字母数字供给 | 已判读 | `EARNINGS22-NARROW-SUPPLY-FEASIBLE`：30/45场 eligible、264个 narrow exclusive carry |
 | E4-XDOMAIN-AUDIO-ADMISSION | Earnings-22 音频完整性与固定前端兼容性 | 已判读 | 音频125/125完整；CSV 时长门失败，且116/125场超过4-speaker前端上限；不放行模型 pilot |
+| EARNINGS22-SORTFORMER | 超过4人的电话会是否仍能保住主要主讲 | 已判读 | 30场主讲占主导目标组Top-1/Top-2错误14.30%/22.59%，条件可用；长尾72.75%不可用 |
 | E5 | Training-free agent loop | 未放行 | E4-CF 未通过强效应门；先做冻结结果机制分析 |
 | E6 | 多会议确认与最差 speaker 检验 | 未放行 | E5 尚未放行；启动前需预注册样本量、MDE、CI 和多重检验 |
 
@@ -28,4 +29,4 @@
 
 ## 2026-08-22 最近检查点
 
-Earnings-22 窄类 reserve 已确认30/45场 eligible、264个 carry；随后125个官方 MP3 已完整获取并逐文件校验。音频本身、ID 联结和解码均通过，但上游 CSV 时长门失败；参考诊断还显示116/125场超过锁定 Sortformer 的4-speaker上限，兼容子集只有9场。下一检查点是决定停止这条固定前端跨域路线，还是另行注册不限人数前端 smoke；完整模型确认与 E5 继续不放行。详见[阶段性结论](stage-conclusions.md)和[实验总表](experiments/README.md)。
+Earnings-22 窄类 reserve、音频 acquisition 和全库 Sortformer 均已完成。125场工具运行零失败；在预注册的30场“>4人但Top-2发言占比≥60%”目标组，主要主讲归属通过精度门，但长尾错误72.75%。因此不再简单按总人数否决该语料，下一检查点改为无gold dominant-cluster eligibility 门；通过后才讨论只面向主要主讲的小型模型 pilot。E5 继续不放行。详见[阶段性结论](stage-conclusions.md)和[实验总表](experiments/README.md)。
