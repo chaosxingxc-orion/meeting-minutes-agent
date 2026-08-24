@@ -28,7 +28,7 @@ def _rows(path: Path) -> list[dict[str, object]]:
 
 def audit(runtime: dict[str, object], source_dir: Path, limits: RetrievalLimits) -> dict[str, object]:
     meetings = []
-    eligible = distinct = contexts_ok = total = 0
+    eligible = distinct = equal_cardinality = contexts_ok = total = 0
     for meeting in runtime["meetings"]:
         file_id = str(meeting["file_id"])
         rows = _rows(source_dir / f"{file_id}-responses.jsonl")
@@ -46,6 +46,7 @@ def audit(runtime: dict[str, object], source_dir: Path, limits: RetrievalLimits)
                 meeting_eligible += 1
                 distinct += int(speaker != deranged)
                 meeting_distinct += int(speaker != deranged)
+                equal_cardinality += int(len(speaker) == len(deranged))
                 contexts_ok += int(len(render_candidates(speaker, limits.maximum_context_characters)) <= limits.maximum_context_characters)
         meetings.append(
             {
@@ -60,12 +61,13 @@ def audit(runtime: dict[str, object], source_dir: Path, limits: RetrievalLimits)
     gates = {
         "minimum_eligible_turns": eligible >= 400,
         "minimum_eligible_meetings": eligible_meetings >= 3,
-        "minimum_route_distinct_rate": route_rate >= 0.90,
+        "route_distinct_rate": route_rate == 1.0,
+        "equal_candidate_cardinality": equal_cardinality == eligible,
         "context_budget": contexts_ok == eligible,
     }
     return {
-        "schema": "sparse-chunk-retrieval-supply-read-v1",
-        "experiment_id": "E-CHUNK-RETRIEVAL-SUPPLY",
+        "schema": "sparse-chunk-retrieval-supply-read-v3",
+        "experiment_id": "E-CHUNK-RETRIEVAL-SUPPLY-V3",
         "verdict": "SPARSE-CHUNK-RETRIEVAL-SUPPLY-READY" if all(gates.values()) else "SPARSE-CHUNK-RETRIEVAL-SUPPLY-INSUFFICIENT",
         "limits": vars(limits),
         "totals": {
@@ -74,6 +76,7 @@ def audit(runtime: dict[str, object], source_dir: Path, limits: RetrievalLimits)
             "eligible_meetings": eligible_meetings,
             "route_distinct_turns": distinct,
             "route_distinct_rate": route_rate,
+            "equal_cardinality_turns": equal_cardinality,
         },
         "gates": gates,
         "meetings": meetings,

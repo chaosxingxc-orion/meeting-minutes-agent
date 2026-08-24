@@ -36,6 +36,12 @@ class RetrievalIndex:
     deranged_speaker: Mapping[str, str]
 
 
+@dataclass(frozen=True)
+class DerangedRetrieval:
+    source_speaker_id: str
+    candidates: tuple[str, ...]
+
+
 def _pool(counter: Counter[str], minimum_count: int, cap: int) -> tuple[str, ...]:
     eligible = ((term, count) for term, count in counter.items() if count >= minimum_count)
     return tuple(term for term, _ in sorted(eligible, key=lambda item: (-item[1], item[0]))[:cap])
@@ -91,13 +97,44 @@ def retrieve_for_arm(
         return speaker_terms
     if arm != "R3-deranged":
         raise ValueError(f"unknown arm: {arm}")
-    wrong_speaker = index.deranged_speaker[speaker_id]
-    wrong_pool = index.speaker_pools.get(wrong_speaker, ())
-    ranked = sorted(
-        ((similarity(term, tuple(content_tokens(query_text))), term) for term in wrong_pool),
-        key=lambda item: (-item[0], item[1]),
-    )
-    return tuple(term for _, term in ranked[: len(speaker_terms)])
+    return retrieve_deranged(speaker_id, query_text, index, limits).candidates
+
+
+def retrieve_deranged(
+    speaker_id: str,
+    query_text: str,
+    index: RetrievalIndex,
+    limits: RetrievalLimits,
+) -> DerangedRetrieval:
+    """Return a cardinality-matched retrieval from one other speaker.
+
+    Other speakers are considered in cyclic lexical order. The first speaker
+    with enough non-overlapping terms is selected, keeping the control
+    deterministic without merging multiple speakers' memories.
+    """
+    speaker_terms = retrieve(query_text, index.speaker_pools.get(speaker_id, ()), limits)
+    correct_set = set(speaker_terms)
+    speakers = sorted(index.speaker_pools)
+    if speaker_id not in speakers:
+        raise ValueError(f"speaker is absent from retrieval index: {speaker_id}")
+    start = speakers.index(speaker_id)
+    ordered_wrong_speakers = speakers[start + 1 :] + speakers[:start]
+    query_terms = tuple(content_tokens(query_text))
+    fallback: DerangedRetrieval | None = None
+    for wrong_speaker in ordered_wrong_speakers:
+        wrong_pool = tuple(term for term in index.speaker_pools[wrong_speaker] if term not in correct_set)
+        ranked = sorted(
+            ((similarity(term, query_terms), term) for term in wrong_pool),
+            key=lambda item: (-item[0], item[1]),
+        )
+        result = DerangedRetrieval(wrong_speaker, tuple(term for _, term in ranked[: len(speaker_terms)]))
+        if fallback is None:
+            fallback = result
+        if len(result.candidates) == len(speaker_terms):
+            return result
+    if fallback is None:
+        raise ValueError("deranged retrieval requires at least two speakers")
+    return fallback
 
 
 def render_candidates(candidates: Sequence[str], maximum_characters: int) -> str:
@@ -114,11 +151,13 @@ def render_candidates(candidates: Sequence[str], maximum_characters: int) -> str
 
 
 __all__ = [
+    "DerangedRetrieval",
     "RetrievalIndex",
     "RetrievalLimits",
     "build_index",
     "render_candidates",
     "retrieve",
+    "retrieve_deranged",
     "retrieve_for_arm",
     "similarity",
 ]

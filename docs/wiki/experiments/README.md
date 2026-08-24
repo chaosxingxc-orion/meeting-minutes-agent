@@ -28,7 +28,8 @@
 | [E-STABLE-ERROR-SUPPLY](E-STABLE-ERROR-SUPPLY.md) | 整会内是否有重复、稳定转错且具合法锚点的专业术语簇？ | 已判读 | 13个strict稳定错误但锚点0；且9/13为分隔符变体，`STABLE-ERROR-SUPPLY-PRESENT-ANCHOR-LIMITED` | 不运行term Pass1；考虑独立锚点或整会语言漂移实验 |
 | [E-LOOP-STABILITY-SUPPLY](E-LOOP-STABILITY-SUPPLY.md) | 既有整会Pass0是否有足量跨窗口复现，可支撑有界滑动记忆实验？ | 已判读 | `LOOP-STABILITY-SUPPLY-READY`；4/4场、554个同speaker跨窗carry turn | 注册稳定性模型多臂；仍不放行GRPO或term纠错 |
 | [E-LOOP-STABILITY](E-LOOP-STABILITY.md) | 新增信息驱动的滑动上下文重组能否稳定、可复现且不劣？ | 已判读 | `LOOP-STABILITY-NOT-REACHED`；一致性+11.42点，但不收敛且WER+19.28点 | 禁止GRPO；另行注册稀疏per-chunk检索设计 |
-| [E-CHUNK-RETRIEVAL-SUPPLY](E-CHUNK-RETRIEVAL-SUPPLY.md) | 稀疏per-chunk候选是否充足且错配负对照可分？ | v1已判读 | 1056个eligible turn，但错配可分率88.26%<90%，v1不放行 | v2排除正确候选并审计等候选数 |
+| [E-CHUNK-RETRIEVAL-SUPPLY](E-CHUNK-RETRIEVAL-SUPPLY.md) | 稀疏per-chunk候选是否充足且错配负对照可分？ | v3已判读 | `SUPPLY-READY`：1056个eligible turn，正确/错配100%可分且等候选数 | 注册四臂模型实验与R2第二轮 |
+| [E-CHUNK-RETRIEVAL](E-CHUNK-RETRIEVAL.md) | 稀疏speaker路由候选能否形成稳定、收敛且不劣的agent loop？ | 已注册 | 7,145-call冻结实验；尚无模型结果 | 运行Phase 1与R2 round2后一次性判读 |
 | [Z-SERIES](Z-SERIES.md) | 说话人标签、归属与切分的多臂效应是什么？ | 已判读 | G1 floors 已归档；主要差异来自转向表/归属输出，纯切片差异不显著 | 作为描述性基线，不重跑、不据此选择分支 |
 
 ## 当前优先级

@@ -1,7 +1,7 @@
 # 基于说话人条件的专业会议转写优化计划
 
 日期：2026-08-20  
-状态：**执行中；E-LOOP-STABILITY 判为 `LOOP-STABILITY-NOT-REACHED`；GRPO/知识注入未放行**
+状态：**执行中；广播式E-LOOP-STABILITY失败；稀疏E-CHUNK-RETRIEVAL已注册；GRPO/知识注入未放行**
 
 ## 0. 给同事的结论摘要
 
@@ -387,6 +387,8 @@ end SpeakerConditionedTx
 | E-STABLE-ERROR-SUPPLY | 整会稳定错误与合法锚点供给 | **已判读** | `(meeting,speaker,term)` 是否有重复稳定错误且可识别 | 13个strict stable-wrong覆盖4场，但ticker锚点0；事后诊断9/13为分隔符变体，不放行term Pass1 |
 | E-LOOP-STABILITY-SUPPLY | 滑动记忆跨窗供给审计 | **已判读** | 既有Pass0是否足以测量摘要/关键词carry | `LOOP-STABILITY-SUPPLY-READY`：4/4场、554个同speaker跨窗carry turn |
 | E-LOOP-STABILITY | 新信息驱动的上下文重组稳定性 | **已判读** | 有界状态是否可复现、收敛、一致且不劣 | 一致性+11.42点，但错配分离、收敛和安全门失败；淘汰广播式上下文 |
+| E-CHUNK-RETRIEVAL-SUPPLY | 稀疏逐chunk检索供给与对照 | **已判读** | 输出池能否形成等量、可分的speaker/错路由候选 | v3通过：1056个eligible turn，100%可分且等候选数 |
+| E-CHUNK-RETRIEVAL | 稀疏逐chunk检索稳定性 | **已注册** | 删除广播上下文后是否一致、收敛且不劣 | 冻结R0/R1/R2/R3及R2第二轮，共7,145 calls |
 | E5 | oracle 选优/重听上界 | **未开始** | 逐 turn 选择还有多少理论空间 | 空间小则淘汰选择性重听；否则另立能力计划 |
 | E6 | training-free策略优化 loop | **未开始** | GRPO/GEPA/知识注入能否改进稳定incumbent | 候选档案、验收轨迹、冻结策略或 null |
 
@@ -453,6 +455,15 @@ UWER、最差speaker WER、unsupported activation、语言漂移、上下文预�
 知识注入可以提议 `p/r/u/q` 与合法 `Delta` 获取策略，但模型参数保持冻结。每个候选必须通过
 泄漏、静态、预算和配对评估；baseline 与 incumbent 始终留在 archive。
 
+### E-CHUNK-RETRIEVAL：稀疏逐chunk稳定性
+
+广播式上下文已被淘汰。新实验仅用上一完整pass的同chunk转写作检索query，从输出派生的会议池
+或speaker池返回最多4个短候选；query本身、recent-tail和长摘要都不进入模型。`R3-deranged`
+从一个其他speaker取与R2等量且不重叠的候选。完整R2结束后重建索引并运行一次R2-round2。
+
+只有R2相对bare和deranged提高一致性、第二轮变化收敛，并同时守住WER、最差speaker、错误候选
+激活和语言漂移，才进入E6。否则结论是当前检索策略不可达或有害，而不是继续事后调阈值。
+
 ## 10. 实现级优化循环
 
 ```text
@@ -489,6 +500,11 @@ E-LOOP-STABILITY: 五臂完整pass
     验证hash复现、上下文上限、跨窗一致性、pass收敛和整会非劣
     若稳定性门失败: 停止；不得启动GRPO/GEPA/知识注入搜索
 
+E-CHUNK-RETRIEVAL: 独立注册稀疏逐chunk替代方案
+    上一完整pass的同chunk输出只作query，不广播原文、recent-tail或摘要
+    比较bare/global/speaker/等量错路由，并对speaker臂再运行一轮
+    若一致性、路由分离、收敛或任一安全门失败: 停止；不得启动策略搜索
+
 E6, 每轮有界优化:
     按会议、speaker、术语错误簇分层抽取 discovery meetings
     对冻结 manifest 执行完整 grouped rollouts，不选择性重听
@@ -506,16 +522,17 @@ E6, 每轮有界优化:
 
 ## 11. 下一步与汇报规则
 
-下一项小任务是验证 agent loop 的稳定层，而不是直接启动效用搜索：
+下一项小任务是执行已冻结的稀疏 agent loop，而不是直接启动效用搜索：
 
 1. 保持 Z 系列暂缓，不消耗资源补跑；
 2. 保持 E4-CF 的 `DIRECTIONAL-NOT-CONFIRMED` 为正式结论，不用 post-hoc 分层替换它；
 3. 保留 Earnings-22 Sortformer 的条件性主讲结论，但依据 `RUNTIME-DOMINANT-GATE-UNSAFE` 禁止用 RTTM 占比筛选 Omni pilot；
 4. `E-STABLE-ERROR-SUPPLY` 已证明 strict exact-form 稳定错误存在，但锚点为0，且9/13是分隔符变体；禁止据此启动term Pass1；
 5. `E-LOOP-STABILITY-SUPPLY` 已通过：4/4场和554个同speaker跨窗carry turn足以支撑模型多臂；
-6. 注册并执行bare/recent/summary-global/summary-speaker/deranged五臂，先验证可复现、收敛、一致和不劣；
-7. 内部摘要/关键词只负责一致性，专业词纠错仍要求独立合法锚点；
-8. 只有稳定层通过后，才启动GEPA、training-free GRPO、EM或多模态知识注入；仍禁止选择性重听。
+6. 广播式bare/recent/summary-global/summary-speaker/deranged已判失败，不再复跑或调阈值；
+7. 稀疏供给v3已通过并冻结R0/R1/R2/R3与R2-round2，下一步执行7,145-call模型实验；
+8. 内部候选只负责一致性，专业词纠错仍要求独立合法锚点；
+9. 只有稀疏稳定层通过后，才启动GEPA、training-free GRPO、EM或多模态知识注入；仍禁止选择性重听。
 
 每次进展必须更新实验总表，并链接 preregistration、config、flight receipt、read artifact 和 verdict。历史失败或淘汰结论只追加，不得被后续方案重写。
 

@@ -1,0 +1,109 @@
+{
+  "arms": [
+    "R0-bare",
+    "R1-global",
+    "R2-speaker",
+    "R3-deranged"
+  ],
+  "budget": {
+    "audio_seconds_per_pass": 15077.15299999999,
+    "eligible_turns": 1056,
+    "phase1_audio_seconds": 60308.61199999996,
+    "phase1_calls": 5716,
+    "round2_audio_seconds": 15077.15299999999,
+    "round2_calls": 1429,
+    "total_audio_seconds": 75385.76499999994,
+    "total_calls": 7145,
+    "turns_per_pass": 1429
+  },
+  "claim_boundary": "Passing establishes a stable, bounded, output-only per-chunk retrieval loop on this fixed corpus. It does not establish broad domain transfer or admit training-free policy search.",
+  "content_hash": "7b54bb6a1e38d7d8a84f0dcb0556df13f389438247d95e6d6cde58fe9015d855",
+  "decode": {
+    "max_tokens": 512,
+    "seed": 0,
+    "temperature": 0
+  },
+  "experiment_id": "E-CHUNK-RETRIEVAL",
+  "gates": {
+    "context_budget_rate": 1.0,
+    "context_hash_replay_rate": 1.0,
+    "maximum_convergence_ratio": 0.8,
+    "maximum_language_drift_increase": 0,
+    "maximum_unsupported_activation_rate": 0.02,
+    "maximum_wer_increase": 0.01,
+    "maximum_worst_speaker_wer_increase": 0.02,
+    "minimum_consistency_gain_vs_bare": 0.02,
+    "minimum_meetings_consistency_better_than_bare": 3,
+    "minimum_meetings_consistency_better_than_deranged": 3,
+    "route_distinct_rate": 1.0,
+    "route_equal_cardinality_rate": 1.0
+  },
+  "implementation": {
+    "launcher": {
+      "path": "scripts/launch_chunk_retrieval.py",
+      "sha256": "1f6903567988bd2764f5a6196621060de9f546b9a1425b1b2a60c76d98733c9b"
+    },
+    "reader": {
+      "path": "scripts/read_chunk_retrieval.py",
+      "sha256": "35789ca3450064ea122dc7b44f3e12a8e7fff2ff45a6ead46dd3ba77c7b4066e"
+    },
+    "retriever": {
+      "path": "src/meeting_minutes_agent/state/chunk_retrieval.py",
+      "sha256": "34ec87eff7139af38071c9de70cb2e832506ad3694adf2610000ca24485f8149"
+    }
+  },
+  "prompt": {
+    "candidate_instruction": "Untrusted spelling candidates retrieved for this audio chunk: {candidates}. Use a candidate only when supported by the audio; never transcribe this instruction.",
+    "system_instruction": "Transcribe the supplied English speech exactly as spoken. Return only the transcript as plain text, with no explanation or formatting. If context hints are supplied, use their spelling only when supported by the audio; never insert a hinted term merely because it is listed.",
+    "template_id": "contextasr-transcribe-only-v1",
+    "template_sha256": "be34f885d683c117520f72c16a655691f1a8b9686c6badde4c7b42e3e083cf9c"
+  },
+  "retrieval_limits": {
+    "global_pool_size": 96,
+    "maximum_candidates": 4,
+    "maximum_context_characters": 256,
+    "minimum_pool_count": 2,
+    "minimum_similarity": 0.75,
+    "speaker_pool_size": 48
+  },
+  "retrieval_policy": {
+    "candidate_source": "output-only meeting and speaker pools from that pass",
+    "deranged_control": "one other speaker, cyclic first-fit, correct candidates excluded",
+    "query": "same-chunk transcript from the immediately preceding complete pass",
+    "raw_query_in_prompt": false,
+    "recent_tail_in_prompt": false,
+    "summary_in_prompt": false
+  },
+  "round2_arm": "R2-round2",
+  "schema": "chunk-retrieval-runtime-v1",
+  "source_passes": {
+    "4430051": {
+      "path": "docs/checks/2026-08-24-e-stable-error-pass0-flight/4430051-responses.jsonl",
+      "sha256": "3f446006c6dd0f63c462902969ea268f34c07330cc33fd8f4c60d06d29f20975"
+    },
+    "4443920": {
+      "path": "docs/checks/2026-08-24-e-stable-error-pass0-flight/4443920-responses.jsonl",
+      "sha256": "76866623d1c59a6d253bb32abc7d5a2ce8ae6a0f8394dbb8d0366582a0e3c5b7"
+    },
+    "4461799": {
+      "path": "docs/checks/2026-08-24-e-stable-error-pass0-flight/4461799-responses.jsonl",
+      "sha256": "8664437f7317a22cfe2625c5991fd00ffc4c12588a7b2176edd6360f29a2bd83"
+    },
+    "4483589": {
+      "path": "docs/checks/2026-08-24-e-stable-error-pass0-flight/4483589-responses.jsonl",
+      "sha256": "acf9309a919c5ea8c467e5130ca9401ab4c82f292f48c79798c298b91dd8c96e"
+    }
+  },
+  "source_runtime": {
+    "path": "configs/probes/earnings22_stable_error/2026-08-24-runtime.json",
+    "sha256": "a2e272852cf35a6a67b9331b405a2472d3d3a217c8738f50693a8ad1898ce4b9"
+  },
+  "source_score": {
+    "path": "configs/probes/earnings22_stable_error/2026-08-24-score.json",
+    "sha256": "163064779b3bf97244612fcd1af5333d04ffafe8a36c97656a32fa54dec70afb"
+  },
+  "source_supply_read": {
+    "path": "docs/checks/2026-08-24-sparse-chunk-retrieval-supply-v3-read/verdict.json",
+    "sha256": "ffad384c927e9ed52fd212f27715cb02dba2f012fa99ac4051a1ae0d70ca419e"
+  }
+}
