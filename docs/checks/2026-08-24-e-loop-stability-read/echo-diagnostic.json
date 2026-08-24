@@ -1,0 +1,41 @@
+{
+  "arms": {
+    "L0-bare": {
+      "echo_eligible_outputs": 1180,
+      "high_echo_outputs": 13,
+      "high_echo_rate": 0.011016949152542373,
+      "hypothesis_to_reference_word_ratio": 1.0387193460490463,
+      "median_recent_tail_echo_fraction": 0.16666666666666666
+    },
+    "L1-recent": {
+      "echo_eligible_outputs": 1249,
+      "high_echo_outputs": 202,
+      "high_echo_rate": 0.16172938350680544,
+      "hypothesis_to_reference_word_ratio": 1.568474114441417,
+      "median_recent_tail_echo_fraction": 0.21818181818181817
+    },
+    "L2-global": {
+      "echo_eligible_outputs": 1220,
+      "high_echo_outputs": 171,
+      "high_echo_rate": 0.14016393442622951,
+      "hypothesis_to_reference_word_ratio": 1.4465940054495914,
+      "median_recent_tail_echo_fraction": 0.2
+    },
+    "L3-speaker": {
+      "echo_eligible_outputs": 1216,
+      "high_echo_outputs": 110,
+      "high_echo_rate": 0.09046052631578948,
+      "hypothesis_to_reference_word_ratio": 1.1752316076294278,
+      "median_recent_tail_echo_fraction": 0.1875
+    },
+    "L4-deranged": {
+      "echo_eligible_outputs": 1223,
+      "high_echo_outputs": 127,
+      "high_echo_rate": 0.10384300899427637,
+      "hypothesis_to_reference_word_ratio": 1.3122070844686649,
+      "median_recent_tail_echo_fraction": 0.2
+    }
+  },
+  "claim_boundary": "Post-hoc mechanism diagnostic; it does not replace the registered verdict.",
+  "schema": "agent-loop-stability-echo-posthoc-v1"
+}

@@ -21,14 +21,13 @@
 | E4-XDOMAIN-AUDIO-ADMISSION | Earnings-22 音频完整性与固定前端兼容性 | 已判读 | 音频125/125完整；CSV 时长门失败，且116/125场超过4-speaker前端上限；不放行模型 pilot |
 | EARNINGS22-SORTFORMER | 超过4人的电话会是否仍能保住主要主讲 | 已判读 | 30场主讲占主导目标组Top-1/Top-2错误14.30%/22.59%，条件可用；长尾72.75%不可用 |
 | E-LOOP-STABILITY-SUPPLY | 跨窗滑动记忆是否有足量测量供给 | 已判读 | `LOOP-STABILITY-SUPPLY-READY`；4/4场、554个同speaker跨窗carry turn |
-| E-LOOP-STABILITY | 新信息驱动的有界上下文重组是否稳定且不劣 | 设计中 | 先通过可复现、收敛、一致性与整会安全门；不要求提前证明WER增益 |
+| E-LOOP-STABILITY | 新信息驱动的有界上下文重组是否稳定且不劣 | 已判读 | `LOOP-STABILITY-NOT-REACHED`：一致性上升，但错配分离、收敛与安全门失败 |
 | E5 | Training-free GRPO/GEPA/多模态知识注入 | 未放行 | 只有E-LOOP-STABILITY通过后才搜索整体效用增益 |
 | E6 | 多会议确认与最差 speaker 检验 | 未放行 | E5 尚未放行；启动前需预注册样本量、MDE、CI 和多重检验 |
 
-稳定与优化必须分开：有限状态转移可以收敛到错误不动点，因此稳定性本身不推出WER改善。
-第一阶段验证有界记忆重组是否可复现、收敛并且不伤害整会；第二阶段才在冻结的稳定框架内搜索
-效用增益。C-CTX 与 E3 已证明模型会读取供给且合法状态可构造；新的供给审计又证明跨窗carry
-充足，但模型稳定性能力和安全单步优化算子仍待验证。
+稳定与优化必须分开：首次完整验证进一步表明，提高字符串一致性不等于达到安全不动点。
+广播式recent-tail和长摘要导致输出膨胀、复述、非收敛与WER伤害，已被淘汰。下一候选只能是
+稀疏、按chunk检索的少量候选上下文；在其通过之前，第二阶段效用搜索仍不得启动。
 
 形式化定义、Lean 风格定理和逐步实现接口见[完整研究计划](../plans/2026-08-20-speaker-conditioned-transcription-optimization.md)。
 

@@ -1,0 +1,142 @@
+{
+  "arms": {
+    "L0-bare": {
+      "consistency": 0.7500496770988574,
+      "consistency_by_meeting": {
+        "4430051": 0.7377049180327869,
+        "4443920": 0.7049180327868853,
+        "4461799": 0.8,
+        "4483589": 0.7575757575757576
+      },
+      "language_drift_outputs": 126,
+      "unsupported_activation_rate": 0.0,
+      "wer": 0.22016348773841962,
+      "worst_speaker_wer": 10.958333333333334
+    },
+    "L1-recent": {
+      "consistency": 0.7506706408345752,
+      "consistency_by_meeting": {
+        "4430051": 0.6557377049180327,
+        "4443920": 0.819672131147541,
+        "4461799": 0.8,
+        "4483589": 0.7272727272727273
+      },
+      "language_drift_outputs": 90,
+      "unsupported_activation_rate": 0.0,
+      "wer": 0.8113623978201635,
+      "worst_speaker_wer": 15.791666666666666
+    },
+    "L2-global": {
+      "consistency": 0.8224095462824971,
+      "consistency_by_meeting": {
+        "4430051": 0.7540983606557377,
+        "4443920": 0.8524590163934426,
+        "4461799": 0.875,
+        "4483589": 0.8080808080808081
+      },
+      "language_drift_outputs": 104,
+      "unsupported_activation_rate": 0.042909749094994384,
+      "wer": 0.7089100817438692,
+      "worst_speaker_wer": 15.666666666666666
+    },
+    "L3-round2": {
+      "consistency": 0.8273762212286803,
+      "consistency_by_meeting": {
+        "4430051": 0.8360655737704918,
+        "4443920": 0.8360655737704918,
+        "4461799": 0.9,
+        "4483589": 0.7373737373737373
+      },
+      "language_drift_outputs": 104,
+      "unsupported_activation_rate": 0.03568508351828058,
+      "wer": 0.49594005449591283,
+      "worst_speaker_wer": 12.708333333333334
+    },
+    "L3-speaker": {
+      "consistency": 0.8642190346083789,
+      "consistency_by_meeting": {
+        "4430051": 0.9180327868852459,
+        "4443920": 0.8360655737704918,
+        "4461799": 0.925,
+        "4483589": 0.7777777777777778
+      },
+      "language_drift_outputs": 106,
+      "unsupported_activation_rate": 0.03133100416995379,
+      "wer": 0.4129700272479564,
+      "worst_speaker_wer": 15.625
+    },
+    "L4-deranged": {
+      "consistency": 0.8204628249710217,
+      "consistency_by_meeting": {
+        "4430051": 0.7377049180327869,
+        "4443920": 0.8360655737704918,
+        "4461799": 0.9,
+        "4483589": 0.8080808080808081
+      },
+      "language_drift_outputs": 100,
+      "unsupported_activation_rate": 0.033388171202028104,
+      "wer": 0.5594822888283378,
+      "worst_speaker_wer": 11.541666666666666
+    }
+  },
+  "claim_boundary": "Passing admits a stable bounded-memory loop only; it does not establish professional-term correction, utility improvement, or permission to run training-free policy search.",
+  "consistency_direction": {
+    "better_than_bare_meetings": 4,
+    "better_than_deranged_meetings": 2
+  },
+  "context_replay": {
+    "matches": 8574,
+    "total": 8574,
+    "within_budget": 8574
+  },
+  "convergence": {
+    "l3_vs_bare_by_meeting": {
+      "4430051": 0.338126540673788,
+      "4443920": 0.2357187696170747,
+      "4461799": 0.21073266356285225,
+      "4483589": 0.21527647021904223
+    },
+    "l3_vs_bare_delta": 0.23829825028865798,
+    "ratio": 1.0403205498538288,
+    "round2_vs_l3_by_meeting": {
+      "4430051": 0.28290790790790793,
+      "4443920": 0.17876634744104625,
+      "4461799": 0.3362762409260349,
+      "4483589": 0.19120775230441975
+    },
+    "round2_vs_l3_delta": 0.24790656676950198
+  },
+  "counts": {
+    "expected": 8574,
+    "phase1": 7145,
+    "round2": 1429
+  },
+  "experiment_id": "E-LOOP-STABILITY",
+  "gates": {
+    "complete": true,
+    "consistency_vs_bare": true,
+    "consistency_vs_deranged": false,
+    "context_budget": true,
+    "context_hash_replay": true,
+    "convergence": false,
+    "language_drift": true,
+    "unsupported_activation": false,
+    "wer_noninferior": false,
+    "worst_speaker_noninferior": false
+  },
+  "manifest_content_hash": "bd9d31b2875824619f76161b252e3760c9c15be7f9e4289969517dc0b4abbc7d",
+  "registered_thresholds": {
+    "context_budget_rate": 1.0,
+    "context_hash_replay_rate": 1.0,
+    "maximum_convergence_ratio": 0.8,
+    "maximum_language_drift_increase": 0,
+    "maximum_unsupported_activation_rate": 0.02,
+    "maximum_wer_increase": 0.01,
+    "maximum_worst_speaker_wer_increase": 0.02,
+    "minimum_consistency_gain_vs_bare": 0.02,
+    "minimum_meetings_consistency_better_than_bare": 3,
+    "minimum_meetings_consistency_better_than_deranged": 3
+  },
+  "schema": "agent-loop-stability-read-v1",
+  "verdict": "LOOP-STABILITY-NOT-REACHED"
+}
