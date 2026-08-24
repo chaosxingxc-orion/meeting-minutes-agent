@@ -1,7 +1,7 @@
 # E-STABLE-ERROR-SUPPLY 稳定错误供给实验
 
 日期：2026-08-24
-状态：**已注册，Pass0 尚未启动**
+状态：**已判读：`STABLE-ERROR-SUPPLY-PRESENT-ANCHOR-LIMITED`**
 
 ## 研究问题
 

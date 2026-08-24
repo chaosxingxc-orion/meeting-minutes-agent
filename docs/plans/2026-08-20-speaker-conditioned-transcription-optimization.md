@@ -334,6 +334,7 @@ end SpeakerConditionedTx
 | E4 | 固定完整第二遍 | **已判读** | 完整合法策略能否满足 `R_utility` | `CONTEXT-SENSITIVE-NOT-SPEAKER-SPECIFIC`；修复 2/门槛3，路由优势 2/门槛3 |
 | E4-POWER | 独立确认功效与预算 | **已判读** | 检测 5 pp 改善需要多大未见表面 | 287 dialogues，833 carry mentions，6,922 calls，22.01 audio-hours；已授权并转入 E4-CF |
 | E4-CF | 未见对话独立确认 | **已判读** | 5 pp speaker-routing 改善能否复现 | `DIRECTIONAL-NOT-CONFIRMED`：speaker 比 wrong +2.16 pp，CI 为正但低于 5 pp 门；carry NE-WER -3.66 pp，无总体 WER 伤害 |
+| E-STABLE-ERROR-SUPPLY | 整会稳定错误与合法锚点供给 | **已判读** | `(meeting,speaker,term)` 是否有重复稳定错误且可识别 | 13个strict stable-wrong覆盖4场，但ticker锚点0；事后诊断9/13为分隔符变体，不放行term Pass1 |
 | E5 | oracle 选优/重听上界 | **未开始** | 逐 turn 选择还有多少理论空间 | 空间小则淘汰选择性重听；否则另立能力计划 |
 | E6 | prompt/state 策略优化 loop | **未开始** | 有界搜索能否继续改进 incumbent | 候选档案、验收轨迹、冻结策略或 null |
 
@@ -436,9 +437,10 @@ E6, 每轮有界优化:
 1. 保持 Z 系列暂缓，不消耗资源补跑；
 2. 保持 E4-CF 的 `DIRECTIONAL-NOT-CONFIRMED` 为正式结论，不用 post-hoc 分层替换它；
 3. 保留 Earnings-22 Sortformer 的条件性主讲结论，但依据 `RUNTIME-DOMINANT-GATE-UNSAFE` 禁止用 RTTM 占比筛选 Omni pilot；
-4. 若另行获得模型接触授权，预注册小型 `E-STABLE-ERROR-SUPPLY`：完整 Pass-0 后按会议/speaker/术语聚类，测量稳定错误及独立合法锚点供给；
-5. 只有足量错误簇同时满足 `Repeated ∧ StableWrong ∧ LegalAnchor ∧ Controllable`，才进入一次完整 Pass-1；
-6. 在新的独立 surface 通过实用效应门之前，不启动 GEPA、GRPO、EM 风格多轮 agent loop，也不引入选择性重听。
+4. `E-STABLE-ERROR-SUPPLY` 已证明 strict exact-form 稳定错误存在，但锚点为0，且9/13是分隔符变体；禁止据此启动term Pass1；
+5. 下一步只能二选一：引入并独立审计新的合法专业词锚点，或把集中输出语言漂移注册成整会语言可控性实验；两者不得混为speaker-term收益；
+6. 只有足量错误簇同时满足 `Repeated ∧ StableWrong ∧ LegalAnchor ∧ Controllable`，才进入一次完整 Pass-1；
+7. 在新的独立 surface 通过实用效应门之前，不启动 GEPA、GRPO、EM 风格多轮 agent loop，也不引入选择性重听。
 
 每次进展必须更新实验总表，并链接 preregistration、config、flight receipt、read artifact 和 verdict。历史失败或淘汰结论只追加，不得被后续方案重写。
 
