@@ -389,6 +389,7 @@ end SpeakerConditionedTx
 | E-LOOP-STABILITY | 新信息驱动的上下文重组稳定性 | **已判读** | 有界状态是否可复现、收敛、一致且不劣 | 一致性+11.42点，但错配分离、收敛和安全门失败；淘汰广播式上下文 |
 | E-CHUNK-RETRIEVAL-SUPPLY | 稀疏逐chunk检索供给与对照 | **已判读** | 输出池能否形成等量、可分的speaker/错路由候选 | v3通过：1056个eligible turn，100%可分且等候选数 |
 | E-CHUNK-RETRIEVAL | 稀疏逐chunk检索稳定性 | **已判读** | 删除广播上下文后是否一致、收敛且不劣 | `NOT-REACHED`：收敛0.280，但一致性-6.42点、路由1/4、错误激活54.98% |
+| E-CHUNK-RETRIEVAL-LOO-SUPPLY | 排除当前chunk的独立证据供给 | **已注册** | 其他同speaker chunk能否提供足量新词形且gold相关 | 先做零模型一次性判读；通过前不新增模型flight |
 | E5 | oracle 选优/重听上界 | **未开始** | 逐 turn 选择还有多少理论空间 | 空间小则淘汰选择性重听；否则另立能力计划 |
 | E6 | training-free策略优化 loop | **未开始** | GRPO/GEPA/知识注入能否改进稳定incumbent | 候选档案、验收轨迹、冻结策略或 null |
 

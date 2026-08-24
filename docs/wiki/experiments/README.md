@@ -30,6 +30,7 @@
 | [E-LOOP-STABILITY](E-LOOP-STABILITY.md) | 新增信息驱动的滑动上下文重组能否稳定、可复现且不劣？ | 已判读 | `LOOP-STABILITY-NOT-REACHED`；一致性+11.42点，但不收敛且WER+19.28点 | 禁止GRPO；另行注册稀疏per-chunk检索设计 |
 | [E-CHUNK-RETRIEVAL-SUPPLY](E-CHUNK-RETRIEVAL-SUPPLY.md) | 稀疏per-chunk候选是否充足且错配负对照可分？ | v3已判读 | `SUPPLY-READY`：1056个eligible turn，正确/错配100%可分且等候选数 | 注册四臂模型实验与R2第二轮 |
 | [E-CHUNK-RETRIEVAL](E-CHUNK-RETRIEVAL.md) | 稀疏speaker路由候选能否形成稳定、收敛且不劣的agent loop？ | 已判读 | `NOT-REACHED`：虽收敛，但一致性-6.42点、路由1/4、错误激活54.98% | 先审计leave-one-chunk-out独立证据；不放行策略搜索 |
+| [E-CHUNK-RETRIEVAL-LOO-SUPPLY](E-CHUNK-RETRIEVAL-LOO-SUPPLY.md) | 排除当前chunk后，其他同speaker chunk能否提供新且准确的纠错候选？ | 已注册 | 零模型一次性gold-read尚未执行 | 通过400-turn覆盖、100-turn正确供给和90%精度门后才考虑模型flight |
 | [Z-SERIES](Z-SERIES.md) | 说话人标签、归属与切分的多臂效应是什么？ | 已判读 | G1 floors 已归档；主要差异来自转向表/归属输出，纯切片差异不显著 | 作为描述性基线，不重跑、不据此选择分支 |
 
 ## 当前优先级
