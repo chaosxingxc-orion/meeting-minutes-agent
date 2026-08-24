@@ -1,7 +1,7 @@
 # 基于说话人条件的专业会议转写优化计划
 
 日期：2026-08-20  
-状态：**执行中；RTTM-only 主讲门判为 `RUNTIME-DOMINANT-GATE-UNSAFE`；下一候选为稳定错误供给审计，agent loop 仍未放行**
+状态：**执行中；滑动记忆供给门已通过；下一步验证 agent-loop 稳定性，GRPO/知识注入仍未放行**
 
 ## 0. 给同事的结论摘要
 
@@ -166,6 +166,36 @@ otherwise rollback to H_m^(t)
 
 因此“错得稳定”只提供可重复优化靶点，并不自动提供正确答案。
 
+### 4.2 两阶段 agent loop：先稳定，再优化
+
+研究路线拆成两个不同命题，不能用同一组指标混写：
+
+```text
+阶段一 StableLoop：获得新增信息后，重新组织有界滑动上下文窗口；
+阶段二 UtilityOptimize：在 StableLoop 内用 training-free GRPO、GEPA、EM 或多模态知识注入搜索净增益。
+```
+
+会议状态具有两个时间尺度：
+
+```text
+M_m^t = (S_m^t, K_m,global^t, {K_m,s^t}, A_m^t, P_m^t)
+C_mi^t = Render(RecentTail_mi^t, SummarySlice(S_m^t, x_mi),
+                 K_m,global^t, K_m,s_mi^t, A_m^t, provenance=P_m^t)
+Y_mi^t = Omni(a_mi, C_mi^t)
+M_m^(t+1) = BoundedUpdate(M_m^t, Y_m^t, Delta_m^t)
+```
+
+- `RecentTail` 是当前 pass 内的短时滑动窗口；
+- `S/K` 是跨 pass 的会议摘要、全局关键词和 speaker 关键词；
+- `A` 是议程、幻灯片、公开 IR 材料、会议语言等独立合法新增信息；
+- `P` 记录每一项来自内部转写还是外部锚点，二者不得混淆；
+- `Delta` 是本轮相对上一轮新增的信息。若 `Delta=empty`，自循环最多能证明一致化，不能证明纠错。
+
+阶段一的通过条件为：相同输入产生相同状态 hash；所有渲染上下文满足长度上限且不跨会议；
+跨窗口同 speaker 拼写一致性不下降；相邻完整 pass 的变化量收敛；整体 WER、非术语 WER、
+最差 speaker、错误激活和语言漂移通过非劣门。稳定性不要求预先达到专业词增益门，但不允许
+为了收敛而稳定地扩大错误。阶段二只有在阶段一通过后才启动，并沿用 meeting-level accept/rollback。
+
 ## 5. 指标与可达性
 
 `T_mi` 是仅供评分器使用的参考文本。除整体 `WER` 外，定义：
@@ -249,6 +279,19 @@ L_hat_primary(incumbent_{t+1}) <= L_hat_primary(incumbent_t)
 因此仅凭重复和稳定性不存在保证严格改善的纠错策略。`LegalAnchor` 不是启发式加分，而是
 可识别性的必要条件。
 
+### 命题 7：稳定不推出优化
+
+若某次 loop 已到不动点 `F(y)=y`，则任意只依赖当前输出的损失都有
+`loss(F(y))=loss(y)`，不可能推出严格下降。该不动点既可能正确，也可能是
+`错误输出 → 错误摘要 → 错误关键词 → 同一错误输出`。因此阶段一只能证明系统行为稳定，
+不能替代阶段二的 reference-only 效用验收。
+
+### 命题 8：外部信息与内部聚合的职责不同
+
+内部摘要和关键词是观测的确定函数，可降低跨窗口方差并统一形式，但不能区分命题6中的两个
+观测等价世界。独立合法 `Delta` 打破观测等价后，纠错方向才可识别。因此新增信息可以进入
+`A`，内部聚合只进入 `S/K`；每项状态必须保留 provenance。
+
 ## 7. Lean 4 结构证明草图
 
 下列代码表达结构性结论；后续任务需在冻结的 Lean/mathlib 版本下实际编译，当前不是已机器核验的 artifact。
@@ -317,6 +360,13 @@ theorem no_unanchored_action_succeeds_in_both_worlds (a : CorrectionAction) :
        succeedsWithoutAnchor .observedFormWrong a) := by
   cases a <;> simp [succeedsWithoutAnchor]
 
+theorem stable_fixed_point_not_strictly_better {State : Type}
+    (step : State → State) (loss : State → Rat) (state : State)
+    (hfixed : step state = state) :
+    ¬ loss (step state) < loss state := by
+  rw [hfixed]
+  exact lt_irrefl (loss state)
+
 end SpeakerConditionedTx
 ```
 
@@ -335,8 +385,10 @@ end SpeakerConditionedTx
 | E4-POWER | 独立确认功效与预算 | **已判读** | 检测 5 pp 改善需要多大未见表面 | 287 dialogues，833 carry mentions，6,922 calls，22.01 audio-hours；已授权并转入 E4-CF |
 | E4-CF | 未见对话独立确认 | **已判读** | 5 pp speaker-routing 改善能否复现 | `DIRECTIONAL-NOT-CONFIRMED`：speaker 比 wrong +2.16 pp，CI 为正但低于 5 pp 门；carry NE-WER -3.66 pp，无总体 WER 伤害 |
 | E-STABLE-ERROR-SUPPLY | 整会稳定错误与合法锚点供给 | **已判读** | `(meeting,speaker,term)` 是否有重复稳定错误且可识别 | 13个strict stable-wrong覆盖4场，但ticker锚点0；事后诊断9/13为分隔符变体，不放行term Pass1 |
+| E-LOOP-STABILITY-SUPPLY | 滑动记忆跨窗供给审计 | **已判读** | 既有Pass0是否足以测量摘要/关键词carry | `LOOP-STABILITY-SUPPLY-READY`：4/4场、554个同speaker跨窗carry turn |
+| E-LOOP-STABILITY | 新信息驱动的上下文重组稳定性 | **设计中** | 有界状态是否可复现、收敛、一致且不劣 | bare/recent/summary-global/summary-speaker/deranged五臂 |
 | E5 | oracle 选优/重听上界 | **未开始** | 逐 turn 选择还有多少理论空间 | 空间小则淘汰选择性重听；否则另立能力计划 |
-| E6 | prompt/state 策略优化 loop | **未开始** | 有界搜索能否继续改进 incumbent | 候选档案、验收轨迹、冻结策略或 null |
+| E6 | training-free策略优化 loop | **未开始** | GRPO/GEPA/知识注入能否改进稳定incumbent | 候选档案、验收轨迹、冻结策略或 null |
 
 后续实验不得因为代码已经方便运行而越过 entry gate。
 
@@ -383,9 +435,23 @@ L_oracle = sum_i min(L(Y_mi^0), L(Y_mi^1))
 
 gold 仅用于估计上界。若 oracle 选择相对最佳固定策略的差距低于预注册阈值，淘汰选择性重听；否则另写 detector/selector 能力计划，不能直接进入实现。
 
+### E-LOOP-STABILITY：有界滑动上下文能力
+
+复用完整会议和固定turn顺序，比较五臂：`L0-bare`、`L1-recent-tail`、
+`L2-summary-global`、`L3-summary-speaker`、`L4-deranged`。摘要和关键词只能读取时间上更早的
+运行时输出；错配臂必须来自同会议另一speaker或另一等长窗口，并保持来源类别与长度匹配。
+所有臂执行全部冻结turn，不按已知错误选择重听。
+
+主稳定指标为跨窗同speaker规范形式一致率、相邻pass编辑距离和状态hash复现率；护栏为WER、
+UWER、最差speaker WER、unsupported activation、语言漂移、上下文预算和跨会议泄漏。只有
+`L3`相对`L0/L1/L4`提高一致性、相邻pass变化收敛且全部护栏非劣，才判为稳定性可达。
+该判决仍不能声称专业词质量改善。
+
 ### E6：有界 agent 优化
 
-仅在 E4 证明合法效用可达后启动。GEPA、training-free group-relative 或 EM 风格更新可以提议 `p/r/u/q`，但模型参数保持冻结。每个候选必须通过泄漏、静态、预算和配对评估；baseline 与 incumbent 始终留在 archive。
+仅在 E-LOOP-STABILITY 通过后启动。GEPA、training-free group-relative、EM 风格更新或多模态
+知识注入可以提议 `p/r/u/q` 与合法 `Delta` 获取策略，但模型参数保持冻结。每个候选必须通过
+泄漏、静态、预算和配对评估；baseline 与 incumbent 始终留在 archive。
 
 ## 10. 实现级优化循环
 
@@ -415,6 +481,14 @@ E-STABLE-ERROR-SUPPLY: 在小型注册 roster 上执行完整 Pass-0
     报告 stable-correct / stable-wrong / unstable 及合法锚点覆盖
     若没有足量 Optimizable cluster: 停止；loop 缺少可识别供给
 
+E-LOOP-STABILITY-SUPPLY: 审计跨窗摘要/关键词carry机会
+    若供给门失败: 停止；不能用空carry面测试滑动记忆
+
+E-LOOP-STABILITY: 五臂完整pass
+    冻结短时RecentTail与跨pass Summary/Global/Speaker/Anchor状态
+    验证hash复现、上下文上限、跨窗一致性、pass收敛和整会非劣
+    若稳定性门失败: 停止；不得启动GRPO/GEPA/知识注入搜索
+
 E6, 每轮有界优化:
     按会议、speaker、术语错误簇分层抽取 discovery meetings
     对冻结 manifest 执行完整 grouped rollouts，不选择性重听
@@ -432,15 +506,16 @@ E6, 每轮有界优化:
 
 ## 11. 下一步与汇报规则
 
-下一项小任务不是启动 agent loop，而是：
+下一项小任务是验证 agent loop 的稳定层，而不是直接启动效用搜索：
 
 1. 保持 Z 系列暂缓，不消耗资源补跑；
 2. 保持 E4-CF 的 `DIRECTIONAL-NOT-CONFIRMED` 为正式结论，不用 post-hoc 分层替换它；
 3. 保留 Earnings-22 Sortformer 的条件性主讲结论，但依据 `RUNTIME-DOMINANT-GATE-UNSAFE` 禁止用 RTTM 占比筛选 Omni pilot；
 4. `E-STABLE-ERROR-SUPPLY` 已证明 strict exact-form 稳定错误存在，但锚点为0，且9/13是分隔符变体；禁止据此启动term Pass1；
-5. 下一步只能二选一：引入并独立审计新的合法专业词锚点，或把集中输出语言漂移注册成整会语言可控性实验；两者不得混为speaker-term收益；
-6. 只有足量错误簇同时满足 `Repeated ∧ StableWrong ∧ LegalAnchor ∧ Controllable`，才进入一次完整 Pass-1；
-7. 在新的独立 surface 通过实用效应门之前，不启动 GEPA、GRPO、EM 风格多轮 agent loop，也不引入选择性重听。
+5. `E-LOOP-STABILITY-SUPPLY` 已通过：4/4场和554个同speaker跨窗carry turn足以支撑模型多臂；
+6. 注册并执行bare/recent/summary-global/summary-speaker/deranged五臂，先验证可复现、收敛、一致和不劣；
+7. 内部摘要/关键词只负责一致性，专业词纠错仍要求独立合法锚点；
+8. 只有稳定层通过后，才启动GEPA、training-free GRPO、EM或多模态知识注入；仍禁止选择性重听。
 
 每次进展必须更新实验总表，并链接 preregistration、config、flight receipt、read artifact 和 verdict。历史失败或淘汰结论只追加，不得被后续方案重写。
 

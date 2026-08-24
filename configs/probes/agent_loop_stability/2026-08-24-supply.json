@@ -1,0 +1,26 @@
+{
+  "schema": "agent-loop-stability-supply-config-v1",
+  "experiment_id": "E-LOOP-STABILITY-SUPPLY",
+  "source_runtime": {
+    "path": "configs/probes/earnings22_stable_error/2026-08-24-runtime.json",
+    "sha256": "a2e272852cf35a6a67b9331b405a2472d3d3a217c8738f50693a8ad1898ce4b9"
+  },
+  "source_responses": {
+    "4430051": "3f446006c6dd0f63c462902969ea268f34c07330cc33fd8f4c60d06d29f20975",
+    "4443920": "76866623d1c59a6d253bb32abc7d5a2ce8ae6a0f8394dbb8d0366582a0e3c5b7",
+    "4461799": "8664437f7317a22cfe2625c5991fd00ffc4c12588a7b2176edd6360f29a2bd83",
+    "4483589": "acf9309a919c5ea8c467e5130ca9401ab4c82f292f48c79798c298b91dd8c96e"
+  },
+  "window_seconds": 300,
+  "summary_character_cap": 1200,
+  "recent_tail_character_cap": 600,
+  "global_keyword_cap": 24,
+  "speaker_keyword_cap": 12,
+  "minimum_keyword_count": 2,
+  "gates": {
+    "minimum_meetings": 3,
+    "minimum_windows_per_meeting": 3,
+    "minimum_memory_ready_turns": 100,
+    "minimum_speaker_carry_opportunities": 20
+  }
+}

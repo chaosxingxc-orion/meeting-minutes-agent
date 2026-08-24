@@ -20,10 +20,15 @@
 | E4-XDOMAIN-SUPPLY-AUDIT-v3 | Earnings-22 未读 reserve 的缩写/字母数字供给 | 已判读 | `EARNINGS22-NARROW-SUPPLY-FEASIBLE`：30/45场 eligible、264个 narrow exclusive carry |
 | E4-XDOMAIN-AUDIO-ADMISSION | Earnings-22 音频完整性与固定前端兼容性 | 已判读 | 音频125/125完整；CSV 时长门失败，且116/125场超过4-speaker前端上限；不放行模型 pilot |
 | EARNINGS22-SORTFORMER | 超过4人的电话会是否仍能保住主要主讲 | 已判读 | 30场主讲占主导目标组Top-1/Top-2错误14.30%/22.59%，条件可用；长尾72.75%不可用 |
-| E5 | Training-free agent loop | 未放行 | E4-CF 未通过强效应门；先做冻结结果机制分析 |
+| E-LOOP-STABILITY-SUPPLY | 跨窗滑动记忆是否有足量测量供给 | 已判读 | `LOOP-STABILITY-SUPPLY-READY`；4/4场、554个同speaker跨窗carry turn |
+| E-LOOP-STABILITY | 新信息驱动的有界上下文重组是否稳定且不劣 | 设计中 | 先通过可复现、收敛、一致性与整会安全门；不要求提前证明WER增益 |
+| E5 | Training-free GRPO/GEPA/多模态知识注入 | 未放行 | 只有E-LOOP-STABILITY通过后才搜索整体效用增益 |
 | E6 | 多会议确认与最差 speaker 检验 | 未放行 | E5 尚未放行；启动前需预注册样本量、MDE、CI 和多重检验 |
 
-当前证明只能写成条件命题：若存在一个控制策略在固定输入分布上降低预注册损失，且选择器不引入更大误选风险，则有限候选的迭代可单调改进到局部不动点。C-CTX 与 E3 已证明“模型会读取供给”和“合法状态可构造”；E4-CF 只观察到低于实用门的小幅 speaker 路由收益。后续方向 pilot 被 false-hint 安全门否决，简单拒绝门也未能保留收益，因此当前还不存在可用于 agent loop 的安全单步改进算子。
+稳定与优化必须分开：有限状态转移可以收敛到错误不动点，因此稳定性本身不推出WER改善。
+第一阶段验证有界记忆重组是否可复现、收敛并且不伤害整会；第二阶段才在冻结的稳定框架内搜索
+效用增益。C-CTX 与 E3 已证明模型会读取供给且合法状态可构造；新的供给审计又证明跨窗carry
+充足，但模型稳定性能力和安全单步优化算子仍待验证。
 
 形式化定义、Lean 风格定理和逐步实现接口见[完整研究计划](../plans/2026-08-20-speaker-conditioned-transcription-optimization.md)。
 

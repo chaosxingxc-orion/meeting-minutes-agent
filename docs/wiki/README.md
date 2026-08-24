@@ -10,6 +10,8 @@
 
 - [2026-08-20 研究进展总结](2026-08-20-progress-summary.md)：今日完成事项、实验数字、证明边界与下一步。
 - [2026-08-21 研究进展总结](2026-08-21-progress-summary.md)：机制审计结果、唯一候选策略与下一步。
+- [2026-08-22 工作计划](2026-08-22-work-plan.md)：Earnings-22 reserve 决策、窄类确认和禁止事项。
+- [2026-08-24 工作记录与下一步](2026-08-24-work-plan.md)：整会供给、滑动记忆稳定性路线和下一模型实验。
 - [阶段性结论](stage-conclusions.md)：当前已证明、未证明和 agent loop 放行边界。
 - [实验总表](experiments/README.md)：当前完成度、结论和下一步。
 - [研究路线图](research-roadmap.md)：说话人条件专业转写的 E0–E6 路线。
@@ -30,6 +32,8 @@
 
 合法 speaker state 已经证明可构造，但 E4-CF 的 +2.16 pp 仍低于 +5 pp 正式门。资源受限 Pass-0 在60个未见 dialogue 上测得52.76%的 `speaker_wrong_disjoint` prevalence；后续172-cell方向 pilot 显示 carry 指标小幅改善，但 false-hint 增加3.49个百分点并越过安全门，判为 `EXPLORATORY-HARMFUL`。agent loop 继续不放行。
 
-当前优先级：不部署当前等长 speaker inventory，也不启动约31,749-call完整确认。Earnings-22 的1429-call完整Pass0找到13个strict稳定错误簇，但合法ticker锚点为0，且9/13只是分隔符变体，判为 `STABLE-ERROR-SUPPLY-PRESENT-ANCHOR-LIMITED`。term Pass1与多轮loop继续不放行；下一步决策是补充独立专业词锚点，或单独验证集中输出语言漂移的整会可控性。
+当前优先级：先做 agent-loop 稳定性，再做效用优化。零模型滑动记忆供给审计已通过：4/4场、
+554个同speaker跨窗carry turn，可注册摘要/关键词/最近上下文的模型多臂。该结果不证明内容正确；
+term纠错仍需独立锚点，training-free GRPO与多模态知识注入仍等待稳定性模型门。
 
 最后同步：2026-08-22（当前工作计划置顶，移除过期的 2026-08-21 计划）。

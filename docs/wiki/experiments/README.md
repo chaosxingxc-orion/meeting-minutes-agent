@@ -26,6 +26,8 @@
 | [EARNINGS22-SORTFORMER](EARNINGS22-SORTFORMER.md) | >4人电话会中，固定4-speaker前端能否保住1–2位主讲？ | 已判读 | 主讲占主导30场：Top-1错误14.30%、Top-2错误22.59%，`MAIN-SPEAKER-DIARIZATION-USABLE`；长尾错误72.75% | 后续无gold门已失败，不能运行时识别该子群 |
 | [EARNINGS22-RUNTIME-DOMINANT-GATE](EARNINGS22-RUNTIME-DOMINANT-GATE.md) | 不看gold能否用整会占比和跨窗稳定性识别主讲可用会议？ | 已判读 | `RUNTIME-DOMINANT-GATE-UNSAFE`；precision 38.60%，29/57放行会议Top-2错误>40% | 不搜索同库阈值；另行设计稳定错误供给审计 |
 | [E-STABLE-ERROR-SUPPLY](E-STABLE-ERROR-SUPPLY.md) | 整会内是否有重复、稳定转错且具合法锚点的专业术语簇？ | 已判读 | 13个strict稳定错误但锚点0；且9/13为分隔符变体，`STABLE-ERROR-SUPPLY-PRESENT-ANCHOR-LIMITED` | 不运行term Pass1；考虑独立锚点或整会语言漂移实验 |
+| [E-LOOP-STABILITY-SUPPLY](E-LOOP-STABILITY-SUPPLY.md) | 既有整会Pass0是否有足量跨窗口复现，可支撑有界滑动记忆实验？ | 已判读 | `LOOP-STABILITY-SUPPLY-READY`；4/4场、554个同speaker跨窗carry turn | 注册稳定性模型多臂；仍不放行GRPO或term纠错 |
+| [E-LOOP-STABILITY](E-LOOP-STABILITY.md) | 新增信息驱动的滑动上下文重组能否稳定、可复现且不劣？ | 设计中 | 五臂与两阶段判决已冻结到研究设计；尚未模型接触 | 冻结renderer、评分门和预算后预注册flight |
 | [Z-SERIES](Z-SERIES.md) | 说话人标签、归属与切分的多臂效应是什么？ | 已判读 | G1 floors 已归档；主要差异来自转向表/归属输出，纯切片差异不显著 | 作为描述性基线，不重跑、不据此选择分支 |
 
 ## 当前优先级
