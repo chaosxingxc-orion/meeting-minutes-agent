@@ -1,7 +1,7 @@
 # 基于说话人条件的专业会议转写优化计划
 
 日期：2026-08-20  
-状态：**执行中；广播式E-LOOP-STABILITY失败；稀疏E-CHUNK-RETRIEVAL已注册；GRPO/知识注入未放行**
+状态：**执行中；广播式与同chunk稀疏稳定层均失败；GRPO/知识注入未放行**
 
 ## 0. 给同事的结论摘要
 
@@ -388,7 +388,7 @@ end SpeakerConditionedTx
 | E-LOOP-STABILITY-SUPPLY | 滑动记忆跨窗供给审计 | **已判读** | 既有Pass0是否足以测量摘要/关键词carry | `LOOP-STABILITY-SUPPLY-READY`：4/4场、554个同speaker跨窗carry turn |
 | E-LOOP-STABILITY | 新信息驱动的上下文重组稳定性 | **已判读** | 有界状态是否可复现、收敛、一致且不劣 | 一致性+11.42点，但错配分离、收敛和安全门失败；淘汰广播式上下文 |
 | E-CHUNK-RETRIEVAL-SUPPLY | 稀疏逐chunk检索供给与对照 | **已判读** | 输出池能否形成等量、可分的speaker/错路由候选 | v3通过：1056个eligible turn，100%可分且等候选数 |
-| E-CHUNK-RETRIEVAL | 稀疏逐chunk检索稳定性 | **已注册** | 删除广播上下文后是否一致、收敛且不劣 | 冻结R0/R1/R2/R3及R2第二轮，共7,145 calls |
+| E-CHUNK-RETRIEVAL | 稀疏逐chunk检索稳定性 | **已判读** | 删除广播上下文后是否一致、收敛且不劣 | `NOT-REACHED`：收敛0.280，但一致性-6.42点、路由1/4、错误激活54.98% |
 | E5 | oracle 选优/重听上界 | **未开始** | 逐 turn 选择还有多少理论空间 | 空间小则淘汰选择性重听；否则另立能力计划 |
 | E6 | training-free策略优化 loop | **未开始** | GRPO/GEPA/知识注入能否改进稳定incumbent | 候选档案、验收轨迹、冻结策略或 null |
 
@@ -530,9 +530,10 @@ E6, 每轮有界优化:
 4. `E-STABLE-ERROR-SUPPLY` 已证明 strict exact-form 稳定错误存在，但锚点为0，且9/13是分隔符变体；禁止据此启动term Pass1；
 5. `E-LOOP-STABILITY-SUPPLY` 已通过：4/4场和554个同speaker跨窗carry turn足以支撑模型多臂；
 6. 广播式bare/recent/summary-global/summary-speaker/deranged已判失败，不再复跑或调阈值；
-7. 稀疏供给v3已通过并冻结R0/R1/R2/R3与R2-round2，下一步执行7,145-call模型实验；
-8. 内部候选只负责一致性，专业词纠错仍要求独立合法锚点；
-9. 只有稀疏稳定层通过后，才启动GEPA、training-free GRPO、EM或多模态知识注入；仍禁止选择性重听。
+7. 稀疏R0/R1/R2/R3与R2-round2已完成7145/7145 calls；虽收敛但一致性、路由和安全门失败；
+8. 下一步仅做leave-one-chunk-out跨出现独立证据的零模型供给审计，不直接新增模型flight；
+9. 内部候选只负责一致性，专业词纠错仍要求独立合法锚点；
+10. 只有新的稳定层通过后，才启动GEPA、training-free GRPO、EM或多模态知识注入；仍禁止选择性重听。
 
 每次进展必须更新实验总表，并链接 preregistration、config、flight receipt、read artifact 和 verdict。历史失败或淘汰结论只追加，不得被后续方案重写。
 

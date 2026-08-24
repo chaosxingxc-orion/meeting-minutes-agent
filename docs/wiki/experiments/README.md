@@ -29,18 +29,15 @@
 | [E-LOOP-STABILITY-SUPPLY](E-LOOP-STABILITY-SUPPLY.md) | 既有整会Pass0是否有足量跨窗口复现，可支撑有界滑动记忆实验？ | 已判读 | `LOOP-STABILITY-SUPPLY-READY`；4/4场、554个同speaker跨窗carry turn | 注册稳定性模型多臂；仍不放行GRPO或term纠错 |
 | [E-LOOP-STABILITY](E-LOOP-STABILITY.md) | 新增信息驱动的滑动上下文重组能否稳定、可复现且不劣？ | 已判读 | `LOOP-STABILITY-NOT-REACHED`；一致性+11.42点，但不收敛且WER+19.28点 | 禁止GRPO；另行注册稀疏per-chunk检索设计 |
 | [E-CHUNK-RETRIEVAL-SUPPLY](E-CHUNK-RETRIEVAL-SUPPLY.md) | 稀疏per-chunk候选是否充足且错配负对照可分？ | v3已判读 | `SUPPLY-READY`：1056个eligible turn，正确/错配100%可分且等候选数 | 注册四臂模型实验与R2第二轮 |
-| [E-CHUNK-RETRIEVAL](E-CHUNK-RETRIEVAL.md) | 稀疏speaker路由候选能否形成稳定、收敛且不劣的agent loop？ | 已注册 | 7,145-call冻结实验；尚无模型结果 | 运行Phase 1与R2 round2后一次性判读 |
+| [E-CHUNK-RETRIEVAL](E-CHUNK-RETRIEVAL.md) | 稀疏speaker路由候选能否形成稳定、收敛且不劣的agent loop？ | 已判读 | `NOT-REACHED`：虽收敛，但一致性-6.42点、路由1/4、错误激活54.98% | 先审计leave-one-chunk-out独立证据；不放行策略搜索 |
 | [Z-SERIES](Z-SERIES.md) | 说话人标签、归属与切分的多臂效应是什么？ | 已判读 | G1 floors 已归档；主要差异来自转向表/归属输出，纯切片差异不显著 | 作为描述性基线，不重跑、不据此选择分支 |
 
 ## 当前优先级
 
-1. 以[今日进展总结](../2026-08-21-progress-summary.md)作为机制审计汇报入口；不得将其改写为独立确认结果。
-2. `E4-DISJOINT-PREV` 支持约50%的 prevalence 规划假设，但没有提供转写效果证据。
-3. `E4-DISJOINT-DIR` 已完成172-cell判读；安全门失败，完整31,749-call flight 与 agent loop 均不放行。
-4. `E4-SAFETY-GATE-AUDIT` 未找到兼具覆盖、安全和收益的简单运行时门；停止在当前结果上继续阈值搜索。
-5. `E4-XDOMAIN-SUPPLY-AUDIT` 只放行 Academic 的供给可行性判断；Product 严格技术供给不足，不能启动平衡跨域模型 pilot。
-6. `E4-XDOMAIN-SUPPLY-AUDIT-v2` 证明广义标签复现充足，但未确认专业实体供给；45 场 reserve 仍未读，音频与模型接触未授权。
-7. `E4-XDOMAIN-SUPPLY-AUDIT-v3` 已在未读 reserve 确认窄类供给，但没有放行模型实验。
-8. Earnings-22 全库 Sortformer 表明参考已知的主讲占主导子群可保住Top-1/Top-2，但后续无gold运行时门失败，不能据此筛选模型 pilot。
-9. G1/Z 系列已有正式仓库证据；引用时必须保留“描述性 floors、非分支 verdict”和域内 diarizer 限制。
-10. RTTM 占比与跨窗稳定性门不安全；固定4路输出可能稳定合并长尾，不能据此选择 Omni pilot。
+1. `E-CHUNK-RETRIEVAL` 已判失败：虽收敛，但一致性下降6.42点、路由仅1/4场、错误激活54.98%；禁止据此启动策略搜索。
+2. 下一项只允许零模型leave-one-chunk-out独立证据审计；必须排除当前chunk自身输出，不得事后调本实验阈值。
+3. `E-LOOP-STABILITY` 已淘汰recent-tail与广播式长摘要；`E-CHUNK-RETRIEVAL` 又淘汰同chunk自回灌，二者失败机制不同。
+4. GRPO、GEPA、EM更新和多模态知识注入继续等待稳定且安全的固定loop，不因收敛门单独通过而放行。
+5. `E4-SAFETY-GATE-AUDIT` 未找到兼具覆盖、安全和收益的简单运行时门；停止在原结果上继续阈值搜索。
+6. Earnings-22窄类供给和完整音频均已确认，但供给存在不等于模型收益；固定4路前端也没有安全的无gold主讲筛选门。
+7. G1/Z 系列只作为描述性floors引用，不重跑、不据此选择当前分支。
