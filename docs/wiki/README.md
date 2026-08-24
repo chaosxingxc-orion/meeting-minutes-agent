@@ -4,7 +4,7 @@
 
 ## 当前工作计划
 
-- **[2026-08-22 当前工作计划](2026-08-22-work-plan.md)**：先决定是否启用 Earnings-22 的45场未读 reserve；若放行，再预注册 `ABBREVIATION/ALPHANUMERIC` 窄类确认审计。默认不下载音频、不调用模型。
+- **[2026-08-24 工作记录与下一步](2026-08-24-work-plan.md)**：两类稳定性与独立证据审计均已判读；output-only检索停止。
 
 ## 研究与证据入口
 
@@ -32,8 +32,8 @@
 
 合法 speaker state 已经证明可构造，但 E4-CF 的 +2.16 pp 仍低于 +5 pp 正式门。资源受限 Pass-0 在60个未见 dialogue 上测得52.76%的 `speaker_wrong_disjoint` prevalence；后续172-cell方向 pilot 显示 carry 指标小幅改善，但 false-hint 增加3.49个百分点并越过安全门，判为 `EXPLORATORY-HARMFUL`。agent loop 继续不放行。
 
-当前优先级仍是先建立 agent-loop 稳定层，再做效用优化。广播式上下文不收敛且伤害WER；同chunk
-稀疏检索虽收敛，却使一致性下降6.42点并产生54.98%的错误候选激活。下一步仅审计排除当前chunk
-自身输出的跨出现独立证据。term纠错仍需独立锚点，training-free GRPO与多模态知识注入未放行。
+当前优先级仍是先建立 agent-loop 稳定层，再做效用优化。广播式上下文和同chunk稀疏检索均已
+失败；排除自回灌后的模糊候选虽覆盖980 turns，gold精度仅1.93%。output-only检索分支停止，
+下一设计必须先指定独立外部证据。training-free GRPO与多模态知识注入未放行。
 
 最后同步：2026-08-22（当前工作计划置顶，移除过期的 2026-08-21 计划）。

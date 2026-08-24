@@ -1,0 +1,266 @@
+{
+  "claim_boundary": "Describes the registered failure only; it cannot tune thresholds or admit a model flight.",
+  "schema": "independent-chunk-retrieval-posthoc-diagnostic-v1",
+  "similarity_buckets": {
+    "0.75-0.80": 442,
+    "0.80-0.85": 511,
+    "0.85-0.90": 752,
+    "0.90-0.95": 1130,
+    "0.95-1.00": 126
+  },
+  "status": "POSTHOC-DESCRIPTIVE-NONBRANCHING",
+  "top_supported_pairs": [
+    {
+      "candidate": "markets",
+      "count": 4,
+      "query": "market"
+    },
+    {
+      "candidate": "cost",
+      "count": 2,
+      "query": "costs"
+    },
+    {
+      "candidate": "increase",
+      "count": 2,
+      "query": "increased"
+    },
+    {
+      "candidate": "solutions",
+      "count": 2,
+      "query": "solution"
+    },
+    {
+      "candidate": "right",
+      "count": 2,
+      "query": "alright"
+    },
+    {
+      "candidate": "system",
+      "count": 2,
+      "query": "systems"
+    },
+    {
+      "candidate": "reach",
+      "count": 1,
+      "query": "reached"
+    },
+    {
+      "candidate": "hebe",
+      "count": 1,
+      "query": "herbe"
+    },
+    {
+      "candidate": "margins",
+      "count": 1,
+      "query": "margin"
+    },
+    {
+      "candidate": "result",
+      "count": 1,
+      "query": "results"
+    },
+    {
+      "candidate": "quarter",
+      "count": 1,
+      "query": "quarters"
+    },
+    {
+      "candidate": "market",
+      "count": 1,
+      "query": "markets"
+    },
+    {
+      "candidate": "colombia",
+      "count": 1,
+      "query": "colombian"
+    },
+    {
+      "candidate": "biedronka",
+      "count": 1,
+      "query": "piedroanka"
+    },
+    {
+      "candidate": "leverage",
+      "count": 1,
+      "query": "leveraged"
+    },
+    {
+      "candidate": "maintain",
+      "count": 1,
+      "query": "maintained"
+    },
+    {
+      "candidate": "models",
+      "count": 1,
+      "query": "model"
+    },
+    {
+      "candidate": "product",
+      "count": 1,
+      "query": "products"
+    },
+    {
+      "candidate": "solution",
+      "count": 1,
+      "query": "solutions"
+    },
+    {
+      "candidate": "achieve",
+      "count": 1,
+      "query": "achieved"
+    },
+    {
+      "candidate": "tailwinds",
+      "count": 1,
+      "query": "tailwind"
+    },
+    {
+      "candidate": "especially",
+      "count": 1,
+      "query": "special"
+    },
+    {
+      "candidate": "years",
+      "count": 1,
+      "query": "year"
+    },
+    {
+      "candidate": "line",
+      "count": 1,
+      "query": "live"
+    },
+    {
+      "candidate": "other",
+      "count": 1,
+      "query": "others"
+    }
+  ],
+  "top_unsupported_pairs": [
+    {
+      "candidate": "thanks",
+      "count": 98,
+      "query": "thank"
+    },
+    {
+      "candidate": "questions",
+      "count": 67,
+      "query": "question"
+    },
+    {
+      "candidate": "customer",
+      "count": 35,
+      "query": "customers"
+    },
+    {
+      "candidate": "quarters",
+      "count": 34,
+      "query": "quarter"
+    },
+    {
+      "candidate": "businesses",
+      "count": 31,
+      "query": "business"
+    },
+    {
+      "candidate": "years",
+      "count": 29,
+      "query": "year"
+    },
+    {
+      "candidate": "increase",
+      "count": 28,
+      "query": "increased"
+    },
+    {
+      "candidate": "increased",
+      "count": 27,
+      "query": "increase"
+    },
+    {
+      "candidate": "continued",
+      "count": 25,
+      "query": "continue"
+    },
+    {
+      "candidate": "question",
+      "count": 25,
+      "query": "questions"
+    },
+    {
+      "candidate": "net",
+      "count": 24,
+      "query": "next"
+    },
+    {
+      "candidate": "points",
+      "count": 23,
+      "query": "point"
+    },
+    {
+      "candidate": "thank",
+      "count": 23,
+      "query": "thanks"
+    },
+    {
+      "candidate": "seen",
+      "count": 22,
+      "query": "see"
+    },
+    {
+      "candidate": "service",
+      "count": 22,
+      "query": "services"
+    },
+    {
+      "candidate": "billion",
+      "count": 19,
+      "query": "million"
+    },
+    {
+      "candidate": "markets",
+      "count": 16,
+      "query": "market"
+    },
+    {
+      "candidate": "subscribers",
+      "count": 16,
+      "query": "subscriber"
+    },
+    {
+      "candidate": "project",
+      "count": 16,
+      "query": "projects"
+    },
+    {
+      "candidate": "continues",
+      "count": 15,
+      "query": "continue"
+    },
+    {
+      "candidate": "numbers",
+      "count": 15,
+      "query": "number"
+    },
+    {
+      "candidate": "business",
+      "count": 15,
+      "query": "businesses"
+    },
+    {
+      "candidate": "next",
+      "count": 15,
+      "query": "net"
+    },
+    {
+      "candidate": "prices",
+      "count": 15,
+      "query": "price"
+    },
+    {
+      "candidate": "number",
+      "count": 15,
+      "query": "numbers"
+    }
+  ]
+}
