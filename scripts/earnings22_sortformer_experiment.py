@@ -240,10 +240,8 @@ def command_flight(args: argparse.Namespace) -> int:
     for directory in (rttm_dir, receipt_dir, log_dir):
         directory.mkdir(parents=True, exist_ok=True)
     started_all = time.monotonic()
-    outcomes = []
-    for index, row in enumerate(roster["meetings"], start=1):
-        if time.monotonic() - started_all >= args.max_wall_hours * 3600:
-            raise SystemExit("registered wall-time ceiling reached before next contact")
+
+    def run_contact(index: int, row: dict[str, object]) -> dict[str, object]:
         file_id = row["file_id"]
         receipt_path = receipt_dir / f"{file_id}.json"
         rttm_path = rttm_dir / f"{file_id}.rttm"
@@ -251,8 +249,7 @@ def command_flight(args: argparse.Namespace) -> int:
             prior = json.loads(receipt_path.read_text(encoding="utf-8"))
             if prior.get("ok"):
                 print(f"resume {index:03d}: {file_id}", flush=True)
-                outcomes.append(prior)
-                continue
+                return prior
         command = [
             str(binary), "diarize", str(args.wav_dir.resolve() / f"{file_id}.wav"),
             "--model", str(model), "--format", "rttm", "--recording-id", file_id,
@@ -271,8 +268,20 @@ def command_flight(args: argparse.Namespace) -> int:
             "recorded_utc": datetime.now(timezone.utc).isoformat(),
         }
         atomic_json(receipt_path, outcome)
-        outcomes.append(outcome)
         print(f"flight {index:03d}/{len(roster['meetings']):03d}: {file_id} ok={outcome['ok']} wall={wall:.1f}s", flush=True)
+        return outcome
+
+    indexed_rows = list(enumerate(roster["meetings"], start=1))
+    outcomes = []
+    for start in range(0, len(indexed_rows), args.jobs):
+        prior_contact_seconds = sum(float(row.get("wall_seconds", 0.0)) for row in outcomes)
+        if prior_contact_seconds >= args.max_wall_hours * 3600:
+            raise SystemExit("registered conservative contact-time ceiling reached before next batch")
+        batch = indexed_rows[start : start + args.jobs]
+        with concurrent.futures.ThreadPoolExecutor(max_workers=args.jobs) as executor:
+            futures = [executor.submit(run_contact, index, row) for index, row in batch]
+            outcomes.extend(future.result() for future in concurrent.futures.as_completed(futures))
+    outcomes.sort(key=lambda row: str(row["file_id"]))
     summary = {
         "schema": "earnings22-sortformer-flight-v1",
         "tool": "nemo-speech.cpp-cuda-q8_0 DiarStream",
@@ -502,6 +511,7 @@ def parser() -> argparse.ArgumentParser:
     flight.add_argument("--model", required=True, type=Path)
     flight.add_argument("--output-dir", required=True, type=Path)
     flight.add_argument("--max-wall-hours", type=float, default=4.0)
+    flight.add_argument("--jobs", type=int, default=1)
     flight.add_argument("--resume", action="store_true")
     flight.set_defaults(func=command_flight)
     score = sub.add_parser("score")
