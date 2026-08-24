@@ -28,6 +28,14 @@ from meeting_minutes_agent.state.sliding_memory import content_tokens  # noqa: E
 
 
 _TOKEN = re.compile(r"[A-Za-z0-9]+(?:[-'][A-Za-z0-9]+)*")
+_EXPECTED_RUNTIME_SHA256 = "a2e272852cf35a6a67b9331b405a2472d3d3a217c8738f50693a8ad1898ce4b9"
+_EXPECTED_SCORE_SHA256 = "163064779b3bf97244612fcd1af5333d04ffafe8a36c97656a32fa54dec70afb"
+_EXPECTED_SOURCE_SHA256 = {
+    "4430051": "3f446006c6dd0f63c462902969ea268f34c07330cc33fd8f4c60d06d29f20975",
+    "4443920": "76866623d1c59a6d253bb32abc7d5a2ce8ae6a0f8394dbb8d0366582a0e3c5b7",
+    "4461799": "8664437f7317a22cfe2625c5991fd00ffc4c12588a7b2176edd6360f29a2bd83",
+    "4483589": "acf9309a919c5ea8c467e5130ca9401ab4c82f292f48c79798c298b91dd8c96e",
+}
 
 
 def sha256_file(path: Path) -> str:
@@ -73,6 +81,8 @@ def audit(runtime: dict[str, object], score: dict[str, object], source_dir: Path
     for meeting in runtime["meetings"]:
         file_id = str(meeting["file_id"])
         source_path = source_dir / f"{file_id}-responses.jsonl"
+        if sha256_file(source_path) != _EXPECTED_SOURCE_SHA256.get(file_id):
+            raise ValueError(f"source pass hash mismatch: {file_id}")
         source_rows = rows(source_path)
         by_turn = {int(row["turn_index"]): row for row in source_rows}
         index = build_independent_index(source_rows)
@@ -176,6 +186,10 @@ def main() -> int:
     args = parser.parse_args()
     if args.output.exists():
         parser.error("output exists; refusing second read")
+    if sha256_file(args.runtime) != _EXPECTED_RUNTIME_SHA256:
+        parser.error("runtime hash mismatch")
+    if sha256_file(args.score) != _EXPECTED_SCORE_SHA256:
+        parser.error("score hash mismatch")
     runtime = json.loads(args.runtime.read_text(encoding="utf-8"))
     score = json.loads(args.score.read_text(encoding="utf-8"))
     result = audit(runtime, score, args.source_dir, args.data_dir)

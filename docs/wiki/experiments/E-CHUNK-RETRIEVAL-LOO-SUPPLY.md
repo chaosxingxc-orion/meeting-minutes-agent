@@ -13,3 +13,4 @@
 分支，不事后调阈值。
 
 - [预注册](../../readiness/2026-08-24-independent-chunk-retrieval-supply-preregistration.md)
+- [判读前实现修订](../../readiness/2026-08-24-independent-chunk-retrieval-supply-implementation-amendment.md)

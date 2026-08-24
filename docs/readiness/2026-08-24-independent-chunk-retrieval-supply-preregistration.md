@@ -28,7 +28,10 @@ queries, candidates, or prompts.
   `8664437f7317a22cfe2625c5991fd00ffc4c12588a7b2176edd6360f29a2bd83`,
   `acf9309a919c5ea8c467e5130ca9401ab4c82f292f48c79798c298b91dd8c96e`
 - retriever: `cac45cf1d191c9027892b3099a0faa308b620b98e59278dad1488491d04f2707`
-- one-shot reader: `cf5fd429d343bd32c931c036e2a72ae9b3875aef70bf2ac3087e893e05f362e4`
+- one-shot reader: `2cc1a48b7a928bb1738bfa4eeb5e3f9b59852357a0b08cf7b713e0add23b1674`
+
+The pre-read hash-enforcement change is recorded in the
+[implementation amendment](2026-08-24-independent-chunk-retrieval-supply-implementation-amendment.md).
 
 ## Admission gates
 
