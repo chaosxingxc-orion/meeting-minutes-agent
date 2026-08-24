@@ -5,6 +5,7 @@ from __future__ import annotations
 
 import argparse
 from collections import defaultdict
+import concurrent.futures
 import csv
 from dataclasses import dataclass
 from datetime import datetime, timezone
@@ -187,10 +188,9 @@ def command_prepare(args: argparse.Namespace) -> int:
     roster = json.loads(args.roster.resolve().read_text(encoding="utf-8"))
     wav_dir = args.wav_dir.resolve()
     wav_dir.mkdir(parents=True, exist_ok=True)
-    receipts = []
-    for index, row in enumerate(roster["meetings"], start=1):
+    def convert(row: dict[str, object]) -> dict[str, object]:
         file_id = row["file_id"]
-        source = root / row["audio_relative"]
+        source = root / str(row["audio_relative"])
         destination = wav_dir / f"{file_id}.wav"
         if not destination.exists():
             temporary = destination.with_suffix(".wav.part")
@@ -202,15 +202,21 @@ def command_prepare(args: argparse.Namespace) -> int:
                 check=True,
             )
             temporary.replace(destination)
-        receipts.append(
-            {
-                "file_id": file_id,
-                "wav_relative": destination.name,
-                "wav_bytes": destination.stat().st_size,
-                "wav_sha256": sha256_file(destination),
-            }
-        )
-        print(f"prepare {index:03d}/{len(roster['meetings']):03d}: {file_id}", flush=True)
+        return {
+            "file_id": file_id,
+            "wav_relative": destination.name,
+            "wav_bytes": destination.stat().st_size,
+            "wav_sha256": sha256_file(destination),
+        }
+
+    receipts = []
+    with concurrent.futures.ThreadPoolExecutor(max_workers=args.jobs) as executor:
+        futures = [executor.submit(convert, row) for row in roster["meetings"]]
+        for index, future in enumerate(concurrent.futures.as_completed(futures), start=1):
+            receipt = future.result()
+            receipts.append(receipt)
+            print(f"prepare {index:03d}/{len(roster['meetings']):03d}: {receipt['file_id']}", flush=True)
+    receipts.sort(key=lambda row: str(row["file_id"]))
     atomic_json(
         args.receipt.resolve(),
         {
@@ -487,6 +493,7 @@ def parser() -> argparse.ArgumentParser:
     prepare.add_argument("--roster", required=True, type=Path)
     prepare.add_argument("--wav-dir", required=True, type=Path)
     prepare.add_argument("--receipt", required=True, type=Path)
+    prepare.add_argument("--jobs", type=int, default=4)
     prepare.set_defaults(func=command_prepare)
     flight = sub.add_parser("flight")
     flight.add_argument("--roster", required=True, type=Path)
