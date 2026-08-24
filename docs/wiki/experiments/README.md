@@ -31,7 +31,7 @@
 | [E-CHUNK-RETRIEVAL-SUPPLY](E-CHUNK-RETRIEVAL-SUPPLY.md) | 稀疏per-chunk候选是否充足且错配负对照可分？ | v3已判读 | `SUPPLY-READY`：1056个eligible turn，正确/错配100%可分且等候选数 | 注册四臂模型实验与R2第二轮 |
 | [E-CHUNK-RETRIEVAL](E-CHUNK-RETRIEVAL.md) | 稀疏speaker路由候选能否形成稳定、收敛且不劣的agent loop？ | 已判读 | `NOT-REACHED`：虽收敛，但一致性-6.42点、路由1/4、错误激活54.98% | 先审计leave-one-chunk-out独立证据；不放行策略搜索 |
 | [E-CHUNK-RETRIEVAL-LOO-SUPPLY](E-CHUNK-RETRIEVAL-LOO-SUPPLY.md) | 排除当前chunk后，其他同speaker chunk能否提供新且准确的纠错候选？ | 已判读 | `SUPPLY-INSUFFICIENT`：覆盖980 turns，但精度1.93%、正确供给仅53 turns | 停止output-only模糊检索；新分支须先指定独立外部证据 |
-| [E-EXTERNAL-COMPANY-IDENTITY-SUPPLY](E-EXTERNAL-COMPANY-IDENTITY-SUPPLY.md) | ticker→公司品牌名能否提供准确、独立的短片段纠错候选？ | 已注册 | 冻结四个稳定品牌身份；外部公开注册来源尚未获得运行时准入 | 先做一次性零模型精度/覆盖审计，不接触模型 |
+| [E-EXTERNAL-COMPANY-IDENTITY-SUPPLY](E-EXTERNAL-COMPANY-IDENTITY-SUPPLY.md) | ticker→公司品牌名能否提供准确、独立的短片段纠错候选？ | 已判读 | `SUPPLY-INSUFFICIENT`：仅15个纠错机会；触发precision 62.5%、recall 33.3% | 停止单一公司身份分支；寻找与会议同时可得的丰富材料 |
 | [Z-SERIES](Z-SERIES.md) | 说话人标签、归属与切分的多臂效应是什么？ | 已判读 | G1 floors 已归档；主要差异来自转向表/归属输出，纯切片差异不显著 | 作为描述性基线，不重跑、不据此选择分支 |
 
 ## 当前优先级
@@ -39,7 +39,7 @@
 1. `E-CHUNK-RETRIEVAL` 已判失败：虽收敛，但一致性下降6.42点、路由仅1/4场、错误激活54.98%；禁止据此启动策略搜索。
 2. leave-one-chunk-out独立证据审计也失败：字符串模糊候选精度仅1.93%；停止output-only检索分支，不得调阈值。
 3. `E-LOOP-STABILITY` 已淘汰recent-tail与广播式长摘要；`E-CHUNK-RETRIEVAL` 又淘汰同chunk自回灌，二者失败机制不同。
-4. 已注册最小外部公司身份分支，只做零模型精度/覆盖审计；其公开注册来源不是现有M0，运行时准入仍待决。GRPO、GEPA、EM更新和多模态注入仍未放行。
+4. 最小外部公司身份分支也已失败：即使完美触发也只有15个纠错机会；公开注册来源不是现有M0。下一分支应优先审计与会议同时可得的发布稿/演示材料。GRPO、GEPA、EM更新和多模态注入仍未放行。
 5. `E4-SAFETY-GATE-AUDIT` 未找到兼具覆盖、安全和收益的简单运行时门；停止在原结果上继续阈值搜索。
 6. Earnings-22窄类供给和完整音频均已确认，但供给存在不等于模型收益；固定4路前端也没有安全的无gold主讲筛选门。
 7. G1/Z 系列只作为描述性floors引用，不重跑、不据此选择当前分支。

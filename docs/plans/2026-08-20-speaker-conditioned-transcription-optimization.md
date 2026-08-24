@@ -390,6 +390,7 @@ end SpeakerConditionedTx
 | E-CHUNK-RETRIEVAL-SUPPLY | 稀疏逐chunk检索供给与对照 | **已判读** | 输出池能否形成等量、可分的speaker/错路由候选 | v3通过：1056个eligible turn，100%可分且等候选数 |
 | E-CHUNK-RETRIEVAL | 稀疏逐chunk检索稳定性 | **已判读** | 删除广播上下文后是否一致、收敛且不劣 | `NOT-REACHED`：收敛0.280，但一致性-6.42点、路由1/4、错误激活54.98% |
 | E-CHUNK-RETRIEVAL-LOO-SUPPLY | 排除当前chunk的独立证据供给 | **已判读** | 其他同speaker chunk能否提供足量新词形且gold相关 | `SUPPLY-INSUFFICIENT`：覆盖980 turns但精度1.93%，停止output-only模糊检索 |
+| E-EXTERNAL-COMPANY-IDENTITY-SUPPLY | ticker映射的公司身份供给 | **已判读** | 每场一个独立品牌身份能否形成足量准确纠错机会 | `SUPPLY-INSUFFICIENT`：仅15个机会，触发precision 62.5%、recall 33.3%，不启动模型 |
 | E5 | oracle 选优/重听上界 | **未开始** | 逐 turn 选择还有多少理论空间 | 空间小则淘汰选择性重听；否则另立能力计划 |
 | E6 | training-free策略优化 loop | **未开始** | GRPO/GEPA/知识注入能否改进稳定incumbent | 候选档案、验收轨迹、冻结策略或 null |
 
@@ -533,8 +534,9 @@ E6, 每轮有界优化:
 6. 广播式bare/recent/summary-global/summary-speaker/deranged已判失败，不再复跑或调阈值；
 7. 稀疏R0/R1/R2/R3与R2-round2已完成7145/7145 calls；虽收敛但一致性、路由和安全门失败；
 8. leave-one-chunk-out审计已失败：正确候选仅57/2961、53个turn，禁止调阈值或新增模型flight；
-9. 内部候选只负责一致性，专业词纠错仍要求独立合法锚点；
-10. 下一设计必须先指定带来源证明的外部独立证据；只有新的稳定层通过后，才启动GEPA、training-free GRPO、EM或多模态知识注入；仍禁止选择性重听。
+9. ticker→公司身份审计也已失败：仅15个纠错机会，冻结触发precision 62.5%、recall 33.3%；公开registry仍不是M0；
+10. 内部候选只负责一致性，专业词纠错仍要求独立合法锚点；
+11. 下一设计优先审计与会议同时可得的发布稿/演示材料；只有新的稳定层通过后，才启动GEPA、training-free GRPO、EM或多模态知识注入；仍禁止选择性重听。
 
 每次进展必须更新实验总表，并链接 preregistration、config、flight receipt、read artifact 和 verdict。历史失败或淘汰结论只追加，不得被后续方案重写。
 
