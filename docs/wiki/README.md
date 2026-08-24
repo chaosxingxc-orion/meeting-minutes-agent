@@ -30,6 +30,6 @@
 
 合法 speaker state 已经证明可构造，但 E4-CF 的 +2.16 pp 仍低于 +5 pp 正式门。资源受限 Pass-0 在60个未见 dialogue 上测得52.76%的 `speaker_wrong_disjoint` prevalence；后续172-cell方向 pilot 显示 carry 指标小幅改善，但 false-hint 增加3.49个百分点并越过安全门，判为 `EXPLORATORY-HARMFUL`。agent loop 继续不放行。
 
-当前优先级：不部署当前等长 speaker inventory，也不启动约31,749-call完整确认。Earnings-22 全库 Sortformer 已证明主讲占主导子群的Top-1/Top-2条件可用，但长尾 speaker 不可用。下一步先做不依赖 gold 的 dominant-cluster eligibility 门；通过后才考虑只面向主要主讲的小型 Omni pilot。
+当前优先级：不部署当前等长 speaker inventory，也不启动约31,749-call完整确认。Earnings-22 全库 Sortformer 只在参考已知主讲占主导时条件可用；RTTM-only 门的 precision 仅38.60%，判为 `RUNTIME-DOMINANT-GATE-UNSAFE`。下一步如获模型接触授权，先做小型完整 Pass-0，审计“重复、稳定错误、合法锚点”三者的交集供给，不直接启动多轮 loop。
 
 最后同步：2026-08-22（当前工作计划置顶，移除过期的 2026-08-21 计划）。

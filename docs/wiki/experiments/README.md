@@ -23,7 +23,8 @@
 | [E4-XDOMAIN-SUPPLY-AUDIT-v2](E4-XDOMAIN-SUPPLY-AUDIT-V2.md) | Earnings-22 是否有足量的 speaker-exclusive 专业实体供给？ | 已判读 | 机械通过，但 70.2% 来自 `CONTRACTION/FALLBACK`，专业代理未确认 | 如继续，在未读 45 场 reserve 上预注册窄类确认审计 |
 | [E4-XDOMAIN-SUPPLY-AUDIT-v3](E4-XDOMAIN-SUPPLY-AUDIT-V3.md) | 未读 Earnings-22 reserve 是否有足量缩写/字母数字 carry？ | 已判读 | `EARNINGS22-NARROW-SUPPLY-FEASIBLE`；30/45场 eligible，264个 narrow exclusive carry | 决策音频许可与最小 acquisition；模型 pilot 仍需独立注册 |
 | [E4-XDOMAIN-AUDIO-ADMISSION](E4-XDOMAIN-AUDIO-ADMISSION.md) | Earnings-22 音频是否完整且兼容固定前端？ | 已判读 | 音频125/125哈希与解码通过；CSV 时长门失败，且116/125场超过固定前端4-speaker上限 | 后续全库 Sortformer 已补做，主讲子群条件可用 |
-| [EARNINGS22-SORTFORMER](EARNINGS22-SORTFORMER.md) | >4人电话会中，固定4-speaker前端能否保住1–2位主讲？ | 已判读 | 主讲占主导30场：Top-1错误14.30%、Top-2错误22.59%，`MAIN-SPEAKER-DIARIZATION-USABLE`；长尾错误72.75% | 先验证无gold的 dominant-cluster 运行时门，再决定小型 Omni pilot |
+| [EARNINGS22-SORTFORMER](EARNINGS22-SORTFORMER.md) | >4人电话会中，固定4-speaker前端能否保住1–2位主讲？ | 已判读 | 主讲占主导30场：Top-1错误14.30%、Top-2错误22.59%，`MAIN-SPEAKER-DIARIZATION-USABLE`；长尾错误72.75% | 后续无gold门已失败，不能运行时识别该子群 |
+| [EARNINGS22-RUNTIME-DOMINANT-GATE](EARNINGS22-RUNTIME-DOMINANT-GATE.md) | 不看gold能否用整会占比和跨窗稳定性识别主讲可用会议？ | 已判读 | `RUNTIME-DOMINANT-GATE-UNSAFE`；precision 38.60%，29/57放行会议Top-2错误>40% | 不搜索同库阈值；另行设计稳定错误供给审计 |
 | [Z-SERIES](Z-SERIES.md) | 说话人标签、归属与切分的多臂效应是什么？ | 已判读 | G1 floors 已归档；主要差异来自转向表/归属输出，纯切片差异不显著 | 作为描述性基线，不重跑、不据此选择分支 |
 
 ## 当前优先级
@@ -35,5 +36,6 @@
 5. `E4-XDOMAIN-SUPPLY-AUDIT` 只放行 Academic 的供给可行性判断；Product 严格技术供给不足，不能启动平衡跨域模型 pilot。
 6. `E4-XDOMAIN-SUPPLY-AUDIT-v2` 证明广义标签复现充足，但未确认专业实体供给；45 场 reserve 仍未读，音频与模型接触未授权。
 7. `E4-XDOMAIN-SUPPLY-AUDIT-v3` 已在未读 reserve 确认窄类供给，但没有放行模型实验。
-8. Earnings-22 全库 Sortformer 表明主讲占主导子群可保住Top-1/Top-2，但长尾 speaker 大量合并；模型 pilot 仍需先过无gold运行时主讲门。
+8. Earnings-22 全库 Sortformer 表明参考已知的主讲占主导子群可保住Top-1/Top-2，但后续无gold运行时门失败，不能据此筛选模型 pilot。
 9. G1/Z 系列已有正式仓库证据；引用时必须保留“描述性 floors、非分支 verdict”和域内 diarizer 限制。
+10. RTTM 占比与跨窗稳定性门不安全；固定4路输出可能稳定合并长尾，不能据此选择 Omni pilot。

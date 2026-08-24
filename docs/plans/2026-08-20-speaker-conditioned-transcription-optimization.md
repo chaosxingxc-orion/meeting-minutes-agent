@@ -1,7 +1,7 @@
 # 基于说话人条件的专业会议转写优化计划
 
 日期：2026-08-20  
-状态：**执行中；独立 E4-CF 已完成并判为 `DIRECTIONAL-NOT-CONFIRMED`；agent loop 仍未放行**
+状态：**执行中；RTTM-only 主讲门判为 `RUNTIME-DOMINANT-GATE-UNSAFE`；下一候选为稳定错误供给审计，agent loop 仍未放行**
 
 ## 0. 给同事的结论摘要
 
@@ -131,6 +131,41 @@ speaker(U_hat_mi^k) = s_mi
 
 因此本研究优化的是 `Y_mi` 的专业转写文本，不再把 diarization 归属能力混入优化目标。
 
+### 4.1 整会 loop 与稳定错误簇
+
+必须区分三个粒度：执行单元是固定短音频 `x_mi`，优化单元是整会内同 speaker、同规范化
+术语的重复观测簇，episode 是会议的一次完整 pass。每一轮都遍历冻结 manifest 中的全部
+合格片段，不允许根据上一轮结果选择性重听。
+
+令 `z` 为规范化术语候选，`O_msz` 为会议 `m` 中预测 speaker `s` 对 `z` 的全部复现，
+`e_i` 为该复现的转写形式。定义：
+
+```text
+repeat_msz = |O_msz|
+stability_msz = max_e |{i in O_msz : e_i = e}| / |O_msz|
+StableWrong_msz := repeat_msz >= k and stability_msz >= tau and majority(e_i) != truth(z)
+Optimizable_msz := StableWrong_msz and LegalAnchor_msz and Controllable_msz
+```
+
+其中 `LegalAnchor` 必须来自运行时合法且独立的证据，例如议程、幻灯片、公开术语表或另一次
+高置信观测；reference/gold 只能评分。`Controllable` 表示有界提示状态能修复该簇，同时通过
+false-hint、整体 WER、非术语 WER 和最差 speaker 保护门。稳定正确簇不应被改写，不稳定簇
+只能进入证据收集，不能直接生成纠错状态。
+
+完整更新写为：
+
+```text
+Y_m^(t) = FullPass(X_m, H_m^(t), omega_t)
+C_m^(t) = ClusterByMeetingSpeakerTerm(Y_m^(t))
+A_m^(t) = {c in C_m^(t) | Repeated(c) and Stable(c) and LegalAnchor(c)}
+H_m^(t+1) = BoundedUpdate(H_m^(t), A_m^(t))
+candidate = FullPass(X_m, H_m^(t+1), omega_t)
+H_m^(t+1) is accepted iff meeting-level paired utility and every safety gate pass;
+otherwise rollback to H_m^(t)
+```
+
+因此“错得稳定”只提供可重复优化靶点，并不自动提供正确答案。
+
 ## 5. 指标与可达性
 
 `T_mi` 是仅供评分器使用的参考文本。除整体 `WER` 外，定义：
@@ -206,6 +241,14 @@ L_hat_primary(incumbent_{t+1}) <= L_hat_primary(incumbent_t)
 
 以会议而非切片为独立统计单位。新策略只有在主指标配对差异的置信上界低于零，且所有保护指标上界不超过预注册非劣界限时才能接受。自适应搜索不得反复查询最终 holdout；E6 必须划分 discovery、selection 和 untouched final roles。
 
+### 命题 6：没有合法锚点时，稳定错误不可识别
+
+设运行时只观察同一稳定字符串 `v`。存在两个与观测完全一致的世界：`W_correct` 中
+`truth(z)=v`，`W_wrong` 中 `truth(z)≠v`。若无额外合法证据，任意更新器在两个世界接收相同
+输入，必然作出相同动作；保持 `v` 会在 `W_wrong` 失败，替换 `v` 会在 `W_correct` 引入错误。
+因此仅凭重复和稳定性不存在保证严格改善的纠错策略。`LegalAnchor` 不是启发式加分，而是
+可识别性的必要条件。
+
 ## 7. Lean 4 结构证明草图
 
 下列代码表达结构性结论；后续任务需在冻结的 Lean/mathlib 版本下实际编译，当前不是已机器核验的 artifact。
@@ -255,6 +298,24 @@ theorem selected_no_worse [DecidableEq Policy]
     (hoptimal : ∀ p ∈ Omega, loss selected ≤ loss p) :
     loss selected ≤ loss base := by
   exact hoptimal base hbase
+
+inductive AnchorWorld where
+  | observedFormCorrect
+  | observedFormWrong
+
+inductive CorrectionAction where
+  | keep
+  | replace
+
+def succeedsWithoutAnchor : AnchorWorld → CorrectionAction → Prop
+  | .observedFormCorrect, .keep => True
+  | .observedFormWrong, .replace => True
+  | _, _ => False
+
+theorem no_unanchored_action_succeeds_in_both_worlds (a : CorrectionAction) :
+    ¬ (succeedsWithoutAnchor .observedFormCorrect a ∧
+       succeedsWithoutAnchor .observedFormWrong a) := by
+  cases a <;> simp [succeedsWithoutAnchor]
 
 end SpeakerConditionedTx
 ```
@@ -348,9 +409,14 @@ if E4 utility gate fails: 停止；不得引入选择性重听
 
 E5: 用 E4 成对结果计算 oracle 选择上界
 
+E-STABLE-ERROR-SUPPLY: 在小型注册 roster 上执行完整 Pass-0
+    按会议、speaker、规范化术语聚合复现
+    报告 stable-correct / stable-wrong / unstable 及合法锚点覆盖
+    若没有足量 Optimizable cluster: 停止；loop 缺少可识别供给
+
 E6, 每轮有界优化:
-    按会议、speaker、术语类型分层抽取 discovery meetings
-    在固定音频上运行 grouped rollouts
+    按会议、speaker、术语错误簇分层抽取 discovery meetings
+    对冻结 manifest 执行完整 grouped rollouts，不选择性重听
     计算正确/错配/破坏条件的语义对照
     生成 prompt/render/update/fixed-rollout 候选
     拒绝违反固定前端、泄漏或预算公理的候选
@@ -369,9 +435,10 @@ E6, 每轮有界优化:
 
 1. 保持 Z 系列暂缓，不消耗资源补跑；
 2. 保持 E4-CF 的 `DIRECTIONAL-NOT-CONFIRMED` 为正式结论，不用 post-hoc 分层替换它；
-3. 对冻结输出做标注为探索性的机制审计，重点解释 `CF2-speaker` 的 109 次 false-hint activation、speaker/global 的净差异及状态长度/证据数的关系；
-4. 根据机制审计只提出一个可证伪的固定策略改动，重新冻结 render hash、错误供给保护、预算和判读规则；
-5. 在新的独立 surface 通过实用效应门之前，不启动 GEPA、GRPO、EM 风格 agent loop，也不引入选择性重听。
+3. 保留 Earnings-22 Sortformer 的条件性主讲结论，但依据 `RUNTIME-DOMINANT-GATE-UNSAFE` 禁止用 RTTM 占比筛选 Omni pilot；
+4. 若另行获得模型接触授权，预注册小型 `E-STABLE-ERROR-SUPPLY`：完整 Pass-0 后按会议/speaker/术语聚类，测量稳定错误及独立合法锚点供给；
+5. 只有足量错误簇同时满足 `Repeated ∧ StableWrong ∧ LegalAnchor ∧ Controllable`，才进入一次完整 Pass-1；
+6. 在新的独立 surface 通过实用效应门之前，不启动 GEPA、GRPO、EM 风格多轮 agent loop，也不引入选择性重听。
 
 每次进展必须更新实验总表，并链接 preregistration、config、flight receipt、read artifact 和 verdict。历史失败或淘汰结论只追加，不得被后续方案重写。
 
