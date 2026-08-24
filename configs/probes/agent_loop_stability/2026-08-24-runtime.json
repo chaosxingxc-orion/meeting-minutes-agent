@@ -1,0 +1,93 @@
+{
+  "arms": [
+    "L0-bare",
+    "L1-recent",
+    "L2-global",
+    "L3-speaker",
+    "L4-deranged"
+  ],
+  "budget": {
+    "audio_seconds_per_pass": 15077.15299999999,
+    "phase1_audio_seconds": 75385.76499999994,
+    "phase1_calls": 7145,
+    "round2_audio_seconds": 15077.15299999999,
+    "round2_calls": 1429,
+    "total_audio_seconds": 90462.91799999993,
+    "total_calls": 8574,
+    "turns_per_pass": 1429
+  },
+  "claim_boundary": "Passing admits a stable bounded-memory loop only; it does not establish professional-term correction, utility improvement, or permission to run training-free policy search.",
+  "content_hash": "bd9d31b2875824619f76161b252e3760c9c15be7f9e4289969517dc0b4abbc7d",
+  "decode": {
+    "max_tokens": 512,
+    "seed": 0,
+    "temperature": 0
+  },
+  "experiment_id": "E-LOOP-STABILITY",
+  "gates": {
+    "context_budget_rate": 1.0,
+    "context_hash_replay_rate": 1.0,
+    "maximum_convergence_ratio": 0.8,
+    "maximum_language_drift_increase": 0,
+    "maximum_unsupported_activation_rate": 0.02,
+    "maximum_wer_increase": 0.01,
+    "maximum_worst_speaker_wer_increase": 0.02,
+    "minimum_consistency_gain_vs_bare": 0.02,
+    "minimum_meetings_consistency_better_than_bare": 3,
+    "minimum_meetings_consistency_better_than_deranged": 3
+  },
+  "implementation": {
+    "launcher": {
+      "path": "scripts/launch_agent_loop_stability.py",
+      "sha256": "286e7673f2819bbdc00391cbddad18c3dd50e9243f9834de570a5d8f01fb9eba"
+    },
+    "reader": {
+      "path": "scripts/read_agent_loop_stability.py",
+      "sha256": "bdc16942c1b690c27bb6579445b2c0053306875ba0e8b0f5b520e2b22641e93a"
+    },
+    "renderer": {
+      "path": "src/meeting_minutes_agent/state/sliding_memory.py",
+      "sha256": "129aa49b39e85892f23c44100d0c88344d01a97b6e127317f3ea0ed47c78e0fa"
+    }
+  },
+  "memory_limits": {
+    "global_keywords": 24,
+    "minimum_keyword_count": 2,
+    "recent_characters": 600,
+    "speaker_keywords": 12,
+    "summary_characters": 1200
+  },
+  "prompt": {
+    "system_instruction": "Transcribe the supplied English speech exactly as spoken. Return only the transcript as plain text, with no explanation or formatting. If context hints are supplied, use their spelling only when supported by the audio; never insert a hinted term merely because it is listed.",
+    "template_id": "contextasr-transcribe-only-v1",
+    "template_sha256": "be34f885d683c117520f72c16a655691f1a8b9686c6badde4c7b42e3e083cf9c"
+  },
+  "round2_arm": "L3-round2",
+  "schema": "agent-loop-stability-runtime-v1",
+  "source_passes": {
+    "4430051": {
+      "path": "docs/checks/2026-08-24-e-stable-error-pass0-flight/4430051-responses.jsonl",
+      "sha256": "3f446006c6dd0f63c462902969ea268f34c07330cc33fd8f4c60d06d29f20975"
+    },
+    "4443920": {
+      "path": "docs/checks/2026-08-24-e-stable-error-pass0-flight/4443920-responses.jsonl",
+      "sha256": "76866623d1c59a6d253bb32abc7d5a2ce8ae6a0f8394dbb8d0366582a0e3c5b7"
+    },
+    "4461799": {
+      "path": "docs/checks/2026-08-24-e-stable-error-pass0-flight/4461799-responses.jsonl",
+      "sha256": "8664437f7317a22cfe2625c5991fd00ffc4c12588a7b2176edd6360f29a2bd83"
+    },
+    "4483589": {
+      "path": "docs/checks/2026-08-24-e-stable-error-pass0-flight/4483589-responses.jsonl",
+      "sha256": "acf9309a919c5ea8c467e5130ca9401ab4c82f292f48c79798c298b91dd8c96e"
+    }
+  },
+  "source_runtime": {
+    "path": "configs/probes/earnings22_stable_error/2026-08-24-runtime.json",
+    "sha256": "a2e272852cf35a6a67b9331b405a2472d3d3a217c8738f50693a8ad1898ce4b9"
+  },
+  "source_score": {
+    "path": "configs/probes/earnings22_stable_error/2026-08-24-score.json",
+    "sha256": "163064779b3bf97244612fcd1af5333d04ffafe8a36c97656a32fa54dec70afb"
+  }
+}

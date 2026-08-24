@@ -1,7 +1,7 @@
 # 基于说话人条件的专业会议转写优化计划
 
 日期：2026-08-20  
-状态：**执行中；滑动记忆供给门已通过；下一步验证 agent-loop 稳定性，GRPO/知识注入仍未放行**
+状态：**执行中；E-LOOP-STABILITY 已注册，等待两阶段 flight；GRPO/知识注入仍未放行**
 
 ## 0. 给同事的结论摘要
 
@@ -386,7 +386,7 @@ end SpeakerConditionedTx
 | E4-CF | 未见对话独立确认 | **已判读** | 5 pp speaker-routing 改善能否复现 | `DIRECTIONAL-NOT-CONFIRMED`：speaker 比 wrong +2.16 pp，CI 为正但低于 5 pp 门；carry NE-WER -3.66 pp，无总体 WER 伤害 |
 | E-STABLE-ERROR-SUPPLY | 整会稳定错误与合法锚点供给 | **已判读** | `(meeting,speaker,term)` 是否有重复稳定错误且可识别 | 13个strict stable-wrong覆盖4场，但ticker锚点0；事后诊断9/13为分隔符变体，不放行term Pass1 |
 | E-LOOP-STABILITY-SUPPLY | 滑动记忆跨窗供给审计 | **已判读** | 既有Pass0是否足以测量摘要/关键词carry | `LOOP-STABILITY-SUPPLY-READY`：4/4场、554个同speaker跨窗carry turn |
-| E-LOOP-STABILITY | 新信息驱动的上下文重组稳定性 | **设计中** | 有界状态是否可复现、收敛、一致且不劣 | bare/recent/summary-global/summary-speaker/deranged五臂 |
+| E-LOOP-STABILITY | 新信息驱动的上下文重组稳定性 | **已注册** | 有界状态是否可复现、收敛、一致且不劣 | 5臂+L3第二轮，8574调用，等待flight |
 | E5 | oracle 选优/重听上界 | **未开始** | 逐 turn 选择还有多少理论空间 | 空间小则淘汰选择性重听；否则另立能力计划 |
 | E6 | training-free策略优化 loop | **未开始** | GRPO/GEPA/知识注入能否改进稳定incumbent | 候选档案、验收轨迹、冻结策略或 null |
 
