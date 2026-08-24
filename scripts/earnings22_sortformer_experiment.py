@@ -239,7 +239,21 @@ def command_flight(args: argparse.Namespace) -> int:
     rttm_dir, receipt_dir, log_dir = out / "rttm", out / "receipts", out / "logs"
     for directory in (rttm_dir, receipt_dir, log_dir):
         directory.mkdir(parents=True, exist_ok=True)
-    started_all = time.monotonic()
+    existing_receipts = []
+    for path in receipt_dir.glob("*.json"):
+        try:
+            existing_receipts.append(json.loads(path.read_text(encoding="utf-8")))
+        except ValueError:
+            pass
+    if existing_receipts:
+        campaign_started_epoch = min(
+            datetime.fromisoformat(str(row["recorded_utc"])).timestamp()
+            - float(row.get("wall_seconds", 0.0))
+            for row in existing_receipts
+            if row.get("recorded_utc")
+        )
+    else:
+        campaign_started_epoch = time.time()
 
     def run_contact(index: int, row: dict[str, object]) -> dict[str, object]:
         file_id = row["file_id"]
@@ -274,9 +288,8 @@ def command_flight(args: argparse.Namespace) -> int:
     indexed_rows = list(enumerate(roster["meetings"], start=1))
     outcomes = []
     for start in range(0, len(indexed_rows), args.jobs):
-        prior_contact_seconds = sum(float(row.get("wall_seconds", 0.0)) for row in outcomes)
-        if prior_contact_seconds >= args.max_wall_hours * 3600:
-            raise SystemExit("registered conservative contact-time ceiling reached before next batch")
+        if time.time() - campaign_started_epoch >= args.max_wall_hours * 3600:
+            raise SystemExit("registered campaign wall-time ceiling reached before next batch")
         batch = indexed_rows[start : start + args.jobs]
         with concurrent.futures.ThreadPoolExecutor(max_workers=args.jobs) as executor:
             futures = [executor.submit(run_contact, index, row) for index, row in batch]
@@ -290,7 +303,7 @@ def command_flight(args: argparse.Namespace) -> int:
         "n_contacts": len(outcomes),
         "n_ok": sum(bool(row["ok"]) for row in outcomes),
         "n_error": sum(not bool(row["ok"]) for row in outcomes),
-        "wall_seconds": time.monotonic() - started_all,
+        "wall_seconds": time.time() - campaign_started_epoch,
         "outcomes": outcomes,
     }
     atomic_json(out / "flight-summary.json", summary)
