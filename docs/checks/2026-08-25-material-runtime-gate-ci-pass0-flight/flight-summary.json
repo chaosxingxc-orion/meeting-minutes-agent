@@ -1,0 +1,32 @@
+{
+  "schema": "material-runtime-gate-ci-pass0-flight-summary-v1",
+  "experiment_id": "E-MATERIAL-RUNTIME-GATE-CI",
+  "evidence_tier": "CONSTRUCTION_ISOLATED_EXPLORATORY",
+  "runtime_content_hash": "48034facd2b1b6a3fef3848fa5cfbd411e48409e177d28a9fcfef1840fe6075b",
+  "calls": 1639,
+  "audio_seconds": 22678.132999999976,
+  "empty_text": 0,
+  "retry_attempts": 0,
+  "decision": "PASS0_COMPLETE",
+  "model_sha256": "d9e2876556e7873e02c0359f832432ee2d67ab7dd0cee3efe0f77fd7a1f4dd85",
+  "mmproj_sha256": "1104376db833f1e89c84834144ac3863340c2cd1ddaeddb39cb0247fb5c20c8d",
+  "server_sha256": "ad69437593e9f458b22eb9ffae2aaf574d36e8ccdecf6b8d44b6fa7b58d74fa9",
+  "server_args": "-c 16384 -np 1 -fa on -ngl 999 -ctk q8_0 -ctv q8_0",
+  "responses_sha256": {
+    "4474506": "b83a702530579cf068df5f484a1aa2470011f97fff202a4d514f0d9b1873d79f",
+    "4479944": "e220b45439bea8e4e879ca460dcf88faffbdd91ff85b56ef962da80f1ea9e6a8",
+    "4483506": "08bd95d57866c590f72efd9983f364260afcbb67674579fec3ce5b16bb0bdabe",
+    "4483633": "3b294964a8a31e43b8a51acc831157eb14b70342f5756ee768e2916ace320d1f",
+    "4484563": "c3c92e53b14509758041f52da28fdda3dce8fdb237545c41eb640d44a3d1c6cb",
+    "4485244": "373261e086231bdc81ef443e74451de9de9c7dacca2ea26da50f4f33619da812"
+  },
+  "receipts_sha256": {
+    "4474506": "77d876c287efff099ea5e9f54c3ef90325a2e2eae3b5889fe013b5c85489fbb7",
+    "4479944": "7f4bd830526710c32b39b30af257e57480cf99660f266ed4095f03d07e6f9e04",
+    "4483506": "c3e0504e9b839e5c7e83aefa303cd1d7c88f968e6b29098b39605430c91dd833",
+    "4483633": "f35dad39ccd560e523b335da0ee1e619e21653eb00f496a92693589499b9064b",
+    "4484563": "ee4d5ba08bd0e98d7c4d286305cf68b019c91e7bda623439e3bab0f076747c93",
+    "4485244": "b5264109b5e7bf31ae1f6ac370315f99833173232279084e39c360f3ac99dae7"
+  },
+  "structural_verdict_sha256": "3c942eb39139ba70f9828e4ecdaae680ae62171671d70db51650c419e4e3380b"
+}

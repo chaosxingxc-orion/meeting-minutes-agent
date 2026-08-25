@@ -1,0 +1,17 @@
+{
+  "schema": "meeting-material-supply-read-lock-v1",
+  "experiment_id": "E-MEETING-MATERIAL-SUPPLY-AUDIT",
+  "reference_read_count": 0,
+  "external_snapshot": {
+    "acquisition_receipt_sha256": "136d2af6f8cc8572f77828fc818af44561cc9803fdd6ba6396067f7b2aa7eb1b",
+    "candidate_pool_sha256": "f896c0583e937f91e864caf2c85fab4d83e0bc9b0d06fdc5bdf55ea52437a21e"
+  },
+  "sha256": {
+    "source_registry": "b93895db3a4a1e03df9cae3b5e5d34d176a12f87fd6ec4fb9f88c0e392720d42",
+    "candidate_registry": "11aad77b8635f144f9ce213831a9abe1f6ba05941fb7fe36fec29e06cca48698",
+    "runtime": "a2e272852cf35a6a67b9331b405a2472d3d3a217c8738f50693a8ad1898ce4b9",
+    "score": "163064779b3bf97244612fcd1af5333d04ffafe8a36c97656a32fa54dec70afb",
+    "material_pages": "2083326aff3fc58749f33dc1dbc35238b825badc131159888e91c022e3e6dd51",
+    "reader": "05a57a1eb63739e7fa0ec3692b651a6acdb396d918b59d3651c2bf2531bf2ca0"
+  }
+}

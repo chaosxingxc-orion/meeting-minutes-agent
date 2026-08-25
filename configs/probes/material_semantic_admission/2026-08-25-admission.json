@@ -1,0 +1,32 @@
+{
+  "schema": "material-semantic-admission-v1",
+  "experiment_id": "E-MATERIAL-SEMANTIC-ADMISSION",
+  "dataset": "Earnings-22",
+  "minimum_reference_unread_meetings": 6,
+  "development_meetings": 3,
+  "confirmation_meetings": 3,
+  "reference_read_definition": "lexical reference surfaces were available to a completed experiment read",
+  "non_excluding_reads": [
+    "speaker count",
+    "speaker timing",
+    "audio duration",
+    "audio hash"
+  ],
+  "completed_lexical_reads": {
+    "discovery": {
+      "manifest": "configs/probes/e4_xdomain_supply_v2/2026-08-21-input-manifest.json",
+      "selector_field": "split",
+      "selector_value": "discovery",
+      "expected_count": 80
+    },
+    "reserve": {
+      "manifest": "configs/probes/e4_xdomain_supply_v3/2026-08-22-reserve-manifest.json",
+      "expected_count": 45
+    }
+  },
+  "roster": "configs/probes/earnings22_sortformer/2026-08-24-roster.json",
+  "decision": {
+    "pass": "freeze three development and three confirmation meetings before material acquisition",
+    "fail": "do not acquire material or run the dependent runtime gate on Earnings-22"
+  }
+}

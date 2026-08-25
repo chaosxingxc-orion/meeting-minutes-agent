@@ -1,0 +1,120 @@
+{
+  "schema": "meeting-material-source-registry-v1",
+  "experiment_id": "E-MEETING-MATERIAL-SUPPLY-AUDIT",
+  "retrieved_on": "2026-08-25",
+  "provenance": "PROPOSED_MEETING_CONTEMPORANEOUS_OFFICIAL_MATERIAL",
+  "runtime_admissibility": "pending_audit",
+  "source_policy": "official_issuer_ir_or_newsroom_and_target_period_only",
+  "maximum_context_characters": 256,
+  "maximum_candidates_per_turn": 4,
+  "similarity_threshold": 0.75,
+  "meetings": [
+    {
+      "file_id": "4430051",
+      "issuer": "SK Telecom",
+      "period": "Q1 2021",
+      "meeting_date": "2021-05-11",
+      "sources": [
+        {
+          "kind": "results_presentation",
+          "url": "https://www.sktelecom.com/img/eng/presen/20210512/1Q21InvestorBriefingENG.pdf",
+          "local_name": "4430051-skt-1q21-presentation.pdf",
+          "publication_date": null,
+          "temporal_status": "pending_exact_publication_evidence",
+          "use_for_candidates": false
+        },
+        {
+          "kind": "official_release_page",
+          "url": "https://news.sktelecom.com/132833",
+          "local_name": null,
+          "publication_date": "2021-05-11",
+          "temporal_status": "eligible",
+          "use_for_candidates": false
+        }
+      ]
+    },
+    {
+      "file_id": "4443920",
+      "issuer": "Jeronimo Martins",
+      "period": "H1 2021",
+      "meeting_date": "2021-07-29",
+      "sources": [
+        {
+          "kind": "results_presentation",
+          "url": "https://www.jeronimomartins.com/wp-content/uploads/01-DOCUMENTS/Investor/Results-Presentations/H12021Results_Presentation.pdf",
+          "local_name": "4443920-jeronimo-h1-2021-presentation.pdf",
+          "publication_date": "2021-07-29",
+          "temporal_status": "eligible",
+          "use_for_candidates": true
+        },
+        {
+          "kind": "official_release_page",
+          "url": "https://www.jeronimomartins.com/en/market_releases/com_20210728_1_en/",
+          "local_name": null,
+          "publication_date": "2021-07-28",
+          "temporal_status": "eligible",
+          "use_for_candidates": false
+        }
+      ]
+    },
+    {
+      "file_id": "4461799",
+      "issuer": "Galp",
+      "period": "Q3 2021",
+      "meeting_date": "2021-10-25",
+      "sources": [
+        {
+          "kind": "results_presentation",
+          "url": "https://www.galp.com/corp/Portals/0/Recursos/Investidores/SharedResources/Apresentacoes/EN/2021/3Q21_results.pdf",
+          "local_name": "4461799-galp-3q21-presentation.pdf",
+          "publication_date": "2021-10-25",
+          "temporal_status": "eligible",
+          "use_for_candidates": true
+        },
+        {
+          "kind": "results_release",
+          "url": "https://www.galp.com/corp/Portals/0/Recursos/Investidores/SharedResources/Comunicados/EN/2021/2021_10_25_Results%203Q21_EN.pdf",
+          "local_name": "4461799-galp-3q21-release.pdf",
+          "publication_date": "2021-10-25",
+          "temporal_status": "eligible",
+          "use_for_candidates": false
+        }
+      ]
+    },
+    {
+      "file_id": "4483589",
+      "issuer": "TeamViewer",
+      "period": "Q4 and FY 2021",
+      "meeting_date": "2022-02-02",
+      "sources": [
+        {
+          "kind": "results_presentation",
+          "url": "https://ir.teamviewer.com/download/companies/teamviewer/Presentations/TMVQ4FY21_IR_Presentation.pdf",
+          "local_name": "4483589-teamviewer-q4fy21-presentation.pdf",
+          "publication_date": "2022-02-02",
+          "temporal_status": "eligible",
+          "fetch_status": "invalid_html_response",
+          "use_for_candidates": false
+        },
+        {
+          "kind": "preliminary_results",
+          "url": "https://ir.teamviewer.com/download/companies/teamviewer/Quarterly%20Reports/20220202_FY_2021_Preliminary_unaudited_results_En.pdf",
+          "resolved_asset_url": "https://ir-api.eqs.com/media/document/f24d2a7f-bae7-460e-ad49-0429ed9ae0ec/assets/20220202_FY_2021_Preliminary_unaudited_results_En.pdf?disposition=inline",
+          "local_name": "4483589-teamviewer-q4fy21-results.pdf",
+          "publication_date": "2022-02-02",
+          "temporal_status": "eligible",
+          "use_for_candidates": true
+        }
+      ]
+    }
+  ],
+  "gates": {
+    "minimum_eligible_meetings": 3,
+    "minimum_corrective_turns": 20,
+    "minimum_distributed_meetings": 3,
+    "corrective_turns_per_meeting": 3,
+    "minimum_trigger_precision": 0.9,
+    "minimum_trigger_recall": 0.5,
+    "minimum_precision_advantage_over_deranged": 0.3
+  }
+}

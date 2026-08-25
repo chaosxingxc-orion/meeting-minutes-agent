@@ -1,0 +1,12 @@
+{
+  "schema": "material-runtime-gate-ci-pass0-diarization-roster-v1",
+  "experiment_id": "E-MATERIAL-RUNTIME-GATE-CI",
+  "meetings": [
+    {"file_id": "4474506"},
+    {"file_id": "4479944"},
+    {"file_id": "4483506"},
+    {"file_id": "4483633"},
+    {"file_id": "4484563"},
+    {"file_id": "4485244"}
+  ]
+}

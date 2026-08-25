@@ -1,0 +1,75 @@
+{
+  "schema": "material-runtime-gate-ci-acquisition-verdict-v1",
+  "experiment_id": "E-MATERIAL-RUNTIME-GATE-CI",
+  "verdict": "COHORT_MATERIAL_ADMISSION_READY",
+  "evidence_tier": "CONSTRUCTION_ISOLATED_EXPLORATORY",
+  "source_registry_sha256": "a28add11e2f50dbf114f6d28c0f3201cfd896b4b454c1601e4029089b3948c7a",
+  "materials_dir": "E:\\datasets\\meeting-material-gate-ci\\2026-08-25",
+  "snapshot_dir": "E:\\datasets\\meeting-material-gate-ci\\2026-08-25-snapshot",
+  "meetings": [
+    {
+      "file_id": "4474506",
+      "split": "development",
+      "document_type": "pdf",
+      "bytes": 32670,
+      "sha256": "782dcf6aca29a0e6b213f251d52044e642242b95355633e5533f03cd92113119",
+      "candidate_count": 81
+    },
+    {
+      "file_id": "4479944",
+      "split": "development",
+      "document_type": "pdf",
+      "bytes": 255481,
+      "sha256": "0700f3325789319f50d01420c2642fe7e0a4d7d11e7062ced7882625fb8c0c06",
+      "candidate_count": 143
+    },
+    {
+      "file_id": "4483506",
+      "split": "development",
+      "document_type": "pdf",
+      "bytes": 235875,
+      "sha256": "670ff3c09c3f39e454ab20e0045b8c7b1f9ff9d1ff5227818e6d77eda38fb5f5",
+      "candidate_count": 167
+    },
+    {
+      "file_id": "4483633",
+      "split": "confirmation",
+      "document_type": "html",
+      "bytes": 318720,
+      "sha256": "b462a2f950856db9fecfa6860cf113c44660821f89f1acc467b7289981a4e512",
+      "candidate_count": 187
+    },
+    {
+      "file_id": "4484563",
+      "split": "confirmation",
+      "document_type": "pdf",
+      "bytes": 1646146,
+      "sha256": "52d31d0c8cd488fe2538d41061a7fb97794dc286b6baf30c0c7c0ff9a83c5452",
+      "candidate_count": 391
+    },
+    {
+      "file_id": "4485244",
+      "split": "confirmation",
+      "document_type": "html",
+      "bytes": 103321,
+      "sha256": "14358ae45f810635e6aafeaa14d3f7c406208bbfd3cca7214aaa6237be1d6dcd",
+      "candidate_count": 434
+    }
+  ],
+  "totals": {
+    "sources": 6,
+    "pages": 54,
+    "candidates": 1403,
+    "meetings_at_or_above_8_candidates": 6
+  },
+  "snapshot_sha256": {
+    "acquisition_receipt": "ac40dde53398ad1fe45880b8c9a5c60c243e361167affd1258e07421eaf99111",
+    "candidate_pool": "f318fec94a38be1074fba529ee93cabdef1c5cee6187fd38d7f0a3eae0debc3e",
+    "material_pages": "8ab6b99d9c04388f0db093233a91db59e70e833e48bf9e93ae13b23f3e44fa03"
+  },
+  "reference_content_reads": 0,
+  "audio_decodes": 0,
+  "pass0_reads": 0,
+  "embedding_calls": 0,
+  "omni_calls": 0
+}

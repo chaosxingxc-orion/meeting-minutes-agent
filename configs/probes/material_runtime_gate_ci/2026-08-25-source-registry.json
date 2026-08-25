@@ -1,0 +1,123 @@
+{
+  "schema": "material-runtime-gate-ci-source-registry-v1",
+  "experiment_id": "E-MATERIAL-RUNTIME-GATE-CI",
+  "retrieved_on": "2026-08-25",
+  "source_policy": "issuer_or_regulated_filing_archive_published_not_later_than_meeting_date",
+  "materials_dir": "E:\\datasets\\meeting-material-gate-ci\\2026-08-25",
+  "meetings": [
+    {
+      "file_id": "4474506",
+      "issuer": "Costco Wholesale",
+      "period": "Q1 FY2022",
+      "meeting_date": "2021-12-09",
+      "split": "development",
+      "sources": [
+        {
+          "kind": "results_release",
+          "url": "https://s201.q4cdn.com/287523651/files/doc_news/2021/12/costco-wholesale-corporation-reports-first-quarter-fiscal-12.pdf",
+          "local_name": "4474506-costco-q1fy22-results.pdf",
+          "publication_date": "2021-12-09",
+          "temporal_status": "eligible",
+          "publisher_class": "issuer_delivery_cdn",
+          "use_for_candidates": true
+        }
+      ]
+    },
+    {
+      "file_id": "4479944",
+      "issuer": "HDFC Bank",
+      "period": "quarter and nine months ended 2021-12-31",
+      "meeting_date": "2022-01-15",
+      "split": "development",
+      "sources": [
+        {
+          "kind": "financial_results",
+          "url": "https://www.hdfc.bank.in/content/dam/hdfcbankpws/in/en/pdf/financial-results/2021-2022/quarter-3/financial-results-for-quarter-and-nine-months-ended-december-31--2021.pdf",
+          "local_name": "4479944-hdfc-dec2021-financial-results.pdf",
+          "publication_date": "2022-01-15",
+          "temporal_status": "eligible",
+          "publisher_class": "issuer",
+          "use_for_candidates": true
+        }
+      ]
+    },
+    {
+      "file_id": "4483506",
+      "issuer": "Sony Group",
+      "period": "Q3 FY2021",
+      "meeting_date": "2022-02-02",
+      "split": "development",
+      "sources": [
+        {
+          "kind": "results_presentation",
+          "url": "https://www.sony.com/en/SonyInfo/IR/library/presen/er/pdf/21q3_sonypre.pdf",
+          "local_name": "4483506-sony-fy2021-q3-presentation.pdf",
+          "publication_date": "2022-02-02",
+          "temporal_status": "eligible",
+          "publisher_class": "issuer",
+          "use_for_candidates": true
+        }
+      ]
+    },
+    {
+      "file_id": "4483633",
+      "issuer": "Ferrari",
+      "period": "Q4 and FY2021",
+      "meeting_date": "2022-02-02",
+      "split": "confirmation",
+      "sources": [
+        {
+          "kind": "regulated_filing_exhibit_99_1",
+          "url": "https://www.sec.gov/Archives/edgar/data/1648416/000164841622000014/fnv2021resultspr.htm",
+          "local_name": "4483633-ferrari-fy2021-exhibit-99-1.html",
+          "publication_date": "2022-02-02",
+          "temporal_status": "eligible",
+          "publisher_class": "regulated_filing_archive",
+          "use_for_candidates": true
+        }
+      ]
+    },
+    {
+      "file_id": "4484563",
+      "issuer": "Sanofi",
+      "period": "Q4 and FY2021",
+      "meeting_date": "2022-02-04",
+      "split": "confirmation",
+      "sources": [
+        {
+          "kind": "results_release",
+          "url": "https://www.sanofi.com/assets/dotcom/pressreleases/2022/2022-02-04-06-30-00-2379020-en.pdf",
+          "local_name": "4484563-sanofi-q4fy2021-results.pdf",
+          "publication_date": "2022-02-04",
+          "temporal_status": "eligible",
+          "publisher_class": "issuer",
+          "use_for_candidates": true
+        }
+      ]
+    },
+    {
+      "file_id": "4485244",
+      "issuer": "KKR",
+      "period": "Q4 and FY2021",
+      "meeting_date": "2022-02-08",
+      "split": "confirmation",
+      "sources": [
+        {
+          "kind": "regulated_filing_exhibit_99_1",
+          "url": "https://www.sec.gov/Archives/edgar/data/1404912/000140491222000002/q421earningsrelease_vf.htm",
+          "local_name": "4485244-kkr-q4fy2021-exhibit-99-1.html",
+          "publication_date": "2022-02-08",
+          "temporal_status": "eligible",
+          "publisher_class": "regulated_filing_archive",
+          "use_for_candidates": true
+        }
+      ]
+    }
+  ],
+  "gates": {
+    "required_meetings": 6,
+    "minimum_candidates_per_meeting": 8,
+    "allow_meeting_replacement": false,
+    "allowed_document_types": ["pdf", "html"]
+  }
+}

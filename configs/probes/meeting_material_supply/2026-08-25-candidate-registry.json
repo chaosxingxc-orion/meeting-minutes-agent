@@ -1,0 +1,76 @@
+{
+  "schema": "meeting-material-candidate-registry-v1",
+  "experiment_id": "E-MEETING-MATERIAL-SUPPLY-AUDIT",
+  "construction_reference_reads": 0,
+  "construction_pass0_reads": 0,
+  "normalization_policy": "case_punctuation_whitespace_hyphen_plural_only",
+  "meetings": [
+    {
+      "file_id": "4443920",
+      "document_sha256": "278c299d2fa45ab608e4547348ecae21cb8585c6a67365f4b2fec4531986c6c0",
+      "candidates": [
+        {"canonical": "Biedronka", "aliases": ["Biedronka"], "category": "brand", "page": 4, "source_span": "Biedronka guaranteed the preference of consumers"},
+        {"canonical": "Pingo Doce", "aliases": ["Pingo Doce"], "category": "brand", "page": 4, "source_span": "Pingo Doce and Recheio returning to growth"},
+        {"canonical": "Recheio", "aliases": ["Recheio"], "category": "brand", "page": 4, "source_span": "Pingo Doce and Recheio returning to growth"},
+        {"canonical": "Ara", "aliases": ["Ara"], "category": "brand", "page": 4, "source_span": "Ara with a consistent good delivery"},
+        {"canonical": "Hebe", "aliases": ["Hebe"], "category": "brand", "page": 3, "source_span": "3.3. Hebe"},
+        {"canonical": "HoReCa", "aliases": ["HoReCa", "Horeca"], "category": "business_term", "page": 18, "source_span": "the HoReCa has progressively reopened"},
+        {"canonical": "LFL", "aliases": ["LFL"], "category": "abbreviation", "page": 4, "source_span": "sound LFL"},
+        {"canonical": "IFRS 16", "aliases": ["IFRS 16", "IFRS16"], "category": "alphanumeric_term", "page": 2, "source_span": "excluding the effect of the IFRS16"}
+      ]
+    },
+    {
+      "file_id": "4461799",
+      "document_sha256": "0eb407618ec23d65be575505981ae098debb1b3d2b7a107a02548dc628adebb6",
+      "candidates": [
+        {"canonical": "Sepia", "aliases": ["Sepia", "Sépia"], "category": "asset", "page": 5, "source_span": "Sépia start up during August"},
+        {"canonical": "Coral FLNG", "aliases": ["Coral FLNG"], "category": "asset", "page": 5, "source_span": "Coral FLNG sail away expected soon"},
+        {"canonical": "Bacalhau", "aliases": ["Bacalhau"], "category": "asset", "page": 5, "source_span": "moving forward with Bacalhau development"},
+        {"canonical": "Campos basin", "aliases": ["Campos basin"], "category": "asset_region", "page": 5, "source_span": "exploration wells in Brazil Campos basin"},
+        {"canonical": "Sao Tome and Principe", "aliases": ["Sao Tome and Principe", "São Tomé and Príncipe"], "category": "asset_region", "page": 5, "source_span": "São Tomé and Príncipe"},
+        {"canonical": "Energy Management", "aliases": ["Energy Management"], "category": "business_unit", "page": 5, "source_span": "challenges in Energy Management"},
+        {"canonical": "NG", "aliases": ["NG"], "category": "abbreviation", "page": 5, "source_span": "NG pre-sold volumes"},
+        {"canonical": "LNG", "aliases": ["LNG"], "category": "abbreviation", "page": 5, "source_span": "NG/LNG sourcing restrictions"},
+        {"canonical": "Sines", "aliases": ["Sines"], "category": "asset", "page": 5, "source_span": "Sines atmospheric distillation unit"},
+        {"canonical": "hydrocracker", "aliases": ["hydrocracker"], "category": "technical_term", "page": 5, "source_span": "planned maintenance in the hydrocracker"},
+        {"canonical": "BM-S-8", "aliases": ["BM-S-8", "BM S 8", "BMS8"], "category": "alphanumeric_asset", "page": 14, "source_span": "BM-S-8 stake increase"},
+        {"canonical": "Tupi", "aliases": ["Tupi"], "category": "asset", "page": 16, "source_span": "development activities in Tupi/Iracema"},
+        {"canonical": "Iracema", "aliases": ["Iracema"], "category": "asset", "page": 16, "source_span": "development activities in Tupi/Iracema"},
+        {"canonical": "Dated Brent", "aliases": ["Dated Brent"], "category": "market_term", "page": 16, "source_span": "Dated Brent price"},
+        {"canonical": "RCA", "aliases": ["RCA"], "category": "abbreviation", "page": 16, "source_span": "RCA Ebitda"},
+        {"canonical": "OCF", "aliases": ["OCF"], "category": "abbreviation", "page": 16, "source_span": "OCF"},
+        {"canonical": "CFFO", "aliases": ["CFFO"], "category": "abbreviation", "page": 14, "source_span": "CFFO Net financial expenses"},
+        {"canonical": "OMIE", "aliases": ["OMIE"], "category": "organization", "page": 19, "source_span": "Source: OMIE and REE"},
+        {"canonical": "REE", "aliases": ["REE"], "category": "organization", "page": 19, "source_span": "Source: OMIE and REE"},
+        {"canonical": "solar PV", "aliases": ["solar PV"], "category": "technical_term", "page": 19, "source_span": "solar PV projects in Iberia"}
+      ]
+    },
+    {
+      "file_id": "4483589",
+      "document_sha256": "0de67c0b413344280fb1fa016c611244f1f1fbcf96e28668f0b6b54199f0f1fd",
+      "candidates": [
+        {"canonical": "Augmented Reality", "aliases": ["Augmented Reality"], "category": "technical_term", "page": 2, "source_span": "field of Augmented Reality"},
+        {"canonical": "AR", "aliases": ["AR"], "category": "abbreviation", "page": 2, "source_span": "enterprise AR platform Frontline"},
+        {"canonical": "SAP", "aliases": ["SAP"], "category": "partner", "page": 2, "source_span": "global players such as SAP and Google Cloud"},
+        {"canonical": "Google Cloud", "aliases": ["Google Cloud"], "category": "partner", "page": 2, "source_span": "global players such as SAP and Google Cloud"},
+        {"canonical": "Upskill", "aliases": ["Upskill"], "category": "acquisition", "page": 2, "source_span": "acquiring Upskill and Viscopic"},
+        {"canonical": "Viscopic", "aliases": ["Viscopic"], "category": "acquisition", "page": 2, "source_span": "acquiring Upskill and Viscopic"},
+        {"canonical": "Frontline", "aliases": ["Frontline"], "category": "product", "page": 2, "source_span": "enterprise AR platform Frontline"},
+        {"canonical": "Ford", "aliases": ["Ford"], "category": "customer", "page": 2, "source_span": "Ford, DHL and Airbus"},
+        {"canonical": "DHL", "aliases": ["DHL"], "category": "customer", "page": 2, "source_span": "Ford, DHL and Airbus"},
+        {"canonical": "Airbus", "aliases": ["Airbus"], "category": "customer", "page": 2, "source_span": "Ford, DHL and Airbus"},
+        {"canonical": "Xaleon", "aliases": ["Xaleon"], "category": "acquisition", "page": 2, "source_span": "acquisition of Xaleon"},
+        {"canonical": "Customer Engagement Software", "aliases": ["Customer Engagement Software"], "category": "technical_term", "page": 3, "source_span": "Customer Engagement Software"},
+        {"canonical": "Manchester United", "aliases": ["Manchester United"], "category": "partner", "page": 3, "source_span": "Manchester United"},
+        {"canonical": "Mercedes-AMG Petronas Formula 1", "aliases": ["Mercedes-AMG Petronas Formula 1", "AMG Petronas Formula One", "AMG Petronas"], "category": "partner", "page": 3, "source_span": "Mercedes-AMG Petronas Formula 1"},
+        {"canonical": "EMEA", "aliases": ["EMEA"], "category": "abbreviation", "page": 4, "source_span": "EMEA"},
+        {"canonical": "APAC", "aliases": ["APAC"], "category": "abbreviation", "page": 4, "source_span": "APAC"},
+        {"canonical": "SMB", "aliases": ["SMB"], "category": "abbreviation", "page": 2, "source_span": "SMB segment"},
+        {"canonical": "NRR", "aliases": ["NRR"], "category": "abbreviation", "page": 8, "source_span": "Net retention rate or NRR"},
+        {"canonical": "FCFE", "aliases": ["FCFE"], "category": "abbreviation", "page": 8, "source_span": "Levered free cash flow (FCFE)"},
+        {"canonical": "German GAAP", "aliases": ["German GAAP"], "category": "accounting_term", "page": 8, "source_span": "German GAAP"},
+        {"canonical": "ERP", "aliases": ["ERP"], "category": "abbreviation", "page": 5, "source_span": "new ERP system"}
+      ]
+    }
+  ]
+}

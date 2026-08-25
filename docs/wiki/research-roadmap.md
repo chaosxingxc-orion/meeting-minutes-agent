@@ -22,6 +22,11 @@
 | EARNINGS22-SORTFORMER | 超过4人的电话会是否仍能保住主要主讲 | 已判读 | 30场主讲占主导目标组Top-1/Top-2错误14.30%/22.59%，条件可用；长尾72.75%不可用 |
 | E-LOOP-STABILITY-SUPPLY | 跨窗滑动记忆是否有足量测量供给 | 已判读 | `LOOP-STABILITY-SUPPLY-READY`；4/4场、554个同speaker跨窗carry turn |
 | E-LOOP-STABILITY | 新信息驱动的有界上下文重组是否稳定且不劣 | 已判读 | `LOOP-STABILITY-NOT-REACHED`：一致性上升，但错配分离、收敛与安全门失败 |
+| E-MEETING-MATERIAL-SUPPLY-AUDIT | 会议同期官方材料能否形成安全、可追溯的逐chunk候选供给 | 已判读 | `MEETING-MATERIAL-SUPPLY-INSUFFICIENT`：49个候选有完整出处，但正确触发3/418、召回3/30；不放行Omni |
+| E-MEETING-MATERIAL-SEMANTIC-SIGNAL | SAEA式encode-only语义K能否形成分布式材料归属信号 | 已判读 | `SEMANTIC-RETRIEVAL-SIGNAL-PRESENT`：77.86%，较词法+15.997点，3/3场过门；放行独立能力实验设计 |
+| E-MATERIAL-SEMANTIC-ADMISSION | Earnings-22能否建立6场reference-unread开发/确认队列 | 已判读 | `ADMISSION_FAILED_NO_REFERENCE_UNREAD_MEETINGS`：v2/v3合计覆盖125/125，剩余0场 |
+| E-MATERIAL-RUNTIME-GATE | 本会议语义top1/top2门能否跨开发/确认稳定 | 依赖门失败，未运行 | 严格独立队列不存在；未拟合阈值、未读Pass0、未调用模型 |
+| E-MATERIAL-RUNTIME-GATE-CI | 构造隔离的六场复用能否形成语义top1/top2门 | 已判读 | `CONSTRUCTION_ISOLATED_SIGNAL_PRESENT`：阈值0.01；确认precision 76.10%、覆盖74.82%，四门全过；只放行另行注册的探索性Omni设计 |
 | E5 | Training-free GRPO/GEPA/多模态知识注入 | 未放行 | 只有E-LOOP-STABILITY通过后才搜索整体效用增益 |
 | E6 | 多会议确认与最差 speaker 检验 | 未放行 | E5 尚未放行；启动前需预注册样本量、MDE、CI 和多重检验 |
 

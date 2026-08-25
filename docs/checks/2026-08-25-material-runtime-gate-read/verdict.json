@@ -1,0 +1,14 @@
+{
+  "schema": "material-runtime-gate-verdict-v1",
+  "experiment_id": "E-MATERIAL-RUNTIME-GATE",
+  "admission_experiment_id": "E-MATERIAL-SEMANTIC-ADMISSION",
+  "admission_verdict": "ADMISSION_FAILED_NO_REFERENCE_UNREAD_MEETINGS",
+  "verdict": "NOT_RUN_PREREQUISITE_FAILED",
+  "development_meetings": 0,
+  "confirmation_meetings": 0,
+  "thresholds_fit": 0,
+  "pass0_reads": 0,
+  "material_downloads": 0,
+  "embedding_calls": 0,
+  "omni_calls": 0
+}

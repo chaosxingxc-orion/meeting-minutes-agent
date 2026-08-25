@@ -32,6 +32,12 @@
 | [E-CHUNK-RETRIEVAL](E-CHUNK-RETRIEVAL.md) | 稀疏speaker路由候选能否形成稳定、收敛且不劣的agent loop？ | 已判读 | `NOT-REACHED`：虽收敛，但一致性-6.42点、路由1/4、错误激活54.98% | 先审计leave-one-chunk-out独立证据；不放行策略搜索 |
 | [E-CHUNK-RETRIEVAL-LOO-SUPPLY](E-CHUNK-RETRIEVAL-LOO-SUPPLY.md) | 排除当前chunk后，其他同speaker chunk能否提供新且准确的纠错候选？ | 已判读 | `SUPPLY-INSUFFICIENT`：覆盖980 turns，但精度1.93%、正确供给仅53 turns | 停止output-only模糊检索；新分支须先指定独立外部证据 |
 | [E-EXTERNAL-COMPANY-IDENTITY-SUPPLY](E-EXTERNAL-COMPANY-IDENTITY-SUPPLY.md) | ticker→公司品牌名能否提供准确、独立的短片段纠错候选？ | 已判读 | `SUPPLY-INSUFFICIENT`：仅15个纠错机会；触发precision 62.5%、recall 33.3% | 停止单一公司身份分支；寻找与会议同时可得的丰富材料 |
+| [E-MEETING-MATERIAL-SUPPLY-AUDIT](E-MEETING-MATERIAL-SUPPLY-AUDIT.md) | 会议同期官方材料能否提供丰富、准确且带出处的逐chunk纠错候选？ | 已判读 | `MEETING-MATERIAL-SUPPLY-INSUFFICIENT`：30个机会仅触发3个正确项，precision 0.72%、recall 10%；短缩写造成大量误触发 | 不在已读结果上调参；独立会议另行注册分层router审计 |
+| [E-MEETING-MATERIAL-RETRIEVAL-SIGNAL](E-MEETING-MATERIAL-RETRIEVAL-SIGNAL.md) | SAEA式Q-K-V能否让本会议材料稳定胜过等宽错配材料？ | 已判读 | `RETRIEVAL-SIGNAL-INSUFFICIENT`：覆盖97.07%，但归属precision 61.87%；仅Galp 77.12%，其余两场低于50% | 不放行Omni；准备encode-only语义K独立对照 |
+| [E-MEETING-MATERIAL-SEMANTIC-SIGNAL](E-MEETING-MATERIAL-SEMANTIC-SIGNAL.md) | encode-only语义K能否跨场稳定优于词法K？ | 已判读 | `SEMANTIC-RETRIEVAL-SIGNAL-PRESENT`：precision 77.86%，较词法+15.997点，3/3场过逐会门 | 独立未读会议注册retain/correct/deranged三臂Omni能力实验 |
+| [E-MATERIAL-SEMANTIC-ADMISSION](E-MATERIAL-SEMANTIC-ADMISSION.md) | Earnings-22是否仍有6场reference-unread会议可建立独立开发/确认队列？ | 已判读 | `ADMISSION_FAILED_NO_REFERENCE_UNREAD_MEETINGS`：v2读80场、v3读45场，互斥并集覆盖125/125，剩余0场 | 新会议/外部测试集；不得把outcome-unread冒充reference-unread |
+| [E-MATERIAL-RUNTIME-GATE](E-MATERIAL-RUNTIME-GATE.md) | 本会议语义top1/top2差值能否形成可部署dispatch门？ | 依赖门失败，未运行 | `NOT_RUN_PREREQUISITE_FAILED`：无法冻结3场开发+3场确认；零Pass0、零embedding、零Omni | 等待新独立会议，或另行注册较弱construction-isolated设计 |
+| [E-MATERIAL-RUNTIME-GATE-CI](E-MATERIAL-RUNTIME-GATE-CI.md) | 历史参考已暴露时，严格隔离当前构造能否复现语义dispatch信号？ | 已判读 | `CONSTRUCTION_ISOLATED_SIGNAL_PRESENT`：阈值0.01；确认precision 76.10%、覆盖74.82%、中位余弦优势0.06154，四门全过 | 可另行注册探索性三臂Omni能力实验；不得宣称独立确认或WER增益 |
 | [Z-SERIES](Z-SERIES.md) | 说话人标签、归属与切分的多臂效应是什么？ | 已判读 | G1 floors 已归档；主要差异来自转向表/归属输出，纯切片差异不显著 | 作为描述性基线，不重跑、不据此选择分支 |
 
 ## 当前优先级
@@ -39,7 +45,7 @@
 1. `E-CHUNK-RETRIEVAL` 已判失败：虽收敛，但一致性下降6.42点、路由仅1/4场、错误激活54.98%；禁止据此启动策略搜索。
 2. leave-one-chunk-out独立证据审计也失败：字符串模糊候选精度仅1.93%；停止output-only检索分支，不得调阈值。
 3. `E-LOOP-STABILITY` 已淘汰recent-tail与广播式长摘要；`E-CHUNK-RETRIEVAL` 又淘汰同chunk自回灌，二者失败机制不同。
-4. 最小外部公司身份分支也已失败：即使完美触发也只有15个纠错机会；公开注册来源不是现有M0。下一分支应优先审计与会议同时可得的发布稿/演示材料。GRPO、GEPA、EM更新和多模态注入仍未放行。
+4. 严格独立门仍因0/125未读会议而失败；降级的`E-MATERIAL-RUNTIME-GATE-CI`零模型门已通过，但只形成construction-isolated信号。下一步仅可另行注册、授权探索性三臂Omni能力实验，不能与独立确认或WER收益混写。
 5. `E4-SAFETY-GATE-AUDIT` 未找到兼具覆盖、安全和收益的简单运行时门；停止在原结果上继续阈值搜索。
 6. Earnings-22窄类供给和完整音频均已确认，但供给存在不等于模型收益；固定4路前端也没有安全的无gold主讲筛选门。
 7. G1/Z 系列只作为描述性floors引用，不重跑、不据此选择当前分支。

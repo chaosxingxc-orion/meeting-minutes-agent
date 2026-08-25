@@ -1,0 +1,54 @@
+{
+  "calls": 1639,
+  "decision": "PASS0_COMPLETE",
+  "empty_text": 0,
+  "expected_calls": 1639,
+  "experiment_id": "E-MATERIAL-RUNTIME-GATE-CI",
+  "meetings": [
+    {
+      "calls": 244,
+      "empty_text": 0,
+      "file_id": "4474506",
+      "responses_sha256": "b83a702530579cf068df5f484a1aa2470011f97fff202a4d514f0d9b1873d79f",
+      "retry_attempts": 0
+    },
+    {
+      "calls": 149,
+      "empty_text": 0,
+      "file_id": "4479944",
+      "responses_sha256": "e220b45439bea8e4e879ca460dcf88faffbdd91ff85b56ef962da80f1ea9e6a8",
+      "retry_attempts": 0
+    },
+    {
+      "calls": 318,
+      "empty_text": 0,
+      "file_id": "4483506",
+      "responses_sha256": "08bd95d57866c590f72efd9983f364260afcbb67674579fec3ce5b16bb0bdabe",
+      "retry_attempts": 0
+    },
+    {
+      "calls": 291,
+      "empty_text": 0,
+      "file_id": "4483633",
+      "responses_sha256": "3b294964a8a31e43b8a51acc831157eb14b70342f5756ee768e2916ace320d1f",
+      "retry_attempts": 0
+    },
+    {
+      "calls": 343,
+      "empty_text": 0,
+      "file_id": "4484563",
+      "responses_sha256": "c3c92e53b14509758041f52da28fdda3dce8fdb237545c41eb640d44a3d1c6cb",
+      "retry_attempts": 0
+    },
+    {
+      "calls": 294,
+      "empty_text": 0,
+      "file_id": "4485244",
+      "responses_sha256": "373261e086231bdc81ef443e74451de9de9c7dacca2ea26da50f4f33619da812",
+      "retry_attempts": 0
+    }
+  ],
+  "retry_attempts": 0,
+  "runtime_content_hash": "48034facd2b1b6a3fef3848fa5cfbd411e48409e177d28a9fcfef1840fe6075b",
+  "schema": "material-runtime-gate-ci-pass0-structural-read-v1"
+}
