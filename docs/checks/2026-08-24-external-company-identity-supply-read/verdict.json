@@ -1,0 +1,163 @@
+{
+  "claim_boundary": "This one-shot gold read measures supply feasibility only. External-public-registry provenance is not currently M0 and remains blocked from runtime pending an explicit ruling.",
+  "distributed_meetings": 1,
+  "experiment_id": "E-EXTERNAL-COMPANY-IDENTITY-SUPPLY",
+  "gates": {
+    "context_budget": true,
+    "minimum_corrective_turns": false,
+    "minimum_distributed_meetings": false,
+    "minimum_trigger_precision": false,
+    "minimum_trigger_recall": false,
+    "no_exact_identity_triggers": true,
+    "no_reference_use_in_construction": true
+  },
+  "meetings": [
+    {
+      "canonical": "Jeronimo Martins",
+      "corrective_opportunity_turns": 0,
+      "exact_pass0_identity_turns": 0,
+      "false_trigger_turns": 0,
+      "file_id": "4443920",
+      "reference_identity_turns": 0,
+      "ticker": "JRONF",
+      "triggered_corrective_turns": 0,
+      "triggered_turns": 0,
+      "turns": 201
+    },
+    {
+      "canonical": "TeamViewer",
+      "corrective_opportunity_turns": 3,
+      "exact_pass0_identity_turns": 16,
+      "false_trigger_turns": 0,
+      "file_id": "4483589",
+      "reference_identity_turns": 17,
+      "ticker": "TMVWF",
+      "triggered_corrective_turns": 0,
+      "triggered_turns": 0,
+      "turns": 281
+    },
+    {
+      "canonical": "Galp",
+      "corrective_opportunity_turns": 11,
+      "exact_pass0_identity_turns": 4,
+      "false_trigger_turns": 1,
+      "file_id": "4461799",
+      "reference_identity_turns": 15,
+      "ticker": "GLPEF",
+      "triggered_corrective_turns": 4,
+      "triggered_turns": 5,
+      "turns": 497
+    },
+    {
+      "canonical": "SK Telecom",
+      "corrective_opportunity_turns": 1,
+      "exact_pass0_identity_turns": 5,
+      "false_trigger_turns": 2,
+      "file_id": "4430051",
+      "reference_identity_turns": 4,
+      "ticker": "SKM",
+      "triggered_corrective_turns": 1,
+      "triggered_turns": 3,
+      "turns": 450
+    }
+  ],
+  "provenance": "PROPOSED_EXTERNAL_PUBLIC_REGISTRY",
+  "runtime_admissibility": "pending_owner_ruling",
+  "schema": "external-company-identity-supply-read-v1",
+  "thresholds": {
+    "corrective_turns_per_meeting": 3,
+    "minimum_corrective_turns": 20,
+    "minimum_distributed_meetings": 3,
+    "minimum_trigger_precision": 0.9,
+    "minimum_trigger_recall": 0.5
+  },
+  "totals": {
+    "construction_reference_reads": 0,
+    "context_budget_violations": 0,
+    "corrective_opportunity_turns": 15,
+    "exact_identity_trigger_violations": 0,
+    "exact_pass0_identity_turns": 25,
+    "false_trigger_turns": 3,
+    "reference_identity_turns": 36,
+    "trigger_precision": 0.625,
+    "trigger_recall": 0.3333333333333333,
+    "triggered_corrective_turns": 5,
+    "triggered_turns": 8,
+    "turns": 1429
+  },
+  "trigger_examples": [
+    {
+      "canonical": "Galp",
+      "corrective": true,
+      "file_id": "4461799",
+      "observed_surface": "galt",
+      "reference_supported": true,
+      "similarity": 0.75,
+      "turn_index": 7
+    },
+    {
+      "canonical": "Galp",
+      "corrective": true,
+      "file_id": "4461799",
+      "observed_surface": "gallop",
+      "reference_supported": true,
+      "similarity": 0.8,
+      "turn_index": 78
+    },
+    {
+      "canonical": "Galp",
+      "corrective": false,
+      "file_id": "4461799",
+      "observed_surface": "goal",
+      "reference_supported": false,
+      "similarity": 0.75,
+      "turn_index": 79
+    },
+    {
+      "canonical": "Galp",
+      "corrective": true,
+      "file_id": "4461799",
+      "observed_surface": "galt",
+      "reference_supported": true,
+      "similarity": 0.75,
+      "turn_index": 384
+    },
+    {
+      "canonical": "Galp",
+      "corrective": true,
+      "file_id": "4461799",
+      "observed_surface": "gulp",
+      "reference_supported": true,
+      "similarity": 0.75,
+      "turn_index": 491
+    },
+    {
+      "canonical": "SK Telecom",
+      "corrective": true,
+      "file_id": "4430051",
+      "observed_surface": "k telecom",
+      "reference_supported": true,
+      "similarity": 0.9473684210526315,
+      "turn_index": 9
+    },
+    {
+      "canonical": "SK Telecom",
+      "corrective": false,
+      "file_id": "4430051",
+      "observed_surface": "for telecom",
+      "reference_supported": false,
+      "similarity": 0.7619047619047619,
+      "turn_index": 11
+    },
+    {
+      "canonical": "SK Telecom",
+      "corrective": false,
+      "file_id": "4430051",
+      "observed_surface": "mno telecom",
+      "reference_supported": false,
+      "similarity": 0.7619047619047619,
+      "turn_index": 419
+    }
+  ],
+  "verdict": "EXTERNAL-COMPANY-IDENTITY-SUPPLY-INSUFFICIENT"
+}

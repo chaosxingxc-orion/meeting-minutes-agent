@@ -1,0 +1,60 @@
+{
+  "allowed_classes": [
+    "ABBREVIATION",
+    "ALPHANUMERIC"
+  ],
+  "analysis_class": "holdout-zero-model-narrow-technical-supply",
+  "audio_ready": false,
+  "decision": "EARNINGS22-NARROW-SUPPLY-FEASIBLE",
+  "discovery_files_read": 0,
+  "effect_identified": false,
+  "input_manifest_hash": "b7ccad172083e192830285d510fdd0da6622b742c8d6072bf189719cbc831ea5",
+  "limitations": [
+    "Abbreviation and alphanumeric tags are narrow technical proxies, not semantic entity labels.",
+    "Fixed timestamp bins approximate, but do not reproduce, production diarizer-aware slices.",
+    "Supply feasibility does not estimate transcription benefit or false-hint safety.",
+    "Audio licensing and acquisition remain unresolved."
+  ],
+  "model_calls": 0,
+  "pseudo_slice_seconds": 90.0,
+  "reserve": {
+    "admitted_mentions": 2832,
+    "candidate_units": 1497,
+    "candidate_units_by_class": {
+      "ABBREVIATION": 987,
+      "ALPHANUMERIC": 510
+    },
+    "eligible_meetings": 30,
+    "excluded_unaligned_mentions": 870,
+    "exclusive_per_meeting": {
+      "max": 29,
+      "median": 3,
+      "min": 0,
+      "p25": 1,
+      "p75": 11
+    },
+    "exclusive_units_by_class": {
+      "ABBREVIATION": 185,
+      "ALPHANUMERIC": 79
+    },
+    "gates": {
+      "eligible_meetings": true,
+      "exclusive_carry": true,
+      "surface_concentration": true
+    },
+    "global_only_carry": 256,
+    "max_single_surface_share": 0.11363636363636363,
+    "meetings": 45,
+    "passes": true,
+    "same_speaker_carry": 463,
+    "shared_carry": 199,
+    "speaker_exclusive_carry": 264
+  },
+  "reserve_meetings": 45,
+  "schema_version": "e4-xdomain-supply-v3-verdict-v1",
+  "thresholds": {
+    "max_single_surface_share": 0.2,
+    "min_eligible_meetings": 20,
+    "min_exclusive_carry": 100
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "budget": {
+    "embedding_calls": 56,
+    "embedding_dimension": 1024,
+    "embeddings": 874
+  },
+  "claim_boundary": "Construction-isolated exploratory semantic routing only; no external generalization, WER gain, or Omni correction claim.",
+  "config_sha256": "a6d3f9aac019e07e2a53535f71a193b67712e065a349371dacdfaa20eb716fa4",
+  "development_read_sha256": "38a24009b6c5c171eae4ffafaaa8dc829ee1832f7606fc5dc6c89a551af8bb8e",
+  "evidence_tier": "CONSTRUCTION_ISOLATED_EXPLORATORY",
+  "experiment_id": "E-MATERIAL-RUNTIME-GATE-CI",
+  "gates": {
+    "minimum_attribution_precision": true,
+    "minimum_coverage": true,
+    "minimum_distributed_meetings": true,
+    "minimum_median_correct_minus_deranged_cosine": true
+  },
+  "meetings": [
+    {
+      "attribution_precision": 0.9438775510204082,
+      "attribution_wins": 185,
+      "dispatch_coverage": 0.7626459143968871,
+      "dispatched_turns": 196,
+      "eligible_turns": 257,
+      "file_id": "4483633",
+      "median_correct_minus_deranged_cosine": 0.09500286963937576
+    },
+    {
+      "attribution_precision": 0.7727272727272727,
+      "attribution_wins": 170,
+      "dispatch_coverage": 0.694006309148265,
+      "dispatched_turns": 220,
+      "eligible_turns": 317,
+      "file_id": "4484563",
+      "median_correct_minus_deranged_cosine": 0.05690924422651861
+    },
+    {
+      "attribution_precision": 0.5863636363636363,
+      "attribution_wins": 129,
+      "dispatch_coverage": 0.7971014492753623,
+      "dispatched_turns": 220,
+      "eligible_turns": 276,
+      "file_id": "4485244",
+      "median_correct_minus_deranged_cosine": 0.016570844130973456
+    }
+  ],
+  "meetings_over_precision_floor": 2,
+  "schema": "material-runtime-gate-ci-confirmation-read-v1",
+  "selected_threshold": 0.01,
+  "totals": {
+    "attribution_precision": 0.7610062893081762,
+    "attribution_wins": 484,
+    "dispatch_coverage": 0.7482352941176471,
+    "dispatched_turns": 636,
+    "eligible_turns": 850,
+    "median_correct_minus_deranged_cosine": 0.06154337502491869
+  },
+  "verdict": "CONSTRUCTION_ISOLATED_SIGNAL_PRESENT"
+}

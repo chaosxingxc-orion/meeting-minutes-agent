@@ -21,14 +21,31 @@
 | [E4-SAFETY-GATE-AUDIT](E4-SAFETY-GATE-AUDIT.md) | 运行时拒绝门能否保留小收益并跨场景切片稳定？ | 已判读 | `NO-SAFE-GATE`；唯一有覆盖的 width≤2 门同时消除了全部 carry 增益 | 不在同一结果上继续调阈值；只考虑独立新 surface 或不同信号 |
 | [E4-XDOMAIN-SUPPLY-AUDIT](E4-XDOMAIN-SUPPLY-AUDIT.md) | Product/AMI 与 Academic/ICSI 是否都有足量 speaker-exclusive 术语代理供给？ | 已判读 | `DOMAIN-LIMITED-SUPPLY`；Academic 全部门槛通过，Product 严格技术 carry 仅 3 < 10 | 不启动平衡跨域 pilot；寻找新的 Product/business surface，或另行决策 Academic 域内设计 |
 | [E4-XDOMAIN-SUPPLY-AUDIT-v2](E4-XDOMAIN-SUPPLY-AUDIT-V2.md) | Earnings-22 是否有足量的 speaker-exclusive 专业实体供给？ | 已判读 | 机械通过，但 70.2% 来自 `CONTRACTION/FALLBACK`，专业代理未确认 | 如继续，在未读 45 场 reserve 上预注册窄类确认审计 |
+| [E4-XDOMAIN-SUPPLY-AUDIT-v3](E4-XDOMAIN-SUPPLY-AUDIT-V3.md) | 未读 Earnings-22 reserve 是否有足量缩写/字母数字 carry？ | 已判读 | `EARNINGS22-NARROW-SUPPLY-FEASIBLE`；30/45场 eligible，264个 narrow exclusive carry | 决策音频许可与最小 acquisition；模型 pilot 仍需独立注册 |
+| [E4-XDOMAIN-AUDIO-ADMISSION](E4-XDOMAIN-AUDIO-ADMISSION.md) | Earnings-22 音频是否完整且兼容固定前端？ | 已判读 | 音频125/125哈希与解码通过；CSV 时长门失败，且116/125场超过固定前端4-speaker上限 | 后续全库 Sortformer 已补做，主讲子群条件可用 |
+| [EARNINGS22-SORTFORMER](EARNINGS22-SORTFORMER.md) | >4人电话会中，固定4-speaker前端能否保住1–2位主讲？ | 已判读 | 主讲占主导30场：Top-1错误14.30%、Top-2错误22.59%，`MAIN-SPEAKER-DIARIZATION-USABLE`；长尾错误72.75% | 后续无gold门已失败，不能运行时识别该子群 |
+| [EARNINGS22-RUNTIME-DOMINANT-GATE](EARNINGS22-RUNTIME-DOMINANT-GATE.md) | 不看gold能否用整会占比和跨窗稳定性识别主讲可用会议？ | 已判读 | `RUNTIME-DOMINANT-GATE-UNSAFE`；precision 38.60%，29/57放行会议Top-2错误>40% | 不搜索同库阈值；另行设计稳定错误供给审计 |
+| [E-STABLE-ERROR-SUPPLY](E-STABLE-ERROR-SUPPLY.md) | 整会内是否有重复、稳定转错且具合法锚点的专业术语簇？ | 已判读 | 13个strict稳定错误但锚点0；且9/13为分隔符变体，`STABLE-ERROR-SUPPLY-PRESENT-ANCHOR-LIMITED` | 不运行term Pass1；考虑独立锚点或整会语言漂移实验 |
+| [E-LOOP-STABILITY-SUPPLY](E-LOOP-STABILITY-SUPPLY.md) | 既有整会Pass0是否有足量跨窗口复现，可支撑有界滑动记忆实验？ | 已判读 | `LOOP-STABILITY-SUPPLY-READY`；4/4场、554个同speaker跨窗carry turn | 注册稳定性模型多臂；仍不放行GRPO或term纠错 |
+| [E-LOOP-STABILITY](E-LOOP-STABILITY.md) | 新增信息驱动的滑动上下文重组能否稳定、可复现且不劣？ | 已判读 | `LOOP-STABILITY-NOT-REACHED`；一致性+11.42点，但不收敛且WER+19.28点 | 禁止GRPO；另行注册稀疏per-chunk检索设计 |
+| [E-CHUNK-RETRIEVAL-SUPPLY](E-CHUNK-RETRIEVAL-SUPPLY.md) | 稀疏per-chunk候选是否充足且错配负对照可分？ | v3已判读 | `SUPPLY-READY`：1056个eligible turn，正确/错配100%可分且等候选数 | 注册四臂模型实验与R2第二轮 |
+| [E-CHUNK-RETRIEVAL](E-CHUNK-RETRIEVAL.md) | 稀疏speaker路由候选能否形成稳定、收敛且不劣的agent loop？ | 已判读 | `NOT-REACHED`：虽收敛，但一致性-6.42点、路由1/4、错误激活54.98% | 先审计leave-one-chunk-out独立证据；不放行策略搜索 |
+| [E-CHUNK-RETRIEVAL-LOO-SUPPLY](E-CHUNK-RETRIEVAL-LOO-SUPPLY.md) | 排除当前chunk后，其他同speaker chunk能否提供新且准确的纠错候选？ | 已判读 | `SUPPLY-INSUFFICIENT`：覆盖980 turns，但精度1.93%、正确供给仅53 turns | 停止output-only模糊检索；新分支须先指定独立外部证据 |
+| [E-EXTERNAL-COMPANY-IDENTITY-SUPPLY](E-EXTERNAL-COMPANY-IDENTITY-SUPPLY.md) | ticker→公司品牌名能否提供准确、独立的短片段纠错候选？ | 已判读 | `SUPPLY-INSUFFICIENT`：仅15个纠错机会；触发precision 62.5%、recall 33.3% | 停止单一公司身份分支；寻找与会议同时可得的丰富材料 |
+| [E-MEETING-MATERIAL-SUPPLY-AUDIT](E-MEETING-MATERIAL-SUPPLY-AUDIT.md) | 会议同期官方材料能否提供丰富、准确且带出处的逐chunk纠错候选？ | 已判读 | `MEETING-MATERIAL-SUPPLY-INSUFFICIENT`：30个机会仅触发3个正确项，precision 0.72%、recall 10%；短缩写造成大量误触发 | 不在已读结果上调参；独立会议另行注册分层router审计 |
+| [E-MEETING-MATERIAL-RETRIEVAL-SIGNAL](E-MEETING-MATERIAL-RETRIEVAL-SIGNAL.md) | SAEA式Q-K-V能否让本会议材料稳定胜过等宽错配材料？ | 已判读 | `RETRIEVAL-SIGNAL-INSUFFICIENT`：覆盖97.07%，但归属precision 61.87%；仅Galp 77.12%，其余两场低于50% | 不放行Omni；准备encode-only语义K独立对照 |
+| [E-MEETING-MATERIAL-SEMANTIC-SIGNAL](E-MEETING-MATERIAL-SEMANTIC-SIGNAL.md) | encode-only语义K能否跨场稳定优于词法K？ | 已判读 | `SEMANTIC-RETRIEVAL-SIGNAL-PRESENT`：precision 77.86%，较词法+15.997点，3/3场过逐会门 | 独立未读会议注册retain/correct/deranged三臂Omni能力实验 |
+| [E-MATERIAL-SEMANTIC-ADMISSION](E-MATERIAL-SEMANTIC-ADMISSION.md) | Earnings-22是否仍有6场reference-unread会议可建立独立开发/确认队列？ | 已判读 | `ADMISSION_FAILED_NO_REFERENCE_UNREAD_MEETINGS`：v2读80场、v3读45场，互斥并集覆盖125/125，剩余0场 | 新会议/外部测试集；不得把outcome-unread冒充reference-unread |
+| [E-MATERIAL-RUNTIME-GATE](E-MATERIAL-RUNTIME-GATE.md) | 本会议语义top1/top2差值能否形成可部署dispatch门？ | 依赖门失败，未运行 | `NOT_RUN_PREREQUISITE_FAILED`：无法冻结3场开发+3场确认；零Pass0、零embedding、零Omni | 等待新独立会议，或另行注册较弱construction-isolated设计 |
+| [E-MATERIAL-RUNTIME-GATE-CI](E-MATERIAL-RUNTIME-GATE-CI.md) | 历史参考已暴露时，严格隔离当前构造能否复现语义dispatch信号？ | 已判读 | `CONSTRUCTION_ISOLATED_SIGNAL_PRESENT`：阈值0.01；确认precision 76.10%、覆盖74.82%、中位余弦优势0.06154，四门全过 | 可另行注册探索性三臂Omni能力实验；不得宣称独立确认或WER增益 |
 | [Z-SERIES](Z-SERIES.md) | 说话人标签、归属与切分的多臂效应是什么？ | 已判读 | G1 floors 已归档；主要差异来自转向表/归属输出，纯切片差异不显著 | 作为描述性基线，不重跑、不据此选择分支 |
 
 ## 当前优先级
 
-1. 以[今日进展总结](../2026-08-21-progress-summary.md)作为机制审计汇报入口；不得将其改写为独立确认结果。
-2. `E4-DISJOINT-PREV` 支持约50%的 prevalence 规划假设，但没有提供转写效果证据。
-3. `E4-DISJOINT-DIR` 已完成172-cell判读；安全门失败，完整31,749-call flight 与 agent loop 均不放行。
-4. `E4-SAFETY-GATE-AUDIT` 未找到兼具覆盖、安全和收益的简单运行时门；停止在当前结果上继续阈值搜索。
-5. `E4-XDOMAIN-SUPPLY-AUDIT` 只放行 Academic 的供给可行性判断；Product 严格技术供给不足，不能启动平衡跨域模型 pilot。
-6. `E4-XDOMAIN-SUPPLY-AUDIT-v2` 证明广义标签复现充足，但未确认专业实体供给；45 场 reserve 仍未读，音频与模型接触未授权。
-7. G1/Z 系列已有正式仓库证据；引用时必须保留“描述性 floors、非分支 verdict”和域内 diarizer 限制。
+1. `E-CHUNK-RETRIEVAL` 已判失败：虽收敛，但一致性下降6.42点、路由仅1/4场、错误激活54.98%；禁止据此启动策略搜索。
+2. leave-one-chunk-out独立证据审计也失败：字符串模糊候选精度仅1.93%；停止output-only检索分支，不得调阈值。
+3. `E-LOOP-STABILITY` 已淘汰recent-tail与广播式长摘要；`E-CHUNK-RETRIEVAL` 又淘汰同chunk自回灌，二者失败机制不同。
+4. 严格独立门仍因0/125未读会议而失败；降级的`E-MATERIAL-RUNTIME-GATE-CI`零模型门已通过，但只形成construction-isolated信号。下一步仅可另行注册、授权探索性三臂Omni能力实验，不能与独立确认或WER收益混写。
+5. `E4-SAFETY-GATE-AUDIT` 未找到兼具覆盖、安全和收益的简单运行时门；停止在原结果上继续阈值搜索。
+6. Earnings-22窄类供给和完整音频均已确认，但供给存在不等于模型收益；固定4路前端也没有安全的无gold主讲筛选门。
+7. G1/Z 系列只作为描述性floors引用，不重跑、不据此选择当前分支。

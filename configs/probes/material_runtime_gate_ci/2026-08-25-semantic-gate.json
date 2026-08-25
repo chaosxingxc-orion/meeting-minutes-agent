@@ -1,0 +1,68 @@
+{
+  "schema": "material-runtime-gate-ci-semantic-gate-v1",
+  "experiment_id": "E-MATERIAL-RUNTIME-GATE-CI",
+  "evidence_tier": "CONSTRUCTION_ISOLATED_EXPLORATORY",
+  "registration_sha256": "67ff8ae1fb6afe7652c7d06a56de065a9ee6e4bf2a4401c2a6e0e8800c4cb4af",
+  "runtime_sha256": "aa72dcd74b295e94c98aebbcc9c5b562b1d5325d3b22d34342c9d8e6bd5f08c5",
+  "candidate_pool_sha256": "f318fec94a38be1074fba529ee93cabdef1c5cee6187fd38d7f0a3eae0debc3e",
+  "material_pages_sha256": "8ab6b99d9c04388f0db093233a91db59e70e833e48bf9e93ae13b23f3e44fa03",
+  "preflight_sha256": "bf1c7b25e801cfe0d463d84eb987e7f6238357ff827ad56e348f09f41a812408",
+  "runner_sha256": "9357c6c7fc0b3f3c8a63c4789cbb9f451853e0d29a61474cf1bd572704af5b72",
+  "model_sha256": "06507c7b42688469c4e7298b0a1e16deff06caf291cf0a5b278c308249c3e439",
+  "server_binary_sha256": "6c39726593b2bee8e08738f67ecd5b5c1c85f3ea7174376a33fc275fbccfdaaf",
+  "pass0_sha256": {
+    "4474506": "b83a702530579cf068df5f484a1aa2470011f97fff202a4d514f0d9b1873d79f",
+    "4479944": "e220b45439bea8e4e879ca460dcf88faffbdd91ff85b56ef962da80f1ea9e6a8",
+    "4483506": "08bd95d57866c590f72efd9983f364260afcbb67674579fec3ce5b16bb0bdabe",
+    "4483633": "3b294964a8a31e43b8a51acc831157eb14b70342f5756ee768e2916ace320d1f",
+    "4484563": "c3c92e53b14509758041f52da28fdda3dce8fdb237545c41eb640d44a3d1c6cb",
+    "4485244": "373261e086231bdc81ef443e74451de9de9c7dacca2ea26da50f4f33619da812"
+  },
+  "construction": {
+    "balanced_key_width": 8,
+    "key_selection_salt": "material-runtime-gate-ci-2026-08-25-v1",
+    "source_excerpt_radius_characters": 240,
+    "minimum_query_content_tokens": 3,
+    "prior_turn_window": 20,
+    "maximum_prior_keywords": 8,
+    "minimum_keyword_evidence": 2,
+    "speaker_field": "predicted Sortformer speaker ID",
+    "history_scope": "same meeting, strictly earlier turns only",
+    "batch_size": 16,
+    "deranged_control": "ascending file_id rotation by one within each split",
+    "selector": "correct-meeting top1 minus top2 cosine gap",
+    "wrong_meeting_score_available_to_selector": false
+  },
+  "expected_queries": {
+    "development": 622,
+    "confirmation": 850
+  },
+  "budgets": {
+    "development_embeddings": 646,
+    "development_maximum_calls": 41,
+    "confirmation_embeddings": 874,
+    "confirmation_maximum_calls": 56,
+    "total_embeddings": 1520,
+    "total_maximum_calls": 97
+  },
+  "threshold_grid": [0.0, 0.01, 0.02, 0.03, 0.04, 0.05],
+  "gates": {
+    "development_minimum_attribution_precision": 0.7,
+    "development_minimum_coverage": 0.2,
+    "development_all_meetings_represented": true,
+    "confirmation_minimum_attribution_precision": 0.7,
+    "confirmation_minimum_coverage": 0.2,
+    "confirmation_per_meeting_precision_floor": 0.6,
+    "confirmation_meetings_at_or_above_precision_floor": 2,
+    "confirmation_minimum_median_correct_minus_deranged_cosine": 0.01
+  },
+  "execution": {
+    "development_first": true,
+    "choose_lowest_passing_threshold": true,
+    "confirmation_only_if_development_passes": true,
+    "confirmation_reads": 1,
+    "output_overwrite": false,
+    "reference_reads": 0,
+    "omni_calls": 0
+  }
+}

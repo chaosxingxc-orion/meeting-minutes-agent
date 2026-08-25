@@ -1,0 +1,12 @@
+decision: EARNINGS22-NARROW-SUPPLY-FEASIBLE
+model_calls: 0
+effect_identified: false
+audio_ready: false
+reserve_meetings: 45
+discovery_files_read: 0
+eligible_meetings: 30
+speaker_exclusive_carry: 264
+max_single_surface_share: 0.1136
+excluded_unaligned_mentions: 870
+
+This audit measures narrow holdout supply only; it does not identify model effect.

@@ -1,0 +1,45 @@
+{
+  "response_sha256": {
+    "4474506": "b83a702530579cf068df5f484a1aa2470011f97fff202a4d514f0d9b1873d79f",
+    "4479944": "e220b45439bea8e4e879ca460dcf88faffbdd91ff85b56ef962da80f1ea9e6a8",
+    "4483506": "08bd95d57866c590f72efd9983f364260afcbb67674579fec3ce5b16bb0bdabe",
+    "4483633": "3b294964a8a31e43b8a51acc831157eb14b70342f5756ee768e2916ace320d1f",
+    "4484563": "c3c92e53b14509758041f52da28fdda3dce8fdb237545c41eb640d44a3d1c6cb",
+    "4485244": "373261e086231bdc81ef443e74451de9de9c7dacca2ea26da50f4f33619da812"
+  },
+  "rules": {
+    "batch_size": 16,
+    "excerpt_radius": 240,
+    "key_selection_salt": "material-runtime-gate-ci-2026-08-25-v1",
+    "key_width": 8,
+    "max_prior_keywords": 8,
+    "minimum_keyword_evidence": 2,
+    "minimum_query_content_tokens": 3,
+    "prior_turn_window": 20
+  },
+  "schema": "material-runtime-gate-ci-semantic-preflight-v1",
+  "splits": {
+    "confirmation": {
+      "embeddings": 874,
+      "keys": 24,
+      "maximum_embedding_calls": 56,
+      "meetings": [
+        "4483633",
+        "4484563",
+        "4485244"
+      ],
+      "queries": 850
+    },
+    "development": {
+      "embeddings": 646,
+      "keys": 24,
+      "maximum_embedding_calls": 41,
+      "meetings": [
+        "4474506",
+        "4479944",
+        "4483506"
+      ],
+      "queries": 622
+    }
+  }
+}

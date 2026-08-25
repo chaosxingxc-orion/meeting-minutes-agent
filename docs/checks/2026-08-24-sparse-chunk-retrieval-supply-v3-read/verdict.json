@@ -1,0 +1,55 @@
+{
+  "claim_boundary": "Output-only supply; no claim about correctness, stability, or ASR utility.",
+  "experiment_id": "E-CHUNK-RETRIEVAL-SUPPLY-V3",
+  "gates": {
+    "context_budget": true,
+    "equal_candidate_cardinality": true,
+    "minimum_eligible_meetings": true,
+    "minimum_eligible_turns": true,
+    "route_distinct_rate": true
+  },
+  "limits": {
+    "global_pool_size": 96,
+    "maximum_candidates": 4,
+    "maximum_context_characters": 256,
+    "minimum_pool_count": 2,
+    "minimum_similarity": 0.75,
+    "speaker_pool_size": 48
+  },
+  "meetings": [
+    {
+      "eligible_turns": 176,
+      "file_id": "4443920",
+      "route_distinct_turns": 176,
+      "turns": 201
+    },
+    {
+      "eligible_turns": 232,
+      "file_id": "4483589",
+      "route_distinct_turns": 232,
+      "turns": 281
+    },
+    {
+      "eligible_turns": 396,
+      "file_id": "4461799",
+      "route_distinct_turns": 396,
+      "turns": 497
+    },
+    {
+      "eligible_turns": 252,
+      "file_id": "4430051",
+      "route_distinct_turns": 252,
+      "turns": 450
+    }
+  ],
+  "schema": "sparse-chunk-retrieval-supply-read-v3",
+  "totals": {
+    "eligible_meetings": 4,
+    "eligible_turns": 1056,
+    "equal_cardinality_turns": 1056,
+    "route_distinct_rate": 1.0,
+    "route_distinct_turns": 1056,
+    "turns": 1429
+  },
+  "verdict": "SPARSE-CHUNK-RETRIEVAL-SUPPLY-READY"
+}

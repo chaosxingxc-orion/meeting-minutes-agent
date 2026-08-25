@@ -1,0 +1,2302 @@
+{
+  "claim_boundary": "Zero-model supply feasibility only; no Omni or training-free policy is admitted by this result.",
+  "deranged_totals": {
+    "budget_violations": 0,
+    "correct_activations": 0,
+    "corrective_turns": 0,
+    "false_activations": 336,
+    "trigger_precision": 0.0,
+    "triggered_activations": 336,
+    "triggered_turns": 270,
+    "turns": 979
+  },
+  "distributed_meetings": 1,
+  "eligible_meetings": [
+    "4443920",
+    "4461799",
+    "4483589"
+  ],
+  "experiment_id": "E-MEETING-MATERIAL-SUPPLY-AUDIT",
+  "gates": {
+    "complete_provenance": true,
+    "context_budget": true,
+    "deranged_separation": false,
+    "minimum_corrective_turns": false,
+    "minimum_distributed_meetings": false,
+    "minimum_eligible_meetings": true,
+    "minimum_trigger_precision": false,
+    "minimum_trigger_recall": false,
+    "no_exact_form_triggers": true,
+    "no_reference_use_in_construction": true
+  },
+  "meetings": [
+    {
+      "candidate_count": 8,
+      "correct_activations": 3,
+      "corrective_turns": 3,
+      "deranged": {
+        "budget_violations": 0,
+        "correct_activations": 0,
+        "corrective_turns": 0,
+        "false_activations": 157,
+        "triggered_activations": 157,
+        "triggered_turns": 112,
+        "turns": 201
+      },
+      "deranged_from": "4461799",
+      "false_activations": 9,
+      "file_id": "4443920",
+      "issuer": "Jeronimo Martins",
+      "opportunity_activations": 13,
+      "triggered_activations": 12,
+      "triggered_turns": 11,
+      "turns": 201
+    },
+    {
+      "candidate_count": 21,
+      "correct_activations": 0,
+      "corrective_turns": 0,
+      "deranged": {
+        "budget_violations": 0,
+        "correct_activations": 0,
+        "corrective_turns": 0,
+        "false_activations": 26,
+        "triggered_activations": 26,
+        "triggered_turns": 23,
+        "turns": 281
+      },
+      "deranged_from": "4443920",
+      "false_activations": 133,
+      "file_id": "4483589",
+      "issuer": "TeamViewer",
+      "opportunity_activations": 9,
+      "triggered_activations": 133,
+      "triggered_turns": 100,
+      "turns": 281
+    },
+    {
+      "candidate_count": 20,
+      "correct_activations": 0,
+      "corrective_turns": 0,
+      "deranged": {
+        "budget_violations": 0,
+        "correct_activations": 0,
+        "corrective_turns": 0,
+        "false_activations": 153,
+        "triggered_activations": 153,
+        "triggered_turns": 135,
+        "turns": 497
+      },
+      "deranged_from": "4483589",
+      "false_activations": 273,
+      "file_id": "4461799",
+      "issuer": "Galp",
+      "opportunity_activations": 8,
+      "triggered_activations": 273,
+      "triggered_turns": 206,
+      "turns": 497
+    }
+  ],
+  "precision_advantage_over_deranged": 0.007177033492822967,
+  "provenance_checked": 49,
+  "provenance_missing": 0,
+  "schema": "meeting-material-supply-read-v1",
+  "totals": {
+    "budget_violations": 0,
+    "correct_activations": 3,
+    "corrective_turns": 3,
+    "exact_form_trigger_violations": 0,
+    "false_activations": 415,
+    "opportunity_activations": 30,
+    "trigger_precision": 0.007177033492822967,
+    "trigger_recall": 0.1,
+    "triggered_activations": 418,
+    "triggered_turns": 317,
+    "turns": 979
+  },
+  "trigger_examples": [
+    {
+      "correct": {
+        "budget_violation": false,
+        "correct": [],
+        "exact_count": 0,
+        "false": [],
+        "opportunities": [],
+        "rendered_characters": 0,
+        "triggered": []
+      },
+      "deranged": {
+        "budget_violation": false,
+        "correct": [],
+        "exact_count": 0,
+        "false": [
+          "OCF"
+        ],
+        "opportunities": [],
+        "rendered_characters": 16,
+        "triggered": [
+          "OCF"
+        ]
+      },
+      "file_id": "4443920",
+      "turn_index": 0
+    },
+    {
+      "correct": {
+        "budget_violation": false,
+        "correct": [],
+        "exact_count": 0,
+        "false": [],
+        "opportunities": [],
+        "rendered_characters": 0,
+        "triggered": []
+      },
+      "deranged": {
+        "budget_violation": false,
+        "correct": [],
+        "exact_count": 0,
+        "false": [
+          "OCF",
+          "Sines"
+        ],
+        "opportunities": [],
+        "rendered_characters": 23,
+        "triggered": [
+          "OCF",
+          "Sines"
+        ]
+      },
+      "file_id": "4443920",
+      "turn_index": 2
+    },
+    {
+      "correct": {
+        "budget_violation": false,
+        "correct": [],
+        "exact_count": 0,
+        "false": [],
+        "opportunities": [],
+        "rendered_characters": 0,
+        "triggered": []
+      },
+      "deranged": {
+        "budget_violation": false,
+        "correct": [],
+        "exact_count": 0,
+        "false": [
+          "OCF",
+          "REE"
+        ],
+        "opportunities": [],
+        "rendered_characters": 21,
+        "triggered": [
+          "OCF",
+          "REE"
+        ]
+      },
+      "file_id": "4443920",
+      "turn_index": 3
+    },
+    {
+      "correct": {
+        "budget_violation": false,
+        "correct": [],
+        "exact_count": 0,
+        "false": [],
+        "opportunities": [],
+        "rendered_characters": 0,
+        "triggered": []
+      },
+      "deranged": {
+        "budget_violation": false,
+        "correct": [],
+        "exact_count": 0,
+        "false": [
+          "OCF"
+        ],
+        "opportunities": [],
+        "rendered_characters": 16,
+        "triggered": [
+          "OCF"
+        ]
+      },
+      "file_id": "4443920",
+      "turn_index": 5
+    },
+    {
+      "correct": {
+        "budget_violation": false,
+        "correct": [],
+        "exact_count": 0,
+        "false": [],
+        "opportunities": [],
+        "rendered_characters": 0,
+        "triggered": []
+      },
+      "deranged": {
+        "budget_violation": false,
+        "correct": [],
+        "exact_count": 0,
+        "false": [
+          "OCF"
+        ],
+        "opportunities": [],
+        "rendered_characters": 16,
+        "triggered": [
+          "OCF"
+        ]
+      },
+      "file_id": "4443920",
+      "turn_index": 7
+    },
+    {
+      "correct": {
+        "budget_violation": false,
+        "correct": [],
+        "exact_count": 0,
+        "false": [],
+        "opportunities": [],
+        "rendered_characters": 0,
+        "triggered": []
+      },
+      "deranged": {
+        "budget_violation": false,
+        "correct": [],
+        "exact_count": 0,
+        "false": [
+          "OCF"
+        ],
+        "opportunities": [],
+        "rendered_characters": 16,
+        "triggered": [
+          "OCF"
+        ]
+      },
+      "file_id": "4443920",
+      "turn_index": 8
+    },
+    {
+      "correct": {
+        "budget_violation": false,
+        "correct": [],
+        "exact_count": 0,
+        "false": [],
+        "opportunities": [],
+        "rendered_characters": 0,
+        "triggered": []
+      },
+      "deranged": {
+        "budget_violation": false,
+        "correct": [],
+        "exact_count": 0,
+        "false": [
+          "OCF"
+        ],
+        "opportunities": [],
+        "rendered_characters": 16,
+        "triggered": [
+          "OCF"
+        ]
+      },
+      "file_id": "4443920",
+      "turn_index": 10
+    },
+    {
+      "correct": {
+        "budget_violation": false,
+        "correct": [],
+        "exact_count": 0,
+        "false": [],
+        "opportunities": [],
+        "rendered_characters": 0,
+        "triggered": []
+      },
+      "deranged": {
+        "budget_violation": false,
+        "correct": [],
+        "exact_count": 0,
+        "false": [
+          "OCF"
+        ],
+        "opportunities": [],
+        "rendered_characters": 16,
+        "triggered": [
+          "OCF"
+        ]
+      },
+      "file_id": "4443920",
+      "turn_index": 12
+    },
+    {
+      "correct": {
+        "budget_violation": false,
+        "correct": [],
+        "exact_count": 0,
+        "false": [],
+        "opportunities": [],
+        "rendered_characters": 0,
+        "triggered": []
+      },
+      "deranged": {
+        "budget_violation": false,
+        "correct": [],
+        "exact_count": 0,
+        "false": [
+          "OCF"
+        ],
+        "opportunities": [],
+        "rendered_characters": 16,
+        "triggered": [
+          "OCF"
+        ]
+      },
+      "file_id": "4443920",
+      "turn_index": 13
+    },
+    {
+      "correct": {
+        "budget_violation": false,
+        "correct": [],
+        "exact_count": 0,
+        "false": [],
+        "opportunities": [],
+        "rendered_characters": 0,
+        "triggered": []
+      },
+      "deranged": {
+        "budget_violation": false,
+        "correct": [],
+        "exact_count": 0,
+        "false": [
+          "OCF"
+        ],
+        "opportunities": [],
+        "rendered_characters": 16,
+        "triggered": [
+          "OCF"
+        ]
+      },
+      "file_id": "4443920",
+      "turn_index": 14
+    },
+    {
+      "correct": {
+        "budget_violation": false,
+        "correct": [],
+        "exact_count": 0,
+        "false": [],
+        "opportunities": [],
+        "rendered_characters": 0,
+        "triggered": []
+      },
+      "deranged": {
+        "budget_violation": false,
+        "correct": [],
+        "exact_count": 0,
+        "false": [
+          "OCF",
+          "REE"
+        ],
+        "opportunities": [],
+        "rendered_characters": 21,
+        "triggered": [
+          "OCF",
+          "REE"
+        ]
+      },
+      "file_id": "4443920",
+      "turn_index": 15
+    },
+    {
+      "correct": {
+        "budget_violation": false,
+        "correct": [],
+        "exact_count": 0,
+        "false": [],
+        "opportunities": [],
+        "rendered_characters": 0,
+        "triggered": []
+      },
+      "deranged": {
+        "budget_violation": false,
+        "correct": [],
+        "exact_count": 0,
+        "false": [
+          "LNG",
+          "OCF"
+        ],
+        "opportunities": [],
+        "rendered_characters": 21,
+        "triggered": [
+          "LNG",
+          "OCF"
+        ]
+      },
+      "file_id": "4443920",
+      "turn_index": 16
+    },
+    {
+      "correct": {
+        "budget_violation": false,
+        "correct": [],
+        "exact_count": 0,
+        "false": [],
+        "opportunities": [],
+        "rendered_characters": 0,
+        "triggered": []
+      },
+      "deranged": {
+        "budget_violation": false,
+        "correct": [],
+        "exact_count": 0,
+        "false": [
+          "OCF"
+        ],
+        "opportunities": [],
+        "rendered_characters": 16,
+        "triggered": [
+          "OCF"
+        ]
+      },
+      "file_id": "4443920",
+      "turn_index": 17
+    },
+    {
+      "correct": {
+        "budget_violation": false,
+        "correct": [],
+        "exact_count": 0,
+        "false": [],
+        "opportunities": [],
+        "rendered_characters": 0,
+        "triggered": []
+      },
+      "deranged": {
+        "budget_violation": false,
+        "correct": [],
+        "exact_count": 0,
+        "false": [
+          "OCF"
+        ],
+        "opportunities": [],
+        "rendered_characters": 16,
+        "triggered": [
+          "OCF"
+        ]
+      },
+      "file_id": "4443920",
+      "turn_index": 18
+    },
+    {
+      "correct": {
+        "budget_violation": false,
+        "correct": [],
+        "exact_count": 0,
+        "false": [],
+        "opportunities": [],
+        "rendered_characters": 0,
+        "triggered": []
+      },
+      "deranged": {
+        "budget_violation": false,
+        "correct": [],
+        "exact_count": 0,
+        "false": [
+          "OCF"
+        ],
+        "opportunities": [],
+        "rendered_characters": 16,
+        "triggered": [
+          "OCF"
+        ]
+      },
+      "file_id": "4443920",
+      "turn_index": 19
+    },
+    {
+      "correct": {
+        "budget_violation": false,
+        "correct": [],
+        "exact_count": 0,
+        "false": [],
+        "opportunities": [],
+        "rendered_characters": 0,
+        "triggered": []
+      },
+      "deranged": {
+        "budget_violation": false,
+        "correct": [],
+        "exact_count": 0,
+        "false": [
+          "OCF",
+          "OMIE"
+        ],
+        "opportunities": [],
+        "rendered_characters": 22,
+        "triggered": [
+          "OCF",
+          "OMIE"
+        ]
+      },
+      "file_id": "4443920",
+      "turn_index": 21
+    },
+    {
+      "correct": {
+        "budget_violation": false,
+        "correct": [],
+        "exact_count": 0,
+        "false": [],
+        "opportunities": [],
+        "rendered_characters": 0,
+        "triggered": []
+      },
+      "deranged": {
+        "budget_violation": false,
+        "correct": [],
+        "exact_count": 0,
+        "false": [
+          "OCF"
+        ],
+        "opportunities": [],
+        "rendered_characters": 16,
+        "triggered": [
+          "OCF"
+        ]
+      },
+      "file_id": "4443920",
+      "turn_index": 22
+    },
+    {
+      "correct": {
+        "budget_violation": false,
+        "correct": [],
+        "exact_count": 0,
+        "false": [],
+        "opportunities": [],
+        "rendered_characters": 0,
+        "triggered": []
+      },
+      "deranged": {
+        "budget_violation": false,
+        "correct": [],
+        "exact_count": 0,
+        "false": [
+          "OCF"
+        ],
+        "opportunities": [],
+        "rendered_characters": 16,
+        "triggered": [
+          "OCF"
+        ]
+      },
+      "file_id": "4443920",
+      "turn_index": 24
+    },
+    {
+      "correct": {
+        "budget_violation": false,
+        "correct": [],
+        "exact_count": 0,
+        "false": [],
+        "opportunities": [],
+        "rendered_characters": 0,
+        "triggered": []
+      },
+      "deranged": {
+        "budget_violation": false,
+        "correct": [],
+        "exact_count": 0,
+        "false": [
+          "OCF"
+        ],
+        "opportunities": [],
+        "rendered_characters": 16,
+        "triggered": [
+          "OCF"
+        ]
+      },
+      "file_id": "4443920",
+      "turn_index": 26
+    },
+    {
+      "correct": {
+        "budget_violation": false,
+        "correct": [],
+        "exact_count": 0,
+        "false": [],
+        "opportunities": [],
+        "rendered_characters": 0,
+        "triggered": []
+      },
+      "deranged": {
+        "budget_violation": false,
+        "correct": [],
+        "exact_count": 0,
+        "false": [
+          "OCF"
+        ],
+        "opportunities": [],
+        "rendered_characters": 16,
+        "triggered": [
+          "OCF"
+        ]
+      },
+      "file_id": "4443920",
+      "turn_index": 27
+    },
+    {
+      "correct": {
+        "budget_violation": false,
+        "correct": [],
+        "exact_count": 0,
+        "false": [],
+        "opportunities": [],
+        "rendered_characters": 0,
+        "triggered": []
+      },
+      "deranged": {
+        "budget_violation": false,
+        "correct": [],
+        "exact_count": 0,
+        "false": [
+          "OCF"
+        ],
+        "opportunities": [],
+        "rendered_characters": 16,
+        "triggered": [
+          "OCF"
+        ]
+      },
+      "file_id": "4443920",
+      "turn_index": 28
+    },
+    {
+      "correct": {
+        "budget_violation": false,
+        "correct": [],
+        "exact_count": 0,
+        "false": [],
+        "opportunities": [],
+        "rendered_characters": 0,
+        "triggered": []
+      },
+      "deranged": {
+        "budget_violation": false,
+        "correct": [],
+        "exact_count": 0,
+        "false": [
+          "OCF",
+          "REE"
+        ],
+        "opportunities": [],
+        "rendered_characters": 21,
+        "triggered": [
+          "OCF",
+          "REE"
+        ]
+      },
+      "file_id": "4443920",
+      "turn_index": 30
+    },
+    {
+      "correct": {
+        "budget_violation": false,
+        "correct": [],
+        "exact_count": 0,
+        "false": [],
+        "opportunities": [],
+        "rendered_characters": 0,
+        "triggered": []
+      },
+      "deranged": {
+        "budget_violation": false,
+        "correct": [],
+        "exact_count": 0,
+        "false": [
+          "OCF"
+        ],
+        "opportunities": [],
+        "rendered_characters": 16,
+        "triggered": [
+          "OCF"
+        ]
+      },
+      "file_id": "4443920",
+      "turn_index": 31
+    },
+    {
+      "correct": {
+        "budget_violation": false,
+        "correct": [],
+        "exact_count": 1,
+        "false": [],
+        "opportunities": [],
+        "rendered_characters": 0,
+        "triggered": []
+      },
+      "deranged": {
+        "budget_violation": false,
+        "correct": [],
+        "exact_count": 0,
+        "false": [
+          "OCF",
+          "Sines"
+        ],
+        "opportunities": [],
+        "rendered_characters": 23,
+        "triggered": [
+          "OCF",
+          "Sines"
+        ]
+      },
+      "file_id": "4443920",
+      "turn_index": 32
+    },
+    {
+      "correct": {
+        "budget_violation": false,
+        "correct": [],
+        "exact_count": 0,
+        "false": [],
+        "opportunities": [
+          "Biedronka"
+        ],
+        "rendered_characters": 0,
+        "triggered": []
+      },
+      "deranged": {
+        "budget_violation": false,
+        "correct": [],
+        "exact_count": 0,
+        "false": [
+          "OCF",
+          "Sines",
+          "REE"
+        ],
+        "opportunities": [],
+        "rendered_characters": 28,
+        "triggered": [
+          "OCF",
+          "Sines",
+          "REE"
+        ]
+      },
+      "file_id": "4443920",
+      "turn_index": 33
+    },
+    {
+      "correct": {
+        "budget_violation": false,
+        "correct": [],
+        "exact_count": 0,
+        "false": [
+          "Ara"
+        ],
+        "opportunities": [],
+        "rendered_characters": 16,
+        "triggered": [
+          "Ara"
+        ]
+      },
+      "deranged": {
+        "budget_violation": false,
+        "correct": [],
+        "exact_count": 0,
+        "false": [
+          "OCF"
+        ],
+        "opportunities": [],
+        "rendered_characters": 16,
+        "triggered": [
+          "OCF"
+        ]
+      },
+      "file_id": "4443920",
+      "turn_index": 34
+    },
+    {
+      "correct": {
+        "budget_violation": false,
+        "correct": [],
+        "exact_count": 0,
+        "false": [],
+        "opportunities": [],
+        "rendered_characters": 0,
+        "triggered": []
+      },
+      "deranged": {
+        "budget_violation": false,
+        "correct": [],
+        "exact_count": 0,
+        "false": [
+          "OCF",
+          "REE"
+        ],
+        "opportunities": [],
+        "rendered_characters": 21,
+        "triggered": [
+          "OCF",
+          "REE"
+        ]
+      },
+      "file_id": "4443920",
+      "turn_index": 35
+    },
+    {
+      "correct": {
+        "budget_violation": false,
+        "correct": [],
+        "exact_count": 0,
+        "false": [],
+        "opportunities": [],
+        "rendered_characters": 0,
+        "triggered": []
+      },
+      "deranged": {
+        "budget_violation": false,
+        "correct": [],
+        "exact_count": 0,
+        "false": [
+          "OCF"
+        ],
+        "opportunities": [],
+        "rendered_characters": 16,
+        "triggered": [
+          "OCF"
+        ]
+      },
+      "file_id": "4443920",
+      "turn_index": 37
+    },
+    {
+      "correct": {
+        "budget_violation": false,
+        "correct": [],
+        "exact_count": 1,
+        "false": [],
+        "opportunities": [],
+        "rendered_characters": 0,
+        "triggered": []
+      },
+      "deranged": {
+        "budget_violation": false,
+        "correct": [],
+        "exact_count": 0,
+        "false": [
+          "OCF",
+          "REE"
+        ],
+        "opportunities": [],
+        "rendered_characters": 21,
+        "triggered": [
+          "OCF",
+          "REE"
+        ]
+      },
+      "file_id": "4443920",
+      "turn_index": 39
+    },
+    {
+      "correct": {
+        "budget_violation": false,
+        "correct": [],
+        "exact_count": 0,
+        "false": [],
+        "opportunities": [],
+        "rendered_characters": 0,
+        "triggered": []
+      },
+      "deranged": {
+        "budget_violation": false,
+        "correct": [],
+        "exact_count": 0,
+        "false": [
+          "OCF"
+        ],
+        "opportunities": [],
+        "rendered_characters": 16,
+        "triggered": [
+          "OCF"
+        ]
+      },
+      "file_id": "4443920",
+      "turn_index": 41
+    },
+    {
+      "correct": {
+        "budget_violation": false,
+        "correct": [],
+        "exact_count": 0,
+        "false": [],
+        "opportunities": [],
+        "rendered_characters": 0,
+        "triggered": []
+      },
+      "deranged": {
+        "budget_violation": false,
+        "correct": [],
+        "exact_count": 0,
+        "false": [
+          "OCF"
+        ],
+        "opportunities": [],
+        "rendered_characters": 16,
+        "triggered": [
+          "OCF"
+        ]
+      },
+      "file_id": "4443920",
+      "turn_index": 42
+    },
+    {
+      "correct": {
+        "budget_violation": false,
+        "correct": [],
+        "exact_count": 0,
+        "false": [],
+        "opportunities": [],
+        "rendered_characters": 0,
+        "triggered": []
+      },
+      "deranged": {
+        "budget_violation": false,
+        "correct": [],
+        "exact_count": 0,
+        "false": [
+          "OCF"
+        ],
+        "opportunities": [],
+        "rendered_characters": 16,
+        "triggered": [
+          "OCF"
+        ]
+      },
+      "file_id": "4443920",
+      "turn_index": 43
+    },
+    {
+      "correct": {
+        "budget_violation": false,
+        "correct": [],
+        "exact_count": 1,
+        "false": [],
+        "opportunities": [],
+        "rendered_characters": 0,
+        "triggered": []
+      },
+      "deranged": {
+        "budget_violation": false,
+        "correct": [],
+        "exact_count": 0,
+        "false": [
+          "OCF"
+        ],
+        "opportunities": [],
+        "rendered_characters": 16,
+        "triggered": [
+          "OCF"
+        ]
+      },
+      "file_id": "4443920",
+      "turn_index": 44
+    },
+    {
+      "correct": {
+        "budget_violation": false,
+        "correct": [],
+        "exact_count": 1,
+        "false": [],
+        "opportunities": [],
+        "rendered_characters": 0,
+        "triggered": []
+      },
+      "deranged": {
+        "budget_violation": false,
+        "correct": [],
+        "exact_count": 0,
+        "false": [
+          "OCF"
+        ],
+        "opportunities": [],
+        "rendered_characters": 16,
+        "triggered": [
+          "OCF"
+        ]
+      },
+      "file_id": "4443920",
+      "turn_index": 46
+    },
+    {
+      "correct": {
+        "budget_violation": false,
+        "correct": [],
+        "exact_count": 0,
+        "false": [],
+        "opportunities": [],
+        "rendered_characters": 0,
+        "triggered": []
+      },
+      "deranged": {
+        "budget_violation": false,
+        "correct": [],
+        "exact_count": 0,
+        "false": [
+          "OCF"
+        ],
+        "opportunities": [],
+        "rendered_characters": 16,
+        "triggered": [
+          "OCF"
+        ]
+      },
+      "file_id": "4443920",
+      "turn_index": 47
+    },
+    {
+      "correct": {
+        "budget_violation": false,
+        "correct": [],
+        "exact_count": 0,
+        "false": [],
+        "opportunities": [
+          "Hebe"
+        ],
+        "rendered_characters": 0,
+        "triggered": []
+      },
+      "deranged": {
+        "budget_violation": false,
+        "correct": [],
+        "exact_count": 0,
+        "false": [
+          "Sines",
+          "REE"
+        ],
+        "opportunities": [],
+        "rendered_characters": 23,
+        "triggered": [
+          "Sines",
+          "REE"
+        ]
+      },
+      "file_id": "4443920",
+      "turn_index": 48
+    },
+    {
+      "correct": {
+        "budget_violation": false,
+        "correct": [
+          "Hebe"
+        ],
+        "exact_count": 0,
+        "false": [],
+        "opportunities": [
+          "Hebe"
+        ],
+        "rendered_characters": 17,
+        "triggered": [
+          "Hebe"
+        ]
+      },
+      "deranged": {
+        "budget_violation": false,
+        "correct": [],
+        "exact_count": 0,
+        "false": [
+          "OCF"
+        ],
+        "opportunities": [],
+        "rendered_characters": 16,
+        "triggered": [
+          "OCF"
+        ]
+      },
+      "file_id": "4443920",
+      "turn_index": 49
+    },
+    {
+      "correct": {
+        "budget_violation": false,
+        "correct": [],
+        "exact_count": 0,
+        "false": [],
+        "opportunities": [],
+        "rendered_characters": 0,
+        "triggered": []
+      },
+      "deranged": {
+        "budget_violation": false,
+        "correct": [],
+        "exact_count": 0,
+        "false": [
+          "OCF"
+        ],
+        "opportunities": [],
+        "rendered_characters": 16,
+        "triggered": [
+          "OCF"
+        ]
+      },
+      "file_id": "4443920",
+      "turn_index": 50
+    },
+    {
+      "correct": {
+        "budget_violation": false,
+        "correct": [],
+        "exact_count": 0,
+        "false": [],
+        "opportunities": [],
+        "rendered_characters": 0,
+        "triggered": []
+      },
+      "deranged": {
+        "budget_violation": false,
+        "correct": [],
+        "exact_count": 0,
+        "false": [
+          "OCF",
+          "REE"
+        ],
+        "opportunities": [],
+        "rendered_characters": 21,
+        "triggered": [
+          "OCF",
+          "REE"
+        ]
+      },
+      "file_id": "4443920",
+      "turn_index": 51
+    },
+    {
+      "correct": {
+        "budget_violation": false,
+        "correct": [],
+        "exact_count": 0,
+        "false": [],
+        "opportunities": [],
+        "rendered_characters": 0,
+        "triggered": []
+      },
+      "deranged": {
+        "budget_violation": false,
+        "correct": [],
+        "exact_count": 0,
+        "false": [
+          "OCF"
+        ],
+        "opportunities": [],
+        "rendered_characters": 16,
+        "triggered": [
+          "OCF"
+        ]
+      },
+      "file_id": "4443920",
+      "turn_index": 53
+    },
+    {
+      "correct": {
+        "budget_violation": false,
+        "correct": [],
+        "exact_count": 0,
+        "false": [
+          "Ara"
+        ],
+        "opportunities": [],
+        "rendered_characters": 16,
+        "triggered": [
+          "Ara"
+        ]
+      },
+      "deranged": {
+        "budget_violation": false,
+        "correct": [],
+        "exact_count": 0,
+        "false": [],
+        "opportunities": [],
+        "rendered_characters": 0,
+        "triggered": []
+      },
+      "file_id": "4443920",
+      "turn_index": 54
+    },
+    {
+      "correct": {
+        "budget_violation": false,
+        "correct": [],
+        "exact_count": 0,
+        "false": [],
+        "opportunities": [],
+        "rendered_characters": 0,
+        "triggered": []
+      },
+      "deranged": {
+        "budget_violation": false,
+        "correct": [],
+        "exact_count": 0,
+        "false": [
+          "OCF"
+        ],
+        "opportunities": [],
+        "rendered_characters": 16,
+        "triggered": [
+          "OCF"
+        ]
+      },
+      "file_id": "4443920",
+      "turn_index": 55
+    },
+    {
+      "correct": {
+        "budget_violation": false,
+        "correct": [],
+        "exact_count": 0,
+        "false": [],
+        "opportunities": [],
+        "rendered_characters": 0,
+        "triggered": []
+      },
+      "deranged": {
+        "budget_violation": false,
+        "correct": [],
+        "exact_count": 0,
+        "false": [
+          "OCF"
+        ],
+        "opportunities": [],
+        "rendered_characters": 16,
+        "triggered": [
+          "OCF"
+        ]
+      },
+      "file_id": "4443920",
+      "turn_index": 56
+    },
+    {
+      "correct": {
+        "budget_violation": false,
+        "correct": [],
+        "exact_count": 0,
+        "false": [],
+        "opportunities": [
+          "Biedronka"
+        ],
+        "rendered_characters": 0,
+        "triggered": []
+      },
+      "deranged": {
+        "budget_violation": false,
+        "correct": [],
+        "exact_count": 0,
+        "false": [
+          "OCF"
+        ],
+        "opportunities": [],
+        "rendered_characters": 16,
+        "triggered": [
+          "OCF"
+        ]
+      },
+      "file_id": "4443920",
+      "turn_index": 57
+    },
+    {
+      "correct": {
+        "budget_violation": false,
+        "correct": [],
+        "exact_count": 0,
+        "false": [],
+        "opportunities": [],
+        "rendered_characters": 0,
+        "triggered": []
+      },
+      "deranged": {
+        "budget_violation": false,
+        "correct": [],
+        "exact_count": 0,
+        "false": [
+          "OCF"
+        ],
+        "opportunities": [],
+        "rendered_characters": 16,
+        "triggered": [
+          "OCF"
+        ]
+      },
+      "file_id": "4443920",
+      "turn_index": 58
+    },
+    {
+      "correct": {
+        "budget_violation": false,
+        "correct": [],
+        "exact_count": 0,
+        "false": [],
+        "opportunities": [],
+        "rendered_characters": 0,
+        "triggered": []
+      },
+      "deranged": {
+        "budget_violation": false,
+        "correct": [],
+        "exact_count": 0,
+        "false": [
+          "OCF",
+          "Sines"
+        ],
+        "opportunities": [],
+        "rendered_characters": 23,
+        "triggered": [
+          "OCF",
+          "Sines"
+        ]
+      },
+      "file_id": "4443920",
+      "turn_index": 60
+    },
+    {
+      "correct": {
+        "budget_violation": false,
+        "correct": [],
+        "exact_count": 0,
+        "false": [],
+        "opportunities": [],
+        "rendered_characters": 0,
+        "triggered": []
+      },
+      "deranged": {
+        "budget_violation": false,
+        "correct": [],
+        "exact_count": 0,
+        "false": [
+          "OCF"
+        ],
+        "opportunities": [],
+        "rendered_characters": 16,
+        "triggered": [
+          "OCF"
+        ]
+      },
+      "file_id": "4443920",
+      "turn_index": 62
+    },
+    {
+      "correct": {
+        "budget_violation": false,
+        "correct": [],
+        "exact_count": 0,
+        "false": [],
+        "opportunities": [],
+        "rendered_characters": 0,
+        "triggered": []
+      },
+      "deranged": {
+        "budget_violation": false,
+        "correct": [],
+        "exact_count": 0,
+        "false": [
+          "OCF"
+        ],
+        "opportunities": [],
+        "rendered_characters": 16,
+        "triggered": [
+          "OCF"
+        ]
+      },
+      "file_id": "4443920",
+      "turn_index": 63
+    },
+    {
+      "correct": {
+        "budget_violation": false,
+        "correct": [],
+        "exact_count": 0,
+        "false": [],
+        "opportunities": [],
+        "rendered_characters": 0,
+        "triggered": []
+      },
+      "deranged": {
+        "budget_violation": false,
+        "correct": [],
+        "exact_count": 0,
+        "false": [
+          "OCF",
+          "REE"
+        ],
+        "opportunities": [],
+        "rendered_characters": 21,
+        "triggered": [
+          "OCF",
+          "REE"
+        ]
+      },
+      "file_id": "4443920",
+      "turn_index": 64
+    },
+    {
+      "correct": {
+        "budget_violation": false,
+        "correct": [],
+        "exact_count": 0,
+        "false": [],
+        "opportunities": [],
+        "rendered_characters": 0,
+        "triggered": []
+      },
+      "deranged": {
+        "budget_violation": false,
+        "correct": [],
+        "exact_count": 0,
+        "false": [
+          "OCF",
+          "REE"
+        ],
+        "opportunities": [],
+        "rendered_characters": 21,
+        "triggered": [
+          "OCF",
+          "REE"
+        ]
+      },
+      "file_id": "4443920",
+      "turn_index": 65
+    },
+    {
+      "correct": {
+        "budget_violation": false,
+        "correct": [],
+        "exact_count": 0,
+        "false": [],
+        "opportunities": [],
+        "rendered_characters": 0,
+        "triggered": []
+      },
+      "deranged": {
+        "budget_violation": false,
+        "correct": [],
+        "exact_count": 0,
+        "false": [
+          "REE",
+          "OMIE"
+        ],
+        "opportunities": [],
+        "rendered_characters": 22,
+        "triggered": [
+          "REE",
+          "OMIE"
+        ]
+      },
+      "file_id": "4443920",
+      "turn_index": 66
+    },
+    {
+      "correct": {
+        "budget_violation": false,
+        "correct": [],
+        "exact_count": 0,
+        "false": [],
+        "opportunities": [],
+        "rendered_characters": 0,
+        "triggered": []
+      },
+      "deranged": {
+        "budget_violation": false,
+        "correct": [],
+        "exact_count": 0,
+        "false": [
+          "OCF"
+        ],
+        "opportunities": [],
+        "rendered_characters": 16,
+        "triggered": [
+          "OCF"
+        ]
+      },
+      "file_id": "4443920",
+      "turn_index": 67
+    },
+    {
+      "correct": {
+        "budget_violation": false,
+        "correct": [],
+        "exact_count": 1,
+        "false": [],
+        "opportunities": [],
+        "rendered_characters": 0,
+        "triggered": []
+      },
+      "deranged": {
+        "budget_violation": false,
+        "correct": [],
+        "exact_count": 0,
+        "false": [
+          "OCF",
+          "OMIE"
+        ],
+        "opportunities": [],
+        "rendered_characters": 22,
+        "triggered": [
+          "OCF",
+          "OMIE"
+        ]
+      },
+      "file_id": "4443920",
+      "turn_index": 68
+    },
+    {
+      "correct": {
+        "budget_violation": false,
+        "correct": [],
+        "exact_count": 0,
+        "false": [],
+        "opportunities": [],
+        "rendered_characters": 0,
+        "triggered": []
+      },
+      "deranged": {
+        "budget_violation": false,
+        "correct": [],
+        "exact_count": 0,
+        "false": [
+          "OCF"
+        ],
+        "opportunities": [],
+        "rendered_characters": 16,
+        "triggered": [
+          "OCF"
+        ]
+      },
+      "file_id": "4443920",
+      "turn_index": 69
+    },
+    {
+      "correct": {
+        "budget_violation": false,
+        "correct": [],
+        "exact_count": 0,
+        "false": [],
+        "opportunities": [],
+        "rendered_characters": 0,
+        "triggered": []
+      },
+      "deranged": {
+        "budget_violation": false,
+        "correct": [],
+        "exact_count": 0,
+        "false": [
+          "OCF",
+          "OMIE"
+        ],
+        "opportunities": [],
+        "rendered_characters": 22,
+        "triggered": [
+          "OCF",
+          "OMIE"
+        ]
+      },
+      "file_id": "4443920",
+      "turn_index": 70
+    },
+    {
+      "correct": {
+        "budget_violation": false,
+        "correct": [],
+        "exact_count": 0,
+        "false": [],
+        "opportunities": [],
+        "rendered_characters": 0,
+        "triggered": []
+      },
+      "deranged": {
+        "budget_violation": false,
+        "correct": [],
+        "exact_count": 0,
+        "false": [
+          "OCF"
+        ],
+        "opportunities": [],
+        "rendered_characters": 16,
+        "triggered": [
+          "OCF"
+        ]
+      },
+      "file_id": "4443920",
+      "turn_index": 71
+    },
+    {
+      "correct": {
+        "budget_violation": false,
+        "correct": [],
+        "exact_count": 0,
+        "false": [],
+        "opportunities": [],
+        "rendered_characters": 0,
+        "triggered": []
+      },
+      "deranged": {
+        "budget_violation": false,
+        "correct": [],
+        "exact_count": 0,
+        "false": [
+          "OCF",
+          "REE"
+        ],
+        "opportunities": [],
+        "rendered_characters": 21,
+        "triggered": [
+          "OCF",
+          "REE"
+        ]
+      },
+      "file_id": "4443920",
+      "turn_index": 73
+    },
+    {
+      "correct": {
+        "budget_violation": false,
+        "correct": [],
+        "exact_count": 0,
+        "false": [],
+        "opportunities": [],
+        "rendered_characters": 0,
+        "triggered": []
+      },
+      "deranged": {
+        "budget_violation": false,
+        "correct": [],
+        "exact_count": 0,
+        "false": [
+          "OCF",
+          "OMIE"
+        ],
+        "opportunities": [],
+        "rendered_characters": 22,
+        "triggered": [
+          "OCF",
+          "OMIE"
+        ]
+      },
+      "file_id": "4443920",
+      "turn_index": 74
+    },
+    {
+      "correct": {
+        "budget_violation": false,
+        "correct": [],
+        "exact_count": 0,
+        "false": [],
+        "opportunities": [],
+        "rendered_characters": 0,
+        "triggered": []
+      },
+      "deranged": {
+        "budget_violation": false,
+        "correct": [],
+        "exact_count": 0,
+        "false": [
+          "OCF",
+          "REE"
+        ],
+        "opportunities": [],
+        "rendered_characters": 21,
+        "triggered": [
+          "OCF",
+          "REE"
+        ]
+      },
+      "file_id": "4443920",
+      "turn_index": 77
+    },
+    {
+      "correct": {
+        "budget_violation": false,
+        "correct": [],
+        "exact_count": 0,
+        "false": [
+          "IFRS 16",
+          "Hebe"
+        ],
+        "opportunities": [],
+        "rendered_characters": 26,
+        "triggered": [
+          "IFRS 16",
+          "Hebe"
+        ]
+      },
+      "deranged": {
+        "budget_violation": false,
+        "correct": [],
+        "exact_count": 0,
+        "false": [
+          "OCF",
+          "REE"
+        ],
+        "opportunities": [],
+        "rendered_characters": 21,
+        "triggered": [
+          "OCF",
+          "REE"
+        ]
+      },
+      "file_id": "4443920",
+      "turn_index": 78
+    },
+    {
+      "correct": {
+        "budget_violation": false,
+        "correct": [],
+        "exact_count": 1,
+        "false": [],
+        "opportunities": [],
+        "rendered_characters": 0,
+        "triggered": []
+      },
+      "deranged": {
+        "budget_violation": false,
+        "correct": [],
+        "exact_count": 0,
+        "false": [
+          "OCF"
+        ],
+        "opportunities": [],
+        "rendered_characters": 16,
+        "triggered": [
+          "OCF"
+        ]
+      },
+      "file_id": "4443920",
+      "turn_index": 79
+    },
+    {
+      "correct": {
+        "budget_violation": false,
+        "correct": [],
+        "exact_count": 0,
+        "false": [
+          "Ara"
+        ],
+        "opportunities": [],
+        "rendered_characters": 16,
+        "triggered": [
+          "Ara"
+        ]
+      },
+      "deranged": {
+        "budget_violation": false,
+        "correct": [],
+        "exact_count": 0,
+        "false": [
+          "OCF",
+          "REE"
+        ],
+        "opportunities": [],
+        "rendered_characters": 21,
+        "triggered": [
+          "OCF",
+          "REE"
+        ]
+      },
+      "file_id": "4443920",
+      "turn_index": 82
+    },
+    {
+      "correct": {
+        "budget_violation": false,
+        "correct": [],
+        "exact_count": 0,
+        "false": [],
+        "opportunities": [
+          "Biedronka"
+        ],
+        "rendered_characters": 0,
+        "triggered": []
+      },
+      "deranged": {
+        "budget_violation": false,
+        "correct": [],
+        "exact_count": 0,
+        "false": [
+          "OMIE"
+        ],
+        "opportunities": [],
+        "rendered_characters": 17,
+        "triggered": [
+          "OMIE"
+        ]
+      },
+      "file_id": "4443920",
+      "turn_index": 88
+    },
+    {
+      "correct": {
+        "budget_violation": false,
+        "correct": [
+          "Biedronka"
+        ],
+        "exact_count": 0,
+        "false": [],
+        "opportunities": [
+          "Biedronka"
+        ],
+        "rendered_characters": 22,
+        "triggered": [
+          "Biedronka"
+        ]
+      },
+      "deranged": {
+        "budget_violation": false,
+        "correct": [],
+        "exact_count": 0,
+        "false": [
+          "LNG",
+          "OCF"
+        ],
+        "opportunities": [],
+        "rendered_characters": 21,
+        "triggered": [
+          "LNG",
+          "OCF"
+        ]
+      },
+      "file_id": "4443920",
+      "turn_index": 89
+    },
+    {
+      "correct": {
+        "budget_violation": false,
+        "correct": [],
+        "exact_count": 0,
+        "false": [],
+        "opportunities": [],
+        "rendered_characters": 0,
+        "triggered": []
+      },
+      "deranged": {
+        "budget_violation": false,
+        "correct": [],
+        "exact_count": 0,
+        "false": [
+          "OCF",
+          "Sines"
+        ],
+        "opportunities": [],
+        "rendered_characters": 23,
+        "triggered": [
+          "OCF",
+          "Sines"
+        ]
+      },
+      "file_id": "4443920",
+      "turn_index": 92
+    },
+    {
+      "correct": {
+        "budget_violation": false,
+        "correct": [],
+        "exact_count": 0,
+        "false": [],
+        "opportunities": [],
+        "rendered_characters": 0,
+        "triggered": []
+      },
+      "deranged": {
+        "budget_violation": false,
+        "correct": [],
+        "exact_count": 0,
+        "false": [
+          "OCF",
+          "OMIE"
+        ],
+        "opportunities": [],
+        "rendered_characters": 22,
+        "triggered": [
+          "OCF",
+          "OMIE"
+        ]
+      },
+      "file_id": "4443920",
+      "turn_index": 94
+    },
+    {
+      "correct": {
+        "budget_violation": false,
+        "correct": [],
+        "exact_count": 0,
+        "false": [],
+        "opportunities": [],
+        "rendered_characters": 0,
+        "triggered": []
+      },
+      "deranged": {
+        "budget_violation": false,
+        "correct": [],
+        "exact_count": 0,
+        "false": [
+          "OCF"
+        ],
+        "opportunities": [],
+        "rendered_characters": 16,
+        "triggered": [
+          "OCF"
+        ]
+      },
+      "file_id": "4443920",
+      "turn_index": 97
+    },
+    {
+      "correct": {
+        "budget_violation": false,
+        "correct": [],
+        "exact_count": 0,
+        "false": [],
+        "opportunities": [],
+        "rendered_characters": 0,
+        "triggered": []
+      },
+      "deranged": {
+        "budget_violation": false,
+        "correct": [],
+        "exact_count": 0,
+        "false": [
+          "OCF"
+        ],
+        "opportunities": [],
+        "rendered_characters": 16,
+        "triggered": [
+          "OCF"
+        ]
+      },
+      "file_id": "4443920",
+      "turn_index": 103
+    },
+    {
+      "correct": {
+        "budget_violation": false,
+        "correct": [],
+        "exact_count": 0,
+        "false": [],
+        "opportunities": [],
+        "rendered_characters": 0,
+        "triggered": []
+      },
+      "deranged": {
+        "budget_violation": false,
+        "correct": [],
+        "exact_count": 0,
+        "false": [
+          "OMIE"
+        ],
+        "opportunities": [],
+        "rendered_characters": 17,
+        "triggered": [
+          "OMIE"
+        ]
+      },
+      "file_id": "4443920",
+      "turn_index": 105
+    },
+    {
+      "correct": {
+        "budget_violation": false,
+        "correct": [],
+        "exact_count": 0,
+        "false": [],
+        "opportunities": [],
+        "rendered_characters": 0,
+        "triggered": []
+      },
+      "deranged": {
+        "budget_violation": false,
+        "correct": [],
+        "exact_count": 0,
+        "false": [
+          "OCF"
+        ],
+        "opportunities": [],
+        "rendered_characters": 16,
+        "triggered": [
+          "OCF"
+        ]
+      },
+      "file_id": "4443920",
+      "turn_index": 106
+    },
+    {
+      "correct": {
+        "budget_violation": false,
+        "correct": [],
+        "exact_count": 0,
+        "false": [],
+        "opportunities": [
+          "Biedronka"
+        ],
+        "rendered_characters": 0,
+        "triggered": []
+      },
+      "deranged": {
+        "budget_violation": false,
+        "correct": [],
+        "exact_count": 0,
+        "false": [
+          "OCF"
+        ],
+        "opportunities": [],
+        "rendered_characters": 16,
+        "triggered": [
+          "OCF"
+        ]
+      },
+      "file_id": "4443920",
+      "turn_index": 108
+    },
+    {
+      "correct": {
+        "budget_violation": false,
+        "correct": [],
+        "exact_count": 0,
+        "false": [],
+        "opportunities": [],
+        "rendered_characters": 0,
+        "triggered": []
+      },
+      "deranged": {
+        "budget_violation": false,
+        "correct": [],
+        "exact_count": 0,
+        "false": [
+          "OCF"
+        ],
+        "opportunities": [],
+        "rendered_characters": 16,
+        "triggered": [
+          "OCF"
+        ]
+      },
+      "file_id": "4443920",
+      "turn_index": 110
+    },
+    {
+      "correct": {
+        "budget_violation": false,
+        "correct": [],
+        "exact_count": 1,
+        "false": [],
+        "opportunities": [],
+        "rendered_characters": 0,
+        "triggered": []
+      },
+      "deranged": {
+        "budget_violation": false,
+        "correct": [],
+        "exact_count": 0,
+        "false": [
+          "OCF",
+          "OMIE"
+        ],
+        "opportunities": [],
+        "rendered_characters": 22,
+        "triggered": [
+          "OCF",
+          "OMIE"
+        ]
+      },
+      "file_id": "4443920",
+      "turn_index": 112
+    },
+    {
+      "correct": {
+        "budget_violation": false,
+        "correct": [],
+        "exact_count": 0,
+        "false": [],
+        "opportunities": [],
+        "rendered_characters": 0,
+        "triggered": []
+      },
+      "deranged": {
+        "budget_violation": false,
+        "correct": [],
+        "exact_count": 0,
+        "false": [
+          "OCF",
+          "OMIE"
+        ],
+        "opportunities": [],
+        "rendered_characters": 22,
+        "triggered": [
+          "OCF",
+          "OMIE"
+        ]
+      },
+      "file_id": "4443920",
+      "turn_index": 113
+    },
+    {
+      "correct": {
+        "budget_violation": false,
+        "correct": [],
+        "exact_count": 0,
+        "false": [],
+        "opportunities": [
+          "Biedronka"
+        ],
+        "rendered_characters": 0,
+        "triggered": []
+      },
+      "deranged": {
+        "budget_violation": false,
+        "correct": [],
+        "exact_count": 0,
+        "false": [
+          "Sines"
+        ],
+        "opportunities": [],
+        "rendered_characters": 18,
+        "triggered": [
+          "Sines"
+        ]
+      },
+      "file_id": "4443920",
+      "turn_index": 114
+    },
+    {
+      "correct": {
+        "budget_violation": false,
+        "correct": [],
+        "exact_count": 0,
+        "false": [],
+        "opportunities": [],
+        "rendered_characters": 0,
+        "triggered": []
+      },
+      "deranged": {
+        "budget_violation": false,
+        "correct": [],
+        "exact_count": 0,
+        "false": [
+          "OCF",
+          "OMIE"
+        ],
+        "opportunities": [],
+        "rendered_characters": 22,
+        "triggered": [
+          "OCF",
+          "OMIE"
+        ]
+      },
+      "file_id": "4443920",
+      "turn_index": 116
+    },
+    {
+      "correct": {
+        "budget_violation": false,
+        "correct": [],
+        "exact_count": 0,
+        "false": [],
+        "opportunities": [],
+        "rendered_characters": 0,
+        "triggered": []
+      },
+      "deranged": {
+        "budget_violation": false,
+        "correct": [],
+        "exact_count": 0,
+        "false": [
+          "OCF"
+        ],
+        "opportunities": [],
+        "rendered_characters": 16,
+        "triggered": [
+          "OCF"
+        ]
+      },
+      "file_id": "4443920",
+      "turn_index": 118
+    },
+    {
+      "correct": {
+        "budget_violation": false,
+        "correct": [],
+        "exact_count": 0,
+        "false": [],
+        "opportunities": [],
+        "rendered_characters": 0,
+        "triggered": []
+      },
+      "deranged": {
+        "budget_violation": false,
+        "correct": [],
+        "exact_count": 0,
+        "false": [
+          "OCF"
+        ],
+        "opportunities": [],
+        "rendered_characters": 16,
+        "triggered": [
+          "OCF"
+        ]
+      },
+      "file_id": "4443920",
+      "turn_index": 119
+    },
+    {
+      "correct": {
+        "budget_violation": false,
+        "correct": [],
+        "exact_count": 0,
+        "false": [],
+        "opportunities": [],
+        "rendered_characters": 0,
+        "triggered": []
+      },
+      "deranged": {
+        "budget_violation": false,
+        "correct": [],
+        "exact_count": 0,
+        "false": [
+          "REE"
+        ],
+        "opportunities": [],
+        "rendered_characters": 16,
+        "triggered": [
+          "REE"
+        ]
+      },
+      "file_id": "4443920",
+      "turn_index": 122
+    },
+    {
+      "correct": {
+        "budget_violation": false,
+        "correct": [],
+        "exact_count": 0,
+        "false": [
+          "LFL"
+        ],
+        "opportunities": [],
+        "rendered_characters": 16,
+        "triggered": [
+          "LFL"
+        ]
+      },
+      "deranged": {
+        "budget_violation": false,
+        "correct": [],
+        "exact_count": 0,
+        "false": [
+          "OCF"
+        ],
+        "opportunities": [],
+        "rendered_characters": 16,
+        "triggered": [
+          "OCF"
+        ]
+      },
+      "file_id": "4443920",
+      "turn_index": 123
+    }
+  ],
+  "verdict": "MEETING-MATERIAL-SUPPLY-INSUFFICIENT"
+}

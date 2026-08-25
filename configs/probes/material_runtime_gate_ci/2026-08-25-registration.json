@@ -1,0 +1,117 @@
+{
+  "schema": "material-runtime-gate-construction-isolated-v1",
+  "experiment_id": "E-MATERIAL-RUNTIME-GATE-CI",
+  "evidence_tier": "CONSTRUCTION_ISOLATED_EXPLORATORY",
+  "parent_blocked_experiment": "E-MATERIAL-RUNTIME-GATE",
+  "historical_reference_exposure": {
+    "disclosure": "All six meetings were available to completed lexical reference audits before this registration.",
+    "discovery_manifest": "configs/probes/e4_xdomain_supply_v2/2026-08-21-input-manifest.json",
+    "reserve_manifest": "configs/probes/e4_xdomain_supply_v3/2026-08-22-reserve-manifest.json"
+  },
+  "selection_inputs_allowed": [
+    "file_id",
+    "ticker",
+    "issuer identity",
+    "meeting date",
+    "target reporting period",
+    "temporally legal official-material availability"
+  ],
+  "selection_inputs_forbidden": [
+    "reference words",
+    "reference-derived entities",
+    "speaker shares",
+    "per-meeting prior audit outcomes",
+    "WER",
+    "material retrieval scores"
+  ],
+  "cohort": [
+    {
+      "file_id": "4474506",
+      "ticker": "COST",
+      "issuer": "Costco Wholesale",
+      "period": "Q1 FY2022",
+      "meeting_date": "2021-12-09",
+      "split": "development",
+      "historical_lexical_read": "reserve"
+    },
+    {
+      "file_id": "4479944",
+      "ticker": "HDB",
+      "issuer": "HDFC Bank",
+      "period": "quarter and nine months ended 2021-12-31",
+      "meeting_date": "2022-01-15",
+      "split": "development",
+      "historical_lexical_read": "discovery"
+    },
+    {
+      "file_id": "4483506",
+      "ticker": "SONY",
+      "issuer": "Sony Group",
+      "period": "Q3 FY2021",
+      "meeting_date": "2022-02-02",
+      "split": "development",
+      "historical_lexical_read": "discovery"
+    },
+    {
+      "file_id": "4483633",
+      "ticker": "RACE",
+      "issuer": "Ferrari",
+      "period": "Q4 and FY2021",
+      "meeting_date": "2022-02-02",
+      "split": "confirmation",
+      "historical_lexical_read": "reserve"
+    },
+    {
+      "file_id": "4484563",
+      "ticker": "SNY",
+      "issuer": "Sanofi",
+      "period": "Q4 and FY2021",
+      "meeting_date": "2022-02-04",
+      "split": "confirmation",
+      "historical_lexical_read": "discovery"
+    },
+    {
+      "file_id": "4485244",
+      "ticker": "KKR",
+      "issuer": "KKR",
+      "period": "Q4 and FY2021",
+      "meeting_date": "2022-02-08",
+      "split": "confirmation",
+      "historical_lexical_read": "discovery"
+    }
+  ],
+  "source_admission": {
+    "allowed_publishers": ["issuer", "regulated_filing_archive"],
+    "allowed_types": ["results release", "results presentation", "financial filing"],
+    "forbidden_types": ["call transcript", "analyst transcript", "post-meeting recap"],
+    "publication_time_rule": "not later than the meeting start date",
+    "minimum_candidates_per_meeting": 8,
+    "replacement_policy": "none; any failed meeting stops the cohort"
+  },
+  "runtime": {
+    "pass0_prompt": "T1-A1",
+    "pass0_prompt_content_sha256": "f2f32b5572adbceacf678536239682d4271411851f57a80e3a43a6477379e0d2",
+    "pass0_status": "pending_separate_flight_registration_and_authorization",
+    "embedding_model_sha256": "06507c7b42688469c4e7298b0a1e16deff06caf291cf0a5b278c308249c3e439",
+    "query": "Pass0 text plus predicted speaker ID plus bounded prior topic keywords",
+    "deployment_selector": "within-meeting top1_minus_top2_cosine_gap",
+    "development_threshold_grid": [0.0, 0.01, 0.02, 0.03, 0.04, 0.05],
+    "deranged_control": "ascending file_id rotation by one within each split",
+    "wrong_meeting_score_available_to_selector": false
+  },
+  "gates": {
+    "development_minimum_attribution_precision": 0.7,
+    "development_minimum_coverage": 0.2,
+    "development_all_meetings_represented": true,
+    "confirmation_minimum_attribution_precision": 0.7,
+    "confirmation_minimum_coverage": 0.2,
+    "confirmation_meetings_at_or_above_0_60": 2,
+    "confirmation_minimum_median_correct_minus_deranged_cosine": 0.01
+  },
+  "authority": {
+    "material_downloads": false,
+    "reference_reads": false,
+    "embedding_calls": false,
+    "omni_calls": false
+  }
+}

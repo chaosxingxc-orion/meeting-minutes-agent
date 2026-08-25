@@ -1,0 +1,75 @@
+{
+  "claim_boundary": "This gold-read audit tests supply and candidate relevance only. Gold is never available to runtime retrieval. Passing would admit a separately registered model experiment, not establish ASR utility.",
+  "experiment_id": "E-CHUNK-RETRIEVAL-LOO-SUPPLY",
+  "gates": {
+    "context_budget": true,
+    "minimum_candidate_precision": false,
+    "minimum_eligible_meetings": true,
+    "minimum_eligible_turns": true,
+    "minimum_reference_supported_meetings": false,
+    "minimum_reference_supported_turns": false,
+    "minimum_unique_candidates": true,
+    "no_current_query_leakage": true,
+    "no_current_turn_evidence": true
+  },
+  "limits": {
+    "maximum_candidates": 4,
+    "maximum_context_characters": 256,
+    "minimum_similarity": 0.75,
+    "minimum_supporting_chunks": 2,
+    "speaker_pool_size": 256
+  },
+  "meetings": [
+    {
+      "candidates": 491,
+      "eligible_novel_turns": 148,
+      "file_id": "4443920",
+      "reference_supported_turns": 14,
+      "turns": 201
+    },
+    {
+      "candidates": 774,
+      "eligible_novel_turns": 235,
+      "file_id": "4483589",
+      "reference_supported_turns": 17,
+      "turns": 281
+    },
+    {
+      "candidates": 1118,
+      "eligible_novel_turns": 384,
+      "file_id": "4461799",
+      "reference_supported_turns": 15,
+      "turns": 497
+    },
+    {
+      "candidates": 578,
+      "eligible_novel_turns": 213,
+      "file_id": "4430051",
+      "reference_supported_turns": 7,
+      "turns": 450
+    }
+  ],
+  "schema": "independent-chunk-retrieval-supply-read-v1",
+  "thresholds": {
+    "eligible_turns_per_meeting": 50,
+    "minimum_candidate_precision": 0.9,
+    "minimum_eligible_meetings": 3,
+    "minimum_eligible_turns": 400,
+    "minimum_reference_supported_meetings": 3,
+    "minimum_reference_supported_turns": 100,
+    "minimum_unique_candidates": 25,
+    "reference_supported_turns_per_meeting": 20
+  },
+  "totals": {
+    "candidate_precision": 0.019250253292806486,
+    "candidates": 2961,
+    "current_query_leaks": 0,
+    "current_turn_evidence_leaks": 0,
+    "eligible_novel_turns": 980,
+    "reference_supported_candidates": 57,
+    "reference_supported_turns": 53,
+    "turns": 1429,
+    "unique_candidates": 628
+  },
+  "verdict": "INDEPENDENT-CHUNK-SUPPLY-INSUFFICIENT"
+}

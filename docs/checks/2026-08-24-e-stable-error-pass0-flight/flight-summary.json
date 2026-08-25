@@ -1,0 +1,28 @@
+{
+  "schema": "earnings22-stable-error-pass0-flight-summary-v1",
+  "experiment_id": "E-STABLE-ERROR-SUPPLY",
+  "registered_commit": "60c6c3cd1fab6c7900a3ebdf89d2f483f5349f17",
+  "campaign_start_utc": "2026-08-24T06:38:20.510281+00:00",
+  "campaign_end_utc": "2026-08-24T07:03:15.490276+00:00",
+  "campaign_wall_minutes": 24.91633325,
+  "calls": 1429,
+  "audio_seconds": 15077.152999999991,
+  "failed_calls": 0,
+  "retry_attempts": 0,
+  "meetings": [
+    {"file_id": "4443920", "calls": 201, "audio_seconds": 3226.1719999999987},
+    {"file_id": "4483589", "calls": 281, "audio_seconds": 4561.612000000001},
+    {"file_id": "4461799", "calls": 497, "audio_seconds": 3899.5679999999948},
+    {"file_id": "4430051", "calls": 450, "audio_seconds": 3389.800999999995}
+  ],
+  "artifacts": {
+    "4430051-receipt.json": "40d03fb4e8d4720997f7f7ad785a20c75c9aa72391cb99975dbb558a5adb861f",
+    "4430051-responses.jsonl": "3f446006c6dd0f63c462902969ea268f34c07330cc33fd8f4c60d06d29f20975",
+    "4443920-receipt.json": "3556766683af209ad68914821ed1973ca14e0da19911c4cf74aebac77612731d",
+    "4443920-responses.jsonl": "76866623d1c59a6d253bb32abc7d5a2ce8ae6a0f8394dbb8d0366582a0e3c5b7",
+    "4461799-receipt.json": "f0a443f7ac1d1cde05246ebc24da5a3117c4a898d415fe60660aaf5f3acbfc19",
+    "4461799-responses.jsonl": "8664437f7317a22cfe2625c5991fd00ffc4c12588a7b2176edd6360f29a2bd83",
+    "4483589-receipt.json": "f0fec315e4047860bae6fc744acdb4f0c90b744e796dd990797258a0eee45184",
+    "4483589-responses.jsonl": "acf9309a919c5ea8c467e5130ca9401ab4c82f292f48c79798c298b91dd8c96e"
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "schema": "meeting-material-semantic-retrieval-signal-v1",
+  "experiment_id": "E-MEETING-MATERIAL-SEMANTIC-SIGNAL",
+  "claim_boundary": "Exploratory encode-only semantic material-attribution signal; no reference, audio, or Omni contact.",
+  "runtime_sha256": "a2e272852cf35a6a67b9331b405a2472d3d3a217c8738f50693a8ad1898ce4b9",
+  "candidate_registry_sha256": "11aad77b8635f144f9ce213831a9abe1f6ba05941fb7fe36fec29e06cca48698",
+  "material_pages_sha256": "2083326aff3fc58749f33dc1dbc35238b825badc131159888e91c022e3e6dd51",
+  "model_sha256": "06507c7b42688469c4e7298b0a1e16deff06caf291cf0a5b278c308249c3e439",
+  "server_binary_sha256": "22755a59472da16358ed513b6720d1c0238614b18a1e2cc4e3a968aa010f4abd",
+  "pass0_sha256": {
+    "4443920": "76866623d1c59a6d253bb32abc7d5a2ce8ae6a0f8394dbb8d0366582a0e3c5b7",
+    "4461799": "8664437f7317a22cfe2625c5991fd00ffc4c12588a7b2176edd6360f29a2bd83",
+    "4483589": "acf9309a919c5ea8c467e5130ca9401ab4c82f292f48c79798c298b91dd8c96e"
+  },
+  "balanced_key_width": 8,
+  "selection_salt": "meeting-material-retrieval-signal-2026-08-25-v1",
+  "minimum_query_content_tokens": 3,
+  "query_instruction": "Instruct: Identify the meeting-specific official material passage most relevant to this speech transcript.\nQuery: ",
+  "key_prefix": "Official material passage: ",
+  "batch_size": 16,
+  "dispatch_minimum_top_gap": 0.02,
+  "controls": {
+    "deranged_rotation": "ascending_file_id_next",
+    "exclude_exact_alias_queries": true,
+    "equal_keys_per_meeting": true,
+    "encode_only": true,
+    "same_q_k_v_inventory_as_lexical_arm": true
+  },
+  "gates": {
+    "expected_eligible_turns": 751,
+    "minimum_meetings": 3,
+    "minimum_dispatch_coverage": 0.2,
+    "minimum_attribution_precision": 0.7,
+    "minimum_meetings_over_precision_floor": 2,
+    "per_meeting_precision_floor": 0.6,
+    "minimum_median_correct_minus_deranged": 0.01,
+    "minimum_precision_gain_over_lexical": 0.08,
+    "lexical_attribution_precision": 0.6186556927297668
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "analysis_class": "post-hoc-descriptive-only",
+  "limitation": "Rule was added after inspecting strict error forms; it cannot replace or confirm the registered verdict.",
+  "non_separator_equivalent_groups": 4,
+  "registered_decision_unchanged": "STABLE-ERROR-SUPPLY-PRESENT-ANCHOR-LIMITED",
+  "schema": "earnings22-stable-error-normalization-posthoc-v1",
+  "separator_only_equivalent_groups": 9,
+  "separator_only_share": 0.6923076923076923,
+  "strict_stable_wrong_groups": 13
+}

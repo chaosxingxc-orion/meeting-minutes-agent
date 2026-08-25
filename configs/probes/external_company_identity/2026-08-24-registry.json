@@ -1,0 +1,58 @@
+{
+  "schema": "external-company-identity-registry-v1",
+  "experiment_id": "E-EXTERNAL-COMPANY-IDENTITY-SUPPLY",
+  "retrieved_on": "2026-08-24",
+  "provenance": "PROPOSED_EXTERNAL_PUBLIC_REGISTRY",
+  "runtime_admissibility": "pending_owner_ruling",
+  "temporal_policy": "stable_brand_identity_only",
+  "similarity_threshold": 0.75,
+  "maximum_context_characters": 256,
+  "meetings": [
+    {
+      "file_id": "4443920",
+      "ticker": "JRONF",
+      "canonical": "Jeronimo Martins",
+      "aliases": ["Jeronimo Martins"],
+      "sources": [
+        "https://www.jeronimomartins.com/en/investors/",
+        "https://www.nasdaq.com/market-activity/stocks/jronf/sec-filings"
+      ]
+    },
+    {
+      "file_id": "4483589",
+      "ticker": "TMVWF",
+      "canonical": "TeamViewer",
+      "aliases": ["TeamViewer"],
+      "sources": [
+        "https://ir.teamviewer.com/stock/basic-information",
+        "https://www.nasdaq.com/market-activity/stocks/tmvwf"
+      ]
+    },
+    {
+      "file_id": "4461799",
+      "ticker": "GLPEF",
+      "canonical": "Galp",
+      "aliases": ["Galp", "Galp Energia"],
+      "sources": [
+        "https://www.galp.com/corp/en/investors/faqs",
+        "https://www.nasdaq.com/market-activity/stocks/glpef"
+      ]
+    },
+    {
+      "file_id": "4430051",
+      "ticker": "SKM",
+      "canonical": "SK Telecom",
+      "aliases": ["SK Telecom"],
+      "sources": [
+        "https://www.sktelecom.com/img/eng/qua/20220809/2Q22Pressrelease.pdf"
+      ]
+    }
+  ],
+  "gates": {
+    "minimum_corrective_turns": 20,
+    "minimum_distributed_meetings": 3,
+    "corrective_turns_per_meeting": 3,
+    "minimum_trigger_precision": 0.9,
+    "minimum_trigger_recall": 0.5
+  }
+}

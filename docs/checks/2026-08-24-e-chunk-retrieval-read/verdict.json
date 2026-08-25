@@ -1,0 +1,139 @@
+{
+  "arms": {
+    "R0-bare": {
+      "consistency": 0.7500496770988574,
+      "consistency_by_meeting": {
+        "4430051": 0.7377049180327869,
+        "4443920": 0.7049180327868853,
+        "4461799": 0.8,
+        "4483589": 0.7575757575757576
+      },
+      "language_drift_outputs": 127,
+      "unsupported_activation_rate": 0.0,
+      "wer": 0.22038147138964578,
+      "worst_speaker_wer": 10.958333333333334
+    },
+    "R1-global": {
+      "consistency": 0.7069144311972181,
+      "consistency_by_meeting": {
+        "4430051": 0.6557377049180327,
+        "4443920": 0.639344262295082,
+        "4461799": 0.775,
+        "4483589": 0.7575757575757576
+      },
+      "language_drift_outputs": 126,
+      "unsupported_activation_rate": 0.5047318611987381,
+      "wer": 0.2186648501362398,
+      "worst_speaker_wer": 10.833333333333334
+    },
+    "R2-round2": {
+      "consistency": 0.7079090081139261,
+      "consistency_by_meeting": {
+        "4430051": 0.7540983606557377,
+        "4443920": 0.5901639344262295,
+        "4461799": 0.75,
+        "4483589": 0.7373737373737373
+      },
+      "language_drift_outputs": 126,
+      "unsupported_activation_rate": 0.5705209656925032,
+      "wer": 0.21942779291553133,
+      "worst_speaker_wer": 11.0
+    },
+    "R2-speaker": {
+      "consistency": 0.6858440967047524,
+      "consistency_by_meeting": {
+        "4430051": 0.6229508196721312,
+        "4443920": 0.6229508196721312,
+        "4461799": 0.75,
+        "4483589": 0.7474747474747475
+      },
+      "language_drift_outputs": 127,
+      "unsupported_activation_rate": 0.5498059508408797,
+      "wer": 0.22,
+      "worst_speaker_wer": 11.0
+    },
+    "R3-deranged": {
+      "consistency": 0.6949929624109952,
+      "consistency_by_meeting": {
+        "4430051": 0.7049180327868853,
+        "4443920": 0.5573770491803278,
+        "4461799": 0.75,
+        "4483589": 0.7676767676767676
+      },
+      "language_drift_outputs": 128,
+      "unsupported_activation_rate": 0.048769771528998244,
+      "wer": 0.21275204359673025,
+      "worst_speaker_wer": 10.958333333333334
+    }
+  },
+  "claim_boundary": "Passing establishes a stable, bounded, output-only per-chunk retrieval loop on this fixed corpus. It does not establish broad domain transfer or admit training-free policy search.",
+  "consistency_direction": {
+    "better_than_bare_meetings": 0,
+    "better_than_deranged_meetings": 1
+  },
+  "context_replay": {
+    "matches": 7145,
+    "total": 7145,
+    "within_budget": 7145
+  },
+  "convergence": {
+    "r2_vs_bare_by_meeting": {
+      "4430051": 0.05402947062033837,
+      "4443920": 0.04105605954873226,
+      "4461799": 0.037596073710528755,
+      "4483589": 0.03758301101948478
+    },
+    "r2_vs_bare_delta": 0.040702645283312175,
+    "ratio": 0.2799325808728913,
+    "round2_vs_r2_by_meeting": {
+      "4430051": 0.01770564367392106,
+      "4443920": 0.014496169711255157,
+      "4461799": 0.008718477547576639,
+      "4483589": 0.009041458394589827
+    },
+    "round2_vs_r2_delta": 0.011393996542511393
+  },
+  "counts": {
+    "eligible": 1056,
+    "expected": 7145,
+    "phase1": 5716,
+    "round2": 1429
+  },
+  "experiment_id": "E-CHUNK-RETRIEVAL",
+  "gates": {
+    "complete": true,
+    "consistency_vs_bare": false,
+    "consistency_vs_deranged": false,
+    "context_budget": true,
+    "context_hash_replay": true,
+    "convergence": true,
+    "language_drift": true,
+    "route_distinct": true,
+    "route_equal_cardinality": true,
+    "unsupported_activation": false,
+    "wer_noninferior": true,
+    "worst_speaker_noninferior": false
+  },
+  "manifest_content_hash": "7b54bb6a1e38d7d8a84f0dcb0556df13f389438247d95e6d6cde58fe9015d855",
+  "registered_thresholds": {
+    "context_budget_rate": 1.0,
+    "context_hash_replay_rate": 1.0,
+    "maximum_convergence_ratio": 0.8,
+    "maximum_language_drift_increase": 0,
+    "maximum_unsupported_activation_rate": 0.02,
+    "maximum_wer_increase": 0.01,
+    "maximum_worst_speaker_wer_increase": 0.02,
+    "minimum_consistency_gain_vs_bare": 0.02,
+    "minimum_meetings_consistency_better_than_bare": 3,
+    "minimum_meetings_consistency_better_than_deranged": 3,
+    "route_distinct_rate": 1.0,
+    "route_equal_cardinality_rate": 1.0
+  },
+  "route_control": {
+    "distinct": 1056,
+    "eligible": 1056,
+    "equal_cardinality": 1056
+  },
+  "schema": "chunk-retrieval-read-v1",
+  "verdict": "CHUNK-RETRIEVAL-NOT-REACHED"
+}

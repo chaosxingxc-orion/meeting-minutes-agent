@@ -263,3 +263,23 @@ individual WAVs, or M3-SLU's 155 parquet shards, whose per-shard LFS SHA-256 val
 in the umbrella's private acquisition receipt), `verify.py` and `datasets.lock.json`'s
 `hash_coverage_note` say so explicitly and fall back to file-count and total-size closure for
 that subtree — this is a lock-coverage gap, not a download error.
+
+## Experiment-scoped Earnings-22 audio
+
+Earnings-22 is not one of the six umbrella-locked production datasets above. The E4
+cross-domain line uses an experiment-scoped copy pinned to
+`revdotcom/speech-datasets@c05ab6fd8b4b627d123c922a22a39e993dd37635`.
+Its 125 MP3 files are Git LFS objects totalling 1,908,056,329 bytes. Acquire and audit
+them with:
+
+```bash
+python scripts/data/acquire_earnings22_audio.py \
+  --data-root "$SPEECHRL_DATA_DIR" --acknowledge-internal-research-only
+python scripts/data/audit_earnings22_audio.py \
+  --earnings22-root "$SPEECHRL_DATA_DIR/datasets/earnings22"
+```
+
+Acquisition resumes only from objects whose LFS SHA-256 matches; admission contacts no
+network or model. Do not redistribute the audio. The upstream license text explicitly
+licenses transcripts and associated alignment files but does not unambiguously establish
+audio terms.

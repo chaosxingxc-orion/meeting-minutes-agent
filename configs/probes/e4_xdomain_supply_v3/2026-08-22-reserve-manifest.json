@@ -1,0 +1,282 @@
+{
+  "allowed_classes": [
+    "ABBREVIATION",
+    "ALPHANUMERIC"
+  ],
+  "content_hash": "b7ccad172083e192830285d510fdd0da6622b742c8d6072bf189719cbc831ea5",
+  "inputs": [
+    {
+      "bytes": 273430,
+      "file_id": "2020-Annual-Results-Call-Recording",
+      "path": "transcripts/force_aligned_nlp_references/2020-Annual-Results-Call-Recording.aligned.nlp",
+      "sha256": "9c369cdd343462f325f91fb13224710f75182d5d8a74ec630bb39ab6b497d5b0"
+    },
+    {
+      "bytes": 348842,
+      "file_id": "4372696",
+      "path": "transcripts/force_aligned_nlp_references/4372696.aligned.nlp",
+      "sha256": "1cb3de81b8e4749283abe161fc055918f43cd4d1d8f507e3fcad425b99c1aabb"
+    },
+    {
+      "bytes": 226337,
+      "file_id": "4430051",
+      "path": "transcripts/force_aligned_nlp_references/4430051.aligned.nlp",
+      "sha256": "f6bbb2ed5ea064492ab452a86ca1378cb0df3aef2f5f27feab2732aa7596bb61"
+    },
+    {
+      "bytes": 354189,
+      "file_id": "4443920",
+      "path": "transcripts/force_aligned_nlp_references/4443920.aligned.nlp",
+      "sha256": "54e1d4b8a119b10a27a15efd0cf9a9260acab8e19ca25f8e2275ae6bdeaf8317"
+    },
+    {
+      "bytes": 160643,
+      "file_id": "4446796",
+      "path": "transcripts/force_aligned_nlp_references/4446796.aligned.nlp",
+      "sha256": "90988c6b82e12827a7f15e3ac265006763053c22ddc84250511e2eddec8b6bc4"
+    },
+    {
+      "bytes": 238823,
+      "file_id": "4449269",
+      "path": "transcripts/force_aligned_nlp_references/4449269.aligned.nlp",
+      "sha256": "46dd0844deb7fb8388eb3e183385dff3330f04e39b25860f48a46420aa6a63d3"
+    },
+    {
+      "bytes": 392254,
+      "file_id": "4450488",
+      "path": "transcripts/force_aligned_nlp_references/4450488.aligned.nlp",
+      "sha256": "4b00f72d5ef89c874e7688feb3360d82b9464b264e72236b65a9ffa598dbfe61"
+    },
+    {
+      "bytes": 340956,
+      "file_id": "4453085",
+      "path": "transcripts/force_aligned_nlp_references/4453085.aligned.nlp",
+      "sha256": "e80d69d0daeca6a6e9b777906b4f851ad80075d2ad7ececc9b84b7d1e20188ef"
+    },
+    {
+      "bytes": 467720,
+      "file_id": "4461799",
+      "path": "transcripts/force_aligned_nlp_references/4461799.aligned.nlp",
+      "sha256": "a1afa1d213a3a1439348ebd22a7d4ea34687a91bfe15c96862ce6738b7887cab"
+    },
+    {
+      "bytes": 155050,
+      "file_id": "4464164",
+      "path": "transcripts/force_aligned_nlp_references/4464164.aligned.nlp",
+      "sha256": "ad6a9c2ebb54000052a862c74a74a00ff8162c501029ee7b8aba620d19fdd439"
+    },
+    {
+      "bytes": 512750,
+      "file_id": "4466607",
+      "path": "transcripts/force_aligned_nlp_references/4466607.aligned.nlp",
+      "sha256": "ed0bfda49fabbda26a6a08e3ba46985d93ba4bed803911a2220231e4985004df"
+    },
+    {
+      "bytes": 382645,
+      "file_id": "4466718",
+      "path": "transcripts/force_aligned_nlp_references/4466718.aligned.nlp",
+      "sha256": "b7f9065be2ec6ce46cad31034a66434d288441b5a0d33f824affb9aa376c93a6"
+    },
+    {
+      "bytes": 287402,
+      "file_id": "4467434",
+      "path": "transcripts/force_aligned_nlp_references/4467434.aligned.nlp",
+      "sha256": "94fb7809bf16cc4c6732fb1917a0b8027e107d3d2e1cfbe7266815969f9ec514"
+    },
+    {
+      "bytes": 235766,
+      "file_id": "4468000",
+      "path": "transcripts/force_aligned_nlp_references/4468000.aligned.nlp",
+      "sha256": "f1c9b9fe08eadb34d803c62cc90ba89e5399385f333a6fb733abf5afae20b6f0"
+    },
+    {
+      "bytes": 424592,
+      "file_id": "4468678",
+      "path": "transcripts/force_aligned_nlp_references/4468678.aligned.nlp",
+      "sha256": "3ed14471d8b91fecae7c2f09adbb4203c850096f3d5eb2e83bb6cbd87c3855a1"
+    },
+    {
+      "bytes": 685732,
+      "file_id": "4468715",
+      "path": "transcripts/force_aligned_nlp_references/4468715.aligned.nlp",
+      "sha256": "28ffec51cd49ddaabd3b9421f77198448517d8c7c6e0e03b4c77d28e85556abd"
+    },
+    {
+      "bytes": 219835,
+      "file_id": "4469208",
+      "path": "transcripts/force_aligned_nlp_references/4469208.aligned.nlp",
+      "sha256": "e661c5758beb0bf2c6b10c7b459368bd373b40dad38abc2c5aef5cdc5cb137de"
+    },
+    {
+      "bytes": 125830,
+      "file_id": "4469291",
+      "path": "transcripts/force_aligned_nlp_references/4469291.aligned.nlp",
+      "sha256": "743d6e08cb327392e96fcf7a79dbbf647e4f5d091e3926eb9713475b942f3e2f"
+    },
+    {
+      "bytes": 274810,
+      "file_id": "4469590",
+      "path": "transcripts/force_aligned_nlp_references/4469590.aligned.nlp",
+      "sha256": "fa8ea46a9e00a4cbe18250c1bcc903626d952160abee9870240cf8e768dba0e6"
+    },
+    {
+      "bytes": 90656,
+      "file_id": "4470010",
+      "path": "transcripts/force_aligned_nlp_references/4470010.aligned.nlp",
+      "sha256": "50d38880be76763c2d9fc35050a2f7b94622f5827812226d562a68302b44de0f"
+    },
+    {
+      "bytes": 121329,
+      "file_id": "4471586",
+      "path": "transcripts/force_aligned_nlp_references/4471586.aligned.nlp",
+      "sha256": "2cf6a449743dfb92b361abd1d0b30b76de4bcdab8b6f623697eb601bd9058996"
+    },
+    {
+      "bytes": 204507,
+      "file_id": "4473238",
+      "path": "transcripts/force_aligned_nlp_references/4473238.aligned.nlp",
+      "sha256": "f82507aa04dd0d395a2912ad2a500d437da552f55da3116a8b464fa244a4f0b4"
+    },
+    {
+      "bytes": 318067,
+      "file_id": "4474229",
+      "path": "transcripts/force_aligned_nlp_references/4474229.aligned.nlp",
+      "sha256": "efb99ad4d011f5b467271c75c6a337d42f65264b91914ca3ecf680006e97a446"
+    },
+    {
+      "bytes": 482493,
+      "file_id": "4474506",
+      "path": "transcripts/force_aligned_nlp_references/4474506.aligned.nlp",
+      "sha256": "b5f04c16624937caa27e96957a9254a961cb851584f2c5054ae6a59c072d6677"
+    },
+    {
+      "bytes": 79549,
+      "file_id": "4474955",
+      "path": "transcripts/force_aligned_nlp_references/4474955.aligned.nlp",
+      "sha256": "ea6af551b70bd58f2bd7642896e24b1a1ff1d108c3b1a825bb200edd9066ea5c"
+    },
+    {
+      "bytes": 81678,
+      "file_id": "4475604",
+      "path": "transcripts/force_aligned_nlp_references/4475604.aligned.nlp",
+      "sha256": "d271cba642df83f2a54909d1b98ea84a30c5825eafff02f73dbf6f83f22d2349"
+    },
+    {
+      "bytes": 97914,
+      "file_id": "4479524",
+      "path": "transcripts/force_aligned_nlp_references/4479524.aligned.nlp",
+      "sha256": "a0189afac851b14b2292bf32863f1271b3a027bc38d1764ab42305c98229e905"
+    },
+    {
+      "bytes": 351261,
+      "file_id": "4481552",
+      "path": "transcripts/force_aligned_nlp_references/4481552.aligned.nlp",
+      "sha256": "66f81dc84e1b1b4e3e58a9f2e30ea060a1d93a11ecf13e29ce006788f483b7cf"
+    },
+    {
+      "bytes": 271369,
+      "file_id": "4481601",
+      "path": "transcripts/force_aligned_nlp_references/4481601.aligned.nlp",
+      "sha256": "58593f2b846ecd1ed30aae1c7d0b558aeded795e6e97349e5b8079d5b9b5d0d6"
+    },
+    {
+      "bytes": 319325,
+      "file_id": "4481904",
+      "path": "transcripts/force_aligned_nlp_references/4481904.aligned.nlp",
+      "sha256": "9ba85db5fdec9ba3071a1303197a4f067772037fb28c2e20a9a5f0927bf98d20"
+    },
+    {
+      "bytes": 224918,
+      "file_id": "4482110",
+      "path": "transcripts/force_aligned_nlp_references/4482110.aligned.nlp",
+      "sha256": "217a2120b6b39a1996aba0fe19f09bb8341ca1278dbbae35edaadd14bf9c2010"
+    },
+    {
+      "bytes": 526123,
+      "file_id": "4482249",
+      "path": "transcripts/force_aligned_nlp_references/4482249.aligned.nlp",
+      "sha256": "138573e6dcb457d936143c6936307e692addd4688176405c553daaad7edd81ff"
+    },
+    {
+      "bytes": 288089,
+      "file_id": "4482569",
+      "path": "transcripts/force_aligned_nlp_references/4482569.aligned.nlp",
+      "sha256": "7604f4ad46a7928d6cfb7cfdfa08e7b22e40b7e6bd8a0eecf5718c7a2baf3687"
+    },
+    {
+      "bytes": 321735,
+      "file_id": "4482613",
+      "path": "transcripts/force_aligned_nlp_references/4482613.aligned.nlp",
+      "sha256": "a996a1e68ba229ea74e0a133cb85cd0170627ead13930d7755453a9621c8d9dd"
+    },
+    {
+      "bytes": 88370,
+      "file_id": "4482968",
+      "path": "transcripts/force_aligned_nlp_references/4482968.aligned.nlp",
+      "sha256": "dc7f9e7fb7feafc6c2ba46631a2305bffac3207ee508c81937241dfeeec3ca0d"
+    },
+    {
+      "bytes": 156980,
+      "file_id": "4482976",
+      "path": "transcripts/force_aligned_nlp_references/4482976.aligned.nlp",
+      "sha256": "9cd014681e6ba34a45e4c6c5a736bab79fa17f3912e41e4cb4fed3555bc2a070"
+    },
+    {
+      "bytes": 123147,
+      "file_id": "4483046",
+      "path": "transcripts/force_aligned_nlp_references/4483046.aligned.nlp",
+      "sha256": "020d7d04a031a0b86cf0577f8e4c3dc76db0f07ca9b6b3898dfa0f6b3c1ad887"
+    },
+    {
+      "bytes": 407906,
+      "file_id": "4483297",
+      "path": "transcripts/force_aligned_nlp_references/4483297.aligned.nlp",
+      "sha256": "c282ee2d45d9a8176cd8f0a1ddcd21aea6d3739d86e2f0ddad5bfc02c63b467d"
+    },
+    {
+      "bytes": 521008,
+      "file_id": "4483320",
+      "path": "transcripts/force_aligned_nlp_references/4483320.aligned.nlp",
+      "sha256": "7c9ec243b27730ce54911e8d0604887061dfa0fc7228c4b7051fadaac390615b"
+    },
+    {
+      "bytes": 580031,
+      "file_id": "4483589",
+      "path": "transcripts/force_aligned_nlp_references/4483589.aligned.nlp",
+      "sha256": "4ed2a98c17aa2bbff9304fe4431d563a4466655992503e70dc476c5a99c7ab15"
+    },
+    {
+      "bytes": 170982,
+      "file_id": "4483623",
+      "path": "transcripts/force_aligned_nlp_references/4483623.aligned.nlp",
+      "sha256": "cec0ba36c65d3f40390c402e749f8e835f8ff1f747217f0097359a4de45f1a2e"
+    },
+    {
+      "bytes": 355659,
+      "file_id": "4483633",
+      "path": "transcripts/force_aligned_nlp_references/4483633.aligned.nlp",
+      "sha256": "4dc8a4c8e53dbcc5d130be038d4be9ed70be177ff6dee5b9740138c5cca9838d"
+    },
+    {
+      "bytes": 227930,
+      "file_id": "4483670",
+      "path": "transcripts/force_aligned_nlp_references/4483670.aligned.nlp",
+      "sha256": "d57f810d13b7059599667bf0f57a92c0be52c734d1ddaa281c119eb2385cae8e"
+    },
+    {
+      "bytes": 356255,
+      "file_id": "4483678",
+      "path": "transcripts/force_aligned_nlp_references/4483678.aligned.nlp",
+      "sha256": "0d9b7b8a9eec25f6c991a01172fddf5f973459da0d8bfc134a583d3a661ac157"
+    },
+    {
+      "bytes": 213687,
+      "file_id": "4485206",
+      "path": "transcripts/force_aligned_nlp_references/4485206.aligned.nlp",
+      "sha256": "1b60428292d28df6547f06f824c23b2e76fa0efdb051eb9af1d8aa4f394d3c9e"
+    }
+  ],
+  "parent_manifest_content_hash": "67f0fc955ff9057ee5819ee3f05957ad1a04d2603564ba75366d4d319e2bd313",
+  "schema_version": "e4-xdomain-supply-v3-reserve-input-v1",
+  "source_commit": "c05ab6fd8b4b627d123c922a22a39e993dd37635"
+}

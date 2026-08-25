@@ -1,0 +1,36 @@
+{
+  "admitted": false,
+  "config_sha256": "13c0f2b02bd55954fa7cc707c32e1838b046c25945595e801bced6b75c5685b5",
+  "counts": {
+    "discovery_lexically_read": 80,
+    "lexically_read_union": 125,
+    "minimum_required": 6,
+    "read_overlap": 0,
+    "reference_unread": 0,
+    "reserve_lexically_read": 45,
+    "roster": 125
+  },
+  "dependent_runtime_gate": "NOT_RUN_PREREQUISITE_FAILED",
+  "experiment_id": "E-MATERIAL-SEMANTIC-ADMISSION",
+  "inputs": {
+    "discovery_manifest": {
+      "path": "configs\\probes\\e4_xdomain_supply_v2\\2026-08-21-input-manifest.json",
+      "sha256": "96d009584615afd1c1c487a2207f0fcb00da667f579e90f8e7ceabb69c8143ee"
+    },
+    "reserve_manifest": {
+      "path": "configs\\probes\\e4_xdomain_supply_v3\\2026-08-22-reserve-manifest.json",
+      "sha256": "d2ca079344ffe1ac11f7159efc7c1eeb72f298c3fa45cf013a5c3660ecfc5be8"
+    },
+    "roster": {
+      "path": "configs\\probes\\earnings22_sortformer\\2026-08-24-roster.json",
+      "sha256": "f36673b96a43cc393ffe7eb2b1185321389541b2d77c44588f4ff435b7e2a151"
+    }
+  },
+  "integrity_ok": true,
+  "material_downloads": 0,
+  "model_calls": 0,
+  "reference_content_reads": 0,
+  "reference_unread_file_ids": [],
+  "schema": "material-semantic-admission-verdict-v1",
+  "verdict": "ADMISSION_FAILED_NO_REFERENCE_UNREAD_MEETINGS"
+}

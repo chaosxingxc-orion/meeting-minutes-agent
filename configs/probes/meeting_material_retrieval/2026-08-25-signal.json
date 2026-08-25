@@ -1,0 +1,32 @@
+{
+  "schema": "meeting-material-retrieval-signal-v1",
+  "experiment_id": "E-MEETING-MATERIAL-RETRIEVAL-SIGNAL",
+  "claim_boundary": "Exploratory zero-model Q-K-V material-attribution signal only; no reference, audio, or Omni contact.",
+  "runtime_sha256": "a2e272852cf35a6a67b9331b405a2472d3d3a217c8738f50693a8ad1898ce4b9",
+  "candidate_registry_sha256": "11aad77b8635f144f9ce213831a9abe1f6ba05941fb7fe36fec29e06cca48698",
+  "material_pages_sha256": "2083326aff3fc58749f33dc1dbc35238b825badc131159888e91c022e3e6dd51",
+  "pass0_sha256": {
+    "4443920": "76866623d1c59a6d253bb32abc7d5a2ce8ae6a0f8394dbb8d0366582a0e3c5b7",
+    "4461799": "8664437f7317a22cfe2625c5991fd00ffc4c12588a7b2176edd6360f29a2bd83",
+    "4483589": "acf9309a919c5ea8c467e5130ca9401ab4c82f292f48c79798c298b91dd8c96e"
+  },
+  "balanced_key_width": 8,
+  "selection_salt": "meeting-material-retrieval-signal-2026-08-25-v1",
+  "minimum_query_content_tokens": 3,
+  "bm25": {"k1": 1.2, "b": 0.75},
+  "controls": {
+    "deranged_rotation": "ascending_file_id_next",
+    "exclude_exact_alias_queries": true,
+    "short_acronym_character_fuzzing": false,
+    "equal_keys_per_meeting": true
+  },
+  "gates": {
+    "minimum_meetings": 3,
+    "minimum_eligible_turns": 400,
+    "minimum_dispatch_coverage": 0.2,
+    "minimum_attribution_precision": 0.7,
+    "minimum_meetings_over_precision_floor": 2,
+    "per_meeting_precision_floor": 0.6,
+    "minimum_median_normalized_margin": 0.05
+  }
+}

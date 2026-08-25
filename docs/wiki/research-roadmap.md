@@ -17,13 +17,25 @@
 | E4-SAFETY-GATE-AUDIT | 简单运行时拒绝门与内部扩展性 | 已判读 | `NO-SAFE-GATE`：有覆盖的 width≤2 门同时消除全部 carry 增益；跨领域不可识别 |
 | E4-XDOMAIN-SUPPLY-AUDIT | Product/AMI 与 Academic/ICSI 的跨域供给 | 已判读 | `DOMAIN-LIMITED-SUPPLY`：Academic 通过；Product 严格技术 carry 3 < 10 |
 | E4-XDOMAIN-SUPPLY-AUDIT-v2 | Earnings-22 新 business surface 的显式实体供给 | 已判读 | 广义标签机械通过；专业代理被 `CONTRACTION/FALLBACK` 污染，需在未读 reserve 上窄类确认 |
-| E5 | Training-free agent loop | 未放行 | E4-CF 未通过强效应门；先做冻结结果机制分析 |
+| E4-XDOMAIN-SUPPLY-AUDIT-v3 | Earnings-22 未读 reserve 的缩写/字母数字供给 | 已判读 | `EARNINGS22-NARROW-SUPPLY-FEASIBLE`：30/45场 eligible、264个 narrow exclusive carry |
+| E4-XDOMAIN-AUDIO-ADMISSION | Earnings-22 音频完整性与固定前端兼容性 | 已判读 | 音频125/125完整；CSV 时长门失败，且116/125场超过4-speaker前端上限；不放行模型 pilot |
+| EARNINGS22-SORTFORMER | 超过4人的电话会是否仍能保住主要主讲 | 已判读 | 30场主讲占主导目标组Top-1/Top-2错误14.30%/22.59%，条件可用；长尾72.75%不可用 |
+| E-LOOP-STABILITY-SUPPLY | 跨窗滑动记忆是否有足量测量供给 | 已判读 | `LOOP-STABILITY-SUPPLY-READY`；4/4场、554个同speaker跨窗carry turn |
+| E-LOOP-STABILITY | 新信息驱动的有界上下文重组是否稳定且不劣 | 已判读 | `LOOP-STABILITY-NOT-REACHED`：一致性上升，但错配分离、收敛与安全门失败 |
+| E-MEETING-MATERIAL-SUPPLY-AUDIT | 会议同期官方材料能否形成安全、可追溯的逐chunk候选供给 | 已判读 | `MEETING-MATERIAL-SUPPLY-INSUFFICIENT`：49个候选有完整出处，但正确触发3/418、召回3/30；不放行Omni |
+| E-MEETING-MATERIAL-SEMANTIC-SIGNAL | SAEA式encode-only语义K能否形成分布式材料归属信号 | 已判读 | `SEMANTIC-RETRIEVAL-SIGNAL-PRESENT`：77.86%，较词法+15.997点，3/3场过门；放行独立能力实验设计 |
+| E-MATERIAL-SEMANTIC-ADMISSION | Earnings-22能否建立6场reference-unread开发/确认队列 | 已判读 | `ADMISSION_FAILED_NO_REFERENCE_UNREAD_MEETINGS`：v2/v3合计覆盖125/125，剩余0场 |
+| E-MATERIAL-RUNTIME-GATE | 本会议语义top1/top2门能否跨开发/确认稳定 | 依赖门失败，未运行 | 严格独立队列不存在；未拟合阈值、未读Pass0、未调用模型 |
+| E-MATERIAL-RUNTIME-GATE-CI | 构造隔离的六场复用能否形成语义top1/top2门 | 已判读 | `CONSTRUCTION_ISOLATED_SIGNAL_PRESENT`：阈值0.01；确认precision 76.10%、覆盖74.82%，四门全过；只放行另行注册的探索性Omni设计 |
+| E5 | Training-free GRPO/GEPA/多模态知识注入 | 未放行 | 只有E-LOOP-STABILITY通过后才搜索整体效用增益 |
 | E6 | 多会议确认与最差 speaker 检验 | 未放行 | E5 尚未放行；启动前需预注册样本量、MDE、CI 和多重检验 |
 
-当前证明只能写成条件命题：若存在一个控制策略在固定输入分布上降低预注册损失，且选择器不引入更大误选风险，则有限候选的迭代可单调改进到局部不动点。C-CTX 与 E3 已证明“模型会读取供给”和“合法状态可构造”；E4-CF 只观察到低于实用门的小幅 speaker 路由收益。后续方向 pilot 被 false-hint 安全门否决，简单拒绝门也未能保留收益，因此当前还不存在可用于 agent loop 的安全单步改进算子。
+稳定与优化必须分开：首次完整验证进一步表明，提高字符串一致性不等于达到安全不动点。
+广播式recent-tail和长摘要导致输出膨胀、复述、非收敛与WER伤害，已被淘汰。下一候选只能是
+稀疏、按chunk检索的少量候选上下文；在其通过之前，第二阶段效用搜索仍不得启动。
 
 形式化定义、Lean 风格定理和逐步实现接口见[完整研究计划](../plans/2026-08-20-speaker-conditioned-transcription-optimization.md)。
 
-## 2026-08-21 最近检查点
+## 2026-08-22 最近检查点
 
-`E4-DISJOINT-PREV` 用795次 Pass-0 调用得到52.76% prevalence；172-cell的 `E4-DISJOINT-DIR` 因 false-hint +3.49个百分点判为有害。后续零模型安全门审计没有找到兼具覆盖、安全和 carry 收益的规则。跨域供给审计显示 Academic/ICSI 充足、Product/AMI 严格技术 carry 仅3个；Earnings-22 discovery 虽机械通过，但70.2%的 exclusive carry 来自 `CONTRACTION/FALLBACK`。下一检查点是决定是否在未读 reserve 上进行窄类确认；完整模型确认与 E5 继续不放行。详见[阶段性结论](stage-conclusions.md)和[实验总表](experiments/README.md)。
+Earnings-22 窄类 reserve、音频 acquisition 和全库 Sortformer 均已完成。125场工具运行零失败；在预注册的30场“>4人但Top-2发言占比≥60%”目标组，主要主讲归属通过精度门，但长尾错误72.75%。因此不再简单按总人数否决该语料，下一检查点改为无gold dominant-cluster eligibility 门；通过后才讨论只面向主要主讲的小型模型 pilot。E5 继续不放行。详见[阶段性结论](stage-conclusions.md)和[实验总表](experiments/README.md)。

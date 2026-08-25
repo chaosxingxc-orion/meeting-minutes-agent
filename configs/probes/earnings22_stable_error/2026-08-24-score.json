@@ -1,0 +1,40 @@
+{
+  "allowed_entity_classes": [
+    "ABBREVIATION",
+    "ALPHANUMERIC"
+  ],
+  "content_hash": "903f07e767869e109664c8797e13f4f7fb9667f0777cbed0158b9bae8324d7d0",
+  "experiment_id": "E-STABLE-ERROR-SUPPLY",
+  "meetings": [
+    {
+      "file_id": "4443920",
+      "reference_relative": "datasets/earnings22/transcripts/force_aligned_nlp_references/4443920.aligned.nlp",
+      "reference_sha256": "54e1d4b8a119b10a27a15efd0cf9a9260acab8e19ca25f8e2275ae6bdeaf8317",
+      "selection_exclusive_carry": 29,
+      "ticker_anchor": "JRONF"
+    },
+    {
+      "file_id": "4483589",
+      "reference_relative": "datasets/earnings22/transcripts/force_aligned_nlp_references/4483589.aligned.nlp",
+      "reference_sha256": "4ed2a98c17aa2bbff9304fe4431d563a4466655992503e70dc476c5a99c7ab15",
+      "selection_exclusive_carry": 24,
+      "ticker_anchor": "TMVWF"
+    },
+    {
+      "file_id": "4461799",
+      "reference_relative": "datasets/earnings22/transcripts/force_aligned_nlp_references/4461799.aligned.nlp",
+      "reference_sha256": "a1afa1d213a3a1439348ebd22a7d4ea34687a91bfe15c96862ce6738b7887cab",
+      "selection_exclusive_carry": 20,
+      "ticker_anchor": "GLPEF"
+    },
+    {
+      "file_id": "4430051",
+      "reference_relative": "datasets/earnings22/transcripts/force_aligned_nlp_references/4430051.aligned.nlp",
+      "reference_sha256": "f6bbb2ed5ea064492ab452a86ca1378cb0df3aef2f5f27feab2732aa7596bb61",
+      "selection_exclusive_carry": 20,
+      "ticker_anchor": "SKM"
+    }
+  ],
+  "runtime_content_hash": "7a87839ec155a304dcb70bc1df418bdace927e275659d57fe61f44162e351c41",
+  "schema": "earnings22-stable-error-score-v1"
+}
