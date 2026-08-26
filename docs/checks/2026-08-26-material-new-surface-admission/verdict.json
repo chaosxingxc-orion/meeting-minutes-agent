@@ -1,0 +1,96 @@
+{
+  "cohort_sha256": "1b51dd273c15237e8bb4ce210aed3f2929d54f9d5e873c30f9f17deb747a0662",
+  "config_sha256": "d6ba164abc9863b27e5565d047b7c672a916e044e6cf36f1d478433199c68622",
+  "errors": [],
+  "experiment_id": "E-MATERIAL-NEW-SURFACE-ADMISSION",
+  "hash_checks": [
+    {
+      "actual_sha256": "db7892baae1f6f8c21fe5bacb37469bd802594b6ddab982f948fc35ea3670803",
+      "expected_sha256": "db7892baae1f6f8c21fe5bacb37469bd802594b6ddab982f948fc35ea3670803",
+      "passed": true,
+      "path": "source-metadata/metadata.jsonl"
+    },
+    {
+      "actual_sha256": "f944ad548f0bcddf3ed616fecf2f3e2c12ee778d5b14aa04ee564eb1ed62c33e",
+      "expected_sha256": "f944ad548f0bcddf3ed616fecf2f3e2c12ee778d5b14aa04ee564eb1ed62c33e",
+      "passed": true,
+      "path": "source-metadata/selection_manifest.json"
+    },
+    {
+      "actual_sha256": "5fe2b11684e23694210bb830f4707a829027f9a16573f6ff3da82273ed4cfdcf",
+      "expected_sha256": "5fe2b11684e23694210bb830f4707a829027f9a16573f6ff3da82273ed4cfdcf",
+      "passed": true,
+      "path": "source-metadata/MANIFEST.sha256"
+    },
+    {
+      "actual_sha256": "2440bdf2254595fefb181f357162fd51231f0518c9ded5e9af21992d9c4a93d0",
+      "expected_sha256": "2440bdf2254595fefb181f357162fd51231f0518c9ded5e9af21992d9c4a93d0",
+      "passed": true,
+      "path": "source-metadata/QUALITY_REPORT.json"
+    },
+    {
+      "actual_sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+      "expected_sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+      "passed": true,
+      "path": "source-metadata/LICENSE"
+    },
+    {
+      "actual_sha256": "6d7a5e25c4589ea593b194f43ab3f499480b9d4d6d8cd757d1317059cf8a9bdc",
+      "expected_sha256": "6d7a5e25c4589ea593b194f43ab3f499480b9d4d6d8cd757d1317059cf8a9bdc",
+      "passed": true,
+      "path": "source-metadata/NOTICE"
+    },
+    {
+      "actual_sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+      "expected_sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+      "passed": true,
+      "path": "fincall/LICENSE"
+    },
+    {
+      "actual_sha256": "912c99856712a9f71d828991b7e2d9f2fb9ce8226c3b8099ae2c413dd87e031e",
+      "expected_sha256": "912c99856712a9f71d828991b7e2d9f2fb9ce8226c3b8099ae2c413dd87e031e",
+      "passed": true,
+      "path": "fincall/README.md"
+    },
+    {
+      "actual_sha256": "a7c4ac0529da9a4028f32483dd95506781a71e48b8c4ff0bc89d53b20dd14549",
+      "expected_sha256": "a7c4ac0529da9a4028f32483dd95506781a71e48b8c4ff0bc89d53b20dd14549",
+      "passed": true,
+      "path": "fincall/transcripts_2019.json"
+    },
+    {
+      "actual_sha256": "83c7e77679cda80e1a2786c374570abcf96ee776cda0e38c173c72dc7610a8a3",
+      "expected_sha256": "83c7e77679cda80e1a2786c374570abcf96ee776cda0e38c173c72dc7610a8a3",
+      "passed": true,
+      "path": "fincall/transcripts_2020.json"
+    },
+    {
+      "actual_sha256": "8c4a668fdf1682c5105bdf4c8c567d59b22a4b42bf64003d0eaf4f62a1500f58",
+      "expected_sha256": "8c4a668fdf1682c5105bdf4c8c567d59b22a4b42bf64003d0eaf4f62a1500f58",
+      "passed": true,
+      "path": "fincall/transcripts_2021.json"
+    }
+  ],
+  "model_contact": {
+    "embedding": 0,
+    "omni": 0,
+    "pass0": 0
+  },
+  "reference_contact": 0,
+  "schema": "material-new-surface-admission-verdict-v1",
+  "source_counts": {
+    "admitted": 69,
+    "metadata_items": 100,
+    "rejections": {
+      "known_reference_exposure": 1,
+      "outside_frozen_year_scope": 30
+    },
+    "scoped_pre_exclusion": 70,
+    "split": {
+      "confirmation": 40,
+      "development": 20,
+      "reserve": 9
+    }
+  },
+  "verdict": "NEW_SURFACE_COHORT_FROZEN"
+}

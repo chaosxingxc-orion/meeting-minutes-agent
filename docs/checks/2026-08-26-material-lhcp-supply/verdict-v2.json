@@ -1,0 +1,1551 @@
+{
+  "audio_downloads": 0,
+  "config_sha256": "864c448ff1e73c7be4190ccbd59ff2bef83fc4436454ef88519ccb80964d6516",
+  "counts": {
+    "documents": 77,
+    "failed_documents": 2,
+    "failed_meetings": 2,
+    "meetings": 72,
+    "minimum_meeting_candidates": 0,
+    "minimum_meeting_visible_characters": 0,
+    "pages_or_slides": 2255,
+    "parsed_documents": 75,
+    "passed_meetings": 70,
+    "split_meetings": {
+      "dev_2020": 14,
+      "dev_2022": 11,
+      "test_2020": 15,
+      "test_2022": 32
+    },
+    "split_passed": {
+      "dev_2020": 14,
+      "dev_2022": 11,
+      "test_2020": 13,
+      "test_2022": 32
+    },
+    "unique_candidates_meeting_sum": 13764,
+    "visible_characters": 1994794
+  },
+  "documents": [
+    {
+      "audio_path": "1109611c511.wav",
+      "candidate_count": 109,
+      "pages": 27,
+      "parse_error": null,
+      "relative_path": "materials/1109611/511/4190521-LHCP22-Batell.pdf",
+      "split": "dev_2022",
+      "suffix": ".pdf",
+      "visible_characters": 9299
+    },
+    {
+      "audio_path": "1109611c512.wav",
+      "candidate_count": 218,
+      "pages": 34,
+      "parse_error": null,
+      "relative_path": "materials/1109611/512/4190324-Thamm_FIPs.pdf",
+      "split": "test_2022",
+      "suffix": ".pdf",
+      "visible_characters": 35755
+    },
+    {
+      "audio_path": "1109611c513.wav",
+      "candidate_count": 103,
+      "pages": 32,
+      "parse_error": null,
+      "relative_path": "materials/1109611/513/4190382-AEV_SearchesDisplacedParticles.pdf",
+      "split": "dev_2022",
+      "suffix": ".pdf",
+      "visible_characters": 11293
+    },
+    {
+      "audio_path": "1109611c514.wav",
+      "candidate_count": 158,
+      "pages": 33,
+      "parse_error": null,
+      "relative_path": "materials/1109611/514/4190378-FIPs_with_Prompt_-_YW_-_F.pdf",
+      "split": "test_2022",
+      "suffix": ".pdf",
+      "visible_characters": 10449
+    },
+    {
+      "audio_path": "1109611c519.wav",
+      "candidate_count": 106,
+      "pages": 19,
+      "parse_error": null,
+      "relative_path": "materials/1109611/519/4192573-EWtheory.pdf",
+      "split": "test_2022",
+      "suffix": ".pdf",
+      "visible_characters": 7061
+    },
+    {
+      "audio_path": "1109611c521.wav",
+      "candidate_count": 79,
+      "pages": 22,
+      "parse_error": null,
+      "relative_path": "materials/1109611/521/4192253-Multibosons-LHCP-AMehta.pdf",
+      "split": "dev_2022",
+      "suffix": ".pdf",
+      "visible_characters": 7557
+    },
+    {
+      "audio_path": "1109611c522.wav",
+      "candidate_count": 219,
+      "pages": 22,
+      "parse_error": null,
+      "relative_path": "materials/1109611/522/4191414-VBFVBS_Nielsen_LHCP2022.pdf",
+      "split": "test_2022",
+      "suffix": ".pdf",
+      "visible_characters": 17286
+    },
+    {
+      "audio_path": "1109611c523.wav",
+      "candidate_count": 55,
+      "pages": 43,
+      "parse_error": null,
+      "relative_path": "materials/1109611/523/4192348-2022-_05_-_LHCP_-_SMEFT_of_Higgs_diboson_top_and_electroweak_precision.pdf",
+      "split": "test_2022",
+      "suffix": ".pdf",
+      "visible_characters": 6655
+    },
+    {
+      "audio_path": "1109611c524.wav",
+      "candidate_count": 69,
+      "pages": 21,
+      "parse_error": null,
+      "relative_path": "materials/1109611/524/4190427-Blanke-LHCP2022.pdf",
+      "split": "dev_2022",
+      "suffix": ".pdf",
+      "visible_characters": 11001
+    },
+    {
+      "audio_path": "1109611c525.wav",
+      "candidate_count": 111,
+      "pages": 35,
+      "parse_error": null,
+      "relative_path": "materials/1109611/525/4192053-LHCP2022_Polikarpov.pdf",
+      "split": "test_2022",
+      "suffix": ".pdf",
+      "visible_characters": 9265
+    },
+    {
+      "audio_path": "1109611c526.wav",
+      "candidate_count": 82,
+      "pages": 40,
+      "parse_error": null,
+      "relative_path": "materials/1109611/526/4192324-2022_LHCP_simi_v1.pdf",
+      "split": "test_2022",
+      "suffix": ".pdf",
+      "visible_characters": 16644
+    },
+    {
+      "audio_path": "1109611c528.wav",
+      "candidate_count": 503,
+      "pages": 36,
+      "parse_error": null,
+      "relative_path": "materials/1109611/528/4259050-LHCP_2022.pdf",
+      "split": "test_2022",
+      "suffix": ".pdf",
+      "visible_characters": 39549
+    },
+    {
+      "audio_path": "1109611c529.wav",
+      "candidate_count": 604,
+      "pages": 38,
+      "parse_error": null,
+      "relative_path": "materials/1109611/529/4193542-Greljo-LHCP.pdf",
+      "split": "test_2022",
+      "suffix": ".pdf",
+      "visible_characters": 139573
+    },
+    {
+      "audio_path": "1109611c530.wav",
+      "candidate_count": 148,
+      "pages": 23,
+      "parse_error": null,
+      "relative_path": "materials/1109611/530/4193011-LHCP_2022_May_talk.pdf",
+      "split": "test_2022",
+      "suffix": ".pdf",
+      "visible_characters": 11419
+    },
+    {
+      "audio_path": "1109611c531.wav",
+      "candidate_count": 145,
+      "pages": 31,
+      "parse_error": null,
+      "relative_path": "materials/1109611/531/4193632-Hatakeyama_LHCP2022_NonResonant_Searches_final.pdf",
+      "split": "test_2022",
+      "suffix": ".pdf",
+      "visible_characters": 11149
+    },
+    {
+      "audio_path": "1109611c532.wav",
+      "candidate_count": 65,
+      "pages": 23,
+      "parse_error": null,
+      "relative_path": "materials/1109611/532/4192580-LHCP22_Higgs_Heinrich.pdf",
+      "split": "test_2022",
+      "suffix": ".pdf",
+      "visible_characters": 6656
+    },
+    {
+      "audio_path": "1109611c534.wav",
+      "candidate_count": 798,
+      "pages": 78,
+      "parse_error": null,
+      "relative_path": "materials/1109611/534/4192487-2022May18_PrecisionHiggsExperiment_Koeneke.pdf",
+      "split": "test_2022",
+      "suffix": ".pdf",
+      "visible_characters": 118151
+    },
+    {
+      "audio_path": "1109611c535.wav",
+      "candidate_count": 154,
+      "pages": 42,
+      "parse_error": null,
+      "relative_path": "materials/1109611/535/4194196-LHCP_2022_Rare_BSM_Andrzej_Novak.pdf",
+      "split": "test_2022",
+      "suffix": ".pdf",
+      "visible_characters": 12093
+    },
+    {
+      "audio_path": "1109611c537.wav",
+      "candidate_count": 55,
+      "pages": 29,
+      "parse_error": null,
+      "relative_path": "materials/1109611/537/4194218-LHCP2022_JuanGonzalez.pdf",
+      "split": "dev_2022",
+      "suffix": ".pdf",
+      "visible_characters": 10001
+    },
+    {
+      "audio_path": "1109611c538.wav",
+      "candidate_count": 126,
+      "pages": 46,
+      "parse_error": null,
+      "relative_path": "materials/1109611/538/4194180-TopPropertiesLHCP2022.pdf",
+      "split": "dev_2022",
+      "suffix": ".pdf",
+      "visible_characters": 22625
+    },
+    {
+      "audio_path": "1109611c539.wav",
+      "candidate_count": 103,
+      "pages": 43,
+      "parse_error": null,
+      "relative_path": "materials/1109611/539/4194118-RareTopProcesses-NunoCastro-LHCP2022-17.pdf",
+      "split": "test_2022",
+      "suffix": ".pdf",
+      "visible_characters": 9241
+    },
+    {
+      "audio_path": "1109611c540.wav",
+      "candidate_count": 272,
+      "pages": 19,
+      "parse_error": null,
+      "relative_path": "materials/1109611/540/4195131-highPtQCD.pdf",
+      "split": "dev_2022",
+      "suffix": ".pdf",
+      "visible_characters": 22764
+    },
+    {
+      "audio_path": "1109611c541.wav",
+      "candidate_count": 214,
+      "pages": 21,
+      "parse_error": null,
+      "relative_path": "materials/1109611/541/4194548-llorenteQCD.pdf",
+      "split": "test_2022",
+      "suffix": ".pdf",
+      "visible_characters": 25262
+    },
+    {
+      "audio_path": "1109611c542.wav",
+      "candidate_count": 300,
+      "pages": 23,
+      "parse_error": null,
+      "relative_path": "materials/1109611/542/4194251-LHCP22Sjostrand.pdf",
+      "split": "test_2022",
+      "suffix": ".pdf",
+      "visible_characters": 58178
+    },
+    {
+      "audio_path": "1109611c543.wav",
+      "candidate_count": 70,
+      "pages": 25,
+      "parse_error": null,
+      "relative_path": "materials/1109611/543/4194892-Spectroscopy_and_hadronic_structure_LHCP.pdf",
+      "split": "test_2022",
+      "suffix": ".pdf",
+      "visible_characters": 9808
+    },
+    {
+      "audio_path": "1109611c545.wav",
+      "candidate_count": 258,
+      "pages": 19,
+      "parse_error": null,
+      "relative_path": "materials/1109611/545/4195083-ATLAS_upgrades.pdf",
+      "split": "dev_2022",
+      "suffix": ".pdf",
+      "visible_characters": 21130
+    },
+    {
+      "audio_path": "1109611c547.wav",
+      "candidate_count": 179,
+      "pages": 45,
+      "parse_error": null,
+      "relative_path": "materials/1109611/547/4195157-paula_collins_lhcp_2022_draft3.pdf",
+      "split": "test_2022",
+      "suffix": ".pdf",
+      "visible_characters": 20602
+    },
+    {
+      "audio_path": "1109611c549.wav",
+      "candidate_count": 120,
+      "pages": 7,
+      "parse_error": null,
+      "relative_path": "materials/1109611/549/4188735-lhcp2022-welcome.pdf",
+      "split": "test_2022",
+      "suffix": ".pdf",
+      "visible_characters": 2393
+    },
+    {
+      "audio_path": "1109611c550.wav",
+      "candidate_count": 133,
+      "pages": 25,
+      "parse_error": null,
+      "relative_path": "materials/1109611/550/4188959-JM_LHCP_2022.pptx",
+      "split": "test_2022",
+      "suffix": ".pptx",
+      "visible_characters": 12991
+    },
+    {
+      "audio_path": "1109611c550.wav",
+      "candidate_count": 133,
+      "pages": 25,
+      "parse_error": null,
+      "relative_path": "materials/1109611/550/4189305-JM_LHCP_2022.pdf",
+      "split": "test_2022",
+      "suffix": ".pdf",
+      "visible_characters": 13114
+    },
+    {
+      "audio_path": "1109611c551.wav",
+      "candidate_count": 143,
+      "pages": 26,
+      "parse_error": null,
+      "relative_path": "materials/1109611/551/4188661-Status-LHC-LHCP-May22.pptx",
+      "split": "dev_2022",
+      "suffix": ".pptx",
+      "visible_characters": 8191
+    },
+    {
+      "audio_path": "1109611c551.wav",
+      "candidate_count": 151,
+      "pages": 26,
+      "parse_error": null,
+      "relative_path": "materials/1109611/551/4188717-Status-LHC-LHCP-May22.pdf",
+      "split": "dev_2022",
+      "suffix": ".pdf",
+      "visible_characters": 8250
+    },
+    {
+      "audio_path": "1109611c552.wav",
+      "candidate_count": 257,
+      "pages": 23,
+      "parse_error": null,
+      "relative_path": "materials/1109611/552/4188904-CMS_Overview.pdf",
+      "split": "test_2022",
+      "suffix": ".pdf",
+      "visible_characters": 16337
+    },
+    {
+      "audio_path": "1109611c553.wav",
+      "candidate_count": 333,
+      "pages": 24,
+      "parse_error": null,
+      "relative_path": "materials/1109611/553/4188830-LHCP_2022.pdf",
+      "split": "dev_2022",
+      "suffix": ".pdf",
+      "visible_characters": 18355
+    },
+    {
+      "audio_path": "1109611c554.wav",
+      "candidate_count": 133,
+      "pages": 21,
+      "parse_error": null,
+      "relative_path": "materials/1109611/554/4188848-LHCb_palutan_LHCP2022.pdf",
+      "split": "test_2022",
+      "suffix": ".pdf",
+      "visible_characters": 9836
+    },
+    {
+      "audio_path": "1109611c555.wav",
+      "candidate_count": 411,
+      "pages": 27,
+      "parse_error": null,
+      "relative_path": "materials/1109611/555/4218472-LHCP_ALICE_LM_2022_May.pdf",
+      "split": "test_2022",
+      "suffix": ".pdf",
+      "visible_characters": 28883
+    },
+    {
+      "audio_path": "1109611c556.wav",
+      "candidate_count": 98,
+      "pages": 24,
+      "parse_error": null,
+      "relative_path": "materials/1109611/556/4189005-LHCP22DIOBerryTS.pdf",
+      "split": "test_2022",
+      "suffix": ".pdf",
+      "visible_characters": 8656
+    },
+    {
+      "audio_path": "1109611c557.wav",
+      "candidate_count": 108,
+      "pages": 13,
+      "parse_error": null,
+      "relative_path": "materials/1109611/557/4195520-ECSF_LHCP2022_FAF.pdf",
+      "split": "test_2022",
+      "suffix": ".pdf",
+      "visible_characters": 6444
+    },
+    {
+      "audio_path": "1109611c558.wav",
+      "candidate_count": 31,
+      "pages": 7,
+      "parse_error": null,
+      "relative_path": "materials/1109611/558/4195594-LHCP-IACreport-ClosingPlenary.pdf",
+      "split": "test_2022",
+      "suffix": ".pdf",
+      "visible_characters": 3931
+    },
+    {
+      "audio_path": "1109611c559.wav",
+      "candidate_count": 42,
+      "pages": 8,
+      "parse_error": null,
+      "relative_path": "materials/1109611/559/4195641-lhcp22_poster_awards.pdf",
+      "split": "test_2022",
+      "suffix": ".pdf",
+      "visible_characters": 1814
+    },
+    {
+      "audio_path": "1109611c560.wav",
+      "candidate_count": 55,
+      "pages": 27,
+      "parse_error": null,
+      "relative_path": "materials/1109611/560/4195640-LHCP_2022_Keynote_-_Quantum.pdf",
+      "split": "test_2022",
+      "suffix": ".pdf",
+      "visible_characters": 4903
+    },
+    {
+      "audio_path": "1109611c561.wav",
+      "candidate_count": 224,
+      "pages": 51,
+      "parse_error": null,
+      "relative_path": "materials/1109611/561/4195742-Monica_LHCP2022.pdf",
+      "split": "test_2022",
+      "suffix": ".pdf",
+      "visible_characters": 24736
+    },
+    {
+      "audio_path": "1109611c562.wav",
+      "candidate_count": 437,
+      "pages": 30,
+      "parse_error": null,
+      "relative_path": "materials/1109611/562/4194610-LHCP-2022.pdf",
+      "split": "test_2022",
+      "suffix": ".pdf",
+      "visible_characters": 63066
+    },
+    {
+      "audio_path": "1109611c563.wav",
+      "candidate_count": 132,
+      "pages": 16,
+      "parse_error": null,
+      "relative_path": "materials/1109611/563/4195711-LHCP_2022_Closeout.pdf",
+      "split": "test_2022",
+      "suffix": ".pdf",
+      "visible_characters": 4537
+    },
+    {
+      "audio_path": "1109611c570.wav",
+      "candidate_count": 134,
+      "pages": 34,
+      "parse_error": null,
+      "relative_path": "materials/1109611/570/4194825-LHCP22-softQCD.pdf",
+      "split": "dev_2022",
+      "suffix": ".pdf",
+      "visible_characters": 19390
+    },
+    {
+      "audio_path": "856696c114.wav",
+      "candidate_count": 789,
+      "pages": 22,
+      "parse_error": null,
+      "relative_path": "materials/856696/114/3418804-jacco_LHCP-EWpenguin_260520.pdf",
+      "split": "test_2020",
+      "suffix": ".pdf",
+      "visible_characters": 180343
+    },
+    {
+      "audio_path": "856696c117.wav",
+      "candidate_count": 43,
+      "pages": 21,
+      "parse_error": null,
+      "relative_path": "materials/856696/117/3431008-LHCP2020_Jinlin.pdf",
+      "split": "dev_2020",
+      "suffix": ".pdf",
+      "visible_characters": 5640
+    },
+    {
+      "audio_path": "856696c122.wav",
+      "candidate_count": 149,
+      "pages": 41,
+      "parse_error": null,
+      "relative_path": "materials/856696/122/3428911-CPViolationinCharm_GuillaumePietrzyk_LHCP2020.pdf",
+      "split": "test_2020",
+      "suffix": ".pdf",
+      "visible_characters": 21439
+    },
+    {
+      "audio_path": "856696c128.wav",
+      "candidate_count": 78,
+      "pages": 45,
+      "parse_error": null,
+      "relative_path": "materials/856696/128/3424643-LHCP2020_BarbaraAlvarez_singletop.pdf",
+      "split": "dev_2020",
+      "suffix": ".pdf",
+      "visible_characters": 13052
+    },
+    {
+      "audio_path": "856696c138.wav",
+      "candidate_count": 336,
+      "pages": 25,
+      "parse_error": null,
+      "relative_path": "materials/856696/138/3425324-lchp2020_talk.pdf",
+      "split": "dev_2020",
+      "suffix": ".pdf",
+      "visible_characters": 73091
+    },
+    {
+      "audio_path": "856696c142.wav",
+      "candidate_count": 75,
+      "pages": 32,
+      "parse_error": null,
+      "relative_path": "materials/856696/142/3431444-2020_05_28_LHCP_Higgs_Pozdnyakov_v2.pdf",
+      "split": "test_2020",
+      "suffix": ".pdf",
+      "visible_characters": 8194
+    },
+    {
+      "audio_path": "856696c147.wav",
+      "candidate_count": 157,
+      "pages": 32,
+      "parse_error": null,
+      "relative_path": "materials/856696/147/3431040-NewPossibility_Higgs_NanLu_LHCP2020_0529.pdf",
+      "split": "test_2020",
+      "suffix": ".pdf",
+      "visible_characters": 13439
+    },
+    {
+      "audio_path": "856696c164.wav",
+      "candidate_count": 16,
+      "pages": 29,
+      "parse_error": null,
+      "relative_path": "materials/856696/164/3425758-bishara_lhcp_dm.pdf",
+      "split": "dev_2020",
+      "suffix": ".pdf",
+      "visible_characters": 1903
+    },
+    {
+      "audio_path": "856696c177.wav",
+      "candidate_count": 55,
+      "pages": 25,
+      "parse_error": null,
+      "relative_path": "materials/856696/177/3424642-Kopecna_Preformance_LHCbTracking.pdf",
+      "split": "test_2020",
+      "suffix": ".pdf",
+      "visible_characters": 10405
+    },
+    {
+      "audio_path": "856696c195.wav",
+      "candidate_count": 154,
+      "pages": 33,
+      "parse_error": null,
+      "relative_path": "materials/856696/195/3425505-ML_RealTime_LHCP_0520_v2.pdf",
+      "split": "dev_2020",
+      "suffix": ".pdf",
+      "visible_characters": 26268
+    },
+    {
+      "audio_path": "856696c200.wav",
+      "candidate_count": 63,
+      "pages": 24,
+      "parse_error": null,
+      "relative_path": "materials/856696/200/3424090-preghenella_LHCP2020.pdf",
+      "split": "dev_2020",
+      "suffix": ".pdf",
+      "visible_characters": 8759
+    },
+    {
+      "audio_path": "856696c220.wav",
+      "candidate_count": 134,
+      "pages": 18,
+      "parse_error": null,
+      "relative_path": "materials/856696/220/3430891-ExoticStates_LHCP_20200529.pdf",
+      "split": "test_2020",
+      "suffix": ".pdf",
+      "visible_characters": 13444
+    },
+    {
+      "audio_path": "856696c228.wav",
+      "candidate_count": 7,
+      "pages": 1,
+      "parse_error": null,
+      "relative_path": "materials/856696/228/3430329-zoom_discussion.pdf",
+      "split": "dev_2020",
+      "suffix": ".pdf",
+      "visible_characters": 168
+    },
+    {
+      "audio_path": "856696c228.wav",
+      "candidate_count": 77,
+      "pages": 29,
+      "parse_error": null,
+      "relative_path": "materials/856696/228/3430333-lhcp2020_tth.pdf",
+      "split": "dev_2020",
+      "suffix": ".pdf",
+      "visible_characters": 9765
+    },
+    {
+      "audio_path": "856696c25.wav",
+      "candidate_count": 86,
+      "pages": 27,
+      "parse_error": null,
+      "relative_path": "materials/856696/25/3430228-atlas_highlights.pdf",
+      "split": "test_2020",
+      "suffix": ".pdf",
+      "visible_characters": 10629
+    },
+    {
+      "audio_path": "856696c285.wav",
+      "candidate_count": 40,
+      "pages": 25,
+      "parse_error": null,
+      "relative_path": "materials/856696/285/3429055-Meirin_LHC_Open_Data.pptx",
+      "split": "dev_2020",
+      "suffix": ".pptx",
+      "visible_characters": 5448
+    },
+    {
+      "audio_path": "856696c285.wav",
+      "candidate_count": 64,
+      "pages": 25,
+      "parse_error": null,
+      "relative_path": "materials/856696/285/3429082-Meirin_LHC_Open_Data.pdf",
+      "split": "dev_2020",
+      "suffix": ".pdf",
+      "visible_characters": 6633
+    },
+    {
+      "audio_path": "856696c31.wav",
+      "candidate_count": 251,
+      "pages": 43,
+      "parse_error": null,
+      "relative_path": "materials/856696/31/3424504-ALICE-upgrades_gasik_LHCP2020_final.pdf",
+      "split": "dev_2020",
+      "suffix": ".pdf",
+      "visible_characters": 17987
+    },
+    {
+      "audio_path": "856696c32.wav",
+      "candidate_count": 195,
+      "pages": 27,
+      "parse_error": null,
+      "relative_path": "materials/856696/32/3424276-LHCP2020_ATLAS_upgrade.pdf",
+      "split": "test_2020",
+      "suffix": ".pdf",
+      "visible_characters": 19410
+    },
+    {
+      "audio_path": "856696c36.wav",
+      "candidate_count": 0,
+      "pages": 0,
+      "parse_error": "LimitReachedError",
+      "relative_path": "materials/856696/36/3425455-Efe_Yazgan_LHCP2020_top_quark_mass_properties_fin.pdf",
+      "split": "test_2020",
+      "suffix": ".pdf",
+      "visible_characters": 0
+    },
+    {
+      "audio_path": "856696c40.wav",
+      "candidate_count": 110,
+      "pages": 45,
+      "parse_error": null,
+      "relative_path": "materials/856696/40/3426294-LHCP_Precision_QCD_Barter.pdf",
+      "split": "test_2020",
+      "suffix": ".pdf",
+      "visible_characters": 16137
+    },
+    {
+      "audio_path": "856696c43.wav",
+      "candidate_count": 3,
+      "pages": 1,
+      "parse_error": null,
+      "relative_path": "materials/856696/43/3427519-fiorini_zoom_link.pdf",
+      "split": "dev_2020",
+      "suffix": ".pdf",
+      "visible_characters": 161
+    },
+    {
+      "audio_path": "856696c43.wav",
+      "candidate_count": 155,
+      "pages": 51,
+      "parse_error": null,
+      "relative_path": "materials/856696/43/3432736-fiorini-higgs-27-05-2020_v5.pdf",
+      "split": "dev_2020",
+      "suffix": ".pdf",
+      "visible_characters": 20897
+    },
+    {
+      "audio_path": "856696c45.wav",
+      "candidate_count": 174,
+      "pages": 49,
+      "parse_error": null,
+      "relative_path": "materials/856696/45/3428141-gpetrucc-unknowns-lhcp2020.pdf",
+      "split": "test_2020",
+      "suffix": ".pdf",
+      "visible_characters": 25611
+    },
+    {
+      "audio_path": "856696c52.wav",
+      "candidate_count": 0,
+      "pages": 0,
+      "parse_error": "LimitReachedError",
+      "relative_path": "materials/856696/52/3431061-LHCP2020_Charm_v3.pdf",
+      "split": "test_2020",
+      "suffix": ".pdf",
+      "visible_characters": 0
+    },
+    {
+      "audio_path": "856696c53.wav",
+      "candidate_count": 1205,
+      "pages": 40,
+      "parse_error": null,
+      "relative_path": "materials/856696/53/3430102-mwhitehe_lhcp_cpv.pdf",
+      "split": "dev_2020",
+      "suffix": ".pdf",
+      "visible_characters": 376649
+    },
+    {
+      "audio_path": "856696c55.wav",
+      "candidate_count": 225,
+      "pages": 45,
+      "parse_error": null,
+      "relative_path": "materials/856696/55/3429674-LHCP_SUSY_Final_v0.pdf",
+      "split": "test_2020",
+      "suffix": ".pdf",
+      "visible_characters": 24689
+    },
+    {
+      "audio_path": "856696c56.wav",
+      "candidate_count": 129,
+      "pages": 35,
+      "parse_error": null,
+      "relative_path": "materials/856696/56/3429588-ExoticsOverview_LHCP_May2020.pdf",
+      "split": "test_2020",
+      "suffix": ".pdf",
+      "visible_characters": 15050
+    },
+    {
+      "audio_path": "856696c62.wav",
+      "candidate_count": 222,
+      "pages": 30,
+      "parse_error": null,
+      "relative_path": "materials/856696/62/3428796-cg_lhcp2020.pdf",
+      "split": "dev_2020",
+      "suffix": ".pdf",
+      "visible_characters": 46992
+    },
+    {
+      "audio_path": "856696c64.wav",
+      "candidate_count": 291,
+      "pages": 85,
+      "parse_error": null,
+      "relative_path": "materials/856696/64/3432061-DM_searches_collider.pdf",
+      "split": "dev_2020",
+      "suffix": ".pdf",
+      "visible_characters": 54892
+    },
+    {
+      "audio_path": "856696c65.wav",
+      "candidate_count": 181,
+      "pages": 39,
+      "parse_error": null,
+      "relative_path": "materials/856696/65/3432049-LHCP2020_BhawnaGomber_final.pdf",
+      "split": "test_2020",
+      "suffix": ".pdf",
+      "visible_characters": 12321
+    },
+    {
+      "audio_path": "856696c86.wav",
+      "candidate_count": 211,
+      "pages": 28,
+      "parse_error": null,
+      "relative_path": "materials/856696/86/3431020-20200529_hrussell_lhcp_final.pdf",
+      "split": "dev_2020",
+      "suffix": ".pdf",
+      "visible_characters": 19085
+    }
+  ],
+  "download_manifest_sha256": "965ed6436409e59b4fc39308d8981a312ce098204f4981aceb00351487be2c6a",
+  "experiment_id": "E-MATERIAL-LHCP-SUPPLY",
+  "failed_meeting_ids": [
+    "856696c36.wav",
+    "856696c52.wav"
+  ],
+  "gates": {
+    "minimum_candidates_per_meeting": 8,
+    "minimum_visible_characters_per_meeting": 200,
+    "required_passing_meetings": 72
+  },
+  "meetings": [
+    {
+      "attachments": 1,
+      "audio_path": "1109611c511.wav",
+      "candidate_count": 109,
+      "failure_reasons": [],
+      "passed": true,
+      "readable_documents": 1,
+      "split": "dev_2022",
+      "visible_characters": 9299
+    },
+    {
+      "attachments": 1,
+      "audio_path": "1109611c512.wav",
+      "candidate_count": 218,
+      "failure_reasons": [],
+      "passed": true,
+      "readable_documents": 1,
+      "split": "test_2022",
+      "visible_characters": 35755
+    },
+    {
+      "attachments": 1,
+      "audio_path": "1109611c513.wav",
+      "candidate_count": 103,
+      "failure_reasons": [],
+      "passed": true,
+      "readable_documents": 1,
+      "split": "dev_2022",
+      "visible_characters": 11293
+    },
+    {
+      "attachments": 1,
+      "audio_path": "1109611c514.wav",
+      "candidate_count": 158,
+      "failure_reasons": [],
+      "passed": true,
+      "readable_documents": 1,
+      "split": "test_2022",
+      "visible_characters": 10449
+    },
+    {
+      "attachments": 1,
+      "audio_path": "1109611c519.wav",
+      "candidate_count": 106,
+      "failure_reasons": [],
+      "passed": true,
+      "readable_documents": 1,
+      "split": "test_2022",
+      "visible_characters": 7061
+    },
+    {
+      "attachments": 1,
+      "audio_path": "1109611c521.wav",
+      "candidate_count": 79,
+      "failure_reasons": [],
+      "passed": true,
+      "readable_documents": 1,
+      "split": "dev_2022",
+      "visible_characters": 7557
+    },
+    {
+      "attachments": 1,
+      "audio_path": "1109611c522.wav",
+      "candidate_count": 219,
+      "failure_reasons": [],
+      "passed": true,
+      "readable_documents": 1,
+      "split": "test_2022",
+      "visible_characters": 17286
+    },
+    {
+      "attachments": 1,
+      "audio_path": "1109611c523.wav",
+      "candidate_count": 55,
+      "failure_reasons": [],
+      "passed": true,
+      "readable_documents": 1,
+      "split": "test_2022",
+      "visible_characters": 6655
+    },
+    {
+      "attachments": 1,
+      "audio_path": "1109611c524.wav",
+      "candidate_count": 69,
+      "failure_reasons": [],
+      "passed": true,
+      "readable_documents": 1,
+      "split": "dev_2022",
+      "visible_characters": 11001
+    },
+    {
+      "attachments": 1,
+      "audio_path": "1109611c525.wav",
+      "candidate_count": 111,
+      "failure_reasons": [],
+      "passed": true,
+      "readable_documents": 1,
+      "split": "test_2022",
+      "visible_characters": 9265
+    },
+    {
+      "attachments": 1,
+      "audio_path": "1109611c526.wav",
+      "candidate_count": 82,
+      "failure_reasons": [],
+      "passed": true,
+      "readable_documents": 1,
+      "split": "test_2022",
+      "visible_characters": 16644
+    },
+    {
+      "attachments": 1,
+      "audio_path": "1109611c528.wav",
+      "candidate_count": 503,
+      "failure_reasons": [],
+      "passed": true,
+      "readable_documents": 1,
+      "split": "test_2022",
+      "visible_characters": 39549
+    },
+    {
+      "attachments": 1,
+      "audio_path": "1109611c529.wav",
+      "candidate_count": 604,
+      "failure_reasons": [],
+      "passed": true,
+      "readable_documents": 1,
+      "split": "test_2022",
+      "visible_characters": 139573
+    },
+    {
+      "attachments": 1,
+      "audio_path": "1109611c530.wav",
+      "candidate_count": 148,
+      "failure_reasons": [],
+      "passed": true,
+      "readable_documents": 1,
+      "split": "test_2022",
+      "visible_characters": 11419
+    },
+    {
+      "attachments": 1,
+      "audio_path": "1109611c531.wav",
+      "candidate_count": 145,
+      "failure_reasons": [],
+      "passed": true,
+      "readable_documents": 1,
+      "split": "test_2022",
+      "visible_characters": 11149
+    },
+    {
+      "attachments": 1,
+      "audio_path": "1109611c532.wav",
+      "candidate_count": 65,
+      "failure_reasons": [],
+      "passed": true,
+      "readable_documents": 1,
+      "split": "test_2022",
+      "visible_characters": 6656
+    },
+    {
+      "attachments": 1,
+      "audio_path": "1109611c534.wav",
+      "candidate_count": 798,
+      "failure_reasons": [],
+      "passed": true,
+      "readable_documents": 1,
+      "split": "test_2022",
+      "visible_characters": 118151
+    },
+    {
+      "attachments": 1,
+      "audio_path": "1109611c535.wav",
+      "candidate_count": 154,
+      "failure_reasons": [],
+      "passed": true,
+      "readable_documents": 1,
+      "split": "test_2022",
+      "visible_characters": 12093
+    },
+    {
+      "attachments": 1,
+      "audio_path": "1109611c537.wav",
+      "candidate_count": 55,
+      "failure_reasons": [],
+      "passed": true,
+      "readable_documents": 1,
+      "split": "dev_2022",
+      "visible_characters": 10001
+    },
+    {
+      "attachments": 1,
+      "audio_path": "1109611c538.wav",
+      "candidate_count": 126,
+      "failure_reasons": [],
+      "passed": true,
+      "readable_documents": 1,
+      "split": "dev_2022",
+      "visible_characters": 22625
+    },
+    {
+      "attachments": 1,
+      "audio_path": "1109611c539.wav",
+      "candidate_count": 103,
+      "failure_reasons": [],
+      "passed": true,
+      "readable_documents": 1,
+      "split": "test_2022",
+      "visible_characters": 9241
+    },
+    {
+      "attachments": 1,
+      "audio_path": "1109611c540.wav",
+      "candidate_count": 272,
+      "failure_reasons": [],
+      "passed": true,
+      "readable_documents": 1,
+      "split": "dev_2022",
+      "visible_characters": 22764
+    },
+    {
+      "attachments": 1,
+      "audio_path": "1109611c541.wav",
+      "candidate_count": 214,
+      "failure_reasons": [],
+      "passed": true,
+      "readable_documents": 1,
+      "split": "test_2022",
+      "visible_characters": 25262
+    },
+    {
+      "attachments": 1,
+      "audio_path": "1109611c542.wav",
+      "candidate_count": 300,
+      "failure_reasons": [],
+      "passed": true,
+      "readable_documents": 1,
+      "split": "test_2022",
+      "visible_characters": 58178
+    },
+    {
+      "attachments": 1,
+      "audio_path": "1109611c543.wav",
+      "candidate_count": 70,
+      "failure_reasons": [],
+      "passed": true,
+      "readable_documents": 1,
+      "split": "test_2022",
+      "visible_characters": 9808
+    },
+    {
+      "attachments": 1,
+      "audio_path": "1109611c545.wav",
+      "candidate_count": 258,
+      "failure_reasons": [],
+      "passed": true,
+      "readable_documents": 1,
+      "split": "dev_2022",
+      "visible_characters": 21130
+    },
+    {
+      "attachments": 1,
+      "audio_path": "1109611c547.wav",
+      "candidate_count": 179,
+      "failure_reasons": [],
+      "passed": true,
+      "readable_documents": 1,
+      "split": "test_2022",
+      "visible_characters": 20602
+    },
+    {
+      "attachments": 1,
+      "audio_path": "1109611c549.wav",
+      "candidate_count": 120,
+      "failure_reasons": [],
+      "passed": true,
+      "readable_documents": 1,
+      "split": "test_2022",
+      "visible_characters": 2393
+    },
+    {
+      "attachments": 2,
+      "audio_path": "1109611c550.wav",
+      "candidate_count": 139,
+      "failure_reasons": [],
+      "passed": true,
+      "readable_documents": 2,
+      "split": "test_2022",
+      "visible_characters": 26105
+    },
+    {
+      "attachments": 2,
+      "audio_path": "1109611c551.wav",
+      "candidate_count": 166,
+      "failure_reasons": [],
+      "passed": true,
+      "readable_documents": 2,
+      "split": "dev_2022",
+      "visible_characters": 16441
+    },
+    {
+      "attachments": 1,
+      "audio_path": "1109611c552.wav",
+      "candidate_count": 257,
+      "failure_reasons": [],
+      "passed": true,
+      "readable_documents": 1,
+      "split": "test_2022",
+      "visible_characters": 16337
+    },
+    {
+      "attachments": 1,
+      "audio_path": "1109611c553.wav",
+      "candidate_count": 333,
+      "failure_reasons": [],
+      "passed": true,
+      "readable_documents": 1,
+      "split": "dev_2022",
+      "visible_characters": 18355
+    },
+    {
+      "attachments": 1,
+      "audio_path": "1109611c554.wav",
+      "candidate_count": 133,
+      "failure_reasons": [],
+      "passed": true,
+      "readable_documents": 1,
+      "split": "test_2022",
+      "visible_characters": 9836
+    },
+    {
+      "attachments": 1,
+      "audio_path": "1109611c555.wav",
+      "candidate_count": 411,
+      "failure_reasons": [],
+      "passed": true,
+      "readable_documents": 1,
+      "split": "test_2022",
+      "visible_characters": 28883
+    },
+    {
+      "attachments": 1,
+      "audio_path": "1109611c556.wav",
+      "candidate_count": 98,
+      "failure_reasons": [],
+      "passed": true,
+      "readable_documents": 1,
+      "split": "test_2022",
+      "visible_characters": 8656
+    },
+    {
+      "attachments": 1,
+      "audio_path": "1109611c557.wav",
+      "candidate_count": 108,
+      "failure_reasons": [],
+      "passed": true,
+      "readable_documents": 1,
+      "split": "test_2022",
+      "visible_characters": 6444
+    },
+    {
+      "attachments": 1,
+      "audio_path": "1109611c558.wav",
+      "candidate_count": 31,
+      "failure_reasons": [],
+      "passed": true,
+      "readable_documents": 1,
+      "split": "test_2022",
+      "visible_characters": 3931
+    },
+    {
+      "attachments": 1,
+      "audio_path": "1109611c559.wav",
+      "candidate_count": 42,
+      "failure_reasons": [],
+      "passed": true,
+      "readable_documents": 1,
+      "split": "test_2022",
+      "visible_characters": 1814
+    },
+    {
+      "attachments": 1,
+      "audio_path": "1109611c560.wav",
+      "candidate_count": 55,
+      "failure_reasons": [],
+      "passed": true,
+      "readable_documents": 1,
+      "split": "test_2022",
+      "visible_characters": 4903
+    },
+    {
+      "attachments": 1,
+      "audio_path": "1109611c561.wav",
+      "candidate_count": 224,
+      "failure_reasons": [],
+      "passed": true,
+      "readable_documents": 1,
+      "split": "test_2022",
+      "visible_characters": 24736
+    },
+    {
+      "attachments": 1,
+      "audio_path": "1109611c562.wav",
+      "candidate_count": 437,
+      "failure_reasons": [],
+      "passed": true,
+      "readable_documents": 1,
+      "split": "test_2022",
+      "visible_characters": 63066
+    },
+    {
+      "attachments": 1,
+      "audio_path": "1109611c563.wav",
+      "candidate_count": 132,
+      "failure_reasons": [],
+      "passed": true,
+      "readable_documents": 1,
+      "split": "test_2022",
+      "visible_characters": 4537
+    },
+    {
+      "attachments": 1,
+      "audio_path": "1109611c570.wav",
+      "candidate_count": 134,
+      "failure_reasons": [],
+      "passed": true,
+      "readable_documents": 1,
+      "split": "dev_2022",
+      "visible_characters": 19390
+    },
+    {
+      "attachments": 1,
+      "audio_path": "856696c114.wav",
+      "candidate_count": 789,
+      "failure_reasons": [],
+      "passed": true,
+      "readable_documents": 1,
+      "split": "test_2020",
+      "visible_characters": 180343
+    },
+    {
+      "attachments": 1,
+      "audio_path": "856696c117.wav",
+      "candidate_count": 43,
+      "failure_reasons": [],
+      "passed": true,
+      "readable_documents": 1,
+      "split": "dev_2020",
+      "visible_characters": 5640
+    },
+    {
+      "attachments": 1,
+      "audio_path": "856696c122.wav",
+      "candidate_count": 149,
+      "failure_reasons": [],
+      "passed": true,
+      "readable_documents": 1,
+      "split": "test_2020",
+      "visible_characters": 21439
+    },
+    {
+      "attachments": 1,
+      "audio_path": "856696c128.wav",
+      "candidate_count": 78,
+      "failure_reasons": [],
+      "passed": true,
+      "readable_documents": 1,
+      "split": "dev_2020",
+      "visible_characters": 13052
+    },
+    {
+      "attachments": 1,
+      "audio_path": "856696c138.wav",
+      "candidate_count": 336,
+      "failure_reasons": [],
+      "passed": true,
+      "readable_documents": 1,
+      "split": "dev_2020",
+      "visible_characters": 73091
+    },
+    {
+      "attachments": 1,
+      "audio_path": "856696c142.wav",
+      "candidate_count": 75,
+      "failure_reasons": [],
+      "passed": true,
+      "readable_documents": 1,
+      "split": "test_2020",
+      "visible_characters": 8194
+    },
+    {
+      "attachments": 1,
+      "audio_path": "856696c147.wav",
+      "candidate_count": 157,
+      "failure_reasons": [],
+      "passed": true,
+      "readable_documents": 1,
+      "split": "test_2020",
+      "visible_characters": 13439
+    },
+    {
+      "attachments": 1,
+      "audio_path": "856696c164.wav",
+      "candidate_count": 16,
+      "failure_reasons": [],
+      "passed": true,
+      "readable_documents": 1,
+      "split": "dev_2020",
+      "visible_characters": 1903
+    },
+    {
+      "attachments": 1,
+      "audio_path": "856696c177.wav",
+      "candidate_count": 55,
+      "failure_reasons": [],
+      "passed": true,
+      "readable_documents": 1,
+      "split": "test_2020",
+      "visible_characters": 10405
+    },
+    {
+      "attachments": 1,
+      "audio_path": "856696c195.wav",
+      "candidate_count": 154,
+      "failure_reasons": [],
+      "passed": true,
+      "readable_documents": 1,
+      "split": "dev_2020",
+      "visible_characters": 26268
+    },
+    {
+      "attachments": 1,
+      "audio_path": "856696c200.wav",
+      "candidate_count": 63,
+      "failure_reasons": [],
+      "passed": true,
+      "readable_documents": 1,
+      "split": "dev_2020",
+      "visible_characters": 8759
+    },
+    {
+      "attachments": 1,
+      "audio_path": "856696c220.wav",
+      "candidate_count": 134,
+      "failure_reasons": [],
+      "passed": true,
+      "readable_documents": 1,
+      "split": "test_2020",
+      "visible_characters": 13444
+    },
+    {
+      "attachments": 2,
+      "audio_path": "856696c228.wav",
+      "candidate_count": 83,
+      "failure_reasons": [],
+      "passed": true,
+      "readable_documents": 2,
+      "split": "dev_2020",
+      "visible_characters": 9933
+    },
+    {
+      "attachments": 1,
+      "audio_path": "856696c25.wav",
+      "candidate_count": 86,
+      "failure_reasons": [],
+      "passed": true,
+      "readable_documents": 1,
+      "split": "test_2020",
+      "visible_characters": 10629
+    },
+    {
+      "attachments": 2,
+      "audio_path": "856696c285.wav",
+      "candidate_count": 73,
+      "failure_reasons": [],
+      "passed": true,
+      "readable_documents": 2,
+      "split": "dev_2020",
+      "visible_characters": 12081
+    },
+    {
+      "attachments": 1,
+      "audio_path": "856696c31.wav",
+      "candidate_count": 251,
+      "failure_reasons": [],
+      "passed": true,
+      "readable_documents": 1,
+      "split": "dev_2020",
+      "visible_characters": 17987
+    },
+    {
+      "attachments": 1,
+      "audio_path": "856696c32.wav",
+      "candidate_count": 195,
+      "failure_reasons": [],
+      "passed": true,
+      "readable_documents": 1,
+      "split": "test_2020",
+      "visible_characters": 19410
+    },
+    {
+      "attachments": 1,
+      "audio_path": "856696c36.wav",
+      "candidate_count": 0,
+      "failure_reasons": [
+        "no_readable_document",
+        "visible_characters_below_gate",
+        "candidate_count_below_gate"
+      ],
+      "passed": false,
+      "readable_documents": 0,
+      "split": "test_2020",
+      "visible_characters": 0
+    },
+    {
+      "attachments": 1,
+      "audio_path": "856696c40.wav",
+      "candidate_count": 110,
+      "failure_reasons": [],
+      "passed": true,
+      "readable_documents": 1,
+      "split": "test_2020",
+      "visible_characters": 16137
+    },
+    {
+      "attachments": 2,
+      "audio_path": "856696c43.wav",
+      "candidate_count": 156,
+      "failure_reasons": [],
+      "passed": true,
+      "readable_documents": 2,
+      "split": "dev_2020",
+      "visible_characters": 21058
+    },
+    {
+      "attachments": 1,
+      "audio_path": "856696c45.wav",
+      "candidate_count": 174,
+      "failure_reasons": [],
+      "passed": true,
+      "readable_documents": 1,
+      "split": "test_2020",
+      "visible_characters": 25611
+    },
+    {
+      "attachments": 1,
+      "audio_path": "856696c52.wav",
+      "candidate_count": 0,
+      "failure_reasons": [
+        "no_readable_document",
+        "visible_characters_below_gate",
+        "candidate_count_below_gate"
+      ],
+      "passed": false,
+      "readable_documents": 0,
+      "split": "test_2020",
+      "visible_characters": 0
+    },
+    {
+      "attachments": 1,
+      "audio_path": "856696c53.wav",
+      "candidate_count": 1205,
+      "failure_reasons": [],
+      "passed": true,
+      "readable_documents": 1,
+      "split": "dev_2020",
+      "visible_characters": 376649
+    },
+    {
+      "attachments": 1,
+      "audio_path": "856696c55.wav",
+      "candidate_count": 225,
+      "failure_reasons": [],
+      "passed": true,
+      "readable_documents": 1,
+      "split": "test_2020",
+      "visible_characters": 24689
+    },
+    {
+      "attachments": 1,
+      "audio_path": "856696c56.wav",
+      "candidate_count": 129,
+      "failure_reasons": [],
+      "passed": true,
+      "readable_documents": 1,
+      "split": "test_2020",
+      "visible_characters": 15050
+    },
+    {
+      "attachments": 1,
+      "audio_path": "856696c62.wav",
+      "candidate_count": 222,
+      "failure_reasons": [],
+      "passed": true,
+      "readable_documents": 1,
+      "split": "dev_2020",
+      "visible_characters": 46992
+    },
+    {
+      "attachments": 1,
+      "audio_path": "856696c64.wav",
+      "candidate_count": 291,
+      "failure_reasons": [],
+      "passed": true,
+      "readable_documents": 1,
+      "split": "dev_2020",
+      "visible_characters": 54892
+    },
+    {
+      "attachments": 1,
+      "audio_path": "856696c65.wav",
+      "candidate_count": 181,
+      "failure_reasons": [],
+      "passed": true,
+      "readable_documents": 1,
+      "split": "test_2020",
+      "visible_characters": 12321
+    },
+    {
+      "attachments": 1,
+      "audio_path": "856696c86.wav",
+      "candidate_count": 211,
+      "failure_reasons": [],
+      "passed": true,
+      "readable_documents": 1,
+      "split": "dev_2020",
+      "visible_characters": 19085
+    }
+  ],
+  "model_contact": {
+    "embedding": 0,
+    "omni": 0,
+    "pass0": 0
+  },
+  "reference_reads": 0,
+  "schema": "material-lhcp-supply-verdict-v1",
+  "supply_receipt_sha256": "3289eb4b9e6b75956ee4362e37c6001d28b1e7fa543918d9298205c2186b0138",
+  "verdict": "LHCP_ZERO_MODEL_MATERIAL_SUPPLY_INSUFFICIENT"
+}

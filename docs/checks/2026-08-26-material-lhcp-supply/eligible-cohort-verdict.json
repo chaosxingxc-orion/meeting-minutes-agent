@@ -1,0 +1,30 @@
+{
+  "cohort_sha256": "b614e4d9ba63e94a988166d62e9d5e7a2bddc1a31ce7528753f47ebbd4e13733",
+  "config_sha256": "9c170961bed6a112475f9e688151ae4398da81b0a079fe8f21d7992de45c0394",
+  "counts": {
+    "confirmation_meetings": 45,
+    "development_meetings": 25,
+    "eligible_meetings": 70,
+    "excluded_meetings": 2,
+    "splits": {
+      "dev_2020": 14,
+      "dev_2022": 11,
+      "test_2020": 13,
+      "test_2022": 32
+    }
+  },
+  "errors": [],
+  "excluded_audio_paths": [
+    "856696c36.wav",
+    "856696c52.wav"
+  ],
+  "experiment_id": "E-MATERIAL-LHCP-ELIGIBLE-COHORT",
+  "model_contact": {
+    "embedding": 0,
+    "omni": 0,
+    "pass0": 0
+  },
+  "reference_reads": 0,
+  "schema": "material-lhcp-eligible-cohort-verdict-v1",
+  "verdict": "LHCP_70_TALK_ELIGIBLE_COHORT_FROZEN"
+}

@@ -1,0 +1,43 @@
+{
+  "schema": "material-lhcp-development-audio-config-v1",
+  "experiment_id": "E-MATERIAL-LHCP-DEVELOPMENT-AUDIO",
+  "evidence_tier": "INDEPENDENT_DEVELOPMENT_AUDIO_PRE_MODEL",
+  "source": {
+    "dataset": "mllp/LHCP-ASR",
+    "revision": "1583283ffe91ee22f7e547fc1248c3646f68fe43",
+    "allowed_splits": [
+      "dev_2020",
+      "dev_2022"
+    ],
+    "allowed_columns": [
+      "audio.path",
+      "audio.bytes"
+    ],
+    "forbidden_columns": [
+      "transcription"
+    ]
+  },
+  "inputs": {
+    "cohort_sha256": "b614e4d9ba63e94a988166d62e9d5e7a2bddc1a31ce7528753f47ebbd4e13733",
+    "admission_manifest_sha256": "22d77a1dbd98b3b4344b3a54d55d09f0c62a741ab0d0408b12079747575697a2",
+    "downloader_sha256": "72a34f62b5176f4df8dd745352ac8748710dbb6002f8a40b7d92ff4632807aec",
+    "preregistration_sha256": "2fc8b30c3fca80132c3b98899c532d0d10d3def11d7671c9eff7dacc411da51f",
+    "transport_amendment_sha256": "0965798f5e7e574902b21b9da7e33ce423adfc0f7d5fc101ff2004b215ff3a39",
+    "attempt_1_failure_sha256": "6358fe326691b01b0bbaad91cdfa997669ea6d90281815472ea1abd0f70dff0b"
+  },
+  "acquisition": {
+    "expected_audio_files": 25,
+    "expected_source_files": 6,
+    "registered_remote_bytes": 2276036639,
+    "output_root": "D:/speechrl-data/datasets/lhcp-asr-development-audio/2026-08-26",
+    "overwrite": false
+  },
+  "passing_gates": {
+    "exact_audio_identity_set": true,
+    "unique_audio_paths": 25,
+    "positive_decoded_duration": true,
+    "reference_reads": 0,
+    "confirmation_audio_reads": 0,
+    "model_calls": 0
+  }
+}

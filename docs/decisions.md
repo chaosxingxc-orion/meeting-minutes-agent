@@ -120,3 +120,20 @@ that boundary:
 
 Carried in: `docs/plans/2026-08-17-founding-workplan.md` (§4b owner rulings),
 `docs/readiness/2026-08-18-g1-preregistration-draft.md`.
+
+## 2026-08-26 — Reframe the research object as an omni agentic memory system
+
+- **Owner ruling:** under the frozen, training-free constraint, omni-embedding instruction
+  optimization alone is too narrow. The research object is now an omni agentic system in
+  which an omni embedding model may address an audio-text memory, but is only one component.
+- **First priority:** isolate memory use before optimizing collection, compression, or
+  retrieval. The initial memory value is raw waveform plus frozen machine text and
+  speaker/time/provenance metadata; the main model may receive text and audio.
+- **Meeting-minutes focus:** first test decision/action commitment, speaker/owner attribution,
+  stance, chronology, and evidence-grounded minutes. Native audio must be compared with
+  text-only, paired, and modality-deranged controls.
+- The existing single frozen Omni core, typed `MinutesTaskManager`, episode-local boundary,
+  model-contact gates, and one-shot reference discipline remain in force. This ruling does
+  not authorize model contact or cross-meeting persistence.
+- Carried in: `docs/plans/2026-08-26-omni-agentic-memory-use-proposal.md` and
+  `docs/wiki/research-roadmap.md`.

@@ -1,0 +1,22 @@
+{
+  "artifact_hashes": {
+    "conversion_manifest_sha256": "7e654c2229839c1da12ae9ccc32d249c87197aacf44b343f2b7695759fdae128",
+    "flight_summary_sha256": "9d8d5e1faed8abdac72c75f5e2e33fa256f685ba0f2599b59fa5b53d086b30fa",
+    "slice_manifest_sha256": "e77d75cdb40c6db6cb5c7c2cada6bbc85ee373d94cec9f8af5d8c99cfe0df917"
+  },
+  "config_sha256": "4841b0f94f2e14e054c737b7286980a2900a88577d2ab55a39ad0f4171a3f055",
+  "counts": {
+    "confirmation_reads": 0,
+    "converted_wavs": 25,
+    "omni_calls": 0,
+    "reference_reads": 0,
+    "slice_audio_seconds": 37577.781812499976,
+    "slices": 397,
+    "sortformer_contacts": 25,
+    "successful_rttms": 25
+  },
+  "errors": [],
+  "experiment_id": "E-MATERIAL-LHCP-DEVELOPMENT-FRONTEND",
+  "schema": "material-lhcp-development-frontend-validation-v1",
+  "verdict": "FRONTEND_TRACE_COMPLETE"
+}

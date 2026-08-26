@@ -1,0 +1,19 @@
+{
+  "aggregate_results_emitted": false,
+  "aggregate_results_inspected": false,
+  "error": "UnicodeEncodeError: utf-8 cannot encode lone surrogate U+D835",
+  "experiment_id": "E-MATERIAL-LHCP-SUPPLY",
+  "model_contact": {
+    "embedding": 0,
+    "omni": 0,
+    "pass0": 0
+  },
+  "partial_artifact": {
+    "bytes": 1836367,
+    "external_path": "D:/speechrl-data/derived/lhcp-asr-material-supply/2026-08-26-attempt-1-serialization-failed/material-pages.jsonl",
+    "sha256": "0685f3411713625ad1640c8af8ea04b1f8c87c9ac82dd1d325945ed0c7822072"
+  },
+  "reference_reads": 0,
+  "status": "ATTEMPT_1_SERIALIZATION_FAILED_NO_VERDICT"
+}
+

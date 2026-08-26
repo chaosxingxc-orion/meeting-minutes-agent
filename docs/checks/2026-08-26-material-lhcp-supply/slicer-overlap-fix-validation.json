@@ -1,0 +1,21 @@
+{
+  "config_sha256": "dae7a25c1081a37c025e4abd17118c6321f1b4868a60676cadbde8767d1eb51a",
+  "counts": {
+    "confirmation_reads": 0,
+    "embedding_calls": 0,
+    "maximum_slice_seconds": 120.0,
+    "meetings": 25,
+    "omni_calls": 0,
+    "overlap_boundaries": 0,
+    "pass0_calls": 0,
+    "reference_reads": 0,
+    "slice_audio_seconds": 37547.255812499985,
+    "slices": 396,
+    "sortformer_contacts": 0
+  },
+  "errors": [],
+  "experiment_id": "E-MATERIAL-LHCP-SLICER-OVERLAP-FIX",
+  "schema": "material-lhcp-slicer-overlap-fix-validation-v1",
+  "slice_manifest_sha256": "1224f0951c6b255523197974368c54e73fd27c4a9b328bf5c909eaf226d695ce",
+  "verdict": "SLICER_OVERLAP_FIX_TRACE_COMPLETE"
+}

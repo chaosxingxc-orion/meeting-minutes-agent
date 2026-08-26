@@ -1,0 +1,2266 @@
+{
+  "claim_boundary": "70 pre-model material-compatible talks; not the complete 72-talk release",
+  "config_sha256": "9c170961bed6a112475f9e688151ae4398da81b0a079fe8f21d7992de45c0394",
+  "counts": {
+    "confirmation_meetings": 45,
+    "development_meetings": 25,
+    "eligible_meetings": 70,
+    "excluded_meetings": 2,
+    "splits": {
+      "dev_2020": 14,
+      "dev_2022": 11,
+      "test_2020": 13,
+      "test_2022": 32
+    }
+  },
+  "evidence_tier": "INDEPENDENT_PRE_MODEL_ELIGIBILITY_FILTERED",
+  "exclusions": [
+    {
+      "audio_path": "856696c36.wav",
+      "candidate_count": 0,
+      "failure_reasons": [
+        "no_readable_document",
+        "visible_characters_below_gate",
+        "candidate_count_below_gate"
+      ],
+      "reason": "pre_model_material_parser_incompatible",
+      "split": "test_2020",
+      "visible_characters": 0
+    },
+    {
+      "audio_path": "856696c52.wav",
+      "candidate_count": 0,
+      "failure_reasons": [
+        "no_readable_document",
+        "visible_characters_below_gate",
+        "candidate_count_below_gate"
+      ],
+      "reason": "pre_model_material_parser_incompatible",
+      "split": "test_2020",
+      "visible_characters": 0
+    }
+  ],
+  "experiment_id": "E-MATERIAL-LHCP-ELIGIBLE-COHORT",
+  "items": [
+    {
+      "audio_path": "856696c31.wav",
+      "cohort_role": "development",
+      "contribution_db_id": 3722357,
+      "contribution_friendly_id": 31,
+      "contribution_id": "31",
+      "duration_s": 25,
+      "eligibility": {
+        "candidate_count": 251,
+        "policy": "pre_model_material_readability_and_supply_v1",
+        "readable_documents": 1,
+        "visible_characters": 17987
+      },
+      "event_id": 856696,
+      "join_evidence": "event_id_plus_friendly_id",
+      "materials": [
+        {
+          "checksum": "f4b512710a8e92e11ca80d9dca764117",
+          "content_type": "application/pdf",
+          "download_url": "https://indico.cern.ch/event/856696/contributions/3722357/attachments/2044355/3424504/ALICE-upgrades_gasik_LHCP2020_final.pdf",
+          "filename": "ALICE-upgrades_gasik_LHCP2020_final.pdf",
+          "id": 3424504,
+          "size": 96624415
+        }
+      ],
+      "speakers": [
+        "Gasik, Piotr"
+      ],
+      "split": "dev_2020",
+      "title": "ALICE upgrades"
+    },
+    {
+      "audio_path": "856696c43.wav",
+      "cohort_role": "development",
+      "contribution_db_id": 3722372,
+      "contribution_friendly_id": 43,
+      "contribution_id": "43",
+      "duration_s": 30,
+      "eligibility": {
+        "candidate_count": 156,
+        "policy": "pre_model_material_readability_and_supply_v1",
+        "readable_documents": 2,
+        "visible_characters": 21058
+      },
+      "event_id": 856696,
+      "join_evidence": "event_id_plus_friendly_id",
+      "materials": [
+        {
+          "checksum": "84e706bd24080c90ee001b9d28efcdf3",
+          "content_type": "application/pdf",
+          "download_url": "https://indico.cern.ch/event/856696/contributions/3722372/attachments/2045823/3432736/fiorini-higgs-27-05-2020_v5.pdf",
+          "filename": "fiorini-higgs-27-05-2020_v5.pdf",
+          "id": 3432736,
+          "size": 30983778
+        },
+        {
+          "checksum": "2f93d8c886a46f67bf98bb4934e357c7",
+          "content_type": "application/pdf",
+          "download_url": "https://indico.cern.ch/event/856696/contributions/3722372/attachments/2045823/3427519/fiorini_zoom_link.pdf",
+          "filename": "fiorini_zoom_link.pdf",
+          "id": 3427519,
+          "size": 367288
+        }
+      ],
+      "speakers": [
+        "Fiorini, Luca"
+      ],
+      "split": "dev_2020",
+      "title": "Higgs sector: What we have learned"
+    },
+    {
+      "audio_path": "856696c53.wav",
+      "cohort_role": "development",
+      "contribution_db_id": 3722382,
+      "contribution_friendly_id": 53,
+      "contribution_id": "53",
+      "duration_s": 30,
+      "eligibility": {
+        "candidate_count": 1205,
+        "policy": "pre_model_material_readability_and_supply_v1",
+        "readable_documents": 1,
+        "visible_characters": 376649
+      },
+      "event_id": 856696,
+      "join_evidence": "event_id_plus_friendly_id",
+      "materials": [
+        {
+          "checksum": "94dc1d56e11f3dca197c67ffcef755a8",
+          "content_type": "application/pdf",
+          "download_url": "https://indico.cern.ch/event/856696/contributions/3722382/attachments/2047088/3430102/mwhitehe_lhcp_cpv.pdf",
+          "filename": "mwhitehe_lhcp_cpv.pdf",
+          "id": 3430102,
+          "size": 26523295
+        }
+      ],
+      "speakers": [
+        "Whitehead, Mark Peter"
+      ],
+      "split": "dev_2020",
+      "title": "CPV in B-hadron decays"
+    },
+    {
+      "audio_path": "856696c62.wav",
+      "cohort_role": "development",
+      "contribution_db_id": 3722393,
+      "contribution_friendly_id": 62,
+      "contribution_id": "62",
+      "duration_s": 30,
+      "eligibility": {
+        "candidate_count": 222,
+        "policy": "pre_model_material_readability_and_supply_v1",
+        "readable_documents": 1,
+        "visible_characters": 46992
+      },
+      "event_id": 856696,
+      "join_evidence": "event_id_plus_friendly_id",
+      "materials": [
+        {
+          "checksum": "77e768c95b87d6ba75723450593957fe",
+          "content_type": "application/pdf",
+          "download_url": "https://indico.cern.ch/event/856696/contributions/3722393/attachments/2046452/3428796/cg_lhcp2020.pdf",
+          "filename": "cg_lhcp2020.pdf",
+          "id": 3428796,
+          "size": 3337650
+        }
+      ],
+      "speakers": [
+        "Gutschow, Christian"
+      ],
+      "split": "dev_2020",
+      "title": "VBF and VBS measurements"
+    },
+    {
+      "audio_path": "856696c64.wav",
+      "cohort_role": "development",
+      "contribution_db_id": 3722395,
+      "contribution_friendly_id": 64,
+      "contribution_id": "64",
+      "duration_s": 30,
+      "eligibility": {
+        "candidate_count": 291,
+        "policy": "pre_model_material_readability_and_supply_v1",
+        "readable_documents": 1,
+        "visible_characters": 54892
+      },
+      "event_id": 856696,
+      "join_evidence": "event_id_plus_friendly_id",
+      "materials": [
+        {
+          "checksum": "91d87fdd6fa1fad893075d7d8e64f791",
+          "content_type": "application/pdf",
+          "download_url": "https://indico.cern.ch/event/856696/contributions/3722395/attachments/2048112/3432061/DM_searches_collider.pdf",
+          "filename": "DM_searches_collider.pdf",
+          "id": 3432061,
+          "size": 7702899
+        }
+      ],
+      "speakers": [
+        "Pachal, Katherine"
+      ],
+      "split": "dev_2020",
+      "title": "Dark matter searches"
+    },
+    {
+      "audio_path": "856696c86.wav",
+      "cohort_role": "development",
+      "contribution_db_id": 3742103,
+      "contribution_friendly_id": 86,
+      "contribution_id": "86",
+      "duration_s": 18,
+      "eligibility": {
+        "candidate_count": 211,
+        "policy": "pre_model_material_readability_and_supply_v1",
+        "readable_documents": 1,
+        "visible_characters": 19085
+      },
+      "event_id": 856696,
+      "join_evidence": "event_id_plus_friendly_id",
+      "materials": [
+        {
+          "checksum": "839c08f3c0aef3dacc1e6e614d15e7fd",
+          "content_type": "application/pdf",
+          "download_url": "https://indico.cern.ch/event/856696/contributions/3742103/attachments/2047573/3431020/20200529_hrussell_lhcp_final.pdf",
+          "filename": "20200529_hrussell_lhcp_final.pdf",
+          "id": 3431020,
+          "size": 9260737
+        }
+      ],
+      "speakers": [
+        "Russell, Heather"
+      ],
+      "split": "dev_2020",
+      "title": "VBS/VBF results from ATLAS"
+    },
+    {
+      "audio_path": "856696c117.wav",
+      "cohort_role": "development",
+      "contribution_db_id": 3742166,
+      "contribution_friendly_id": 117,
+      "contribution_id": "117",
+      "duration_s": 18,
+      "eligibility": {
+        "candidate_count": 43,
+        "policy": "pre_model_material_readability_and_supply_v1",
+        "readable_documents": 1,
+        "visible_characters": 5640
+      },
+      "event_id": 856696,
+      "join_evidence": "event_id_plus_friendly_id",
+      "materials": [
+        {
+          "checksum": "397e6e47976725fc0cac4c1cd94f714e",
+          "content_type": "application/pdf",
+          "download_url": "https://indico.cern.ch/event/856696/contributions/3742166/attachments/2047357/3431008/LHCP2020_Jinlin.pdf",
+          "filename": "LHCP2020_Jinlin.pdf",
+          "id": 3431008,
+          "size": 4752935
+        }
+      ],
+      "speakers": [
+        "Fu, Jinlin"
+      ],
+      "split": "dev_2020",
+      "title": "CP violation in B decays (LHCb)"
+    },
+    {
+      "audio_path": "856696c128.wav",
+      "cohort_role": "development",
+      "contribution_db_id": 3742183,
+      "contribution_friendly_id": 128,
+      "contribution_id": "128",
+      "duration_s": 25,
+      "eligibility": {
+        "candidate_count": 78,
+        "policy": "pre_model_material_readability_and_supply_v1",
+        "readable_documents": 1,
+        "visible_characters": 13052
+      },
+      "event_id": 856696,
+      "join_evidence": "event_id_plus_friendly_id",
+      "materials": [
+        {
+          "checksum": "0be5c33b6388d21787b2ace1edab3859",
+          "content_type": "application/pdf",
+          "download_url": "https://indico.cern.ch/event/856696/contributions/3742183/attachments/2044017/3424643/LHCP2020_BarbaraAlvarez_singletop.pdf",
+          "filename": "LHCP2020_BarbaraAlvarez_singletop.pdf",
+          "id": 3424643,
+          "size": 16559102
+        }
+      ],
+      "speakers": [
+        "Alvarez Gonzalez, Barbara"
+      ],
+      "split": "dev_2020",
+      "title": "Inclusive and differential single-top cross sections from ATLAS &CMS"
+    },
+    {
+      "audio_path": "856696c138.wav",
+      "cohort_role": "development",
+      "contribution_db_id": 3742193,
+      "contribution_friendly_id": 138,
+      "contribution_id": "138",
+      "duration_s": 15,
+      "eligibility": {
+        "candidate_count": 336,
+        "policy": "pre_model_material_readability_and_supply_v1",
+        "readable_documents": 1,
+        "visible_characters": 73091
+      },
+      "event_id": 856696,
+      "join_evidence": "event_id_plus_friendly_id",
+      "materials": [
+        {
+          "checksum": "123c79cc873a3bea02075ec0e0578548",
+          "content_type": "application/pdf",
+          "download_url": "https://indico.cern.ch/event/856696/contributions/3742193/attachments/2044761/3425324/lchp2020_talk.pdf",
+          "filename": "lchp2020_talk.pdf",
+          "id": 3425324,
+          "size": 5965694
+        }
+      ],
+      "speakers": [
+        "Leight, William Axel"
+      ],
+      "split": "dev_2020",
+      "title": "Higgs couplings and mass measurements in the ZZ and WW decay channels with ATLAS and CMS"
+    },
+    {
+      "audio_path": "856696c164.wav",
+      "cohort_role": "development",
+      "contribution_db_id": 3742219,
+      "contribution_friendly_id": 164,
+      "contribution_id": "164",
+      "duration_s": 18,
+      "eligibility": {
+        "candidate_count": 16,
+        "policy": "pre_model_material_readability_and_supply_v1",
+        "readable_documents": 1,
+        "visible_characters": 1903
+      },
+      "event_id": 856696,
+      "join_evidence": "event_id_plus_friendly_id",
+      "materials": [
+        {
+          "checksum": "e593df0dacb1d7a343d476aba61557f6",
+          "content_type": "application/pdf",
+          "download_url": "https://indico.cern.ch/event/856696/contributions/3742219/attachments/2044929/3425758/bishara_lhcp_dm.pdf",
+          "filename": "bishara_lhcp_dm.pdf",
+          "id": 3425758,
+          "size": 1665723
+        }
+      ],
+      "speakers": [
+        "Bishara, Fady Adibsamy",
+        "Bishara, Fady"
+      ],
+      "split": "dev_2020",
+      "title": "Theory overview: Dark Matter"
+    },
+    {
+      "audio_path": "856696c195.wav",
+      "cohort_role": "development",
+      "contribution_db_id": 3742287,
+      "contribution_friendly_id": 195,
+      "contribution_id": "195",
+      "duration_s": 18,
+      "eligibility": {
+        "candidate_count": 154,
+        "policy": "pre_model_material_readability_and_supply_v1",
+        "readable_documents": 1,
+        "visible_characters": 26268
+      },
+      "event_id": 856696,
+      "join_evidence": "event_id_plus_friendly_id",
+      "materials": [
+        {
+          "checksum": "0e14cc9eeeded98201f35d47e0d8a584",
+          "content_type": "application/pdf",
+          "download_url": "https://indico.cern.ch/event/856696/contributions/3742287/attachments/2044847/3425505/ML_RealTime_LHCP_0520_v2.pdf",
+          "filename": "ML_RealTime_LHCP_0520_v2.pdf",
+          "id": 3425505,
+          "size": 8305859
+        }
+      ],
+      "speakers": [
+        "Gligorov, Vladimir"
+      ],
+      "split": "dev_2020",
+      "title": "Triggering and online calibration with machine learning techniques"
+    },
+    {
+      "audio_path": "856696c200.wav",
+      "cohort_role": "development",
+      "contribution_db_id": 3742296,
+      "contribution_friendly_id": 200,
+      "contribution_id": "200",
+      "duration_s": 18,
+      "eligibility": {
+        "candidate_count": 63,
+        "policy": "pre_model_material_readability_and_supply_v1",
+        "readable_documents": 1,
+        "visible_characters": 8759
+      },
+      "event_id": 856696,
+      "join_evidence": "event_id_plus_friendly_id",
+      "materials": [
+        {
+          "checksum": "e2e350019c2894eb8af9f7d4171afc44",
+          "content_type": "application/pdf",
+          "download_url": "https://indico.cern.ch/event/856696/contributions/3742296/attachments/2043883/3424090/preghenella_LHCP2020.pdf",
+          "filename": "preghenella_LHCP2020.pdf",
+          "id": 3424090,
+          "size": 2525088
+        }
+      ],
+      "speakers": [
+        "Preghenella, Roberto"
+      ],
+      "split": "dev_2020",
+      "title": "Perspectives for particle identification in ALICE using silicon-based timing detectors"
+    },
+    {
+      "audio_path": "856696c228.wav",
+      "cohort_role": "development",
+      "contribution_db_id": 3752241,
+      "contribution_friendly_id": 228,
+      "contribution_id": "228",
+      "duration_s": 18,
+      "eligibility": {
+        "candidate_count": 83,
+        "policy": "pre_model_material_readability_and_supply_v1",
+        "readable_documents": 2,
+        "visible_characters": 9933
+      },
+      "event_id": 856696,
+      "join_evidence": "event_id_plus_friendly_id",
+      "materials": [
+        {
+          "checksum": "c806fed0b089dad9b8e085cf8b19c076",
+          "content_type": "application/pdf",
+          "download_url": "https://indico.cern.ch/event/856696/contributions/3752241/attachments/2047234/3430333/lhcp2020_tth.pdf",
+          "filename": "lhcp2020_tth.pdf",
+          "id": 3430333,
+          "size": 11436549
+        },
+        {
+          "checksum": "12500a6447fda3c343ac02ea8b51175f",
+          "content_type": "application/pdf",
+          "download_url": "https://indico.cern.ch/event/856696/contributions/3752241/attachments/2047234/3430329/zoom_discussion.pdf",
+          "filename": "zoom_discussion.pdf",
+          "id": 3430329,
+          "size": 2617558
+        }
+      ],
+      "speakers": [
+        "Agaras, Merve Nazlim"
+      ],
+      "split": "dev_2020",
+      "title": "Recent ttH measurements with ATLAS"
+    },
+    {
+      "audio_path": "856696c285.wav",
+      "cohort_role": "development",
+      "contribution_db_id": 3855377,
+      "contribution_friendly_id": 285,
+      "contribution_id": "285",
+      "duration_s": 18,
+      "eligibility": {
+        "candidate_count": 73,
+        "policy": "pre_model_material_readability_and_supply_v1",
+        "readable_documents": 2,
+        "visible_characters": 12081
+      },
+      "event_id": 856696,
+      "join_evidence": "event_id_plus_friendly_id",
+      "materials": [
+        {
+          "checksum": "3804d9ee22f68ac8c9c51e7ec72f6045",
+          "content_type": "application/pdf",
+          "download_url": "https://indico.cern.ch/event/856696/contributions/3855377/attachments/2043639/3429082/Meirin_LHC_Open_Data.pdf",
+          "filename": "Meirin_LHC_Open_Data.pdf",
+          "id": 3429082,
+          "size": 44615735
+        },
+        {
+          "checksum": "e2ec790848cc4bc0535c81aabc4e891b",
+          "content_type": "application/vnd.openxmlformats-officedocument.presentationml.presentation",
+          "download_url": "https://indico.cern.ch/event/856696/contributions/3855377/attachments/2043639/3429055/Meirin_LHC_Open_Data.pptx",
+          "filename": "Meirin_LHC_Open_Data.pptx",
+          "id": 3429055,
+          "size": 268506314
+        }
+      ],
+      "speakers": [
+        "Evans, Meirin Oan"
+      ],
+      "split": "dev_2020",
+      "title": "LHC Open Data for the world to see"
+    },
+    {
+      "audio_path": "1109611c511.wav",
+      "cohort_role": "development",
+      "contribution_db_id": 4686085,
+      "contribution_friendly_id": 511,
+      "contribution_id": "511",
+      "duration_s": 24,
+      "eligibility": {
+        "candidate_count": 109,
+        "policy": "pre_model_material_readability_and_supply_v1",
+        "readable_documents": 1,
+        "visible_characters": 9299
+      },
+      "event_id": 1109611,
+      "join_evidence": "event_id_plus_friendly_id",
+      "materials": [
+        {
+          "checksum": "80f935555a4e3a0d7f742d24d42b5f1e",
+          "content_type": "application/pdf",
+          "download_url": "https://indico.cern.ch/event/1109611/contributions/4686085/attachments/2445615/4190521/LHCP22-Batell.pdf",
+          "filename": "LHCP22-Batell.pdf",
+          "id": 4190521,
+          "size": 15236501
+        }
+      ],
+      "speakers": [
+        "Batell, Brian Thomas"
+      ],
+      "split": "dev_2022",
+      "title": "Prospects for non-conventional future experiments"
+    },
+    {
+      "audio_path": "1109611c513.wav",
+      "cohort_role": "development",
+      "contribution_db_id": 4686097,
+      "contribution_friendly_id": 513,
+      "contribution_id": "513",
+      "duration_s": 24,
+      "eligibility": {
+        "candidate_count": 103,
+        "policy": "pre_model_material_readability_and_supply_v1",
+        "readable_documents": 1,
+        "visible_characters": 11293
+      },
+      "event_id": 1109611,
+      "join_evidence": "event_id_plus_friendly_id",
+      "materials": [
+        {
+          "checksum": "167d703e0a03027d075ad96702393880",
+          "content_type": "application/pdf",
+          "download_url": "https://indico.cern.ch/event/1109611/contributions/4686097/attachments/2445530/4190382/AEV_SearchesDisplacedParticles.pdf",
+          "filename": "AEV_SearchesDisplacedParticles.pdf",
+          "id": 4190382,
+          "size": 9508486
+        }
+      ],
+      "speakers": [
+        "Escalante Del Valle, Alberto"
+      ],
+      "split": "dev_2022",
+      "title": "Searches with displaced particles"
+    },
+    {
+      "audio_path": "1109611c521.wav",
+      "cohort_role": "development",
+      "contribution_db_id": 4686897,
+      "contribution_friendly_id": 521,
+      "contribution_id": "521",
+      "duration_s": 20,
+      "eligibility": {
+        "candidate_count": 79,
+        "policy": "pre_model_material_readability_and_supply_v1",
+        "readable_documents": 1,
+        "visible_characters": 7557
+      },
+      "event_id": 1109611,
+      "join_evidence": "event_id_plus_friendly_id",
+      "materials": [
+        {
+          "checksum": "f099a58568126e06e90b72a59d44bb5e",
+          "content_type": "application/pdf",
+          "download_url": "https://indico.cern.ch/event/1109611/contributions/4686897/attachments/2446520/4192253/Multibosons-LHCP-AMehta.pdf",
+          "filename": "Multibosons-LHCP-AMehta.pdf",
+          "id": 4192253,
+          "size": 11943390
+        }
+      ],
+      "speakers": [
+        "Mehta, Ankita"
+      ],
+      "split": "dev_2022",
+      "title": "Multiboson measurements"
+    },
+    {
+      "audio_path": "1109611c524.wav",
+      "cohort_role": "development",
+      "contribution_db_id": 4686945,
+      "contribution_friendly_id": 524,
+      "contribution_id": "524",
+      "duration_s": 24,
+      "eligibility": {
+        "candidate_count": 69,
+        "policy": "pre_model_material_readability_and_supply_v1",
+        "readable_documents": 1,
+        "visible_characters": 11001
+      },
+      "event_id": 1109611,
+      "join_evidence": "event_id_plus_friendly_id",
+      "materials": [
+        {
+          "checksum": "30a516d8895dafb967b4379052b44109",
+          "content_type": "application/pdf",
+          "download_url": "https://indico.cern.ch/event/1109611/contributions/4686945/attachments/2445546/4190427/Blanke-LHCP2022.pdf",
+          "filename": "Blanke-LHCP2022.pdf",
+          "id": 4190427,
+          "size": 3590803
+        }
+      ],
+      "speakers": [
+        "Blanke, Monika"
+      ],
+      "split": "dev_2022",
+      "title": "Heavy flavour theory"
+    },
+    {
+      "audio_path": "1109611c537.wav",
+      "cohort_role": "development",
+      "contribution_db_id": 4686966,
+      "contribution_friendly_id": 537,
+      "contribution_id": "537",
+      "duration_s": 21,
+      "eligibility": {
+        "candidate_count": 55,
+        "policy": "pre_model_material_readability_and_supply_v1",
+        "readable_documents": 1,
+        "visible_characters": 10001
+      },
+      "event_id": 1109611,
+      "join_evidence": "event_id_plus_friendly_id",
+      "materials": [
+        {
+          "checksum": "72d7121870e3be51d304d326dc5b71ac",
+          "content_type": "application/pdf",
+          "download_url": "https://indico.cern.ch/event/1109611/contributions/4686966/attachments/2447646/4194218/LHCP2022_JuanGonzalez.pdf",
+          "filename": "LHCP2022_JuanGonzalez.pdf",
+          "id": 4194218,
+          "size": 7454266
+        }
+      ],
+      "speakers": [
+        "Gonzalez, Juan"
+      ],
+      "split": "dev_2022",
+      "title": "Top precision measurements"
+    },
+    {
+      "audio_path": "1109611c538.wav",
+      "cohort_role": "development",
+      "contribution_db_id": 4686967,
+      "contribution_friendly_id": 538,
+      "contribution_id": "538",
+      "duration_s": 21,
+      "eligibility": {
+        "candidate_count": 126,
+        "policy": "pre_model_material_readability_and_supply_v1",
+        "readable_documents": 1,
+        "visible_characters": 22625
+      },
+      "event_id": 1109611,
+      "join_evidence": "event_id_plus_friendly_id",
+      "materials": [
+        {
+          "checksum": "89b0a743b6643564cb2ec9c47c64fe62",
+          "content_type": "application/pdf",
+          "download_url": "https://indico.cern.ch/event/1109611/contributions/4686967/attachments/2447626/4194180/TopPropertiesLHCP2022.pdf",
+          "filename": "TopPropertiesLHCP2022.pdf",
+          "id": 4194180,
+          "size": 14295976
+        }
+      ],
+      "speakers": [
+        "Owen, Mark Andrew"
+      ],
+      "split": "dev_2022",
+      "title": "Top properties and tests in top quark decays"
+    },
+    {
+      "audio_path": "1109611c540.wav",
+      "cohort_role": "development",
+      "contribution_db_id": 4686974,
+      "contribution_friendly_id": 540,
+      "contribution_id": "540",
+      "duration_s": 20,
+      "eligibility": {
+        "candidate_count": 272,
+        "policy": "pre_model_material_readability_and_supply_v1",
+        "readable_documents": 1,
+        "visible_characters": 22764
+      },
+      "event_id": 1109611,
+      "join_evidence": "event_id_plus_friendly_id",
+      "materials": [
+        {
+          "checksum": "ee003ca022a2ac648abae6ad27aa6aae",
+          "content_type": "application/pdf",
+          "download_url": "https://indico.cern.ch/event/1109611/contributions/4686974/attachments/2448027/4195131/highPtQCD.pdf",
+          "filename": "highPtQCD.pdf",
+          "id": 4195131,
+          "size": 6057754
+        }
+      ],
+      "speakers": [
+        "Zhu, Huaxing"
+      ],
+      "split": "dev_2022",
+      "title": "High-pt QCD theory"
+    },
+    {
+      "audio_path": "1109611c545.wav",
+      "cohort_role": "development",
+      "contribution_db_id": 4686980,
+      "contribution_friendly_id": 545,
+      "contribution_id": "545",
+      "duration_s": 20,
+      "eligibility": {
+        "candidate_count": 258,
+        "policy": "pre_model_material_readability_and_supply_v1",
+        "readable_documents": 1,
+        "visible_characters": 21130
+      },
+      "event_id": 1109611,
+      "join_evidence": "event_id_plus_friendly_id",
+      "materials": [
+        {
+          "checksum": "aecb33ba807097787007d4f3d32bab2e",
+          "content_type": "application/pdf",
+          "download_url": "https://indico.cern.ch/event/1109611/contributions/4686980/attachments/2448116/4195083/ATLAS%20upgrades.pdf",
+          "filename": "ATLAS upgrades.pdf",
+          "id": 4195083,
+          "size": 22805878
+        }
+      ],
+      "speakers": [
+        "Vari, Riccardo"
+      ],
+      "split": "dev_2022",
+      "title": "ATLAS upgrades"
+    },
+    {
+      "audio_path": "1109611c551.wav",
+      "cohort_role": "development",
+      "contribution_db_id": 4688467,
+      "contribution_friendly_id": 551,
+      "contribution_id": "551",
+      "duration_s": 20,
+      "eligibility": {
+        "candidate_count": 166,
+        "policy": "pre_model_material_readability_and_supply_v1",
+        "readable_documents": 2,
+        "visible_characters": 16441
+      },
+      "event_id": 1109611,
+      "join_evidence": "event_id_plus_friendly_id",
+      "materials": [
+        {
+          "checksum": "88b29e2c0a6de3af793f574a180f7bc9",
+          "content_type": "application/pdf",
+          "download_url": "https://indico.cern.ch/event/1109611/contributions/4688467/attachments/2444212/4188717/Status-LHC-LHCP-May22.pdf",
+          "filename": "Status-LHC-LHCP-May22.pdf",
+          "id": 4188717,
+          "size": 6901287
+        },
+        {
+          "checksum": "f3c5141c651520ae3a278127b412bc29",
+          "content_type": "application/vnd.openxmlformats-officedocument.presentationml.presentation",
+          "download_url": "https://indico.cern.ch/event/1109611/contributions/4688467/attachments/2444212/4188661/Status-LHC-LHCP-May22.pptx",
+          "filename": "Status-LHC-LHCP-May22.pptx",
+          "id": 4188661,
+          "size": 15962284
+        }
+      ],
+      "speakers": [
+        "Lamont, Mike"
+      ],
+      "split": "dev_2022",
+      "title": "Status of the LHC"
+    },
+    {
+      "audio_path": "1109611c553.wav",
+      "cohort_role": "development",
+      "contribution_db_id": 4688469,
+      "contribution_friendly_id": 553,
+      "contribution_id": "553",
+      "duration_s": 20,
+      "eligibility": {
+        "candidate_count": 333,
+        "policy": "pre_model_material_readability_and_supply_v1",
+        "readable_documents": 1,
+        "visible_characters": 18355
+      },
+      "event_id": 1109611,
+      "join_evidence": "event_id_plus_friendly_id",
+      "materials": [
+        {
+          "checksum": "9dc035ba1d0a3f4664c968a790bb7a30",
+          "content_type": "application/pdf",
+          "download_url": "https://indico.cern.ch/event/1109611/contributions/4688469/attachments/2444584/4188830/LHCP%202022.pdf",
+          "filename": "LHCP 2022.pdf",
+          "id": 4188830,
+          "size": 115410700
+        }
+      ],
+      "speakers": [
+        "Kado, Marumi"
+      ],
+      "split": "dev_2022",
+      "title": "ATLAS status and overview"
+    },
+    {
+      "audio_path": "1109611c570.wav",
+      "cohort_role": "development",
+      "contribution_db_id": 4747263,
+      "contribution_friendly_id": 570,
+      "contribution_id": "570",
+      "duration_s": 20,
+      "eligibility": {
+        "candidate_count": 134,
+        "policy": "pre_model_material_readability_and_supply_v1",
+        "readable_documents": 1,
+        "visible_characters": 19390
+      },
+      "event_id": 1109611,
+      "join_evidence": "event_id_plus_friendly_id",
+      "materials": [
+        {
+          "checksum": "24103dea00736822266f6df07b471274",
+          "content_type": "application/pdf",
+          "download_url": "https://indico.cern.ch/event/1109611/contributions/4747263/attachments/2447975/4194825/LHCP22-softQCD.pdf",
+          "filename": "LHCP22-softQCD.pdf",
+          "id": 4194825,
+          "size": 29654808
+        }
+      ],
+      "speakers": [
+        "Oppedisano, Chiara"
+      ],
+      "split": "dev_2022",
+      "title": "Soft QCD experiment"
+    },
+    {
+      "audio_path": "856696c25.wav",
+      "cohort_role": "confirmation",
+      "contribution_db_id": 3722343,
+      "contribution_friendly_id": 25,
+      "contribution_id": "25",
+      "duration_s": 25,
+      "eligibility": {
+        "candidate_count": 86,
+        "policy": "pre_model_material_readability_and_supply_v1",
+        "readable_documents": 1,
+        "visible_characters": 10629
+      },
+      "event_id": 856696,
+      "join_evidence": "event_id_plus_friendly_id",
+      "materials": [
+        {
+          "checksum": "1f90d2b755158b48ba156fd8875f74aa",
+          "content_type": "application/pdf",
+          "download_url": "https://indico.cern.ch/event/856696/contributions/3722343/attachments/2044036/3430228/atlas_highlights.pdf",
+          "filename": "atlas_highlights.pdf",
+          "id": 3430228,
+          "size": 4410245
+        }
+      ],
+      "speakers": [
+        "Monig, Klaus"
+      ],
+      "split": "test_2020",
+      "title": "Highlights and perspectives from the ATLAS experiment"
+    },
+    {
+      "audio_path": "856696c32.wav",
+      "cohort_role": "confirmation",
+      "contribution_db_id": 3722358,
+      "contribution_friendly_id": 32,
+      "contribution_id": "32",
+      "duration_s": 25,
+      "eligibility": {
+        "candidate_count": 195,
+        "policy": "pre_model_material_readability_and_supply_v1",
+        "readable_documents": 1,
+        "visible_characters": 19410
+      },
+      "event_id": 856696,
+      "join_evidence": "event_id_plus_friendly_id",
+      "materials": [
+        {
+          "checksum": "524a937ea66a125869990084e92cb49e",
+          "content_type": "application/pdf",
+          "download_url": "https://indico.cern.ch/event/856696/contributions/3722358/attachments/2044236/3424276/LHCP2020_ATLAS_upgrade.pdf",
+          "filename": "LHCP2020_ATLAS_upgrade.pdf",
+          "id": 3424276,
+          "size": 51866258
+        }
+      ],
+      "speakers": [
+        "Izzo, Vincenzo"
+      ],
+      "split": "test_2020",
+      "title": "ATLAS upgrades"
+    },
+    {
+      "audio_path": "856696c40.wav",
+      "cohort_role": "confirmation",
+      "contribution_db_id": 3722369,
+      "contribution_friendly_id": 40,
+      "contribution_id": "40",
+      "duration_s": 30,
+      "eligibility": {
+        "candidate_count": 110,
+        "policy": "pre_model_material_readability_and_supply_v1",
+        "readable_documents": 1,
+        "visible_characters": 16137
+      },
+      "event_id": 856696,
+      "join_evidence": "event_id_plus_friendly_id",
+      "materials": [
+        {
+          "checksum": "6438eb3a6453ecc83b61bbbe4a7eae33",
+          "content_type": "application/pdf",
+          "download_url": "https://indico.cern.ch/event/856696/contributions/3722369/attachments/2045050/3426294/LHCP_Precision_QCD_Barter.pdf",
+          "filename": "LHCP_Precision_QCD_Barter.pdf",
+          "id": 3426294,
+          "size": 9710305
+        }
+      ],
+      "speakers": [
+        "Barter, William"
+      ],
+      "split": "test_2020",
+      "title": "Precision QCD measurements"
+    },
+    {
+      "audio_path": "856696c45.wav",
+      "cohort_role": "confirmation",
+      "contribution_db_id": 3722374,
+      "contribution_friendly_id": 45,
+      "contribution_id": "45",
+      "duration_s": 30,
+      "eligibility": {
+        "candidate_count": 174,
+        "policy": "pre_model_material_readability_and_supply_v1",
+        "readable_documents": 1,
+        "visible_characters": 25611
+      },
+      "event_id": 856696,
+      "join_evidence": "event_id_plus_friendly_id",
+      "materials": [
+        {
+          "checksum": "038e08a2139b0f6733ad741c31bca511",
+          "content_type": "application/pdf",
+          "download_url": "https://indico.cern.ch/event/856696/contributions/3722374/attachments/2045831/3428141/gpetrucc-unknowns-lhcp2020.pdf",
+          "filename": "gpetrucc-unknowns-lhcp2020.pdf",
+          "id": 3428141,
+          "size": 7809997
+        }
+      ],
+      "speakers": [
+        "Petrucciani, Giovanni"
+      ],
+      "split": "test_2020",
+      "title": "Higgs sector: What we would like to know"
+    },
+    {
+      "audio_path": "856696c55.wav",
+      "cohort_role": "confirmation",
+      "contribution_db_id": 3722384,
+      "contribution_friendly_id": 55,
+      "contribution_id": "55",
+      "duration_s": 30,
+      "eligibility": {
+        "candidate_count": 225,
+        "policy": "pre_model_material_readability_and_supply_v1",
+        "readable_documents": 1,
+        "visible_characters": 24689
+      },
+      "event_id": 856696,
+      "join_evidence": "event_id_plus_friendly_id",
+      "materials": [
+        {
+          "checksum": "d0acc235d042a3482a059fb5f826532a",
+          "content_type": "application/pdf",
+          "download_url": "https://indico.cern.ch/event/856696/contributions/3722384/attachments/2046889/3429674/LHCP_SUSY_Final_v0.pdf",
+          "filename": "LHCP_SUSY_Final_v0.pdf",
+          "id": 3429674,
+          "size": 34889059
+        }
+      ],
+      "speakers": [
+        "Kalogeropoulos, Alexis"
+      ],
+      "split": "test_2020",
+      "title": "Experimental overview - SUSY"
+    },
+    {
+      "audio_path": "856696c56.wav",
+      "cohort_role": "confirmation",
+      "contribution_db_id": 3722385,
+      "contribution_friendly_id": 56,
+      "contribution_id": "56",
+      "duration_s": 30,
+      "eligibility": {
+        "candidate_count": 129,
+        "policy": "pre_model_material_readability_and_supply_v1",
+        "readable_documents": 1,
+        "visible_characters": 15050
+      },
+      "event_id": 856696,
+      "join_evidence": "event_id_plus_friendly_id",
+      "materials": [
+        {
+          "checksum": "222d33df2e05764c6fdcba7ec2f80e0b",
+          "content_type": "application/pdf",
+          "download_url": "https://indico.cern.ch/event/856696/contributions/3722385/attachments/2046837/3429588/ExoticsOverview_LHCP_May2020.pdf",
+          "filename": "ExoticsOverview_LHCP_May2020.pdf",
+          "id": 3429588,
+          "size": 36617933
+        }
+      ],
+      "speakers": [
+        "Ochoa, Ines"
+      ],
+      "split": "test_2020",
+      "title": "Experimental overview - EXO"
+    },
+    {
+      "audio_path": "856696c65.wav",
+      "cohort_role": "confirmation",
+      "contribution_db_id": 3722396,
+      "contribution_friendly_id": 65,
+      "contribution_id": "65",
+      "duration_s": 30,
+      "eligibility": {
+        "candidate_count": 181,
+        "policy": "pre_model_material_readability_and_supply_v1",
+        "readable_documents": 1,
+        "visible_characters": 12321
+      },
+      "event_id": 856696,
+      "join_evidence": "event_id_plus_friendly_id",
+      "materials": [
+        {
+          "checksum": "58c10d8fdb8c90768368a634a514e211",
+          "content_type": "application/pdf",
+          "download_url": "https://indico.cern.ch/event/856696/contributions/3722396/attachments/2048110/3432049/LHCP2020_BhawnaGomber_final.pdf",
+          "filename": "LHCP2020_BhawnaGomber_final.pdf",
+          "id": 3432049,
+          "size": 9792033
+        }
+      ],
+      "speakers": [
+        "Gomber, Bhawna"
+      ],
+      "split": "test_2020",
+      "title": "Searches for unconventional signatures and long-lived particles"
+    },
+    {
+      "audio_path": "856696c114.wav",
+      "cohort_role": "confirmation",
+      "contribution_db_id": 3742163,
+      "contribution_friendly_id": 114,
+      "contribution_id": "114",
+      "duration_s": 18,
+      "eligibility": {
+        "candidate_count": 789,
+        "policy": "pre_model_material_readability_and_supply_v1",
+        "readable_documents": 1,
+        "visible_characters": 180343
+      },
+      "event_id": 856696,
+      "join_evidence": "event_id_plus_friendly_id",
+      "materials": [
+        {
+          "checksum": "6d4babc46f603ce4efe144df482288f6",
+          "content_type": "application/pdf",
+          "download_url": "https://indico.cern.ch/event/856696/contributions/3742163/attachments/2040913/3418804/jacco_LHCP-EWpenguin_260520.pdf",
+          "filename": "jacco_LHCP-EWpenguin_260520.pdf",
+          "id": 3418804,
+          "size": 26052545
+        }
+      ],
+      "speakers": [
+        "De Vries, Jacco Andreas"
+      ],
+      "split": "test_2020",
+      "title": "Electroweak Penguin Decays"
+    },
+    {
+      "audio_path": "856696c122.wav",
+      "cohort_role": "confirmation",
+      "contribution_db_id": 3742172,
+      "contribution_friendly_id": 122,
+      "contribution_id": "122",
+      "duration_s": 20,
+      "eligibility": {
+        "candidate_count": 149,
+        "policy": "pre_model_material_readability_and_supply_v1",
+        "readable_documents": 1,
+        "visible_characters": 21439
+      },
+      "event_id": 856696,
+      "join_evidence": "event_id_plus_friendly_id",
+      "materials": [
+        {
+          "checksum": "965c3583a543cfde68a2aef74065afbc",
+          "content_type": "application/pdf",
+          "download_url": "https://indico.cern.ch/event/856696/contributions/3742172/attachments/2046507/3428911/CPViolationinCharm_GuillaumePietrzyk_LHCP2020.pdf",
+          "filename": "CPViolationinCharm_GuillaumePietrzyk_LHCP2020.pdf",
+          "id": 3428911,
+          "size": 29550060
+        }
+      ],
+      "speakers": [
+        "Pietrzyk, Guillaume Max"
+      ],
+      "split": "test_2020",
+      "title": "CP-violation in charm (LHCb)"
+    },
+    {
+      "audio_path": "856696c142.wav",
+      "cohort_role": "confirmation",
+      "contribution_db_id": 3742197,
+      "contribution_friendly_id": 142,
+      "contribution_id": "142",
+      "duration_s": 15,
+      "eligibility": {
+        "candidate_count": 75,
+        "policy": "pre_model_material_readability_and_supply_v1",
+        "readable_documents": 1,
+        "visible_characters": 8194
+      },
+      "event_id": 856696,
+      "join_evidence": "event_id_plus_friendly_id",
+      "materials": [
+        {
+          "checksum": "edea031cd99a1d63a63f24fb57e55020",
+          "content_type": "application/pdf",
+          "download_url": "https://indico.cern.ch/event/856696/contributions/3742197/attachments/2046657/3431444/2020_05_28_LHCP_Higgs_Pozdnyakov_v2.pdf",
+          "filename": "2020_05_28_LHCP_Higgs_Pozdnyakov_v2.pdf",
+          "id": 3431444,
+          "size": 6594993
+        }
+      ],
+      "speakers": [
+        "Pozdnyakov, Andrey"
+      ],
+      "split": "test_2020",
+      "title": "Higgs measurements in 2nd generation decay channels with ATLAS and CMS"
+    },
+    {
+      "audio_path": "856696c147.wav",
+      "cohort_role": "confirmation",
+      "contribution_db_id": 3742202,
+      "contribution_friendly_id": 147,
+      "contribution_id": "147",
+      "duration_s": 15,
+      "eligibility": {
+        "candidate_count": 157,
+        "policy": "pre_model_material_readability_and_supply_v1",
+        "readable_documents": 1,
+        "visible_characters": 13439
+      },
+      "event_id": 856696,
+      "join_evidence": "event_id_plus_friendly_id",
+      "materials": [
+        {
+          "checksum": "3f71f2aadb6749566b9cb87df064db36",
+          "content_type": "application/pdf",
+          "download_url": "https://indico.cern.ch/event/856696/contributions/3742202/attachments/2047594/3431040/NewPossibility_Higgs_NanLu_LHCP2020_0529.pdf",
+          "filename": "NewPossibility_Higgs_NanLu_LHCP2020_0529.pdf",
+          "id": 3431040,
+          "size": 14063075
+        }
+      ],
+      "speakers": [
+        "Lu, Nan"
+      ],
+      "split": "test_2020",
+      "title": "New possibilities in Higgs measurements from detector upgrades and modern software tools"
+    },
+    {
+      "audio_path": "856696c177.wav",
+      "cohort_role": "confirmation",
+      "contribution_db_id": 3742237,
+      "contribution_friendly_id": 177,
+      "contribution_id": "177",
+      "duration_s": 18,
+      "eligibility": {
+        "candidate_count": 55,
+        "policy": "pre_model_material_readability_and_supply_v1",
+        "readable_documents": 1,
+        "visible_characters": 10405
+      },
+      "event_id": 856696,
+      "join_evidence": "event_id_plus_friendly_id",
+      "materials": [
+        {
+          "checksum": "933188632732e5c0f0f4a36b0f75f91f",
+          "content_type": "application/pdf",
+          "download_url": "https://indico.cern.ch/event/856696/contributions/3742237/attachments/2043714/3424642/Kopecna_Preformance_LHCbTracking.pdf",
+          "filename": "Kopecna_Preformance_LHCbTracking.pdf",
+          "id": 3424642,
+          "size": 14795587
+        }
+      ],
+      "speakers": [
+        "Kopecna, Renata"
+      ],
+      "split": "test_2020",
+      "title": "Tracking and vertexing performance and developments over Run2 in LHCb"
+    },
+    {
+      "audio_path": "856696c220.wav",
+      "cohort_role": "confirmation",
+      "contribution_db_id": 3742318,
+      "contribution_friendly_id": 220,
+      "contribution_id": "220",
+      "duration_s": 18,
+      "eligibility": {
+        "candidate_count": 134,
+        "policy": "pre_model_material_readability_and_supply_v1",
+        "readable_documents": 1,
+        "visible_characters": 13444
+      },
+      "event_id": 856696,
+      "join_evidence": "event_id_plus_friendly_id",
+      "materials": [
+        {
+          "checksum": "148e1e595d7a368b34e5aa88d594fd41",
+          "content_type": "application/pdf",
+          "download_url": "https://indico.cern.ch/event/856696/contributions/3742318/attachments/2047522/3430891/ExoticStates_LHCP_20200529.pdf",
+          "filename": "ExoticStates_LHCP_20200529.pdf",
+          "id": 3430891,
+          "size": 4193205
+        }
+      ],
+      "speakers": [
+        "An, Liupan"
+      ],
+      "split": "test_2020",
+      "title": "Study of exotic states"
+    },
+    {
+      "audio_path": "1109611c512.wav",
+      "cohort_role": "confirmation",
+      "contribution_db_id": 4686087,
+      "contribution_friendly_id": 512,
+      "contribution_id": "512",
+      "duration_s": 24,
+      "eligibility": {
+        "candidate_count": 218,
+        "policy": "pre_model_material_readability_and_supply_v1",
+        "readable_documents": 1,
+        "visible_characters": 35755
+      },
+      "event_id": 1109611,
+      "join_evidence": "event_id_plus_friendly_id",
+      "materials": [
+        {
+          "checksum": "9017070c141e829c7bd3ca27e8aadc29",
+          "content_type": "application/pdf",
+          "download_url": "https://indico.cern.ch/event/1109611/contributions/4686087/attachments/2445501/4190324/Thamm_FIPs.pdf",
+          "filename": "Thamm_FIPs.pdf",
+          "id": 4190324,
+          "size": 7294862
+        }
+      ],
+      "speakers": [
+        "Thamm, Andrea"
+      ],
+      "split": "test_2022",
+      "title": "Ideas and motivation for feebly-interacting sector"
+    },
+    {
+      "audio_path": "1109611c514.wav",
+      "cohort_role": "confirmation",
+      "contribution_db_id": 4686099,
+      "contribution_friendly_id": 514,
+      "contribution_id": "514",
+      "duration_s": 24,
+      "eligibility": {
+        "candidate_count": 158,
+        "policy": "pre_model_material_readability_and_supply_v1",
+        "readable_documents": 1,
+        "visible_characters": 10449
+      },
+      "event_id": 1109611,
+      "join_evidence": "event_id_plus_friendly_id",
+      "materials": [
+        {
+          "checksum": "8dbdd588f161ddfdc2e3a3231fbc2fa1",
+          "content_type": "application/pdf",
+          "download_url": "https://indico.cern.ch/event/1109611/contributions/4686099/attachments/2445311/4190378/FIPs%20with%20Prompt%20-%20YW%20-%20F.pdf",
+          "filename": "FIPs with Prompt - YW - F.pdf",
+          "id": 4190378,
+          "size": 5822109
+        }
+      ],
+      "speakers": [
+        "Wu, Yusheng"
+      ],
+      "split": "test_2022",
+      "title": "Searches with prompt particles"
+    },
+    {
+      "audio_path": "1109611c519.wav",
+      "cohort_role": "confirmation",
+      "contribution_db_id": 4686885,
+      "contribution_friendly_id": 519,
+      "contribution_id": "519",
+      "duration_s": 20,
+      "eligibility": {
+        "candidate_count": 106,
+        "policy": "pre_model_material_readability_and_supply_v1",
+        "readable_documents": 1,
+        "visible_characters": 7061
+      },
+      "event_id": 1109611,
+      "join_evidence": "event_id_plus_friendly_id",
+      "materials": [
+        {
+          "checksum": "59b9acd919a2682a82ba31ae28a394a6",
+          "content_type": "application/pdf",
+          "download_url": "https://indico.cern.ch/event/1109611/contributions/4686885/attachments/2446716/4192573/EWtheory.pdf",
+          "filename": "EWtheory.pdf",
+          "id": 4192573,
+          "size": 3443161
+        }
+      ],
+      "speakers": [
+        "Wackeroth, Doreen"
+      ],
+      "split": "test_2022",
+      "title": "Electroweak theory"
+    },
+    {
+      "audio_path": "1109611c522.wav",
+      "cohort_role": "confirmation",
+      "contribution_db_id": 4686899,
+      "contribution_friendly_id": 522,
+      "contribution_id": "522",
+      "duration_s": 20,
+      "eligibility": {
+        "candidate_count": 219,
+        "policy": "pre_model_material_readability_and_supply_v1",
+        "readable_documents": 1,
+        "visible_characters": 17286
+      },
+      "event_id": 1109611,
+      "join_evidence": "event_id_plus_friendly_id",
+      "materials": [
+        {
+          "checksum": "512b13d9e20c53f32fa0601a66ce19d2",
+          "content_type": "application/pdf",
+          "download_url": "https://indico.cern.ch/event/1109611/contributions/4686899/attachments/2446042/4191414/VBFVBS_Nielsen_LHCP2022.pdf",
+          "filename": "VBFVBS_Nielsen_LHCP2022.pdf",
+          "id": 4191414,
+          "size": 4707780
+        }
+      ],
+      "speakers": [
+        "Nielsen, Jason"
+      ],
+      "split": "test_2022",
+      "title": "VBF and VBS measurements"
+    },
+    {
+      "audio_path": "1109611c523.wav",
+      "cohort_role": "confirmation",
+      "contribution_db_id": 4686900,
+      "contribution_friendly_id": 523,
+      "contribution_id": "523",
+      "duration_s": 20,
+      "eligibility": {
+        "candidate_count": 55,
+        "policy": "pre_model_material_readability_and_supply_v1",
+        "readable_documents": 1,
+        "visible_characters": 6655
+      },
+      "event_id": 1109611,
+      "join_evidence": "event_id_plus_friendly_id",
+      "materials": [
+        {
+          "checksum": "37ebedc8c204a2c964b8d5483b3720c2",
+          "content_type": "application/pdf",
+          "download_url": "https://indico.cern.ch/event/1109611/contributions/4686900/attachments/2446582/4192348/2022-%2005%20-%20LHCP%20-%20SMEFT%20of%20Higgs,%20diboson,%20top%20and%20electroweak%20precision.pdf",
+          "filename": "2022- 05 - LHCP - SMEFT of Higgs, diboson, top and electroweak precision.pdf",
+          "id": 4192348,
+          "size": 7598162
+        }
+      ],
+      "speakers": [
+        "You, Tiann Tevong"
+      ],
+      "split": "test_2022",
+      "title": "Effective Field Theory (EW, Higgs & Top)"
+    },
+    {
+      "audio_path": "1109611c525.wav",
+      "cohort_role": "confirmation",
+      "contribution_db_id": 4686946,
+      "contribution_friendly_id": 525,
+      "contribution_id": "525",
+      "duration_s": 24,
+      "eligibility": {
+        "candidate_count": 111,
+        "policy": "pre_model_material_readability_and_supply_v1",
+        "readable_documents": 1,
+        "visible_characters": 9265
+      },
+      "event_id": 1109611,
+      "join_evidence": "event_id_plus_friendly_id",
+      "materials": [
+        {
+          "checksum": "b1e53d5b668a3e23a9fa1bd4b44e3ce3",
+          "content_type": "application/pdf",
+          "download_url": "https://indico.cern.ch/event/1109611/contributions/4686946/attachments/2446404/4192053/LHCP2022_Polikarpov.pdf",
+          "filename": "LHCP2022_Polikarpov.pdf",
+          "id": 4192053,
+          "size": 5990489
+        }
+      ],
+      "speakers": [
+        "Polikarpov, Sergey"
+      ],
+      "split": "test_2022",
+      "title": "Rare decays"
+    },
+    {
+      "audio_path": "1109611c526.wav",
+      "cohort_role": "confirmation",
+      "contribution_db_id": 4686947,
+      "contribution_friendly_id": 526,
+      "contribution_id": "526",
+      "duration_s": 24,
+      "eligibility": {
+        "candidate_count": 82,
+        "policy": "pre_model_material_readability_and_supply_v1",
+        "readable_documents": 1,
+        "visible_characters": 16644
+      },
+      "event_id": 1109611,
+      "join_evidence": "event_id_plus_friendly_id",
+      "materials": [
+        {
+          "checksum": "42f16f9895cc49e3c35fe610d07b0c27",
+          "content_type": "application/pdf",
+          "download_url": "https://indico.cern.ch/event/1109611/contributions/4686947/attachments/2446399/4192324/2022_LHCP_simi_v1.pdf",
+          "filename": "2022_LHCP_simi_v1.pdf",
+          "id": 4192324,
+          "size": 2105014
+        }
+      ],
+      "speakers": [
+        "Simi, Gabriele"
+      ],
+      "split": "test_2022",
+      "title": "Test of lepton flavor universality"
+    },
+    {
+      "audio_path": "1109611c528.wav",
+      "cohort_role": "confirmation",
+      "contribution_db_id": 4686951,
+      "contribution_friendly_id": 528,
+      "contribution_id": "528",
+      "duration_s": 24,
+      "eligibility": {
+        "candidate_count": 503,
+        "policy": "pre_model_material_readability_and_supply_v1",
+        "readable_documents": 1,
+        "visible_characters": 39549
+      },
+      "event_id": 1109611,
+      "join_evidence": "event_id_plus_friendly_id",
+      "materials": [
+        {
+          "checksum": "25da574d371c4abee00c268d4d09a72f",
+          "content_type": "application/pdf",
+          "download_url": "https://indico.cern.ch/event/1109611/contributions/4686951/attachments/2468074/4259050/LHCP%202022.pdf",
+          "filename": "LHCP 2022.pdf",
+          "id": 4259050,
+          "size": 12471702
+        }
+      ],
+      "speakers": [
+        "Murayama, Hitoshi"
+      ],
+      "split": "test_2022",
+      "title": "New ideas and signatures in electroweak-scale model building"
+    },
+    {
+      "audio_path": "1109611c529.wav",
+      "cohort_role": "confirmation",
+      "contribution_db_id": 4686952,
+      "contribution_friendly_id": 529,
+      "contribution_id": "529",
+      "duration_s": 24,
+      "eligibility": {
+        "candidate_count": 604,
+        "policy": "pre_model_material_readability_and_supply_v1",
+        "readable_documents": 1,
+        "visible_characters": 139573
+      },
+      "event_id": 1109611,
+      "join_evidence": "event_id_plus_friendly_id",
+      "materials": [
+        {
+          "checksum": "20743eb8b65d21ddcb4c48fe493efe85",
+          "content_type": "application/pdf",
+          "download_url": "https://indico.cern.ch/event/1109611/contributions/4686952/attachments/2446062/4193542/Greljo-LHCP.pdf",
+          "filename": "Greljo-LHCP.pdf",
+          "id": 4193542,
+          "size": 19561949
+        }
+      ],
+      "speakers": [
+        "Greljo, Admir"
+      ],
+      "split": "test_2022",
+      "title": "Model building in relation to recent flavor anomalies"
+    },
+    {
+      "audio_path": "1109611c530.wav",
+      "cohort_role": "confirmation",
+      "contribution_db_id": 4686954,
+      "contribution_friendly_id": 530,
+      "contribution_id": "530",
+      "duration_s": 24,
+      "eligibility": {
+        "candidate_count": 148,
+        "policy": "pre_model_material_readability_and_supply_v1",
+        "readable_documents": 1,
+        "visible_characters": 11419
+      },
+      "event_id": 1109611,
+      "join_evidence": "event_id_plus_friendly_id",
+      "materials": [
+        {
+          "checksum": "124bd9402174874082f802482b2ef9a0",
+          "content_type": "application/pdf",
+          "download_url": "https://indico.cern.ch/event/1109611/contributions/4686954/attachments/2446968/4193011/LHCP_2022_May_talk.pdf",
+          "filename": "LHCP_2022_May_talk.pdf",
+          "id": 4193011,
+          "size": 5568618
+        }
+      ],
+      "speakers": [
+        "Chekanov, Sergei"
+      ],
+      "split": "test_2022",
+      "title": "Heavy resonance searches"
+    },
+    {
+      "audio_path": "1109611c531.wav",
+      "cohort_role": "confirmation",
+      "contribution_db_id": 4686955,
+      "contribution_friendly_id": 531,
+      "contribution_id": "531",
+      "duration_s": 24,
+      "eligibility": {
+        "candidate_count": 145,
+        "policy": "pre_model_material_readability_and_supply_v1",
+        "readable_documents": 1,
+        "visible_characters": 11149
+      },
+      "event_id": 1109611,
+      "join_evidence": "event_id_plus_friendly_id",
+      "materials": [
+        {
+          "checksum": "b4ee483b83986ed3dc222e2ef0d5bb63",
+          "content_type": "application/pdf",
+          "download_url": "https://indico.cern.ch/event/1109611/contributions/4686955/attachments/2446975/4193632/Hatakeyama_LHCP2022_NonResonant_Searches_final.pdf",
+          "filename": "Hatakeyama_LHCP2022_NonResonant_Searches_final.pdf",
+          "id": 4193632,
+          "size": 29330985
+        }
+      ],
+      "speakers": [
+        "Hatakeyama, Kenichi"
+      ],
+      "split": "test_2022",
+      "title": "Non-resonant searches for new physics"
+    },
+    {
+      "audio_path": "1109611c532.wav",
+      "cohort_role": "confirmation",
+      "contribution_db_id": 4686960,
+      "contribution_friendly_id": 532,
+      "contribution_id": "532",
+      "duration_s": 20,
+      "eligibility": {
+        "candidate_count": 65,
+        "policy": "pre_model_material_readability_and_supply_v1",
+        "readable_documents": 1,
+        "visible_characters": 6656
+      },
+      "event_id": 1109611,
+      "join_evidence": "event_id_plus_friendly_id",
+      "materials": [
+        {
+          "checksum": "4079f7037712a5142945c539b0d84c99",
+          "content_type": "application/pdf",
+          "download_url": "https://indico.cern.ch/event/1109611/contributions/4686960/attachments/2446602/4192580/LHCP22_Higgs_Heinrich.pdf",
+          "filename": "LHCP22_Higgs_Heinrich.pdf",
+          "id": 4192580,
+          "size": 9972416
+        }
+      ],
+      "speakers": [
+        "Heinrich, Gudrun"
+      ],
+      "split": "test_2022",
+      "title": "Precision Higgs theory"
+    },
+    {
+      "audio_path": "1109611c534.wav",
+      "cohort_role": "confirmation",
+      "contribution_db_id": 4686963,
+      "contribution_friendly_id": 534,
+      "contribution_id": "534",
+      "duration_s": 20,
+      "eligibility": {
+        "candidate_count": 798,
+        "policy": "pre_model_material_readability_and_supply_v1",
+        "readable_documents": 1,
+        "visible_characters": 118151
+      },
+      "event_id": 1109611,
+      "join_evidence": "event_id_plus_friendly_id",
+      "materials": [
+        {
+          "checksum": "5e12c6891b5be4d5b3db5f6f689e317c",
+          "content_type": "application/pdf",
+          "download_url": "https://indico.cern.ch/event/1109611/contributions/4686963/attachments/2446667/4192487/2022May18_PrecisionHiggsExperiment_Koeneke.pdf",
+          "filename": "2022May18_PrecisionHiggsExperiment_Koeneke.pdf",
+          "id": 4192487,
+          "size": 68766757
+        }
+      ],
+      "speakers": [
+        "Koeneke, Karsten"
+      ],
+      "split": "test_2022",
+      "title": "Precision Higgs experiment"
+    },
+    {
+      "audio_path": "1109611c535.wav",
+      "cohort_role": "confirmation",
+      "contribution_db_id": 4686964,
+      "contribution_friendly_id": 535,
+      "contribution_id": "535",
+      "duration_s": 21,
+      "eligibility": {
+        "candidate_count": 154,
+        "policy": "pre_model_material_readability_and_supply_v1",
+        "readable_documents": 1,
+        "visible_characters": 12093
+      },
+      "event_id": 1109611,
+      "join_evidence": "event_id_plus_friendly_id",
+      "materials": [
+        {
+          "checksum": "24423f4e2d882690e46659925d65e7e2",
+          "content_type": "application/pdf",
+          "download_url": "https://indico.cern.ch/event/1109611/contributions/4686964/attachments/2447635/4194196/LHCP_2022_Rare_BSM_Andrzej_Novak.pdf",
+          "filename": "LHCP_2022_Rare_BSM_Andrzej_Novak.pdf",
+          "id": 4194196,
+          "size": 10894150
+        }
+      ],
+      "speakers": [
+        "Novak, Andrzej"
+      ],
+      "split": "test_2022",
+      "title": "Rare & BSM Higgs experiment"
+    },
+    {
+      "audio_path": "1109611c539.wav",
+      "cohort_role": "confirmation",
+      "contribution_db_id": 4686968,
+      "contribution_friendly_id": 539,
+      "contribution_id": "539",
+      "duration_s": 21,
+      "eligibility": {
+        "candidate_count": 103,
+        "policy": "pre_model_material_readability_and_supply_v1",
+        "readable_documents": 1,
+        "visible_characters": 9241
+      },
+      "event_id": 1109611,
+      "join_evidence": "event_id_plus_friendly_id",
+      "materials": [
+        {
+          "checksum": "8d3d5a95879058ff69b42d1714d6c45a",
+          "content_type": "application/pdf",
+          "download_url": "https://indico.cern.ch/event/1109611/contributions/4686968/attachments/2447579/4194118/RareTopProcesses-NunoCastro-LHCP2022-17.pdf",
+          "filename": "RareTopProcesses-NunoCastro-LHCP2022-17.pdf",
+          "id": 4194118,
+          "size": 16909052
+        }
+      ],
+      "speakers": [
+        "Castro, Nuno"
+      ],
+      "split": "test_2022",
+      "title": "Rare production and decay processes"
+    },
+    {
+      "audio_path": "1109611c541.wav",
+      "cohort_role": "confirmation",
+      "contribution_db_id": 4686975,
+      "contribution_friendly_id": 541,
+      "contribution_id": "541",
+      "duration_s": 20,
+      "eligibility": {
+        "candidate_count": 214,
+        "policy": "pre_model_material_readability_and_supply_v1",
+        "readable_documents": 1,
+        "visible_characters": 25262
+      },
+      "event_id": 1109611,
+      "join_evidence": "event_id_plus_friendly_id",
+      "materials": [
+        {
+          "checksum": "2cbaea4f2075105e2346dc6aac4753bd",
+          "content_type": "application/pdf",
+          "download_url": "https://indico.cern.ch/event/1109611/contributions/4686975/attachments/2447828/4194548/llorenteQCD.pdf",
+          "filename": "llorenteQCD.pdf",
+          "id": 4194548,
+          "size": 2919313
+        }
+      ],
+      "speakers": [
+        "Llorente Merino, Javier"
+      ],
+      "split": "test_2022",
+      "title": "High-pt QCD measurements"
+    },
+    {
+      "audio_path": "1109611c542.wav",
+      "cohort_role": "confirmation",
+      "contribution_db_id": 4686977,
+      "contribution_friendly_id": 542,
+      "contribution_id": "542",
+      "duration_s": 20,
+      "eligibility": {
+        "candidate_count": 300,
+        "policy": "pre_model_material_readability_and_supply_v1",
+        "readable_documents": 1,
+        "visible_characters": 58178
+      },
+      "event_id": 1109611,
+      "join_evidence": "event_id_plus_friendly_id",
+      "materials": [
+        {
+          "checksum": "0b6ddd287f01bcd2010c8b2fa4849fc9",
+          "content_type": "application/pdf",
+          "download_url": "https://indico.cern.ch/event/1109611/contributions/4686977/attachments/2447285/4194251/LHCP22Sjostrand.pdf",
+          "filename": "LHCP22Sjostrand.pdf",
+          "id": 4194251,
+          "size": 4438287
+        }
+      ],
+      "speakers": [
+        "Sjostrand, Torbjorn"
+      ],
+      "split": "test_2022",
+      "title": "Soft QCD theory"
+    },
+    {
+      "audio_path": "1109611c543.wav",
+      "cohort_role": "confirmation",
+      "contribution_db_id": 4686978,
+      "contribution_friendly_id": 543,
+      "contribution_id": "543",
+      "duration_s": 20,
+      "eligibility": {
+        "candidate_count": 70,
+        "policy": "pre_model_material_readability_and_supply_v1",
+        "readable_documents": 1,
+        "visible_characters": 9808
+      },
+      "event_id": 1109611,
+      "join_evidence": "event_id_plus_friendly_id",
+      "materials": [
+        {
+          "checksum": "8d9a2cab7a5022cfa3f53b3b135fa227",
+          "content_type": "application/pdf",
+          "download_url": "https://indico.cern.ch/event/1109611/contributions/4686978/attachments/2447084/4194892/Spectroscopy%20and%20hadronic%20structure_LHCP.pdf",
+          "filename": "Spectroscopy and hadronic structure_LHCP.pdf",
+          "id": 4194892,
+          "size": 4904925
+        }
+      ],
+      "speakers": [
+        "Spadaro Norella, Elisabetta"
+      ],
+      "split": "test_2022",
+      "title": "Spectroscopy and hadronic structure measurements"
+    },
+    {
+      "audio_path": "1109611c547.wav",
+      "cohort_role": "confirmation",
+      "contribution_db_id": 4686982,
+      "contribution_friendly_id": 547,
+      "contribution_id": "547",
+      "duration_s": 20,
+      "eligibility": {
+        "candidate_count": 179,
+        "policy": "pre_model_material_readability_and_supply_v1",
+        "readable_documents": 1,
+        "visible_characters": 20602
+      },
+      "event_id": 1109611,
+      "join_evidence": "event_id_plus_friendly_id",
+      "materials": [
+        {
+          "checksum": "ad67bd33530cb5189f09af489b95cc91",
+          "content_type": "application/pdf",
+          "download_url": "https://indico.cern.ch/event/1109611/contributions/4686982/attachments/2448158/4195157/paula_collins_lhcp_2022_draft3.pdf",
+          "filename": "paula_collins_lhcp_2022_draft3.pdf",
+          "id": 4195157,
+          "size": 117552440
+        }
+      ],
+      "speakers": [
+        "Collins, Paula"
+      ],
+      "split": "test_2022",
+      "title": "LHCb upgrades"
+    },
+    {
+      "audio_path": "1109611c549.wav",
+      "cohort_role": "confirmation",
+      "contribution_db_id": 4688460,
+      "contribution_friendly_id": 549,
+      "contribution_id": "549",
+      "duration_s": 5,
+      "eligibility": {
+        "candidate_count": 120,
+        "policy": "pre_model_material_readability_and_supply_v1",
+        "readable_documents": 1,
+        "visible_characters": 2393
+      },
+      "event_id": 1109611,
+      "join_evidence": "event_id_plus_friendly_id",
+      "materials": [
+        {
+          "checksum": "bda596def42badd9400e504a7645fdd7",
+          "content_type": "application/pdf",
+          "download_url": "https://indico.cern.ch/event/1109611/contributions/4688460/attachments/2444555/4188735/lhcp2022-welcome.pdf",
+          "filename": "lhcp2022-welcome.pdf",
+          "id": 4188735,
+          "size": 8893291
+        }
+      ],
+      "speakers": [
+        "Chen, Kai-Feng"
+      ],
+      "split": "test_2022",
+      "title": "Welcome"
+    },
+    {
+      "audio_path": "1109611c550.wav",
+      "cohort_role": "confirmation",
+      "contribution_db_id": 4688461,
+      "contribution_friendly_id": 550,
+      "contribution_id": "550",
+      "duration_s": 20,
+      "eligibility": {
+        "candidate_count": 139,
+        "policy": "pre_model_material_readability_and_supply_v1",
+        "readable_documents": 2,
+        "visible_characters": 26105
+      },
+      "event_id": 1109611,
+      "join_evidence": "event_id_plus_friendly_id",
+      "materials": [
+        {
+          "checksum": "99e73c117fc768eae264dba1ffa26ff6",
+          "content_type": "application/pdf",
+          "download_url": "https://indico.cern.ch/event/1109611/contributions/4688461/attachments/2444694/4189305/JM%20LHCP%202022.pdf",
+          "filename": "JM LHCP 2022.pdf",
+          "id": 4189305,
+          "size": 2673199
+        },
+        {
+          "checksum": "c6e3d8858efdbd78e930995da584c4ed",
+          "content_type": "application/vnd.openxmlformats-officedocument.presentationml.presentation",
+          "download_url": "https://indico.cern.ch/event/1109611/contributions/4688461/attachments/2444694/4188959/JM%20LHCP%202022.pptx",
+          "filename": "JM LHCP 2022.pptx",
+          "id": 4188959,
+          "size": 11256587
+        }
+      ],
+      "speakers": [
+        "Mnich, Joachim Josef"
+      ],
+      "split": "test_2022",
+      "title": "Overall CERN view, status and plans"
+    },
+    {
+      "audio_path": "1109611c552.wav",
+      "cohort_role": "confirmation",
+      "contribution_db_id": 4688468,
+      "contribution_friendly_id": 552,
+      "contribution_id": "552",
+      "duration_s": 20,
+      "eligibility": {
+        "candidate_count": 257,
+        "policy": "pre_model_material_readability_and_supply_v1",
+        "readable_documents": 1,
+        "visible_characters": 16337
+      },
+      "event_id": 1109611,
+      "join_evidence": "event_id_plus_friendly_id",
+      "materials": [
+        {
+          "checksum": "b491f07807ac5631f77652ba11f5de60",
+          "content_type": "application/pdf",
+          "download_url": "https://indico.cern.ch/event/1109611/contributions/4688468/attachments/2444653/4188904/CMS%20Overview.pdf",
+          "filename": "CMS Overview.pdf",
+          "id": 4188904,
+          "size": 7233376
+        }
+      ],
+      "speakers": [
+        "Olsen, Jim"
+      ],
+      "split": "test_2022",
+      "title": "CMS status and overview"
+    },
+    {
+      "audio_path": "1109611c554.wav",
+      "cohort_role": "confirmation",
+      "contribution_db_id": 4688473,
+      "contribution_friendly_id": 554,
+      "contribution_id": "554",
+      "duration_s": 20,
+      "eligibility": {
+        "candidate_count": 133,
+        "policy": "pre_model_material_readability_and_supply_v1",
+        "readable_documents": 1,
+        "visible_characters": 9836
+      },
+      "event_id": 1109611,
+      "join_evidence": "event_id_plus_friendly_id",
+      "materials": [
+        {
+          "checksum": "946b848180f085607ab54546baa4331d",
+          "content_type": "application/pdf",
+          "download_url": "https://indico.cern.ch/event/1109611/contributions/4688473/attachments/2444618/4188848/LHCb_palutan_LHCP2022.pdf",
+          "filename": "LHCb_palutan_LHCP2022.pdf",
+          "id": 4188848,
+          "size": 33581387
+        }
+      ],
+      "speakers": [
+        "Palutan, Matteo",
+        "Palutan, Matteo"
+      ],
+      "split": "test_2022",
+      "title": "LHCb status and overview"
+    },
+    {
+      "audio_path": "1109611c555.wav",
+      "cohort_role": "confirmation",
+      "contribution_db_id": 4688475,
+      "contribution_friendly_id": 555,
+      "contribution_id": "555",
+      "duration_s": 20,
+      "eligibility": {
+        "candidate_count": 411,
+        "policy": "pre_model_material_readability_and_supply_v1",
+        "readable_documents": 1,
+        "visible_characters": 28883
+      },
+      "event_id": 1109611,
+      "join_evidence": "event_id_plus_friendly_id",
+      "materials": [
+        {
+          "checksum": "5c9a70338d6bd82e0a1c6efa381cfcdc",
+          "content_type": "application/pdf",
+          "download_url": "https://indico.cern.ch/event/1109611/contributions/4688475/attachments/2444701/4218472/LHCP_ALICE_LM_2022_May.pdf",
+          "filename": "LHCP_ALICE_LM_2022_May.pdf",
+          "id": 4218472,
+          "size": 69078770
+        }
+      ],
+      "speakers": [
+        "Musa, Luciano"
+      ],
+      "split": "test_2022",
+      "title": "ALICE status and overview"
+    },
+    {
+      "audio_path": "1109611c556.wav",
+      "cohort_role": "confirmation",
+      "contribution_db_id": 4688476,
+      "contribution_friendly_id": 556,
+      "contribution_id": "556",
+      "duration_s": 10,
+      "eligibility": {
+        "candidate_count": 98,
+        "policy": "pre_model_material_readability_and_supply_v1",
+        "readable_documents": 1,
+        "visible_characters": 8656
+      },
+      "event_id": 1109611,
+      "join_evidence": "event_id_plus_friendly_id",
+      "materials": [
+        {
+          "checksum": "41e988719714db295b49aad7e8fc5d23",
+          "content_type": "application/pdf",
+          "download_url": "https://indico.cern.ch/event/1109611/contributions/4688476/attachments/2444577/4189005/LHCP22DIOBerryTS.pdf",
+          "filename": "LHCP22DIOBerryTS.pdf",
+          "id": 4189005,
+          "size": 4204016
+        }
+      ],
+      "speakers": [
+        "Berry, Tracey"
+      ],
+      "split": "test_2022",
+      "title": "Diversity, inclusion and outreach report"
+    },
+    {
+      "audio_path": "1109611c557.wav",
+      "cohort_role": "confirmation",
+      "contribution_db_id": 4688478,
+      "contribution_friendly_id": 557,
+      "contribution_id": "557",
+      "duration_s": 10,
+      "eligibility": {
+        "candidate_count": 108,
+        "policy": "pre_model_material_readability_and_supply_v1",
+        "readable_documents": 1,
+        "visible_characters": 6444
+      },
+      "event_id": 1109611,
+      "join_evidence": "event_id_plus_friendly_id",
+      "materials": [
+        {
+          "checksum": "868bae5bb454d763d739304f560c9915",
+          "content_type": "application/pdf",
+          "download_url": "https://indico.cern.ch/event/1109611/contributions/4688478/attachments/2448363/4195520/ECSF_LHCP2022_FAF.pdf",
+          "filename": "ECSF_LHCP2022_FAF.pdf",
+          "id": 4195520,
+          "size": 10604072
+        }
+      ],
+      "speakers": [
+        "Flor, Fernando Antonio"
+      ],
+      "split": "test_2022",
+      "title": "Report from the LHC experiments' young scientist forums"
+    },
+    {
+      "audio_path": "1109611c558.wav",
+      "cohort_role": "confirmation",
+      "contribution_db_id": 4688482,
+      "contribution_friendly_id": 558,
+      "contribution_id": "558",
+      "duration_s": 5,
+      "eligibility": {
+        "candidate_count": 31,
+        "policy": "pre_model_material_readability_and_supply_v1",
+        "readable_documents": 1,
+        "visible_characters": 3931
+      },
+      "event_id": 1109611,
+      "join_evidence": "event_id_plus_friendly_id",
+      "materials": [
+        {
+          "checksum": "ad45be6aa1990a4ac060e62cd8ca0a01",
+          "content_type": "application/pdf",
+          "download_url": "https://indico.cern.ch/event/1109611/contributions/4688482/attachments/2448395/4195594/LHCP-IACreport-ClosingPlenary.pdf",
+          "filename": "LHCP-IACreport-ClosingPlenary.pdf",
+          "id": 4195594,
+          "size": 809236
+        }
+      ],
+      "speakers": [
+        "Bose, Tulika"
+      ],
+      "split": "test_2022",
+      "title": "LHCP International Advisory Committee report"
+    },
+    {
+      "audio_path": "1109611c559.wav",
+      "cohort_role": "confirmation",
+      "contribution_db_id": 4688483,
+      "contribution_friendly_id": 559,
+      "contribution_id": "559",
+      "duration_s": 10,
+      "eligibility": {
+        "candidate_count": 42,
+        "policy": "pre_model_material_readability_and_supply_v1",
+        "readable_documents": 1,
+        "visible_characters": 1814
+      },
+      "event_id": 1109611,
+      "join_evidence": "event_id_plus_friendly_id",
+      "materials": [
+        {
+          "checksum": "fb75ab6f0aebe0ae7564e538418548ca",
+          "content_type": "application/pdf",
+          "download_url": "https://indico.cern.ch/event/1109611/contributions/4688483/attachments/2448423/4195641/lhcp22_poster_awards.pdf",
+          "filename": "lhcp22_poster_awards.pdf",
+          "id": 4195641,
+          "size": 3921010
+        }
+      ],
+      "speakers": [
+        "Fiorini, Luca"
+      ],
+      "split": "test_2022",
+      "title": "Poster award presentation"
+    },
+    {
+      "audio_path": "1109611c560.wav",
+      "cohort_role": "confirmation",
+      "contribution_db_id": 4688484,
+      "contribution_friendly_id": 560,
+      "contribution_id": "560",
+      "duration_s": 30,
+      "eligibility": {
+        "candidate_count": 55,
+        "policy": "pre_model_material_readability_and_supply_v1",
+        "readable_documents": 1,
+        "visible_characters": 4903
+      },
+      "event_id": 1109611,
+      "join_evidence": "event_id_plus_friendly_id",
+      "materials": [
+        {
+          "checksum": "2a5addfa04cd131ec9b048a4af9a47cc",
+          "content_type": "application/pdf",
+          "download_url": "https://indico.cern.ch/event/1109611/contributions/4688484/attachments/2448422/4195640/LHCP%202022%20Keynote%20-%20Quantum.pdf",
+          "filename": "LHCP 2022 Keynote - Quantum.pdf",
+          "id": 4195640,
+          "size": 5713406
+        }
+      ],
+      "speakers": [
+        "Yeh, Ping"
+      ],
+      "split": "test_2022",
+      "title": "Status and prospects for quantum computation (invited)"
+    },
+    {
+      "audio_path": "1109611c561.wav",
+      "cohort_role": "confirmation",
+      "contribution_db_id": 4688485,
+      "contribution_friendly_id": 561,
+      "contribution_id": "561",
+      "duration_s": 30,
+      "eligibility": {
+        "candidate_count": 224,
+        "policy": "pre_model_material_readability_and_supply_v1",
+        "readable_documents": 1,
+        "visible_characters": 24736
+      },
+      "event_id": 1109611,
+      "join_evidence": "event_id_plus_friendly_id",
+      "materials": [
+        {
+          "checksum": "43e0c233f2898fe3c388630b4063ee0b",
+          "content_type": "application/pdf",
+          "download_url": "https://indico.cern.ch/event/1109611/contributions/4688485/attachments/2448470/4195742/Monica_LHCP2022.pdf",
+          "filename": "Monica_LHCP2022.pdf",
+          "id": 4195742,
+          "size": 42435627
+        }
+      ],
+      "speakers": [
+        "Pepe-Altarelli, Monica"
+      ],
+      "split": "test_2022",
+      "title": "Experimental highlights from LHCP 2022"
+    },
+    {
+      "audio_path": "1109611c562.wav",
+      "cohort_role": "confirmation",
+      "contribution_db_id": 4688488,
+      "contribution_friendly_id": 562,
+      "contribution_id": "562",
+      "duration_s": 30,
+      "eligibility": {
+        "candidate_count": 437,
+        "policy": "pre_model_material_readability_and_supply_v1",
+        "readable_documents": 1,
+        "visible_characters": 63066
+      },
+      "event_id": 1109611,
+      "join_evidence": "event_id_plus_friendly_id",
+      "materials": [
+        {
+          "checksum": "8da4752c9b2a6023967ec86e0056b77b",
+          "content_type": "application/pdf",
+          "download_url": "https://indico.cern.ch/event/1109611/contributions/4688488/attachments/2447868/4194610/LHCP-2022.pdf",
+          "filename": "LHCP-2022.pdf",
+          "id": 4194610,
+          "size": 27175002
+        }
+      ],
+      "speakers": [
+        "Carena Lopez, Marcela Silvia"
+      ],
+      "split": "test_2022",
+      "title": "Theory perspective"
+    },
+    {
+      "audio_path": "1109611c563.wav",
+      "cohort_role": "confirmation",
+      "contribution_db_id": 4688495,
+      "contribution_friendly_id": 563,
+      "contribution_id": "563",
+      "duration_s": 5,
+      "eligibility": {
+        "candidate_count": 132,
+        "policy": "pre_model_material_readability_and_supply_v1",
+        "readable_documents": 1,
+        "visible_characters": 4537
+      },
+      "event_id": 1109611,
+      "join_evidence": "event_id_plus_friendly_id",
+      "materials": [
+        {
+          "checksum": "559d3546a8276efdbb05ae174b9fbe68",
+          "content_type": "application/pdf",
+          "download_url": "https://indico.cern.ch/event/1109611/contributions/4688495/attachments/2448454/4195711/LHCP%202022%20Closeout.pdf",
+          "filename": "LHCP 2022 Closeout.pdf",
+          "id": 4195711,
+          "size": 4756191
+        }
+      ],
+      "speakers": [
+        "Charlton, Dave",
+        "Rahatlou, Shahram"
+      ],
+      "split": "test_2022",
+      "title": "Closing remarks"
+    }
+  ],
+  "model_contact": {
+    "embedding": 0,
+    "omni": 0,
+    "pass0": 0
+  },
+  "reference_reads": 0,
+  "schema": "material-lhcp-eligible-cohort-v1"
+}

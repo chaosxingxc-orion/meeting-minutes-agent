@@ -1,0 +1,11 @@
+{
+  "by_split": {
+    "development": 40
+  },
+  "errors": [],
+  "rows": 40,
+  "schema": "material-new-surface-trace-validation-v1",
+  "trace_sha256": "e342cf7c22005c67ca013fbdd2950bc622597204e42d3d3976a202265e0a75fb",
+  "unique_identities": 40,
+  "verdict": "TRACE_COMPLETE"
+}

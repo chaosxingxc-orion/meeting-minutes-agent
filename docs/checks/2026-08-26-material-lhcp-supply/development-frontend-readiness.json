@@ -1,0 +1,17 @@
+{
+  "config_sha256": "5de9109da1a94acde60b9714687072b66d7bad885a6e79d8c0a0cbc4c4eac62c",
+  "counts": {
+    "confirmation_reads": 0,
+    "development_wavs": 25,
+    "input_audio_seconds": 37556.964789115664,
+    "omni_calls": 0,
+    "planned_sortformer_contacts": 25,
+    "reference_reads": 0,
+    "sortformer_contacts": 0
+  },
+  "errors": [],
+  "experiment_id": "E-MATERIAL-LHCP-DEVELOPMENT-FRONTEND",
+  "pass0_budget_status": "DEFERRED_UNTIL_COMPLETE_SLICE_MANIFEST",
+  "schema": "material-lhcp-development-frontend-readiness-v1",
+  "verdict": "FRONTEND_READY_AWAITING_TOOL_AUTHORIZATION"
+}

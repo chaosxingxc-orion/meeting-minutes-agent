@@ -1,6 +1,6 @@
 # 阶段性结论
 
-最后更新：2026-08-25。
+最后更新：2026-08-27。
 
 ## 已得到支持的结论
 
@@ -16,6 +16,10 @@
 - 会议同期官方材料可以合法形成带出处的候选库存：3场时间合规会议、49个候选全部保留文档哈希、页码和原文跨度，构造阶段未读Pass0或reference。
 - encode-only语义K建立了分布式材料归属信号：dispatch覆盖52.33%，正确材料precision 77.86%，较词法K提高15.997点，3/3场超过60%逐会门。
 - construction-isolated六场复用的零模型门已通过：开发集冻结最低合格阈值0.01；确认集覆盖74.82%、正确会议归属precision 76.10%、中位余弦优势0.06154，四项预注册门全部满足。
+- EarningsCallVoice+FinCall新surface开发集已建立可重放Pass0基线：40/40短片段调用成功、0空输出、
+  0重试，精确wire trace与receipt全部闭合；该阶段保持reference未读。
+- 新surface开发集材料语义归属信号存在：正确call胜错配call 30/40（75%），中位余弦优势0.07609，
+  20/20场有dispatch；40行完整trace及120个向量sidecar全部通过验证。
 
 ## 尚未得到支持的结论
 
@@ -38,6 +42,25 @@
 - Earnings-22已经没有严格reference-unread实验面：v2读取80场discovery，v3读取其余45场reserve；因此无法在该库建立新的独立3场开发+3场确认队列。
 - 同事已接受另立construction-isolated复用实验以降低数据获取成本；其零模型门虽然通过，但不能修复历史参考暴露，也不能覆盖严格准入失败。
 - construction-isolated确认集存在逐会异质性：三场precision为94.39%、77.27%和58.64%；当前只证明语义归属信号，尚未证明候选纠错、误伤控制或WER收益。
+- construction-isolated确认只保存聚合指标，未保存逐turn dispatch身份与candidate value；636个聚合dispatch不能直接构造三臂runtime。primary opportunity census同样缺失，因此1,272-call Omni flight当前未放行。
+- 新surface开发门选择的最低通过阈值为0.00，会全量dispatch；因此归属信号通过不能改写为已经找到
+  有用拒绝门，也不能改写为WER或Omni correction增益。
+- sealed confirmation虽已放行并完成80/80 Pass0，但材料snapshot在`ECV-0067`得到0个候选，低于
+  每场8个的硬门；按预注册停止于0 embedding。因而开发集75%归属precision尚未得到独立确认。
+- 新的LHCP-ASR surface已完成严格metadata-only准入：72/72音频路径与CERN contribution一一对齐，
+  0孤儿/歧义且72/72有同期材料；该准入步骤本身不证明材料可读或候选供给充足。
+- LHCP-ASR材料正文随后完成零模型审计：70/72场达到可读性与8候选门，开发25/25、确认45/47；
+  其余70场候选中位142。两份test_2020 PDF触发固定解析器硬限，因此严格72/72供给门仍失败。
+- 在不改变上述失败判决的前提下，已前瞻冻结70场material-compatible队列：25场开发、45场一次
+  确认，精确排除两个parser失败项；独立复核`TRACE_COMPLETE`，且未读reference、未接触模型。
+- 70场队列中的25场开发音频已reference-blind闭合：25/25 WAV共10.43小时，逐文件哈希和解码
+  `TRACE_COMPLETE`；确认音频与transcription仍未读。该结果只放行另立固定前端审计，不证明转写收益。
+- LHCP-ASR开发集固定前端的25/25次Sortformer调用均成功，25个RTTM和397个切片产物哈希闭合；这
+  证明工具flight可执行，但不等于切片供给通过。
+- 397片中有15个相邻边界重叠，影响10/25场、累计35.900秒、最大14.948秒；零重叠硬门失败，
+  `FRONTEND_TRACE_COMPLETE`只能解释为结构完整，Pass0继续不放行。
+- 独立切片器修复已将重叠连通turn作为原子块：复用同一25个冻结RTTM生成396片，0重叠、最大
+  120秒、普通turn内部切点0且内部gap为0，判为`SLICER_OVERLAP_FIX_PASSED`。
 
 ## 当前研究状态
 
@@ -48,8 +71,18 @@
 确认Earnings-22严格未读会议为0，严格本会议top1/top2门因此按依赖规则停止，不能用同库复用
 掩盖独立性缺口。降级的六场3+3 construction-isolated队列已完成1,639-call Pass0、开发阈值
 拟合和唯一确认读取；阈值0.01在确认集达到76.10%归属precision和74.82%覆盖，证明探索性语义
-dispatch信号存在。下一步可另行注册retain/correct/deranged三臂Omni能力实验，但仍须另外取得
-新会议或独立测试集，才能主张泛化并测WER、误伤、最差speaker和成本。第二层training-free
+dispatch信号存在。8月26日零模型前置审计进一步确认：现有确认文件没有逐turn trace，也没有
+primary opportunity census，因而不能直接注册retain/correct/deranged三臂Omni flight。现已选择
+EarningsCallVoice Core-100与FinCall-Surprise连接的新surface，不再对旧确认集事后物化trace。
+2019+2020范围在排除1条网页暴露项后有69个候选，目标冻结20开发、40一次确认和9保留；该surface
+是独立短片段能力验证，不能替代完整会议agent-loop确认。新运行从Pass0起保存请求、响应、上下文、
+全部正确/错配候选与分数、selector判决及精确向量sidecar。该surface确认因一场材料供给不足停止；
+后续找到的LHCP-ASR已闭合72场元数据join；材料供给审计70/72通过，但两场确认PDF无法由冻结
+解析器读取。现已冻结25开发+45确认的70场eligible cohort；该操作只是缩窄证据总体，不是修复
+72/72失败。25场开发的固定Sortformer虽全部成功，原turn-aware slicer因跨组重叠turn使零重叠门
+失败；独立工程实验现已修复该边界问题并闭合396片供给。下一步可精确注册396-call开发Pass0，
+但确认集继续sealed，Pass0与Omni仍不能直接接触。
+第二层training-free
 GRPO、GEPA、EM或多模态知识注入继续不放行。
 
 最近的前端问题已经进一步回答：虽然参考已知主讲占主导时固定 Sortformer 可以保住主要主讲，

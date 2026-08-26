@@ -1,0 +1,15 @@
+{
+  "counts": {
+    "audio_bytes": 2469998494,
+    "audio_files": 25,
+    "audio_seconds": 37556.964789115664,
+    "remote_bytes": 2276036639,
+    "source_files": 6,
+    "transferred_bytes": 2276150185,
+    "unique_sha256": 25
+  },
+  "errors": [],
+  "experiment_id": "E-MATERIAL-LHCP-DEVELOPMENT-AUDIO",
+  "schema": "material-lhcp-development-audio-validation-v1",
+  "validation": "TRACE_COMPLETE"
+}

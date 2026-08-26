@@ -1,0 +1,60 @@
+{
+  "schema": "material-lhcp-admission-config-v1",
+  "experiment_id": "E-MATERIAL-LHCP-ADMISSION",
+  "huggingface": {
+    "dataset": "mllp/LHCP-ASR",
+    "revision": "1583283ffe91ee22f7e547fc1248c3646f68fe43",
+    "allowed_projection": [
+      "audio.path"
+    ],
+    "forbidden_projection": [
+      "audio.bytes",
+      "transcription"
+    ],
+    "expected_splits": {
+      "dev_2020": 14,
+      "dev_2022": 11,
+      "test_2020": 15,
+      "test_2022": 32
+    }
+  },
+  "indico": {
+    "events": {
+      "2020": 856696,
+      "2022": 1109611
+    },
+    "export_detail": "contributions",
+    "material_extensions": [
+      ".pdf",
+      ".ppt",
+      ".pptx"
+    ]
+  },
+  "join": {
+    "normalization": "unicode_nfkd_casefold_ascii_alnum_tokens_v1",
+    "allowed_exact_evidence": [
+      "contribution_identifier",
+      "attachment_basename",
+      "contribution_title_tokens"
+    ],
+    "fuzzy_matching": false,
+    "manual_reassignment": false
+  },
+  "passing_gates": {
+    "hf_rows": 72,
+    "joined_rows": 72,
+    "unique_contributions": 72,
+    "orphan_rows": 0,
+    "ambiguous_rows": 0,
+    "material_covered_rows": 72,
+    "duplicate_material_bindings": 0
+  },
+  "authorization": {
+    "model_calls": 0,
+    "embedding_calls": 0,
+    "reference_reads": 0,
+    "audio_body_reads": 0,
+    "material_body_reads": 0
+  }
+}
+

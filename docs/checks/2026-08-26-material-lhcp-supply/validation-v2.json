@@ -1,0 +1,13 @@
+{
+  "counts": {
+    "artifacts": 2,
+    "documents": 77,
+    "failed_meetings": 2,
+    "meetings": 72
+  },
+  "errors": [],
+  "experiment_id": "E-MATERIAL-LHCP-SUPPLY",
+  "schema": "material-lhcp-supply-validation-v1",
+  "source_verdict": "LHCP_ZERO_MODEL_MATERIAL_SUPPLY_INSUFFICIENT",
+  "validation": "TRACE_COMPLETE"
+}

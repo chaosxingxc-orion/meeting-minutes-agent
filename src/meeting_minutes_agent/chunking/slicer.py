@@ -80,6 +80,7 @@ from .leakage import BoundaryProvenance, assert_runtime_admissible
 DEFAULT_MIN_PAUSE_S = 1.0
 DEFAULT_ENERGY_FLOOR_PERCENTILE = 15.0
 DEFAULT_ENERGY_FRAME_S = 0.02
+SLICE_OVERLAP_EPSILON_S = 1e-9
 
 
 class SlicerError(ValueError):
@@ -97,6 +98,14 @@ class TransportBoundViolation(SlicerError):
     packing-logic correctness a mode's own tiling is supposed to guarantee:
     a manifest must never freeze a slice the transport layer will refuse
     mid-flight."""
+
+
+class SliceOverlapViolation(SlicerError):
+    """A finalized plan contains adjacent slices with duplicate audio."""
+
+
+class OverlapComponentBoundViolation(SlicerError):
+    """An overlap-connected multi-turn component cannot fit in one slice."""
 
 
 def _validate_bounds(nominal_s: float, min_s: float, max_s: float, snap_s: float) -> None:
@@ -261,11 +270,24 @@ def _assert_transport_bound(slices: Sequence[Slice]) -> None:
             )
 
 
+def _assert_non_overlapping_slices(slices: Sequence[Slice]) -> None:
+    """Hard post-condition: adjacent transport slices never duplicate audio."""
+
+    for left, right in zip(slices, slices[1:]):
+        overlap = left.end - right.start
+        if overlap > SLICE_OVERLAP_EPSILON_S:
+            raise SliceOverlapViolation(
+                f"slice {left.index} ends at {left.end}, after slice {right.index} starts at {right.start}; "
+                f"overlap={overlap}s exceeds epsilon={SLICE_OVERLAP_EPSILON_S}s"
+            )
+
+
 def _finalize_slice_plan(
     meeting_id: str, mode: SlicePlanMode, turn_provenance: BoundaryProvenance | None, total_duration_s: float,
     slices: Sequence[Slice],
 ) -> SlicePlan:
     _assert_transport_bound(slices)
+    _assert_non_overlapping_slices(slices)
     payload = _plan_payload(meeting_id, mode, turn_provenance, total_duration_s, slices)
     return SlicePlan(
         meeting_id=meeting_id,
@@ -421,36 +443,72 @@ def build_vad_slice_plan(
 # ---------------------------------------------------------------------------
 
 
+def _overlap_components(turns: Sequence[TurnSpan]) -> list[list[int]]:
+    """Return maximal half-open interval-connected components of ``turns``."""
+
+    if not turns:
+        return []
+    components: list[list[int]] = []
+    current = [0]
+    current_end = turns[0].end
+    for i, turn in enumerate(turns[1:], start=1):
+        if turn.start < current_end:
+            current.append(i)
+            current_end = max(current_end, turn.end)
+        else:
+            components.append(current)
+            current = [i]
+            current_end = turn.end
+    components.append(current)
+    return components
+
+
 def _pack_turn_groups(turns: Sequence[TurnSpan], *, nominal_s: float, max_s: float) -> list[list[int]]:
-    """Greedily group CONSECUTIVE turn indices so that a group never spans
-    more than ``max_s`` and closes as soon as it reaches ``nominal_s`` --
-    "pack consecutive turns greedily into ~90s slices" (amendment). A turn
-    whose OWN duration exceeds ``max_s`` becomes its own singleton group
-    (the internal-VAD-split exception, handled by the caller)."""
+    """Greedily pack overlap-connected turn components as atomic units."""
+
+    components = _overlap_components(turns)
+    for component in components:
+        component_start = turns[component[0]].start
+        component_end = max(turns[i].end for i in component)
+        if len(component) > 1 and component_end - component_start > max_s:
+            raise OverlapComponentBoundViolation(
+                "overlap-connected multi-turn component "
+                f"[{component_start}, {component_end}) spans {component_end - component_start}s, "
+                f"which exceeds max_s={max_s}s and cannot be split without cutting an ordinary turn"
+            )
 
     groups: list[list[int]] = []
     current: list[int] = []
-    for i, turn in enumerate(turns):
-        turn_len = turn.end - turn.start
-        if turn_len > max_s:
+    for component in components:
+        component_start = turns[component[0]].start
+        component_end = max(turns[i].end for i in component)
+        component_span = component_end - component_start
+        if len(component) == 1 and component_span > max_s:
             if current:
                 groups.append(current)
                 current = []
-            groups.append([i])
+            groups.append(component)
             continue
         if not current:
-            current = [i]
+            current = list(component)
+            if len(component) > 1 and component_span >= nominal_s:
+                groups.append(current)
+                current = []
             continue
         group_start = turns[current[0]].start
-        candidate_len = turn.end - group_start
+        candidate_end = max(max(turns[i].end for i in current), component_end)
+        candidate_len = candidate_end - group_start
         if candidate_len <= max_s:
-            current.append(i)
+            current.extend(component)
             if candidate_len >= nominal_s:
                 groups.append(current)
                 current = []
         else:
             groups.append(current)
-            current = [i]
+            current = list(component)
+            if len(component) > 1 and component_span >= nominal_s:
+                groups.append(current)
+                current = []
     if current:
         groups.append(current)
     return groups
@@ -515,7 +573,7 @@ def build_turn_aware_slice_plan(
                     bounds.append((turn.start + sub.start, turn.start + sub.end, sub.vad_snap_applied))
                 continue
         group_start = ordered[group[0]].start
-        group_end = ordered[group[-1]].end
+        group_end = max(ordered[i].end for i in group)
         bounds.append((group_start, group_end, False))
 
     # Merge an undersized trailing bound into its predecessor, same
@@ -924,8 +982,11 @@ __all__ = [
     "DEFAULT_MIN_PAUSE_S",
     "DEFAULT_ENERGY_FLOOR_PERCENTILE",
     "DEFAULT_ENERGY_FRAME_S",
+    "SLICE_OVERLAP_EPSILON_S",
     "SlicerError",
     "TransportBoundViolation",
+    "SliceOverlapViolation",
+    "OverlapComponentBoundViolation",
     "TRANSPORT_SLICE_MAX_EPSILON_S",
     "TurnSpan",
     "SliceTurnEntry",

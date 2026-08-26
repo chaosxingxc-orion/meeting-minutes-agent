@@ -1,0 +1,24 @@
+{
+  "config_sha256": "27a3f1d0b21746929912ee0f25f9a5d6a8fc7b7fa274b6f5baaad60131a37d1a",
+  "confirmation_audio_reads": 0,
+  "counts": {
+    "audio_bytes": 2469998494,
+    "audio_files": 25,
+    "audio_seconds": 37556.96478911565,
+    "remote_bytes": 2276036639,
+    "source_files": 6,
+    "transferred_bytes": 2276150185,
+    "unique_sha256": 25
+  },
+  "download_manifest_sha256": "f82e9958ed81527c89a6922bce6155488fde183699c77a11fee31a22d1661e1f",
+  "experiment_id": "E-MATERIAL-LHCP-DEVELOPMENT-AUDIO",
+  "model_contact": {
+    "embedding": 0,
+    "omni": 0,
+    "pass0": 0,
+    "sortformer": 0
+  },
+  "reference_reads": 0,
+  "schema": "material-lhcp-development-audio-receipt-v1",
+  "verdict": "LHCP_DEVELOPMENT_AUDIO_ACQUIRED"
+}

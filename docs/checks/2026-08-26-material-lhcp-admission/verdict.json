@@ -1,0 +1,33 @@
+{
+  "config_sha256": "5645cab9f98420fe6ecab70dd15a352f132d061b380e94246854ae07019dc188",
+  "counts": {
+    "ambiguous_rows": 0,
+    "duplicate_material_bindings": 0,
+    "hf_range_requests": 34,
+    "hf_remote_bytes": 6705900572,
+    "hf_rows": 72,
+    "hf_transferred_bytes": 1116237,
+    "joined_rows": 72,
+    "material_attachment_count": 77,
+    "material_covered_rows": 72,
+    "orphan_rows": 0,
+    "splits": {
+      "dev_2020": 14,
+      "dev_2022": 11,
+      "test_2020": 15,
+      "test_2022": 32
+    },
+    "unique_contributions": 72
+  },
+  "errors": [],
+  "experiment_id": "E-MATERIAL-LHCP-ADMISSION",
+  "manifest_sha256": "22d77a1dbd98b3b4344b3a54d55d09f0c62a741ab0d0408b12079747575697a2",
+  "model_contact": {
+    "embedding": 0,
+    "omni": 0,
+    "pass0": 0
+  },
+  "reference_contact": 0,
+  "schema": "material-lhcp-admission-verdict-v1",
+  "verdict": "LHCP_METADATA_JOIN_AND_MATERIAL_COVERAGE_CLOSED"
+}

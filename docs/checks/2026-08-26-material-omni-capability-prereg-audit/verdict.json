@@ -1,0 +1,129 @@
+{
+  "blockers": [
+    "MISSING_FROZEN_PER_TURN_DISPATCH_TRACE",
+    "MISSING_FROZEN_PRIMARY_OPPORTUNITY_CENSUS"
+  ],
+  "budget_if_trace_existed": {
+    "R0_retain_calls": 0,
+    "R1_correct_dispatch_calls": 636,
+    "R2_deranged_dispatch_calls": 636,
+    "pass0_latency_proxy_seconds_for_two_active_arms_bounds": {
+      "claim_limit": "Proxy only; material prompts may change latency.",
+      "maximum": 1247.5905833719953,
+      "minimum": 604.7389877719957
+    },
+    "selected_audio_seconds_per_active_arm_bounds": {
+      "maximum": 11075.123999999994,
+      "minimum": 3855.6479999999883
+    },
+    "total_model_contact_audio_seconds_bounds": {
+      "maximum": 22150.24799999999,
+      "minimum": 7711.295999999977
+    },
+    "total_omni_calls": 1272
+  },
+  "config_sha256": "71a287d7f076f4c5a6b901fbbbf2daf48511fd04a96ebdd377f5f041394fc7ab",
+  "confirmation_supply": {
+    "aggregate_dispatched_turns": 636,
+    "dispatch_trace_exists": false,
+    "dispatch_trace_path": "configs\\probes\\material_omni_capability\\2026-08-26-dispatch-trace.jsonl",
+    "dispatch_trace_rows": 0,
+    "eligible_turns": 850,
+    "per_meeting": [
+      {
+        "aggregate_dispatched_turns": 196,
+        "dispatch_identities_frozen": false,
+        "eligible_turns": 257,
+        "file_id": "4483633",
+        "pass0_latency_seconds_proxy_bounds": {
+          "maximum": 167.46478448299922,
+          "minimum": 95.15826423999874
+        },
+        "selected_audio_seconds_bounds": {
+          "maximum": 3130.14,
+          "minimum": 1322.6879999999983
+        }
+      },
+      {
+        "aggregate_dispatched_turns": 220,
+        "dispatch_identities_frozen": false,
+        "eligible_turns": 317,
+        "file_id": "4484563",
+        "pass0_latency_seconds_proxy_bounds": {
+          "maximum": 261.3856929899987,
+          "minimum": 109.73563596299846
+        },
+        "selected_audio_seconds_bounds": {
+          "maximum": 4771.543999999996,
+          "minimum": 1398.7199999999934
+        }
+      },
+      {
+        "aggregate_dispatched_turns": 220,
+        "dispatch_identities_frozen": false,
+        "eligible_turns": 276,
+        "file_id": "4485244",
+        "pass0_latency_seconds_proxy_bounds": {
+          "maximum": 194.94481421299974,
+          "minimum": 97.47559368300062
+        },
+        "selected_audio_seconds_bounds": {
+          "maximum": 3173.439999999999,
+          "minimum": 1134.2399999999968
+        }
+      }
+    ]
+  },
+  "errors": [
+    "required frozen per-turn dispatch trace is absent"
+  ],
+  "evidence_tier": "CONSTRUCTION_ISOLATED_EXPLORATORY",
+  "experiment_id": "E-MATERIAL-OMNI-CAPABILITY-CI",
+  "gates": {
+    "exact_runtime_manifest_can_be_built": false,
+    "frozen_input_integrity": true,
+    "frozen_per_turn_dispatch_trace": false,
+    "frozen_primary_opportunity_census": false,
+    "one_shot_reader_can_be_bound": false
+  },
+  "integrity": {
+    "confirmation_read": true,
+    "development_read": true,
+    "pass0_flight_summary": true,
+    "pass0_runtime": true,
+    "registration": true,
+    "semantic_config": true
+  },
+  "model_contact": {
+    "embedding_calls": 0,
+    "omni_calls": 0,
+    "reference_reads": 0
+  },
+  "next_action": "Do not rerun confirmation. Obtain a prospectively persisted selector trace on a new surface or explicitly authorize a separately registered trace-materialization read.",
+  "power_planning": {
+    "claim_limit": "Aggregate dispatch count is not a frozen primary-opportunity census.",
+    "maximum_discordant_fraction_supported_by_aggregate_dispatch_supply": 0.20257668021611755,
+    "minimum_absolute_effect": 0.05,
+    "power": 0.8,
+    "scenarios": [
+      {
+        "aggregate_dispatch_supply_sufficient": true,
+        "discordant_fraction": 0.1,
+        "required_paired_turns": 314
+      },
+      {
+        "aggregate_dispatch_supply_sufficient": true,
+        "discordant_fraction": 0.2,
+        "required_paired_turns": 628
+      },
+      {
+        "aggregate_dispatch_supply_sufficient": false,
+        "discordant_fraction": 0.3,
+        "required_paired_turns": 942
+      }
+    ],
+    "two_sided_alpha": 0.05
+  },
+  "schema": "material-omni-capability-prereg-audit-verdict-v1",
+  "verdict": "NOT_RUN_MISSING_FROZEN_FLIGHT_INPUTS"
+}

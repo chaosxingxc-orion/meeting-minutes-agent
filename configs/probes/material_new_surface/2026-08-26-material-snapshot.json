@@ -1,0 +1,43 @@
+{
+  "schema": "material-new-surface-snapshot-registration-v1",
+  "experiment_id": "E-MATERIAL-NEW-SURFACE-RUNTIME-GATE",
+  "evidence_tier": "INDEPENDENT_NEW_SURFACE_DEVELOPMENT",
+  "claim_boundary": "Zero-model development PDF snapshot only; no reference, confirmation, embedding, or Omni correction read.",
+  "inputs": {
+    "cohort_sha256": "1b51dd273c15237e8bb4ce210aed3f2929d54f9d5e873c30f9f17deb747a0662",
+    "pass0_runtime_sha256": "61f5fd4f8bd8470f6639b681718652cf4813025e0c57c5bbd2d8838a24de19de",
+    "pass0_structural_read_sha256": "7ebbe2b349a9bd0d85f97a4039b61c144365d5bbc60676324a56a73371144c88",
+    "pass0_index_sha256": "08f7e2627e87bec86a5a96034025d9606f4b7cb75d804972ea72359d574b0ccc",
+    "pass0_receipt_sha256": "384aed2dc7ab6aa3aec2b41d9906c580f439eb369d3847c116c4c9fcb5f5655e",
+    "preregistration_sha256": "5d0c1f4252ee15a72b2fd36853348d0d15e972c2cef5ea05b2c187ddbb1bfae0",
+    "snapshot_builder_sha256": "b43c01280da3fbdb05718e9e0e455a718bbeba7505f4e97cf15f3a46c4844b89"
+  },
+  "split": "development",
+  "expected_items": 20,
+  "construction": {
+    "extractor": "meeting_minutes_agent.state.meeting_materials.extract_candidate_surfaces",
+    "key_width": 8,
+    "key_selection_salt": "material-new-surface-2026-08-26-key-v1",
+    "source_excerpt_radius_characters": 240,
+    "occurrence_policy": "lowest page then lexical source span",
+    "minimum_candidates_per_meeting": 8
+  },
+  "planned_embedding_budget": {
+    "keys": 160,
+    "queries": 40,
+    "embeddings": 200,
+    "batch_size": 16,
+    "maximum_calls": 13
+  },
+  "reference_firewall": {
+    "reference_reads": 0,
+    "forbidden_fields": ["reference_text", "answer_text"],
+    "confirmation_access": false
+  },
+  "stopping_rules": {
+    "input_hash_drift": "stop before parsing PDFs",
+    "fewer_than_20_development_items": "stop",
+    "fewer_than_8_candidates_in_any_meeting": "stop; no replacement",
+    "output_exists": "stop; never overwrite"
+  }
+}

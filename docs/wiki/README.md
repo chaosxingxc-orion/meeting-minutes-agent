@@ -4,7 +4,7 @@
 
 ## 当前工作计划
 
-- **[2026-08-26 工作计划](2026-08-26-work-plan.md)**：先完成construction-isolated三臂Omni实验的零模型预算审计、预注册和一次性reader；未获新授权不运行模型。
+- **[2026-08-27 工作计划](2026-08-27-work-plan.md)**：先注册396-call reference-blind开发Pass0，冻结预算、launcher和reader后再请求授权。
 
 ## 研究与证据入口
 
@@ -13,9 +13,14 @@
 - [2026-08-22 工作记录](2026-08-22-work-plan.md)：Earnings-22 reserve 决策、窄类确认和当日禁止事项。
 - [2026-08-24 工作总结](2026-08-24-work-plan.md)：全库前端、完整Pass0、两类稳定性实验和两类独立证据审计。
 - [2026-08-25 工作总结](2026-08-25-work-plan.md)：官方材料供给、语义K、独立准入失败及construction-isolated运行时门的完整进展。
+- [2026-08-26 工作总结](2026-08-26-work-plan.md)：新surface、LHCP-ASR准入/供给/开发前端、切片器修复及OmniMinutes战略增补。
 - [阶段性结论](stage-conclusions.md)：当前已证明、未证明和 agent loop 放行边界。
 - [实验总表](experiments/README.md)：当前完成度、结论和下一步。
-- [研究路线图](research-roadmap.md)：说话人条件专业转写的 E0–E6 路线。
+- [研究路线图](research-roadmap.md)：保留说话人条件转写E线，并新增OmniMinutes memory-use U线。
+- [OmniMinutes memory-use proposal](../plans/2026-08-26-omni-agentic-memory-use-proposal.md)：
+  将研究对象扩展为training-free omni agentic system，第一阶段隔离研究文本/声音memory的使用。
+- [Omni memory use第一轮调研](2026-08-26-omni-memory-use-research-note.md)：文献矩阵、关键推论、
+  当前单audio transport约束和meeting-minutes子任务优先级。
 - [实验登记模板](experiment-template.md)：新实验开始和结束时必须填写的字段。
 - [完整研究计划](../plans/2026-08-20-speaker-conditioned-transcription-optimization.md)：形式化目标、可优化性证明与实施细节。
 
@@ -42,7 +47,20 @@ top1/top2运行时门因此没有执行。同事已接受另立证据较弱的co
 现已冻结六场3+3队列并完成6/6场官方材料准入，共54页、1,403个原始候选；缺失Pass0已另行
 注册并完成，1,639/1,639成功、0空输出、0重试。零模型开发集冻结阈值0.01，唯一确认读取达到
 76.10%归属precision、74.82%覆盖和0.06154中位余弦优势，四项预注册门全部通过，判为
-`CONSTRUCTION_ISOLATED_SIGNAL_PRESENT`。该路线仍不能宣称独立确认或WER增益，
-training-free GRPO与多模态知识注入仍未放行。
+`CONSTRUCTION_ISOLATED_SIGNAL_PRESENT`。8月26日前置审计又发现确认文件未持久化逐turn trace，
+且缺primary opportunity census，故三臂Omni flight判为`NOT_RUN_MISSING_FROZEN_FLIGHT_INPUTS`。
+同事已选择EarningsCallVoice+FinCall新surface：先冻结69条候选的20开发/40确认/9保留队列，并从
+Pass0起保存完整逐chunk trace；旧确认集不做事后trace物化。该路线仍不能宣称独立确认或WER增益，
+且确认因一场材料候选不足停止于0 embedding。后续LHCP-ASR完成72/72元数据对齐与材料覆盖；
+原材料门因2份PDF触发解析器硬限而保持70/72失败。现已仅依据模型前材料兼容性冻结70场队列：
+25场开发、45场一次确认，离线复核`TRACE_COMPLETE`。该队列不覆盖完整72场，training-free GRPO
+与多模态知识注入仍未放行。
 
-最后同步：2026-08-26（8月25日总结已封存，8月26日计划已登记）。
+最后同步：2026-08-27（已归档8月26日工作；8月27日先注册396-call Pass0，模型仍未授权）。
+
+## 2026-08-26 战略增补
+
+研究组决定不再把主线限制为omni embedding instruction优化，而将总体对象建模为training-free
+omni agentic system。第一优先级是meeting minutes中的memory use：主模型接收文本+声音，memory
+保留文本和/或原始声音，agent选择`text / audio / paired / abstain`并对最终纪要绑定证据。该方向
+目前仅完成proposal和方向性文献调研，尚未登记实验，也不改变上述Omni flight未放行状态。

@@ -22,6 +22,7 @@ from meeting_minutes_agent.chunking.constants import (
 )
 from meeting_minutes_agent.chunking.leakage import BoundaryLeakageTierViolation, BoundaryProvenance
 from meeting_minutes_agent.chunking.slicer import (
+    OverlapComponentBoundViolation,
     SlicerError,
     SlicePlanMode,
     TransportBoundViolation,
@@ -416,6 +417,65 @@ class TestTurnAwareSlicePlan:
             for turn in turns:
                 # A boundary must never fall STRICTLY inside a turn's span.
                 assert not (turn.start < boundary < turn.end)
+
+    def test_keeps_overlap_connected_turns_in_one_group(self):
+        turns = (
+            TurnSpan(0.0, 50.0, "A"),
+            TurnSpan(50.0, 95.0, "B"),
+            TurnSpan(90.0, 100.0, "C"),
+            TurnSpan(101.0, 160.0, "A"),
+            TurnSpan(160.0, 200.0, "B"),
+        )
+        plan = build_turn_aware_slice_plan(
+            "m-overlap-component",
+            turns,
+            turn_provenance=BoundaryProvenance.TOOL_DIAR,
+            total_duration_s=200.0,
+        )
+
+        assert len(plan.slices) == 2
+        for left, right in zip(plan.slices, plan.slices[1:]):
+            assert left.end == right.start
+        for boundary in [s.end for s in plan.slices[:-1]]:
+            assert not any(turn.start < boundary < turn.end for turn in turns)
+
+    def test_moves_complete_overlap_component_when_preceding_group_has_no_room(self):
+        turns = (
+            TurnSpan(1000.0, 1050.0, "A"),
+            TurnSpan(1050.0, 1089.0, "A"),
+            TurnSpan(1090.0, 1099.04, "B"),
+            TurnSpan(1098.73, 1100.079, "C"),
+            TurnSpan(1099.851, 1155.679, "B"),
+        )
+        plan = build_turn_aware_slice_plan(
+            "m-lhcp-regression", turns, turn_provenance=BoundaryProvenance.TOOL_DIAR
+        )
+
+        assert len(plan.slices) == 2
+        assert plan.slices[0].end <= plan.slices[1].start
+        boundary = plan.slices[0].end
+        assert not any(turn.start < boundary < turn.end for turn in turns)
+
+    def test_group_end_uses_maximum_end_for_nested_overlaps(self):
+        turns = (
+            TurnSpan(0.0, 60.0, "A"),
+            TurnSpan(60.0, 100.0, "B"),
+            TurnSpan(90.0, 95.0, "C"),
+        )
+        plan = build_turn_aware_slice_plan(
+            "m-nested-overlap", turns, turn_provenance=BoundaryProvenance.TOOL_DIAR
+        )
+
+        assert len(plan.slices) == 1
+        assert plan.slices[0].end == 100.0
+
+    def test_fails_closed_when_multi_turn_overlap_component_exceeds_cap(self):
+        turns = (TurnSpan(0.0, 100.0, "A"), TurnSpan(90.0, 150.0, "B"))
+
+        with pytest.raises(OverlapComponentBoundViolation):
+            build_turn_aware_slice_plan(
+                "m-overlong-overlap", turns, turn_provenance=BoundaryProvenance.TOOL_DIAR
+            )
 
     def test_packs_consecutive_turns_toward_the_nominal_target(self):
         turns = _turn_train(40, 7.0, 2.3)  # period 9.3s -> ~10 turns per 90s-ish slice

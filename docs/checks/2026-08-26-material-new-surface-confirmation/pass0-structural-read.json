@@ -1,0 +1,20 @@
+{
+  "calls_completed": 80,
+  "calls_expected": 80,
+  "empty_outputs": 0,
+  "experiment_id": "E-MATERIAL-NEW-SURFACE-PASS0-CONFIRMATION",
+  "index_sha256": "8db91d8f13c5eb59fdffec3a735a9f943f3b848c5cec61d69cd1c468bf628d3d",
+  "nonempty_outputs": 80,
+  "receipt_sha256": "e3d757a2a1b9b325cb1a0c519e240831a0656421c624659628c71d5916fc5635",
+  "reference_access": "NONE",
+  "request_bytes": 50993752,
+  "response_bytes": 76639,
+  "runtime_sha256": "be1101328539ef6f509df28998a60d9510de924386614612eb2deed3f9e52845",
+  "schema": "material-new-surface-pass0-structural-read-v1",
+  "usage_totals": {
+    "completion_tokens": 4138,
+    "prompt_tokens": 23586,
+    "total_tokens": 27724
+  },
+  "verdict": "PASS0_TRACE_COMPLETE"
+}

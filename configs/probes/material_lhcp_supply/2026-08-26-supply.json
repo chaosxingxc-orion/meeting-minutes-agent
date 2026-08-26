@@ -1,0 +1,60 @@
+{
+  "schema": "material-lhcp-supply-config-v1",
+  "experiment_id": "E-MATERIAL-LHCP-SUPPLY",
+  "evidence_tier": "INDEPENDENT_ZERO_MODEL_MATERIAL_SUPPLY",
+  "inputs": {
+    "admission_manifest_sha256": "22d77a1dbd98b3b4344b3a54d55d09f0c62a741ab0d0408b12079747575697a2",
+    "download_script_sha256": "20ac085d26b2cc6333c88b5ace1a9117cb3b803cbc9be32ab523e44362b523a5",
+    "supply_script_sha256": "00dca31a0a5c89af52a30193988bc41ed6d16cc91efe9d3fbee2842f6fbbc90d",
+    "candidate_extractor_sha256": "ec38423129f1bb1996b58d587b5ab176a33c44497b8a85a4af3324018de96df3"
+  },
+  "acquisition": {
+    "expected_attachments": 77,
+    "expected_bytes": 1648976797,
+    "allowed_host": "indico.cern.ch",
+    "checksum": "Indico MD5 plus local SHA-256",
+    "external_root": "D:/speechrl-data/datasets/lhcp-asr-materials/2026-08-26"
+  },
+  "construction": {
+    "expected_meetings": 72,
+    "expected_splits": {
+      "dev_2020": 14,
+      "dev_2022": 11,
+      "test_2020": 15,
+      "test_2022": 32
+    },
+    "attachment_policy": "parse all 77 frozen attachments and merge candidates by meeting",
+    "allowed_types": [
+      ".pdf",
+      ".pptx"
+    ],
+    "pdf_extractor": "pypdf.PdfReader(strict=False).extract_text",
+    "pptx_extractor": "stdlib zipfile plus slide XML a:t text",
+    "candidate_extractor": "meeting_minutes_agent.state.meeting_materials.extract_candidate_surfaces",
+    "minimum_visible_characters_per_meeting": 200,
+    "minimum_candidates_per_meeting": 8,
+    "source_excerpt_radius_characters": 240,
+    "ocr": false,
+    "manual_reassignment": false,
+    "replacement_meetings": false
+  },
+  "passing_gates": {
+    "meetings": 72,
+    "development_meetings": 25,
+    "confirmation_meetings": 47,
+    "failed_meetings": 0
+  },
+  "reference_firewall": {
+    "reference_reads": 0,
+    "audio_downloads": 0,
+    "pass0_calls": 0,
+    "embedding_calls": 0,
+    "omni_calls": 0
+  },
+  "stopping_rules": {
+    "input_or_script_hash_drift": "stop before material download",
+    "download_size_or_checksum_mismatch": "stop without replacement",
+    "meeting_readability_or_candidate_gate_failure": "record failure and do not register a model flight",
+    "output_exists": "stop; never overwrite"
+  }
+}
