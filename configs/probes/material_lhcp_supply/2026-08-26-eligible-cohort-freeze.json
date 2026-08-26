@@ -1,0 +1,46 @@
+{
+  "schema": "material-lhcp-eligible-cohort-freeze-v1",
+  "experiment_id": "E-MATERIAL-LHCP-ELIGIBLE-COHORT",
+  "evidence_tier": "INDEPENDENT_PRE_MODEL_ELIGIBILITY_FILTERED",
+  "inputs": {
+    "admission_manifest_sha256": "22d77a1dbd98b3b4344b3a54d55d09f0c62a741ab0d0408b12079747575697a2",
+    "supply_verdict_sha256": "c0c3b1fe141ac5da63c7cf291dbc6760f77ea69cdd681876b4555503afaca06a",
+    "supply_validation_sha256": "2f5da2e4ef75039a29d7e3f3791d3262fc579362f645512f8fd768c72da9696c",
+    "cohort_builder_sha256": "51b8438299b05c8f64bec5cfd2033f815ee710edd541ddf28e8261e5b612c357"
+  },
+  "eligibility": {
+    "policy": "include if and only if the frozen zero-model supply verdict marks the talk passed",
+    "minimum_candidates": 8,
+    "excluded_audio_paths": [
+      "856696c36.wav",
+      "856696c52.wav"
+    ],
+    "exclusion_basis": "pre-model material parser incompatibility only",
+    "reference_or_model_outcomes_used": false,
+    "replacement_talks": false,
+    "parser_salvage": false
+  },
+  "split_policy": {
+    "development": [
+      "dev_2020",
+      "dev_2022"
+    ],
+    "confirmation": [
+      "test_2020",
+      "test_2022"
+    ]
+  },
+  "passing_gates": {
+    "eligible_meetings": 70,
+    "development_meetings": 25,
+    "confirmation_meetings": 45,
+    "excluded_meetings": 2
+  },
+  "authorization": {
+    "reference_reads": 0,
+    "pass0_calls": 0,
+    "embedding_calls": 0,
+    "omni_calls": 0
+  }
+}
+

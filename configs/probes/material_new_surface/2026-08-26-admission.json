@@ -1,0 +1,115 @@
+{
+  "schema": "material-new-surface-admission-v1",
+  "experiment_id": "E-MATERIAL-NEW-SURFACE-ADMISSION",
+  "registered_utc": "2026-08-26T00:00:00Z",
+  "claim_boundary": "Zero-model source admission and prospective cohort construction only; no routing, transcription, WER, or generalization claim.",
+  "surface": {
+    "name": "EarningsCallVoice Core-100 joined to FinCall-Surprise",
+    "unit": "one human-validated reference/answer clip pair from one earnings call",
+    "audio_and_exact_reference": "https://huggingface.co/datasets/gmarti/EarningsCallVoice",
+    "meeting_and_material_join": "https://github.com/Tizzzzy/FinCall-Surprise",
+    "join_key": "call_id",
+    "license": "Apache-2.0"
+  },
+  "source_pins": {
+    "earnings_call_voice_revision": "60ac0e1227b8124529439bac982e0779b5af4806",
+    "fincall_surprise_revision": "36bb82d2298fe61de9d127c14ebda2c7be454136",
+    "files": {
+      "source-metadata/metadata.jsonl": "db7892baae1f6f8c21fe5bacb37469bd802594b6ddab982f948fc35ea3670803",
+      "source-metadata/selection_manifest.json": "f944ad548f0bcddf3ed616fecf2f3e2c12ee778d5b14aa04ee564eb1ed62c33e",
+      "source-metadata/MANIFEST.sha256": "5fe2b11684e23694210bb830f4707a829027f9a16573f6ff3da82273ed4cfdcf",
+      "source-metadata/QUALITY_REPORT.json": "2440bdf2254595fefb181f357162fd51231f0518c9ded5e9af21992d9c4a93d0",
+      "source-metadata/LICENSE": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+      "source-metadata/NOTICE": "6d7a5e25c4589ea593b194f43ab3f499480b9d4d6d8cd757d1317059cf8a9bdc",
+      "fincall/LICENSE": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+      "fincall/README.md": "912c99856712a9f71d828991b7e2d9f2fb9ce8226c3b8099ae2c413dd87e031e",
+      "fincall/transcripts_2019.json": "a7c4ac0529da9a4028f32483dd95506781a71e48b8c4ff0bc89d53b20dd14549",
+      "fincall/transcripts_2020.json": "83c7e77679cda80e1a2786c374570abcf96ee776cda0e38c173c72dc7610a8a3",
+      "fincall/transcripts_2021.json": "8c4a668fdf1682c5105bdf4c8c567d59b22a4b42bf64003d0eaf4f62a1500f58"
+    },
+    "material_archives": {
+      "ppt_2019.zip": {
+        "google_drive_id": "1y1x8QwyuC4OIWVljtrbr_tp-OrE65W03",
+        "bytes": 1776990965
+      },
+      "ppt_2020.zip": {
+        "google_drive_id": "1eWxpGThGfSNIy6mO32M8EFn-mGJcNoGX",
+        "bytes": 1505205538
+      }
+    },
+    "acquisition_scope": "Use 2019 and 2020 only: 70 Core-100 items before the one known exposure exclusion. Do not acquire the 2021 slide archive for this pilot."
+  },
+  "known_exposure_exclusions": [
+    {
+      "item_id": "ECV-0001",
+      "reason": "The public dataset-card preview exposed its answer and reference text during source discovery."
+    }
+  ],
+  "admission": {
+    "required_audio_roles": [
+      "reference_audio",
+      "answer_audio"
+    ],
+    "required_reference_fields": [
+      "reference_text",
+      "answer_text"
+    ],
+    "required_human_quality_gates": 9,
+    "require_authentic_audio": true,
+    "require_same_speaker_within_item": true,
+    "require_unique_call_per_item": true,
+    "require_same_call_official_slides": true,
+    "minimum_admitted_items": 60,
+    "minimum_development_items": 20,
+    "minimum_confirmation_items": 40
+  },
+  "reference_firewall": {
+    "discovery_allowed_fields": [
+      "item_id",
+      "call_id",
+      "exchange_index",
+      "selection_tranche",
+      "boundary_repaired",
+      "reference_audio_sha256",
+      "answer_audio_sha256",
+      "reference_duration_s",
+      "answer_duration_s",
+      "human_quality_gates_passed",
+      "authentic_audio",
+      "same_speaker_within_item",
+      "source_dataset",
+      "source_dataset_license"
+    ],
+    "sealed_fields_until_reader": [
+      "reference_text",
+      "answer_text"
+    ],
+    "never_runtime_fields": [
+      "reference_text",
+      "answer_text",
+      "downstream_wer",
+      "gold_material_match"
+    ]
+  },
+  "split": {
+    "algorithm": "sort admitted item_id by sha256(salt + ':' + item_id), then assign first 20 development, next 40 confirmation, remainder reserve",
+    "salt": "material-new-surface-2026-08-26-v1",
+    "development_items": 20,
+    "confirmation_items": 40,
+    "reserve_policy": "All remaining admitted items are untouchable reserve; they are not inspected or scored in this experiment."
+  },
+  "trace_contract": {
+    "path": "configs/probes/material_new_surface/2026-08-26-dispatch-trace.schema.json",
+    "sha256": "f535205a75f42dde93a3c23af145fae8a8ab065b7a6dce2c6b426cc0d13f601d"
+  },
+  "storage": {
+    "dataset_root": "D:/datasets/earnings-call-voice-core100-2026-08-26",
+    "trace_root": "D:/datasets/earnings-call-voice-core100-2026-08-26/traces",
+    "repository_policy": "Commit only schemas, frozen cohort identities, receipts, and hashes. Keep audio, references, materials, raw prompts/responses, and vector sidecars outside Git."
+  },
+  "stopping_rules": {
+    "source_admission_fail": "Do not run Pass0 or embeddings if fewer than 60 non-exposed items have authentic audio, exact reference, all nine human gates, and a same-call slide artifact.",
+    "trace_fail_closed": "Any missing row field, duplicate identity, score inconsistency, absent prompt/response artifact, or absent vector sidecar blocks development and confirmation reads.",
+    "model_contact": "A separate frozen runtime and explicit authorization are required before Pass0, embedding, or Omni contact."
+  }
+}

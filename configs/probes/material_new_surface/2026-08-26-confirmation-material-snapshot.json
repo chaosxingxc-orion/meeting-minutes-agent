@@ -1,0 +1,44 @@
+{
+  "schema": "material-new-surface-snapshot-registration-v1",
+  "experiment_id": "E-MATERIAL-NEW-SURFACE-CONFIRMATION",
+  "evidence_tier": "INDEPENDENT_NEW_SURFACE_CONFIRMATION",
+  "claim_boundary": "Zero-model confirmation PDF snapshot only; no reference, embedding, or Omni correction read.",
+  "inputs": {
+    "cohort_sha256": "1b51dd273c15237e8bb4ce210aed3f2929d54f9d5e873c30f9f17deb747a0662",
+    "pass0_runtime_sha256": "be1101328539ef6f509df28998a60d9510de924386614612eb2deed3f9e52845",
+    "pass0_structural_read_sha256": "f1bb2d3028f79447c6c91ede696c9cee9defa3c49bef43235eb7db358ae6eda3",
+    "pass0_index_sha256": "8db91d8f13c5eb59fdffec3a735a9f943f3b848c5cec61d69cd1c468bf628d3d",
+    "pass0_receipt_sha256": "e3d757a2a1b9b325cb1a0c519e240831a0656421c624659628c71d5916fc5635",
+    "preregistration_sha256": "85da2acbdd0aa40a962424d4f52e2e88e647806700ae6bef01276b81decb2ac6",
+    "confirmation_snapshot_builder_sha256": "3c98972433c17c5c36f5300a11e00015cab7a37e4234355220e4f8358e3c00ff",
+    "base_snapshot_builder_sha256": "b43c01280da3fbdb05718e9e0e455a718bbeba7505f4e97cf15f3a46c4844b89"
+  },
+  "split": "confirmation",
+  "expected_items": 40,
+  "construction": {
+    "extractor": "meeting_minutes_agent.state.meeting_materials.extract_candidate_surfaces",
+    "key_width": 8,
+    "key_selection_salt": "material-new-surface-2026-08-26-key-v1",
+    "source_excerpt_radius_characters": 240,
+    "occurrence_policy": "lowest page then lexical source span",
+    "minimum_candidates_per_meeting": 8
+  },
+  "planned_embedding_budget": {
+    "keys": 320,
+    "queries": 80,
+    "embeddings": 400,
+    "batch_size": 16,
+    "maximum_calls": 25
+  },
+  "reference_firewall": {
+    "reference_reads": 0,
+    "forbidden_fields": ["reference_text", "answer_text"],
+    "reserve_access": false
+  },
+  "stopping_rules": {
+    "input_hash_drift": "stop before parsing PDFs",
+    "fewer_than_40_confirmation_items": "stop",
+    "fewer_than_8_candidates_in_any_meeting": "stop; no replacement",
+    "output_exists": "stop; never overwrite"
+  }
+}

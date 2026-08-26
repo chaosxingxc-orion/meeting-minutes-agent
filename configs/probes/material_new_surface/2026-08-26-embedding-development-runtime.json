@@ -1,0 +1,60 @@
+{
+  "schema": "material-new-surface-embedding-runtime-v1",
+  "experiment_id": "E-MATERIAL-NEW-SURFACE-RUNTIME-GATE",
+  "evidence_tier": "INDEPENDENT_NEW_SURFACE_DEVELOPMENT",
+  "trace_run_id": "material-new-surface-development-v1",
+  "claim_boundary": "Development semantic attribution only; no reference, confirmation, WER, or Omni correction read.",
+  "inputs": {
+    "preregistration_sha256": "5d0c1f4252ee15a72b2fd36853348d0d15e972c2cef5ea05b2c187ddbb1bfae0",
+    "pass0_runtime_sha256": "61f5fd4f8bd8470f6639b681718652cf4813025e0c57c5bbd2d8838a24de19de",
+    "pass0_index_sha256": "08f7e2627e87bec86a5a96034025d9606f4b7cb75d804972ea72359d574b0ccc",
+    "pass0_receipt_sha256": "384aed2dc7ab6aa3aec2b41d9906c580f439eb369d3847c116c4c9fcb5f5655e",
+    "snapshot_receipt_sha256": "a84ca900de37a155db21630e1499dde3edbc2fa26e013869b84d023ebb04acd7",
+    "selected_candidates_sha256": "df1e09fe3d2b9a2151ee40bab677762216dc904754750a9a2a5ca3b3419f9904",
+    "model_sha256": "06507c7b42688469c4e7298b0a1e16deff06caf291cf0a5b278c308249c3e439",
+    "server_binary_sha256": "6c39726593b2bee8e08738f67ecd5b5c1c85f3ea7174376a33fc275fbccfdaaf",
+    "runner_sha256": "0dc930f82bf512883b6e81640c5d0773accfd9e879b861760c844717934bdeb0",
+    "reader_path": "scripts/read_material_new_surface_development_gate.py",
+    "reader_sha256": "3bc6ceeb49d0a8450dc37613d1edcfb66686db89962c0a85bfe6190e3233115d",
+    "trace_validator_path": "scripts/validate_material_new_surface_trace.py",
+    "trace_validator_sha256": "856f2367640868d359e2b3ca3c2ed2c0e3cfa4a89256355e739c9f8335d424c8"
+  },
+  "construction": {
+    "query_instruction": "Instruct: Identify the meeting-specific official material candidate most relevant to this runtime speech context.\nQuery: ",
+    "predicted_speaker_policy": "known-single-speaker:<item_id>",
+    "history_scope": "same item, strictly earlier Pass0 clip only",
+    "maximum_prior_keywords": 8,
+    "key_width": 8,
+    "deranged_control": "ascending call_id next, cyclic over development",
+    "wrong_meeting_score_available_to_selector": false
+  },
+  "embedding": {
+    "model_id": "Qwen3-Embedding-0.6B-Q8_0",
+    "mode": "--embedding --pooling last",
+    "dtype": "float32",
+    "normalization": "l2",
+    "batch_size": 16,
+    "keys": 160,
+    "queries": 40,
+    "maximum_calls": 13,
+    "dimension_expected": 1024
+  },
+  "trace_threshold": 0.0,
+  "gate": {
+    "threshold_grid": [0.0, 0.01, 0.02, 0.03, 0.04, 0.05],
+    "minimum_attribution_precision": 0.7,
+    "minimum_coverage": 0.2,
+    "minimum_represented_meetings": 15,
+    "minimum_median_correct_minus_deranged": 0.01,
+    "selection": "lowest passing threshold"
+  },
+  "execution": {
+    "development_only": true,
+    "reference_reads": 0,
+    "confirmation_access": 0,
+    "omni_correction_calls": 0,
+    "output_overwrite": false,
+    "http_retries": 0
+  },
+  "content_hash": "7fa1f62e804ec920eab9e2624cd8ab4c3fda04ea0736e26345fdb0533caeb67e"
+}

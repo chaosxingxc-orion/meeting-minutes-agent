@@ -1,0 +1,191 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "material-new-surface-dispatch-trace-v1",
+  "title": "Prospective per-chunk material dispatch trace",
+  "description": "One JSONL row per runtime chunk. Raw artifacts and vectors live outside Git and are bound by hashes.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "experiment_id",
+    "trace_run_id",
+    "recorded_utc",
+    "split",
+    "item_id",
+    "meeting_id",
+    "turn_id",
+    "audio_role",
+    "audio_sha256",
+    "audio_duration_ms",
+    "pass0",
+    "runtime_context",
+    "retrieval",
+    "decision",
+    "deranged_control",
+    "artifact_bindings"
+  ],
+  "properties": {
+    "schema": {"const": "material-new-surface-dispatch-trace-row-v1"},
+    "experiment_id": {"const": "E-MATERIAL-NEW-SURFACE-RUNTIME-GATE"},
+    "trace_run_id": {"type": "string", "minLength": 1},
+    "recorded_utc": {"type": "string", "format": "date-time"},
+    "split": {"enum": ["development", "confirmation"]},
+    "item_id": {"type": "string", "pattern": "^ECV-[0-9]{4}$"},
+    "meeting_id": {"type": "string", "minLength": 1},
+    "turn_id": {"type": "string", "minLength": 1},
+    "audio_role": {"enum": ["reference_audio", "answer_audio"]},
+    "audio_sha256": {"$ref": "#/$defs/sha256"},
+    "audio_duration_ms": {"type": "integer", "minimum": 1},
+    "pass0": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["request_id", "request_artifact", "response_artifact", "transcript_text", "transcript_sha256"],
+      "properties": {
+        "request_id": {"type": "string", "minLength": 1},
+        "request_artifact": {"$ref": "#/$defs/artifact"},
+        "response_artifact": {"$ref": "#/$defs/artifact"},
+        "transcript_text": {"type": "string"},
+        "transcript_sha256": {"$ref": "#/$defs/sha256"}
+      }
+    },
+    "runtime_context": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["predicted_speaker_id", "prior_context_text", "prior_topic_keywords", "context_sha256"],
+      "properties": {
+        "predicted_speaker_id": {"type": "string"},
+        "prior_context_text": {"type": "string"},
+        "prior_topic_keywords": {"type": "array", "items": {"type": "string"}},
+        "context_sha256": {"$ref": "#/$defs/sha256"}
+      }
+    },
+    "retrieval": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "query_instruction",
+        "query_text",
+        "query_sha256",
+        "keyset_sha256",
+        "embedding_model_id",
+        "embedding_model_sha256",
+        "embedding_server_sha256",
+        "score_dtype",
+        "candidates"
+      ],
+      "properties": {
+        "query_instruction": {"type": "string"},
+        "query_text": {"type": "string"},
+        "query_sha256": {"$ref": "#/$defs/sha256"},
+        "keyset_sha256": {"$ref": "#/$defs/sha256"},
+        "embedding_model_id": {"type": "string", "minLength": 1},
+        "embedding_model_sha256": {"$ref": "#/$defs/sha256"},
+        "embedding_server_sha256": {"$ref": "#/$defs/sha256"},
+        "score_dtype": {"enum": ["float32", "float64"]},
+        "candidates": {
+          "type": "array",
+          "minItems": 2,
+          "items": {"$ref": "#/$defs/candidate"}
+        }
+      }
+    },
+    "decision": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["top1_candidate_id", "top1_score", "top2_candidate_id", "top2_score", "selector_gap", "threshold", "dispatch", "selected_value"],
+      "properties": {
+        "top1_candidate_id": {"type": "string", "minLength": 1},
+        "top1_score": {"type": "number"},
+        "top2_candidate_id": {"type": "string", "minLength": 1},
+        "top2_score": {"type": "number"},
+        "selector_gap": {"type": "number"},
+        "threshold": {"type": "number"},
+        "dispatch": {"type": "boolean"},
+        "selected_value": {"$ref": "#/$defs/value"}
+      }
+    },
+    "deranged_control": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["policy", "meeting_id", "keyset_sha256", "candidates", "candidate_id", "score", "selected_value"],
+      "properties": {
+        "policy": {"type": "string", "minLength": 1},
+        "meeting_id": {"type": "string", "minLength": 1},
+        "keyset_sha256": {"$ref": "#/$defs/sha256"},
+        "candidates": {
+          "type": "array",
+          "minItems": 2,
+          "items": {"$ref": "#/$defs/candidate"}
+        },
+        "candidate_id": {"type": "string", "minLength": 1},
+        "score": {"type": "number"},
+        "selected_value": {"$ref": "#/$defs/value"}
+      }
+    },
+    "artifact_bindings": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["candidate_snapshot", "query_vector_sidecar", "correct_key_vector_sidecar", "deranged_key_vector_sidecar", "row_sha256"],
+      "properties": {
+        "candidate_snapshot": {"$ref": "#/$defs/artifact"},
+        "query_vector_sidecar": {"$ref": "#/$defs/vectorArtifact"},
+        "correct_key_vector_sidecar": {"$ref": "#/$defs/vectorArtifact"},
+        "deranged_key_vector_sidecar": {"$ref": "#/$defs/vectorArtifact"},
+        "row_sha256": {"$ref": "#/$defs/sha256"}
+      }
+    }
+  },
+  "$defs": {
+    "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "artifact": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["relative_path", "sha256", "bytes"],
+      "properties": {
+        "relative_path": {"type": "string", "minLength": 1},
+        "sha256": {"$ref": "#/$defs/sha256"},
+        "bytes": {"type": "integer", "minimum": 0}
+      }
+    },
+    "vectorArtifact": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["relative_path", "sha256", "bytes", "array_key", "vector_sha256", "dimension"],
+      "properties": {
+        "relative_path": {"type": "string", "minLength": 1, "pattern": "\\.npz$"},
+        "sha256": {"$ref": "#/$defs/sha256"},
+        "bytes": {"type": "integer", "minimum": 0},
+        "array_key": {"type": "string", "minLength": 1},
+        "vector_sha256": {"$ref": "#/$defs/sha256"},
+        "dimension": {"type": "integer", "minimum": 1}
+      }
+    },
+    "value": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["canonical", "category", "source_page", "source_span", "prompt_text", "prompt_sha256"],
+      "properties": {
+        "canonical": {"type": "string"},
+        "category": {"type": "string"},
+        "source_page": {"type": "integer", "minimum": 1},
+        "source_span": {"type": "string"},
+        "prompt_text": {"type": "string"},
+        "prompt_sha256": {"$ref": "#/$defs/sha256"}
+      }
+    },
+    "candidate": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["rank", "candidate_id", "meeting_id", "key_text", "key_sha256", "score", "value"],
+      "properties": {
+        "rank": {"type": "integer", "minimum": 1},
+        "candidate_id": {"type": "string", "minLength": 1},
+        "meeting_id": {"type": "string", "minLength": 1},
+        "key_text": {"type": "string"},
+        "key_sha256": {"$ref": "#/$defs/sha256"},
+        "score": {"type": "number"},
+        "value": {"$ref": "#/$defs/value"}
+      }
+    }
+  }
+}

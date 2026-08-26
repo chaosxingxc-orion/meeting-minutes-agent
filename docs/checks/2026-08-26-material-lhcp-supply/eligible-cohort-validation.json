@@ -1,0 +1,12 @@
+{
+  "counts": {
+    "confirmation_meetings": 45,
+    "development_meetings": 25,
+    "eligible_meetings": 70,
+    "excluded_meetings": 2
+  },
+  "errors": [],
+  "experiment_id": "E-MATERIAL-LHCP-ELIGIBLE-COHORT",
+  "schema": "material-lhcp-eligible-cohort-validation-v1",
+  "validation": "TRACE_COMPLETE"
+}

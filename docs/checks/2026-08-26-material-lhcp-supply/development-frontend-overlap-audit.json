@@ -1,0 +1,152 @@
+{
+  "affected_meeting_ids": [
+    "1109611c511",
+    "1109611c521",
+    "1109611c553",
+    "1109611c570",
+    "856696c117",
+    "856696c164",
+    "856696c200",
+    "856696c31",
+    "856696c43",
+    "856696c62"
+  ],
+  "counts": {
+    "affected_meetings": 10,
+    "confirmation_reads": 0,
+    "maximum_overlap_seconds": 14.948000000000093,
+    "meetings": 25,
+    "omni_calls": 0,
+    "overlap_boundaries": 15,
+    "reference_reads": 0,
+    "slices": 397,
+    "total_overlap_seconds": 35.89999999999985
+  },
+  "epsilon_seconds": 1e-09,
+  "experiment_id": "E-MATERIAL-LHCP-DEVELOPMENT-FRONTEND",
+  "overlaps": [
+    {
+      "left_end": 955.279,
+      "left_slice_index": 9,
+      "meeting_id": "856696c117",
+      "overlap_seconds": 0.3079999999999927,
+      "right_slice_index": 10,
+      "right_start": 954.971
+    },
+    {
+      "left_end": 1227.1190000000001,
+      "left_slice_index": 11,
+      "meeting_id": "856696c164",
+      "overlap_seconds": 0.14800000000013824,
+      "right_slice_index": 12,
+      "right_start": 1226.971
+    },
+    {
+      "left_end": 1321.679,
+      "left_slice_index": 12,
+      "meeting_id": "856696c164",
+      "overlap_seconds": 0.6280000000001564,
+      "right_slice_index": 13,
+      "right_start": 1321.051
+    },
+    {
+      "left_end": 832.159,
+      "left_slice_index": 7,
+      "meeting_id": "856696c200",
+      "overlap_seconds": 1.4279999999999973,
+      "right_slice_index": 8,
+      "right_start": 830.731
+    },
+    {
+      "left_end": 947.679,
+      "left_slice_index": 10,
+      "meeting_id": "856696c31",
+      "overlap_seconds": 0.14800000000002456,
+      "right_slice_index": 11,
+      "right_start": 947.531
+    },
+    {
+      "left_end": 1129.839,
+      "left_slice_index": 12,
+      "meeting_id": "856696c31",
+      "overlap_seconds": 0.38799999999991996,
+      "right_slice_index": 13,
+      "right_start": 1129.451
+    },
+    {
+      "left_end": 1182.4789999999998,
+      "left_slice_index": 12,
+      "meeting_id": "856696c43",
+      "overlap_seconds": 0.7879999999997835,
+      "right_slice_index": 13,
+      "right_start": 1181.691
+    },
+    {
+      "left_end": 1123.359,
+      "left_slice_index": 11,
+      "meeting_id": "856696c62",
+      "overlap_seconds": 1.1079999999999472,
+      "right_slice_index": 12,
+      "right_start": 1122.251
+    },
+    {
+      "left_end": 1387.279,
+      "left_slice_index": 14,
+      "meeting_id": "856696c62",
+      "overlap_seconds": 0.3079999999999927,
+      "right_slice_index": 15,
+      "right_start": 1386.971
+    },
+    {
+      "left_end": 1493.199,
+      "left_slice_index": 15,
+      "meeting_id": "856696c62",
+      "overlap_seconds": 14.948000000000093,
+      "right_slice_index": 16,
+      "right_start": 1478.251
+    },
+    {
+      "left_end": 1715.999,
+      "left_slice_index": 17,
+      "meeting_id": "1109611c511",
+      "overlap_seconds": 7.428000000000111,
+      "right_slice_index": 18,
+      "right_start": 1708.571
+    },
+    {
+      "left_end": 96.799,
+      "left_slice_index": 0,
+      "meeting_id": "1109611c521",
+      "overlap_seconds": 1.0280000000000058,
+      "right_slice_index": 1,
+      "right_start": 95.771
+    },
+    {
+      "left_end": 1100.079,
+      "left_slice_index": 11,
+      "meeting_id": "1109611c553",
+      "overlap_seconds": 0.2279999999998381,
+      "right_slice_index": 12,
+      "right_start": 1099.851
+    },
+    {
+      "left_end": 1652.879,
+      "left_slice_index": 17,
+      "meeting_id": "1109611c553",
+      "overlap_seconds": 6.707999999999856,
+      "right_slice_index": 18,
+      "right_start": 1646.171
+    },
+    {
+      "left_end": 603.279,
+      "left_slice_index": 6,
+      "meeting_id": "1109611c570",
+      "overlap_seconds": 0.3079999999999927,
+      "right_slice_index": 7,
+      "right_start": 602.971
+    }
+  ],
+  "schema": "material-lhcp-development-frontend-overlap-audit-v1",
+  "slice_manifest_sha256": "e77d75cdb40c6db6cb5c7c2cada6bbc85ee373d94cec9f8af5d8c99cfe0df917",
+  "verdict": "FRONTEND_SLICE_ZERO_OVERLAP_GATE_FAILED"
+}

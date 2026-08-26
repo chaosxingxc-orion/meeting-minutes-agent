@@ -1,0 +1,79 @@
+{
+  "schema": "material-lhcp-development-frontend-config-v1",
+  "experiment_id": "E-MATERIAL-LHCP-DEVELOPMENT-FRONTEND",
+  "evidence_tier": "INDEPENDENT_DEVELOPMENT_FIXED_FRONTEND",
+  "inputs": {
+    "audio_root": "D:/speechrl-data/datasets/lhcp-asr-development-audio/2026-08-26",
+    "audio_manifest": "D:/speechrl-data/datasets/lhcp-asr-development-audio/2026-08-26/download-manifest.json",
+    "audio_manifest_sha256": "f82e9958ed81527c89a6922bce6155488fde183699c77a11fee31a22d1661e1f",
+    "audio_validation_sha256": "73ac9e65f234e5234cf15a0d911357b187ec2cee5ab5f0702eaab59a0f5526bc",
+    "slicer_sha256": "85d13a364e5113eec90519a35527f23e8855ac549e86f6cd221efee544f95e02",
+    "rttm_parser_sha256": "b3ae7b3036f89d0f3e7053f872aefbdce2139f9d350bc1a4840654a127f9be1e",
+    "chunking_constants_sha256": "45ed7c2c4a96e8ba2fc0e9edfa7d16895f30ff9fc0d87062574268a06a34fcb0",
+    "runner_sha256": "cd326a31a482ec9189b7ae9b7e3b4e5b52feb9d6a866c3c30411163b566d25a2",
+    "reader_sha256": "ee98e8e959a74c9a5910b406eea788f9cb8a66b04647debed2d048a6fbf588cb",
+    "preregistration_sha256": "0a2747ba08f4af73945d649640b1af7c69de02ff2821b8ecba80cb0e1ed4d774"
+  },
+  "conversion": {
+    "binary": "/usr/bin/ffmpeg",
+    "binary_sha256": "ed16af623947494a72e284b6eb8ff225f2da22b38b5d5069c2fd4b4ba3384e41",
+    "version": "6.1.1-3ubuntu5",
+    "arguments": [
+      "-nostdin",
+      "-v",
+      "error",
+      "-ac",
+      "1",
+      "-ar",
+      "16000",
+      "-c:a",
+      "pcm_s16le"
+    ]
+  },
+  "diarizer": {
+    "model_id": "nvidia/diar_streaming_sortformer_4spk-v2",
+    "revision": "5240a64075176943f677d30fa2171c780229f341",
+    "model_path": "/mnt/d/speechrl-data/models/diar-sortformer-4spk-v2/diar_streaming_sortformer_4spk-v2.q8_0.gguf",
+    "model_sha256": "0679cfeb1ce356d0dea9470b31274f4bfc7eb927497d82005483770666da998a",
+    "binary_path": "/home/yansuqing/NeMo-Speech.cpp/build/cuda-diar/bin/nemo-speech",
+    "binary_sha256": "1a3e3f4fe7db4c48e5d6e44a76d5adf2bbfef80024c023b0eab2766eb61aca78",
+    "commit": "4c749a700500e077d4732a539eb082bf2208dac7",
+    "geometry": "DiarStream default streaming",
+    "jobs": 1,
+    "timeout_seconds_per_contact": 3600,
+    "maximum_campaign_wall_hours": 2,
+    "contacts": 25,
+    "input_audio_seconds": 37556.96478911565
+  },
+  "slicing": {
+    "mode": "turn_aware",
+    "turn_provenance": "tool-diar",
+    "target_seconds": 90,
+    "minimum_seconds": 60,
+    "maximum_seconds": 120,
+    "snap_seconds": 3,
+    "overlap_seconds": 0,
+    "sample_rate_hz": 16000,
+    "channels": 1,
+    "sample_width_bytes": 2
+  },
+  "output_root": "D:/speechrl-data/derived/lhcp-asr-development-frontend/2026-08-26",
+  "gates": {
+    "converted_wavs": 25,
+    "successful_rttms": 25,
+    "minimum_slices_per_meeting": 1,
+    "maximum_slice_seconds": 120,
+    "reference_reads": 0,
+    "confirmation_reads": 0,
+    "omni_calls": 0
+  },
+  "authorization": {
+    "zero_model_readiness": true,
+    "sortformer_flight_requires_explicit_release": true,
+    "pass0": false,
+    "embedding": false,
+    "omni_correction": false,
+    "reference": false,
+    "confirmation": false
+  }
+}

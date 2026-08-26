@@ -14,7 +14,7 @@ readme = "README.md"
 # functions that use them (program convention), but the dependency itself
 # is real, so it is declared here rather than assumed present in whatever
 # environment happens to run this code.
-dependencies = ["soundfile>=0.12", "librosa>=0.10", "numpy>=1.26"]
+dependencies = ["soundfile>=0.12", "librosa>=0.10", "numpy>=1.26", "pypdf>=4"]
 
 [project.optional-dependencies]
 dev = ["pytest>=8"]

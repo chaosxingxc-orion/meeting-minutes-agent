@@ -1,0 +1,45 @@
+{
+  "schema": "material-lhcp-slicer-overlap-fix-config-v1",
+  "experiment_id": "E-MATERIAL-LHCP-SLICER-OVERLAP-FIX",
+  "evidence_tier": "ENGINEERING_CORRECTION_FROZEN_RTTM",
+  "source_root": "D:/speechrl-data/derived/lhcp-asr-development-frontend/2026-08-26",
+  "output_root": "D:/speechrl-data/derived/lhcp-asr-development-slicer-overlap-fix/2026-08-26-attempt-2",
+  "inputs": {
+    "source_conversion_manifest_sha256": "7e654c2229839c1da12ae9ccc32d249c87197aacf44b343f2b7695759fdae128",
+    "source_flight_summary_sha256": "9d8d5e1faed8abdac72c75f5e2e33fa256f685ba0f2599b59fa5b53d086b30fa",
+    "source_failed_slice_manifest_sha256": "e77d75cdb40c6db6cb5c7c2cada6bbc85ee373d94cec9f8af5d8c99cfe0df917",
+    "slicer_sha256": "fd47d03259acc4a2ef15dd3e932bd76807b03fedb7ad1fdf71be36308ad77f3c",
+    "rttm_parser_sha256": "b3ae7b3036f89d0f3e7053f872aefbdce2139f9d350bc1a4840654a127f9be1e",
+    "chunking_constants_sha256": "45ed7c2c4a96e8ba2fc0e9edfa7d16895f30ff9fc0d87062574268a06a34fcb0",
+    "runner_sha256": "5d178617af4e7f26d07abea74fff1def9bc0511bca086b072d42b59817b8dac8",
+    "validator_sha256": "60d5e47024088c462d72dc71dc4da249dc866d20edc9394fb7a9da199bd74e36",
+    "preregistration_sha256": "f9908b6707a94d9e81b27004a588d93de773da00a1f56ae30b88ecf77c8ed8d1",
+    "amendment_1_sha256": "f434709b959671e599b4bae2eddf8d26903f8c966b724045613a40eff4511c6d"
+  },
+  "slicing": {
+    "mode": "turn_aware_overlap_component",
+    "turn_provenance": "tool-diar",
+    "target_seconds": 90,
+    "minimum_seconds": 60,
+    "maximum_seconds": 120,
+    "snap_seconds": 3,
+    "overlap_seconds": 0,
+    "overlap_epsilon_seconds": 1e-09,
+    "sample_rate_hz": 16000,
+    "channels": 1,
+    "sample_width_bytes": 2
+  },
+  "gates": {
+    "meetings": 25,
+    "minimum_slices_per_meeting": 1,
+    "maximum_slice_seconds": 120,
+    "maximum_adjacent_overlap_seconds": 1e-09,
+    "deterministic_planning": true,
+    "sortformer_contacts": 0,
+    "reference_reads": 0,
+    "confirmation_reads": 0,
+    "pass0_calls": 0,
+    "embedding_calls": 0,
+    "omni_calls": 0
+  }
+}

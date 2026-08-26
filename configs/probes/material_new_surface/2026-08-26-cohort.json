@@ -1,0 +1,2010 @@
+{
+  "config_sha256": "d6ba164abc9863b27e5565d047b7c672a916e044e6cf36f1d478433199c68622",
+  "experiment_id": "E-MATERIAL-NEW-SURFACE-ADMISSION",
+  "items": [
+    {
+      "audio": {
+        "answer_audio": {
+          "duration_s": 10.47,
+          "relative_path": "audio/ECV-0046_answer.wav",
+          "sha256": "e571cf0109c28bf5f9d1aa7a5e92f466ede978a7b5a7cca1158883f0714c27b3"
+        },
+        "reference_audio": {
+          "duration_s": 12.21,
+          "relative_path": "audio/ECV-0046_reference.wav",
+          "sha256": "c598e17d0c55a2d462a6faca32d1afcc012017b621c96a6d715b683f768edbbf"
+        }
+      },
+      "boundary_repaired": false,
+      "call_id": "1905560",
+      "exchange_index": 5,
+      "item_id": "ECV-0046",
+      "mp3_id": "914867158",
+      "ppt_id": "915273528",
+      "selection_tranche": "human_core_73",
+      "slide": {
+        "bytes": 2822227,
+        "relative_path": "materials/2020/915273528.pdf",
+        "sha256": "fdc36756fe3daa0cd11580a96b37c8055b834e4b9172492507cf9c59f7693c8e"
+      },
+      "split": "development",
+      "split_order_sha256": "017df3ad8c1de76597c477a885b00f6add56d072f5813b626d2ec5b8ea1b8883",
+      "year": 2020
+    },
+    {
+      "audio": {
+        "answer_audio": {
+          "duration_s": 9.06,
+          "relative_path": "audio/ECV-0058_answer.wav",
+          "sha256": "8060ac6519208c1a8c3d8a8db297689b6bdcf5f5cd2f8da7eab93e0f808a26ee"
+        },
+        "reference_audio": {
+          "duration_s": 12.0,
+          "relative_path": "audio/ECV-0058_reference.wav",
+          "sha256": "bf425878f0e72bedbc2c8a05883065d4516d03324e5b0a9c2863b72e8d61c327"
+        }
+      },
+      "boundary_repaired": false,
+      "call_id": "1995214",
+      "exchange_index": 1,
+      "item_id": "ECV-0058",
+      "mp3_id": "1092783142",
+      "ppt_id": "1007779658",
+      "selection_tranche": "human_core_73",
+      "slide": {
+        "bytes": 3342077,
+        "relative_path": "materials/2020/1007779658.pdf",
+        "sha256": "7296ee6c3e18a4f99e48e3ba61d4da631a6b48e6b333ba38c1a097d07a5602a7"
+      },
+      "split": "development",
+      "split_order_sha256": "03c36e55f0fe50ce0a34bb332792986c76a5617618b59369598c8338e16077c4",
+      "year": 2020
+    },
+    {
+      "audio": {
+        "answer_audio": {
+          "duration_s": 25.19,
+          "relative_path": "audio/ECV-0065_answer.wav",
+          "sha256": "32034b06751198091da35a9b25010a79b2efffd76213e653c1763a4f2e86b33b"
+        },
+        "reference_audio": {
+          "duration_s": 11.36,
+          "relative_path": "audio/ECV-0065_reference.wav",
+          "sha256": "f5bb9891c9bee66dceb6d31946491c6f9f256092d0c36df75646976124051020"
+        }
+      },
+      "boundary_repaired": false,
+      "call_id": "2049220",
+      "exchange_index": 18,
+      "item_id": "ECV-0065",
+      "mp3_id": "1060694792",
+      "ppt_id": "1061162132",
+      "selection_tranche": "human_scale_v03",
+      "slide": {
+        "bytes": 544080,
+        "relative_path": "materials/2020/1061162132.pdf",
+        "sha256": "523ed992fcee27ed81676e1eff4f6c74e2539e499abe2cf6b162dd59cd4c3b60"
+      },
+      "split": "development",
+      "split_order_sha256": "0b87128e3cf07dca2f6bf064302efe8b689320266943f07fa07db5a6bfe8e51d",
+      "year": 2020
+    },
+    {
+      "audio": {
+        "answer_audio": {
+          "duration_s": 14.33,
+          "relative_path": "audio/ECV-0057_answer.wav",
+          "sha256": "78fbdd66dc5eb13be8cee6ee979c2aeba22c2746b1300e4fa0f13c86d97fded6"
+        },
+        "reference_audio": {
+          "duration_s": 13.35,
+          "relative_path": "audio/ECV-0057_reference.wav",
+          "sha256": "f1a4d496a37ee1d33bf40181401b0bb14ad709ccc68120be3fe492ec7005ed25"
+        }
+      },
+      "boundary_repaired": false,
+      "call_id": "1993348",
+      "exchange_index": 1,
+      "item_id": "ECV-0057",
+      "mp3_id": "1006434722",
+      "ppt_id": "1006932132",
+      "selection_tranche": "human_core_73",
+      "slide": {
+        "bytes": 460475,
+        "relative_path": "materials/2020/1006932132.pdf",
+        "sha256": "700197f861fe50dd2d01140dd0fe3ca285f3d7f10897ff336085dfb3e03d6e88"
+      },
+      "split": "development",
+      "split_order_sha256": "0ef6ced4de16c205ae229b5a447b52a7ba36d04558144ded92310bd3ded922e9",
+      "year": 2020
+    },
+    {
+      "audio": {
+        "answer_audio": {
+          "duration_s": 22.29,
+          "relative_path": "audio/ECV-0049_answer.wav",
+          "sha256": "909c6ad250b266b70cc69a717bc3bb49f1f33d80cc50e5f207bb7dd26b5cf94e"
+        },
+        "reference_audio": {
+          "duration_s": 10.23,
+          "relative_path": "audio/ECV-0049_reference.wav",
+          "sha256": "87b57c6919248b45a89cc24badb067d268a7099de76baf986db6caedf95d5c7d"
+        }
+      },
+      "boundary_repaired": false,
+      "call_id": "1915730",
+      "exchange_index": 19,
+      "item_id": "ECV-0049",
+      "mp3_id": "922822550",
+      "ppt_id": "922538012",
+      "selection_tranche": "human_scale_v04",
+      "slide": {
+        "bytes": 1747593,
+        "relative_path": "materials/2020/922538012.pdf",
+        "sha256": "ecffb7f2be9b27d52c7c1d9f28473259df5deeda35357d37de6d51c376687ea5"
+      },
+      "split": "development",
+      "split_order_sha256": "129765e175d6d2849f551baca9b2853eec92d0dbc5d44d4e427c9b3a8e8a6dd2",
+      "year": 2020
+    },
+    {
+      "audio": {
+        "answer_audio": {
+          "duration_s": 10.61,
+          "relative_path": "audio/ECV-0025_answer.wav",
+          "sha256": "7686bb36e78a919543e2a43d800dfcdfb8905176df88a21ea704b5bd681cc66e"
+        },
+        "reference_audio": {
+          "duration_s": 14.24,
+          "relative_path": "audio/ECV-0025_reference.wav",
+          "sha256": "e759c83d8dccfa13c230ce93eb57ed4ab77844b29bbca9f088f988381eff8f6b"
+        }
+      },
+      "boundary_repaired": false,
+      "call_id": "1786138",
+      "exchange_index": 20,
+      "item_id": "ECV-0025",
+      "mp3_id": "750474392",
+      "ppt_id": "750400322",
+      "selection_tranche": "human_scale_v04",
+      "slide": {
+        "bytes": 940880,
+        "relative_path": "materials/2019/750400322.pdf",
+        "sha256": "bc0a2103f5d48aeb98c3773fa8eb2dac2346bccb0e4c6e8d5aa404a0abe72514"
+      },
+      "split": "development",
+      "split_order_sha256": "15aca985a2d578f7680ee009bb2d70056ff2963f41da85b2f578df4d8044ad5e",
+      "year": 2019
+    },
+    {
+      "audio": {
+        "answer_audio": {
+          "duration_s": 30.48,
+          "relative_path": "audio/ECV-0011_answer.wav",
+          "sha256": "d9c56a2ee9d243ad8b1f53ac128aced22221c819e5dd28f0f974ca08b1a4f986"
+        },
+        "reference_audio": {
+          "duration_s": 12.0,
+          "relative_path": "audio/ECV-0011_reference.wav",
+          "sha256": "b31817c7b065561e070985ee5b7f30de6e33a230ce5da543c0b4c4c6c46bb748"
+        }
+      },
+      "boundary_repaired": false,
+      "call_id": "1703447",
+      "exchange_index": 18,
+      "item_id": "ECV-0011",
+      "mp3_id": "656180338",
+      "ppt_id": "655989472",
+      "selection_tranche": "human_core_73",
+      "slide": {
+        "bytes": 498473,
+        "relative_path": "materials/2019/655989472.pdf",
+        "sha256": "ebbc0365e1ababa7b7830380a733ce9afc6146a59063dcbca5707a27b685d179"
+      },
+      "split": "development",
+      "split_order_sha256": "1e87d5aaf6da7ffcea0e933725d8beaf9c84bfc4fb9b3a7de549e80233846cf5",
+      "year": 2019
+    },
+    {
+      "audio": {
+        "answer_audio": {
+          "duration_s": 24.0,
+          "relative_path": "audio/ECV-0010_answer.wav",
+          "sha256": "50883021297e60b34bc3ec3839406050b31875d12e6555f80c5e7e75902bd456"
+        },
+        "reference_audio": {
+          "duration_s": 12.0,
+          "relative_path": "audio/ECV-0010_reference.wav",
+          "sha256": "5d0a4527741cbe47295320d3dad34452621092936faf4df44a3c7e7d90fcf318"
+        }
+      },
+      "boundary_repaired": false,
+      "call_id": "1695833",
+      "exchange_index": 13,
+      "item_id": "ECV-0010",
+      "mp3_id": "635732680",
+      "ppt_id": "636342540",
+      "selection_tranche": "human_core_73",
+      "slide": {
+        "bytes": 1159214,
+        "relative_path": "materials/2019/636342540.pdf",
+        "sha256": "933aef8ea55180ce7f7a080f950d597636aa9ef06c5907d1c528ab4934fe0f80"
+      },
+      "split": "development",
+      "split_order_sha256": "1ed6b98ff9523617c2f1e98bf17c6e54033a7bec38396f7772365aea71ee0724",
+      "year": 2019
+    },
+    {
+      "audio": {
+        "answer_audio": {
+          "duration_s": 5.54,
+          "relative_path": "audio/ECV-0051_answer.wav",
+          "sha256": "db73d29f2677ed4f78769dc0090dca028667bb4892222ef9a95c933b5d242a86"
+        },
+        "reference_audio": {
+          "duration_s": 13.0,
+          "relative_path": "audio/ECV-0051_reference.wav",
+          "sha256": "4acc3af2fb46cb8b6123f9f004313969ac178cbb8c512c00b51ced958efe988c"
+        }
+      },
+      "boundary_repaired": false,
+      "call_id": "1954397",
+      "exchange_index": 14,
+      "item_id": "ECV-0051",
+      "mp3_id": "974266400",
+      "ppt_id": "974061828",
+      "selection_tranche": "human_core_73",
+      "slide": {
+        "bytes": 856215,
+        "relative_path": "materials/2020/974061828.pdf",
+        "sha256": "2d4a9cdbe0a01b102efba80b3c028e23240e639fefcc12603641db92ddd45dc4"
+      },
+      "split": "development",
+      "split_order_sha256": "2cdb22ff1fd997ea815eef56f0a3390f87e64b211907f29be6a08177aff738f0",
+      "year": 2020
+    },
+    {
+      "audio": {
+        "answer_audio": {
+          "duration_s": 9.55,
+          "relative_path": "audio/ECV-0013_answer.wav",
+          "sha256": "f2f696cf5ae13871f1dbec88a329280ef6eaf8aff5859b90ec3926fd48943933"
+        },
+        "reference_audio": {
+          "duration_s": 12.37,
+          "relative_path": "audio/ECV-0013_reference.wav",
+          "sha256": "846ccc9554c259cfb700234a974f4d3846e4a12b71ed3e2b164c5d8afcda319b"
+        }
+      },
+      "boundary_repaired": false,
+      "call_id": "1705222",
+      "exchange_index": 28,
+      "item_id": "ECV-0013",
+      "mp3_id": "657732780",
+      "ppt_id": "657195016",
+      "selection_tranche": "human_scale_v04",
+      "slide": {
+        "bytes": 1318316,
+        "relative_path": "materials/2019/657195016.pdf",
+        "sha256": "fa9f9eb6e661aeb6391369e7d81aac61e25051f20fd6b2276a7692ff17badd9d"
+      },
+      "split": "development",
+      "split_order_sha256": "32714e6a8d4c05b068314bbb61666b434a1ced3b63ded1486118491c416d43ac",
+      "year": 2019
+    },
+    {
+      "audio": {
+        "answer_audio": {
+          "duration_s": 20.13,
+          "relative_path": "audio/ECV-0069_answer.wav",
+          "sha256": "a71e7fbe13b1d0a656ef5ab7a9cfb3736da6ef935d928cc7fb29c1a97fb4b058"
+        },
+        "reference_audio": {
+          "duration_s": 15.35,
+          "relative_path": "audio/ECV-0069_reference.wav",
+          "sha256": "10c5d8516535bd83605c1853b5796899acc48cbd3aa7aef28913e36403baf45e"
+        }
+      },
+      "boundary_repaired": false,
+      "call_id": "2060333",
+      "exchange_index": 6,
+      "item_id": "ECV-0069",
+      "mp3_id": "1069454466",
+      "ppt_id": "1067438252",
+      "selection_tranche": "human_core_73",
+      "slide": {
+        "bytes": 1828032,
+        "relative_path": "materials/2020/1067438252.pdf",
+        "sha256": "e9f6fc873e6a060805b3f276e69243d7464dd776fb0d2d09f44740582937d072"
+      },
+      "split": "development",
+      "split_order_sha256": "38580be2c36621b694a4fb3c5b8e6399544dde95e3da11ce80b72fa3cd7f83ec",
+      "year": 2020
+    },
+    {
+      "audio": {
+        "answer_audio": {
+          "duration_s": 13.37,
+          "relative_path": "audio/ECV-0070_answer.wav",
+          "sha256": "142e5bc2cb347cc6bd2db7d867153685f171d5dad8569dc6fae1c17d49798745"
+        },
+        "reference_audio": {
+          "duration_s": 11.37,
+          "relative_path": "audio/ECV-0070_reference.wav",
+          "sha256": "625ad805aee4a91f19cc505505073a4370e0ded9ec25b2c28c4c83ca8096fc19"
+        }
+      },
+      "boundary_repaired": false,
+      "call_id": "2062500",
+      "exchange_index": 2,
+      "item_id": "ECV-0070",
+      "mp3_id": "1068027678",
+      "ppt_id": "1067287376",
+      "selection_tranche": "human_core_73",
+      "slide": {
+        "bytes": 1992765,
+        "relative_path": "materials/2020/1067287376.pdf",
+        "sha256": "2806c7fc4cb456b37fb5012f8e88bfe7e6e73a6e55ad56affa8e22761a1bf838"
+      },
+      "split": "development",
+      "split_order_sha256": "3a4a4a62bd79d3dee1f2c9ccb84cc7620187d4dff67a12cd98984f9c66ecc825",
+      "year": 2020
+    },
+    {
+      "audio": {
+        "answer_audio": {
+          "duration_s": 17.35,
+          "relative_path": "audio/ECV-0002_answer.wav",
+          "sha256": "7c4619ac4b8f366f9c684f7b4bfe904b8ad372e289cdd63100d18dd4662edb6b"
+        },
+        "reference_audio": {
+          "duration_s": 14.33,
+          "relative_path": "audio/ECV-0002_reference.wav",
+          "sha256": "6aa58ee62fac93390aa38d806cfdba284d25cccc11e282ae96b3dbf045e6a8fc"
+        }
+      },
+      "boundary_repaired": false,
+      "call_id": "1641285",
+      "exchange_index": 9,
+      "item_id": "ECV-0002",
+      "mp3_id": "571702442",
+      "ppt_id": "571467578",
+      "selection_tranche": "human_core_73",
+      "slide": {
+        "bytes": 933205,
+        "relative_path": "materials/2019/571467578.pdf",
+        "sha256": "9bd0422d93588ce62abeef769ea121b3e155af0f0d38901d1f837edd4df64aff"
+      },
+      "split": "development",
+      "split_order_sha256": "3b1c661a33ba6690bfb8fbffa6c777deadb1cf99ca8dc09d6a8334a91ecb88f2",
+      "year": 2019
+    },
+    {
+      "audio": {
+        "answer_audio": {
+          "duration_s": 19.04,
+          "relative_path": "audio/ECV-0059_answer.wav",
+          "sha256": "6ca1c8998cd3605c9878e9c35088e2e31a48ec05f7b79e97bc67a7e2c39ddbf6"
+        },
+        "reference_audio": {
+          "duration_s": 11.0,
+          "relative_path": "audio/ECV-0059_reference.wav",
+          "sha256": "716e0c33d6974ba9e1e5a24da9f472ac3ccc31931231daaace958b890a9de9ff"
+        }
+      },
+      "boundary_repaired": false,
+      "call_id": "2041656",
+      "exchange_index": 12,
+      "item_id": "ECV-0059",
+      "mp3_id": "1055086188",
+      "ppt_id": "1055018856",
+      "selection_tranche": "human_core_73",
+      "slide": {
+        "bytes": 2763297,
+        "relative_path": "materials/2020/1055018856.pdf",
+        "sha256": "bd43298b64223cc938c84be084d795d270cd25fe5285a923bbe9a500544cecb0"
+      },
+      "split": "development",
+      "split_order_sha256": "467786695447ade734cea413dcc1a558e73ed2bbe477cff7506dc69b4d41d995",
+      "year": 2020
+    },
+    {
+      "audio": {
+        "answer_audio": {
+          "duration_s": 18.03,
+          "relative_path": "audio/ECV-0005_answer.wav",
+          "sha256": "c6b7fcb9c2f8394602bf0719cf59fb9a6b19195f7f361711e747e0cdb2e08ea9"
+        },
+        "reference_audio": {
+          "duration_s": 11.23,
+          "relative_path": "audio/ECV-0005_reference.wav",
+          "sha256": "8a952173937e9f26200b1efff83f02f1f0b55826b68468f7de73158ae78e235a"
+        }
+      },
+      "boundary_repaired": false,
+      "call_id": "1643306",
+      "exchange_index": 1,
+      "item_id": "ECV-0005",
+      "mp3_id": "574883038",
+      "ppt_id": "576848764",
+      "selection_tranche": "human_core_73",
+      "slide": {
+        "bytes": 535506,
+        "relative_path": "materials/2019/576848764.pdf",
+        "sha256": "29453b03c199d6236d98fdee22739e9e8f6940abb67ee5a0939a96c208a9a339"
+      },
+      "split": "development",
+      "split_order_sha256": "477212448df069f745c8c98d3fcbaa456dd3f131ee5cfe5dea8dd834682e7608",
+      "year": 2019
+    },
+    {
+      "audio": {
+        "answer_audio": {
+          "duration_s": 25.77,
+          "relative_path": "audio/ECV-0004_answer.wav",
+          "sha256": "353ae0583b6fb3de2866227a8f86a828b5fc8174276b51350e3257edea5505ec"
+        },
+        "reference_audio": {
+          "duration_s": 10.33,
+          "relative_path": "audio/ECV-0004_reference.wav",
+          "sha256": "0b19fdb1cf00f498fd877cd7906ebb08eef41a57253579df97e155094e05c9a4"
+        }
+      },
+      "boundary_repaired": false,
+      "call_id": "1642318",
+      "exchange_index": 20,
+      "item_id": "ECV-0004",
+      "mp3_id": "573390674",
+      "ppt_id": "573312114",
+      "selection_tranche": "human_core_73",
+      "slide": {
+        "bytes": 1033654,
+        "relative_path": "materials/2019/573312114.pdf",
+        "sha256": "3273e80776835202ecab5df8121d56a338f12d292cb43ef182c9fb357e3b6e44"
+      },
+      "split": "development",
+      "split_order_sha256": "479496474a09bc6a450ad21eee9efaacf3c84a276e0aad786401b34d112f8f38",
+      "year": 2019
+    },
+    {
+      "audio": {
+        "answer_audio": {
+          "duration_s": 7.39,
+          "relative_path": "audio/ECV-0026_answer.wav",
+          "sha256": "9ac73fe5023903d1fe9d639013fc3ea7a0c991d71720839ee8950ae132ec1b48"
+        },
+        "reference_audio": {
+          "duration_s": 11.35,
+          "relative_path": "audio/ECV-0026_reference.wav",
+          "sha256": "0edda20351660e3084f066008f0d94defc3e6c119bfb0b86601cfa2932c3fabb"
+        }
+      },
+      "boundary_repaired": false,
+      "call_id": "1787090",
+      "exchange_index": 3,
+      "item_id": "ECV-0026",
+      "mp3_id": "751554854",
+      "ppt_id": "751300596",
+      "selection_tranche": "human_core_73",
+      "slide": {
+        "bytes": 1197171,
+        "relative_path": "materials/2019/751300596.pdf",
+        "sha256": "9b0e688d57e1a9f4480a48ddcb2ce2135c02becf7ce2d8812b634a45444a6d10"
+      },
+      "split": "development",
+      "split_order_sha256": "4bc6469c8dd5ce35135ba2b966d81d096964616c5bf1c075a7c40790c12efe23",
+      "year": 2019
+    },
+    {
+      "audio": {
+        "answer_audio": {
+          "duration_s": 25.09,
+          "relative_path": "audio/ECV-0047_answer.wav",
+          "sha256": "48d8d5a1b226632ed140e3a011293c08dd4c3a5dfda990d67f6bfb1b6d6b8516"
+        },
+        "reference_audio": {
+          "duration_s": 13.37,
+          "relative_path": "audio/ECV-0047_reference.wav",
+          "sha256": "a089128a79e4ae7cd9d6bfbcee89f962984f4c038753b12c3fbef0ce9661440f"
+        }
+      },
+      "boundary_repaired": false,
+      "call_id": "1906760",
+      "exchange_index": 16,
+      "item_id": "ECV-0047",
+      "mp3_id": "915606352",
+      "ppt_id": "934003386",
+      "selection_tranche": "human_core_73",
+      "slide": {
+        "bytes": 597974,
+        "relative_path": "materials/2020/934003386.pdf",
+        "sha256": "cf5a2252bbf1fff2c1e8e2a3b8291579e3b26026a22826dfd7be600369a6196b"
+      },
+      "split": "development",
+      "split_order_sha256": "4d4f2214a46151abb5ae6e228a371c5caaff320be80ef137f74df87cb0a517cb",
+      "year": 2020
+    },
+    {
+      "audio": {
+        "answer_audio": {
+          "duration_s": 24.85,
+          "relative_path": "audio/ECV-0012_answer.wav",
+          "sha256": "ef79d3b3f45ca2e55455ce2c00c6c260fbafafdf896bbf44d2faa90e15980682"
+        },
+        "reference_audio": {
+          "duration_s": 10.29,
+          "relative_path": "audio/ECV-0012_reference.wav",
+          "sha256": "4b856c163942d68dae62ab2874e8996220caff8878df00dbe9c9a64d9f5965a2"
+        }
+      },
+      "boundary_repaired": false,
+      "call_id": "1705203",
+      "exchange_index": 7,
+      "item_id": "ECV-0012",
+      "mp3_id": "1089042318",
+      "ppt_id": "658468332",
+      "selection_tranche": "human_core_73",
+      "slide": {
+        "bytes": 408666,
+        "relative_path": "materials/2019/658468332.pdf",
+        "sha256": "fce6f68b2d217dfb04c7629cdbea1528de80c77b9c78e7fa557be5bd0656e92f"
+      },
+      "split": "development",
+      "split_order_sha256": "4e6a487419d16d338fd6674b9afea6b6570acbca4726d076fcd30c8f6fd7c359",
+      "year": 2019
+    },
+    {
+      "audio": {
+        "answer_audio": {
+          "duration_s": 15.77,
+          "relative_path": "audio/ECV-0063_answer.wav",
+          "sha256": "22b038fd03458956c3428c48a964fd9da96bf5e259b7079e8fdfbaa4e4a084ef"
+        },
+        "reference_audio": {
+          "duration_s": 12.36,
+          "relative_path": "audio/ECV-0063_reference.wav",
+          "sha256": "eb89e14ce53853cb84d8f4f5fe16f153b8156bce00bb90ccbd1a6318dec9ad96"
+        }
+      },
+      "boundary_repaired": false,
+      "call_id": "2048429",
+      "exchange_index": 1,
+      "item_id": "ECV-0063",
+      "mp3_id": "1060005478",
+      "ppt_id": "1060122638",
+      "selection_tranche": "human_core_73",
+      "slide": {
+        "bytes": 594361,
+        "relative_path": "materials/2020/1060122638.pdf",
+        "sha256": "160e130be1507da0aa5d5b279f384e724d6709a0479be27eb31e99123602cec1"
+      },
+      "split": "development",
+      "split_order_sha256": "58de16af353c69baff0041b61af9ab00feca72738d35a1846a53b01489f4a5dd",
+      "year": 2020
+    },
+    {
+      "audio": {
+        "answer_audio": {
+          "duration_s": 5.06,
+          "relative_path": "audio/ECV-0023_answer.wav",
+          "sha256": "12e193a1ae4c71cd844b4b64c087144333d464188242eb970d903e9879002edf"
+        },
+        "reference_audio": {
+          "duration_s": 14.0,
+          "relative_path": "audio/ECV-0023_reference.wav",
+          "sha256": "0fa1f55f08107ede8f06571cefd6937711cd79d30e392bacb92e7b2aa46efda5"
+        }
+      },
+      "boundary_repaired": false,
+      "call_id": "1778827",
+      "exchange_index": 9,
+      "item_id": "ECV-0023",
+      "mp3_id": "743798468",
+      "ppt_id": "743543922",
+      "selection_tranche": "human_core_73",
+      "slide": {
+        "bytes": 1598598,
+        "relative_path": "materials/2019/743543922.pdf",
+        "sha256": "08f9b484d42b57f3f2a0b5676b4b7ee3fc9d309cf8a004b1ae4ac3a56e5ffa5e"
+      },
+      "split": "confirmation",
+      "split_order_sha256": "5bbf358e8ae12647763dc5fe8edb098711bd8281640a685f7bb015b5e31fca44",
+      "year": 2019
+    },
+    {
+      "audio": {
+        "answer_audio": {
+          "duration_s": 11.05,
+          "relative_path": "audio/ECV-0029_answer.wav",
+          "sha256": "89aacbbd1d98ff94ec69c2d1c738b9544c3682857b66848be0ccae16140d9218"
+        },
+        "reference_audio": {
+          "duration_s": 15.35,
+          "relative_path": "audio/ECV-0029_reference.wav",
+          "sha256": "8c66115f3dbb67cda3614ba807d884d3c582685c640f616d8afc6e030d0135fe"
+        }
+      },
+      "boundary_repaired": false,
+      "call_id": "1796908",
+      "exchange_index": 17,
+      "item_id": "ECV-0029",
+      "mp3_id": "759005978",
+      "ppt_id": "758527878",
+      "selection_tranche": "human_core_73",
+      "slide": {
+        "bytes": 1699886,
+        "relative_path": "materials/2019/758527878.pdf",
+        "sha256": "cc863edd30af0bb55e1e51d714b9874a9f85c5b332e65808f385493189bbbf9b"
+      },
+      "split": "confirmation",
+      "split_order_sha256": "607f25be1d78b7f570874d7e641fa1a2e7c3740c93f9b8730ac108f0e9e729b8",
+      "year": 2019
+    },
+    {
+      "audio": {
+        "answer_audio": {
+          "duration_s": 29.87,
+          "relative_path": "audio/ECV-0022_answer.wav",
+          "sha256": "9f31e58b70340bf58999fcfa8b65610a1241a12bb79fe7471e16c7314053e96d"
+        },
+        "reference_audio": {
+          "duration_s": 12.34,
+          "relative_path": "audio/ECV-0022_reference.wav",
+          "sha256": "c891c5a30b7d1a78c4327e777dec89cb611c118aca379010d3d020a158bb7954"
+        }
+      },
+      "boundary_repaired": false,
+      "call_id": "1776024",
+      "exchange_index": 0,
+      "item_id": "ECV-0022",
+      "mp3_id": "741109744",
+      "ppt_id": "740870194",
+      "selection_tranche": "human_core_73",
+      "slide": {
+        "bytes": 995212,
+        "relative_path": "materials/2019/740870194.pdf",
+        "sha256": "5c4082705da3d3f4e687ef67745cc333cd5582ebce4c2df277514411bb724a92"
+      },
+      "split": "confirmation",
+      "split_order_sha256": "62e606d6ee5e1dc65c01b19b7ad4ff6e964b7fab61e8c22c9bba6b971ff01e00",
+      "year": 2019
+    },
+    {
+      "audio": {
+        "answer_audio": {
+          "duration_s": 15.16,
+          "relative_path": "audio/ECV-0068_answer.wav",
+          "sha256": "29e9cf3b960e3ba518a59a20829e6c9a84cfddf4cb43c085744ac291a8a28b8b"
+        },
+        "reference_audio": {
+          "duration_s": 10.33,
+          "relative_path": "audio/ECV-0068_reference.wav",
+          "sha256": "11169bea79c73177b5f27ed121dc7498f38ee2e8ca8547f12695fedaf7422126"
+        }
+      },
+      "boundary_repaired": false,
+      "call_id": "2053293",
+      "exchange_index": 10,
+      "item_id": "ECV-0068",
+      "mp3_id": "1062848810",
+      "ppt_id": "1062976344",
+      "selection_tranche": "human_core_73",
+      "slide": {
+        "bytes": 1807759,
+        "relative_path": "materials/2020/1062976344.pdf",
+        "sha256": "f4b76f2acecc186c2c4ceb74c4007838c1c419a3298b41943b0963743ee80e9f"
+      },
+      "split": "confirmation",
+      "split_order_sha256": "6c3f3015492815997f6c0f2b130352d18edf53a4f2db38a50dea13f7d41b2c0c",
+      "year": 2020
+    },
+    {
+      "audio": {
+        "answer_audio": {
+          "duration_s": 10.039938,
+          "relative_path": "audio/ECV-0067_answer.wav",
+          "sha256": "4117473daa38c9dfbfdde29d0250d61b72383ac6e8556d2b489e7c66a7b973cf"
+        },
+        "reference_audio": {
+          "duration_s": 12.0,
+          "relative_path": "audio/ECV-0067_reference.wav",
+          "sha256": "398b0969b45842242bf439e18bf1b31a4e33e92799666e62246cad040b223106"
+        }
+      },
+      "boundary_repaired": false,
+      "call_id": "2051550",
+      "exchange_index": 12,
+      "item_id": "ECV-0067",
+      "mp3_id": "1061915480",
+      "ppt_id": "1061716964",
+      "selection_tranche": "human_core_73",
+      "slide": {
+        "bytes": 1602076,
+        "relative_path": "materials/2020/1061716964.pdf",
+        "sha256": "b69ff80f1dd0956d038934a99f7a6b35f44ce8f641faaac186eff2c892416c9e"
+      },
+      "split": "confirmation",
+      "split_order_sha256": "6cbb4d4aba26990fd8a97e1882eb50f1bb0693c2c141e8bdb9f24dccfc98e1c9",
+      "year": 2020
+    },
+    {
+      "audio": {
+        "answer_audio": {
+          "duration_s": 14.89,
+          "relative_path": "audio/ECV-0003_answer.wav",
+          "sha256": "424373e33f4574e3f7b42c82e9f8aba4382f40cb9c362694c40b7c4f4cba60e6"
+        },
+        "reference_audio": {
+          "duration_s": 13.27,
+          "relative_path": "audio/ECV-0003_reference.wav",
+          "sha256": "ff68e0a12ddc1586247d48441d735c0e99dc1fd27cccee2cc37dfd51de2710b2"
+        }
+      },
+      "boundary_repaired": false,
+      "call_id": "1641855",
+      "exchange_index": 23,
+      "item_id": "ECV-0003",
+      "mp3_id": "572992294",
+      "ppt_id": "573664950",
+      "selection_tranche": "human_scale_v04",
+      "slide": {
+        "bytes": 1114803,
+        "relative_path": "materials/2019/573664950.pdf",
+        "sha256": "5b892a5cee16f392af19e07c9219630ff2dd69438b29fa69fa75f2b53d35d1ed"
+      },
+      "split": "confirmation",
+      "split_order_sha256": "7103cb46f9e9e9b26648fe41a4576a28eae6e3c9a600506d50e0b504813fb08b",
+      "year": 2019
+    },
+    {
+      "audio": {
+        "answer_audio": {
+          "duration_s": 11.73,
+          "relative_path": "audio/ECV-0035_answer.wav",
+          "sha256": "0b5158dd56ad1de0d90bce3776b57a389769c8c5272cd35c17e719172fe153dc"
+        },
+        "reference_audio": {
+          "duration_s": 12.25,
+          "relative_path": "audio/ECV-0035_reference.wav",
+          "sha256": "7a5786f90c3eea51a50803413c5e670eb784bc32163a1c400ae6fac2a2e00278"
+        }
+      },
+      "boundary_repaired": false,
+      "call_id": "1846908",
+      "exchange_index": 13,
+      "item_id": "ECV-0035",
+      "mp3_id": "835274160",
+      "ppt_id": "835028098",
+      "selection_tranche": "human_core_73",
+      "slide": {
+        "bytes": 1248042,
+        "relative_path": "materials/2019/835028098.pdf",
+        "sha256": "0d31bb1e66df16fe9ac1614d766ff4b413d30c886866d1200e0e79c11e68409f"
+      },
+      "split": "confirmation",
+      "split_order_sha256": "79230d35baaf71dd1e27718f1177a3ec2de7603cdb170363d60769e9fb020043",
+      "year": 2019
+    },
+    {
+      "audio": {
+        "answer_audio": {
+          "duration_s": 20.67,
+          "relative_path": "audio/ECV-0016_answer.wav",
+          "sha256": "c2e535de7a9ae9749fd031aec85906892e3e4fdbec816ccc54fc4f802cdea41d"
+        },
+        "reference_audio": {
+          "duration_s": 14.19,
+          "relative_path": "audio/ECV-0016_reference.wav",
+          "sha256": "9c292fb90761fe9123f43bd4eddda3226f2bec415c45e6f08793c55db69f99a4"
+        }
+      },
+      "boundary_repaired": false,
+      "call_id": "1714901",
+      "exchange_index": 23,
+      "item_id": "ECV-0016",
+      "mp3_id": "664058512",
+      "ppt_id": "663450642",
+      "selection_tranche": "human_scale_v04",
+      "slide": {
+        "bytes": 327325,
+        "relative_path": "materials/2019/663450642.pdf",
+        "sha256": "b19e2eea0bae6b3be79d0dafa25aaf0653e61842b968737beda2d4e4261a4e3f"
+      },
+      "split": "confirmation",
+      "split_order_sha256": "7b36546c71ea2d85318852ab27b918e71042dfc97a01a62973259240abfa07ee",
+      "year": 2019
+    },
+    {
+      "audio": {
+        "answer_audio": {
+          "duration_s": 11.77,
+          "relative_path": "audio/ECV-0048_answer.wav",
+          "sha256": "c9b6772a71001f356164475c17144d4501b0a0de5d7851c3042b7c2afae818da"
+        },
+        "reference_audio": {
+          "duration_s": 13.07,
+          "relative_path": "audio/ECV-0048_reference.wav",
+          "sha256": "1fa089f945cb558314f6bfad4747f3d97f16fd7815d0ebbd099807db2219a5ad"
+        }
+      },
+      "boundary_repaired": false,
+      "call_id": "1909146",
+      "exchange_index": 17,
+      "item_id": "ECV-0048",
+      "mp3_id": "916757546",
+      "ppt_id": "916469396",
+      "selection_tranche": "human_core_73",
+      "slide": {
+        "bytes": 2733870,
+        "relative_path": "materials/2020/916469396.pdf",
+        "sha256": "9c9b37bc6807fd67188d22ee505365275615392f71301403523c8c3cdfe8603d"
+      },
+      "split": "confirmation",
+      "split_order_sha256": "7c1346b45ea5b9d83b4a5a4551428a8368cc9242a39bd5d3189afc2d8d733e54",
+      "year": 2020
+    },
+    {
+      "audio": {
+        "answer_audio": {
+          "duration_s": 5.87,
+          "relative_path": "audio/ECV-0041_answer.wav",
+          "sha256": "2764cc154b0b6f6e883141b65634c3c0556a5b77001f9ec0eb3d917c8fb24f45"
+        },
+        "reference_audio": {
+          "duration_s": 11.21,
+          "relative_path": "audio/ECV-0041_reference.wav",
+          "sha256": "745e0f4b042bb09abf33c2d0cc1922ffd1fa6b788bc0f865501ee06300b6d3a6"
+        }
+      },
+      "boundary_repaired": false,
+      "call_id": "1895290",
+      "exchange_index": 9,
+      "item_id": "ECV-0041",
+      "mp3_id": "903905308",
+      "ppt_id": "903742890",
+      "selection_tranche": "human_core_73",
+      "slide": {
+        "bytes": 2617575,
+        "relative_path": "materials/2020/903742890.pdf",
+        "sha256": "cee8ad0d8a8d7aa75054ddc895ac81f3f0ddf6db672a99d2c7456876d2a08d90"
+      },
+      "split": "confirmation",
+      "split_order_sha256": "7fef7eee10d85eb62d6505634fc762057e10c4c6ad08a69adea2a45fe142b656",
+      "year": 2020
+    },
+    {
+      "audio": {
+        "answer_audio": {
+          "duration_s": 15.09,
+          "relative_path": "audio/ECV-0037_answer.wav",
+          "sha256": "e9aecaf2e9ab163aa6c6a7df7a1759c575811b326f095293b7f82dac41ba25c1"
+        },
+        "reference_audio": {
+          "duration_s": 15.17,
+          "relative_path": "audio/ECV-0037_reference.wav",
+          "sha256": "1ee31641a379791b739259013c9c170cff197908d75b511e0104bc58372bae62"
+        }
+      },
+      "boundary_repaired": false,
+      "call_id": "1851570",
+      "exchange_index": 19,
+      "item_id": "ECV-0037",
+      "mp3_id": "838784500",
+      "ppt_id": "838726640",
+      "selection_tranche": "human_core_73",
+      "slide": {
+        "bytes": 2706295,
+        "relative_path": "materials/2019/838726640.pdf",
+        "sha256": "a5bd84caf9f7a79df4e5a33f290ceaeda4a1a17e3a24c73da7912e9b3c263e22"
+      },
+      "split": "confirmation",
+      "split_order_sha256": "8aadc118f692c0bf4bbbc9bd7bb185c8ad6952b4bbf008b18bc5879f36010c16",
+      "year": 2019
+    },
+    {
+      "audio": {
+        "answer_audio": {
+          "duration_s": 19.81,
+          "relative_path": "audio/ECV-0008_answer.wav",
+          "sha256": "1dc7a9956a67b8510e18472b3bc73e13ec1d320c52e1ae65be3fa3b46e56886b"
+        },
+        "reference_audio": {
+          "duration_s": 10.29,
+          "relative_path": "audio/ECV-0008_reference.wav",
+          "sha256": "e347588e3400c9fb6276bd53d3ad5f50f216c0f8f23a726c3bacf8819cd5a9ad"
+        }
+      },
+      "boundary_repaired": false,
+      "call_id": "1670663",
+      "exchange_index": 2,
+      "item_id": "ECV-0008",
+      "mp3_id": "605896738",
+      "ppt_id": "606595122",
+      "selection_tranche": "human_scale_v03",
+      "slide": {
+        "bytes": 12751913,
+        "relative_path": "materials/2019/606595122.pdf",
+        "sha256": "b472883773f72f9d473068e0113786063e2f57b3aa90b79ee2037e718e64efef"
+      },
+      "split": "confirmation",
+      "split_order_sha256": "8cbb6cf1f1165cea1638c4d27ab1dae3c0132224003056b6440b5c0ec46ac878",
+      "year": 2019
+    },
+    {
+      "audio": {
+        "answer_audio": {
+          "duration_s": 19.37,
+          "relative_path": "audio/ECV-0066_answer.wav",
+          "sha256": "36414abb8b07213ab06fdd1807de7550940005a7b21e11f2a9ceab5f9d7573b1"
+        },
+        "reference_audio": {
+          "duration_s": 15.35,
+          "relative_path": "audio/ECV-0066_reference.wav",
+          "sha256": "33c6888691b189cf9e207fc29d65978590d1d8be0f2b8be92faf8dcc538393fa"
+        }
+      },
+      "boundary_repaired": false,
+      "call_id": "2050285",
+      "exchange_index": 22,
+      "item_id": "ECV-0066",
+      "mp3_id": "1060964660",
+      "ppt_id": "1060910502",
+      "selection_tranche": "human_core_73",
+      "slide": {
+        "bytes": 942191,
+        "relative_path": "materials/2020/1060910502.pdf",
+        "sha256": "86fe286a7b6fb2437c8d312eac98f8cb30df0ab6132402777000c4094da3a8c1"
+      },
+      "split": "confirmation",
+      "split_order_sha256": "8d2102b2cdfbd0c3a1432f16e2b4417f79bb46c5085d046509417b08c8361a9b",
+      "year": 2020
+    },
+    {
+      "audio": {
+        "answer_audio": {
+          "duration_s": 22.55,
+          "relative_path": "audio/ECV-0036_answer.wav",
+          "sha256": "e842ba56fbe8f40c3996a4a1458b95f857dd319b2eb26503c56c2d29634d6204"
+        },
+        "reference_audio": {
+          "duration_s": 11.31,
+          "relative_path": "audio/ECV-0036_reference.wav",
+          "sha256": "b1964463bec14e89740c58162232a8f92c6cbffffd0aaf588106b0386f7125a8"
+        }
+      },
+      "boundary_repaired": false,
+      "call_id": "1847063",
+      "exchange_index": 18,
+      "item_id": "ECV-0036",
+      "mp3_id": "835479776",
+      "ppt_id": "842743686",
+      "selection_tranche": "human_core_73",
+      "slide": {
+        "bytes": 3314136,
+        "relative_path": "materials/2019/842743686.pdf",
+        "sha256": "6189b8b7b20385c65a47d69ecf58f5c65dc9625d6f21396341de334b754f19d4"
+      },
+      "split": "confirmation",
+      "split_order_sha256": "9071610ade22129f28b72f62cbd2d2b090ee8c8c1ef71d1821a6db72f4a6f6d4",
+      "year": 2019
+    },
+    {
+      "audio": {
+        "answer_audio": {
+          "duration_s": 9.179937,
+          "relative_path": "audio/ECV-0009_answer.wav",
+          "sha256": "b3b17fcbb689b38715568e2b22c68e69d0dbd2ee8769bd6627ae9682ba4678a0"
+        },
+        "reference_audio": {
+          "duration_s": 10.0,
+          "relative_path": "audio/ECV-0009_reference.wav",
+          "sha256": "7a2f009074e1428296d9a6b197f4836a0b23fbeacac8e9ed47a244931f0ba52a"
+        }
+      },
+      "boundary_repaired": false,
+      "call_id": "1672623",
+      "exchange_index": 4,
+      "item_id": "ECV-0009",
+      "mp3_id": "607093510",
+      "ppt_id": "606186700",
+      "selection_tranche": "human_core_73",
+      "slide": {
+        "bytes": 3615369,
+        "relative_path": "materials/2019/606186700.pdf",
+        "sha256": "39fcc73245f0b2143bd11808a8e1d20856b7e202d33edaaec2d8dc4aeed6dc38"
+      },
+      "split": "confirmation",
+      "split_order_sha256": "9533740095911969b7bca25bbed00c1d716b9e999259f2994b911139a747dca5",
+      "year": 2019
+    },
+    {
+      "audio": {
+        "answer_audio": {
+          "duration_s": 23.69,
+          "relative_path": "audio/ECV-0043_answer.wav",
+          "sha256": "5d868d37373e77a5cfa5ee7ed337fe838913925bc4b55af489f10c1120028f9e"
+        },
+        "reference_audio": {
+          "duration_s": 14.27,
+          "relative_path": "audio/ECV-0043_reference.wav",
+          "sha256": "fac18fac8e23f4f3db6bc868e7e9deab4fc26bac4245bc3a27c23891e2e69bd8"
+        }
+      },
+      "boundary_repaired": false,
+      "call_id": "1896422",
+      "exchange_index": 20,
+      "item_id": "ECV-0043",
+      "mp3_id": "904901188",
+      "ppt_id": "904625892",
+      "selection_tranche": "human_scale_v03",
+      "slide": {
+        "bytes": 3814356,
+        "relative_path": "materials/2020/904625892.pdf",
+        "sha256": "1eb292bd6749a3d473f32fce084be361a3ec4df5df4807a6059774afc092d1be"
+      },
+      "split": "confirmation",
+      "split_order_sha256": "95ac30903ccd4fc2d749813c9a0ae95ce7ccaa8c55092de8838f5684b728d414",
+      "year": 2020
+    },
+    {
+      "audio": {
+        "answer_audio": {
+          "duration_s": 26.75,
+          "relative_path": "audio/ECV-0021_answer.wav",
+          "sha256": "53ce798eac5eab0b2bd80e0fa2335355868d888d3b3555fb24378383cb3b94b1"
+        },
+        "reference_audio": {
+          "duration_s": 11.15,
+          "relative_path": "audio/ECV-0021_reference.wav",
+          "sha256": "ac9159e5c43d089aec076fb69c4b0908097d95bdf1b34100b17c6ee958ff6a67"
+        }
+      },
+      "boundary_repaired": false,
+      "call_id": "1754425",
+      "exchange_index": 23,
+      "item_id": "ECV-0021",
+      "mp3_id": "703927018",
+      "ppt_id": "703657536",
+      "selection_tranche": "human_core_73",
+      "slide": {
+        "bytes": 977535,
+        "relative_path": "materials/2019/703657536.pdf",
+        "sha256": "7ea65e347552bb84e5ecb3235d9e85896b0ccbd929daecd93f1cfc6c5dc137dc"
+      },
+      "split": "confirmation",
+      "split_order_sha256": "9fae5d0e7ad7da3ec26696fb63d049746ca0233522447eb18dcd4cd4323257dd",
+      "year": 2019
+    },
+    {
+      "audio": {
+        "answer_audio": {
+          "duration_s": 21.43,
+          "relative_path": "audio/ECV-0006_answer.wav",
+          "sha256": "e5e1d1a0d33cf79550f092c7895aa453efcc89358c11444ac1b24771e8385f1d"
+        },
+        "reference_audio": {
+          "duration_s": 10.29,
+          "relative_path": "audio/ECV-0006_reference.wav",
+          "sha256": "a727eab5ad43dd69a2c42030a1792cf02fc9045e689ef5e667b7d508852641c4"
+        }
+      },
+      "boundary_repaired": false,
+      "call_id": "1656562",
+      "exchange_index": 21,
+      "item_id": "ECV-0006",
+      "mp3_id": "593209058",
+      "ppt_id": "593850394",
+      "selection_tranche": "human_core_73",
+      "slide": {
+        "bytes": 606001,
+        "relative_path": "materials/2019/593850394.pdf",
+        "sha256": "2c2b1566baaab308893d8767484ffb64f27be5dd8d36cf43d17085bc3a1c58fd"
+      },
+      "split": "confirmation",
+      "split_order_sha256": "a12764cd0e9bd086e314a37f287e3f79ce4acee00b22693b80aa1544c9b7b63b",
+      "year": 2019
+    },
+    {
+      "audio": {
+        "answer_audio": {
+          "duration_s": 28.01,
+          "relative_path": "audio/ECV-0017_answer.wav",
+          "sha256": "038666209a423abeb481222028ea10d42ad9470dc3eed5af7dbe170d1a5dad87"
+        },
+        "reference_audio": {
+          "duration_s": 12.37,
+          "relative_path": "audio/ECV-0017_reference.wav",
+          "sha256": "af5875adcd3020c893ef0b2bee7537039e69b4c04c4f6e8ef6a5b079ab276857"
+        }
+      },
+      "boundary_repaired": false,
+      "call_id": "1715359",
+      "exchange_index": 3,
+      "item_id": "ECV-0017",
+      "mp3_id": "664147292",
+      "ppt_id": "664088780",
+      "selection_tranche": "human_core_73",
+      "slide": {
+        "bytes": 1152728,
+        "relative_path": "materials/2019/664088780.pdf",
+        "sha256": "2e90c90c996dae406a4f4b036e42bd8d7295f3ce2f532992bbe4f4f0de72b45f"
+      },
+      "split": "confirmation",
+      "split_order_sha256": "a5fce7da1e4da29a313a42a54de68c484e329a5ba26bf7a83db2f75be5f10ece",
+      "year": 2019
+    },
+    {
+      "audio": {
+        "answer_audio": {
+          "duration_s": 29.47,
+          "relative_path": "audio/ECV-0039_answer.wav",
+          "sha256": "ad6e438e829431eb1dd88115f8b36532444deb10abac60dccd48371ea4069754"
+        },
+        "reference_audio": {
+          "duration_s": 11.35,
+          "relative_path": "audio/ECV-0039_reference.wav",
+          "sha256": "be9f1a9f01e189666025d6c7f367a8d074cbb95d29b1e451319cf6df82d55d05"
+        }
+      },
+      "boundary_repaired": false,
+      "call_id": "1869482",
+      "exchange_index": 2,
+      "item_id": "ECV-0039",
+      "mp3_id": "852753074",
+      "ppt_id": "853113830",
+      "selection_tranche": "human_core_73",
+      "slide": {
+        "bytes": 532179,
+        "relative_path": "materials/2019/853113830.pdf",
+        "sha256": "0e6c6c15bf4484391d62504bd3ee6990fe51b1d85d5f18f342c9dbd079ec327c"
+      },
+      "split": "confirmation",
+      "split_order_sha256": "a8de6b55d7309fb13275ce84a00916109f2eda580ed7f8b8afaea2bb120e256b",
+      "year": 2019
+    },
+    {
+      "audio": {
+        "answer_audio": {
+          "duration_s": 19.47,
+          "relative_path": "audio/ECV-0018_answer.wav",
+          "sha256": "70b8dec74bde0bcbf9f0a3d14b152a449f719107c78ae648f565bdf7ddd9a48b"
+        },
+        "reference_audio": {
+          "duration_s": 12.37,
+          "relative_path": "audio/ECV-0018_reference.wav",
+          "sha256": "7a9d96ce7cf3e24553a3ec7ba6b75a8ae4d0c4d845bc929c77d3d61b8644bc24"
+        }
+      },
+      "boundary_repaired": false,
+      "call_id": "1716005",
+      "exchange_index": 10,
+      "item_id": "ECV-0018",
+      "mp3_id": "664349210",
+      "ppt_id": "666761258",
+      "selection_tranche": "human_core_73",
+      "slide": {
+        "bytes": 1650889,
+        "relative_path": "materials/2019/666761258.pdf",
+        "sha256": "8ab074a6cf313c61a756d5e5dc8882c8a35e91c0c7a595c960b97f4fbb4059d7"
+      },
+      "split": "confirmation",
+      "split_order_sha256": "a92cd6e26a682ffa6c77621f91f3e95c74a5e03a5a6cd106ee8fbd3503bed82a",
+      "year": 2019
+    },
+    {
+      "audio": {
+        "answer_audio": {
+          "duration_s": 20.15,
+          "relative_path": "audio/ECV-0056_answer.wav",
+          "sha256": "4112e61ad16662b3483f85c23b03c2422536f009c988e4f532f4886b4479227e"
+        },
+        "reference_audio": {
+          "duration_s": 13.33,
+          "relative_path": "audio/ECV-0056_reference.wav",
+          "sha256": "d909572ed0a25c73ab8188357912b819bcd76f5f6758ed033e67574f01d82634"
+        }
+      },
+      "boundary_repaired": false,
+      "call_id": "1975427",
+      "exchange_index": 9,
+      "item_id": "ECV-0056",
+      "mp3_id": "995806802",
+      "ppt_id": "995576852",
+      "selection_tranche": "human_core_73",
+      "slide": {
+        "bytes": 476062,
+        "relative_path": "materials/2020/995576852.pdf",
+        "sha256": "191a77af4b55a9f134ceba406a0163db8b24980b05b93abe0ed0e65f42dbaf8e"
+      },
+      "split": "confirmation",
+      "split_order_sha256": "a987704e90bb8961c7e21c8fb6500ac4e6be00694ab864c129cb4bd81b60a2cc",
+      "year": 2020
+    },
+    {
+      "audio": {
+        "answer_audio": {
+          "duration_s": 10.57,
+          "relative_path": "audio/ECV-0032_answer.wav",
+          "sha256": "b03b5bc0ec3965c94b5b044239c8da0aa6658b07cf47c64284fb2287f56f0146"
+        },
+        "reference_audio": {
+          "duration_s": 15.33,
+          "relative_path": "audio/ECV-0032_reference.wav",
+          "sha256": "ad959c58a26505cdc8e96ed3275589ca6b97649362ac567d729a6ef512374b2f"
+        }
+      },
+      "boundary_repaired": false,
+      "call_id": "1833213",
+      "exchange_index": 4,
+      "item_id": "ECV-0032",
+      "mp3_id": "820831492",
+      "ppt_id": "820610064",
+      "selection_tranche": "human_core_73",
+      "slide": {
+        "bytes": 597038,
+        "relative_path": "materials/2019/820610064.pdf",
+        "sha256": "e45f169a2e3277480e736b5bf80bfc78c417a72d49eb05297ac4928d939c68fb"
+      },
+      "split": "confirmation",
+      "split_order_sha256": "ab5bd6decc67a790245fa1a43abf4e8720d1ff6b7cb4fea71f586b16678fc75c",
+      "year": 2019
+    },
+    {
+      "audio": {
+        "answer_audio": {
+          "duration_s": 24.73,
+          "relative_path": "audio/ECV-0031_answer.wav",
+          "sha256": "378f8534bf4fa55db8f49f31a8e52d1e573d6999c6d38649c07ad078ad697a6e"
+        },
+        "reference_audio": {
+          "duration_s": 12.32,
+          "relative_path": "audio/ECV-0031_reference.wav",
+          "sha256": "1d240ca8a407e2d17195b7d626a552a3eda7cf9e0f08005c868bdf3ca2fb93c9"
+        }
+      },
+      "boundary_repaired": true,
+      "call_id": "1832800",
+      "exchange_index": 15,
+      "item_id": "ECV-0031",
+      "mp3_id": "819812248",
+      "ppt_id": "820265122",
+      "selection_tranche": "human_boundary_repair_v02",
+      "slide": {
+        "bytes": 575660,
+        "relative_path": "materials/2019/820265122.pdf",
+        "sha256": "08473d18e096b5fccd6542820de66fa5918da68c6c6ba091c62f4ae45f1425ca"
+      },
+      "split": "confirmation",
+      "split_order_sha256": "ad81e6c8012214c3a395c34365908a153eae2d68797d5740744e193afcf85127",
+      "year": 2019
+    },
+    {
+      "audio": {
+        "answer_audio": {
+          "duration_s": 8.23,
+          "relative_path": "audio/ECV-0015_answer.wav",
+          "sha256": "2bb0746343e0cfb04d1e42c7d18a9c56be55df6c43a24ec894f68c25a19d90ee"
+        },
+        "reference_audio": {
+          "duration_s": 11.31,
+          "relative_path": "audio/ECV-0015_reference.wav",
+          "sha256": "68d56fd965f88d3373cf74a4fcaa54d540f6f477b9512075b3c1c56a171e4aef"
+        }
+      },
+      "boundary_repaired": false,
+      "call_id": "1706273",
+      "exchange_index": 21,
+      "item_id": "ECV-0015",
+      "mp3_id": "657942092",
+      "ppt_id": "657807746",
+      "selection_tranche": "human_core_73",
+      "slide": {
+        "bytes": 522167,
+        "relative_path": "materials/2019/657807746.pdf",
+        "sha256": "5b5003f8d730273b6f498ff1eef568eec8173b4966ffa8243fb174bf97f48e7f"
+      },
+      "split": "confirmation",
+      "split_order_sha256": "af591a5edce5d76263effb63fdbd398bb8d24b74e2b3ddb6c41ef1a9c2c8c84c",
+      "year": 2019
+    },
+    {
+      "audio": {
+        "answer_audio": {
+          "duration_s": 5.77,
+          "relative_path": "audio/ECV-0061_answer.wav",
+          "sha256": "614e7e26809d88625c0f00f9c2153d41892fc295209256dc8643c2d90c132fa6"
+        },
+        "reference_audio": {
+          "duration_s": 14.33,
+          "relative_path": "audio/ECV-0061_reference.wav",
+          "sha256": "b85b70fea96a74f8f44f204956d49a255f00e47310cf82ec5fe1063170b70dae"
+        }
+      },
+      "boundary_repaired": false,
+      "call_id": "2045766",
+      "exchange_index": 5,
+      "item_id": "ECV-0061",
+      "mp3_id": "1057555986",
+      "ppt_id": "1057463016",
+      "selection_tranche": "human_core_73",
+      "slide": {
+        "bytes": 1381088,
+        "relative_path": "materials/2020/1057463016.pdf",
+        "sha256": "b342e89a0193189a93c4dc4192eec6bc6f7a91ef08addb1505e55a29118062f9"
+      },
+      "split": "confirmation",
+      "split_order_sha256": "b0d07b17b28f29f05f918141b4974646a112aa0c393c1693f523ee3892fc38c8",
+      "year": 2020
+    },
+    {
+      "audio": {
+        "answer_audio": {
+          "duration_s": 26.62,
+          "relative_path": "audio/ECV-0007_answer.wav",
+          "sha256": "f3e223b49f1ff7f923f4c0b75156aabc2d8c0cae2b3fcbeb2ee91bf682b67954"
+        },
+        "reference_audio": {
+          "duration_s": 15.0,
+          "relative_path": "audio/ECV-0007_reference.wav",
+          "sha256": "b13f4cf0c5eab39f8ed81ed3bb0af3bc42ceae37c25ff302c690d48c82767e0a"
+        }
+      },
+      "boundary_repaired": false,
+      "call_id": "1656986",
+      "exchange_index": 6,
+      "item_id": "ECV-0007",
+      "mp3_id": "593331570",
+      "ppt_id": "592194790",
+      "selection_tranche": "human_core_73",
+      "slide": {
+        "bytes": 7995021,
+        "relative_path": "materials/2019/592194790.pdf",
+        "sha256": "e24789fe448dabc52a00ab6875ba671887a2945176b28f85887a7a337a105c8a"
+      },
+      "split": "confirmation",
+      "split_order_sha256": "b335350d13673224b6d8e2d7c96dab8d330a9a358d0659997214667ceb599e5c",
+      "year": 2019
+    },
+    {
+      "audio": {
+        "answer_audio": {
+          "duration_s": 11.93,
+          "relative_path": "audio/ECV-0034_answer.wav",
+          "sha256": "57bc8e2ce94cf44be122baaf2f51f647d049adb5069ff7feed69ba6006bb6283"
+        },
+        "reference_audio": {
+          "duration_s": 12.23,
+          "relative_path": "audio/ECV-0034_reference.wav",
+          "sha256": "6fdc622a67ee2839107e3a6ecb70a4c25ba785bdfb0892bc5834bc2a58a59df3"
+        }
+      },
+      "boundary_repaired": false,
+      "call_id": "1840056",
+      "exchange_index": 12,
+      "item_id": "ECV-0034",
+      "mp3_id": "828981448",
+      "ppt_id": "828060436",
+      "selection_tranche": "human_core_73",
+      "slide": {
+        "bytes": 219011,
+        "relative_path": "materials/2019/828060436.pdf",
+        "sha256": "c11ce688fcf2dec8d8d860ce2127d8acb3ccfd26807ea2217bc9bc47f57cbfcb"
+      },
+      "split": "confirmation",
+      "split_order_sha256": "b3dbef93793a2db17b5729b4a49a026779b900ba6dbf75437a0772333e3c0d74",
+      "year": 2019
+    },
+    {
+      "audio": {
+        "answer_audio": {
+          "duration_s": 18.77,
+          "relative_path": "audio/ECV-0027_answer.wav",
+          "sha256": "5af524973f9cc09ff025630ca10ec99dbd840bc2e0109d8ea89b3fc512ef6759"
+        },
+        "reference_audio": {
+          "duration_s": 15.35,
+          "relative_path": "audio/ECV-0027_reference.wav",
+          "sha256": "0375f2cafa6eb5df36c5bf1eb4bb7e2d693f871e30433e5d08b130d75fe5e0ab"
+        }
+      },
+      "boundary_repaired": false,
+      "call_id": "1788402",
+      "exchange_index": 6,
+      "item_id": "ECV-0027",
+      "mp3_id": "751883698",
+      "ppt_id": "751797384",
+      "selection_tranche": "human_core_73",
+      "slide": {
+        "bytes": 291494,
+        "relative_path": "materials/2019/751797384.pdf",
+        "sha256": "050f960eac3c582981a76b6c7868839fb28d73dab00aca9a134bb037eced99b0"
+      },
+      "split": "confirmation",
+      "split_order_sha256": "ba60cdb4fe475c5adca87bca179dcc92e211067276b248714ae1d776f6b8e510",
+      "year": 2019
+    },
+    {
+      "audio": {
+        "answer_audio": {
+          "duration_s": 13.65,
+          "relative_path": "audio/ECV-0060_answer.wav",
+          "sha256": "7bd7b02e38a580a11dab9c021eb53b11dc3d04b3dffd6b7dbab4014a1be3ea84"
+        },
+        "reference_audio": {
+          "duration_s": 13.23,
+          "relative_path": "audio/ECV-0060_reference.wav",
+          "sha256": "1172da97dbe58972b15df6d076d8da968aa60d1214eb8e00ab433e88180b0328"
+        }
+      },
+      "boundary_repaired": false,
+      "call_id": "2042703",
+      "exchange_index": 10,
+      "item_id": "ECV-0060",
+      "mp3_id": "1055861626",
+      "ppt_id": "1056238724",
+      "selection_tranche": "human_scale_v04",
+      "slide": {
+        "bytes": 777294,
+        "relative_path": "materials/2020/1056238724.pdf",
+        "sha256": "b38f8059461923c5f713cc7bedbfb0c5f7745142c8387bd19570499039a12e42"
+      },
+      "split": "confirmation",
+      "split_order_sha256": "c0abe56bf7f930a12cb5cb082bb0ef161d82e8611dc073db65f8708ccd031a6b",
+      "year": 2020
+    },
+    {
+      "audio": {
+        "answer_audio": {
+          "duration_s": 25.69,
+          "relative_path": "audio/ECV-0042_answer.wav",
+          "sha256": "ff36ec91b25904d882d84efd5fc5d553af838b3103ad4ea1cc0682b3288d8b73"
+        },
+        "reference_audio": {
+          "duration_s": 12.35,
+          "relative_path": "audio/ECV-0042_reference.wav",
+          "sha256": "744bc2e6c397168d827489fd138e0a20b69b3571a36dff78bb680060ae1aa7cf"
+        }
+      },
+      "boundary_repaired": false,
+      "call_id": "1895836",
+      "exchange_index": 12,
+      "item_id": "ECV-0042",
+      "mp3_id": "904203278",
+      "ppt_id": "904140878",
+      "selection_tranche": "human_core_73",
+      "slide": {
+        "bytes": 2090972,
+        "relative_path": "materials/2020/904140878.pdf",
+        "sha256": "f258ce1b0ed3f5955c1c79d83ec3af37e6fbfc4cce4a523a5930cbccfe856668"
+      },
+      "split": "confirmation",
+      "split_order_sha256": "c0cf3badf7f10ea0029a280af17336b6da91dafb07d3658c29c7ee065bfda276",
+      "year": 2020
+    },
+    {
+      "audio": {
+        "answer_audio": {
+          "duration_s": 7.57,
+          "relative_path": "audio/ECV-0053_answer.wav",
+          "sha256": "de0980326719225eeee266609ded8dfb8bdfaaba4578e81f1c78c1d5f35937dd"
+        },
+        "reference_audio": {
+          "duration_s": 11.33,
+          "relative_path": "audio/ECV-0053_reference.wav",
+          "sha256": "4e490d34fd41d7620960a8dfc7ceb1511adb730220743b3b8705fd0dc91bf7a3"
+        }
+      },
+      "boundary_repaired": false,
+      "call_id": "1964425",
+      "exchange_index": 4,
+      "item_id": "ECV-0053",
+      "mp3_id": "988695806",
+      "ppt_id": "1002242514",
+      "selection_tranche": "human_core_73",
+      "slide": {
+        "bytes": 2774661,
+        "relative_path": "materials/2020/1002242514.pdf",
+        "sha256": "860a66c890e5bb95dfadf36b4149c25496ce6a70838bec971b326801836ec73c"
+      },
+      "split": "confirmation",
+      "split_order_sha256": "c1134accb4f302cf21cbc08c46f17a5e06d25c846cb8f37bda7e3972543ffab5",
+      "year": 2020
+    },
+    {
+      "audio": {
+        "answer_audio": {
+          "duration_s": 17.89,
+          "relative_path": "audio/ECV-0014_answer.wav",
+          "sha256": "14c45ca926782ccb77a70a77e37f043d0a41becb5b135f50e6bc81f36880a5e3"
+        },
+        "reference_audio": {
+          "duration_s": 13.35,
+          "relative_path": "audio/ECV-0014_reference.wav",
+          "sha256": "6695f55468aa469a0748fbf5455d7404426a252d3c41283c2fe981784c622ea3"
+        }
+      },
+      "boundary_repaired": false,
+      "call_id": "1705260",
+      "exchange_index": 5,
+      "item_id": "ECV-0014",
+      "mp3_id": "657550112",
+      "ppt_id": "657106020",
+      "selection_tranche": "human_scale_v03",
+      "slide": {
+        "bytes": 4028931,
+        "relative_path": "materials/2019/657106020.pdf",
+        "sha256": "475e42e6e311c8734ea97af0ba09617f69248267ce708b25eb80495062be27e9"
+      },
+      "split": "confirmation",
+      "split_order_sha256": "c2aa562f8191e6247bd502061f76edba661315b3e66437bdf8a036fa30b4e884",
+      "year": 2019
+    },
+    {
+      "audio": {
+        "answer_audio": {
+          "duration_s": 17.38,
+          "relative_path": "audio/ECV-0019_answer.wav",
+          "sha256": "a61f0b849b243ec26a287fe7d769e523bb981367891eb8943bf84fc78c898a48"
+        },
+        "reference_audio": {
+          "duration_s": 14.0,
+          "relative_path": "audio/ECV-0019_reference.wav",
+          "sha256": "3de5924b3d0ccbae4ea10417f1829df19457406306da8c64555c9c82f73f53f8"
+        }
+      },
+      "boundary_repaired": false,
+      "call_id": "1716891",
+      "exchange_index": 9,
+      "item_id": "ECV-0019",
+      "mp3_id": "665522390",
+      "ppt_id": "665051238",
+      "selection_tranche": "human_core_73",
+      "slide": {
+        "bytes": 1521580,
+        "relative_path": "materials/2019/665051238.pdf",
+        "sha256": "bb56436ab8f1ab443ad609bb71f51dea140e4da740adeca3782c1304701c87f5"
+      },
+      "split": "confirmation",
+      "split_order_sha256": "c6288a8ce8c076ad052b6a08b825008358f3ec2e8fd314c801b85e775aa512d3",
+      "year": 2019
+    },
+    {
+      "audio": {
+        "answer_audio": {
+          "duration_s": 14.57,
+          "relative_path": "audio/ECV-0020_answer.wav",
+          "sha256": "290d844d55a30923fecd7e909ba3973414cee33847b191231be2d39ea54e44cd"
+        },
+        "reference_audio": {
+          "duration_s": 15.37,
+          "relative_path": "audio/ECV-0020_reference.wav",
+          "sha256": "23651567452fc6cfcfa8441507ca67af9cc04e6369f6eccea6d350276e751379"
+        }
+      },
+      "boundary_repaired": false,
+      "call_id": "1724823",
+      "exchange_index": 15,
+      "item_id": "ECV-0020",
+      "mp3_id": "672450464",
+      "ppt_id": "675809020",
+      "selection_tranche": "human_core_73",
+      "slide": {
+        "bytes": 306709,
+        "relative_path": "materials/2019/675809020.pdf",
+        "sha256": "7e7febfb689e646976decb863491ffc748806f0955f61a6de9eba5e223636911"
+      },
+      "split": "confirmation",
+      "split_order_sha256": "c6b57045a077575723e01baf6257b3490b22fb5a5b7f5be97a926c90efc577b6",
+      "year": 2019
+    },
+    {
+      "audio": {
+        "answer_audio": {
+          "duration_s": 20.67,
+          "relative_path": "audio/ECV-0028_answer.wav",
+          "sha256": "9aa6f2dbfca5ed3c4763fff3a962cfe01388553effb12e4c1f7ee8863adcdfd4"
+        },
+        "reference_audio": {
+          "duration_s": 10.37,
+          "relative_path": "audio/ECV-0028_reference.wav",
+          "sha256": "41aa50da75017c828c379551a0c8a1ff450ad2295612bc71a99649d7b50824bd"
+        }
+      },
+      "boundary_repaired": false,
+      "call_id": "1796865",
+      "exchange_index": 8,
+      "item_id": "ECV-0028",
+      "mp3_id": "759006872",
+      "ppt_id": "758453192",
+      "selection_tranche": "human_core_73",
+      "slide": {
+        "bytes": 3245160,
+        "relative_path": "materials/2019/758453192.pdf",
+        "sha256": "05a3a2ce18ba747dbca1cdf3e14141160416a30f924e6447cd829253b652388f"
+      },
+      "split": "confirmation",
+      "split_order_sha256": "ce3d4b1fbe17603ab723d8cc95533fa3d1f9dd2fed4dd0af59851ee3b856033a",
+      "year": 2019
+    },
+    {
+      "audio": {
+        "answer_audio": {
+          "duration_s": 25.91,
+          "relative_path": "audio/ECV-0045_answer.wav",
+          "sha256": "7c8ad2c1b482aa6b3e989e174547165205a1ae55824e32a4976cd8e651a84745"
+        },
+        "reference_audio": {
+          "duration_s": 10.35,
+          "relative_path": "audio/ECV-0045_reference.wav",
+          "sha256": "bfef048ff0e6daf146c5ac27926a54c82719f7121672f9b8a0eeff8f0d5e6286"
+        }
+      },
+      "boundary_repaired": false,
+      "call_id": "1896479",
+      "exchange_index": 2,
+      "item_id": "ECV-0045",
+      "mp3_id": "904993582",
+      "ppt_id": "904622318",
+      "selection_tranche": "human_scale_v03",
+      "slide": {
+        "bytes": 603914,
+        "relative_path": "materials/2020/904622318.pdf",
+        "sha256": "c7287d55073cac92b8f3787d9d4fef1411a7dd5001c68ee71a63041f595639fa"
+      },
+      "split": "confirmation",
+      "split_order_sha256": "ceaa0ad5c9bbb097624019c783989e5825c3c768113bfa30b288412a0346429a",
+      "year": 2020
+    },
+    {
+      "audio": {
+        "answer_audio": {
+          "duration_s": 19.45,
+          "relative_path": "audio/ECV-0040_answer.wav",
+          "sha256": "e64820fee5668cb345c6e54059a0d6ca6a8f7ac0ff9d389aaccf56d4e43767ae"
+        },
+        "reference_audio": {
+          "duration_s": 10.31,
+          "relative_path": "audio/ECV-0040_reference.wav",
+          "sha256": "23b52403be4b421d23f3805bff9a4e39194d7d0e72fcbaab56013bc2dfedf977"
+        }
+      },
+      "boundary_repaired": false,
+      "call_id": "1881255",
+      "exchange_index": 3,
+      "item_id": "ECV-0040",
+      "mp3_id": "869480770",
+      "ppt_id": "869402988",
+      "selection_tranche": "human_scale_v04",
+      "slide": {
+        "bytes": 300619,
+        "relative_path": "materials/2019/869402988.pdf",
+        "sha256": "2432cb5ebbf496b9a022b46a7fe8aa566a726db1e28a190747e0b2e73525b4f6"
+      },
+      "split": "confirmation",
+      "split_order_sha256": "d1f7974c1a7812c128fd3d420cfa483260c5f6aee10693f3b6c6bf7adb4a252e",
+      "year": 2019
+    },
+    {
+      "audio": {
+        "answer_audio": {
+          "duration_s": 15.13,
+          "relative_path": "audio/ECV-0044_answer.wav",
+          "sha256": "65ab574f2308ba34cb1d1de7e0d1ff354f74d359f871735ef2d0a8168d4320da"
+        },
+        "reference_audio": {
+          "duration_s": 12.34,
+          "relative_path": "audio/ECV-0044_reference.wav",
+          "sha256": "d859ebf191cd33afa917949eaf0265af05ffbea29347d6d37d88d934abed001c"
+        }
+      },
+      "boundary_repaired": false,
+      "call_id": "1896424",
+      "exchange_index": 10,
+      "item_id": "ECV-0044",
+      "mp3_id": "904956960",
+      "ppt_id": "904797532",
+      "selection_tranche": "human_core_73",
+      "slide": {
+        "bytes": 1415672,
+        "relative_path": "materials/2020/904797532.pdf",
+        "sha256": "85fb965884478dbab72d584a571f094ee62a964116a4de3d7d97047410ddd199"
+      },
+      "split": "confirmation",
+      "split_order_sha256": "d3fbc0d04f9f00e58f57480acea447a9098877af68ec3a384bc83111e8f33416",
+      "year": 2020
+    },
+    {
+      "audio": {
+        "answer_audio": {
+          "duration_s": 12.95,
+          "relative_path": "audio/ECV-0024_answer.wav",
+          "sha256": "cd40d87076d3b7267e6228dc0e2c4f068464ac22cbb4247d82d12d6b24c8723c"
+        },
+        "reference_audio": {
+          "duration_s": 11.31,
+          "relative_path": "audio/ECV-0024_reference.wav",
+          "sha256": "4abd98c4218d77bbc75ce865dba87d982b09a55ae2a74c75c6b789661a497392"
+        }
+      },
+      "boundary_repaired": false,
+      "call_id": "1783571",
+      "exchange_index": 19,
+      "item_id": "ECV-0024",
+      "mp3_id": "748865210",
+      "ppt_id": "750187998",
+      "selection_tranche": "human_scale_v04",
+      "slide": {
+        "bytes": 2878683,
+        "relative_path": "materials/2019/750187998.pdf",
+        "sha256": "fad896b8f7b43c6d117dd38986d4afabc85d64c775060aad6951d4b2bcdcd1ef"
+      },
+      "split": "confirmation",
+      "split_order_sha256": "d40d24749ab313632ed397f01d13160534f55628a8d4695d859f6897d4bada9a",
+      "year": 2019
+    },
+    {
+      "audio": {
+        "answer_audio": {
+          "duration_s": 22.65,
+          "relative_path": "audio/ECV-0052_answer.wav",
+          "sha256": "d6dc57cd30b768aa10db496ef934f2295dbc48f63b94951430b642257fdb2757"
+        },
+        "reference_audio": {
+          "duration_s": 15.31,
+          "relative_path": "audio/ECV-0052_reference.wav",
+          "sha256": "a16dd3a6c3d2b4be9939c911e6ebaf1ad3ebc8e041b0841f1e585f46620f7bd9"
+        }
+      },
+      "boundary_repaired": false,
+      "call_id": "1961699",
+      "exchange_index": 17,
+      "item_id": "ECV-0052",
+      "mp3_id": "986815832",
+      "ppt_id": "986443626",
+      "selection_tranche": "human_core_73",
+      "slide": {
+        "bytes": 3565221,
+        "relative_path": "materials/2020/986443626.pdf",
+        "sha256": "b7545658c379bf894f0d7723e16e096a645f21fa2acb2a919af8e0f5bc669ed3"
+      },
+      "split": "reserve",
+      "split_order_sha256": "dd54f300e6c8c57db85c81d57e28189b221ed5fcff47f3c4645b2bdd6bb706e9",
+      "year": 2020
+    },
+    {
+      "audio": {
+        "answer_audio": {
+          "duration_s": 7.0,
+          "relative_path": "audio/ECV-0050_answer.wav",
+          "sha256": "ed43d49100faf723a58ac31ed24e75056ad9529bb66ba181dc1ce43746f236ed"
+        },
+        "reference_audio": {
+          "duration_s": 10.0,
+          "relative_path": "audio/ECV-0050_reference.wav",
+          "sha256": "44728c28e057c74f8eb815070ac061295bca5ae7a3bb9e6d9cd4e4412f51f654"
+        }
+      },
+      "boundary_repaired": false,
+      "call_id": "1923339",
+      "exchange_index": 13,
+      "item_id": "ECV-0050",
+      "mp3_id": "928816592",
+      "ppt_id": "928283224",
+      "selection_tranche": "human_core_73",
+      "slide": {
+        "bytes": 1046527,
+        "relative_path": "materials/2020/928283224.pdf",
+        "sha256": "d02aafe39836166e07c317a17bb3e35af27a2c388211915c9d38bcde87b6eac5"
+      },
+      "split": "reserve",
+      "split_order_sha256": "e25c39d42321ff9dc2f7aad2f45d3f5bdc6cf0497a3f307cbcee3b0cd02885df",
+      "year": 2020
+    },
+    {
+      "audio": {
+        "answer_audio": {
+          "duration_s": 14.059938,
+          "relative_path": "audio/ECV-0064_answer.wav",
+          "sha256": "5c8c55d3ff876be5355d6a7b0b789f3ca6429786062a41127ff98c154ff99731"
+        },
+        "reference_audio": {
+          "duration_s": 13.0,
+          "relative_path": "audio/ECV-0064_reference.wav",
+          "sha256": "ffa90f4d3fee24c3dc7b9ca737c22e8e908156b1b0b90d5648bcc260cf1e2861"
+        }
+      },
+      "boundary_repaired": false,
+      "call_id": "2048508",
+      "exchange_index": 19,
+      "item_id": "ECV-0064",
+      "mp3_id": "1060045216",
+      "ppt_id": "1059960920",
+      "selection_tranche": "human_core_73",
+      "slide": {
+        "bytes": 717818,
+        "relative_path": "materials/2020/1059960920.pdf",
+        "sha256": "87d46c9a226bf77e8caa7f4f1e974f8238f8f500b14ce281c78ac2a38bac6b2b"
+      },
+      "split": "reserve",
+      "split_order_sha256": "e39b021fcab226e3b0ab998a5bf8aef5a468deabfaaeb2d158eebec798fdc056",
+      "year": 2020
+    },
+    {
+      "audio": {
+        "answer_audio": {
+          "duration_s": 15.63,
+          "relative_path": "audio/ECV-0030_answer.wav",
+          "sha256": "0d41c51b58895427e50d30b4cba2d7e4c58b174c8752cff199e63bc0d12641c7"
+        },
+        "reference_audio": {
+          "duration_s": 10.29,
+          "relative_path": "audio/ECV-0030_reference.wav",
+          "sha256": "e51a9b64a3233effbd2e2d8437c60d551c6913ecce3c2edbf2f662c39efb2c2a"
+        }
+      },
+      "boundary_repaired": false,
+      "call_id": "1825469",
+      "exchange_index": 1,
+      "item_id": "ECV-0030",
+      "mp3_id": "795645640",
+      "ppt_id": "795622422",
+      "selection_tranche": "human_core_73",
+      "slide": {
+        "bytes": 1074667,
+        "relative_path": "materials/2019/795622422.pdf",
+        "sha256": "5dccf3c666b23a7a3d493aaa93dc39e11b09742e5b724243e2c6526984fd6215"
+      },
+      "split": "reserve",
+      "split_order_sha256": "f7ff9f0a0b3d31df86e328f9ed18c0db047f53c3b3f50d3b8cdebe12941da080",
+      "year": 2019
+    },
+    {
+      "audio": {
+        "answer_audio": {
+          "duration_s": 18.4,
+          "relative_path": "audio/ECV-0038_answer.wav",
+          "sha256": "777ad49be9c9019d28650629f1774ad3dfbedba2eae620eafa2b76cf20d1a7c4"
+        },
+        "reference_audio": {
+          "duration_s": 10.0,
+          "relative_path": "audio/ECV-0038_reference.wav",
+          "sha256": "f2ba27c5116d8c63bc1ecf4aa57f74ecffd475bf94a40bbe9f1c2251d33e5ae8"
+        }
+      },
+      "boundary_repaired": false,
+      "call_id": "1854423",
+      "exchange_index": 1,
+      "item_id": "ECV-0038",
+      "mp3_id": "840983460",
+      "ppt_id": "841179214",
+      "selection_tranche": "human_core_73",
+      "slide": {
+        "bytes": 324050,
+        "relative_path": "materials/2019/841179214.pdf",
+        "sha256": "55ef5036809feb0501e14fa5f15251ce889d3d6cb761d334b991647152922b3e"
+      },
+      "split": "reserve",
+      "split_order_sha256": "fb42b008fcd6fc5536a97f002e39fb06bd71af2447c756c879cc131e1df80f5a",
+      "year": 2019
+    },
+    {
+      "audio": {
+        "answer_audio": {
+          "duration_s": 23.27,
+          "relative_path": "audio/ECV-0054_answer.wav",
+          "sha256": "0e061478132a1b6fde0f7df9744aa2e954ced22bd1e462a2ceeec4720c95f75f"
+        },
+        "reference_audio": {
+          "duration_s": 12.0,
+          "relative_path": "audio/ECV-0054_reference.wav",
+          "sha256": "8067b8d3b46b635a4c0dbabc9a99014e1ffa960bb32a85af242975fcd2b46e70"
+        }
+      },
+      "boundary_repaired": false,
+      "call_id": "1966433",
+      "exchange_index": 11,
+      "item_id": "ECV-0054",
+      "mp3_id": "990033730",
+      "ppt_id": "993177198",
+      "selection_tranche": "human_core_73",
+      "slide": {
+        "bytes": 1261350,
+        "relative_path": "materials/2020/993177198.pdf",
+        "sha256": "7756a627ef8b14d6bfb361d59cc3ab5dfbd5402504d622b001a42dfac8a0e769"
+      },
+      "split": "reserve",
+      "split_order_sha256": "fb9ee9d424f8dac87f9a12a0eb8fc12086aec1c34990401aaedecd3d6701bd62",
+      "year": 2020
+    },
+    {
+      "audio": {
+        "answer_audio": {
+          "duration_s": 13.51,
+          "relative_path": "audio/ECV-0062_answer.wav",
+          "sha256": "c78d0073759f0b7c52199791c101aa5e842918a9a44e9938079e32abe1a5916d"
+        },
+        "reference_audio": {
+          "duration_s": 14.15,
+          "relative_path": "audio/ECV-0062_reference.wav",
+          "sha256": "b4e86afe4b54b92170a15ca9348f75856652385ec52572d843d6e48de0be3e01"
+        }
+      },
+      "boundary_repaired": false,
+      "call_id": "2047750",
+      "exchange_index": 22,
+      "item_id": "ECV-0062",
+      "mp3_id": "1059775666",
+      "ppt_id": "1059729954",
+      "selection_tranche": "human_core_73",
+      "slide": {
+        "bytes": 2122171,
+        "relative_path": "materials/2020/1059729954.pdf",
+        "sha256": "6b9c5b88f165273b7e8cb2af62def5adf64f128b6b464998eb2adb0fe7f58fa6"
+      },
+      "split": "reserve",
+      "split_order_sha256": "fbdb92770db9460ab7e583c599e925e6684456ddae3950aeb609389121438abe",
+      "year": 2020
+    },
+    {
+      "audio": {
+        "answer_audio": {
+          "duration_s": 12.5,
+          "relative_path": "audio/ECV-0055_answer.wav",
+          "sha256": "5bc9f191902bbc35cf41084c49c38720150cd5939a4d090c40b6b9d1a28efe08"
+        },
+        "reference_audio": {
+          "duration_s": 15.0,
+          "relative_path": "audio/ECV-0055_reference.wav",
+          "sha256": "fd9876f46afb3a6162a51823a2a0ed64b844419ade6bd6d71317aee0ed6bc73d"
+        }
+      },
+      "boundary_repaired": false,
+      "call_id": "1967863",
+      "exchange_index": 17,
+      "item_id": "ECV-0055",
+      "mp3_id": "990747562",
+      "ppt_id": "990256928",
+      "selection_tranche": "human_core_73",
+      "slide": {
+        "bytes": 1289788,
+        "relative_path": "materials/2020/990256928.pdf",
+        "sha256": "88d7876be7b840d4ee32728c7b74d7b831edb2090eb53e6fc2e6f43f9f1faddb"
+      },
+      "split": "reserve",
+      "split_order_sha256": "fd807b11bbd8f6463e82821e3ed600aedac2f89645d855d7e97afd1de4f08d61",
+      "year": 2020
+    },
+    {
+      "audio": {
+        "answer_audio": {
+          "duration_s": 11.38,
+          "relative_path": "audio/ECV-0033_answer.wav",
+          "sha256": "875a283f54b63e5e49892b081c90e4d6b2f27fe14f7d19d1009b464ecb6e0945"
+        },
+        "reference_audio": {
+          "duration_s": 14.0,
+          "relative_path": "audio/ECV-0033_reference.wav",
+          "sha256": "9938b8e6473f5a537a0a09b0aebebc6867a90a41eaffca030fc0ffd1817ffece"
+        }
+      },
+      "boundary_repaired": false,
+      "call_id": "1836751",
+      "exchange_index": 6,
+      "item_id": "ECV-0033",
+      "mp3_id": "826827780",
+      "ppt_id": "827487718",
+      "selection_tranche": "human_core_73",
+      "slide": {
+        "bytes": 979434,
+        "relative_path": "materials/2019/827487718.pdf",
+        "sha256": "0c5bbbb9fe9374d538e784592735ac77cca9e8e9a72c30ad62a132a74d306eeb"
+      },
+      "split": "reserve",
+      "split_order_sha256": "fee04466f132c69dc521f8bfec0b56ef8c1c5dc2c73f4d834ae980acb339f0f7",
+      "year": 2019
+    }
+  ],
+  "reference_firewall": "reference_text and answer_text were not projected into this artifact",
+  "schema": "material-new-surface-frozen-cohort-v1",
+  "surface": "EarningsCallVoice Core-100 joined to FinCall-Surprise"
+}

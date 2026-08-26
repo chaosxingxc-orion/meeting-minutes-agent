@@ -1,0 +1,18 @@
+{
+  "counts": {
+    "duplicate_material_checksums": 0,
+    "duplicate_material_urls": 0,
+    "items": 72,
+    "material_attachments": 77,
+    "material_covered_rows": 72,
+    "unique_audio_paths": 72,
+    "unique_contributions": 72,
+    "unique_material_checksums": 77,
+    "unique_material_urls": 77
+  },
+  "errors": [],
+  "experiment_id": "E-MATERIAL-LHCP-ADMISSION",
+  "schema": "material-lhcp-admission-validation-v1",
+  "source_verdict": "LHCP_METADATA_JOIN_AND_MATERIAL_COVERAGE_CLOSED",
+  "validation": "TRACE_COMPLETE"
+}

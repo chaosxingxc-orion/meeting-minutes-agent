@@ -1,0 +1,28 @@
+{
+  "schema": "material-new-surface-confirmation-snapshot-verdict-v1",
+  "experiment_id": "E-MATERIAL-NEW-SURFACE-CONFIRMATION",
+  "config_sha256": "0553eb7dfa52e7a7b6795a8a1baa801d0a3fa580965729292c8841c1bbe0e880",
+  "pass0_structural_read_sha256": "f1bb2d3028f79447c6c91ede696c9cee9defa3c49bef43235eb7db358ae6eda3",
+  "failed_gate": "minimum_candidates_per_meeting",
+  "required_candidates": 8,
+  "observed_candidates": 0,
+  "failed_item": {
+    "item_id": "ECV-0067",
+    "meeting_id": "2051550",
+    "slide_relative_path": "materials/2020/1061716964.pdf",
+    "slide_sha256": "b69ff80f1dd0956d038934a99f7a6b35f44ce8f641faaac186eff2c892416c9e",
+    "slide_bytes": 1602076,
+    "pdf_pages": 14,
+    "extracted_characters": 165,
+    "nonempty_extracted_pages": 6
+  },
+  "snapshot_output_created": false,
+  "model_contact": {
+    "confirmation_pass0_calls": 80,
+    "confirmation_embedding_calls": 0,
+    "reference_reads": 0,
+    "omni_correction_calls": 0
+  },
+  "stopping_rule": "Any confirmation call with fewer than eight candidates stops without replacement, extractor changes, OCR, or width reduction.",
+  "verdict": "CONFIRMATION_NOT_RUN_MATERIAL_SNAPSHOT_INSUFFICIENT"
+}

@@ -1,0 +1,21 @@
+{
+  "audio_downloads": 0,
+  "config_sha256": "6ea751e5c09558e4161c7d5101a452f6c57b51a435b57d2c7ec40c5fc3930dfe",
+  "counts": {
+    "bytes": 1648976797,
+    "files": 77,
+    "unique_md5": 77,
+    "unique_sha256": 77
+  },
+  "download_manifest_sha256": "965ed6436409e59b4fc39308d8981a312ce098204f4981aceb00351487be2c6a",
+  "experiment_id": "E-MATERIAL-LHCP-SUPPLY",
+  "model_contact": {
+    "embedding": 0,
+    "omni": 0,
+    "pass0": 0
+  },
+  "reference_reads": 0,
+  "schema": "material-lhcp-acquisition-receipt-v1",
+  "source_manifest_sha256": "22d77a1dbd98b3b4344b3a54d55d09f0c62a741ab0d0408b12079747575697a2",
+  "verdict": "LHCP_MATERIAL_ACQUISITION_COMPLETE"
+}

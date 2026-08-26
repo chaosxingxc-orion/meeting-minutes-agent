@@ -59,8 +59,10 @@ from .rttm import (
     write_rttm_text,
 )
 from .slicer import (
+    OverlapComponentBoundViolation,
     SlicerError,
     Slice,
+    SliceOverlapViolation,
     SliceManifest,
     SliceManifestEntry,
     SlicePlan,
@@ -105,6 +107,8 @@ __all__ = [
     "turn_table_from_resolved_meeting",
     "turn_table_provenance",
     "SlicerError",
+    "SliceOverlapViolation",
+    "OverlapComponentBoundViolation",
     "TurnSpan",
     "SliceTurnEntry",
     "Slice",

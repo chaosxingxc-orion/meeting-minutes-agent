@@ -1,0 +1,80 @@
+{
+  "schema": "material-omni-capability-prereg-audit-v1",
+  "experiment_id": "E-MATERIAL-OMNI-CAPABILITY-CI",
+  "evidence_tier": "CONSTRUCTION_ISOLATED_EXPLORATORY",
+  "inputs": {
+    "registration": {
+      "path": "configs/probes/material_runtime_gate_ci/2026-08-25-registration.json",
+      "sha256": "67ff8ae1fb6afe7652c7d06a56de065a9ee6e4bf2a4401c2a6e0e8800c4cb4af"
+    },
+    "pass0_runtime": {
+      "path": "configs/probes/material_runtime_gate_ci/2026-08-25-pass0-runtime.json",
+      "sha256": "aa72dcd74b295e94c98aebbcc9c5b562b1d5325d3b22d34342c9d8e6bd5f08c5"
+    },
+    "semantic_config": {
+      "path": "configs/probes/material_runtime_gate_ci/2026-08-25-semantic-gate.json",
+      "sha256": "a6d3f9aac019e07e2a53535f71a193b67712e065a349371dacdfaa20eb716fa4"
+    },
+    "development_read": {
+      "path": "docs/checks/2026-08-25-material-runtime-gate-ci-development-read/development.json",
+      "sha256": "38a24009b6c5c171eae4ffafaaa8dc829ee1832f7606fc5dc6c89a551af8bb8e"
+    },
+    "confirmation_read": {
+      "path": "docs/checks/2026-08-25-material-runtime-gate-ci-confirmation-read/confirmation.json",
+      "sha256": "945fdb71d870377183d1611c1148e18cba631385480413441e8e520faf4d394f"
+    },
+    "pass0_flight_summary": {
+      "path": "docs/checks/2026-08-25-material-runtime-gate-ci-pass0-flight/flight-summary.json",
+      "sha256": "a7c6d2c13286492b4115b572e96299fe3b2c3af3694e40b6d1558e66f2f623a9"
+    },
+    "pass0_flight_dir": "docs/checks/2026-08-25-material-runtime-gate-ci-pass0-flight"
+  },
+  "frozen_confirmation": {
+    "threshold": 0.01,
+    "eligible_turns": 850,
+    "dispatched_turns": 636,
+    "per_meeting_dispatch": {
+      "4483633": 196,
+      "4484563": 220,
+      "4485244": 220
+    }
+  },
+  "required_dispatch_trace": {
+    "path": "configs/probes/material_omni_capability/2026-08-26-dispatch-trace.jsonl",
+    "must_preexist_without_recomputing_confirmation": true,
+    "required_fields": [
+      "file_id",
+      "turn_index",
+      "query_sha256",
+      "selector_gap",
+      "selected_candidate_id",
+      "selected_value_sha256",
+      "deranged_file_id",
+      "deranged_candidate_id",
+      "deranged_value_sha256"
+    ]
+  },
+  "proposed_arms": {
+    "R0-retain": 0,
+    "R1-correct-dispatch": 1,
+    "R2-deranged-dispatch": 1
+  },
+  "power_planning": {
+    "primary_metric": "paired wrong-to-correct rate difference, R1 minus R2",
+    "minimum_absolute_effect": 0.05,
+    "two_sided_alpha": 0.05,
+    "power": 0.8,
+    "discordant_fraction_scenarios": [0.1, 0.2, 0.3],
+    "requires_frozen_primary_opportunity_census": true,
+    "primary_opportunity_census_available": false,
+    "approximation": "ceil((z_(1-alpha/2)+z_power)^2 * discordant_fraction / effect^2)"
+  },
+  "execution_policy": {
+    "reference_reads": 0,
+    "embedding_calls": 0,
+    "omni_calls": 0,
+    "confirmation_recomputation": false,
+    "fail_closed_on_missing_trace": true,
+    "output_overwrite": false
+  }
+}

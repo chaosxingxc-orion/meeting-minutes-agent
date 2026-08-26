@@ -1,0 +1,49 @@
+{
+  "schema": "material-lhcp-development-audio-failure-v1",
+  "experiment_id": "E-MATERIAL-LHCP-DEVELOPMENT-AUDIO",
+  "attempt": 1,
+  "failure": "ChunkedEncodingError: HTTP Range response ended after 111762743 of 448670644 requested bytes",
+  "completed_source_files": 1,
+  "completed_audio_files": 5,
+  "partial_audio_files": [
+    {
+      "bytes": 76099662,
+      "duration_s": 1189.056,
+      "path": "audio/dev_2020/856696c117.wav",
+      "sha256": "a37881eb8648fc90520a0e1fa9c85bb9b288491b561996f3d210371328b6ffca"
+    },
+    {
+      "bytes": 96067662,
+      "duration_s": 1501.056,
+      "path": "audio/dev_2020/856696c128.wav",
+      "sha256": "6e4589dec42bacbf4648cac5f559e716079d947be13b5c8136cb53595a516ccf"
+    },
+    {
+      "bytes": 67842126,
+      "duration_s": 1060.032,
+      "path": "audio/dev_2020/856696c138.wav",
+      "sha256": "77b2919018d990a84abbc6d8c62c25965548a80b2d127201ea3c21a97431a9bf"
+    },
+    {
+      "bytes": 98754638,
+      "duration_s": 1543.04,
+      "path": "audio/dev_2020/856696c164.wav",
+      "sha256": "8464d9ac8fb810894275ff94f7b3dbcc4dd445614b6dd77bfa809ad01883ef33"
+    },
+    {
+      "bytes": 90626126,
+      "duration_s": 1416.032,
+      "path": "audio/dev_2020/856696c195.wav",
+      "sha256": "3b3f6e9319dfc5c7d1167c9ecdaac041450a325d5f376f1885989b8a84ba5610"
+    }
+  ],
+  "final_manifest_written": false,
+  "reference_reads": 0,
+  "confirmation_audio_reads": 0,
+  "model_contact": {
+    "sortformer": 0,
+    "pass0": 0,
+    "embedding": 0,
+    "omni": 0
+  }
+}

@@ -1,0 +1,224 @@
+{
+  "claim_boundary": "Development semantic attribution only; no confirmation, WER, or Omni correction claim.",
+  "experiment_id": "E-MATERIAL-NEW-SURFACE-RUNTIME-GATE",
+  "grid": [
+    {
+      "gates": {
+        "minimum_attribution_precision": true,
+        "minimum_coverage": true,
+        "minimum_median_correct_minus_deranged": true,
+        "minimum_represented_meetings": true
+      },
+      "passed": true,
+      "threshold": 0.0,
+      "totals": {
+        "attribution_precision": 0.75,
+        "attribution_wins": 30,
+        "dispatch_coverage": 1.0,
+        "dispatched_turns": 40,
+        "eligible_turns": 40,
+        "median_correct_minus_deranged_cosine": 0.07609127461910248,
+        "meeting_ids": [
+          "1641285",
+          "1642318",
+          "1643306",
+          "1695833",
+          "1703447",
+          "1705203",
+          "1705222",
+          "1786138",
+          "1787090",
+          "1905560",
+          "1906760",
+          "1915730",
+          "1954397",
+          "1993348",
+          "1995214",
+          "2041656",
+          "2048429",
+          "2049220",
+          "2060333",
+          "2062500"
+        ],
+        "represented_meetings": 20
+      }
+    },
+    {
+      "gates": {
+        "minimum_attribution_precision": true,
+        "minimum_coverage": true,
+        "minimum_median_correct_minus_deranged": true,
+        "minimum_represented_meetings": true
+      },
+      "passed": true,
+      "threshold": 0.01,
+      "totals": {
+        "attribution_precision": 0.7272727272727273,
+        "attribution_wins": 24,
+        "dispatch_coverage": 0.825,
+        "dispatched_turns": 33,
+        "eligible_turns": 40,
+        "median_correct_minus_deranged_cosine": 0.07528311014175415,
+        "meeting_ids": [
+          "1641285",
+          "1642318",
+          "1695833",
+          "1703447",
+          "1705203",
+          "1705222",
+          "1786138",
+          "1787090",
+          "1905560",
+          "1906760",
+          "1993348",
+          "1995214",
+          "2041656",
+          "2048429",
+          "2049220",
+          "2060333",
+          "2062500"
+        ],
+        "represented_meetings": 17
+      }
+    },
+    {
+      "gates": {
+        "minimum_attribution_precision": true,
+        "minimum_coverage": true,
+        "minimum_median_correct_minus_deranged": true,
+        "minimum_represented_meetings": true
+      },
+      "passed": true,
+      "threshold": 0.02,
+      "totals": {
+        "attribution_precision": 0.8148148148148148,
+        "attribution_wins": 22,
+        "dispatch_coverage": 0.675,
+        "dispatched_turns": 27,
+        "eligible_turns": 40,
+        "median_correct_minus_deranged_cosine": 0.07900744676589966,
+        "meeting_ids": [
+          "1641285",
+          "1642318",
+          "1695833",
+          "1703447",
+          "1705203",
+          "1705222",
+          "1786138",
+          "1787090",
+          "1905560",
+          "1906760",
+          "1993348",
+          "1995214",
+          "2041656",
+          "2048429",
+          "2049220",
+          "2060333",
+          "2062500"
+        ],
+        "represented_meetings": 17
+      }
+    },
+    {
+      "gates": {
+        "minimum_attribution_precision": true,
+        "minimum_coverage": true,
+        "minimum_median_correct_minus_deranged": true,
+        "minimum_represented_meetings": true
+      },
+      "passed": true,
+      "threshold": 0.03,
+      "totals": {
+        "attribution_precision": 0.8571428571428571,
+        "attribution_wins": 18,
+        "dispatch_coverage": 0.525,
+        "dispatched_turns": 21,
+        "eligible_turns": 40,
+        "median_correct_minus_deranged_cosine": 0.0795372724533081,
+        "meeting_ids": [
+          "1642318",
+          "1695833",
+          "1703447",
+          "1705203",
+          "1705222",
+          "1786138",
+          "1787090",
+          "1905560",
+          "1906760",
+          "1995214",
+          "2041656",
+          "2048429",
+          "2049220",
+          "2060333",
+          "2062500"
+        ],
+        "represented_meetings": 15
+      }
+    },
+    {
+      "gates": {
+        "minimum_attribution_precision": true,
+        "minimum_coverage": true,
+        "minimum_median_correct_minus_deranged": true,
+        "minimum_represented_meetings": false
+      },
+      "passed": false,
+      "threshold": 0.04,
+      "totals": {
+        "attribution_precision": 0.9285714285714286,
+        "attribution_wins": 13,
+        "dispatch_coverage": 0.35,
+        "dispatched_turns": 14,
+        "eligible_turns": 40,
+        "median_correct_minus_deranged_cosine": 0.09149649739265442,
+        "meeting_ids": [
+          "1695833",
+          "1703447",
+          "1705203",
+          "1705222",
+          "1786138",
+          "1905560",
+          "1906760",
+          "1995214",
+          "2041656",
+          "2060333",
+          "2062500"
+        ],
+        "represented_meetings": 11
+      }
+    },
+    {
+      "gates": {
+        "minimum_attribution_precision": true,
+        "minimum_coverage": true,
+        "minimum_median_correct_minus_deranged": true,
+        "minimum_represented_meetings": false
+      },
+      "passed": false,
+      "threshold": 0.05,
+      "totals": {
+        "attribution_precision": 1.0,
+        "attribution_wins": 11,
+        "dispatch_coverage": 0.275,
+        "dispatched_turns": 11,
+        "eligible_turns": 40,
+        "median_correct_minus_deranged_cosine": 0.10397997498512268,
+        "meeting_ids": [
+          "1695833",
+          "1703447",
+          "1705203",
+          "1905560",
+          "1906760",
+          "1995214",
+          "2060333",
+          "2062500"
+        ],
+        "represented_meetings": 8
+      }
+    }
+  ],
+  "reference_access": "NONE",
+  "schema": "material-new-surface-development-gate-read-v1",
+  "selected_threshold": 0.0,
+  "verdict": "DEVELOPMENT_SIGNAL_PRESENT"
+}
