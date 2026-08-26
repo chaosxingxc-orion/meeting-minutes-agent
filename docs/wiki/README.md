@@ -4,7 +4,7 @@
 
 ## 当前工作计划
 
-- **[2026-08-27 工作总结与8月28日计划](2026-08-27-work-plan.md)**：LHCP-ASR已形成396个零重叠开发切片；明日先注册reference-blind Pass0并冻结预算。
+- **[2026-08-27 工作计划](2026-08-27-work-plan.md)**：先注册396-call reference-blind开发Pass0，冻结预算、launcher和reader后再请求授权。
 
 ## 研究与证据入口
 
@@ -13,7 +13,7 @@
 - [2026-08-22 工作记录](2026-08-22-work-plan.md)：Earnings-22 reserve 决策、窄类确认和当日禁止事项。
 - [2026-08-24 工作总结](2026-08-24-work-plan.md)：全库前端、完整Pass0、两类稳定性实验和两类独立证据审计。
 - [2026-08-25 工作总结](2026-08-25-work-plan.md)：官方材料供给、语义K、独立准入失败及construction-isolated运行时门的完整进展。
-- [2026-08-26 工作记录](2026-08-26-work-plan.md)：新surface、LHCP-ASR准入/供给/开发前端及OmniMinutes战略增补。
+- [2026-08-26 工作总结](2026-08-26-work-plan.md)：新surface、LHCP-ASR准入/供给/开发前端、切片器修复及OmniMinutes战略增补。
 - [阶段性结论](stage-conclusions.md)：当前已证明、未证明和 agent loop 放行边界。
 - [实验总表](experiments/README.md)：当前完成度、结论和下一步。
 - [研究路线图](research-roadmap.md)：保留说话人条件转写E线，并新增OmniMinutes memory-use U线。
@@ -56,7 +56,7 @@ Pass0起保存完整逐chunk trace；旧确认集不做事后trace物化。该�
 25场开发、45场一次确认，离线复核`TRACE_COMPLETE`。该队列不覆盖完整72场，training-free GRPO
 与多模态知识注入仍未放行。
 
-最后同步：2026-08-27（LHCP-ASR冻结RTTM已生成396个零重叠切片；8月28日先注册Pass0，模型仍未授权）。
+最后同步：2026-08-27（已归档8月26日工作；8月27日先注册396-call Pass0，模型仍未授权）。
 
 ## 2026-08-26 战略增补
 
