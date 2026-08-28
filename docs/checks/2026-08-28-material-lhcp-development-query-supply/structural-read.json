@@ -1,0 +1,22 @@
+{
+  "candidate_count_median": 134,
+  "candidate_count_minimum": 16,
+  "confirmation_access": "NONE",
+  "counts": {
+    "available_candidates": 4886,
+    "meetings": 25,
+    "potentially_truncated_queries": 1,
+    "queries": 396,
+    "queries_with_prior_context": 371,
+    "selected_candidates": 200
+  },
+  "derangement_fixed_points": 0,
+  "embedding_contact": "NONE",
+  "errors": [],
+  "experiment_id": "E-MATERIAL-LHCP-DEVELOPMENT-QUERY-SUPPLY",
+  "forbidden_output_fields": [],
+  "omni_contact": "NONE",
+  "reference_access": "NONE",
+  "schema": "material-lhcp-development-query-supply-read-v1",
+  "verdict": "LHCP_DEVELOPMENT_QUERY_SUPPLY_READY"
+}

@@ -1,0 +1,52 @@
+{
+  "schema": "material-lhcp-development-opportunity-power-artifact-summary-v1",
+  "experiment_id": "E-MATERIAL-LHCP-DEVELOPMENT-OPPORTUNITY-POWER-AUDIT",
+  "verdict": "LHCP_CORRECTION_OPPORTUNITY_INSUFFICIENT",
+  "reference_access": {
+    "development_meetings": 25,
+    "confirmation_meetings": 0,
+    "test_split_access": 0,
+    "audio_body_reads": 0,
+    "transferred_bytes": 666630
+  },
+  "model_contact": {
+    "embedding_calls": 0,
+    "omni_calls": 0
+  },
+  "baseline": {
+    "reference_tokens": 99107,
+    "wer_errors": 14677,
+    "micro_wer": 0.1480924657188695
+  },
+  "material_inventory": {
+    "keys": 200,
+    "reference_supported_keys": 44,
+    "pass0_supported_keys": 38,
+    "wrong_to_correct_candidate_opportunities": 7
+  },
+  "primary_census": {
+    "rows": 396,
+    "retain": 56,
+    "wrong_to_correct_opportunities": 12,
+    "unsupported_activations": 328,
+    "local_reference_support_rate": 0.1717171717171717,
+    "opportunity_meetings": 8
+  },
+  "primary_target": {
+    "required_opportunities": 157,
+    "required_meetings": 15,
+    "required_local_reference_support_rate": 0.7
+  },
+  "artifacts": {
+    "config_sha256": "3e8daa6c977daa2bace8bb401ac474dbe9ae43911eb1222b04e8a5e5a7fc3dba",
+    "reference_receipt_sha256": "49392776171f98e49add259f19d0fae68aa7e83e9ab73e31871da8e5292ade97",
+    "references_sha256": "045321c35c2a3f6cf4e8e8e408c135287fde03758c842fdc2d0fc343028c73b4",
+    "census_receipt_sha256": "64689188a91fac1c1d10c0947027459e9e2add9515e97d619e7fab27a43fd2cc",
+    "census_sha256": "1463c25ff7dae9444f31a5c811ce6e6d8910279ce54ca2b7dea838ca6a1b9e93",
+    "meeting_summaries_sha256": "34bd1d936f260b5cea9f0c72f30c268955ff66e10c8fa95587d29173e8c77c0c",
+    "read_sha256": "fae5726a9e388d0b93ee549701fb6a7149bb844b3d89377ee29620b28ce74746",
+    "acquirer_sha256": "bf74c6d0b81a11642108b0b682f0e1855047e28b24ccfa1d45aaeef67b36db88",
+    "reader_sha256": "12176fa0bd8f3d6254f760ae92a4973e71ce332f5ddf16a67120fb9f848efc96",
+    "test_sha256": "871b304b740dce590e5997711f48aa14f1becb60073edd3707763a2546940286"
+  }
+}

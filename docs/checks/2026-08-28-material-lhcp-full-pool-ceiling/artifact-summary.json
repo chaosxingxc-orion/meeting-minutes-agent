@@ -1,0 +1,47 @@
+{
+  "schema": "material-lhcp-full-pool-ceiling-artifact-summary-v1",
+  "experiment_id": "E-MATERIAL-LHCP-FULL-POOL-CEILING",
+  "verdict": "LHCP_FULL_MATERIAL_POOL_POWER_READY",
+  "evidence_status": "POST_REFERENCE_DEVELOPMENT_DESCRIPTIVE",
+  "source_pool": {
+    "development_candidates": 4886,
+    "candidate_pairs": 81634,
+    "locally_supported_candidate_pairs": 2051,
+    "wrong_to_correct_candidate_pairs": 416,
+    "unique_opportunity_candidates": 300,
+    "opportunity_categories": {
+      "acronym_or_alphanumeric": 320,
+      "title_case": 96
+    },
+    "opportunity_token_widths": {
+      "1": 316,
+      "2": 68,
+      "3": 23,
+      "4": 9
+    }
+  },
+  "slice_ceiling": {
+    "slices": 396,
+    "opportunity_slices": 206,
+    "opportunity_coverage": 0.5202020202020202,
+    "opportunity_meetings": 25,
+    "locally_supported_slices": 379,
+    "local_support_coverage": 0.9570707070707071
+  },
+  "access": {
+    "local_development_reference_reuses": 25,
+    "new_source_reference_acquisitions": 0,
+    "confirmation_access": 0,
+    "embedding_calls": 0,
+    "omni_calls": 0
+  },
+  "artifacts": {
+    "config_sha256": "6347148726a80461ed9e6281485e91934adf3780a59fc430eb2f7c2c4f8a43b3",
+    "external_receipt_sha256": "30eb73d93810e871cc6994f22b139ea370fb3891cce85f7f336107c9789475bd",
+    "rows_sha256": "eab426c549f180c66c51a792a8820e70dfa723d0def08eee46b46b956039e547",
+    "meeting_summaries_sha256": "2cdc875f785abff1188a1be7dd6430a57e34d50c7936293ebe6ed22e5cbdc85a",
+    "read_sha256": "d3197578f07117b7cb6364939399196a04296f54522071f0d37aaa4f2136c9df",
+    "reader_sha256": "d3227fed712208b80a58ddf49ba34da9cc6de61f9f9937b21533459a87bf9465",
+    "test_sha256": "336e2d9a96f464f96727f5400028535e5f490b26719210ce693c318d494f833b"
+  }
+}

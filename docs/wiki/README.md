@@ -4,7 +4,7 @@
 
 ## 当前工作计划
 
-- **[2026-08-27 工作计划](2026-08-27-work-plan.md)**：先注册396-call reference-blind开发Pass0，冻结预算、launcher和reader后再请求授权。
+- **[2026-08-28 工作总结与 2026-08-29 计划](2026-08-28-work-plan.md)**：开发Pass0与材料供给链已闭合；下一步先做零模型漏检分类，并预注册更强的局部候选生成方法。
 
 ## 研究与证据入口
 
@@ -14,6 +14,8 @@
 - [2026-08-24 工作总结](2026-08-24-work-plan.md)：全库前端、完整Pass0、两类稳定性实验和两类独立证据审计。
 - [2026-08-25 工作总结](2026-08-25-work-plan.md)：官方材料供给、语义K、独立准入失败及construction-isolated运行时门的完整进展。
 - [2026-08-26 工作总结](2026-08-26-work-plan.md)：新surface、LHCP-ASR准入/供给/开发前端、切片器修复及OmniMinutes战略增补。
+- [2026-08-27 工作计划](2026-08-27-work-plan.md)：396-call reference-blind开发Pass0的注册、预算与授权边界。
+- [2026-08-28 工作总结](2026-08-28-work-plan.md)：Pass0、语义归属、纠错功效审计、全池ceiling与两类抽取器结果，以及8月29日计划。
 - [阶段性结论](stage-conclusions.md)：当前已证明、未证明和 agent loop 放行边界。
 - [实验总表](experiments/README.md)：当前完成度、结论和下一步。
 - [研究路线图](research-roadmap.md)：保留说话人条件转写E线，并新增OmniMinutes memory-use U线。
@@ -56,7 +58,13 @@ Pass0起保存完整逐chunk trace；旧确认集不做事后trace物化。该�
 25场开发、45场一次确认，离线复核`TRACE_COMPLETE`。该队列不覆盖完整72场，training-free GRPO
 与多模态知识注入仍未放行。
 
-最后同步：2026-08-27（已归档8月26日工作；8月27日先注册396-call Pass0，模型仍未授权）。
+8月28日已完成25场、396片的唯一Pass0 flight，结构trace完整。开发reference机会审计进一步显示：
+原top-1仅有12个纠错机会，冻结8-key池上限为39个，但完整4,886候选池可支持206个机会并覆盖
+25/25场，说明材料源充足而局部候选抽取不足。BM25与全池语义top-8分别命中47/206和53/206，
+均未达到157个主门，因此Omni correction不运行、45场确认继续sealed。下一步只做开发集零模型
+漏检分类，并预注册phonetic/alias与page/span-level localization方向。
+
+最后同步：2026-08-28（完整实验链已归档；8月29日不追加Omni调用，先改进局部候选生成）。
 
 ## 2026-08-26 战略增补
 

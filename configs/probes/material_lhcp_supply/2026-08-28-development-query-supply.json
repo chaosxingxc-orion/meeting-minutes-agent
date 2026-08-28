@@ -1,0 +1,65 @@
+{
+  "schema": "material-lhcp-development-query-supply-config-v1",
+  "experiment_id": "E-MATERIAL-LHCP-DEVELOPMENT-QUERY-SUPPLY",
+  "evidence_tier": "INDEPENDENT_ZERO_MODEL_DEVELOPMENT_SUPPLY",
+  "claim_boundary": "Twenty-five material-compatible LHCP development meetings and 396 Pass0 slices only; this freezes supply and does not establish retrieval quality or transcription gain.",
+  "inputs": {
+    "cohort_sha256": "b614e4d9ba63e94a988166d62e9d5e7a2bddc1a31ce7528753f47ebbd4e13733",
+    "supply_receipt_sha256": "3289eb4b9e6b75956ee4362e37c6001d28b1e7fa543918d9298205c2186b0138",
+    "candidate_pool_sha256": "53ee687cd6f14a6411acc1fd17784045676080351426a29ead7f8f3cba479f92",
+    "pass0_index_sha256": "037c8eaf5284c4dffa88dad1a58438e0697ca963117870d355a46881e21228f8",
+    "pass0_receipt_sha256": "1c995d83f7455fe27ca5366241d9629e4b660d6dec00f82d52d19c11b45cd103",
+    "pass0_structural_read_sha256": "e05105f296a2dd2b7bf64f074a2e9a854027c61ad6eeaca644c56cb326c31869",
+    "builder_sha256": "d17050cbd34f240313d6557011c317366ffc25d4ab4b6553d820de9e9cecf720",
+    "reader_path": "scripts/read_material_lhcp_development_query_supply.py",
+    "reader_sha256": "5b6ad995f5093d738a1ceaf51d0fecd99eb59d62dc4603949f13f4440bc1a500"
+  },
+  "construction": {
+    "source_policy": "reuse the frozen LHCP supply candidate pool; do not reparse, OCR, repair, or replace documents",
+    "key_width": 8,
+    "key_selection_salt": "material-lhcp-development-2026-08-28-key-v1",
+    "occurrence_policy": "lowest page, then lexical relative path and source span",
+    "query_instruction": "Instruct: Identify the meeting-specific official material candidate most relevant to this runtime speech context.\nQuery: ",
+    "history_scope": "same meeting, immediately preceding Pass0 slice only",
+    "maximum_prior_keywords": 8,
+    "speaker_context": "frozen Sortformer labels present on the current slice",
+    "deranged_control": "ascending_meeting_id_next_cyclic",
+    "length_limited_position": 301
+  },
+  "passing_gates": {
+    "development_meetings": 25,
+    "minimum_available_candidates_per_meeting": 8,
+    "selected_candidates_per_meeting": 8,
+    "selected_candidates": 200,
+    "queries": 396,
+    "derangement_fixed_points": 0,
+    "forbidden_output_fields": 0
+  },
+  "future_embedding_budget_ceiling": {
+    "keys": 200,
+    "queries": 396,
+    "embeddings": 596,
+    "batch_size": 16,
+    "maximum_calls": 38
+  },
+  "reference_firewall": {
+    "reference_reads": 0,
+    "confirmation_access": 0,
+    "embedding_calls": 0,
+    "omni_calls": 0,
+    "forbidden_fields": [
+      "reference_text",
+      "answer_text",
+      "gold_text",
+      "transcript_reference"
+    ]
+  },
+  "stopping_rules": {
+    "input_or_script_hash_drift": "stop before construction",
+    "cohort_or_query_count_drift": "stop without replacement",
+    "candidate_underflow": "stop; do not lower width after reading",
+    "future_or_cross_meeting_history": "invalidate the supply",
+    "fixed_point_or_non_bijective_control": "invalidate the supply",
+    "output_exists": "stop; never overwrite"
+  }
+}

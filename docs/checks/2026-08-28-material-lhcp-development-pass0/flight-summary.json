@@ -1,0 +1,64 @@
+{
+  "schema": "material-lhcp-development-pass0-flight-summary-v1",
+  "experiment_id": "E-MATERIAL-LHCP-DEVELOPMENT-PASS0",
+  "verdict": "PASS0_TRACE_COMPLETE",
+  "calls": 396,
+  "meetings": 25,
+  "empty_outputs": 0,
+  "retries": 0,
+  "reference_access": "NONE",
+  "material_access": "NONE",
+  "confirmation_access": "NONE",
+  "wall_seconds": 15379.127815,
+  "latency_seconds": {
+    "sum": 14798.461201784,
+    "minimum": 2.6169934330000615,
+    "median": 22.076818661000743,
+    "p95": 120.0038684000001,
+    "maximum": 201.4251931030003
+  },
+  "usage_totals": {
+    "prompt_tokens": 527747,
+    "completion_tokens": 113459,
+    "total_tokens": 641206
+  },
+  "finish_reasons": {
+    "stop": 395,
+    "length": 1
+  },
+  "length_limited_row": {
+    "position": 301,
+    "meeting_id": "1109611c537",
+    "slice_index": 13
+  },
+  "server_argv": [
+    "--host",
+    "127.0.0.1",
+    "--port",
+    "8080",
+    "-m",
+    "/mnt/d/speechrl-data/models/qwen3-omni-30b-a3b-instruct-gguf-q4km/Qwen3-Omni-30B-A3B-Instruct-Q4_K_M.gguf",
+    "--mmproj",
+    "/mnt/d/speechrl-data/models/qwen3-omni-30b-a3b-instruct-gguf-q4km/mmproj-Qwen3-Omni-30B-A3B-Instruct-bf16.gguf",
+    "-c",
+    "49152",
+    "-np",
+    "1",
+    "-fa",
+    "on",
+    "-ngl",
+    "999",
+    "-ctk",
+    "q8_0",
+    "-ctv",
+    "q8_0"
+  ],
+  "artifacts": {
+    "runtime_sha256": "bf64f560c41f59ce7746930efaee1ce8430478674d60eb06b189b2e1e235194c",
+    "index_sha256": "037c8eaf5284c4dffa88dad1a58438e0697ca963117870d355a46881e21228f8",
+    "receipt_sha256": "1c995d83f7455fe27ca5366241d9629e4b660d6dec00f82d52d19c11b45cd103",
+    "external_trace_bytes": 1604584502,
+    "server_log_sha256": "2704f86ef2a91736b1d414b05be1fd0e55b558310314f5e9d8eb3f486458f2fc",
+    "flight_log_sha256": "8b8df5c6946c1b4b0c77720276c1fcce81325a5e15ea37dba1024c51c811fed5"
+  }
+}

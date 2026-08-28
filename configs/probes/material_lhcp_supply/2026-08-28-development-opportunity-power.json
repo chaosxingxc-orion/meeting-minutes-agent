@@ -1,0 +1,70 @@
+{
+  "schema": "material-lhcp-development-opportunity-power-runtime-v1",
+  "experiment_id": "E-MATERIAL-LHCP-DEVELOPMENT-OPPORTUNITY-POWER-AUDIT",
+  "evidence_tier": "LHCP_DEVELOPMENT_REFERENCE_OPPORTUNITY_PROXY",
+  "claim_boundary": "Exact-canonical supply under a deterministic reference-span proxy; not timestamp gold, model correction, confirmation evidence, or deployment safety.",
+  "inputs": {
+    "preregistration_path": "docs/readiness/2026-08-28-material-lhcp-development-opportunity-power-preregistration.md",
+    "preregistration_sha256": "bcd21b3e7a4309e2c35869d8b3998b6e93f891650193804a3fc15980fdbf6d8f",
+    "cohort_sha256": "b614e4d9ba63e94a988166d62e9d5e7a2bddc1a31ce7528753f47ebbd4e13733",
+    "admission_manifest_sha256": "22d77a1dbd98b3b4344b3a54d55d09f0c62a741ab0d0408b12079747575697a2",
+    "acquirer_sha256": "bf74c6d0b81a11642108b0b682f0e1855047e28b24ccfa1d45aaeef67b36db88",
+    "range_reader_path": "scripts/download_material_lhcp_development_audio.py",
+    "range_reader_sha256": "72a34f62b5176f4df8dd745352ac8748710dbb6002f8a40b7d92ff4632807aec",
+    "reader_path": "scripts/read_material_lhcp_development_opportunity_power.py",
+    "reader_sha256": "12176fa0bd8f3d6254f760ae92a4973e71ce332f5ddf16a67120fb9f848efc96",
+    "semantic_trace_sha256": "445656d758033c001994f88a241e323214a5e5562013ec7739deb36dfbddb998",
+    "semantic_receipt_sha256": "69e26d7ca57de93b0fc954aa840ceef5feaaa7916592d84ac00b779d2f1e0293",
+    "selected_candidates_sha256": "2ad8e8e7615c0f2e8e0ba15bd5be15d7016b7e25c73628a1d565aa3fb203c042",
+    "pass0_index_sha256": "037c8eaf5284c4dffa88dad1a58438e0697ca963117870d355a46881e21228f8"
+  },
+  "source": {
+    "dataset": "mllp/LHCP-ASR",
+    "revision": "1583283ffe91ee22f7e547fc1248c3646f68fe43",
+    "splits": [
+      "dev_2020",
+      "dev_2022"
+    ],
+    "projected_columns": [
+      "audio.path",
+      "transcription"
+    ],
+    "forbidden_columns": [
+      "audio.bytes"
+    ]
+  },
+  "construction": {
+    "normalization": "lowercase_ascii_alphanumeric_tokens",
+    "phrase_rule": "exact_contiguous_normalized_tokens",
+    "alignment": "difflib.SequenceMatcher_autojunk_true_whole_meeting",
+    "reference_window_padding_tokens": 12,
+    "candidate_width_per_meeting": 8,
+    "primary_rows": 396
+  },
+  "power": {
+    "test": "paired_two_sided_normal_approximation",
+    "alpha": 0.05,
+    "target_power": 0.8,
+    "primary_absolute_effect": 0.1,
+    "primary_discordant_fraction": 0.2,
+    "primary_required_pairs": 157
+  },
+  "gates": {
+    "minimum_primary_opportunities": 157,
+    "minimum_opportunity_meetings": 15,
+    "minimum_local_reference_support_rate": 0.7,
+    "exploratory_minimum_opportunities": 50,
+    "exploratory_minimum_meetings": 10
+  },
+  "execution": {
+    "development_reference_reads": 25,
+    "confirmation_reference_reads": 0,
+    "test_split_reads": 0,
+    "audio_body_reads": 0,
+    "embedding_calls": 0,
+    "omni_calls": 0,
+    "output_overwrite": false,
+    "reference_root": "D:/speechrl-data/derived/lhcp-asr-development-reference-opportunity/2026-08-28-reference-v1",
+    "census_root": "D:/speechrl-data/derived/lhcp-asr-development-reference-opportunity/2026-08-28-census-v1"
+  }
+}

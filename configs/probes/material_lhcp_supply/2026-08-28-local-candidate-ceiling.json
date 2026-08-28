@@ -1,0 +1,50 @@
+{
+  "schema": "material-lhcp-local-candidate-ceiling-runtime-v1",
+  "experiment_id": "E-MATERIAL-LHCP-LOCAL-CANDIDATE-CEILING",
+  "evidence_status": "POST_REFERENCE_DEVELOPMENT_DESCRIPTIVE",
+  "claim_boundary": "Oracle ceiling on an already reference-open development surface; not a runtime selector or generalization result.",
+  "inputs": {
+    "preregistration_path": "docs/readiness/2026-08-28-material-lhcp-local-candidate-ceiling-preregistration.md",
+    "preregistration_sha256": "86efc157475b693df57cf49aaa0084c1f285206c5b28bae844bbbf5b1b47112c",
+    "preceding_config_path": "configs/probes/material_lhcp_supply/2026-08-28-development-opportunity-power.json",
+    "preceding_config_sha256": "3e8daa6c977daa2bace8bb401ac474dbe9ae43911eb1222b04e8a5e5a7fc3dba",
+    "preceding_read_path": "docs/checks/2026-08-28-material-lhcp-development-opportunity-power/read.json",
+    "preceding_read_sha256": "fae5726a9e388d0b93ee549701fb6a7149bb844b3d89377ee29620b28ce74746",
+    "reference_receipt_sha256": "49392776171f98e49add259f19d0fae68aa7e83e9ab73e31871da8e5292ade97",
+    "references_sha256": "045321c35c2a3f6cf4e8e8e408c135287fde03758c842fdc2d0fc343028c73b4",
+    "semantic_trace_sha256": "445656d758033c001994f88a241e323214a5e5562013ec7739deb36dfbddb998",
+    "semantic_receipt_sha256": "69e26d7ca57de93b0fc954aa840ceef5feaaa7916592d84ac00b779d2f1e0293",
+    "alignment_helper_path": "scripts/read_material_lhcp_development_opportunity_power.py",
+    "alignment_helper_sha256": "12176fa0bd8f3d6254f760ae92a4973e71ce332f5ddf16a67120fb9f848efc96",
+    "reader_sha256": "56d30f5548e762eadb4bcf830d4293e7664e35b08b6afc6b1c4f049606b0be42"
+  },
+  "construction": {
+    "normalization": "lowercase_ascii_alphanumeric_tokens",
+    "phrase_rule": "exact_contiguous_normalized_tokens",
+    "alignment": "difflib.SequenceMatcher_autojunk_true_whole_meeting",
+    "reference_window_padding_tokens": 12,
+    "candidate_width_per_slice": 8,
+    "slices": 396,
+    "candidate_pairs": 3168
+  },
+  "gates": {
+    "minimum_primary_opportunity_slices": 157,
+    "minimum_primary_opportunity_meetings": 15,
+    "exploratory_minimum_opportunity_slices": 50,
+    "exploratory_minimum_opportunity_meetings": 10
+  },
+  "reconciliation": {
+    "expected_top1_opportunities": 12
+  },
+  "execution": {
+    "local_development_reference_reuses": 25,
+    "new_source_reference_acquisitions": 0,
+    "confirmation_reference_reads": 0,
+    "test_split_reads": 0,
+    "audio_body_reads": 0,
+    "embedding_calls": 0,
+    "omni_calls": 0,
+    "output_overwrite": false,
+    "output_root": "D:/speechrl-data/derived/lhcp-asr-development-reference-opportunity/2026-08-28-local-candidate-ceiling-v1"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "calls_completed": 396,
+  "calls_expected": 396,
+  "confirmation_access": "NONE",
+  "empty_outputs": 0,
+  "experiment_id": "E-MATERIAL-LHCP-DEVELOPMENT-PASS0",
+  "index_sha256": "037c8eaf5284c4dffa88dad1a58438e0697ca963117870d355a46881e21228f8",
+  "material_access": "NONE",
+  "meetings_completed": 25,
+  "nonempty_outputs": 396,
+  "receipt_sha256": "1c995d83f7455fe27ca5366241d9629e4b660d6dec00f82d52d19c11b45cd103",
+  "reference_access": "NONE",
+  "request_bytes": 1602237296,
+  "response_bytes": 819892,
+  "runtime_sha256": "bf64f560c41f59ce7746930efaee1ce8430478674d60eb06b189b2e1e235194c",
+  "schema": "material-lhcp-development-pass0-structural-read-v1",
+  "usage_totals": {
+    "completion_tokens": 113459,
+    "prompt_tokens": 527747,
+    "total_tokens": 641206
+  },
+  "verdict": "PASS0_TRACE_COMPLETE"
+}

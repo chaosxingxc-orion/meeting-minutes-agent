@@ -1,0 +1,48 @@
+{
+  "schema": "material-lhcp-development-query-supply-artifact-summary-v1",
+  "experiment_id": "E-MATERIAL-LHCP-DEVELOPMENT-QUERY-SUPPLY",
+  "verdict": "LHCP_DEVELOPMENT_QUERY_SUPPLY_READY",
+  "counts": {
+    "meetings": 25,
+    "available_candidates": 4886,
+    "selected_candidates": 200,
+    "queries": 396,
+    "queries_with_prior_context": 371,
+    "potentially_truncated_queries": 1
+  },
+  "candidate_distribution": {
+    "minimum_per_meeting": 16,
+    "median_per_meeting": 134,
+    "selected_per_meeting": 8
+  },
+  "query_distribution": {
+    "characters_minimum": 320,
+    "characters_median": 1620,
+    "characters_p95": 2098,
+    "characters_maximum": 2546,
+    "prior_keywords_maximum": 8,
+    "single_speaker_label_queries": 263,
+    "multiple_speaker_label_queries": 133,
+    "no_speaker_label_queries": 0
+  },
+  "controls": {
+    "policy": "ascending_meeting_id_next_cyclic",
+    "fixed_points": 0,
+    "equal_candidate_width": true
+  },
+  "firewall": {
+    "reference_access": "NONE",
+    "confirmation_access": "NONE",
+    "embedding_contact": "NONE",
+    "omni_contact": "NONE",
+    "forbidden_output_fields": []
+  },
+  "artifacts": {
+    "config_sha256": "f62c8d09ff460085ab8470aa1f01c0a9a7b8ccf3816faf7ab36273fd0fd42c3c",
+    "external_receipt_sha256": "9f74493e40835cd3059882e3211bab3274c9f2ef88798f769730c05ef88cd369",
+    "selected_candidates_sha256": "2ad8e8e7615c0f2e8e0ba15bd5be15d7016b7e25c73628a1d565aa3fb203c042",
+    "derangement_sha256": "773a3f67be90c3b07984a34bbfa65568cd6077eec992362b19fe12e2d4313fea",
+    "queries_sha256": "15e836dbd81a92f2814b8faef36e81d1456f7b692547d4b2d12ea1483a572846",
+    "structural_read_sha256": "f649872433e146ee5ec2b980ce4a50d0d5027976f03bed7e56360f7063856113"
+  }
+}

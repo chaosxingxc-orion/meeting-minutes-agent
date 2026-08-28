@@ -1,0 +1,179 @@
+{
+  "checks": [
+    {
+      "detail": {
+        "actual_sha256": "f4f63ba285db91df520ae2ecb2e886ade240e4097699004c7450fd8edc1e2154",
+        "exists": true
+      },
+      "name": "preregistration_sha256",
+      "passed": true
+    },
+    {
+      "detail": {
+        "actual_sha256": "de0fb7edc3835fcd23517ac5baf2d1988ce47dc14681d2eff3ab28a779fb005b",
+        "exists": true
+      },
+      "name": "supply_receipt_sha256",
+      "passed": true
+    },
+    {
+      "detail": {
+        "actual_sha256": "641fc4c70571a2a1c62ffa36c5e4111921f1781596ff78eb13dce8d107a1509f",
+        "exists": true
+      },
+      "name": "candidates_sha256",
+      "passed": true
+    },
+    {
+      "detail": {
+        "actual_sha256": "2ca9410056bee5738034d3fc97692bb15f3c3462271288468650717eaac2c54c",
+        "exists": true
+      },
+      "name": "queries_sha256",
+      "passed": true
+    },
+    {
+      "detail": {
+        "actual_sha256": "06507c7b42688469c4e7298b0a1e16deff06caf291cf0a5b278c308249c3e439",
+        "exists": true
+      },
+      "name": "model_sha256",
+      "passed": true
+    },
+    {
+      "detail": {
+        "actual_sha256": "6c39726593b2bee8e08738f67ecd5b5c1c85f3ea7174376a33fc275fbccfdaaf",
+        "exists": true
+      },
+      "name": "server_binary_sha256",
+      "passed": true
+    },
+    {
+      "detail": {
+        "actual_sha256": "0dc930f82bf512883b6e81640c5d0773accfd9e879b861760c844717934bdeb0",
+        "exists": true
+      },
+      "name": "helper_runner_sha256",
+      "passed": true
+    },
+    {
+      "detail": {
+        "actual_sha256": "8e82c6b7bebec1feebdb4c123a78ccb5a33e953614022abc7a31b257a190f9fb",
+        "exists": true
+      },
+      "name": "runner_sha256",
+      "passed": true
+    },
+    {
+      "detail": {
+        "actual_sha256": "d5406cfb1c59c0b604e881c46843c5d89d22f54e5b15a31d20e9169faf6f86e8",
+        "exists": true
+      },
+      "name": "reader_sha256",
+      "passed": true
+    },
+    {
+      "detail": {
+        "actual_sha256": "1bf02e40fcf6159d24aad2ea4e3d2c577257be9bafb41dc43503c890b61f15f4",
+        "exists": true
+      },
+      "name": "readiness_auditor_sha256",
+      "passed": true
+    },
+    {
+      "detail": {
+        "actual_sha256": "30eb73d93810e871cc6994f22b139ea370fb3891cce85f7f336107c9789475bd",
+        "exists": true
+      },
+      "name": "oracle_receipt_sha256",
+      "passed": true
+    },
+    {
+      "detail": {
+        "actual_sha256": "eab426c549f180c66c51a792a8820e70dfa723d0def08eee46b46b956039e547",
+        "exists": true
+      },
+      "name": "oracle_rows_sha256",
+      "passed": true
+    },
+    {
+      "detail": "LHCP_FULL_POOL_SEMANTIC_SUPPLY_FROZEN",
+      "name": "supply_verdict",
+      "passed": true
+    },
+    {
+      "detail": {
+        "artifacts": {
+          "candidates.json": {
+            "bytes": 6303325,
+            "sha256": "641fc4c70571a2a1c62ffa36c5e4111921f1781596ff78eb13dce8d107a1509f"
+          },
+          "queries.jsonl": {
+            "bytes": 740333,
+            "sha256": "2ca9410056bee5738034d3fc97692bb15f3c3462271288468650717eaac2c54c"
+          }
+        },
+        "confirmation_access": 0,
+        "embedding_calls": 0,
+        "experiment_id": "E-MATERIAL-LHCP-FULL-POOL-SEMANTIC-EXTRACTOR",
+        "keys": 4886,
+        "meetings": 25,
+        "omni_calls": 0,
+        "queries": 396,
+        "reference_reads": 0,
+        "schema": "material-lhcp-full-pool-semantic-supply-receipt-v1",
+        "verdict": "LHCP_FULL_POOL_SEMANTIC_SUPPLY_FROZEN"
+      },
+      "name": "supply_firewall",
+      "passed": true
+    },
+    {
+      "detail": 4886,
+      "name": "key_count",
+      "passed": true
+    },
+    {
+      "detail": 396,
+      "name": "query_count",
+      "passed": true
+    },
+    {
+      "detail": 331,
+      "name": "embedding_call_budget",
+      "passed": true
+    },
+    {
+      "detail": 639150592,
+      "name": "model_size",
+      "passed": true
+    },
+    {
+      "detail": "/home/yansuqing/llama.cpp-official/build/bin/llama-server",
+      "name": "server_executable",
+      "passed": true
+    },
+    {
+      "detail": "/mnt/d/speechrl-data/runs/lhcp-asr-full-pool-semantic-extractor/2026-08-28-flight-v1",
+      "name": "output_root_absent",
+      "passed": true
+    },
+    {
+      "detail": 2759692726272,
+      "name": "external_free_space",
+      "passed": true
+    },
+    {
+      "detail": "/usr/lib/wsl/lib/nvidia-smi",
+      "name": "cuda_visible",
+      "passed": true
+    }
+  ],
+  "checks_passed": 22,
+  "checks_total": 22,
+  "confirmation_access": 0,
+  "errors": [],
+  "experiment_id": "E-MATERIAL-LHCP-FULL-POOL-SEMANTIC-EXTRACTOR",
+  "model_contact": 0,
+  "schema": "material-lhcp-full-pool-semantic-readiness-v1",
+  "verdict": "LHCP_FULL_POOL_SEMANTIC_READY_AWAITING_AUTHORIZATION"
+}
