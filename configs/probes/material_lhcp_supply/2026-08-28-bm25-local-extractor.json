@@ -1,0 +1,66 @@
+{
+  "schema": "material-lhcp-bm25-local-extractor-runtime-v1",
+  "experiment_id": "E-MATERIAL-LHCP-BM25-LOCAL-EXTRACTOR",
+  "evidence_status": "POST_REFERENCE_DEVELOPMENT_DISCOVERY",
+  "claim_boundary": "Reference-blind ranking with post-reference development evaluation; not independent validation, dispatch safety, or transcription gain.",
+  "inputs": {
+    "preregistration_path": "docs/readiness/2026-08-28-material-lhcp-bm25-local-extractor-preregistration.md",
+    "preregistration_sha256": "a2e9bffd42d9d742084cdfdb3da4e0009042e99aa9b1cf6cf841894962920c37",
+    "semantic_trace_sha256": "445656d758033c001994f88a241e323214a5e5562013ec7739deb36dfbddb998",
+    "semantic_receipt_sha256": "69e26d7ca57de93b0fc954aa840ceef5feaaa7916592d84ac00b779d2f1e0293",
+    "supply_receipt_sha256": "3289eb4b9e6b75956ee4362e37c6001d28b1e7fa543918d9298205c2186b0138",
+    "candidate_pool_sha256": "53ee687cd6f14a6411acc1fd17784045676080351426a29ead7f8f3cba479f92",
+    "oracle_receipt_sha256": "30eb73d93810e871cc6994f22b139ea370fb3891cce85f7f336107c9789475bd",
+    "oracle_rows_sha256": "eab426c549f180c66c51a792a8820e70dfa723d0def08eee46b46b956039e547",
+    "token_helper_path": "scripts/read_material_lhcp_development_opportunity_power.py",
+    "token_helper_sha256": "12176fa0bd8f3d6254f760ae92a4973e71ce332f5ddf16a67120fb9f848efc96",
+    "identity_helper_path": "scripts/read_material_lhcp_full_pool_ceiling.py",
+    "identity_helper_sha256": "d3227fed712208b80a58ddf49ba34da9cc6de61f9f9937b21533459a87bf9465",
+    "reader_sha256": "0dd222fa5197f325d2ee1d27594fcb372980ca3be6f387fd523206e1069c59b0"
+  },
+  "construction": {
+    "development_meetings": 25,
+    "development_candidates": 4886,
+    "slices": 396,
+    "candidate_document": "three canonical copies followed by frozen lowest-page lexical source span",
+    "query_variants": [
+      "current_only",
+      "current_plus_prior"
+    ],
+    "prior_scope": "at most eight frozen immediately preceding same-meeting keywords"
+  },
+  "bm25": {
+    "k1": 1.2,
+    "b": 0.75,
+    "canonical_weight": 3,
+    "idf": "log(1 + (N-df+0.5)/(df+0.5))",
+    "tie_break": "candidate_id_ascending"
+  },
+  "evaluation": {
+    "widths": [
+      1,
+      2,
+      4,
+      8,
+      16
+    ],
+    "primary_width": 8
+  },
+  "gates": {
+    "minimum_primary_opportunity_slices": 157,
+    "minimum_primary_opportunity_meetings": 15,
+    "exploratory_minimum_opportunity_slices": 50,
+    "exploratory_minimum_opportunity_meetings": 10
+  },
+  "reconciliation": {
+    "oracle_opportunity_slices": 206
+  },
+  "execution": {
+    "new_reference_reads": 0,
+    "confirmation_reference_reads": 0,
+    "embedding_calls": 0,
+    "omni_calls": 0,
+    "output_overwrite": false,
+    "output_root": "D:/speechrl-data/derived/lhcp-asr-development-reference-opportunity/2026-08-28-bm25-local-extractor-v1"
+  }
+}

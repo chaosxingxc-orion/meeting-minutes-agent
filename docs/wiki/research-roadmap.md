@@ -35,6 +35,14 @@ prompt、会议内/说话人内文本状态、工具脚本和 controller policy�
 | E-MATERIAL-NEW-SURFACE-RUNTIME-GATE | 正确call材料能否相对错配call形成语义dispatch信号 | 开发集已判读 | 归属precision 75%、中位优势0.07609；开发门通过但冻结阈值0.00无拒绝作用 |
 | E-MATERIAL-NEW-SURFACE-CONFIRMATION | 开发材料归属信号能否在40个sealed item确认 | 未放行 | Pass0 80/80完成；一场PDF抽取0候选<8，按无替换规则停止于0 embedding，尚无独立确认 |
 | E-MATERIAL-LHCP-SLICER-OVERLAP-FIX | 冻结LHCP开发RTTM能否生成零重复transport供给 | 已判读 | `SLICER_OVERLAP_FIX_PASSED`：25场396片、0重叠、最大120秒；只放行另立Pass0注册 |
+| E-MATERIAL-LHCP-DEVELOPMENT-PASS0 | 修复后开发切片能否形成reference-blind exact-wire基线 | 已判读 | `PASS0_TRACE_COMPLETE`：396/396、0空输出、0重试；1片潜在截断 |
+| E-MATERIAL-LHCP-DEVELOPMENT-QUERY-SUPPLY | 同期材料与Pass0能否形成严格因果的逐片检索供给 | 已判读 | `QUERY_SUPPLY_READY`：25场×8个key、396条query、371条有严格前一片关键词；错配0固定点 |
+| E-MATERIAL-LHCP-DEVELOPMENT-SEMANTIC-GATE | 正确会议材料能否稳定胜过固定错配会议 | 开发集已判读 | `SEMANTIC_SIGNAL_PRESENT`：359/396、90.66%、中位优势0.11701；两场低于70% |
+| E-MATERIAL-LHCP-DEVELOPMENT-OPPORTUNITY-POWER-AUDIT | 冻结材料top1是否有足量纠错机会与功效 | 已判读 | `OPPORTUNITY_INSUFFICIENT`：12机会/8场/17.17%局部支持；不启动三臂Omni，改做可拒绝的局部实体提议设计 |
+| E-MATERIAL-LHCP-LOCAL-CANDIDATE-CEILING | 完整8候选能否提供足量局部纠错oracle上限 | 已判读 | `POOL_INSUFFICIENT`：39机会片/14场，top1只捕获30.77%；停止8-key router调参，转向原始候选池上限 |
+| E-MATERIAL-LHCP-FULL-POOL-CEILING | 原始材料候选源能否提供足量局部纠错oracle上限 | 已判读 | `FULL_POOL_POWER_READY`：206机会片/25场；材料源充足，下一步测试reference-blind BM25/top-k抽取 |
+| E-MATERIAL-LHCP-BM25-LOCAL-EXTRACTOR | reference-blind词法抽取能否保留全池机会供给 | 已判读 | top-8仅44/47机会片，prior增益3片；BM25失败，转向全池semantic readiness |
+| E-MATERIAL-LHCP-FULL-POOL-SEMANTIC-EXTRACTOR | 全池语义抽取能否保留足量局部机会 | 已判读 | `EXPLORATORY_ONLY`：top-8 53/206、23场，较BM25 +6；不放行Omni/confirmation |
 | E5 | Training-free GRPO/GEPA/多模态知识注入 | 未放行 | 只有E-LOOP-STABILITY通过后才搜索整体效用增益 |
 | E6 | 多会议确认与最差 speaker 检验 | 未放行 | E5 尚未放行；启动前需预注册样本量、MDE、CI 和多重检验 |
 

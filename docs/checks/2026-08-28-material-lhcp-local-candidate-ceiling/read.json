@@ -1,0 +1,64 @@
+{
+  "candidate_pairs": {
+    "retain": 144,
+    "rows": 3168,
+    "unique_opportunity_candidates": 24,
+    "unsupported": 2980,
+    "wrong_to_correct_opportunities": 44
+  },
+  "claim_boundary": "Oracle ceiling on an already reference-open development surface; not a runtime selector or generalization result.",
+  "evidence_status": "POST_REFERENCE_DEVELOPMENT_DESCRIPTIVE",
+  "experiment_id": "E-MATERIAL-LHCP-LOCAL-CANDIDATE-CEILING",
+  "gates": {
+    "exploratory_opportunity_meetings": true,
+    "exploratory_opportunity_slices": false,
+    "primary_opportunity_meetings": false,
+    "primary_opportunity_slices": false
+  },
+  "model_contact": {
+    "embedding_calls": 0,
+    "omni_calls": 0
+  },
+  "reconciliation": {
+    "expected_top1_opportunities": 12,
+    "observed_top1_opportunities": 12,
+    "passed": true
+  },
+  "reference_access": {
+    "confirmation_meetings": 0,
+    "local_development_reference_reuses": 25,
+    "new_source_reference_acquisitions": 0
+  },
+  "schema": "material-lhcp-local-candidate-ceiling-read-v1",
+  "slice_ceiling": {
+    "all_opportunity_rank_distribution": {
+      "1": 12,
+      "2": 9,
+      "3": 7,
+      "4": 4,
+      "5": 3,
+      "6": 6,
+      "7": 1,
+      "8": 2
+    },
+    "best_opportunity_rank_distribution": {
+      "1": 12,
+      "2": 8,
+      "3": 6,
+      "4": 4,
+      "5": 2,
+      "6": 5,
+      "7": 1,
+      "8": 1
+    },
+    "local_support_coverage": 0.3409090909090909,
+    "locally_supported_slices": 135,
+    "opportunity_coverage": 0.09848484848484848,
+    "opportunity_meetings": 14,
+    "opportunity_slices": 39,
+    "semantic_top1_opportunity_capture": 0.3076923076923077,
+    "semantic_top1_opportunity_slices": 12,
+    "slices": 396
+  },
+  "verdict": "LHCP_LOCAL_CANDIDATE_POOL_INSUFFICIENT"
+}

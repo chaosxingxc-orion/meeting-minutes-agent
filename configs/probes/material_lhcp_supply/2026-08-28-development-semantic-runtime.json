@@ -1,0 +1,76 @@
+{
+  "schema": "material-lhcp-development-semantic-runtime-v1",
+  "experiment_id": "E-MATERIAL-LHCP-DEVELOPMENT-SEMANTIC-GATE",
+  "evidence_tier": "INDEPENDENT_LHCP_DEVELOPMENT_SEMANTIC_ATTRIBUTION",
+  "trace_run_id": "material-lhcp-development-semantic-v1",
+  "claim_boundary": "Development meeting-material attribution only; no reference, confirmation, speaker-specific, WER, or Omni correction claim.",
+  "inputs": {
+    "preregistration_sha256": "8ac8263465999ad55835c223b1cea82c76c8d01898fc20b9cf6cb5fbd25ef438",
+    "supply_receipt_sha256": "9f74493e40835cd3059882e3211bab3274c9f2ef88798f769730c05ef88cd369",
+    "selected_candidates_sha256": "2ad8e8e7615c0f2e8e0ba15bd5be15d7016b7e25c73628a1d565aa3fb203c042",
+    "derangement_sha256": "773a3f67be90c3b07984a34bbfa65568cd6077eec992362b19fe12e2d4313fea",
+    "queries_sha256": "15e836dbd81a92f2814b8faef36e81d1456f7b692547d4b2d12ea1483a572846",
+    "pass0_index_sha256": "037c8eaf5284c4dffa88dad1a58438e0697ca963117870d355a46881e21228f8",
+    "pass0_receipt_sha256": "1c995d83f7455fe27ca5366241d9629e4b660d6dec00f82d52d19c11b45cd103",
+    "model_sha256": "06507c7b42688469c4e7298b0a1e16deff06caf291cf0a5b278c308249c3e439",
+    "server_binary_sha256": "6c39726593b2bee8e08738f67ecd5b5c1c85f3ea7174376a33fc275fbccfdaaf",
+    "runner_sha256": "bfa96c467722b16127dc647849208d9d6e5d6b362448adc50e202a151d44fbad",
+    "helper_runner_path": "scripts/run_material_new_surface_embedding.py",
+    "helper_runner_sha256": "0dc930f82bf512883b6e81640c5d0773accfd9e879b861760c844717934bdeb0",
+    "reader_path": "scripts/read_material_lhcp_development_semantic_gate.py",
+    "reader_sha256": "ba532a60a9558a4c2d69dbe0e61b7e3849fa4af29899946961546329c06ea7d6",
+    "trace_validator_path": "scripts/validate_material_lhcp_development_semantic_trace.py",
+    "trace_validator_sha256": "0dca67c488267eaa38ef720b781b1bfd2d2f3a74b17a9cf7d1b398bd8721939e",
+    "generic_trace_validator_path": "scripts/validate_material_new_surface_trace.py",
+    "generic_trace_validator_sha256": "856f2367640868d359e2b3ca3c2ed2c0e3cfa4a89256355e739c9f8335d424c8",
+    "readiness_auditor_sha256": "73258fe8bd7e5d93a59087bcc7369459a15ccf2b416bd013b105558d3e037ee3"
+  },
+  "construction": {
+    "query_instruction": "Instruct: Identify the meeting-specific official material candidate most relevant to this runtime speech context.\nQuery: ",
+    "history_scope": "same meeting, immediately preceding Pass0 slice keywords only in query",
+    "speaker_context": "frozen Sortformer labels present on the current slice",
+    "key_width": 8,
+    "deranged_control": "ascending_meeting_id_next_cyclic",
+    "wrong_meeting_score_available_to_selector": false,
+    "potentially_truncated_position": 301
+  },
+  "embedding": {
+    "model_id": "Qwen3-Embedding-0.6B-Q8_0",
+    "model_revision": "370f27d7550e0def9b39c1f16d3fbaa13aa67728",
+    "mode": "--embedding --pooling last",
+    "dtype": "float32",
+    "normalization": "l2",
+    "batch_size": 16,
+    "keys": 200,
+    "queries": 396,
+    "embeddings": 596,
+    "maximum_calls": 38,
+    "dimension_expected": 1024
+  },
+  "trace_threshold": 0.0,
+  "gate": {
+    "threshold_grid": [
+      0.0,
+      0.01,
+      0.02,
+      0.03,
+      0.04,
+      0.05
+    ],
+    "minimum_attribution_precision": 0.7,
+    "minimum_coverage": 0.2,
+    "minimum_represented_meetings": 19,
+    "minimum_median_correct_minus_deranged": 0.01,
+    "selection": "lowest passing threshold"
+  },
+  "execution": {
+    "development_only": true,
+    "reference_reads": 0,
+    "confirmation_access": 0,
+    "omni_correction_calls": 0,
+    "output_overwrite": false,
+    "http_retries": 0,
+    "port": 18764
+  },
+  "content_hash": "22f6dc4da733cb50c918d631c319aca3d9a5b1680d1ba40f5d9f9b235fffdb74"
+}

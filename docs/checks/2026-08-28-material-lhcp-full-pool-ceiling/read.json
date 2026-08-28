@@ -1,0 +1,47 @@
+{
+  "claim_boundary": "Oracle source-coverage ceiling on reference-open development data; not a runtime selector, precision, or correction result.",
+  "evidence_status": "POST_REFERENCE_DEVELOPMENT_DESCRIPTIVE",
+  "experiment_id": "E-MATERIAL-LHCP-FULL-POOL-CEILING",
+  "gates": {
+    "exploratory_opportunity_meetings": true,
+    "exploratory_opportunity_slices": true,
+    "primary_opportunity_meetings": true,
+    "primary_opportunity_slices": true
+  },
+  "model_contact": {
+    "embedding_calls": 0,
+    "omni_calls": 0
+  },
+  "reference_access": {
+    "confirmation_meetings": 0,
+    "local_development_reference_reuses": 25,
+    "new_source_reference_acquisitions": 0
+  },
+  "schema": "material-lhcp-full-pool-ceiling-read-v1",
+  "slice_ceiling": {
+    "local_support_coverage": 0.9570707070707071,
+    "locally_supported_slices": 379,
+    "opportunity_coverage": 0.5202020202020202,
+    "opportunity_meetings": 25,
+    "opportunity_slices": 206,
+    "slices": 396
+  },
+  "source_pool": {
+    "candidate_pairs": 81634,
+    "development_candidates": 4886,
+    "locally_supported_candidate_pairs": 2051,
+    "opportunity_categories": {
+      "acronym_or_alphanumeric": 320,
+      "title_case": 96
+    },
+    "opportunity_token_widths": {
+      "1": 316,
+      "2": 68,
+      "3": 23,
+      "4": 9
+    },
+    "unique_opportunity_candidates": 300,
+    "wrong_to_correct_candidate_pairs": 416
+  },
+  "verdict": "LHCP_FULL_MATERIAL_POOL_POWER_READY"
+}

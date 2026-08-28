@@ -1,0 +1,12 @@
+{
+  "confirmation_access": "NONE",
+  "embedding_calls": 38,
+  "errors": [],
+  "reference_access": "NONE",
+  "rows": 396,
+  "schema": "material-lhcp-development-semantic-trace-validation-v1",
+  "trace_sha256": "445656d758033c001994f88a241e323214a5e5562013ec7739deb36dfbddb998",
+  "unique_identities": 396,
+  "vector_sidecars": 1188,
+  "verdict": "TRACE_COMPLETE"
+}

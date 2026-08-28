@@ -1,6 +1,6 @@
 # 阶段性结论
 
-最后更新：2026-08-27。
+最后更新：2026-08-28。
 
 ## 已得到支持的结论
 
@@ -20,6 +20,12 @@
   0重试，精确wire trace与receipt全部闭合；该阶段保持reference未读。
 - 新surface开发集材料语义归属信号存在：正确call胜错配call 30/40（75%），中位余弦优势0.07609，
   20/20场有dispatch；40行完整trace及120个向量sidecar全部通过验证。
+- LHCP-ASR开发集已建立完整会议尺度的reference-blind Pass0基线：25场396/396调用、0空输出、
+  0重试，exact-wire trace与receipt全部闭合；reference、材料与confirmation均未读。
+- LHCP-ASR开发集的零模型逐片材料供给已闭合：25场4,886个可用候选中冻结200个等宽key，
+  396条query全部可重建，371条只携带紧邻前一片关键词；错配为0固定点双射，泄漏审计0错误。
+- LHCP-ASR开发集存在强会议材料语义归属信号：正确会议胜固定错配359/396（90.66%），25/25场
+  有dispatch，中位余弦优势0.11701；596个embedding与396行完整trace均已前瞻保存并验证。
 
 ## 尚未得到支持的结论
 
@@ -39,6 +45,23 @@
 - 丰富官方材料仍未形成安全SUPPLY：30个参考机会中只正确触发3个，418次触发有415次错误，precision 0.72%、recall 10%；短缩写的字符相似匹配尤其危险。
 - SAEA式Q-K-V结构不能只迁移外形：词法材料检索覆盖97.07%，但正确会议归属precision仅61.87%，只有Galp达到逐会门；跨场景retain/dispatch信号尚未建立。
 - 语义归属通过仍不等于转写优化：当前未测候选wrong-to-correct、correct-to-wrong或WER，错配材料只可作为实验控制，不能作为部署选择器。
+- LHCP逐片供给通过仍不证明说话人定向材料能力：133/396条query含多个前端说话人标签，材料key是
+  会议级而非speaker-exclusive；必须先过正确会议对错配会议的语义归属门，再讨论correction。
+- LHCP语义归属总体通过但逐会异质：`856696c53`只有42.11%，另有一场64.29%；多说话人标签query
+  的88.72%仍是会议归属而非speaker归属。无历史首片反而为24/25，尚不能把总体信号归因于滑动关键词。
+- 最低过门阈值0.00意味着开发规则会全量dispatch；它证明正确材料身份通常可分，不证明安全拒绝、
+  wrong-to-correct、correct-to-wrong或WER收益。correction与reference读出仍需单独设计和授权。
+- LHCP开发reference机会审计进一步否定了“归属通过即可纠错”：396个冻结top1中只有12个
+  wrong-to-correct机会、覆盖8场，局部reference支持率仅17.17%；主门157机会/15场/70%全部失败。
+  因此不启动1,188-call三臂Omni，45场confirmation继续sealed。
+- 把每片搜索从semantic top1扩到完整8候选后，oracle机会也只有39/396片、覆盖14场，仍低于50片
+  探索门；top1只捕获其中12片，说明router有损但宽度8随机候选抽取才是主要上限。
+- 原始4,886材料候选池的oracle ceiling达到206/396机会片并覆盖25/25场，证明材料源本身有足量
+  局部纠错供给；8-key失败来自候选抽取。416个候选机会中316个为单词，运行时选择安全尚未建立。
+- reference-blind BM25无法保留该上限：top-8的current/current+prior只命中44/47个机会片，前一片
+  关键词仅增加3片；词法抽取失败，下一候选只能是另行授权的全池semantic embedding。
+- 全池Qwen3 semantic抽取也未达到主门：top-8命中53/206个机会片、覆盖23场，较BM25只增加6片；
+  虽跨过50片探索门，但距157片主门很远。当前不启动Omni或confirmation，瓶颈仍是局部候选表征。
 - Earnings-22已经没有严格reference-unread实验面：v2读取80场discovery，v3读取其余45场reserve；因此无法在该库建立新的独立3场开发+3场确认队列。
 - 同事已接受另立construction-isolated复用实验以降低数据获取成本；其零模型门虽然通过，但不能修复历史参考暴露，也不能覆盖严格准入失败。
 - construction-isolated确认集存在逐会异质性：三场precision为94.39%、77.27%和58.64%；当前只证明语义归属信号，尚未证明候选纠错、误伤控制或WER收益。
@@ -61,6 +84,8 @@
   `FRONTEND_TRACE_COMPLETE`只能解释为结构完整，Pass0继续不放行。
 - 独立切片器修复已将重叠连通turn作为原子块：复用同一25个冻结RTTM生成396片，0重叠、最大
   120秒、普通turn内部切点0且内部gap为0，判为`SLICER_OVERLAP_FIX_PASSED`。
+- LHCP Pass0的`PASS0_TRACE_COMPLETE`只证明可重放基线，不证明WER、说话人区分或材料增益；其中
+  position 301以`length`结束，必须在后续质量读中标记为潜在截断，不能选择性重听。
 
 ## 当前研究状态
 
@@ -80,9 +105,9 @@ EarningsCallVoice Core-100与FinCall-Surprise连接的新surface，不再对旧�
 后续找到的LHCP-ASR已闭合72场元数据join；材料供给审计70/72通过，但两场确认PDF无法由冻结
 解析器读取。现已冻结25开发+45确认的70场eligible cohort；该操作只是缩窄证据总体，不是修复
 72/72失败。25场开发的固定Sortformer虽全部成功，原turn-aware slicer因跨组重叠turn使零重叠门
-失败；独立工程实验现已修复该边界问题并闭合396片供给。下一步可精确注册396-call开发Pass0，
-但确认集继续sealed，Pass0与Omni仍不能直接接触。
-第二层training-free
+失败；独立工程实验现已修复该边界问题并闭合396片供给。随后唯一396-call开发Pass0、材料query
+供给和semantic gate均已完成，但首次开发reference审计只找到12个局部wrong-to-correct机会，
+不满足三臂flight的功效与分布门。当前停止强制top1纠错设计，45场确认继续sealed。第二层training-free
 GRPO、GEPA、EM或多模态知识注入继续不放行。
 
 最近的前端问题已经进一步回答：虽然参考已知主讲占主导时固定 Sortformer 可以保住主要主讲，

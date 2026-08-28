@@ -1,0 +1,53 @@
+{
+  "schema": "material-lhcp-full-pool-semantic-extractor-artifact-summary-v1",
+  "experiment_id": "E-MATERIAL-LHCP-FULL-POOL-SEMANTIC-EXTRACTOR",
+  "verdict": "FULL_POOL_SEMANTIC_EXTRACTION_EXPLORATORY_ONLY",
+  "checks_passed": 22,
+  "checks_total": 22,
+  "budget": {
+    "keys": 4886,
+    "queries": 396,
+    "embeddings": 5282,
+    "batch_size": 16,
+    "maximum_calls": 331,
+    "embedding_calls_completed": 331,
+    "omni_calls": 0
+  },
+  "firewall": {
+    "reference_fields_in_inputs": 0,
+    "new_reference_reads": 0,
+    "confirmation_access": 0
+  },
+  "primary_metrics": {
+    "width": 8,
+    "opportunity_hit_slices": 53,
+    "oracle_opportunity_slices": 206,
+    "oracle_opportunity_recall": 0.25728155339805825,
+    "opportunity_meetings": 23
+  },
+  "width_hits": {
+    "1": 9,
+    "2": 17,
+    "4": 35,
+    "8": 53,
+    "16": 86
+  },
+  "artifacts": {
+    "supply_config_sha256": "e7b823b363a367c87e52dcae1fddb41a8e77d2aa7e7e51d13dbe5ed27f8251c0",
+    "runtime_sha256": "80d6a1a96c79ce1f2158d077506b6e5be8e646b96b6adc194abfeb20858eb4de",
+    "supply_receipt_sha256": "de0fb7edc3835fcd23517ac5baf2d1988ce47dc14681d2eff3ab28a779fb005b",
+    "candidates_sha256": "641fc4c70571a2a1c62ffa36c5e4111921f1781596ff78eb13dce8d107a1509f",
+    "queries_sha256": "2ca9410056bee5738034d3fc97692bb15f3c3462271288468650717eaac2c54c",
+    "builder_sha256": "8c560ac851884fdee0d6ef84203ad9126d3d8821b0d07207c2a7cd8ded906b4c",
+    "runner_sha256": "8e82c6b7bebec1feebdb4c123a78ccb5a33e953614022abc7a31b257a190f9fb",
+    "reader_sha256": "d5406cfb1c59c0b604e881c46843c5d89d22f54e5b15a31d20e9169faf6f86e8",
+    "readiness_auditor_sha256": "1bf02e40fcf6159d24aad2ea4e3d2c577257be9bafb41dc43503c890b61f15f4",
+    "readiness_sha256": "ef6e4521ee32ab68578502f29623a96b047523a97cf6b8d3452cdad2f6f93ef7",
+    "flight_receipt_sha256": "9593de10a356046e1dfb4c930b8ba8052f7c771439c55f6117f0cbe114f07485",
+    "rankings_sha256": "9c53ed7d65cb67c38a86ecf9f28d874ec718d41a9b49803138695b99046b27b7",
+    "embedding_index_sha256": "230349e4a27d007186149e4b105879a7677f8486f228fed13e05d7245b2d6224",
+    "key_vectors_sha256": "030cbeba01b56f8518de26123481c94436ca267f14ce453ee7feeccc732f55fc",
+    "query_vectors_sha256": "cb9dd633e4c008d35c074580628c483c201f26f6ef11b8598f89d7849a2adaf7",
+    "read_sha256": "b19b9711bad0317485f6f827e447c634947f0eb266b862368858a2211a9ab280"
+  }
+}

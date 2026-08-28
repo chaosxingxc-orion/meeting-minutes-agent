@@ -1,0 +1,134 @@
+{
+  "checks": [
+    {
+      "name": "slice_manifest_sha256",
+      "observed": "1224f0951c6b255523197974368c54e73fd27c4a9b328bf5c909eaf226d695ce",
+      "passed": true
+    },
+    {
+      "name": "meeting_count",
+      "observed": 25,
+      "passed": true
+    },
+    {
+      "name": "slice_count",
+      "observed": 396,
+      "passed": true
+    },
+    {
+      "name": "manifest_audio_seconds",
+      "observed": 37547.25581250002,
+      "passed": true
+    },
+    {
+      "name": "actual_wav_audio_seconds",
+      "observed": 37546.6638125,
+      "passed": true
+    },
+    {
+      "name": "maximum_slice_seconds",
+      "observed": 120.0,
+      "passed": true
+    },
+    {
+      "name": "budget_calls",
+      "observed": 396,
+      "passed": true
+    },
+    {
+      "name": "budget_output_tokens",
+      "observed": 202752,
+      "passed": true
+    },
+    {
+      "name": "transport_policy",
+      "observed": {
+        "max_audio_seconds_per_request": 120,
+        "max_retries": 0,
+        "timeout_seconds": 300
+      },
+      "passed": true
+    },
+    {
+      "name": "prompt_has_no_supplied_text",
+      "observed": {
+        "speaker_metadata_supplied_to_model": false,
+        "supplied_text": [],
+        "template_id": "transcribe-only-v1",
+        "template_sha256": "ffa1655c7c62b30e58f0fe5bf8005c5a0cfcec0ef0d76e9615087e7bacaf60a9"
+      },
+      "passed": true
+    },
+    {
+      "name": "all_slice_audio_bound",
+      "observed": {
+        "bytes": 1201510666,
+        "drifted": 0,
+        "missing": 0
+      },
+      "passed": true
+    },
+    {
+      "name": "runner_sha256",
+      "observed": "4a9780734430cf0c66efab4d5660de689bb1338e9487cc028590beeabcf277f7",
+      "passed": true
+    },
+    {
+      "name": "reader_sha256",
+      "observed": "8fcb2febd6bf28f0de4a88c0d3f30985f4b47643208d580a357c854147bf634f",
+      "passed": true
+    },
+    {
+      "name": "readiness_auditor_sha256",
+      "observed": "82ade2ab8308a73ad07320ef6c1b325d39ae1c9aa7ca835462f47fabb601712f",
+      "passed": true
+    },
+    {
+      "name": "preregistration_sha256",
+      "observed": "09500974c34d7299df70c9e312aab8a47d48e3a8a1eebd22ecb69522b730e832",
+      "passed": true
+    },
+    {
+      "name": "model_sha256",
+      "observed": "d9e2876556e7873e02c0359f832432ee2d67ab7dd0cee3efe0f77fd7a1f4dd85",
+      "passed": true
+    },
+    {
+      "name": "mmproj_sha256",
+      "observed": "f0dfe825fb692d426362b1ac79678fc08daa4758f7151526cad110515f122883",
+      "passed": true
+    },
+    {
+      "name": "server_binary_sha256",
+      "observed": "6c39726593b2bee8e08738f67ecd5b5c1c85f3ea7174376a33fc275fbccfdaaf",
+      "passed": true
+    },
+    {
+      "name": "output_root_absent",
+      "observed": "/mnt/d/speechrl-data/runs/lhcp-asr-development-pass0/2026-08-28-flight-v1",
+      "passed": true
+    },
+    {
+      "name": "external_trace_space",
+      "observed": {
+        "free_bytes": 2763922886656,
+        "required_bytes": 2339136911
+      },
+      "passed": true
+    },
+    {
+      "name": "no_e_drive_dependency",
+      "observed": "all frozen paths use D or WSL root",
+      "passed": true
+    }
+  ],
+  "confirmation_reads": 0,
+  "experiment_id": "E-MATERIAL-LHCP-DEVELOPMENT-PASS0",
+  "model_contacts": 0,
+  "output_root": "/mnt/d/speechrl-data/runs/lhcp-asr-development-pass0/2026-08-28-flight-v1",
+  "reference_reads": 0,
+  "runtime_sha256": "bf64f560c41f59ce7746930efaee1ce8430478674d60eb06b189b2e1e235194c",
+  "schema": "material-lhcp-development-pass0-readiness-v1",
+  "slice_manifest_sha256": "1224f0951c6b255523197974368c54e73fd27c4a9b328bf5c909eaf226d695ce",
+  "verdict": "LHCP_DEVELOPMENT_PASS0_READY_AWAITING_AUTHORIZATION"
+}

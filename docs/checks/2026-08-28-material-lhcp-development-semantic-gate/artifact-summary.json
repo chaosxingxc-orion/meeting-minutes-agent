@@ -1,0 +1,128 @@
+{
+  "schema": "material-lhcp-development-semantic-gate-artifact-summary-v1",
+  "experiment_id": "E-MATERIAL-LHCP-DEVELOPMENT-SEMANTIC-GATE",
+  "verdict": "LHCP_DEVELOPMENT_SEMANTIC_SIGNAL_PRESENT",
+  "selected_threshold": 0.0,
+  "selected_metrics": {
+    "eligible_turns": 396,
+    "dispatched_turns": 396,
+    "dispatch_coverage": 1.0,
+    "attribution_wins": 359,
+    "attribution_precision": 0.9065656565656566,
+    "represented_meetings": 25,
+    "median_correct_minus_deranged_cosine": 0.1170065701007843,
+    "mean_correct_minus_deranged_cosine": 0.12376376391962321
+  },
+  "threshold_grid": [
+    {
+      "threshold": 0.0,
+      "dispatches": 396,
+      "precision": 0.9065656565656566,
+      "coverage": 1.0,
+      "represented_meetings": 25,
+      "passed": true
+    },
+    {
+      "threshold": 0.01,
+      "dispatches": 309,
+      "precision": 0.9093851132686084,
+      "coverage": 0.7803030303030303,
+      "represented_meetings": 25,
+      "passed": true
+    },
+    {
+      "threshold": 0.02,
+      "dispatches": 241,
+      "precision": 0.91701244813278,
+      "coverage": 0.6085858585858586,
+      "represented_meetings": 25,
+      "passed": true
+    },
+    {
+      "threshold": 0.03,
+      "dispatches": 199,
+      "precision": 0.9296482412060302,
+      "coverage": 0.5025252525252525,
+      "represented_meetings": 25,
+      "passed": true
+    },
+    {
+      "threshold": 0.04,
+      "dispatches": 158,
+      "precision": 0.9430379746835443,
+      "coverage": 0.398989898989899,
+      "represented_meetings": 24,
+      "passed": true
+    },
+    {
+      "threshold": 0.05,
+      "dispatches": 132,
+      "precision": 0.9318181818181818,
+      "coverage": 0.3333333333333333,
+      "represented_meetings": 24,
+      "passed": true
+    }
+  ],
+  "descriptive_strata_at_threshold_zero": {
+    "single_speaker_label": {
+      "rows": 263,
+      "wins": 241,
+      "precision": 0.9163498098859315,
+      "median_delta": 0.12928825616836548
+    },
+    "multiple_speaker_labels": {
+      "rows": 133,
+      "wins": 118,
+      "precision": 0.8872180451127819,
+      "median_delta": 0.09666246175765991
+    },
+    "first_slice_no_history": {
+      "rows": 25,
+      "wins": 24,
+      "precision": 0.96,
+      "median_delta": 0.15503495931625366
+    },
+    "has_prior_keywords": {
+      "rows": 371,
+      "wins": 335,
+      "precision": 0.9029649595687331,
+      "median_delta": 0.11646080017089844
+    }
+  },
+  "weakest_meetings_at_threshold_zero": [
+    {
+      "meeting_id": "856696c53",
+      "wins": 8,
+      "turns": 19,
+      "precision": 0.42105263157894735,
+      "median_delta": -0.011675000190734863
+    },
+    {
+      "meeting_id": "1109611c551",
+      "wins": 9,
+      "turns": 14,
+      "precision": 0.6428571428571429,
+      "median_delta": 0.02790692448616028
+    }
+  ],
+  "execution": {
+    "embedding_calls": 38,
+    "embeddings": 596,
+    "dimension": 1024,
+    "trace_rows": 396,
+    "vector_sidecars": 1188,
+    "reference_access": "NONE",
+    "confirmation_access": "NONE",
+    "omni_correction_calls": 0
+  },
+  "artifacts": {
+    "runtime_sha256": "d9440b803ba1268b89de6679ba3e1bd17964bdad10254bef75b5ebd8d907096c",
+    "readiness_sha256": "8001705f7de4f3b7e67b7aab837b11c741963be141b9d8aa3a5e835cfdbe4909",
+    "external_receipt_sha256": "69e26d7ca57de93b0fc954aa840ceef5feaaa7916592d84ac00b779d2f1e0293",
+    "trace_sha256": "445656d758033c001994f88a241e323214a5e5562013ec7739deb36dfbddb998",
+    "trace_validation_sha256": "a90d5b224793253cd68a8343ae52d0b7292c3d32f984ef89ded181e0aa9713f4",
+    "development_read_sha256": "5a2bd3fcdc9f1de2c9a91da8ec5ad1f68db231d8a51086c23fedf94eb7a95bca",
+    "embedding_index_sha256": "55690b52ce7d616752d9db9d1e970f484fd4b82261633f71116dcd143b723081",
+    "server_log_sha256": "d94fe798bc7747c72bf46f2dec8497989237e05f3f5ca81cc8aadb5355a65334"
+  }
+}

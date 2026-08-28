@@ -1,0 +1,31 @@
+{
+  "schema": "material-lhcp-full-pool-semantic-supply-config-v1",
+  "experiment_id": "E-MATERIAL-LHCP-FULL-POOL-SEMANTIC-EXTRACTOR",
+  "inputs": {
+    "preregistration_path": "docs/readiness/2026-08-28-material-lhcp-full-pool-semantic-extractor-preregistration.md",
+    "preregistration_sha256": "f4f63ba285db91df520ae2ecb2e886ade240e4097699004c7450fd8edc1e2154",
+    "semantic_trace_sha256": "445656d758033c001994f88a241e323214a5e5562013ec7739deb36dfbddb998",
+    "semantic_receipt_sha256": "69e26d7ca57de93b0fc954aa840ceef5feaaa7916592d84ac00b779d2f1e0293",
+    "supply_receipt_sha256": "3289eb4b9e6b75956ee4362e37c6001d28b1e7fa543918d9298205c2186b0138",
+    "candidate_pool_sha256": "53ee687cd6f14a6411acc1fd17784045676080351426a29ead7f8f3cba479f92",
+    "builder_sha256": "8c560ac851884fdee0d6ef84203ad9126d3d8821b0d07207c2a7cd8ded906b4c"
+  },
+  "counts": {
+    "meetings": 25,
+    "keys": 4886,
+    "queries": 396
+  },
+  "construction": {
+    "candidate_key": "Official material candidate: <canonical>. Context: <lowest-page source span>",
+    "query_instruction": "Instruct: Identify the official meeting-material candidate most locally relevant to the current speech context.\nQuery: ",
+    "query_scope": "current Pass0 plus current speaker labels and immediately preceding same-meeting keywords",
+    "maximum_prior_keywords": 8
+  },
+  "firewall": {
+    "reference_reads": 0,
+    "confirmation_access": 0,
+    "embedding_calls": 0,
+    "omni_calls": 0
+  },
+  "output_root": "D:/speechrl-data/derived/lhcp-asr-full-pool-semantic-supply/2026-08-28-v1"
+}

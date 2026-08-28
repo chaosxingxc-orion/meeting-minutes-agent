@@ -1,0 +1,39 @@
+{
+  "schema": "material-lhcp-local-candidate-ceiling-artifact-summary-v1",
+  "experiment_id": "E-MATERIAL-LHCP-LOCAL-CANDIDATE-CEILING",
+  "verdict": "LHCP_LOCAL_CANDIDATE_POOL_INSUFFICIENT",
+  "evidence_status": "POST_REFERENCE_DEVELOPMENT_DESCRIPTIVE",
+  "candidate_pairs": {
+    "rows": 3168,
+    "retain": 144,
+    "wrong_to_correct_opportunities": 44,
+    "unsupported": 2980,
+    "unique_opportunity_candidates": 24
+  },
+  "slice_ceiling": {
+    "slices": 396,
+    "opportunity_slices": 39,
+    "opportunity_coverage": 0.09848484848484848,
+    "opportunity_meetings": 14,
+    "locally_supported_slices": 135,
+    "local_support_coverage": 0.3409090909090909,
+    "semantic_top1_opportunity_slices": 12,
+    "semantic_top1_opportunity_capture": 0.3076923076923077
+  },
+  "access": {
+    "local_development_reference_reuses": 25,
+    "new_source_reference_acquisitions": 0,
+    "confirmation_access": 0,
+    "embedding_calls": 0,
+    "omni_calls": 0
+  },
+  "artifacts": {
+    "config_sha256": "3e6372e8c2d7776f0c531d1f230af3ebf55e75822cedb295593349100df95436",
+    "external_receipt_sha256": "e5a48eed08118041958f0556bfe3319cd9f2778ced88550edab79086152e2257",
+    "rows_sha256": "d1e845dedafdda8ba539bf084c5ba69084f6653c93ff7d75082a8a2005e94bc1",
+    "meeting_summaries_sha256": "1310d012e281f37835318287b6e62a39a24530f377627fed2da7a55c02654bc8",
+    "read_sha256": "14d9c3626c003b4971cff974cb8ccda3980697fa932e44a725ab17d991c1746c",
+    "reader_sha256": "56d30f5548e762eadb4bcf830d4293e7664e35b08b6afc6b1c4f049606b0be42",
+    "test_sha256": "73bfc47874cacbf9cd29d2334d016e76a011f39b0b96f90774cc150bd8e61c2c"
+  }
+}

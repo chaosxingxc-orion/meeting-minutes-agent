@@ -50,6 +50,14 @@
 | [E-MATERIAL-LHCP-DEVELOPMENT-AUDIO](E-MATERIAL-LHCP-DEVELOPMENT-AUDIO.md) | 能否只获取25场开发音频并得到真实时长预算？ | 已判读 | `LHCP_DEVELOPMENT_AUDIO_ACQUIRED`：25/25、10.43小时，`TRACE_COMPLETE`；reference/confirmation/模型为0 | 另立固定Sortformer与切片供给审计 |
 | [E-MATERIAL-LHCP-DEVELOPMENT-FRONTEND](E-MATERIAL-LHCP-DEVELOPMENT-FRONTEND.md) | 25场开发音频能否生成完整的固定说话人切片供给？ | 已判读 | 25/25 Sortformer成功、397片哈希闭合，但15个相邻边界在10场中重叠，判`FRONTEND_SLICE_ZERO_OVERLAP_GATE_FAILED` | 不放行Pass0；另行注册切片器重叠边界修复，不重跑Sortformer |
 | [E-MATERIAL-LHCP-SLICER-OVERLAP-FIX](E-MATERIAL-LHCP-SLICER-OVERLAP-FIX.md) | 冻结RTTM能否在不重跑Sortformer时生成零重叠切片？ | 已判读 | `SLICER_OVERLAP_FIX_PASSED`：25/25场、396片、0重叠、最大120秒；普通turn内部切点0 | 另行注册396-call开发Pass0；模型仍未授权 |
+| [E-MATERIAL-LHCP-DEVELOPMENT-PASS0](E-MATERIAL-LHCP-DEVELOPMENT-PASS0.md) | 固定Omni能否为396个修复后开发切片生成reference-blind exact-wire基线？ | 已判读 | `PASS0_TRACE_COMPLETE`：25场396/396、0空输出、0重试；1片`length`结束，reference未读 | 另行注册零模型材料候选与逐slice查询供给 |
+| [E-MATERIAL-LHCP-DEVELOPMENT-QUERY-SUPPLY](E-MATERIAL-LHCP-DEVELOPMENT-QUERY-SUPPLY.md) | 25场同期材料与Pass0能否形成等宽、因果、可错配的396条逐片查询供给？ | 已判读 | `QUERY_SUPPLY_READY`：4,886个可用候选中冻结200个key与396条query；错配0固定点、泄漏0 | 另行注册596-embedding语义归属门；仍不放行correction |
+| [E-MATERIAL-LHCP-DEVELOPMENT-SEMANTIC-GATE](E-MATERIAL-LHCP-DEVELOPMENT-SEMANTIC-GATE.md) | 正确会议材料能否在396条query上稳定胜过等宽错配材料？ | 开发集已判读 | `SEMANTIC_SIGNAL_PRESENT`：359/396、precision 90.66%、25/25场、中位优势0.11701；逐会异质 | 决策先做reference opportunity/power audit，或注册全量correction能力实验 |
+| [E-MATERIAL-LHCP-DEVELOPMENT-OPPORTUNITY-POWER-AUDIT](E-MATERIAL-LHCP-DEVELOPMENT-OPPORTUNITY-POWER-AUDIT.md) | 冻结top1是否有足量、分布式wrong-to-correct机会支撑三臂Omni？ | 已判读 | `OPPORTUNITY_INSUFFICIENT`：12个机会仅覆盖8场，局部支持17.17%；157机会/15场/70%三门全失败 | 不启动1,188-call flight；重新设计可拒绝的局部实体提议，confirmation继续sealed |
+| [E-MATERIAL-LHCP-LOCAL-CANDIDATE-CEILING](E-MATERIAL-LHCP-LOCAL-CANDIDATE-CEILING.md) | 每片完整8候选中是否存在足量局部纠错机会？ | 已判读 | `POOL_INSUFFICIENT`：oracle仅39/396片、14场；top1捕获12/39，router有损但候选抽取是主瓶颈 | 停止8-key router调参；审计原始4,886候选池局部上限 |
+| [E-MATERIAL-LHCP-FULL-POOL-CEILING](E-MATERIAL-LHCP-FULL-POOL-CEILING.md) | 原始4,886材料候选是否包含足量局部纠错oracle供给？ | 已判读 | `FULL_POOL_POWER_READY`：206/396机会片、25/25场；416个候选级机会 | 冻结reference-blind BM25/top-k抽取诊断；不直接调用模型 |
+| [E-MATERIAL-LHCP-BM25-LOCAL-EXTRACTOR](E-MATERIAL-LHCP-BM25-LOCAL-EXTRACTOR.md) | 零模型BM25能否把全池机会压缩进每片top-8？ | 已判读 | `BM25_LOCAL_EXTRACTION_INSUFFICIENT`：top-8仅44/47机会片，prior只增加3片 | 注册全池semantic embedding readiness；新模型接触需授权 |
+| [E-MATERIAL-LHCP-FULL-POOL-SEMANTIC-EXTRACTOR](E-MATERIAL-LHCP-FULL-POOL-SEMANTIC-EXTRACTOR.md) | 全池语义排序能否把206个oracle机会压缩进top-8？ | 已判读 | `EXPLORATORY_ONLY`：top-8命中53/206、23场，较BM25仅+6片；低于157片主门 | 不启动Omni或confirmation；研究音素/别名或页面级局部候选表征 |
 | [Z-SERIES](Z-SERIES.md) | 说话人标签、归属与切分的多臂效应是什么？ | 已判读 | G1 floors 已归档；主要差异来自转向表/归属输出，纯切片差异不显著 | 作为描述性基线，不重跑、不据此选择分支 |
 
 ## 当前优先级

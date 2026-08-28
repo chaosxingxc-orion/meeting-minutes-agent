@@ -1,0 +1,67 @@
+{
+  "schema": "material-lhcp-full-pool-semantic-runtime-v1",
+  "experiment_id": "E-MATERIAL-LHCP-FULL-POOL-SEMANTIC-EXTRACTOR",
+  "evidence_status": "POST_REFERENCE_DEVELOPMENT_DISCOVERY",
+  "claim_boundary": "Reference-blind full-pool semantic ranking with post-reference development evaluation; not independent validation, dispatch safety, or transcription gain.",
+  "inputs": {
+    "preregistration_path": "docs/readiness/2026-08-28-material-lhcp-full-pool-semantic-extractor-preregistration.md",
+    "preregistration_sha256": "f4f63ba285db91df520ae2ecb2e886ade240e4097699004c7450fd8edc1e2154",
+    "supply_receipt_sha256": "de0fb7edc3835fcd23517ac5baf2d1988ce47dc14681d2eff3ab28a779fb005b",
+    "candidates_sha256": "641fc4c70571a2a1c62ffa36c5e4111921f1781596ff78eb13dce8d107a1509f",
+    "queries_sha256": "2ca9410056bee5738034d3fc97692bb15f3c3462271288468650717eaac2c54c",
+    "model_sha256": "06507c7b42688469c4e7298b0a1e16deff06caf291cf0a5b278c308249c3e439",
+    "server_binary_sha256": "6c39726593b2bee8e08738f67ecd5b5c1c85f3ea7174376a33fc275fbccfdaaf",
+    "helper_runner_path": "scripts/run_material_new_surface_embedding.py",
+    "helper_runner_sha256": "0dc930f82bf512883b6e81640c5d0773accfd9e879b861760c844717934bdeb0",
+    "runner_sha256": "8e82c6b7bebec1feebdb4c123a78ccb5a33e953614022abc7a31b257a190f9fb",
+    "reader_path": "scripts/read_material_lhcp_full_pool_semantic_extractor.py",
+    "reader_sha256": "d5406cfb1c59c0b604e881c46843c5d89d22f54e5b15a31d20e9169faf6f86e8",
+    "readiness_auditor_path": "scripts/audit_material_lhcp_full_pool_semantic_readiness.py",
+    "readiness_auditor_sha256": "1bf02e40fcf6159d24aad2ea4e3d2c577257be9bafb41dc43503c890b61f15f4",
+    "oracle_receipt_path": "/mnt/d/speechrl-data/derived/lhcp-asr-development-reference-opportunity/2026-08-28-full-pool-ceiling-v1/receipt.json",
+    "oracle_receipt_sha256": "30eb73d93810e871cc6994f22b139ea370fb3891cce85f7f336107c9789475bd",
+    "oracle_rows_path": "/mnt/d/speechrl-data/derived/lhcp-asr-development-reference-opportunity/2026-08-28-full-pool-ceiling-v1/rows.jsonl",
+    "oracle_rows_sha256": "eab426c549f180c66c51a792a8820e70dfa723d0def08eee46b46b956039e547"
+  },
+  "embedding": {
+    "model_id": "Qwen3-Embedding-0.6B-Q8_0",
+    "model_revision": "370f27d7550e0def9b39c1f16d3fbaa13aa67728",
+    "mode": "--embedding --pooling last",
+    "dtype": "float32",
+    "normalization": "l2",
+    "batch_size": 16,
+    "keys": 4886,
+    "queries": 396,
+    "embeddings": 5282,
+    "maximum_calls": 331,
+    "dimension_expected": 1024
+  },
+  "evaluation": {
+    "widths": [
+      1,
+      2,
+      4,
+      8,
+      16
+    ],
+    "primary_width": 8,
+    "tie_break": "candidate_id_ascending"
+  },
+  "gates": {
+    "minimum_primary_opportunity_slices": 157,
+    "minimum_primary_opportunity_meetings": 15,
+    "exploratory_minimum_opportunity_slices": 50,
+    "exploratory_minimum_opportunity_meetings": 10
+  },
+  "execution": {
+    "model_path": "/mnt/d/speechrl-data/models/qwen3-embedding-0.6b-gguf/Qwen3-Embedding-0.6B-Q8_0.gguf",
+    "server_binary": "/home/yansuqing/llama.cpp-official/build/bin/llama-server",
+    "port": 18765,
+    "http_retries": 0,
+    "reference_reads": 0,
+    "confirmation_access": 0,
+    "omni_calls": 0,
+    "output_overwrite": false,
+    "output_root": "/mnt/d/speechrl-data/runs/lhcp-asr-full-pool-semantic-extractor/2026-08-28-flight-v1"
+  }
+}

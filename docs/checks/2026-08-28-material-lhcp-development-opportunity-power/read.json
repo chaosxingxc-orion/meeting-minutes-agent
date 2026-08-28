@@ -1,0 +1,138 @@
+{
+  "baseline": {
+    "micro_wer": 0.1480924657188695,
+    "reference_tokens": 99107,
+    "wer_errors": 14677
+  },
+  "claim_boundary": "Exact-canonical supply under a deterministic reference-span proxy; not timestamp gold, model correction, or deployment safety.",
+  "experiment_id": "E-MATERIAL-LHCP-DEVELOPMENT-OPPORTUNITY-POWER-AUDIT",
+  "gates": {
+    "minimum_local_reference_support_rate": false,
+    "minimum_opportunity_meetings": false,
+    "minimum_primary_opportunities": false
+  },
+  "material_inventory": {
+    "keys": 200,
+    "pass0_supported_keys": 38,
+    "reference_supported_keys": 44,
+    "wrong_to_correct_candidate_opportunities": 7
+  },
+  "model_contact": {
+    "embedding_calls": 0,
+    "omni_calls": 0
+  },
+  "power": {
+    "primary_target": {
+      "absolute_effect": 0.1,
+      "discordant_fraction": 0.2,
+      "required_pairs": 157
+    },
+    "table": [
+      {
+        "absolute_effect": 0.05,
+        "discordant_fraction": 0.1,
+        "primary_opportunity_supply_sufficient": false,
+        "required_pairs": 314
+      },
+      {
+        "absolute_effect": 0.05,
+        "discordant_fraction": 0.2,
+        "primary_opportunity_supply_sufficient": false,
+        "required_pairs": 628
+      },
+      {
+        "absolute_effect": 0.05,
+        "discordant_fraction": 0.3,
+        "primary_opportunity_supply_sufficient": false,
+        "required_pairs": 942
+      },
+      {
+        "absolute_effect": 0.1,
+        "discordant_fraction": 0.1,
+        "primary_opportunity_supply_sufficient": false,
+        "required_pairs": 79
+      },
+      {
+        "absolute_effect": 0.1,
+        "discordant_fraction": 0.2,
+        "primary_opportunity_supply_sufficient": false,
+        "required_pairs": 157
+      },
+      {
+        "absolute_effect": 0.1,
+        "discordant_fraction": 0.3,
+        "primary_opportunity_supply_sufficient": false,
+        "required_pairs": 236
+      },
+      {
+        "absolute_effect": 0.15,
+        "discordant_fraction": 0.1,
+        "primary_opportunity_supply_sufficient": false,
+        "required_pairs": 35
+      },
+      {
+        "absolute_effect": 0.15,
+        "discordant_fraction": 0.2,
+        "primary_opportunity_supply_sufficient": false,
+        "required_pairs": 70
+      },
+      {
+        "absolute_effect": 0.15,
+        "discordant_fraction": 0.3,
+        "primary_opportunity_supply_sufficient": false,
+        "required_pairs": 105
+      },
+      {
+        "absolute_effect": 0.2,
+        "discordant_fraction": 0.1,
+        "primary_opportunity_supply_sufficient": false,
+        "required_pairs": 20
+      },
+      {
+        "absolute_effect": 0.2,
+        "discordant_fraction": 0.2,
+        "primary_opportunity_supply_sufficient": false,
+        "required_pairs": 40
+      },
+      {
+        "absolute_effect": 0.2,
+        "discordant_fraction": 0.3,
+        "primary_opportunity_supply_sufficient": false,
+        "required_pairs": 59
+      }
+    ],
+    "target_power": 0.8,
+    "two_sided_alpha": 0.05
+  },
+  "primary_census": {
+    "local_reference_support_rate": 0.1717171717171717,
+    "local_reference_supported": 68,
+    "opportunity_meetings": 8,
+    "retain": 56,
+    "rows": 396,
+    "unsupported_activations": 328,
+    "wrong_to_correct_opportunities": 12
+  },
+  "reference_access": {
+    "confirmation_meetings": 0,
+    "development_meetings": 25
+  },
+  "schema": "material-lhcp-development-opportunity-power-read-v1",
+  "strata": {
+    "multiple_speaker_labels": {
+      "local_reference_support_rate": 0.18045112781954886,
+      "retain": 19,
+      "rows": 133,
+      "unsupported_activations": 109,
+      "wrong_to_correct_opportunities": 5
+    },
+    "single_speaker_label": {
+      "local_reference_support_rate": 0.16730038022813687,
+      "retain": 37,
+      "rows": 263,
+      "unsupported_activations": 219,
+      "wrong_to_correct_opportunities": 7
+    }
+  },
+  "verdict": "LHCP_CORRECTION_OPPORTUNITY_INSUFFICIENT"
+}

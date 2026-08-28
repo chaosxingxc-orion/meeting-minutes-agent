@@ -1,0 +1,37 @@
+{
+  "schema": "material-lhcp-bm25-local-extractor-artifact-summary-v1",
+  "experiment_id": "E-MATERIAL-LHCP-BM25-LOCAL-EXTRACTOR",
+  "verdict": "BM25_LOCAL_EXTRACTION_INSUFFICIENT",
+  "oracle_opportunity_slices": 206,
+  "primary_width": 8,
+  "variants": {
+    "current_only": {
+      "opportunity_hit_slices": 44,
+      "oracle_opportunity_recall": 0.21359223300970873,
+      "opportunity_meetings": 23,
+      "width_16_hits": 71
+    },
+    "current_plus_prior": {
+      "opportunity_hit_slices": 47,
+      "oracle_opportunity_recall": 0.22815533980582525,
+      "opportunity_meetings": 23,
+      "width_16_hits": 73
+    }
+  },
+  "access": {
+    "ranking_reference_fields": 0,
+    "ranking_gold_fields": 0,
+    "new_reference_reads": 0,
+    "confirmation_access": 0,
+    "embedding_calls": 0,
+    "omni_calls": 0
+  },
+  "artifacts": {
+    "config_sha256": "0da9f2cc6469e75e8aeb848b55010bf19168a52204cfb769ab20f2fafafeac8e",
+    "external_receipt_sha256": "021f9387e620d44fb2ce3fd2eb7983aa1d65c297f68f097223038507594db786",
+    "rankings_sha256": "d541154a8ba8bab7c0ba41c85b1f82dba2acff4e05336a68704deb7e32537aa6",
+    "read_sha256": "f715c46b1eb1c760c85fba71dca5c54e5f3450338bea42ac6e5a65675fc8f7a9",
+    "reader_sha256": "0dd222fa5197f325d2ee1d27594fcb372980ca3be6f387fd523206e1069c59b0",
+    "test_sha256": "eae948180c151740824332d06df0425051958b021e9942725daef2f188778300"
+  }
+}
